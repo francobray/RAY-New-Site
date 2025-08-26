@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Chopin.Trial', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    color: #1C1C1C;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-ray-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-ray-blue border-2 border-ray-blue px-6 py-3 rounded-lg font-semibold hover:bg-ray-blue hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2;
+  }
+  
+  .btn-ghost {
+    @apply text-ray-blue px-6 py-3 rounded-lg font-semibold hover:bg-ray-blue hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2;
+  }
+  
+  .btn-dark {
+    @apply bg-ray-dark-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-ray-dark-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-dark-500 focus:ring-offset-2;
+  }
+}
