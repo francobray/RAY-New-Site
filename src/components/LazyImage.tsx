@@ -8,6 +8,7 @@ interface LazyImageProps {
   className?: string
   srcSet?: string
   sizes?: string
+  priority?: boolean
 }
 
 const LazyImage: React.FC<LazyImageProps> = ({
@@ -17,7 +18,8 @@ const LazyImage: React.FC<LazyImageProps> = ({
   height,
   className = '',
   srcSet,
-  sizes
+  sizes,
+  priority = false
 }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [hasError, setHasError] = useState(false)
@@ -59,7 +61,8 @@ const LazyImage: React.FC<LazyImageProps> = ({
         className={`transition-opacity duration-300 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         } ${hasError ? 'hidden' : ''}`}
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
+        decoding="async"
       />
       
       {/* Error state */}

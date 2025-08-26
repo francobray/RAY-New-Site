@@ -5,12 +5,19 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-display: swap;
   }
   
   body {
     font-family: 'Chopin.Trial', ui-sans-serif, system-ui, sans-serif;
     line-height: 1.6;
     color: #1C1C1C;
+    font-display: swap;
+  }
+  
+  /* Ensure proper font loading */
+  .font-loading {
+    font-family: ui-sans-serif, system-ui, sans-serif;
   }
 }
 
@@ -29,5 +36,10 @@
   
   .btn-dark {
     @apply bg-ray-dark-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-ray-dark-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-dark-500 focus:ring-offset-2;
+  }
+  
+  /* Test gradient class */
+  .test-gradient {
+    @apply bg-ray-gradient;
   }
 }

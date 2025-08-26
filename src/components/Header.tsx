@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import Button from './Button'
+import HubSpotFormModal from './HubSpotFormModal'
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isFormModalOpen, setIsFormModalOpen] = useState(false)
   const location = useLocation()
 
   const navigation = [
@@ -49,7 +51,7 @@ const Header: React.FC = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Button variant="primary" onClick={() => console.log('Open HubSpot form')}>
+            <Button variant="primary" onClick={() => setIsFormModalOpen(true)}>
               Scan Your Restaurant
             </Button>
           </div>
@@ -95,7 +97,7 @@ const Header: React.FC = () => {
                   className="w-full"
                   onClick={() => {
                     setIsMenuOpen(false)
-                    console.log('Open HubSpot form')
+                    setIsFormModalOpen(true)
                   }}
                 >
                   Scan Your Restaurant
@@ -105,6 +107,15 @@ const Header: React.FC = () => {
           </div>
         )}
       </nav>
+      
+      {/* HubSpot Form Modal */}
+      <HubSpotFormModal
+        isOpen={isFormModalOpen}
+        onClose={() => setIsFormModalOpen(false)}
+        portalId="YOUR_PORTAL_ID"
+        formId="YOUR_FORM_ID"
+        formName="Scan Your Restaurant"
+      />
     </header>
   )
 }

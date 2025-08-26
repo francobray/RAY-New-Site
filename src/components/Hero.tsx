@@ -1,10 +1,14 @@
 import React from 'react'
 import Button from './Button'
 import LazyImage from './LazyImage'
+import HubSpotFormModal from './HubSpotFormModal'
 
 const Hero: React.FC = () => {
+  const [isFormModalOpen, setIsFormModalOpen] = React.useState(false)
+
   return (
-    <section className="relative bg-gradient-to-br from-ray-gradient-start via-ray-gradient-mid to-ray-gradient-end">
+    <>
+      <section className="relative bg-gradient-to-br from-ray-gradient-start via-ray-gradient-mid to-ray-gradient-end">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -23,7 +27,7 @@ const Hero: React.FC = () => {
               <Button 
                 variant="primary" 
                 size="lg"
-                onClick={() => console.log('Open HubSpot form')}
+                onClick={() => setIsFormModalOpen(true)}
               >
                 Scan Your Restaurant
               </Button>
@@ -44,13 +48,13 @@ const Hero: React.FC = () => {
           {/* Hero Image */}
           <div className="relative">
             <LazyImage
-              src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+              src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop&fm=webp"
               alt="Restaurant interior with customers dining"
               width={600}
               height={450}
               className="rounded-lg shadow-2xl"
-              srcSet="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop 400w,
-                      https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop 800w"
+              srcSet="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop&fm=webp 400w,
+                      https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop&fm=webp 800w"
               sizes="(max-width: 768px) 400px, 800px"
             />
             
@@ -66,8 +70,17 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      
+      {/* HubSpot Form Modal */}
+      <HubSpotFormModal
+        isOpen={isFormModalOpen}
+        onClose={() => setIsFormModalOpen(false)}
+        portalId="YOUR_PORTAL_ID"
+        formId="YOUR_FORM_ID"
+        formName="Scan Your Restaurant"
+      />
+    </>
   )
 }
 
