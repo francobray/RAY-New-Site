@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
               </div>
               
               <div className="mt-8 text-sm text-ray-dark-500">
-                ✓ Free restaurant scan • ✓ No commitment • ✓ Results in 24 hours
+                ✓ Free restaurant scan • ✓ No minimum commitment • ✓ Guaranteed Results
               </div>
             </div>
             
