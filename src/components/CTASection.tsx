@@ -1,4 +1,5 @@
 import React from 'react'
+import { TrendingUp } from 'lucide-react'
 import Button from './Button'
 import HubSpotFormModal from './HubSpotFormModal'
 
