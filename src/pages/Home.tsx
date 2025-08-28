@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async'
 import loadable from '@loadable/component'
 import Hero from '../components/Hero'
 import FeatureCards from '../components/FeatureCards'
-import HowItWorks from '../components/HowItWorks'
 import CTASection from '../components/CTASection'
 import LoadingSpinner from '../components/LoadingSpinner'
 
@@ -28,7 +27,6 @@ const Home: React.FC = () => {
       
       <Hero />
       <FeatureCards />
-      <HowItWorks />
       <TestimonialCarousel />
       <CTASection />
     </>
