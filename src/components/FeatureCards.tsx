@@ -40,10 +40,10 @@ const FeatureCards: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-4">
-            RAY makes you the favorite local spot
+            Do you want to be the favorite local spot?
           </h2>
           <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
-            The RAY platform makes your restaurant more visible, more trusted, and more profitable through a proven process used by over 1,000 customers worldwide.
+            Ray platform makes your restaurant more visible, more trusted, and more profitable through a proven process used by over 1,000 customers worldwide.
           </p>
         </div>
         
