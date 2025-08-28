@@ -29,9 +29,7 @@ const ProductSection: React.FC = () => {
             </h3>
             
             <p className="text-ray-darkGray mb-6 text-lg leading-relaxed">
-              Turn local searches into foot traffic with AI-powered local marketing. 
-              Dominate Google Maps, build trust through reviews, and engage customers 
-              with personalized campaigns.
+              Your potential customers are searching right now. RAY ensures your restaurant is at the top of search results in your area on Google Maps, Apple Maps, and key review platforms.
             </p>
             
             <div className="mb-6 p-4 bg-ray-gradient-start rounded-lg">
@@ -59,9 +57,7 @@ const ProductSection: React.FC = () => {
             </h3>
             
             <p className="text-ray-darkGray mb-6 text-lg leading-relaxed">
-              Grow revenue from online channels with seamless booking integrations, 
-              direct ordering systems, and data-driven insights that maximize 
-              every customer touchpoint.
+            Our proven design drives more traffic, ranks in the top 90% for SEO, is AI-optimized, and fully mobile-friendly. All delivered within the first two weeks of setting up your RAY account.
             </p>
             
             <div className="mb-6 p-4 bg-ray-gradient-start rounded-lg">
