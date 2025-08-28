@@ -24,6 +24,42 @@ const Home: React.FC = () => {
         <meta name="twitter:title" content="RAY - Increase Restaurant Revenue | Drive More Walk-ins & Reviews" />
         <meta name="twitter:description" content="Increase revenue by driving more walk-ins, orders, and reviews with RAY's restaurant marketing platform. Local SEO, reputation management, and customer engagement tools." />
         <link rel="canonical" href="https://rayrestaurant.com/" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "RAY",
+            "description": "Restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews",
+            "url": "https://rayrestaurant.com",
+            "logo": "https://rayrestaurant.com/logo.png",
+            "sameAs": [
+              "https://twitter.com/rayrestaurant",
+              "https://linkedin.com/company/rayrestaurant"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "RAY Restaurant Marketing Solutions",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Walk-Ins Marketing Solution",
+                    "description": "AI-powered local marketing that turns searches into walk-ins"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Online Orders & Bookings Platform",
+                    "description": "Integrated platform for growing online orders, reservations, and deliveries"
+                  }
+                }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
       
       <Hero />
