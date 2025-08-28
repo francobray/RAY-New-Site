@@ -43,8 +43,7 @@ const FeatureCards: React.FC = () => {
             RAY makes you the favorite local spot
           </h2>
           <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
-            RAY is the #1 sales engine for restaurants, providing comprehensive tools 
-            to drive traffic, convert customers, and boost revenue.
+            The RAY platform makes your restaurant more visible, more trusted, and more profitable through a proven process used by over 1,000 customers worldwide.
           </p>
         </div>
         
