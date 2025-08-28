@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
             <div className="text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-tight">
                 Increase revenue by driving more{' '}
-                <span className="text-ray-blue">walk-ins, orders, and bookings</span>
+                <span className="text-ray-blue">walk-ins, orders and bookings</span>
               </h1>
               
               <p className="mt-6 text-xl text-ray-dark-700 max-w-2xl">
