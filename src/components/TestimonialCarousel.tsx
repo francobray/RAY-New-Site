@@ -46,13 +46,21 @@ const TestimonialCarousel: React.FC = () => {
   }, [])
 
   return (
-    <section className="py-20 bg-ray-dark-900">
+    <section className="py-24 bg-ray-dark-900 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(13,121,229,0.1),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(111,191,115,0.1),transparent_50%)]"></div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-white text-sm font-medium mb-6">
+            <Star className="w-4 h-4 mr-2" />
+            Customer Success Stories
+          </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             What restaurant owners are saying
           </h2>
-          <p className="text-xl text-ray-gray max-w-3xl mx-auto">
+          <p className="text-xl text-ray-gray max-w-3xl mx-auto leading-relaxed">
             Join hundreds of successful restaurants that have transformed 
             their business with RAY's marketing platform.
           </p>
@@ -60,14 +68,18 @@ const TestimonialCarousel: React.FC = () => {
         
         <div className="relative max-w-4xl mx-auto">
           {/* Testimonial */}
-          <div className="bg-white rounded-lg p-8 shadow-xl">
+          <div className="relative">
+            {/* Gradient border effect */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-ray-blue to-ray-green rounded-2xl opacity-30"></div>
+            
+            <div className="relative bg-white rounded-2xl p-8 shadow-2xl border border-gray-100">
             <div className="flex items-center mb-6">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
               ))}
             </div>
             
-            <blockquote className="text-lg text-ray-dark-700 mb-6">
+            <blockquote className="text-lg text-ray-dark-700 mb-6 leading-relaxed">
               "{testimonials[currentIndex].text}"
             </blockquote>
             
@@ -75,7 +87,7 @@ const TestimonialCarousel: React.FC = () => {
               <img
                 src={testimonials[currentIndex].image}
                 alt={testimonials[currentIndex].name}
-                className="w-12 h-12 rounded-full mr-4"
+                className="w-12 h-12 rounded-full mr-4 border-2 border-gray-100"
               />
               <div>
                 <div className="font-semibold text-ray-dark-900">
@@ -86,12 +98,13 @@ const TestimonialCarousel: React.FC = () => {
                 </div>
               </div>
             </div>
+            </div>
           </div>
           
           {/* Navigation */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors duration-200"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-white rounded-full p-3 shadow-xl hover:shadow-2xl hover:bg-gray-50 transition-all duration-300"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-6 h-6 text-ray-dark-900" />
@@ -99,7 +112,7 @@ const TestimonialCarousel: React.FC = () => {
           
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors duration-200"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-white rounded-full p-3 shadow-xl hover:shadow-2xl hover:bg-gray-50 transition-all duration-300"
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-6 h-6 text-ray-dark-900" />
@@ -111,7 +124,7 @@ const TestimonialCarousel: React.FC = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex ? 'bg-white' : 'bg-ray-gray'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
