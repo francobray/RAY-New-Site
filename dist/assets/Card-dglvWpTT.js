@@ -1,0 +1,1 @@
+import{j as a}from"./index-CepHBC88.js";const t=({children:s,className:r="",padding:d="md"})=>{const o={sm:"p-4",md:"p-6",lg:"p-8"};return a.jsx("div",{className:`bg-white rounded-lg shadow-lg border border-gray-100 ${o[d]} ${r}`,children:s})};export{t as C};
