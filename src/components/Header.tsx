@@ -6,11 +6,19 @@ import HubSpotFormModal from './HubSpotFormModal'
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
   const [isFormModalOpen, setIsFormModalOpen] = useState(false)
   const location = useLocation()
 
   const navigation = [
-    { name: 'Features', href: '/features' },
+    { 
+      name: 'Product', 
+      href: '/product',
+      submenu: [
+        { name: 'Increase Walk-Ins', href: '/product/walk-ins' },
+        { name: 'Increase Online Orders, Bookings & Deliveries', href: '/product/online-orders' }
+      ]
+    },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'About', href: '/about' },
@@ -34,17 +42,49 @@ const Header: React.FC = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                    isActive(item.href)
-                      ? 'text-ray-blue bg-blue-50'
-                      : 'text-ray-darkGray hover:text-ray-blue hover:bg-gray-50'
-                  }`}
-                >
-                  {item.name}
-                </Link>
+                <div key={item.name} className="relative">
+                  {item.submenu ? (
+                    <div
+                      className="relative"
+                      onMouseEnter={() => setActiveSubmenu(item.name)}
+                      onMouseLeave={() => setActiveSubmenu(null)}
+                    >
+                      <button
+                        className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                          location.pathname.startsWith('/product')
+                            ? 'text-ray-blue bg-blue-50'
+                            : 'text-ray-darkGray hover:text-ray-blue hover:bg-gray-50'
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                      {activeSubmenu === item.name && (
+                        <div className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50">
+                          {item.submenu.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              to={subItem.href}
+                              className="block px-4 py-2 text-sm text-ray-darkGray hover:text-ray-blue hover:bg-gray-50 transition-colors duration-200"
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                        isActive(item.href)
+                          ? 'text-ray-blue bg-blue-50'
+                          : 'text-ray-darkGray hover:text-ray-blue hover:bg-gray-50'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
               ))}
             </div>
           </div>
@@ -78,18 +118,37 @@ const Header: React.FC = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    isActive(item.href)
-                      ? 'text-ray-blue bg-blue-50'
-                      : 'text-ray-darkGray hover:text-ray-blue hover:bg-gray-50'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
+                <div key={item.name}>
+                  {item.submenu ? (
+                    <div>
+                      <div className="px-3 py-2 text-base font-medium text-ray-dark-900">
+                        {item.name}
+                      </div>
+                      {item.submenu.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.href}
+                          className="block pl-6 pr-3 py-2 text-sm text-ray-darkGray hover:text-ray-blue hover:bg-gray-50 transition-colors duration-200"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                        isActive(item.href)
+                          ? 'text-ray-blue bg-blue-50'
+                          : 'text-ray-darkGray hover:text-ray-blue hover:bg-gray-50'
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
               ))}
               <div className="pt-4">
                 <Button 

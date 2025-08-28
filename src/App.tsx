@@ -18,6 +18,14 @@ const Features = loadable(() => import('./pages/Features'), {
   fallback: <LoadingSpinner />
 })
 
+const WalkIns = loadable(() => import('./pages/product/WalkIns'), {
+  fallback: <LoadingSpinner />
+})
+
+const OnlineOrders = loadable(() => import('./pages/product/OnlineOrders'), {
+  fallback: <LoadingSpinner />
+})
+
 const Pricing = loadable(() => import('./pages/Pricing'), {
   fallback: <LoadingSpinner />
 })
@@ -44,6 +52,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/features" element={<Features />} />
+            <Route path="/product/walk-ins" element={<WalkIns />} />
+            <Route path="/product/online-orders" element={<OnlineOrders />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

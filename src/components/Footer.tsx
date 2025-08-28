@@ -23,8 +23,13 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link to="/features" className="text-ray-gray hover:text-white transition-colors duration-200">
-                  Features
+                <Link to="/product/walk-ins" className="text-ray-gray hover:text-white transition-colors duration-200">
+                  Increase Walk-Ins
+                </Link>
+              </li>
+              <li>
+                <Link to="/product/online-orders" className="text-ray-gray hover:text-white transition-colors duration-200">
+                  Online Orders & Bookings
                 </Link>
               </li>
               <li>
