@@ -32,7 +32,7 @@ const HowItWorks: React.FC = () => {
           </h2>
           <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
             Our proven 3-step process helps restaurants increase revenue 
-            through strategic local marketing and customer engagement.
+            through strategic local marketing, sales and customer engagement.
           </p>
         </div>
         
