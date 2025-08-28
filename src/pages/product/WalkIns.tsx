@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { MapPin, Star, Users, TrendingUp, Eye, MessageSquare } from 'lucide-react'
+import { Star, TrendingUp, Eye, MessageSquare } from 'lucide-react'
 import Card from '../../components/Card'
 import Button from '../../components/Button'
 import LazyImage from '../../components/LazyImage'
