@@ -52,8 +52,8 @@ const successStories = [
   {
     restaurant: 'Dolcezza Gelato',
     location: 'Washington, DC',
-    result: '+47% walk-ins',
-    timeframe: '3 months',
+    result: '+34% walk-ins',
+    timeframe: '90 days',
     quote: 'RAY helped us dominate local search and our foot traffic has never been higher.',
     image: 'https://images.pexels.com/photos/1352278/pexels-photo-1352278.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop'
   },
@@ -81,12 +81,31 @@ const WalkIns: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Increase Walk-Ins - RAY Restaurant Marketing Platform</title>
-        <meta name="description" content="Turn searches into walk-ins with AI-powered local marketing. Dominate Google Maps, build trust through reviews, and engage customers with personalized campaigns." />
-        <meta property="og:title" content="Increase Walk-Ins - RAY Restaurant Marketing Platform" />
-        <meta property="og:description" content="Turn searches into walk-ins with AI-powered local marketing. Dominate Google Maps, build trust through reviews, and engage customers with personalized campaigns." />
+        <title>Walk-Ins - Turn Searches Into Restaurant Visits | RAY</title>
+        <meta name="description" content="Turn searches into walk-ins with AI-powered local marketing. Dominate Google Maps, build trust through reviews, and engage customers with personalized campaigns that drive foot traffic." />
+        <meta property="og:title" content="Walk-Ins - Turn Searches Into Restaurant Visits | RAY" />
+        <meta property="og:description" content="Turn searches into walk-ins with AI-powered local marketing. Dominate Google Maps, build trust through reviews, and engage customers with personalized campaigns that drive foot traffic." />
         <meta property="og:url" content="https://rayrestaurant.com/product/walk-ins" />
+        <meta name="twitter:title" content="Walk-Ins - Turn Searches Into Restaurant Visits | RAY" />
+        <meta name="twitter:description" content="Turn searches into walk-ins with AI-powered local marketing. Dominate Google Maps, build trust through reviews, and engage customers with personalized campaigns that drive foot traffic." />
         <link rel="canonical" href="https://rayrestaurant.com/product/walk-ins" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "RAY Walk-Ins Marketing Platform",
+            "description": "AI-powered local marketing platform that helps restaurants increase walk-in traffic through Google Maps optimization, review management, and customer engagement.",
+            "brand": {
+              "@type": "Brand",
+              "name": "RAY"
+            },
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "USD"
+            }
+          })}
+        </script>
       </Helmet>
       
       {/* Hero Section */}
@@ -125,7 +144,7 @@ const WalkIns: React.FC = () => {
               <div className="flex items-center gap-6 text-sm text-ray-dark-600">
                 <div className="flex items-center">
                   <TrendingUp className="w-4 h-4 text-ray-green mr-2" />
-                  <span>Average +47% walk-in increase</span>
+                  <span>Average +34% walk-in increase</span>
                 </div>
                 <div className="flex items-center">
                   <Star className="w-4 h-4 text-yellow-500 mr-2" />
@@ -145,9 +164,9 @@ const WalkIns: React.FC = () => {
               
               {/* Floating success metric */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-xl p-4 border border-gray-100">
-                <div className="text-2xl font-bold text-ray-green">+47%</div>
+                <div className="text-2xl font-bold text-ray-green">+34%</div>
                 <div className="text-sm text-ray-darkGray">More walk-ins</div>
-                <div className="text-xs text-ray-darkGray">in 3 months</div>
+                <div className="text-xs text-ray-darkGray">in 90 days</div>
               </div>
             </div>
           </div>
@@ -283,7 +302,7 @@ const WalkIns: React.FC = () => {
             <Button 
               variant="primary" 
               size="lg"
-              onClick={() => setIsFormModalOpen(true)}
+              onClick={() => window.open('https://grader.rayapp.io', '_blank')}
             >
               Scan Your Restaurant
             </Button>

@@ -50,9 +50,9 @@ const features = [
 
 const metrics = [
   {
-    value: '+35%',
-    label: 'Online Revenue Growth',
-    description: 'Average increase across all digital channels'
+    value: '+27%',
+    label: 'Online Orders Growth',
+    description: 'Average increase in 90 days'
   },
   {
     value: '+28%',
@@ -77,12 +77,31 @@ const OnlineOrders: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Increase Online Orders, Bookings & Deliveries - RAY Platform</title>
-        <meta name="description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights." />
-        <meta property="og:title" content="Increase Online Orders, Bookings & Deliveries - RAY Platform" />
-        <meta property="og:description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights." />
+        <title>Online Orders - Grow Restaurant Revenue From Digital Channels | RAY</title>
+        <meta name="description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins." />
+        <meta property="og:title" content="Online Orders - Grow Restaurant Revenue From Digital Channels | RAY" />
+        <meta property="og:description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins." />
         <meta property="og:url" content="https://rayrestaurant.com/product/online-orders" />
+        <meta name="twitter:title" content="Online Orders - Grow Restaurant Revenue From Digital Channels | RAY" />
+        <meta name="twitter:description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins." />
         <link rel="canonical" href="https://rayrestaurant.com/product/online-orders" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "RAY Online Orders Platform",
+            "description": "Comprehensive platform for restaurants to grow revenue from online orders, reservations, and deliveries with seamless integrations and data-driven insights.",
+            "brand": {
+              "@type": "Brand",
+              "name": "RAY"
+            },
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "USD"
+            }
+          })}
+        </script>
       </Helmet>
       
       {/* Hero Section */}
@@ -121,7 +140,7 @@ const OnlineOrders: React.FC = () => {
               <div className="flex items-center gap-6 text-sm text-ray-dark-600">
                 <div className="flex items-center">
                   <TrendingUp className="w-4 h-4 text-ray-green mr-2" />
-                  <span>Average +35% online revenue</span>
+                  <span>Average +27% online orders</span>
                 </div>
                 <div className="flex items-center">
                   <CreditCard className="w-4 h-4 text-ray-blue mr-2" />
@@ -141,9 +160,9 @@ const OnlineOrders: React.FC = () => {
               
               {/* Floating metrics */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-xl p-4 border border-gray-100">
-                <div className="text-2xl font-bold text-ray-green">+35%</div>
-                <div className="text-sm text-ray-darkGray">Online revenue</div>
-                <div className="text-xs text-ray-darkGray">growth</div>
+                <div className="text-2xl font-bold text-ray-green">+27%</div>
+                <div className="text-sm text-ray-darkGray">Online orders</div>
+                <div className="text-xs text-ray-darkGray">in 90 days</div>
               </div>
               
               <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-xl p-4 border border-gray-100">
@@ -298,7 +317,7 @@ const OnlineOrders: React.FC = () => {
             <Button 
               variant="primary" 
               size="lg"
-              onClick={() => setIsFormModalOpen(true)}
+              onClick={() => window.open('https://grader.rayapp.io', '_blank')}
             >
               Scan Your Restaurant
             </Button>

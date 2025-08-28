@@ -25,7 +25,7 @@ const ProductSection: React.FC = () => {
             </div>
             
             <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
-              Increase Walk-Ins
+              Walk-Ins
             </h3>
             
             <p className="text-ray-darkGray mb-6 text-lg leading-relaxed">
@@ -34,7 +34,7 @@ const ProductSection: React.FC = () => {
             
             <div className="mb-6 p-4 bg-ray-gradient-start rounded-lg">
               <div className="text-sm text-ray-dark-700 font-medium">
-                Average Results: <span className="text-ray-dark-900 font-bold">+47% walk-in traffic</span>
+                Average Results: <span className="text-ray-dark-900 font-bold">+34% walk-in traffic</span>
               </div>
             </div>
             
@@ -53,16 +53,16 @@ const ProductSection: React.FC = () => {
             </div>
             
             <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
-              Increase Online Orders, Bookings & Deliveries
+              Online Orders
             </h3>
             
             <p className="text-ray-darkGray mb-6 text-lg leading-relaxed">
-            Our proven design drives more traffic, ranks in the top 90% for SEO, is AI-optimized, and fully mobile-friendly. All delivered within the first two weeks of setting up your RAY account.
+              Our proven design drives more traffic, ranks in the top 90% for SEO, is AI-optimized, and fully mobile-friendly. All delivered within the first two weeks of setting up your RAY account.
             </p>
             
             <div className="mb-6 p-4 bg-ray-gradient-start rounded-lg">
               <div className="text-sm text-ray-dark-700 font-medium">
-                Average Results: <span className="text-ray-dark-900 font-bold">+35% online revenue</span>
+                Average Results: <span className="text-ray-dark-900 font-bold">+27% online orders</span>
               </div>
             </div>
             

@@ -15,8 +15,8 @@ const Header: React.FC = () => {
       name: 'Product', 
       href: '/product',
       submenu: [
-        { name: 'Increase Walk-Ins', href: '/product/walk-ins' },
-        { name: 'Increase Online Orders, Bookings & Deliveries', href: '/product/online-orders' }
+        { name: 'Walk-Ins', href: '/product/walk-ins' },
+        { name: 'Online Orders', href: '/product/online-orders' }
       ]
     },
     { name: 'Case Studies', href: '/case-studies' },
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
                             <Link
                               key={subItem.name}
                               to={subItem.href}
-                              className="block px-4 py-2 text-sm text-ray-darkGray hover:text-ray-blue hover:bg-gray-50 transition-colors duration-200"
+                              className="block px-4 py-3 text-sm text-ray-darkGray hover:text-ray-blue hover:bg-gray-50 transition-colors duration-200 font-medium"
                             >
                               {subItem.name}
                             </Link>
@@ -128,7 +128,7 @@ const Header: React.FC = () => {
                         <Link
                           key={subItem.name}
                           to={subItem.href}
-                          className="block pl-6 pr-3 py-2 text-sm text-ray-darkGray hover:text-ray-blue hover:bg-gray-50 transition-colors duration-200"
+                          className="block pl-6 pr-3 py-3 text-sm text-ray-darkGray hover:text-ray-blue hover:bg-gray-50 transition-colors duration-200 font-medium"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {subItem.name}
