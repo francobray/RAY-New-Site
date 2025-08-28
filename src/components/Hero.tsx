@@ -15,12 +15,11 @@ const Hero: React.FC = () => {
             <div className="text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-tight">
                 Increase revenue by driving more{' '}
-                <span className="text-ray-blue">walk-ins, orders, and reviews</span>
+                <span className="text-ray-blue">walk-ins, orders, and bookings</span>
               </h1>
               
               <p className="mt-6 text-xl text-ray-dark-700 max-w-2xl">
-                RAY's restaurant marketing platform helps you attract more customers, 
-                boost online reputation, and increase revenue through proven local marketing strategies.
+                RAY is the #1 sales platform helping restaurant owners and operators attract more walk-ins, boost their online reputation, and increase revenue through online orders and bookings.
               </p>
               
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
