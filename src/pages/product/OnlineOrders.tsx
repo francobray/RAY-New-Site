@@ -13,9 +13,7 @@ const features = [
     subtitle: 'Seamless Reservation Management',
     description: 'Integrate with popular booking platforms and convert more browsers into diners.',
     details: [
-      'OpenTable, Resy, and custom booking integrations',
-      'Real-time availability management',
-      'Automated confirmation and reminder emails',
+     'Automated confirmation and reminder emails',
       'No-show reduction strategies',
       'VIP customer identification and treatment'
     ]
@@ -27,8 +25,6 @@ const features = [
     description: 'Win back margin from delivery platforms and grow direct orders through your own channels.',
     details: [
       'Direct online ordering system setup',
-      'Delivery platform optimization',
-      'Commission-free ordering solutions',
       'Upselling and cross-selling automation',
       'Loyalty program integration'
     ]
@@ -41,8 +37,6 @@ const features = [
     details: [
       'Real-time revenue tracking',
       'Customer lifetime value analysis',
-      'Peak time and demand forecasting',
-      'Channel performance comparison',
       'ROI measurement and reporting'
     ]
   }
