@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: ray-new-site-container
-        image: "southamerica-east1-docker.pkg.dev/preprod1-service/preprod-repo/ray-new-site/FRONTEND_IMAGE"
+        image: "southamerica-east1-docker.pkg.dev/preprod1-service/preprod-repo/FRONTEND_IMAGE"
         imagePullPolicy: Always
         ports:
         - containerPort:  80
