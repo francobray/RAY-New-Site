@@ -10,7 +10,7 @@ env:
   GCP_PROJECT_ID: prod1-svc-lzjf 
   GCP_REGION: southamerica-east1
   #ARTIFACT_REGISTRY: southamerica-east1-docker.pkg.dev/prod1-svc-lzjf/ray-new-site
-  ARTIFACT_REGISTRY: southamerica-east1-docker.pkg.dev/preprod-repo/ray-new-site
+  ARTIFACT_REGISTRY: southamerica-east1-docker.pkg.dev/preprod-repo
   
   IMAGE_FRONTEND: ray-new-site:${{ github.sha }}
   KUBERNETES_NAMESPACE: preprod-rayapp
