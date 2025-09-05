@@ -57,8 +57,10 @@ jobs:
     # Deploy the Docker image to the GKE cluster
       - name: Configure gcloud
         run: |-
-          gcloud config set project prod1-svc-lzjf
-          gcloud container clusters get-credentials prod --zone southamerica-east1 --project prod1-svc-lzjf
+          #gcloud config set project prod1-svc-lzjf
+          #gcloud container clusters get-credentials prod --zone southamerica-east1 --project prod1-svc-lzjf
+          gcloud config set project preprod1-service
+          gcloud container clusters get-credentials pre --zone southamerica-east1 --project preprod1-service
           
       - name: Install gke-gcloud-auth-plugin
         run: gcloud components install gke-gcloud-auth-plugin
@@ -70,5 +72,5 @@ jobs:
           #sed -i "s|<GOOGLE_PLACES_API_KEY>|${{ secrets.GOOGLE_PLACES_API_KEY }}|" secrets.yaml
           #sed -i "s|<OPENAI_API_KEY>|${{ secrets.OPENAI_API_KEY }}|" secrets.yaml
           #sed -i "s|<ASSISTANT_ID>|${{ secrets.ASSISTANT_ID }}|" secrets.yaml         
-          kubectl apply -f deployment.yaml --validate=false
+          kubectl apply -f deployment.yaml -n preprod-rayapp --validate=false
 
