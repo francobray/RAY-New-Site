@@ -1,0 +1,73 @@
+name: Deploy React Frontend and Node Backend
+
+on:
+  push:
+    branches: [ "main" ] # Or your main branch name
+  pull_request:
+    branches: [ "main" ]
+ 
+env:
+  GCP_PROJECT_ID: prod1-svc-lzjf 
+  GCP_REGION: southamerica-east1
+  #ARTIFACT_REGISTRY: southamerica-east1-docker.pkg.dev/prod1-svc-lzjf/ray-new-site
+  ARTIFACT_REGISTRY: southamerica-east1-docker.pkg.dev/preprod-repo/ray-new-site
+  
+  IMAGE_FRONTEND: ray-new-site:${{ github.sha }}
+  KUBERNETES_NAMESPACE: preprod-rayapp
+  FRONTEND_DEPLOYMENT_NAME: ray-new-site
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      frontend_image: ${{ steps.build-frontend.outputs.image }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+          
+      - id: "auth"
+        uses: "google-github-actions/auth@v1"
+        with:
+          credentials_json: "${{ secrets.GCP_SA_KEY_JSON }}"
+
+      - name: "Set up Cloud SDK"
+        uses: "google-github-actions/setup-gcloud@v1"
+
+      - name: "Use gcloud CLI"
+        run: "gcloud info"
+        
+
+      - name: "Docker auth"
+        run: |-
+          gcloud auth configure-docker ${{ env.GCP_REGION }}-docker.pkg.dev --quiet
+
+      - name: Build frontend image
+        run: |-
+          #sed -i "s|<ASSISTANT_ID>|${{ secrets.ASSISTANT_ID }}|" .env
+          docker build . --file Dockerfile --tag ${{ env.ARTIFACT_REGISTRY }}/${{ env.IMAGE_FRONTEND }}
+        working-directory: .
+
+      - name: Push frontend image
+        run: docker push ${{ env.ARTIFACT_REGISTRY }}/${{ env.IMAGE_FRONTEND }}
+
+
+    # Deploy the Docker image to the GKE cluster
+      - name: Configure gcloud
+        run: |-
+          gcloud config set project prod1-svc-lzjf
+          gcloud container clusters get-credentials prod --zone southamerica-east1 --project prod1-svc-lzjf
+          
+      - name: Install gke-gcloud-auth-plugin
+        run: gcloud components install gke-gcloud-auth-plugin
+          
+      - name: Deploy frontend
+        run: |-
+          sed -i "s|FRONTEND_IMAGE|${{ env.IMAGE_FRONTEND }}|" deployment.yaml
+          #sed -i "s|<VITE_GOOGLE_MAPS_API_KEY>|${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}|" secrets.yaml
+          #sed -i "s|<GOOGLE_PLACES_API_KEY>|${{ secrets.GOOGLE_PLACES_API_KEY }}|" secrets.yaml
+          #sed -i "s|<OPENAI_API_KEY>|${{ secrets.OPENAI_API_KEY }}|" secrets.yaml
+          #sed -i "s|<ASSISTANT_ID>|${{ secrets.ASSISTANT_ID }}|" secrets.yaml         
+          kubectl apply -f deployment.yaml --validate=false
+
