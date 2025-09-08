@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapPin, ShoppingCart, ArrowRight, TrendingUp, Users } from 'lucide-react'
+import { MapPin, ShoppingCart, ArrowRight, TrendingUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const ProductSection: React.FC = () => {
@@ -40,7 +40,7 @@ const ProductSection: React.FC = () => {
               {/* Header Section */}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex-1">
-                  <div className="w-14 h-14 bg-gradient-to-br from-ray-blue to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 bg-ray-blue rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <MapPin className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-ray-dark-900 mb-3">
@@ -48,7 +48,7 @@ const ProductSection: React.FC = () => {
                   </h3>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-ray-green">+34%</div>
+                  <div className="text-2xl font-bold text-ray-green">+47%</div>
                   <div className="text-sm text-ray-darkGray">avg. increase</div>
                 </div>
               </div>
@@ -78,7 +78,7 @@ const ProductSection: React.FC = () => {
               {/* CTA */}
               <Link to="/product/walk-ins" className="block">
                 <button className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 flex items-center justify-center group/btn shadow-lg hover:shadow-xl">
-                  See How It Works
+                  Learn More About Walk-Ins
                   <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                 </button>
               </Link>
@@ -94,7 +94,7 @@ const ProductSection: React.FC = () => {
               {/* Header Section */}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex-1">
-                  <div className="w-14 h-14 bg-gradient-to-br from-ray-green to-green-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 bg-ray-blue rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <ShoppingCart className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-ray-dark-900 mb-3">
@@ -117,47 +117,25 @@ const ProductSection: React.FC = () => {
               <div className="space-y-3 mb-8">
                 <div className="flex items-center text-ray-dark-700">
                   <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Seamless booking & ordering integrations</span>
+                  <span className="text-sm font-medium">Revenue optimization tools</span>
                 </div>
                 <div className="flex items-center text-ray-dark-700">
                   <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Reduce third-party delivery commissions</span>
+                  <span className="text-sm font-medium">Customer engagement automation</span>
                 </div>
                 <div className="flex items-center text-ray-dark-700">
                   <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Real-time revenue dashboards</span>
+                  <span className="text-sm font-medium">Performance analytics & insights</span>
                 </div>
               </div>
 
               {/* CTA */}
               <Link to="/product/online-orders" className="block">
-                <button className="w-full bg-ray-green text-white px-6 py-4 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300 flex items-center justify-center group/btn shadow-lg hover:shadow-xl">
-                  See How It Works
+                <button className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 flex items-center justify-center group/btn shadow-lg hover:shadow-xl">
+                  Learn More About Online Orders
                   <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                 </button>
               </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA Section */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center space-x-8 bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-            <div className="flex items-center">
-              <Users className="w-5 h-5 text-ray-blue mr-2" />
-              <span className="text-ray-dark-700 font-medium">500+ Restaurants</span>
-            </div>
-            <div className="w-px h-6 bg-gray-200"></div>
-            <div className="flex items-center">
-              <TrendingUp className="w-5 h-5 text-ray-green mr-2" />
-              <span className="text-ray-dark-700 font-medium">35% Avg Revenue Growth</span>
-            </div>
-            <div className="w-px h-6 bg-gray-200"></div>
-            <div className="flex items-center">
-              <div className="w-5 h-5 flex items-center justify-center mr-2">
-                <span className="text-yellow-500 text-lg">★</span>
-              </div>
-              <span className="text-ray-dark-700 font-medium">4.8/5 Rating</span>
             </div>
           </div>
         </div>

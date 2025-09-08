@@ -8,8 +8,8 @@
     <!-- Preload critical font -->
     <link rel="preload" href="/fonts/Chopin.Trial-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-    <!-- Preload hero image -->
-    <link rel="preload" href="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop&fm=webp" as="image" type="image/webp">
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" href="/images/Screenshot 2025-08-26 at 15.22.48.jpeg" as="image" type="image/jpeg" fetchpriority="high">
     
     <!-- Font face definitions -->
     <style>
@@ -24,6 +24,7 @@
       /* Prevent FOUT */
       body {
         font-family: 'Chopin.Trial', ui-sans-serif, system-ui, sans-serif;
+        font-display: swap;
       }
     </style>
     
@@ -46,9 +47,18 @@
     
     <!-- Performance hints -->
     <meta name="theme-color" content="#0D79E5">
+    
+    <!-- Preconnect to HubSpot domains for faster form loading -->
+    <link rel="preconnect" href="https://js.hsforms.net">
+    <link rel="preconnect" href="https://forms.hsforms.com">
+    <link rel="dns-prefetch" href="https://js.hsforms.net">
+    <link rel="dns-prefetch" href="https://forms.hsforms.com">
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- RAY Lead-Magnet Widget -->
+    <script data-cfasync="false" src="https://grader.rayapp.io/ray-widget.js"></script>
   </body>
 </html>

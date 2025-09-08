@@ -7,12 +7,12 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1">
             <Link to="/" className="text-2xl font-bold text-white">
               RAY
             </Link>
             <p className="mt-4 text-ray-gray max-w-md">
-              Increase revenue by driving more walk-ins, orders, and reviews with our restaurant marketing platform.
+              RAY is the #1 sales platform helping restaurants attract more customers, protect their reputation, and grow revenue from walk-ins, orders, and bookings.
             </p>
           </div>
 
@@ -62,9 +62,33 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <a href="mailto:hello@rayrestaurant.com" className="text-ray-gray hover:text-white transition-colors duration-200">
-                  hello@rayrestaurant.com
+                <a href="mailto:hello@rayapp.io" className="text-ray-gray hover:text-white transition-colors duration-200">
+                  hello@rayapp.io
                 </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+              Legal
+            </h3>
+            <ul className="mt-4 space-y-4">
+              <li>
+                <Link to="/privacy-policy" className="text-ray-gray hover:text-white transition-colors duration-200">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms-of-service" className="text-ray-gray hover:text-white transition-colors duration-200">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link to="/cookie-policy" className="text-ray-gray hover:text-white transition-colors duration-200">
+                  Cookie Policy
+                </Link>
               </li>
             </ul>
           </div>

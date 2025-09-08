@@ -35,12 +35,12 @@ const CaseStudies: React.FC = () => {
     <>
       <Helmet>
         <title>Case Studies - RAY Restaurant Marketing Success Stories</title>
-        <meta name="description" content="See how restaurants like Dolcezza Gelato and V&E Hospitality increased revenue with RAY's marketing platform. Real results from real restaurants." />
+        <meta name="description" content="See how restaurants like Dolcezza Gelato increased walk-ins by 47% and V&E Hospitality grew revenue by 35% with RAY's marketing platform. Real results from real restaurants." />
         <meta property="og:title" content="Case Studies - RAY Restaurant Marketing Success Stories" />
-        <meta property="og:description" content="See how restaurants like Dolcezza Gelato and V&E Hospitality increased revenue with RAY's marketing platform. Real results from real restaurants." />
+        <meta property="og:description" content="See how restaurants like Dolcezza Gelato increased walk-ins by 47% and V&E Hospitality grew revenue by 35% with RAY's marketing platform. Real results from real restaurants." />
         <meta property="og:url" content="https://rayrestaurant.com/case-studies" />
         <meta name="twitter:title" content="Case Studies - RAY Restaurant Marketing Success Stories" />
-        <meta name="twitter:description" content="See how restaurants like Dolcezza Gelato and V&E Hospitality increased revenue with RAY's marketing platform. Real results from real restaurants." />
+        <meta name="twitter:description" content="See how restaurants like Dolcezza Gelato increased walk-ins by 47% and V&E Hospitality grew revenue by 35% with RAY's marketing platform. Real results from real restaurants." />
         <link rel="canonical" href="https://rayrestaurant.com/case-studies" />
       </Helmet>
       

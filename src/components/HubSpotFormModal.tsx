@@ -4,21 +4,41 @@ import { X } from 'lucide-react'
 interface HubSpotFormModalProps {
   isOpen: boolean
   onClose: () => void
-  portalId: string
-  formId: string
   formName: string
+  formId: string
+}
+
+// Extend Window interface for HubSpot
+declare global {
+  interface Window {
+    hbspt: any
+  }
 }
 
 const HubSpotFormModal: React.FC<HubSpotFormModalProps> = ({
   isOpen,
   onClose,
-  portalId,
-  formId,
-  formName
+  formName,
+  formId
 }) => {
   const modalRef = useRef<HTMLDivElement>(null)
+  const formContainerRef = useRef<HTMLDivElement>(null)
   const previousFocusRef = useRef<HTMLElement | null>(null)
-  const [isFormLoaded, setIsFormLoaded] = useState(false)
+  const [isFormReady, setIsFormReady] = useState(false)
+  const [formError, setFormError] = useState<string | null>(null)
+  const formTimeoutRef = useRef<number | null>(null)
+
+  // Portal and region configuration
+  const PORTAL_ID = '39590119'
+  const REGION = 'na1'
+  
+  // Different script URLs for different forms
+  const GRADE_SCRIPT_URL = 'https://js.hsforms.net/forms/embed/39590119.js'
+  const EXPERT_SCRIPT_URL = '//js.hsforms.net/forms/embed/v2.js'
+  
+  // Form IDs
+  const GRADE_FORM_ID = '8e589758-c322-49aa-ac24-5e5f30516f19'
+  const EXPERT_FORM_ID = '789dfc61-6b4a-416d-bec1-9f8c145f984a'
 
   useEffect(() => {
     if (isOpen) {
@@ -28,19 +48,8 @@ const HubSpotFormModal: React.FC<HubSpotFormModalProps> = ({
       // Prevent body scroll
       document.body.style.overflow = 'hidden'
       
-      // Load HubSpot script if not already loaded
-      if (!window.hbspt) {
-        const script = document.createElement('script')
-        script.src = '//js.hsforms.net/forms/embed/v2.js'
-        script.async = true
-        script.defer = true
-        script.onload = () => {
-          createForm()
-        }
-        document.head.appendChild(script)
-      } else {
-        createForm()
-      }
+      // Load HubSpot script and create form
+      loadHubSpotForm()
     } else {
       // Restore body scroll
       document.body.style.overflow = 'unset'
@@ -49,28 +58,191 @@ const HubSpotFormModal: React.FC<HubSpotFormModalProps> = ({
       if (previousFocusRef.current) {
         previousFocusRef.current.focus()
       }
+
+      // Clear timeout if modal is closed
+      if (formTimeoutRef.current) {
+        clearTimeout(formTimeoutRef.current)
+        formTimeoutRef.current = null
+      }
+
+      // Reset form states when modal closes
+      setIsFormReady(false)
+      setFormError(null)
     }
 
     return () => {
       document.body.style.overflow = 'unset'
-    }
-  }, [isOpen, portalId, formId])
-
-  const createForm = () => {
-    if (window.hbspt && modalRef.current) {
-      const formContainer = modalRef.current.querySelector('#hubspot-form')
-      if (formContainer) {
-        window.hbspt.forms.create({
-          region: 'na1',
-          portalId: portalId,
-          formId: formId,
-          target: '#hubspot-form',
-          onFormReady: () => {
-            setIsFormLoaded(true)
-          }
-        })
+      if (formTimeoutRef.current) {
+        clearTimeout(formTimeoutRef.current)
       }
     }
+  }, [isOpen])
+
+  const loadHubSpotForm = () => {
+    if (!formContainerRef.current) return
+
+    // Clear any existing content
+    formContainerRef.current.innerHTML = ''
+    setIsFormReady(false)
+    setFormError(null)
+
+    // Set timeout for form loading
+    formTimeoutRef.current = window.setTimeout(() => {
+      if (!isFormReady) {
+        setFormError('Form is taking longer than expected to load. Please try again.')
+      }
+    }, 10000) // 10 second timeout
+
+    try {
+      if (formId === GRADE_FORM_ID) {
+        // Use data attributes method for Grade form
+        loadGradeForm()
+      } else if (formId === EXPERT_FORM_ID) {
+        // Use JavaScript API method for Expert form
+        loadExpertForm()
+      }
+    } catch (error) {
+      console.error('Error creating HubSpot form:', error)
+      setFormError('Failed to create form. Please try again.')
+      if (formTimeoutRef.current) {
+        window.clearTimeout(formTimeoutRef.current)
+        formTimeoutRef.current = null
+      }
+    }
+  }
+
+  const loadGradeForm = () => {
+    // Create the form container div with HubSpot data attributes
+    const formDiv = document.createElement('div')
+    formDiv.className = 'hs-form-frame'
+    formDiv.setAttribute('data-region', REGION)
+    formDiv.setAttribute('data-form-id', GRADE_FORM_ID)
+    formDiv.setAttribute('data-portal-id', PORTAL_ID)
+    
+    formContainerRef.current!.appendChild(formDiv)
+
+    // Check if script is already loaded
+    const existingScript = document.querySelector(`script[src="${GRADE_SCRIPT_URL}"]`)
+    
+    if (existingScript) {
+      // Script already exists, form should render automatically
+      setTimeout(() => {
+        checkFormReady()
+      }, 1000)
+      return
+    }
+
+    // Load the script
+    const script = document.createElement('script')
+    script.src = GRADE_SCRIPT_URL
+    script.defer = true
+    script.onload = () => {
+      // Form should render automatically after script loads
+      setTimeout(() => {
+        checkFormReady()
+      }, 1000)
+    }
+    script.onerror = () => {
+      console.error('Failed to load HubSpot script')
+      setFormError('Failed to load form script. Please try again.')
+      if (formTimeoutRef.current) {
+        clearTimeout(formTimeoutRef.current)
+        formTimeoutRef.current = null
+      }
+    }
+    
+    document.head.appendChild(script)
+  }
+
+  const loadExpertForm = () => {
+    // Create container for the expert form
+    const formDiv = document.createElement('div')
+    formDiv.id = `hubspot-form-${EXPERT_FORM_ID}`
+    formContainerRef.current!.appendChild(formDiv)
+
+    // Check if v2 script is already loaded
+    const existingScript = document.querySelector('script[src="//js.hsforms.net/forms/embed/v2.js"]')
+    
+    if (existingScript && window.hbspt) {
+      // Script already loaded, create form directly
+      createExpertForm(formDiv)
+      return
+    }
+
+    // Load the v2 script
+    const script = document.createElement('script')
+    script.src = EXPERT_SCRIPT_URL
+    script.type = 'text/javascript'
+    script.charset = 'utf-8'
+    script.onload = () => {
+      // Wait a bit for hbspt to be available
+      setTimeout(() => {
+        createExpertForm(formDiv)
+      }, 500)
+    }
+    script.onerror = () => {
+      console.error('Failed to load HubSpot v2 script')
+      setFormError('Failed to load form script. Please try again.')
+      if (formTimeoutRef.current) {
+        clearTimeout(formTimeoutRef.current)
+        formTimeoutRef.current = null
+      }
+    }
+    
+    document.head.appendChild(script)
+  }
+
+  const createExpertForm = (targetDiv: HTMLElement) => {
+    if (window.hbspt && window.hbspt.forms) {
+      window.hbspt.forms.create({
+        portalId: PORTAL_ID,
+        formId: EXPERT_FORM_ID,
+        region: REGION,
+        target: `#${targetDiv.id}`,
+        onFormReady: () => {
+          console.log('HubSpot expert form ready')
+          setIsFormReady(true)
+          setFormError(null)
+          if (formTimeoutRef.current) {
+            clearTimeout(formTimeoutRef.current)
+            formTimeoutRef.current = null
+          }
+        },
+        onFormSubmit: () => {
+          console.log('Form submitted')
+        }
+      })
+    } else {
+      console.error('HubSpot forms API not available')
+      setFormError('Form API not available. Please try again.')
+    }
+  }
+
+  const checkFormReady = () => {
+    if (!formContainerRef.current) return
+
+    // Check if form iframe has been created
+    const iframe = formContainerRef.current.querySelector('iframe')
+    if (iframe) {
+      console.log('HubSpot form ready')
+      setIsFormReady(true)
+      setFormError(null)
+      if (formTimeoutRef.current) {
+        clearTimeout(formTimeoutRef.current)
+        formTimeoutRef.current = null
+      }
+    } else {
+      // Try again in 500ms
+      setTimeout(() => {
+        checkFormReady()
+      }, 500)
+    }
+  }
+
+  const handleRetry = () => {
+    setFormError(null)
+    setIsFormReady(false)
+    loadHubSpotForm()
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -135,31 +307,47 @@ const HubSpotFormModal: React.FC<HubSpotFormModalProps> = ({
           </button>
         </div>
 
-        {/* Form Container - Fixed height to prevent CLS */}
+        {/* Form Container */}
         <div className="p-6">
-          <div 
-            id="hubspot-form" 
-            className="min-h-[400px] flex items-center justify-center"
-            style={{ minHeight: '400px' }}
-          >
-            {!isFormLoaded && (
-              <div className="flex items-center justify-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-ray-blue"></div>
-                <span className="ml-3 text-ray-darkGray">Loading form...</span>
+          <div className="min-h-[400px] relative">
+            {/* Loading State */}
+            {!isFormReady && !formError && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex flex-col items-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-ray-blue mb-3"></div>
+                  <span className="text-ray-darkGray">Loading form...</span>
+                </div>
               </div>
             )}
+
+            {/* Error State */}
+            {formError && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-red-500 mb-4">{formError}</div>
+                  <button
+                    onClick={handleRetry}
+                    className="px-4 py-2 bg-ray-blue text-white rounded-lg hover:bg-blue-600 transition-colors duration-200"
+                  >
+                    Try Again
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Form Container */}
+            <div
+              ref={formContainerRef}
+              className={`transition-opacity duration-300 ${
+                isFormReady ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ minHeight: '400px' }}
+            />
           </div>
         </div>
       </div>
     </div>
   )
-}
-
-// Extend Window interface for HubSpot
-declare global {
-  interface Window {
-    hbspt: any
-  }
 }
 
 export default HubSpotFormModal
