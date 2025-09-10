@@ -1,6 +1,9 @@
 import React from 'react'
-import { useEffect } from 'react'
-import LazyImage from './LazyImage'
+import { useEffect, useState } from 'react'
+import { TrendingUp, Star } from 'lucide-react'
+import Button from './Button'
+import HubSpotGradeModal from './HubSpotGradeModal'
+import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 // Extend Window interface for RAYWidget
 declare global {
@@ -8,7 +11,15 @@ declare global {
     RAYWidget: any
   }
 }
+
 const Hero: React.FC = () => {
+  const [widgetLoaded, setWidgetLoaded] = useState(false)
+  const { 
+    isGradeModalOpen, 
+    openGradeModal, 
+    closeGradeModal
+  } = useHubSpotModal()
+
   useEffect(() => {
     // Initialize RAY Widget when component mounts
     const initWidget = () => {
@@ -16,8 +27,10 @@ const Hero: React.FC = () => {
         new window.RAYWidget({
           container: '#ray-widget',
           baseUrl: 'https://grader.rayapp.io'
-        });
+        })
+        setWidgetLoaded(true)
       } else {
+        setWidgetLoaded(false)
         // If RAYWidget is not loaded yet, try again after a short delay
         setTimeout(initWidget, 100);
       }
@@ -25,6 +38,7 @@ const Hero: React.FC = () => {
 
     // Wait for DOM to be ready
     if (document.readyState === 'loading') {
+      setWidgetLoaded(false)
       document.addEventListener('DOMContentLoaded', initWidget);
     } else {
       initWidget();
@@ -32,79 +46,96 @@ const Hero: React.FC = () => {
 
     return () => {
       document.removeEventListener('DOMContentLoaded', initWidget);
+      setWidgetLoaded(false)
     };
   }, []);
 
   return (
     <div>
-      <section className="relative bg-ray-promise overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(13,121,229,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(111,191,115,0.1),transparent_50%)]"></div>
-        
-        {/* Animated background elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-ray-blue/10 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-ray-green/10 rounded-full animate-pulse delay-1000"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div className="text-center lg:text-left relative animate-in fade-in slide-in-from-left duration-1000">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 leading-tight">
-                Boost revenue by driving more{' '}
-                <span className="text-ray-blue">walk-ins, orders & bookings</span>
-              </h1>
-              
-              <p className="mt-6 text-xl text-ray-dark-700 max-w-2xl">
-                RAY is the #1 sales platform helping restaurant owners and operators attract more walk-ins, boost their online reputation, and increase revenue through online orders and bookings.
-              </p>
-              
-              <div className="mt-8 flex justify-center lg:justify-start animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
-                <div id="ray-widget" style={{ minHeight: '80px' }}></div>
-              </div>
+      {/* Centered Hero Layout */}
+      <section className="relative min-h-[50vh] bg-ray-promise overflow-hidden">
+        {/* Sophisticated Background Elements */}
+        <div className="absolute inset-0">
+          {/* Background decoration */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(13,121,229,0.05),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(111,191,115,0.05),transparent_50%)]"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[50vh] flex items-center py-6">
+          <div className="w-full text-center">
+            {/* Trust Badge */}
+            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm mb-4">
+              <Star className="w-4 h-4 text-yellow-500 mr-2 fill-current" />
+              <span className="text-sm font-medium text-ray-dark-900">Trusted by 1,000+ restaurants</span>
             </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-4">
+              Boost revenue by driving more{' '}
+              <span className="relative">
+                <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent animate-pulse">
+                  walk-ins, bookings & orders
+                </span>
+                {/* Underline decoration */}
+                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-full opacity-30"></div>
+              </span>
+            </h1>
             
-            {/* Hero Image */}
-            <div className="relative animate-in fade-in slide-in-from-right duration-1000 delay-200">
-              {/* Clean Mobile Phone Mockup */}
-              <div className="relative max-w-sm mx-auto">
-                {/* Phone Frame */}
-                <div className="relative bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
-                  {/* Screen - properly contained */}
-                  <div className="bg-white rounded-[2rem] overflow-hidden relative h-[600px]">
-                    <LazyImage
-                      src="/images/Screenshot 2025-08-26 at 15.22.48.jpeg"
-                      alt="RAY Score results showing restaurant scan with 56/100 score and $6,250 potential revenue loss"
-                      width={400}
-                      height={600}
-                      className="w-full h-full object-cover object-center scale-110"
-                    />
-                  </div>
-                  
-                  {/* Phone Details - notch */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-gray-800 rounded-full mt-2"></div>
+            <p className="text-lg sm:text-xl text-ray-dark-700 leading-relaxed max-w-4xl mx-auto font-light mb-10">
+              RAY is the <strong className="font-semibold text-ray-dark-900">#1 sales platform</strong> helping restaurant owners and operators attract more walk-ins, boost their online reputation, and increase revenue through bookings and online orders.
+            </p>
+
+            {/* Widget Container */}
+            <div className="relative max-w-4xl mx-auto mb-12">
+              <div id="ray-widget" style={{ minHeight: '500px', transform: 'scale(1.5)', transformOrigin: 'center' }}></div>
+              
+              {/* Fallback Button if widget doesn't load */}
+              {!widgetLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Button 
+                    variant="primary" 
+                    size="lg"
+                    onClick={openGradeModal}
+                    className="w-full text-xl px-12 py-6 max-w-lg mx-auto"
+                  >
+                    Grade Your Restaurant
+                  </Button>
                 </div>
-                
-                {/* Two Symmetric Metric Cards */}
-                {/* Top Right Card */}
-                <div className="absolute -top-8 -right-8 bg-white rounded-xl shadow-xl p-4 border border-gray-100 hover:scale-110 transition-all duration-300 animate-bounce delay-300">
-                  <div className="text-2xl font-bold text-ray-blue">4.8★</div>
-                  <div className="text-sm text-ray-darkGray">Average rating</div>
+              )}
+            </div>
+
+            {/* Social Proof */}
+            <div className="flex items-center justify-center space-x-8 text-sm text-ray-dark-600">
+              <div className="flex items-center">
+                <div className="flex -space-x-2 mr-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-ray-blue to-ray-green rounded-full border-2 border-white"></div>
+                  <div className="w-8 h-8 bg-gradient-to-br from-ray-green to-yellow-400 rounded-full border-2 border-white"></div>
+                  <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-ray-blue rounded-full border-2 border-white"></div>
                 </div>
-                
-                {/* Bottom Left Card */}
-                <div className="absolute -bottom-8 -left-8 bg-white rounded-xl shadow-xl p-4 border border-gray-100 hover:scale-110 transition-all duration-300 animate-bounce">
-                  <div className="text-2xl font-bold text-ray-green">+47%</div>
-                  <div className="text-sm text-ray-darkGray">Walk-ins increase</div>
-                </div>
-                
-                {/* Subtle Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-ray-blue/20 to-ray-green/20 rounded-[2.5rem] -z-10 blur-xl scale-110 animate-pulse"></div>
+                <span className="font-medium">+47% avg. walk-in increase</span>
+              </div>
+              <div className="flex items-center">
+                <TrendingUp className="w-4 h-4 text-ray-green mr-2" />
+                <span className="font-medium">4.8★ rating improvement</span>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Bottom Scroll Indicator - Removed to reduce spacing */}
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-ray-blue/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-ray-blue rounded-full mt-2 animate-pulse"></div>
+          </div>
+        </div>
       </section>
+      
+      {/* HubSpot Modal */}
+      <HubSpotGradeModal
+        isOpen={isGradeModalOpen}
+        onClose={closeGradeModal}
+      />
+
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapPin, ShoppingCart, ArrowRight, TrendingUp } from 'lucide-react'
+import { MapPin, ShoppingCart, Calendar, ArrowRight, TrendingUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const ProductSection: React.FC = () => {
@@ -17,14 +17,14 @@ const ProductSection: React.FC = () => {
             Proven Revenue Growth Platform
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-ray-dark-900 mb-6 leading-tight">
-            Two Growth Engines.{' '}
+            Three Products.{' '}
             <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
               One Powerful Platform.
             </span>
           </h2>
           <p className="text-xl text-ray-darkGray max-w-3xl mx-auto leading-relaxed">
-            RAY offers two integrated solutions designed to grow restaurant revenue both offline and online. 
-            Choose your focus or combine both for maximum impact.
+            RAY offers three integrated solutions designed to grow restaurant revenue both offline and online. 
+            Choose your focus or combine all for maximum impact.
           </p>
         </div>
 
@@ -98,7 +98,7 @@ const ProductSection: React.FC = () => {
                     <ShoppingCart className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-ray-dark-900 mb-3">
-                    Grow Online Orders & Bookings
+                    Grow Online Orders
                   </h3>
                 </div>
                 <div className="text-right">
@@ -109,8 +109,8 @@ const ProductSection: React.FC = () => {
 
               {/* Description */}
               <p className="text-ray-darkGray mb-6 text-lg leading-relaxed">
-                Transform your digital presence into a revenue-generating machine. Our platform integrates with booking systems, 
-                optimizes direct ordering, and provides insights to maximize every online customer touchpoint.
+                Transform your digital presence into a revenue-generating machine. Our platform optimizes bookings, 
+                direct ordering, and provides insights to maximize every online customer touchpoint.
               </p>
 
               {/* Features List */}
@@ -132,7 +132,65 @@ const ProductSection: React.FC = () => {
               {/* CTA */}
               <Link to="/product/online-orders" className="block">
                 <button className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 flex items-center justify-center group/btn shadow-lg hover:shadow-xl">
-                  Learn More About Online Orders
+                  Learn More about Online Orders
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Bookings Card */}
+          <div className="group relative lg:col-span-2 lg:col-start-1 lg:row-start-2">
+            {/* Card Background with Gradient Border */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-ray-blue to-ray-green rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+            
+            <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
+              {/* Header Section */}
+              <div className="flex items-start justify-between mb-6">
+                <div className="flex-1">
+                  <div className="w-14 h-14 bg-ray-blue rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Calendar className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-3">
+                    Simplify Bookings. Connect with Every Customer.
+                  </h3>
+                </div>
+                <div className="text-right">
+                  <div className="text-2xl font-bold text-ray-green">+35%</div>
+                  <div className="text-sm text-ray-darkGray">table utilization</div>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-ray-darkGray mb-6 text-lg leading-relaxed">
+                Turn every table into revenue with our comprehensive booking platform. Manage reservations, 
+                walk-ins, and waitlists seamlessly while building lasting relationships with your guests.
+              </p>
+
+              {/* Features List */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+                <div className="flex items-center text-ray-dark-700">
+                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
+                  <span className="text-sm font-medium">Online booking widget & visibility</span>
+                </div>
+                <div className="flex items-center text-ray-dark-700">
+                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
+                  <span className="text-sm font-medium">Waitlist & walk-in management</span>
+                </div>
+                <div className="flex items-center text-ray-dark-700">
+                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
+                  <span className="text-sm font-medium">Guest CRM & preferences</span>
+                </div>
+                <div className="flex items-center text-ray-dark-700">
+                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
+                  <span className="text-sm font-medium">Analytics & booking insights</span>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <Link to="/product/bookings" className="block">
+                <button className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 flex items-center justify-center group/btn shadow-lg hover:shadow-xl">
+                  Learn More About Bookings
                   <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                 </button>
               </Link>

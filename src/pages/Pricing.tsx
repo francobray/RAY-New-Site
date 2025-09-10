@@ -103,14 +103,14 @@ const Pricing: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
-            {/* Plan 1 - WalkIns */}
+            {/* Plan 1 - Walk-ins */}
             <div className="relative animate-in fade-in slide-in-from-bottom duration-700">
               <Card className="text-center hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 <div className="pt-8 pb-8 flex flex-col h-full">
                   {/* Plan Header */}
                   <div className="mb-8">
                     <h3 className="text-2xl font-bold text-ray-dark-900 mb-6">
-                      WalkIns
+                      Walk-ins
                     </h3>
                     
                     <div className="mb-2">
@@ -131,19 +131,23 @@ const Pricing: React.FC = () => {
                   <div className="text-left space-y-3 mb-8 flex-grow">
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">GBP audit and optimization</span>
+                      <span className="text-ray-dark-700">Google Business Profile optimization</span>
                     </div>
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Review management / leaderboard</span>
+                      <span className="text-ray-dark-700">Review management and staff leaderboard</span>
                     </div>
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Sentiment analysis</span>
+                      <span className="text-ray-dark-700">AI-powered sentiment analysis</span>
                     </div>
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Weekly & monthly reporting</span>
+                      <span className="text-ray-dark-700">Local SEO and visibility optimization</span>
+                    </div>
+                    <div className="flex items-start">
+                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-ray-dark-700">Performance analytics and reporting</span>
                     </div>
                   </div>
                   
@@ -158,7 +162,7 @@ const Pricing: React.FC = () => {
                       variant="primary"
                       size="lg"
                       className="w-full shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => handleGetStarted('walkins')}
+                      onClick={() => handleGetStarted('walk-ins')}
                     >
                       Get Started
                     </Button>
@@ -167,29 +171,22 @@ const Pricing: React.FC = () => {
               </Card>
             </div>
             
-            {/* Plan 2 - Ordering Starter (Most Popular) */}
+            {/* Plan 2 - Booking (Most Popular) */}
             <div className="relative animate-in fade-in slide-in-from-bottom duration-700 delay-200">
-              {/* Most Popular Badge */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                <span className="bg-ray-blue text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
-                  Most Popular
-                </span>
-              </div>
-              
-              <Card className="text-center hover:shadow-2xl transition-all duration-300 h-full flex flex-col ring-2 ring-ray-blue/20 bg-gradient-to-br from-white to-blue-50/30">
+              <Card className="text-center hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 <div className="pt-8 pb-8 flex flex-col h-full">
                   {/* Plan Header */}
                   <div className="mb-8">
                     <h3 className="text-2xl font-bold text-ray-dark-900 mb-6">
-                      Ordering Starter
+                      Booking
                     </h3>
                     
                     <div className="mb-2">
                       <div className="text-4xl font-bold text-ray-dark-900">
-                        $99 / mo
+                        $100 / mo
                       </div>
                       <div className="text-lg text-ray-dark-900 mt-1">
-                        per location + 5% per order
+                        per location
                       </div>
                     </div>
                     
@@ -202,19 +199,23 @@ const Pricing: React.FC = () => {
                   <div className="text-left space-y-3 mb-8 flex-grow">
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Online website (your domain) optimized to grow traffic</span>
+                      <span className="text-ray-dark-700">Reservation management system</span>
                     </div>
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Online ordering optimized to grow sales</span>
+                      <span className="text-ray-dark-700">Integrated booking system</span>
                     </div>
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Customer details (first-party data capture)</span>
+                      <span className="text-ray-dark-700">Automated confirmation and reminders</span>
                     </div>
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Concierge to manage your reservations</span>
+                      <span className="text-ray-dark-700">No-show reduction strategies</span>
+                    </div>
+                    <div className="flex items-start">
+                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-ray-dark-700">Customer data and analytics</span>
                     </div>
                   </div>
                   
@@ -229,7 +230,7 @@ const Pricing: React.FC = () => {
                       variant="primary"
                       size="lg"
                       className="w-full shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => handleGetStarted('ordering-starter')}
+                      onClick={() => handleGetStarted('booking')}
                     >
                       Get Started
                     </Button>
@@ -238,14 +239,14 @@ const Pricing: React.FC = () => {
               </Card>
             </div>
             
-            {/* Plan 3 - Ordering Premium */}
+            {/* Plan 3 - Online Ordering */}
             <div className="relative animate-in fade-in slide-in-from-bottom duration-700 delay-400">
               <Card className="text-center hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 <div className="pt-8 pb-8 flex flex-col h-full">
                   {/* Plan Header */}
                   <div className="mb-8">
                     <h3 className="text-2xl font-bold text-ray-dark-900 mb-6">
-                      Ordering Premium
+                      Online Ordering
                     </h3>
                     
                     <div className="mb-2">
@@ -266,23 +267,23 @@ const Pricing: React.FC = () => {
                   <div className="text-left space-y-3 mb-8 flex-grow">
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Everything in Ordering Starter, plus:</span>
+                      <span className="text-ray-dark-700">Direct online ordering system</span>
                     </div>
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Custom pages</span>
+                      <span className="text-ray-dark-700">Commission-free ordering platform</span>
                     </div>
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Loyalty management</span>
+                      <span className="text-ray-dark-700">Delivery platform optimization</span>
                     </div>
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Gift cards</span>
+                      <span className="text-ray-dark-700">Upselling and loyalty programs</span>
                     </div>
                     <div className="flex items-start">
                       <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Mobile app</span>
+                      <span className="text-ray-dark-700">Revenue analytics and insights</span>
                     </div>
                   </div>
                   
@@ -297,7 +298,7 @@ const Pricing: React.FC = () => {
                       variant="primary"
                       size="lg"
                       className="w-full shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => handleGetStarted('ordering-premium')}
+                      onClick={() => handleGetStarted('online-ordering')}
                     >
                       Get Started
                     </Button>

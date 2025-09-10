@@ -15,13 +15,13 @@ const TestimonialCarousel = loadable(() => import('../components/TestimonialCaro
 
 // Trust metrics banner component
 const TrustMetrics: React.FC = () => (
-  <section className="py-20 bg-white relative overflow-hidden">
+  <section className="py-12 bg-white relative overflow-hidden">
     {/* Background decoration */}
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(13,121,229,0.05),transparent_50%)]"></div>
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(111,191,115,0.05),transparent_50%)]"></div>
     
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-16">
+      <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-4">
           Why Restaurant Owners Choose RAY
         </h2>

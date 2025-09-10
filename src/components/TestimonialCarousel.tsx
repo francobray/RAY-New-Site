@@ -30,7 +30,7 @@ const customers = [
     title: 'CEO - Temple Craft Wynwood',
     metric: '+$12,000/m',
     category: 'Online Sales',
-    image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    image: '/images/Temple_Team.jpeg',
     bgColor: 'from-blue-600 to-blue-700'
   },
   {
@@ -40,7 +40,7 @@ const customers = [
     title: 'CEO - Chimba Miami',
     metric: '+$14,000/m',
     category: 'Online Sales',
-    image: 'https://images.pexels.com/photos/1352278/pexels-photo-1352278.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    image: '/images/Chimba_Miami.jpeg',
     bgColor: 'from-red-600 to-red-700'
   },
   {

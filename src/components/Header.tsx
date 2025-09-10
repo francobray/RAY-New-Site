@@ -22,6 +22,7 @@ const Header: React.FC = () => {
       href: '/',
       submenu: [
         { name: 'Walk-Ins', href: '/product/walk-ins' },
+        { name: 'Bookings', href: '/product/bookings' },
         { name: 'Online Orders', href: '/product/online-orders' }
       ]
     },

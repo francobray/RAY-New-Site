@@ -31,6 +31,10 @@ const OnlineOrders = loadable(() => import('./pages/product/OnlineOrders'), {
   fallback: <LoadingSpinner />
 })
 
+const Bookings = loadable(() => import('./pages/product/Bookings'), {
+  fallback: <LoadingSpinner />
+})
+
 const Pricing = loadable(() => import('./pages/Pricing'), {
   fallback: <LoadingSpinner />
 })
@@ -55,6 +59,14 @@ const CookiePolicy = loadable(() => import('./pages/CookiePolicy'), {
   fallback: <LoadingSpinner />
 })
 
+const TempleCraftCaseStudy = loadable(() => import('./pages/TempleCraftCaseStudy'), {
+  fallback: <LoadingSpinner />
+})
+
+const ChimbaCaseStudy = loadable(() => import('./pages/ChimbaCaseStudy'), {
+  fallback: <LoadingSpinner />
+})
+
 const NotFound = loadable(() => import('./pages/NotFound'), {
   fallback: <LoadingSpinner />
 })
@@ -74,12 +86,15 @@ function App() {
             <Route path="/products" element={<Navigate to="/" replace />} />
             <Route path="/product/walk-ins" element={<WalkIns />} />
             <Route path="/product/online-orders" element={<OnlineOrders />} />
+            <Route path="/product/bookings" element={<Bookings />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/case-studies/temple-craft-wynwood" element={<TempleCraftCaseStudy />} />
+            <Route path="/case-studies/chimba-miami" element={<ChimbaCaseStudy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
