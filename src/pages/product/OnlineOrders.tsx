@@ -4,7 +4,6 @@ import { Calendar, ShoppingBag, BarChart3, TrendingUp, Clock, CreditCard } from 
 import Card from '../../components/Card'
 import Button from '../../components/Button'
 import LazyImage from '../../components/LazyImage'
-import HubSpotFormModal from '../../components/HubSpotFormModal'
 
 const features = [
   {
@@ -13,7 +12,9 @@ const features = [
     subtitle: 'Seamless Reservation Management',
     description: 'Integrate with popular booking platforms and convert more browsers into diners.',
     details: [
-     'Automated confirmation and reminder emails',
+      'OpenTable, Resy, and custom booking integrations',
+      'Real-time availability management',
+      'Automated confirmation and reminder emails',
       'No-show reduction strategies',
       'VIP customer identification and treatment'
     ]
@@ -25,6 +26,8 @@ const features = [
     description: 'Win back margin from delivery platforms and grow direct orders through your own channels.',
     details: [
       'Direct online ordering system setup',
+      'Delivery platform optimization',
+      'Commission-free ordering solutions',
       'Upselling and cross-selling automation',
       'Loyalty program integration'
     ]
@@ -37,6 +40,8 @@ const features = [
     details: [
       'Real-time revenue tracking',
       'Customer lifetime value analysis',
+      'Peak time and demand forecasting',
+      'Channel performance comparison',
       'ROI measurement and reporting'
     ]
   }
@@ -66,8 +71,6 @@ const metrics = [
 ]
 
 const OnlineOrders: React.FC = () => {
-  const [isFormModalOpen, setIsFormModalOpen] = React.useState(false)
-
   return (
     <>
       <Helmet>
@@ -99,7 +102,7 @@ const OnlineOrders: React.FC = () => {
       </Helmet>
       
       {/* Hero Section */}
-      <section className="py-20 bg-ray-gradient-start">
+      <section className="py-20 bg-ray-promise">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -114,21 +117,8 @@ const OnlineOrders: React.FC = () => {
                 the insights you need to maximize every online customer touchpoint.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button 
-                  variant="primary" 
-                  size="lg"
-                  onClick={() => setIsFormModalOpen(true)}
-                >
-                  Scan Your Restaurant
-                </Button>
-                <Button 
-                  variant="secondary" 
-                  size="lg"
-                  onClick={() => console.log('View demo')}
-                >
-                  See Dashboard Demo
-                </Button>
+              <div className="flex justify-center lg:justify-start mb-8">
+                <div className="ray-widget" data-restaurant-id="demo" data-theme="light"></div>
               </div>
               
               <div className="flex items-center gap-6 text-sm text-ray-dark-600">
@@ -265,8 +255,8 @@ const OnlineOrders: React.FC = () => {
           <div className="relative max-w-5xl mx-auto">
             <Card className="p-8">
               <LazyImage
-                src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop"
-                alt="Restaurant analytics dashboard showing revenue metrics"
+                src="/images/RAY_Dashboard.png"
+                alt="RAY dashboard showing comprehensive metrics for Almacen de Pizzas including revenue, review scores, Google Business Profile engagement, and multi-location performance analytics"
                 width={800}
                 height={500}
                 className="rounded-lg shadow-lg w-full"
@@ -296,48 +286,26 @@ const OnlineOrders: React.FC = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-20 bg-ray-gradient-start">
+      <section className="py-20 bg-ray-promise">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
             Ready to maximize your online revenue?
           </h2>
           
           <p className="text-xl text-ray-dark-700 mb-8 max-w-3xl mx-auto">
-            Get your free restaurant scan and discover how RAY can optimize your bookings, 
-            orders, and deliveries. See your revenue potential in just 24 hours.
+          Discover how RAY can optimize your bookings, orders, and deliveries.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               variant="primary" 
               size="lg"
-              onClick={() => window.open('https://grader.rayapp.io', '_blank')}
             >
-              Scan Your Restaurant
+              Get Started Today
             </Button>
-            <Button 
-              variant="secondary" 
-              size="lg"
-              onClick={() => console.log('Talk to expert')}
-            >
-              Talk to an Expert
-            </Button>
-          </div>
-          
-          <div className="mt-6 text-sm text-ray-dark-500">
-            ✓ Free scan • ✓ No commitment • ✓ Results in 24 hours
           </div>
         </div>
       </section>
-      
-      {/* HubSpot Form Modal */}
-      <HubSpotFormModal
-        isOpen={isFormModalOpen}
-        onClose={() => setIsFormModalOpen(false)}
-        portalId="YOUR_PORTAL_ID"
-        formId="YOUR_FORM_ID"
-        formName="Scan Your Restaurant - Online Orders"
-      />
     </>
   )
 }

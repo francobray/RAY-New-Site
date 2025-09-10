@@ -1,27 +1,25 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Mail, Phone, MapPin, Clock } from 'lucide-react'
+import { useEffect } from 'react'
+import { Mail, Clock } from 'lucide-react'
 import Card from '../components/Card'
-import Button from '../components/Button'
+import HubSpotGradeModal from '../components/HubSpotGradeModal'
+import HubSpotTalkToExpertModal from '../components/HubSpotTalkToExpertModal'
+import { useHubSpotModal } from '../hooks/useHubSpotModal'
+
+// Extend Window interface for HubSpot
+declare global {
+  interface Window {
+    hbspt: any
+  }
+}
 
 const contactInfo = [
   {
     icon: Mail,
     title: 'Email',
-    details: 'hello@rayrestaurant.com',
+    details: 'hello@rayapp.io',
     description: 'Send us an email anytime'
-  },
-  {
-    icon: Phone,
-    title: 'Phone',
-    details: '1-800-RAY-HELP',
-    description: 'Call us during business hours'
-  },
-  {
-    icon: MapPin,
-    title: 'Address',
-    details: '123 Restaurant Row, Food City, FC 12345',
-    description: 'Visit our office'
   },
   {
     icon: Clock,
@@ -32,6 +30,37 @@ const contactInfo = [
 ]
 
 const Contact: React.FC = () => {
+  const { 
+    isGradeModalOpen, 
+    closeGradeModal,
+    isTalkToExpertModalOpen,
+    closeTalkToExpertModal
+  } = useHubSpotModal()
+
+  useEffect(() => {
+    // Check if HubSpot script is already loaded
+    const existingScript = document.querySelector('script[src="https://js.hsforms.net/forms/embed/39590119.js"]')
+    
+    if (!existingScript) {
+      const script = document.createElement('script')
+      script.src = 'https://js.hsforms.net/forms/embed/39590119.js'
+      script.defer = true
+      script.onload = () => {
+        console.log('HubSpot contact form script loaded')
+      }
+      script.onerror = () => {
+        console.error('Failed to load HubSpot contact form script')
+      }
+      
+      document.head.appendChild(script)
+    }
+
+    // Cleanup function
+    return () => {
+      // Don't remove the script on unmount as it might be used by other components
+    }
+  }, [])
+
   return (
     <>
       <Helmet>
@@ -64,7 +93,7 @@ const Contact: React.FC = () => {
                 Contact Information
               </h2>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {contactInfo.map((info, index) => {
                   const IconComponent = info.icon
                   return (
@@ -79,9 +108,19 @@ const Contact: React.FC = () => {
                           <h3 className="text-lg font-semibold text-ray-dark-900">
                             {info.title}
                           </h3>
-                          <p className="text-ray-dark-700 font-medium">
-                            {info.details}
-                          </p>
+                          {info.title === 'Email' ? (
+                            <a 
+                              href={`mailto:${info.details}`}
+                              className="text-ray-dark-700 font-medium hover:text-ray-blue transition-colors duration-200"
+                              aria-label={`Send email to ${info.details}`}
+                            >
+                              {info.details}
+                            </a>
+                          ) : (
+                            <p className="text-ray-dark-700 font-medium">
+                              {info.details}
+                            </p>
+                          )}
                           <p className="text-sm text-ray-darkGray">
                             {info.description}
                           </p>
@@ -90,26 +129,6 @@ const Contact: React.FC = () => {
                     </Card>
                   )
                 })}
-              </div>
-              
-              <div className="text-center">
-                <h3 className="text-xl font-bold text-ray-dark-900 mb-4">
-                  Ready to get started?
-                </h3>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    variant="primary"
-                    onClick={() => console.log('Open HubSpot form')}
-                  >
-                    Scan Your Restaurant
-                  </Button>
-                  <Button 
-                    variant="secondary"
-                    onClick={() => console.log('Schedule call')}
-                  >
-                    Schedule a Call
-                  </Button>
-                </div>
               </div>
             </div>
             
@@ -120,81 +139,30 @@ const Contact: React.FC = () => {
                   Send us a message
                 </h2>
                 
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="firstName" className="block text-sm font-medium text-ray-dark-700 mb-2">
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="lastName" className="block text-sm font-medium text-ray-dark-700 mb-2">
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent"
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-ray-dark-700 mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="restaurant" className="block text-sm font-medium text-ray-dark-700 mb-2">
-                      Restaurant Name
-                    </label>
-                    <input
-                      type="text"
-                      id="restaurant"
-                      name="restaurant"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-ray-dark-700 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent"
-                      required
-                    ></textarea>
-                  </div>
-                  
-                  <Button type="submit" variant="primary" className="w-full">
-                    Send Message
-                  </Button>
-                </form>
+                {/* HubSpot Contact Form */}
+                <div className="min-h-[400px]">
+                  <div 
+                    className="hs-form-frame" 
+                    data-region="na1" 
+                    data-form-id="88d103f6-3422-49d9-8748-856de11730e6" 
+                    data-portal-id="39590119"
+                  ></div>
+                </div>
               </Card>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* HubSpot Modals */}
+      <HubSpotGradeModal
+        isOpen={isGradeModalOpen}
+        onClose={closeGradeModal}
+      />
+      <HubSpotTalkToExpertModal
+        isOpen={isTalkToExpertModalOpen}
+        onClose={closeTalkToExpertModal}
+      />
     </>
   )
 }

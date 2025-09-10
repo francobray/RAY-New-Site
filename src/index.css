@@ -19,27 +19,164 @@
   .font-loading {
     font-family: ui-sans-serif, system-ui, sans-serif;
   }
+  
+  /* Custom animations */
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-in {
+    animation: animate-in 0.6s ease-out forwards;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .slide-in-from-left {
+    animation: slideInFromLeft 0.8s ease-out forwards;
+  }
+  
+  .slide-in-from-right {
+    animation: slideInFromRight 0.8s ease-out forwards;
+  }
+  
+  .slide-in-from-bottom {
+    animation: slideInFromBottom 0.6s ease-out forwards;
+  }
+  
+  .slide-in-from-top {
+    animation: slideInFromTop 0.3s ease-out forwards;
+  }
+  
+  .slide-in-from-top-2 {
+    animation: slideInFromTop 0.2s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromBottom {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInFromTop {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Delay utilities */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-1000 { animation-delay: 1000ms; }
+  
+  /* Focus states for accessibility */
+  .focus-visible {
+    outline: 2px solid #0D79E5;
+    outline-offset: 2px;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .btn-primary {
+      border: 2px solid currentColor;
+    }
+    .btn-secondary {
+      border: 3px solid currentColor;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-in,
+    .fade-in,
+    .slide-in-from-left,
+    .slide-in-from-right,
+    .slide-in-from-bottom,
+    .slide-in-from-top,
+    .slide-in-from-top-2 {
+      animation: none;
+    }
+    
+    .animate-pulse,
+    .animate-bounce,
+    .animate-spin {
+      animation: none;
+    }
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-ray-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2;
+    @apply bg-ray-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 shadow-md hover:shadow-lg hover:scale-105;
   }
   
   .btn-secondary {
-    @apply bg-white text-ray-blue border-2 border-ray-blue px-6 py-3 rounded-lg font-semibold hover:bg-ray-blue hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2;
+    @apply bg-white text-ray-blue border-2 border-ray-blue px-6 py-3 rounded-lg font-semibold hover:bg-ray-blue hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 shadow-md hover:shadow-lg hover:scale-105;
   }
   
   .btn-ghost {
-    @apply text-ray-blue px-6 py-3 rounded-lg font-semibold hover:bg-ray-blue hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2;
+    @apply text-ray-blue px-6 py-3 rounded-lg font-semibold hover:bg-ray-blue hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 hover:shadow-md hover:scale-105;
   }
   
   .btn-dark {
-    @apply bg-ray-dark-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-ray-dark-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-dark-500 focus:ring-offset-2;
+    @apply bg-ray-dark-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-ray-dark-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ray-dark-500 focus:ring-offset-2 shadow-md hover:shadow-lg hover:scale-105;
   }
   
   /* Test gradient class */
   .test-gradient {
     @apply bg-ray-gradient;
+  }
+  
+  /* Enhanced shadow utilities */
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
   }
 }

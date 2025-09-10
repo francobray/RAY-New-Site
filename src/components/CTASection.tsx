@@ -1,14 +1,23 @@
 import React from 'react'
 import { TrendingUp } from 'lucide-react'
 import Button from './Button'
-import HubSpotFormModal from './HubSpotFormModal'
+import HubSpotGradeModal from './HubSpotGradeModal'
+import HubSpotTalkToExpertModal from './HubSpotTalkToExpertModal'
+import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const CTASection: React.FC = () => {
-  const [isFormModalOpen, setIsFormModalOpen] = React.useState(false)
+  const { 
+    isGradeModalOpen, 
+    openGradeModal, 
+    closeGradeModal,
+    isTalkToExpertModalOpen,
+    openTalkToExpertModal,
+    closeTalkToExpertModal
+  } = useHubSpotModal()
 
   return (
     <>
-      <section className="py-24 bg-gradient-to-br from-ray-gradient-start via-ray-gradient-mid to-ray-gradient-end relative overflow-hidden">
+      <section className="py-24 bg-ray-promise relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(13,121,229,0.1),transparent_50%)]"></div>
         
@@ -32,15 +41,17 @@ const CTASection: React.FC = () => {
             variant="primary" 
             size="lg"
             className="shadow-xl hover:shadow-2xl transition-all duration-300"
-            onClick={() => setIsFormModalOpen(true)}
+            onClick={openGradeModal}
+            aria-label="Open restaurant grading form to get your free restaurant scan"
           >
-            Scan Your Restaurant
+            Grade Your Restaurant
           </Button>
           <Button 
             variant="secondary" 
             size="lg"
             className="shadow-xl hover:shadow-2xl transition-all duration-300"
-            onClick={() => console.log('Talk to expert')}
+            onClick={openTalkToExpertModal}
+            aria-label="Open form to schedule a consultation with our restaurant marketing experts"
           >
             Talk to an Expert
           </Button>
@@ -63,13 +74,14 @@ const CTASection: React.FC = () => {
         </div>
       </section>
       
-      {/* HubSpot Form Modal */}
-      <HubSpotFormModal
-        isOpen={isFormModalOpen}
-        onClose={() => setIsFormModalOpen(false)}
-        portalId="YOUR_PORTAL_ID"
-        formId="YOUR_FORM_ID"
-        formName="Scan Your Restaurant"
+      {/* HubSpot Modals */}
+      <HubSpotGradeModal
+        isOpen={isGradeModalOpen}
+        onClose={closeGradeModal}
+      />
+      <HubSpotTalkToExpertModal
+        isOpen={isTalkToExpertModalOpen}
+        onClose={closeTalkToExpertModal}
       />
     </>
   )

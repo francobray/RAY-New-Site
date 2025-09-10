@@ -1,0 +1,55 @@
+import React from 'react'
+import { ArrowRight } from 'lucide-react'
+import Button from './Button'
+import HubSpotTalkToExpertModal from './HubSpotTalkToExpertModal'
+import { useHubSpotModal } from '../hooks/useHubSpotModal'
+
+const PromiseBanner: React.FC = () => {
+  const { 
+    isTalkToExpertModalOpen,
+    openTalkToExpertModal,
+    closeTalkToExpertModal
+  } = useHubSpotModal()
+
+  return (
+    <>
+      <section className="py-16 bg-ray-promise relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            {/* Content */}
+            <div className="flex-1 text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 leading-tight mb-4">
+                Do you want to be the favorite local spot?
+              </h2>
+              <p className="text-xl text-ray-dark-700 leading-relaxed max-w-2xl">
+                Get at least 30% more visits to your Google profile in 6 months, or your money back.
+              </p>
+            </div>
+            
+            {/* CTA Button */}
+            <div className="flex-shrink-0">
+              <Button
+                variant="primary"
+                size="lg"
+                onClick={openTalkToExpertModal}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                aria-label="Book a free demo to see how RAY can help your restaurant grow"
+              >
+                Book a Free Demo
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* HubSpot Modal */}
+      <HubSpotTalkToExpertModal
+        isOpen={isTalkToExpertModalOpen}
+        onClose={closeTalkToExpertModal}
+      />
+    </>
+  )
+}
+
+export default PromiseBanner

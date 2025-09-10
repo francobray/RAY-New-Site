@@ -60,7 +60,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
         onError={handleError}
         className={`transition-opacity duration-300 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
-        } ${hasError ? 'hidden' : ''}`}
+        } ${hasError ? 'hidden' : ''} ${className}`}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
       />

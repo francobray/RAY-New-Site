@@ -1,5 +1,7 @@
 import React from 'react'
 import { MapPin, Target, TrendingUp } from 'lucide-react'
+import HubSpotTalkToExpertModal from './HubSpotTalkToExpertModal'
+import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const features = [
   {
@@ -18,8 +20,8 @@ const features = [
     description: 'Turn searches into visits and orders with seamless customer experiences.',
     benefits: [
       'Turn searches into visits & orders',
-      'Seamless online ordering*',
-      'Mobile-first customer experiences*'
+      'Seamless customer experiences',
+      'Mobile-optimized visibility'
     ]
   },
   {
@@ -35,71 +37,86 @@ const features = [
 ]
 
 const FeatureCards: React.FC = () => {
+  const { 
+    isTalkToExpertModalOpen,
+    openTalkToExpertModal,
+    closeTalkToExpertModal
+  } = useHubSpotModal()
+
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(13,121,229,0.05),transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(111,191,115,0.05),transparent_50%)]"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
-            <MapPin className="w-4 h-4 mr-2" />
-            Complete Restaurant Growth Platform
+    <>
+      <section className="py-16 md:py-20 lg:py-24 bg-white">
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
+              <MapPin className="w-4 h-4 mr-2" />
+              Complete Restaurant Growth Platform
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 mb-6 leading-tight">
+              How RAY Works
+            </h2>
+            <p className="text-lg sm:text-xl text-ray-darkGray max-w-4xl mx-auto leading-relaxed">
+              RAY platform makes your restaurant more visible, more trusted, and more profitable through a proven platform used by over 1,000 restaurants worldwide.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-4">
-            Do you want to be the favorite local spot?
-          </h2>
-          <p className="text-xl text-ray-darkGray max-w-3xl mx-auto leading-relaxed">
-            Ray platform makes your restaurant more visible, more trusted, and more profitable through a proven process used by over 1,000 customers worldwide.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon
-            return (
-              <div key={index} className="group relative">
-                {/* Gradient border effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-ray-blue to-ray-green rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-                
-                <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 text-center border border-gray-100">
-                {/* Icon with gradient background */}
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-ray-blue to-blue-600 rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className="w-7 h-7 text-white" aria-hidden="true" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon
+              return (
+                <div key={index} className="group relative">
+                  {/* Gradient border effect */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 via-yellow-300 to-yellow-400 rounded-2xl opacity-0 group-hover:opacity-30 transition-all duration-300"></div>
+                  
+                  <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8 text-center border border-gray-100 flex flex-col h-full group-hover:-translate-y-1">
+                    {/* Icon with Promise gradient background */}
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 via-yellow-300 to-yellow-400 rounded-xl mb-6 group-hover:scale-105 transition-transform duration-300 shadow-md mx-auto">
+                      <IconComponent className="w-8 h-8 text-ray-dark-900" aria-hidden="true" />
+                    </div>
+                    
+                    {/* Content */}
+                    <h3 className="text-xl md:text-2xl font-bold text-ray-dark-900 mb-4 leading-tight">
+                      {feature.title}
+                    </h3>
+                    
+                    <p className="text-ray-darkGray mb-6 text-base md:text-lg leading-relaxed flex-grow">
+                      {feature.description}
+                    </p>
+                    
+                    <ul className="text-left space-y-3 mb-8">
+                      {feature.benefits.map((benefit, benefitIndex) => (
+                        <li key={benefitIndex} className="flex items-start text-sm md:text-base text-ray-dark-700">
+                          <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          {benefit}
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    {/* CTA Button with consistent sizing and Promise gradient */}
+                    <div className="mt-auto">
+                      <button
+                        onClick={openTalkToExpertModal}
+                        className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 min-h-[56px] flex items-center justify-center"
+                        aria-label="Open form to schedule a consultation with our restaurant marketing experts"
+                      >
+                        Talk to an Expert
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                
-                {/* Content */}
-                <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
-                  {feature.title}
-                </h3>
-                
-                <p className="text-ray-darkGray mb-6 text-lg leading-relaxed">
-                  {feature.description}
-                </p>
-                
-                <ul className="text-left space-y-2">
-                  {feature.benefits.map((benefit, benefitIndex) => (
-                    <li key={benefitIndex} className="flex items-start text-sm text-ray-dark-700 font-medium">
-                      <div className="w-2 h-2 bg-ray-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
-                </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
-        
-        {/* Footnote */}
-        <div className="text-center bg-white rounded-2xl p-6 shadow-lg border border-gray-100 max-w-4xl mx-auto">
-          <p className="text-sm text-ray-darkGray">
-            * Online ordering, booking and deliveries and Mobile app available at the end of 2025 and beginning of 2026 respectively.
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
+      
+      {/* HubSpot Modal */}
+      <HubSpotTalkToExpertModal
+        isOpen={isTalkToExpertModalOpen}
+        onClose={closeTalkToExpertModal}
+      />
+    </>
   )
 }
 
