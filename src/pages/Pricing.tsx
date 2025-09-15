@@ -285,14 +285,14 @@ const Pricing: React.FC = () => {
                   <div>
                     <div className="mb-8">
                       <div className="text-5xl font-bold text-ray-dark-900 mb-2">
-                        $650
+                        $490
                         <span className="text-xl font-normal text-ray-darkGray">/month</span>
                       </div>
                       <div className="text-lg text-ray-darkGray mb-2">
                         $1,500 setup fee
                       </div>
                       <div className="inline-flex items-center px-3 py-1 bg-ray-green/10 rounded-full">
-                        <span className="text-sm text-ray-green font-bold">Save $70/month vs. individual products</span>
+                        <span className="text-sm text-ray-green font-bold">Save $230/month vs. individual products</span>
                       </div>
                     </div>
                     
@@ -334,11 +334,7 @@ const Pricing: React.FC = () => {
                       Bundle Benefits
                     </h4>
                     <div className="space-y-4">
-                      <div className="flex items-start">
-                        <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-ray-dark-700">Unified dashboard and reporting across all products</span>
-                      </div>
-                      <div className="flex items-start">
+                        <div className="flex items-start">
                         <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
                         <span className="text-ray-dark-700">Cross-platform customer insights and analytics</span>
                       </div>
@@ -356,7 +352,7 @@ const Pricing: React.FC = () => {
                       </div>
                       <div className="flex items-start">
                         <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-ray-dark-700 font-medium">Save $840/year vs. individual products</span>
+                        <span className="text-ray-dark-700 font-medium">Save $2760/year vs. individual products</span>
                       </div>
                     </div>
                   </div>
