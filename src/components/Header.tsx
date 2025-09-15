@@ -501,12 +501,17 @@ const Header: React.FC = () => {
                 <Button 
                   variant="primary" 
                   className="w-full min-h-[44px]"
-                  onClick={() => {
-                    setIsMenuOpen(false)
-                    openGradeModal()
-                  }}
                 >
-                  Grade Your Restaurant
+                  <a 
+                    href="https://grader.rayapp.io/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full h-full"
+                    onClick={() => setIsMenuOpen(false)}
+                    aria-label="Grade your restaurant with RAY's free assessment tool"
+                  >
+                    Grade Your Restaurant
+                  </a>
                 </Button>
               </div>
             </div>

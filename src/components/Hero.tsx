@@ -95,10 +95,17 @@ const Hero: React.FC = () => {
                   <Button 
                     variant="primary" 
                     size="lg"
-                    onClick={openGradeModal}
                     className="w-full text-xl px-12 py-6 max-w-lg mx-auto"
                   >
-                    Grade Your Restaurant
+                    <a 
+                      href="https://grader.rayapp.io/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center"
+                      aria-label="Grade your restaurant with RAY's free assessment tool"
+                    >
+                      Grade Your Restaurant
+                    </a>
                   </Button>
                 </div>
               )}

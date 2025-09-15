@@ -41,10 +41,16 @@ const CTASection: React.FC = () => {
             variant="primary" 
             size="lg"
             className="shadow-xl hover:shadow-2xl transition-all duration-300"
-            onClick={openGradeModal}
-            aria-label="Open restaurant grading form to get your free restaurant scan"
           >
-            Grade Your Restaurant
+            <a 
+              href="https://grader.rayapp.io/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center"
+              aria-label="Grade your restaurant with RAY's free assessment tool"
+            >
+              Grade Your Restaurant
+            </a>
           </Button>
           <Button 
             variant="secondary" 
