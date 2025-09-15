@@ -1,11 +1,63 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Check, Shield, Users, TrendingUp, ChevronDown, ChevronUp } from 'lucide-react'
+import { Check, Shield, Users, TrendingUp, ChevronDown, ChevronUp, MapPin, Calendar, ShoppingCart, Star, ArrowRight } from 'lucide-react'
 import Card from '../components/Card'
 import Button from '../components/Button'
 import HubSpotTalkToExpertModal from '../components/HubSpotTalkToExpertModal'
 import HubSpotBookDemoModal from '../components/HubSpotBookDemoModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
+
+const products = [
+  {
+    id: 'walk-ins',
+    icon: MapPin,
+    name: 'Walk-Ins',
+    description: 'Turn searches into walk-ins with AI-powered local marketing.',
+    price: '$270',
+    setupFee: '$1,000',
+    features: [
+      'Google Business Profile optimization',
+      'Review management and staff leaderboard',
+      'AI-powered sentiment analysis',
+      'Local SEO and visibility optimization',
+      'Performance analytics and reporting'
+    ],
+    gradient: 'from-ray-blue to-blue-600'
+  },
+  {
+    id: 'bookings',
+    icon: Calendar,
+    name: 'Bookings',
+    description: 'Maximize table occupancy with smart reservation management.',
+    price: '$100',
+    setupFee: '$500',
+    features: [
+      'Reservation management system',
+      'Integrated booking system',
+      'Automated confirmation and reminders',
+      'No-show reduction strategies',
+      'Customer data and analytics'
+    ],
+    gradient: 'from-ray-green to-green-600'
+  },
+  {
+    id: 'online-orders',
+    icon: ShoppingCart,
+    name: 'Online Orders',
+    description: 'Grow revenue from digital channels with integrated ordering.',
+    price: '$350',
+    setupFee: '$750',
+    transactionFee: '+ 3% per order',
+    features: [
+      'Direct online ordering system',
+      'Commission-free ordering platform',
+      'Delivery platform optimization',
+      'Upselling and loyalty programs',
+      'Revenue analytics and insights'
+    ],
+    gradient: 'from-purple-500 to-purple-600'
+  }
+]
 
 const guarantees = [
   {
@@ -27,24 +79,24 @@ const guarantees = [
 
 const faqs = [
   {
+    question: 'Can I purchase just one product?',
+    answer: 'Yes! Each product can be purchased individually based on your restaurant\'s specific needs. You can always add more products later.'
+  },
+  {
+    question: 'What\'s included in the All-in-One Platform?',
+    answer: 'The bundle includes all three products (Walk-Ins, Bookings, and Online Orders) with integrated analytics, unified reporting, and priority support.'
+  },
+  {
     question: 'How does billing work?',
-    answer: 'All plans are billed monthly with no setup fees or long-term contracts. The Online Orders and Bundle plans include a 2.5% transaction fee on orders processed through our platform.'
+    answer: 'All products are billed monthly with no long-term contracts. Setup fees are one-time charges. The Online Orders product includes a 3% transaction fee on processed orders.'
   },
   {
     question: 'What\'s included in onboarding?',
-    answer: 'Every plan includes personal onboarding with a dedicated specialist, complete setup of all features, staff training, and 30 days of hands-on support to ensure success.'
+    answer: 'Every product includes personal onboarding with a dedicated specialist, complete setup of all features, staff training, and 30 days of hands-on support.'
   },
   {
     question: 'How quickly will I see results?',
     answer: 'Most restaurants see initial improvements within 2-4 weeks, with significant results typically visible within 60-90 days. We guarantee 30% more Google Maps visits within 6 months.'
-  },
-  {
-    question: 'What integrations do you support?',
-    answer: 'We integrate with all major platforms including OpenTable, Resy, Toast, Square, DoorDash, Uber Eats, and many more. Our team handles all technical setup.'
-  },
-  {
-    question: 'Do you work with restaurant chains?',
-    answer: 'Absolutely. We work with single locations and multi-location restaurant groups. Enterprise pricing is available for 10+ locations.'
   }
 ]
 
@@ -62,9 +114,14 @@ const Pricing: React.FC = () => {
     setOpenFaq(openFaq === index ? null : index)
   }
 
-  const handleGetStarted = (planId: string) => {
-    // Analytics event
-    console.log('pricing_get_started_click', { plan: planId })
+  const handleGetStarted = (productId: string) => {
+    console.log('pricing_get_started_click', { product: productId })
+    console.log('demo_form_open')
+    openBookDemoModal()
+  }
+
+  const handleGetBundle = () => {
+    console.log('pricing_bundle_click')
     console.log('demo_form_open')
     openBookDemoModal()
   }
@@ -72,13 +129,13 @@ const Pricing: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Pricing - Simple & Transparent Restaurant Marketing Plans | RAY</title>
-        <meta name="description" content="Simple, transparent pricing for restaurant marketing. Choose from Walk-Ins, Online Orders, or Bundle plans. 30% growth guarantee with no long-term contracts." />
-        <meta property="og:title" content="Pricing - Simple & Transparent Restaurant Marketing Plans | RAY" />
-        <meta property="og:description" content="Simple, transparent pricing for restaurant marketing. Choose from Walk-Ins, Online Orders, or Bundle plans. 30% growth guarantee with no long-term contracts." />
+        <title>Pricing - Choose Your Restaurant Growth Solution | RAY</title>
+        <meta name="description" content="Choose the RAY product that fits your needs. Walk-Ins, Bookings, Online Orders, or get the complete platform. Transparent pricing with 30% growth guarantee." />
+        <meta property="og:title" content="Pricing - Choose Your Restaurant Growth Solution | RAY" />
+        <meta property="og:description" content="Choose the RAY product that fits your needs. Walk-Ins, Bookings, Online Orders, or get the complete platform. Transparent pricing with 30% growth guarantee." />
         <meta property="og:url" content="https://rayrestaurant.com/pricing" />
-        <meta name="twitter:title" content="Pricing - Simple & Transparent Restaurant Marketing Plans | RAY" />
-        <meta name="twitter:description" content="Simple, transparent pricing for restaurant marketing. Choose from Walk-Ins, Online Orders, or Bundle plans. 30% growth guarantee with no long-term contracts." />
+        <meta name="twitter:title" content="Pricing - Choose Your Restaurant Growth Solution | RAY" />
+        <meta name="twitter:description" content="Choose the RAY product that fits your needs. Walk-Ins, Bookings, Online Orders, or get the complete platform. Transparent pricing with 30% growth guarantee." />
         <link rel="canonical" href="https://rayrestaurant.com/pricing" />
       </Helmet>
       
@@ -90,236 +147,215 @@ const Pricing: React.FC = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <h1 className="text-4xl sm:text-5xl font-bold text-ray-dark-900 mb-6 leading-tight">
-            Simple & Transparent Pricing
+            Choose the product that fits your needs —{' '}
+            <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
+              or unlock the full platform
+            </span>
           </h1>
-          <p className="text-xl text-ray-dark-700 max-w-4xl mx-auto leading-relaxed">
-            Choose the plan that fits your restaurant — no hidden fees, just growth.
+          <p className="text-xl text-ray-dark-700 max-w-4xl mx-auto leading-relaxed mb-8">
+            Each RAY product is designed to solve specific restaurant challenges. 
+            Purchase individually or combine them for maximum revenue growth.
           </p>
+          
+          <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm">
+            <Star className="w-4 h-4 text-yellow-500 mr-2 fill-current" />
+            <span className="text-sm font-medium text-ray-dark-900">30% growth guarantee • No long-term contracts</span>
+          </div>
         </div>
       </section>
       
-      {/* Pricing Cards */}
+      {/* Individual Products */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            
-            {/* Plan 1 - Walk-ins */}
-            <div className="relative animate-in fade-in slide-in-from-bottom duration-700">
-              <Card className="text-center hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                <div className="pt-8 pb-8 flex flex-col h-full">
-                  {/* Plan Header */}
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-ray-dark-900 mb-6">
-                      Walk-ins
-                    </h3>
-                    
-                    <div className="mb-2">
-                      <div className="text-4xl font-bold text-ray-dark-900">
-                        $270 / mo
+            {products.map((product, index) => {
+              const IconComponent = product.icon
+              return (
+                <div key={product.id} className={`animate-in fade-in slide-in-from-bottom duration-700 delay-${index * 200}`}>
+                  <Card className="text-center hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+                    <div className="pt-8 pb-8 flex flex-col h-full">
+                      {/* Icon */}
+                      <div className="flex justify-center mb-6">
+                        <div className={`w-16 h-16 bg-gradient-to-r ${product.gradient} rounded-2xl flex items-center justify-center shadow-lg`}>
+                          <IconComponent className="w-8 h-8 text-white" />
+                        </div>
                       </div>
-                      <div className="text-lg text-ray-dark-900 mt-1">
-                        per location
+                      
+                      {/* Product Info */}
+                      <div className="mb-8">
+                        <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
+                          {product.name}
+                        </h3>
+                        
+                        <p className="text-ray-darkGray mb-6 leading-relaxed">
+                          {product.description}
+                        </p>
+                        
+                        {/* Pricing */}
+                        <div className="mb-6">
+                          <div className="text-4xl font-bold text-ray-dark-900 mb-2">
+                            {product.price}
+                            <span className="text-lg font-normal text-ray-darkGray">/month</span>
+                          </div>
+                          <div className="text-sm text-ray-darkGray">
+                            {product.setupFee} setup fee
+                            {product.transactionFee && (
+                              <div className="mt-1">{product.transactionFee}</div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Features */}
+                      <div className="text-left space-y-3 mb-8 flex-grow">
+                        {product.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-start">
+                            <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                            <span className="text-ray-dark-700 text-sm">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* CTA */}
+                      <div className="mt-auto">
+                        <Button 
+                          variant="primary"
+                          size="lg"
+                          className="w-full shadow-lg hover:shadow-xl transition-all duration-300"
+                          onClick={() => handleGetStarted(product.id)}
+                        >
+                          Get Started
+                        </Button>
                       </div>
                     </div>
-                    
-                    <div className="text-ray-darkGray text-sm mb-4">
-                      $1,000 one-time setup
-                    </div>
-                  </div>
-                  
-                  {/* Features */}
-                  <div className="text-left space-y-3 mb-8 flex-grow">
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Google Business Profile optimization</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Review management and staff leaderboard</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">AI-powered sentiment analysis</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Local SEO and visibility optimization</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Performance analytics and reporting</span>
-                    </div>
-                  </div>
-                  
-                  {/* Note */}
-                  <div className="text-xs text-ray-darkGray mb-6 px-2">
-                    Volume discounts for 10+ locations; annual contracts with discount.
-                  </div>
-                  
-                  {/* CTA */}
-                  <div className="mt-auto">
-                    <Button 
-                      variant="primary"
-                      size="lg"
-                      className="w-full shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => handleGetStarted('walk-ins')}
-                    >
-                      Get Started
-                    </Button>
-                  </div>
+                  </Card>
                 </div>
-              </Card>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+      
+      {/* All-in-One Platform Bundle */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(13,121,229,0.05),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(111,191,115,0.05),transparent_50%)]"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            {/* Bundle Header */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-ray-blue/10 to-ray-green/10 rounded-full text-ray-blue text-sm font-medium mb-6">
+                <TrendingUp className="w-4 h-4 mr-2" />
+                Most Popular Choice
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+                All-in-One Platform
+              </h2>
+              <p className="text-xl text-ray-darkGray max-w-2xl mx-auto">
+                Get all three products working together for maximum revenue growth and operational efficiency.
+              </p>
             </div>
             
-            {/* Plan 2 - Booking (Most Popular) */}
-            <div className="relative animate-in fade-in slide-in-from-bottom duration-700 delay-200">
-              <Card className="text-center hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                <div className="pt-8 pb-8 flex flex-col h-full">
-                  {/* Plan Header */}
+            {/* Bundle Card */}
+            <Card className="p-8 md:p-12 bg-white shadow-2xl border-2 border-ray-blue/20 relative overflow-hidden">
+              {/* Popular badge */}
+              <div className="absolute top-0 right-8 bg-gradient-to-r from-ray-blue to-ray-green text-white px-6 py-2 rounded-b-lg text-sm font-bold">
+                BEST VALUE
+              </div>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                {/* Left side - Bundle info */}
+                <div>
                   <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-ray-dark-900 mb-6">
-                      Booking
-                    </h3>
-                    
-                    <div className="mb-2">
-                      <div className="text-4xl font-bold text-ray-dark-900">
-                        $100 / mo
+                    <div className="text-5xl font-bold text-ray-dark-900 mb-2">
+                      $650
+                      <span className="text-xl font-normal text-ray-darkGray">/month</span>
+                    </div>
+                    <div className="text-lg text-ray-darkGray mb-2">
+                      $1,500 setup fee
+                    </div>
+                    <div className="text-sm text-ray-green font-medium">
+                      Save $70/month vs. individual products
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-gradient-to-r from-ray-blue to-blue-600 rounded-lg flex items-center justify-center mr-3">
+                        <MapPin className="w-4 h-4 text-white" />
                       </div>
-                      <div className="text-lg text-ray-dark-900 mt-1">
-                        per location
+                      <span className="font-medium text-ray-dark-900">Walk-Ins Platform</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-gradient-to-r from-ray-green to-green-600 rounded-lg flex items-center justify-center mr-3">
+                        <Calendar className="w-4 h-4 text-white" />
                       </div>
+                      <span className="font-medium text-ray-dark-900">Bookings Platform</span>
                     </div>
-                    
-                    <div className="text-ray-darkGray text-sm mb-4">
-                      $500 one-time setup
-                    </div>
-                  </div>
-                  
-                  {/* Features */}
-                  <div className="text-left space-y-3 mb-8 flex-grow">
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Reservation management system</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Integrated booking system</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Automated confirmation and reminders</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">No-show reduction strategies</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Customer data and analytics</span>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                        <ShoppingCart className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="font-medium text-ray-dark-900">Online Orders Platform</span>
                     </div>
                   </div>
                   
-                  {/* Note */}
-                  <div className="text-xs text-ray-darkGray mb-6 px-2">
-                    Volume discounts for 10+ locations; annual contracts with discount.
-                  </div>
-                  
-                  {/* CTA */}
-                  <div className="mt-auto">
-                    <Button 
-                      variant="primary"
-                      size="lg"
-                      className="w-full shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => handleGetStarted('booking')}
-                    >
-                      Get Started
-                    </Button>
+                  <Button 
+                    variant="primary"
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-ray-blue to-ray-green hover:from-blue-600 hover:to-green-600 shadow-xl hover:shadow-2xl transition-all duration-300"
+                    onClick={handleGetBundle}
+                  >
+                    Get the Full Platform
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
+                
+                {/* Right side - Bundle benefits */}
+                <div>
+                  <h4 className="text-xl font-bold text-ray-dark-900 mb-6">
+                    Bundle Benefits
+                  </h4>
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-ray-dark-700">Unified dashboard and reporting</span>
+                    </div>
+                    <div className="flex items-start">
+                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-ray-dark-700">Cross-platform customer insights</span>
+                    </div>
+                    <div className="flex items-start">
+                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-ray-dark-700">Priority support and onboarding</span>
+                    </div>
+                    <div className="flex items-start">
+                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-ray-dark-700">Advanced analytics and automation</span>
+                    </div>
+                    <div className="flex items-start">
+                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-ray-dark-700">Save $70/month vs. individual products</span>
+                    </div>
                   </div>
                 </div>
-              </Card>
-            </div>
-            
-            {/* Plan 3 - Online Ordering */}
-            <div className="relative animate-in fade-in slide-in-from-bottom duration-700 delay-400">
-              <Card className="text-center hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                <div className="pt-8 pb-8 flex flex-col h-full">
-                  {/* Plan Header */}
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-ray-dark-900 mb-6">
-                      Online Ordering
-                    </h3>
-                    
-                    <div className="mb-2">
-                      <div className="text-4xl font-bold text-ray-dark-900">
-                        $350 / mo
-                      </div>
-                      <div className="text-lg text-ray-dark-900 mt-1">
-                        per location + 3% per order
-                      </div>
-                    </div>
-                    
-                    <div className="text-ray-darkGray text-sm mb-4">
-                      $750 one-time setup
-                    </div>
-                  </div>
-                  
-                  {/* Features */}
-                  <div className="text-left space-y-3 mb-8 flex-grow">
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Direct online ordering system</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Commission-free ordering platform</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Delivery platform optimization</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Upselling and loyalty programs</span>
-                    </div>
-                    <div className="flex items-start">
-                      <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-ray-dark-700">Revenue analytics and insights</span>
-                    </div>
-                  </div>
-                  
-                  {/* Note */}
-                  <div className="text-xs text-ray-darkGray mb-6 px-2">
-                    Volume discounts for 10+ locations; annual contracts with discount.
-                  </div>
-                  
-                  {/* CTA */}
-                  <div className="mt-auto">
-                    <Button 
-                      variant="primary"
-                      size="lg"
-                      className="w-full shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => handleGetStarted('online-ordering')}
-                    >
-                      Get Started
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            </div>
-            
+              </div>
+            </Card>
           </div>
         </div>
       </section>
       
       {/* Guarantees & Inclusions */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
               What's Included
             </h2>
             <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
-              Every plan includes comprehensive support and guarantees to ensure your success.
+              Every product includes comprehensive support and guarantees to ensure your success.
             </p>
           </div>
           
@@ -345,14 +381,14 @@ const Pricing: React.FC = () => {
       </section>
       
       {/* FAQs */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
               Frequently Asked Questions
             </h2>
             <p className="text-xl text-ray-darkGray">
-              Everything you need to know about our pricing and plans.
+              Everything you need to know about our products and pricing.
             </p>
           </div>
           
@@ -387,63 +423,47 @@ const Pricing: React.FC = () => {
         </div>
       </section>
       
-      {/* Final CTA Band */}
+      {/* Final CTA */}
       <section className="py-20 bg-ray-promise relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(13,121,229,0.1),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(111,191,115,0.1),transparent_50%)]"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
-            {/* Content - Left */}
-            <div className="text-center lg:text-left">
-              <h2 className="text-4xl sm:text-5xl font-bold text-ray-dark-900 mb-6 leading-tight">
-                Ready to boost your restaurant's revenue and stand out online?
-              </h2>
-              
-              <p className="text-xl text-ray-darkGray mb-8 leading-relaxed">
-                Join hundreds of restaurant owners who have transformed their business with RAY's powerful platform.
-              </p>
-              
-              <div className="flex justify-center lg:justify-start">
-                <Button 
-                  variant="primary" 
-                  size="lg"
-                  className="shadow-lg hover:shadow-xl transition-all duration-300"
-                  onClick={() => {
-                    console.log('pricing_get_started_click', { section: 'final_cta' })
-                    console.log('demo_form_open')
-                    openBookDemoModal()
-                  }}
-                >
-                  Get Started
-                </Button>
-              </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+            Ready to grow your restaurant revenue?
+          </h2>
+          
+          <p className="text-xl text-ray-dark-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Choose the product that fits your needs, or get the complete platform for maximum growth.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              variant="primary" 
+              size="lg"
+              className="shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={() => {
+                console.log('pricing_get_started_click', { section: 'final_cta' })
+                openBookDemoModal()
+              }}
+            >
+              Get Started Today
+            </Button>
+          </div>
+          
+          <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
+              <span>30% growth guarantee</span>
             </div>
-            
-            {/* Hero Image - Right */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
-                <img
-                  src="https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-                  alt="Bustling restaurant interior with customers dining at every table in a lively atmosphere"
-                  className="w-full h-[400px] object-cover"
-                  loading="lazy"
-                />
-              </div>
-              
-              {/* Floating Success Metrics */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 border border-gray-100 hover:scale-110 transition-transform duration-300">
-                <div className="text-2xl font-bold text-ray-green">+47%</div>
-                <div className="text-sm text-ray-darkGray">Walk-ins</div>
-                <div className="text-xs text-ray-darkGray">average increase</div>
-              </div>
-              
-              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 border border-gray-100 hover:scale-110 transition-transform duration-300">
-                <div className="text-2xl font-bold text-ray-blue">4.8★</div>
-                <div className="text-sm text-ray-darkGray">Rating</div>
-                <div className="text-xs text-ray-darkGray">improvement</div>
-              </div>
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
+              <span>No long-term contracts</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
+              <span>Results in 60-90 days</span>
             </div>
           </div>
         </div>
