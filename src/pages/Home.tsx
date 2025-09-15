@@ -71,7 +71,7 @@ const TrustMetrics: React.FC = () => (
               Restaurants Trust RAY
             </div>
             <div className="text-ray-darkGray text-base leading-relaxed">
-              Successful restaurant owners growing their business with our platform
+              Nationwide success stories
             </div>
           </div>
         </div>
