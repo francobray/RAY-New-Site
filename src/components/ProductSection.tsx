@@ -2,6 +2,36 @@ import React from 'react'
 import { MapPin, ShoppingCart, Calendar, ArrowRight, TrendingUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
+const products = [
+  {
+    icon: MapPin,
+    name: 'Walk-Ins',
+    description: 'Turn searches into walk-ins with AI-powered local marketing that dominates Google Maps and builds trust through reviews.',
+    metric: '+47%',
+    metricLabel: 'avg. increase',
+    href: '/product/walk-ins',
+    gradient: 'from-ray-blue to-blue-600'
+  },
+  {
+    icon: Calendar,
+    name: 'Bookings',
+    description: 'Maximize table occupancy with smart reservation management, waitlists, and guest relationship tools.',
+    metric: '+35%',
+    metricLabel: 'table utilization',
+    href: '/product/bookings',
+    gradient: 'from-ray-green to-green-600'
+  },
+  {
+    icon: ShoppingCart,
+    name: 'Online Orders',
+    description: 'Grow revenue from digital channels with integrated ordering systems and comprehensive analytics.',
+    metric: '+27%',
+    metricLabel: 'online orders',
+    href: '/product/online-orders',
+    gradient: 'from-purple-500 to-purple-600'
+  }
+]
+
 const ProductSection: React.FC = () => {
   return (
     <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
@@ -28,174 +58,61 @@ const ProductSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Product Cards - New Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          
-          {/* Walk-Ins Card */}
-          <div className="group relative">
-            {/* Card Background with Gradient Border */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-ray-blue to-ray-green rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-            
-            <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
-              {/* Header Section */}
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex-1">
-                  <div className="w-14 h-14 bg-ray-blue rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <MapPin className="w-7 h-7 text-white" />
+        {/* Product Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {products.map((product, index) => {
+            const IconComponent = product.icon
+            return (
+              <div key={index} className="group relative">
+                {/* Subtle gradient border effect on hover */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-ray-blue/20 to-ray-green/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 h-full flex flex-col">
+                  {/* Icon with gradient background */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className={`w-14 h-14 bg-gradient-to-r ${product.gradient} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+                      <IconComponent className="w-7 h-7 text-white" />
+                    </div>
+                    
+                    {/* Metric badge */}
+                    <div className="text-right">
+                      <div className="text-2xl font-bold text-ray-green">{product.metric}</div>
+                      <div className="text-xs text-ray-darkGray font-medium">{product.metricLabel}</div>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-3">
-                    Turn Searches Into Walk-Ins
+
+                  {/* Product name */}
+                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
+                    {product.name}
                   </h3>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-ray-green">+47%</div>
-                  <div className="text-sm text-ray-darkGray">avg. increase</div>
+
+                  {/* Description */}
+                  <p className="text-ray-darkGray mb-8 text-base leading-relaxed flex-grow">
+                    {product.description}
+                  </p>
+
+                  {/* CTA Button */}
+                  <Link to={product.href} className="block mt-auto">
+                    <button className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 flex items-center justify-center group/btn shadow-md hover:shadow-lg hover:scale-105">
+                      Learn More
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                    </button>
+                  </Link>
                 </div>
               </div>
+            )
+          })}
+        </div>
 
-              {/* Description */}
-              <p className="text-ray-darkGray mb-6 text-lg leading-relaxed">
-                Your potential customers are searching right now. RAY ensures your restaurant appears at the top of Google Maps, 
-                Apple Maps, and review platforms when hungry customers look for places to dine in your area.
-              </p>
-
-              {/* Features List */}
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center text-ray-dark-700">
-                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Dominate Google Maps & local search</span>
-                </div>
-                <div className="flex items-center text-ray-dark-700">
-                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">AI-powered reputation management</span>
-                </div>
-                <div className="flex items-center text-ray-dark-700">
-                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Automated customer engagement</span>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <Link to="/product/walk-ins" className="block">
-                <button className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 flex items-center justify-center group/btn shadow-lg hover:shadow-xl">
-                  Learn More About Walk-Ins
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                </button>
-              </Link>
-            </div>
-          </div>
-
-          {/* Online Orders Card */}
-          <div className="group relative">
-            {/* Card Background with Gradient Border */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-ray-green to-ray-blue rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-            
-            <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
-              {/* Header Section */}
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex-1">
-                  <div className="w-14 h-14 bg-ray-blue rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <ShoppingCart className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-3">
-                    Grow Online Orders
-                  </h3>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-ray-green">+27%</div>
-                  <div className="text-sm text-ray-darkGray">avg. increase</div>
-                </div>
-              </div>
-
-              {/* Description */}
-              <p className="text-ray-darkGray mb-6 text-lg leading-relaxed">
-                Transform your digital presence into a revenue-generating machine. Our platform optimizes bookings, 
-                direct ordering, and provides insights to maximize every online customer touchpoint.
-              </p>
-
-              {/* Features List */}
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center text-ray-dark-700">
-                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Revenue optimization tools</span>
-                </div>
-                <div className="flex items-center text-ray-dark-700">
-                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Customer engagement automation</span>
-                </div>
-                <div className="flex items-center text-ray-dark-700">
-                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Performance analytics & insights</span>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <Link to="/product/online-orders" className="block">
-                <button className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 flex items-center justify-center group/btn shadow-lg hover:shadow-xl">
-                  Learn More about Online Orders
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                </button>
-              </Link>
-            </div>
-          </div>
-
-          {/* Bookings Card */}
-          <div className="group relative lg:col-span-2 lg:col-start-1 lg:row-start-2">
-            {/* Card Background with Gradient Border */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-ray-blue to-ray-green rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-            
-            <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
-              {/* Header Section */}
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex-1">
-                  <div className="w-14 h-14 bg-ray-blue rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Calendar className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-3">
-                    Simplify Bookings. Connect with Every Customer.
-                  </h3>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-ray-green">+35%</div>
-                  <div className="text-sm text-ray-darkGray">table utilization</div>
-                </div>
-              </div>
-
-              {/* Description */}
-              <p className="text-ray-darkGray mb-6 text-lg leading-relaxed">
-                Turn every table into revenue with our comprehensive booking platform. Manage reservations, 
-                walk-ins, and waitlists seamlessly while building lasting relationships with your guests.
-              </p>
-
-              {/* Features List */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-                <div className="flex items-center text-ray-dark-700">
-                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Online booking widget & visibility</span>
-                </div>
-                <div className="flex items-center text-ray-dark-700">
-                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Waitlist & walk-in management</span>
-                </div>
-                <div className="flex items-center text-ray-dark-700">
-                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Guest CRM & preferences</span>
-                </div>
-                <div className="flex items-center text-ray-dark-700">
-                  <div className="w-2 h-2 bg-ray-green rounded-full mr-3"></div>
-                  <span className="text-sm font-medium">Analytics & booking insights</span>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <Link to="/product/bookings" className="block">
-                <button className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 flex items-center justify-center group/btn shadow-lg hover:shadow-xl">
-                  Learn More About Bookings
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                </button>
-              </Link>
-            </div>
-          </div>
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <p className="text-lg text-ray-darkGray mb-6">
+            Ready to see how RAY can transform your restaurant?
+          </p>
+          <Link to="/pricing" className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-ray-blue to-ray-green text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 group">
+            View Pricing & Plans
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+          </Link>
         </div>
       </div>
     </section>
