@@ -153,10 +153,6 @@ const Contact: React.FC = () => {
       </div>
       
       {/* HubSpot Modals */}
-      <HubSpotGradeModal
-        isOpen={isGradeModalOpen}
-        onClose={closeGradeModal}
-      />
       <HubSpotTalkToExpertModal
         isOpen={isTalkToExpertModalOpen}
         onClose={closeTalkToExpertModal}

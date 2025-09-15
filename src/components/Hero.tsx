@@ -14,11 +14,6 @@ declare global {
 
 const Hero: React.FC = () => {
   const [widgetLoaded, setWidgetLoaded] = useState(false)
-  const { 
-    isGradeModalOpen, 
-    openGradeModal, 
-    closeGradeModal
-  } = useHubSpotModal()
 
   useEffect(() => {
     // Initialize RAY Widget when component mounts
@@ -131,12 +126,6 @@ const Hero: React.FC = () => {
         </div>
       </section>
       
-      {/* HubSpot Modal */}
-      <HubSpotGradeModal
-        isOpen={isGradeModalOpen}
-        onClose={closeGradeModal}
-      />
-
     </div>
   )
 }

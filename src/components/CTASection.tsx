@@ -1,15 +1,11 @@
 import React from 'react'
 import { TrendingUp } from 'lucide-react'
 import Button from './Button'
-import HubSpotGradeModal from './HubSpotGradeModal'
 import HubSpotTalkToExpertModal from './HubSpotTalkToExpertModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const CTASection: React.FC = () => {
   const { 
-    isGradeModalOpen, 
-    openGradeModal, 
-    closeGradeModal,
     isTalkToExpertModalOpen,
     openTalkToExpertModal,
     closeTalkToExpertModal

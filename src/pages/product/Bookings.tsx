@@ -99,9 +99,6 @@ const metrics = [
 
 const Bookings: React.FC = () => {
   const { 
-    isGradeModalOpen, 
-    openGradeModal, 
-    closeGradeModal,
     isTalkToExpertModalOpen,
     openTalkToExpertModal,
     closeTalkToExpertModal
@@ -168,12 +165,19 @@ const Bookings: React.FC = () => {
                 <Button 
                   variant="primary" 
                   size="lg"
-                  onClick={openGradeModal}
                   className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
                   aria-label="Request a free demo of RAY's booking platform"
                 >
-                  Request a Free Demo
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <a 
+                    href="https://grader.rayapp.io/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full h-full"
+                    aria-label="Grade your restaurant with RAY's free assessment tool"
+                  >
+                    Grade Your Restaurant
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </a>
                 </Button>
                 <Button 
                   variant="secondary" 
@@ -400,11 +404,18 @@ const Bookings: React.FC = () => {
             <Button 
               variant="primary" 
               size="lg"
-              onClick={openGradeModal}
               className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
             >
-              See It in Action
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              <a 
+                href="https://grader.rayapp.io/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full h-full"
+                aria-label="Grade your restaurant with RAY's free assessment tool"
+              >
+                Grade Your Restaurant
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </a>
             </Button>
             <Button 
               variant="secondary" 
@@ -434,10 +445,6 @@ const Bookings: React.FC = () => {
       </section>
       
       {/* HubSpot Modals */}
-      <HubSpotGradeModal
-        isOpen={isGradeModalOpen}
-        onClose={closeGradeModal}
-      />
       <HubSpotTalkToExpertModal
         isOpen={isTalkToExpertModalOpen}
         onClose={closeTalkToExpertModal}

@@ -383,11 +383,18 @@ const Header: React.FC = () => {
               </Button>
               <Button 
                 variant="primary" 
-                onClick={openGradeModal}
                 className="shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
                 aria-label="Open restaurant grading form to get your free restaurant scan"
               >
-                Grade Your Restaurant
+                <a 
+                  href="https://grader.rayapp.io/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-full h-full"
+                  aria-label="Grade your restaurant with RAY's free assessment tool"
+                >
+                  Grade Your Restaurant
+                </a>
               </Button>
             </div>
           </div>

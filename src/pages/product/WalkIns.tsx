@@ -94,9 +94,6 @@ const customerStories = [
 
 const WalkIns: React.FC = () => {
   const { 
-    isGradeModalOpen, 
-    openGradeModal, 
-    closeGradeModal,
     isTalkToExpertModalOpen,
     openTalkToExpertModal,
     closeTalkToExpertModal
@@ -164,12 +161,19 @@ const WalkIns: React.FC = () => {
                 <Button 
                   variant="primary" 
                   size="lg"
-                  onClick={openGradeModal}
                   className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
                   aria-label="Open restaurant grading form to get your free restaurant scan"
                 >
-                  Grade Your Restaurant
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <a 
+                    href="https://grader.rayapp.io/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full h-full"
+                    aria-label="Grade your restaurant with RAY's free assessment tool"
+                  >
+                    Grade Your Restaurant
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </a>
                 </Button>
                 <Button 
                   variant="secondary" 
@@ -699,11 +703,18 @@ const WalkIns: React.FC = () => {
             <Button 
               variant="primary" 
               size="lg"
-              onClick={openGradeModal}
               className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
             >
-              Grade Your Restaurant
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              <a 
+                href="https://grader.rayapp.io/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full h-full"
+                aria-label="Grade your restaurant with RAY's free assessment tool"
+              >
+                Grade Your Restaurant
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </a>
             </Button>
             <Button 
               variant="secondary" 
