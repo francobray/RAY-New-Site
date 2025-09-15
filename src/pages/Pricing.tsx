@@ -289,7 +289,7 @@ const Pricing: React.FC = () => {
                         <span className="text-xl font-normal text-ray-darkGray">/month</span>
                       </div>
                       <div className="text-lg text-ray-darkGray mb-2">
-                        $1,500 setup fee
+                       + 3% per order & $1,500 setup fee
                       </div>
                       <div className="inline-flex items-center px-3 py-1 bg-ray-green/10 rounded-full">
                         <span className="text-sm text-ray-green font-bold">Save $230/month vs. individual products</span>
