@@ -3,8 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Check, Shield, Users, TrendingUp, ChevronDown, ChevronUp, MapPin, Calendar, ShoppingCart, Star, ArrowRight } from 'lucide-react'
 import Card from '../components/Card'
 import Button from '../components/Button'
-import HubSpotTalkToExpertModal from '../components/HubSpotTalkToExpertModal'
-import HubSpotBookDemoModal from '../components/HubSpotBookDemoModal'
+import HubSpotUnifiedModal from '../components/HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const products = [
@@ -109,11 +108,10 @@ const faqs = [
 const Pricing: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const { 
-    isTalkToExpertModalOpen,
-    closeTalkToExpertModal,
-    isBookDemoModalOpen,
-    openBookDemoModal,
-    closeBookDemoModal
+    isModalOpen,
+    currentConfig,
+    openModal,
+    closeModal
   } = useHubSpotModal()
 
   const toggleFaq = (index: number) => {
@@ -123,13 +121,13 @@ const Pricing: React.FC = () => {
   const handleGetStarted = (productId: string) => {
     console.log('pricing_get_started_click', { product: productId })
     console.log('demo_form_open')
-    openBookDemoModal()
+    openModal('demo-free')
   }
 
   const handleGetBundle = () => {
     console.log('pricing_bundle_click')
     console.log('demo_form_open')
-    openBookDemoModal()
+    openModal('demo-free')
   }
 
   return (
@@ -233,6 +231,7 @@ const Pricing: React.FC = () => {
                           size="lg"
                           className="w-full shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
                           onClick={() => handleGetStarted(product.id)}
+                          data-cta="demo-free"
                         >
                           Get Started
                           <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
@@ -322,6 +321,7 @@ const Pricing: React.FC = () => {
                       size="lg"
                       className="w-full bg-gradient-to-r from-ray-blue to-ray-green hover:from-blue-600 hover:to-green-600 shadow-xl hover:shadow-2xl transition-all duration-300 group"
                       onClick={handleGetBundle}
+                      data-cta="demo-free"
                     >
                       Get the Full Platform
                       <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -461,8 +461,9 @@ const Pricing: React.FC = () => {
               className="shadow-lg hover:shadow-xl transition-all duration-300"
               onClick={() => {
                 console.log('pricing_get_started_click', { section: 'final_cta' })
-                openBookDemoModal()
+                openModal('demo-free')
               }}
+              data-cta="demo-free"
             >
               Get Started Today
             </Button>
@@ -486,16 +487,13 @@ const Pricing: React.FC = () => {
       </section>
       
       {/* HubSpot Modals */}
-      <HubSpotTalkToExpertModal
-        isOpen={isTalkToExpertModalOpen}
-        onClose={closeTalkToExpertModal}
-      />
-      <HubSpotBookDemoModal
-        isOpen={isBookDemoModalOpen}
+      <HubSpotUnifiedModal
+        isOpen={isModalOpen}
         onClose={() => {
           console.log('demo_form_close')
-          closeBookDemoModal()
+          closeModal()
         }}
+        config={currentConfig}
       />
     </>
   )

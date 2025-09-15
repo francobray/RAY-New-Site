@@ -1,33 +1,66 @@
 import { useState } from 'react'
 
-export const useHubSpotModal = () => {
-  const [isGradeModalOpen, setIsGradeModalOpen] = useState(false)
-  const [isTalkToExpertModalOpen, setIsTalkToExpertModalOpen] = useState(false)
-  const [isBookDemoModalOpen, setIsBookDemoModalOpen] = useState(false)
+export interface ModalConfig {
+  title: string
+  formId: string
+  intent: string
+  successMessage: string
+}
 
-  const openGradeModal = () => setIsGradeModalOpen(true)
-  const closeGradeModal = () => setIsGradeModalOpen(false)
-  
-  const openTalkToExpertModal = () => setIsTalkToExpertModalOpen(true)
-  const closeTalkToExpertModal = () => setIsTalkToExpertModalOpen(false)
-  
-  const openBookDemoModal = () => setIsBookDemoModalOpen(true)
-  const closeBookDemoModal = () => setIsBookDemoModalOpen(false)
+export const MODAL_CONFIGS: Record<string, ModalConfig> = {
+  'demo-expert': {
+    title: 'Talk to an Expert',
+    formId: '789dfc61-6b4a-416d-bec1-9f8c145f984a', // Expert form ID
+    intent: 'expert',
+    successMessage: 'Thanks! Our expert team will reach out shortly to tailor a plan.'
+  },
+  'demo-free': {
+    title: 'Request a Free Demo',
+    formId: 'c8f9d2e1-5a6b-4c7d-8e9f-0a1b2c3d4e5f', // Demo form ID (placeholder)
+    intent: 'demo',
+    successMessage: "You're in! We'll email your demo details and next steps."
+  }
+}
+
+export const useHubSpotModal = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [currentConfig, setCurrentConfig] = useState<ModalConfig | null>(null)
+
+  const openModal = (ctaType: string) => {
+    const config = MODAL_CONFIGS[ctaType]
+    if (config) {
+      setCurrentConfig(config)
+      setIsModalOpen(true)
+    }
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setCurrentConfig(null)
+  }
+
+  // Legacy support - map old methods to new system
+  const openTalkToExpertModal = () => openModal('demo-expert')
+  const openBookDemoModal = () => openModal('demo-free')
 
   return {
-    // Grade Restaurant Modal
-    isGradeModalOpen,
-    openGradeModal,
-    closeGradeModal,
+    // New unified modal system
+    isModalOpen,
+    currentConfig,
+    openModal,
+    closeModal,
     
-    // Talk to Expert Modal
-    isTalkToExpertModalOpen,
+    // Legacy support for existing components
+    isTalkToExpertModalOpen: isModalOpen && currentConfig?.intent === 'expert',
+    isBookDemoModalOpen: isModalOpen && currentConfig?.intent === 'demo',
     openTalkToExpertModal,
-    closeTalkToExpertModal,
-    
-    // Book Demo Modal
-    isBookDemoModalOpen,
+    closeTalkToExpertModal: closeModal,
     openBookDemoModal,
-    closeBookDemoModal
+    closeBookDemoModal: closeModal,
+    
+    // Deprecated - keeping for backward compatibility
+    isGradeModalOpen: false,
+    openGradeModal: () => {},
+    closeGradeModal: () => {}
   }
 }

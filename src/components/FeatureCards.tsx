@@ -1,6 +1,6 @@
 import React from 'react'
 import { MapPin, Target, TrendingUp } from 'lucide-react'
-import HubSpotTalkToExpertModal from './HubSpotTalkToExpertModal'
+import HubSpotUnifiedModal from './HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const features = [
@@ -38,9 +38,10 @@ const features = [
 
 const FeatureCards: React.FC = () => {
   const { 
-    isTalkToExpertModalOpen,
-    openTalkToExpertModal,
-    closeTalkToExpertModal
+    isModalOpen,
+    currentConfig,
+    openModal,
+    closeModal
   } = useHubSpotModal()
 
   return (
@@ -96,7 +97,8 @@ const FeatureCards: React.FC = () => {
                     {/* CTA Button with consistent sizing and Promise gradient */}
                     <div className="mt-auto">
                       <button
-                        onClick={openTalkToExpertModal}
+                        onClick={() => openModal('demo-expert')}
+                        data-cta="demo-expert"
                         className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 min-h-[56px] flex items-center justify-center"
                         aria-label="Open form to schedule a consultation with our restaurant marketing experts"
                       >
@@ -112,9 +114,10 @@ const FeatureCards: React.FC = () => {
       </section>
       
       {/* HubSpot Modal */}
-      <HubSpotTalkToExpertModal
-        isOpen={isTalkToExpertModalOpen}
-        onClose={closeTalkToExpertModal}
+      <HubSpotUnifiedModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        config={currentConfig}
       />
     </>
   )

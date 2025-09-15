@@ -1,14 +1,15 @@
 import React from 'react'
 import { TrendingUp } from 'lucide-react'
 import Button from './Button'
-import HubSpotTalkToExpertModal from './HubSpotTalkToExpertModal'
+import HubSpotUnifiedModal from './HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const CTASection: React.FC = () => {
   const { 
-    isTalkToExpertModalOpen,
-    openTalkToExpertModal,
-    closeTalkToExpertModal
+    isModalOpen,
+    currentConfig,
+    openModal,
+    closeModal
   } = useHubSpotModal()
 
   return (
@@ -52,7 +53,8 @@ const CTASection: React.FC = () => {
             variant="secondary" 
             size="lg"
             className="shadow-xl hover:shadow-2xl transition-all duration-300"
-            onClick={openTalkToExpertModal}
+            onClick={() => openModal('demo-expert')}
+            data-cta="demo-expert"
             aria-label="Open form to schedule a consultation with our restaurant marketing experts"
           >
             Talk to an Expert
@@ -77,9 +79,10 @@ const CTASection: React.FC = () => {
       </section>
       
       {/* HubSpot Modals */}
-      <HubSpotTalkToExpertModal
-        isOpen={isTalkToExpertModalOpen}
-        onClose={closeTalkToExpertModal}
+      <HubSpotUnifiedModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        config={currentConfig}
       />
     </>
   )

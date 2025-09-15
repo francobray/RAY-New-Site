@@ -3,8 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Calendar, Users, BarChart3, Clock, Heart, CheckCircle, ArrowRight, TrendingUp, Star, UserCheck, RotateCcw, Shield } from 'lucide-react'
 import Card from '../../components/Card'
 import Button from '../../components/Button'
-import HubSpotGradeModal from '../../components/HubSpotGradeModal'
-import HubSpotTalkToExpertModal from '../../components/HubSpotTalkToExpertModal'
+import HubSpotUnifiedModal from '../../components/HubSpotUnifiedModal'
 import { useHubSpotModal } from '../../hooks/useHubSpotModal'
 
 const benefits = [
@@ -99,9 +98,10 @@ const metrics = [
 
 const Bookings: React.FC = () => {
   const { 
-    isTalkToExpertModalOpen,
-    openTalkToExpertModal,
-    closeTalkToExpertModal
+    isModalOpen,
+    currentConfig,
+    openModal,
+    closeModal
   } = useHubSpotModal()
 
   return (
@@ -183,7 +183,8 @@ const Bookings: React.FC = () => {
                   variant="secondary" 
                   size="lg"
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                  onClick={openTalkToExpertModal}
+                 onClick={() => openModal('demo-expert')}
+                 data-cta="demo-expert"
                   aria-label="Talk to an expert about optimizing your restaurant bookings"
                 >
                   Talk to an Expert
@@ -421,7 +422,8 @@ const Bookings: React.FC = () => {
               variant="secondary" 
               size="lg"
               className="shadow-xl hover:shadow-2xl transition-all duration-300"
-              onClick={openTalkToExpertModal}
+              onClick={() => openModal('demo-free')}
+              data-cta="demo-free"
             >
               Request Free Demo
             </Button>
@@ -445,9 +447,10 @@ const Bookings: React.FC = () => {
       </section>
       
       {/* HubSpot Modals */}
-      <HubSpotTalkToExpertModal
-        isOpen={isTalkToExpertModalOpen}
-        onClose={closeTalkToExpertModal}
+      <HubSpotUnifiedModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        config={currentConfig}
       />
     </>
   )

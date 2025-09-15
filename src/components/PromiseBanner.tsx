@@ -1,14 +1,15 @@
 import React from 'react'
 import { ArrowRight } from 'lucide-react'
 import Button from './Button'
-import HubSpotTalkToExpertModal from './HubSpotTalkToExpertModal'
+import HubSpotUnifiedModal from './HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const PromiseBanner: React.FC = () => {
   const { 
-    isTalkToExpertModalOpen,
-    openTalkToExpertModal,
-    closeTalkToExpertModal
+    isModalOpen,
+    currentConfig,
+    openModal,
+    closeModal
   } = useHubSpotModal()
 
   return (
@@ -31,7 +32,8 @@ const PromiseBanner: React.FC = () => {
               <Button
                 variant="primary"
                 size="lg"
-                onClick={openTalkToExpertModal}
+                onClick={() => openModal('demo-free')}
+                data-cta="demo-free"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group"
                 aria-label="Book a free demo to see how RAY can help your restaurant grow"
               >
@@ -44,9 +46,10 @@ const PromiseBanner: React.FC = () => {
       </section>
       
       {/* HubSpot Modal */}
-      <HubSpotTalkToExpertModal
-        isOpen={isTalkToExpertModalOpen}
-        onClose={closeTalkToExpertModal}
+      <HubSpotUnifiedModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        config={currentConfig}
       />
     </>
   )
