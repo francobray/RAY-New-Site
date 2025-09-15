@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
               />
             </Link>
             <p className="mt-4 text-ray-gray max-w-md">
-              RAY is the #1 sales platform helping restaurants attract more customers, protect their reputation, and grow revenue from walk-ins, orders, and bookings.
+              RAY is the #1 sales platform helping restaurants attract more customers, grow revenue from walk-ins, orders, and bookings, and protect their reputation.
             </p>
           </div>
 
