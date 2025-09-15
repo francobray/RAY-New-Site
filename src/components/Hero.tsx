@@ -92,7 +92,6 @@ const Hero: React.FC = () => {
               {/* Fallback Button if widget doesn't load */}
               {!widgetLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Button 
                   <a 
                     href="https://grader.rayapp.io/" 
                     target="_blank" 
