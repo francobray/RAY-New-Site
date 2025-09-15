@@ -4,15 +4,6 @@ import { Link } from 'react-router-dom'
 
 const products = [
   {
-    icon: MapPin,
-    name: 'Walk-Ins',
-    description: 'Turn searches into walk-ins with AI-powered local marketing that dominates Google Maps and builds trust through reviews.',
-    metric: '+47%',
-    metricLabel: 'avg. increase',
-    href: '/product/walk-ins',
-    gradient: 'from-ray-blue to-blue-600'
-  },
-  {
     icon: Calendar,
     name: 'Bookings',
     description: 'Maximize table occupancy with smart reservation management, waitlists, and guest relationship tools.',
@@ -20,6 +11,15 @@ const products = [
     metricLabel: 'table utilization',
     href: '/product/bookings',
     gradient: 'from-ray-green to-green-600'
+  },
+  {
+    icon: MapPin,
+    name: 'Walk-Ins',
+    description: 'Turn searches into walk-ins with AI-powered local marketing that dominates Google Maps and builds trust through reviews.',
+    metric: '+47%',
+    metricLabel: 'avg. increase',
+    href: '/product/walk-ins',
+    gradient: 'from-ray-blue to-blue-600'
   },
   {
     icon: ShoppingCart,
