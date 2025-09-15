@@ -31,8 +31,6 @@ const contactInfo = [
 
 const Contact: React.FC = () => {
   const { 
-    isGradeModalOpen, 
-    closeGradeModal,
     isTalkToExpertModalOpen,
     closeTalkToExpertModal
   } = useHubSpotModal()

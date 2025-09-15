@@ -519,12 +519,6 @@ const Header: React.FC = () => {
         )}
       </nav>
       
-      {/* HubSpot Modal */}
-      <HubSpotGradeModal
-        isOpen={isGradeModalOpen}
-        onClose={closeGradeModal}
-      />
-
       <style jsx>{`
         @keyframes fadeInSlideDown {
           from {

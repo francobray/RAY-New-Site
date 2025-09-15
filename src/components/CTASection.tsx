@@ -81,10 +81,6 @@ const CTASection: React.FC = () => {
       </section>
       
       {/* HubSpot Modals */}
-      <HubSpotGradeModal
-        isOpen={isGradeModalOpen}
-        onClose={closeGradeModal}
-      />
       <HubSpotTalkToExpertModal
         isOpen={isTalkToExpertModalOpen}
         onClose={closeTalkToExpertModal}
