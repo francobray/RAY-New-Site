@@ -8,8 +8,14 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1">
-            <Link to="/" className="text-2xl font-bold text-white">
-              RAY
+            <Link to="/" className="flex items-center hover:opacity-80 transition-opacity duration-200">
+              <img 
+                src="/images/logo-rayapp-azulwebp-300x150.webp" 
+                alt="RAY - Restaurant Marketing Platform" 
+                className="h-8 w-auto mb-4"
+                width={120}
+                height={40}
+              />
             </Link>
             <p className="mt-4 text-ray-gray max-w-md">
               RAY is the #1 sales platform helping restaurants attract more customers, protect their reputation, and grow revenue from walk-ins, orders, and bookings.
