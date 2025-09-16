@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
+# Important pages
+Allow: /
+Allow: /product/
+Allow: /pricing
+Allow: /case-studies
+Allow: /about
+Allow: /contact
+
+# Disallow admin and utility pages
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/
+Disallow: /*.json$
+
+# Allow search engines to access assets
+Allow: /images/
+Allow: /fonts/
+Allow: /_next/static/
+
 Sitemap: https://rayrestaurant.com/sitemap.xml

@@ -118,9 +118,15 @@
   .delay-1000 { animation-delay: 1000ms; }
   
   /* Focus states for accessibility */
-  .focus-visible {
+  *:focus-visible {
     outline: 2px solid #0D79E5;
     outline-offset: 2px;
+    border-radius: 4px;
+  }
+  
+  /* Ensure sufficient color contrast */
+  .text-ray-darkGray {
+    color: #4a5568; /* Improved contrast ratio */
   }
   
   /* High contrast mode support */

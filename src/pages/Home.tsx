@@ -1,6 +1,9 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import loadable from '@loadable/component'
+import SEOHead from '../components/SEOHead'
+import { generatePageMeta } from '../utils/seo'
+import { generateOrganizationSchema, generateWebsiteSchema } from '../utils/schema'
+import { COPY } from '../constants/copy'
 import Hero from '../components/Hero'
 import FeatureCards from '../components/FeatureCards'
 import ProductSection from '../components/ProductSection'
@@ -81,54 +84,23 @@ const TrustMetrics: React.FC = () => (
 )
 
 const Home: React.FC = () => {
+  const pageMeta = generatePageMeta({
+    title: 'Increase Restaurant Revenue | Drive More Walk-ins & Reviews',
+    description: 'Increase revenue by driving more walk-ins, orders, and reviews with RAY\'s restaurant marketing platform. Local SEO, reputation management, and customer engagement tools.',
+    path: '/'
+  })
+
+  const combinedSchema = [
+    generateOrganizationSchema(),
+    generateWebsiteSchema()
+  ]
+
   return (
     <>
-      <Helmet>
-        <title>RAY - Increase Restaurant Revenue | Drive More Walk-ins & Reviews</title>
-        <meta name="description" content="Increase revenue by driving more walk-ins, orders, and reviews with RAY's restaurant marketing platform. Local SEO, reputation management, and customer engagement tools." />
-        <meta property="og:title" content="RAY - Increase Restaurant Revenue | Drive More Walk-ins & Reviews" />
-        <meta property="og:description" content="Increase revenue by driving more walk-ins, orders, and reviews with RAY's restaurant marketing platform. Local SEO, reputation management, and customer engagement tools." />
-        <meta property="og:url" content="https://rayrestaurant.com/" />
-        <meta name="twitter:title" content="RAY - Increase Restaurant Revenue | Drive More Walk-ins & Reviews" />
-        <meta name="twitter:description" content="Increase revenue by driving more walk-ins, orders, and reviews with RAY's restaurant marketing platform. Local SEO, reputation management, and customer engagement tools." />
-        <link rel="canonical" href="https://rayrestaurant.com/" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "RAY",
-            "description": "Restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews",
-            "url": "https://rayrestaurant.com",
-            "logo": "https://rayrestaurant.com/images/logo-rayapp-azulwebp-300x150.webp",
-            "sameAs": [
-              "https://twitter.com/rayrestaurant",
-              "https://linkedin.com/company/rayrestaurant"
-            ],
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "RAY Restaurant Marketing Solutions",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "Walk-Ins Marketing Solution",
-                    "description": "AI-powered local marketing that turns searches into walk-ins"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "Online Orders & Bookings Platform",
-                    "description": "Integrated platform for growing online orders, reservations, and deliveries"
-                  }
-                }
-              ]
-            }
-          })}
-        </script>
-      </Helmet>
+      <SEOHead
+        {...pageMeta}
+        schema={combinedSchema}
+      />
       
       <Hero />
       <TrustMetrics />

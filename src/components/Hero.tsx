@@ -76,8 +76,8 @@ const Hero: React.FC = () => {
               </span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-ray-dark-700 leading-relaxed max-w-4xl mx-auto font-light mb-10">
-              RAY is the <strong className="font-semibold text-ray-dark-900">#1 sales platform</strong> helping restaurant owners and operators attract more walk-ins, boost their online reputation, and increase revenue through bookings and online orders.
+            <p className="text-lg sm:text-xl text-ray-dark-700 leading-relaxed max-w-4xl mx-auto mb-10">
+              {COPY.COMPANY.DESCRIPTION}
             </p>
 
             {/* Widget Container */}

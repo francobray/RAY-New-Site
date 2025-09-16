@@ -1,7 +1,10 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { Star, TrendingUp, Eye, MessageSquare, Shield, ArrowRight, CheckCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import SEOHead from '../../components/SEOHead'
+import { generatePageMeta } from '../../utils/seo'
+import { generateProductSchema } from '../../utils/schema'
+import { COPY } from '../../constants/copy'
 import Card from '../../components/Card'
 import Button from '../../components/Button'
 import HubSpotUnifiedModal from '../../components/HubSpotUnifiedModal'
@@ -99,35 +102,23 @@ const WalkIns: React.FC = () => {
     closeModal
   } = useHubSpotModal()
 
+  const pageMeta = generatePageMeta({
+    title: 'Walk-Ins - Turn Searches Into Restaurant Visits',
+    description: 'Turn searches into walk-ins with AI-powered local marketing. Dominate Google Maps, build trust through reviews, and engage customers with personalized campaigns that drive foot traffic.',
+    path: '/product/walk-ins'
+  })
+
+  const productSchema = generateProductSchema({
+    name: COPY.PRODUCTS.WALK_INS.NAME,
+    description: COPY.PRODUCTS.WALK_INS.DESCRIPTION,
+    url: `${pageMeta.canonical}`
+  })
   return (
     <>
-      <Helmet>
-        <title>Walk-Ins - Turn Searches Into Restaurant Visits | RAY</title>
-        <meta name="description" content="Turn searches into walk-ins with AI-powered local marketing. Dominate Google Maps, build trust through reviews, and engage customers with personalized campaigns that drive foot traffic." />
-        <meta property="og:title" content="Walk-Ins - Turn Searches Into Restaurant Visits | RAY" />
-        <meta property="og:description" content="Turn searches into walk-ins with AI-powered local marketing. Dominate Google Maps, build trust through reviews, and engage customers with personalized campaigns that drive foot traffic." />
-        <meta property="og:url" content="https://rayrestaurant.com/product/walk-ins" />
-        <meta name="twitter:title" content="Walk-Ins - Turn Searches Into Restaurant Visits | RAY" />
-        <meta name="twitter:description" content="Turn searches into walk-ins with AI-powered local marketing. Dominate Google Maps, build trust through reviews, and engage customers with personalized campaigns that drive foot traffic." />
-        <link rel="canonical" href="https://rayrestaurant.com/product/walk-ins" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "RAY Walk-Ins Marketing Platform",
-            "description": "AI-powered local marketing platform that helps restaurants increase walk-in traffic through Google Maps optimization, review management, and customer engagement.",
-            "brand": {
-              "@type": "Brand",
-              "name": "RAY"
-            },
-            "offers": {
-              "@type": "Offer",
-              "availability": "https://schema.org/InStock",
-              "priceCurrency": "USD"
-            }
-          })}
-        </script>
-      </Helmet>
+      <SEOHead
+        {...pageMeta}
+        schema={productSchema}
+      />
       
       {/* Hero Section */}
       <section className="py-20 bg-ray-promise relative overflow-hidden">
