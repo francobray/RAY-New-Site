@@ -3,8 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { useEffect } from 'react'
 import { Mail, Clock } from 'lucide-react'
 import Card from '../components/Card'
-import HubSpotGradeModal from '../components/HubSpotGradeModal'
-import HubSpotTalkToExpertModal from '../components/HubSpotTalkToExpertModal'
+import HubSpotUnifiedModal from '../components/HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 // Extend Window interface for HubSpot
@@ -32,7 +31,8 @@ const contactInfo = [
 const Contact: React.FC = () => {
   const { 
     isTalkToExpertModalOpen,
-    closeTalkToExpertModal
+    closeTalkToExpertModal,
+    currentConfig
   } = useHubSpotModal()
 
   useEffect(() => {
@@ -153,9 +153,10 @@ const Contact: React.FC = () => {
       </div>
       
       {/* HubSpot Modals */}
-      <HubSpotTalkToExpertModal
+      <HubSpotUnifiedModal
         isOpen={isTalkToExpertModalOpen}
         onClose={closeTalkToExpertModal}
+        config={currentConfig}
       />
     </>
   )
