@@ -2,8 +2,6 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import Button from './Button'
-import HubSpotGradeModal from './HubSpotGradeModal'
-import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 interface SubmenuItem {
   name: string
@@ -22,18 +20,12 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
-  const [isHoverIntent, setIsHoverIntent] = useState(false)
   
   const hoverTimeoutRef = useRef<number | null>(null)
   const hoverIntentTimeoutRef = useRef<number | null>(null)
   const menuRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const buttonRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({})
   
-  const { 
-    isGradeModalOpen, 
-    openGradeModal, 
-    closeGradeModal
-  } = useHubSpotModal()
   const location = useLocation()
 
   const navigation: NavigationItem[] = [
@@ -145,7 +137,6 @@ const Header: React.FC = () => {
     // Implement hover intent - small delay before opening
     hoverIntentTimeoutRef.current = window.setTimeout(() => {
       setActiveSubmenu(itemName)
-      setIsHoverIntent(true)
     }, 100)
   }
 
@@ -158,7 +149,6 @@ const Header: React.FC = () => {
     // Delay closing to prevent flicker
     hoverTimeoutRef.current = window.setTimeout(() => {
       setActiveSubmenu(null)
-      setIsHoverIntent(false)
     }, 200)
   }
 
@@ -173,7 +163,6 @@ const Header: React.FC = () => {
     // Start close timeout when leaving submenu
     hoverTimeoutRef.current = window.setTimeout(() => {
       setActiveSubmenu(null)
-      setIsHoverIntent(false)
     }, 200)
   }
 
@@ -286,7 +275,7 @@ const Header: React.FC = () => {
                       onMouseLeave={handleMouseLeave}
                     >
                       <button
-                        ref={el => buttonRefs.current[item.name] = el}
+                        ref={el => { buttonRefs.current[item.name] = el }}
                         className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 min-h-[44px] min-w-[44px] flex items-center ${
                           (item.name === 'Product' && (location.pathname === '/' || location.pathname.startsWith('/product'))) ||
                           (item.name === 'About' && (location.pathname === '/about' || location.pathname === '/contact'))
