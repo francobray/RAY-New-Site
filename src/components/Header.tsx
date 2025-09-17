@@ -514,41 +514,6 @@ const Header: React.FC = () => {
           </div>
         )}
       </nav>
-      
-      <style jsx>{`
-        @keyframes fadeInSlideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-
-        /* Hover behavior for fine pointer devices */
-        @media (hover: hover) and (pointer: fine) {
-          .dropdown-hover:hover .dropdown-menu {
-            display: block;
-          }
-        }
-
-        /* Touch behavior for coarse pointer devices */
-        @media (hover: none), (pointer: coarse) {
-          .dropdown-hover:hover .dropdown-menu {
-            display: none;
-          }
-        }
-      `}</style>
     </header>
   )
 }
