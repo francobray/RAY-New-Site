@@ -1,7 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useSearchParams } from 'react-router-dom'
-import { Mail, MapPin, CheckCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+
+// Form validation types
+interface FormData {
+  fullName: string
+  workEmail: string
+  company: string
+  phone: string
+  locations: string
+  message: string
+}
+
+interface FormErrors {
+  fullName?: string
+  workEmail?: string
+  company?: string
+  message?: string
+}
 
 // Trust indicators data
 const trustIndicators = [
@@ -23,8 +40,8 @@ const Contact: React.FC = () => {
   const [searchParams] = useSearchParams()
   const intent = searchParams.get('intent') || 'contact'
   
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [formData, setFormData] = useState({
+  // Form state
+  const [formData, setFormData] = useState<FormData>({
     fullName: '',
     workEmail: '',
     company: '',
@@ -32,8 +49,11 @@ const Contact: React.FC = () => {
     locations: '1',
     message: ''
   })
-  const [errors, setErrors] = useState({})
-  const [submitError, setSubmitError] = useState('')
+  
+  const [errors, setErrors] = useState<FormErrors>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   // Dynamic content based on intent
   const getPageContent = () => {
@@ -64,16 +84,96 @@ const Contact: React.FC = () => {
 
   const content = getPageContent()
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: '' }))
+  // Form validation
+  const validateField = (name: keyof FormData, value: string): string | undefined => {
+    switch (name) {
+      case 'fullName':
+        if (!value.trim()) return 'Full name is required'
+        if (value.trim().length < 2) return 'Please enter your full name'
+        break
+      case 'workEmail':
+        if (!value.trim()) return 'Work email is required'
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(value)) return 'Please enter a valid email address'
+        break
+      case 'message':
+        if (!value.trim()) return 'Message is required'
+        if (value.trim().length < 10) return 'Please provide more details (at least 10 characters)'
+        break
+    }
+    return undefined
+  }
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {}
+    
+    // Validate required fields
+    const requiredFields: (keyof FormData)[] = ['fullName', 'workEmail', 'message']
+    requiredFields.forEach(field => {
+      const error = validateField(field, formData[field])
+      if (error) newErrors[field] = error
+    })
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  // Handle input changes with inline validation
+  const handleInputChange = (name: keyof FormData, value: string) => {
+    setFormData(prev => ({ ...prev, [name]: value }))
+    
+    // Clear error for this field if it exists
+    if (errors[name]) {
+      const newErrors = { ...errors }
+      delete newErrors[name]
+      setErrors(newErrors)
+    }
+    
+    // Validate on blur for better UX
+    if (value.trim()) {
+      const error = validateField(name, value)
+      if (error) {
+        setErrors(prev => ({ ...prev, [name]: error }))
+      }
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitted(true)
+    
+    if (!validateForm()) {
+      // Focus first error field
+      const firstErrorField = Object.keys(errors)[0]
+      const element = document.getElementById(firstErrorField)
+      element?.focus()
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitError(null)
+
+    try {
+      // Simulate form submission (replace with actual API call)
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // In real implementation, send to your backend or HubSpot
+      console.log('Form submitted:', {
+        ...formData,
+        intent,
+        source: 'contact_page',
+        page_url: window.location.href,
+        utm_source: searchParams.get('utm_source'),
+        utm_medium: searchParams.get('utm_medium'),
+        utm_campaign: searchParams.get('utm_campaign')
+      })
+      
+      setIsSubmitted(true)
+    } catch (error) {
+      setSubmitError('Something went wrong. Please try again or email us directly.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   // SEO content
@@ -193,6 +293,7 @@ const Contact: React.FC = () => {
                     />
                     {errors.fullName && (
                       <div id="fullName-error" className="mt-2 flex items-center text-sm text-red-600" role="alert">
+                        <AlertCircle className="w-4 h-4 mr-1 flex-shrink-0" />
                         {errors.fullName}
                       </div>
                     )}
@@ -202,7 +303,7 @@ const Contact: React.FC = () => {
             )}
             {/* HubSpot Form Embed */}
             <div className="p-8 md:p-12 text-center">
-              <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+              <script charSet="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
               <script>
                 hbspt.forms.create({
                   region: "na1",
