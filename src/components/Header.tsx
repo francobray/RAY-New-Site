@@ -37,7 +37,7 @@ const Header: React.FC = () => {
         { name: 'Contact', path: '/contact' }
       ]
     },
-    { name: 'Blog', path: '/blog' }
+    { name: 'Blog', path: 'https://blogv2.rayapp.io/en/' }
   ]
 
   const toggleMenu = () => {
@@ -233,16 +233,29 @@ const Header: React.FC = () => {
                     )}
                   </div>
                 ) : (
-                  <Link
-                    to={item.path}
-                    className={`text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md ${
-                      location.pathname === item.path ? 'text-ray-blue' : ''
-                    }`}
-                    role="menuitem"
-                    data-analytics="nav"
-                  >
-                    {item.name}
-                  </Link>
+                  {item.path.startsWith('http') ? (
+                    <a
+                      href={item.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md"
+                      role="menuitem"
+                      data-analytics="nav"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className={`text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md ${
+                        location.pathname === item.path ? 'text-ray-blue' : ''
+                      }`}
+                      role="menuitem"
+                      data-analytics="nav"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                 )}
               </div>
             ))}
@@ -365,16 +378,29 @@ const Header: React.FC = () => {
                       )}
                     </div>
                   ) : (
-                    <Link
-                      to={item.path}
-                      className={`block px-3 py-2 text-base font-medium hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center ${
-                        location.pathname === item.path ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
-                      }`}
-                      onClick={closeMenu}
-                      data-analytics="nav"
-                    >
-                      {item.name}
-                    </Link>
+                    {item.path.startsWith('http') ? (
+                      <a
+                        href={item.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
+                        onClick={closeMenu}
+                        data-analytics="nav"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        className={`block px-3 py-2 text-base font-medium hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center ${
+                          location.pathname === item.path ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
+                        }`}
+                        onClick={closeMenu}
+                        data-analytics="nav"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
                   )}
                 </div>
               ))}
