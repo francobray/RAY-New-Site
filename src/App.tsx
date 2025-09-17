@@ -1,75 +1,26 @@
-import { Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
-import loadable from '@loadable/component'
+import { Suspense, lazy } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import LoadingSpinner from './components/LoadingSpinner'
 
-// Lazy load pages for code splitting
-const Home = loadable(() => import('./pages/Home'), {
-  fallback: <LoadingSpinner />
-})
-
-const CaseStudies = loadable(() => import('./pages/CaseStudies'), {
-  fallback: <LoadingSpinner />
-})
-
-const CaseStudyDetail = loadable(() => import('./pages/CaseStudyDetail'), {
-  fallback: <LoadingSpinner />
-})
-
-const Features = loadable(() => import('./pages/Features'), {
-  fallback: <LoadingSpinner />
-})
-
-const WalkIns = loadable(() => import('./pages/product/WalkIns'), {
-  fallback: <LoadingSpinner />
-})
-
-const OnlineOrders = loadable(() => import('./pages/product/OnlineOrders'), {
-  fallback: <LoadingSpinner />
-})
-
-const Bookings = loadable(() => import('./pages/product/Bookings'), {
-  fallback: <LoadingSpinner />
-})
-
-const Pricing = loadable(() => import('./pages/Pricing'), {
-  fallback: <LoadingSpinner />
-})
-
-const About = loadable(() => import('./pages/About'), {
-  fallback: <LoadingSpinner />
-})
-
-const Contact = loadable(() => import('./pages/Contact'), {
-  fallback: <LoadingSpinner />
-})
-
-const PrivacyPolicy = loadable(() => import('./pages/PrivacyPolicy'), {
-  fallback: <LoadingSpinner />
-})
-
-const TermsOfService = loadable(() => import('./pages/TermsOfService'), {
-  fallback: <LoadingSpinner />
-})
-
-const CookiePolicy = loadable(() => import('./pages/CookiePolicy'), {
-  fallback: <LoadingSpinner />
-})
-
-const TempleCraftCaseStudy = loadable(() => import('./pages/TempleCraftCaseStudy'), {
-  fallback: <LoadingSpinner />
-})
-
-const ChimbaCaseStudy = loadable(() => import('./pages/ChimbaCaseStudy'), {
-  fallback: <LoadingSpinner />
-})
-
-const NotFound = loadable(() => import('./pages/NotFound'), {
-  fallback: <LoadingSpinner />
-})
+// Lazy load all pages for optimal code splitting
+const Home = lazy(() => import('./pages/Home'))
+const CaseStudies = lazy(() => import('./pages/CaseStudies'))
+const CaseStudyDetail = lazy(() => import('./pages/CaseStudyDetail'))
+const Features = lazy(() => import('./pages/Features'))
+const WalkIns = lazy(() => import('./pages/product/WalkIns'))
+const OnlineOrders = lazy(() => import('./pages/product/OnlineOrders'))
+const Bookings = lazy(() => import('./pages/product/Bookings'))
+const Pricing = lazy(() => import('./pages/Pricing'))
+const About = lazy(() => import('./pages/About'))
+const Contact = lazy(() => import('./pages/Contact'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const TermsOfService = lazy(() => import('./pages/TermsOfService'))
+const CookiePolicy = lazy(() => import('./pages/CookiePolicy'))
+const TempleCraftCaseStudy = lazy(() => import('./pages/TempleCraftCaseStudy'))
+const ChimbaCaseStudy = lazy(() => import('./pages/ChimbaCaseStudy'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function App() {
   return (

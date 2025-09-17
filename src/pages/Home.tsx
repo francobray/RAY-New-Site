@@ -1,9 +1,10 @@
 import React from 'react'
-import loadable from '@loadable/component'
+import { lazy, Suspense } from 'react'
 import SEOHead from '../components/SEOHead'
 import { generatePageMeta } from '../utils/seo'
 import { generateOrganizationSchema, generateWebsiteSchema } from '../utils/schema'
 import { COPY } from '../constants/copy'
+import { CSS_CLASSES } from '../constants/ui'
 import Hero from '../components/Hero'
 import FeatureCards from '../components/FeatureCards'
 import ProductSection from '../components/ProductSection'
@@ -11,20 +12,18 @@ import PromiseBanner from '../components/PromiseBanner'
 import CTASection from '../components/CTASection'
 import LoadingSpinner from '../components/LoadingSpinner'
 
-// Lazy load heavy components
-const TestimonialCarousel = loadable(() => import('../components/TestimonialCarousel'), {
-  fallback: <LoadingSpinner />
-})
+// Lazy load heavy components with React.lazy
+const TestimonialCarousel = lazy(() => import('../components/TestimonialCarousel'))
 
 // Trust metrics banner component
 const TrustMetrics: React.FC = () => (
-  <section className="py-12 bg-white relative overflow-hidden">
+  <section className={`${CSS_CLASSES.SECTION_PADDING} bg-white relative overflow-hidden`}>
     {/* Background decoration */}
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(13,121,229,0.05),transparent_50%)]"></div>
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(111,191,115,0.05),transparent_50%)]"></div>
     
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-12">
+    <div className={CSS_CLASSES.CONTAINER}>
+      <div className={`${CSS_CLASSES.TEXT_CENTER} ${CSS_CLASSES.SECTION_MARGIN}`}>
         <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-4">
           Why Restaurant Owners Choose RAY
         </h2>
@@ -33,10 +32,10 @@ const TrustMetrics: React.FC = () => (
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className={`${CSS_CLASSES.GRID_3} gap-8 max-w-6xl mx-auto`}>
         {/* Highlight 1 - #1 Sales Platform helping restaurant owners and operators */}
         <div className="group">
-          <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 p-8 text-center border border-gray-100 hover:-translate-y-2 animate-in fade-in slide-in-from-bottom duration-700 h-full flex flex-col justify-center">
+          <div className={`bg-white rounded-2xl shadow-lg ${CSS_CLASSES.HOVER_SHADOW} p-8 ${CSS_CLASSES.TEXT_CENTER} border border-gray-100 hover:-translate-y-2 ${CSS_CLASSES.FADE_IN} h-full ${CSS_CLASSES.FLEX_COL} justify-center`}>
             <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300">
               #1
             </div>
@@ -51,7 +50,7 @@ const TrustMetrics: React.FC = () => (
         
         {/* Highlight 2 - 30% Growth guaranteed */}
         <div className="group">
-          <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 p-8 text-center border border-gray-100 hover:-translate-y-2 animate-in fade-in slide-in-from-bottom duration-700 delay-200 h-full flex flex-col justify-center">
+          <div className={`bg-white rounded-2xl shadow-lg ${CSS_CLASSES.HOVER_SHADOW} p-8 ${CSS_CLASSES.TEXT_CENTER} border border-gray-100 hover:-translate-y-2 ${CSS_CLASSES.FADE_IN} delay-200 h-full ${CSS_CLASSES.FLEX_COL} justify-center`}>
             <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300">
               30%
             </div>
@@ -66,7 +65,7 @@ const TrustMetrics: React.FC = () => (
         
         {/* Highlight 3 - 1,000+ Restaurants Trust RAY */}
         <div className="group">
-          <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 p-8 text-center border border-gray-100 hover:-translate-y-2 animate-in fade-in slide-in-from-bottom duration-700 delay-400 h-full flex flex-col justify-center">
+          <div className={`bg-white rounded-2xl shadow-lg ${CSS_CLASSES.HOVER_SHADOW} p-8 ${CSS_CLASSES.TEXT_CENTER} border border-gray-100 hover:-translate-y-2 ${CSS_CLASSES.FADE_IN} delay-400 h-full ${CSS_CLASSES.FLEX_COL} justify-center`}>
             <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300">
               1,000+
             </div>
@@ -107,7 +106,9 @@ const Home: React.FC = () => {
       <ProductSection />
       <FeatureCards />
       <PromiseBanner />
-      <TestimonialCarousel />
+      <Suspense fallback={<LoadingSpinner />}>
+        <TestimonialCarousel />
+      </Suspense>
       <CTASection />
     </>
   )

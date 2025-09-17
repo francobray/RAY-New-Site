@@ -1,2 +1,110 @@
+# Dependencies
 node_modules/
+.pnp
+.pnp.js
+
+# Production builds
+/dist
+/build
+/.next/
+/out/
+
+# Development
+.DS_Store
+*.tsbuildinfo
+.eslintcache
+
+# Environment variables
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+Thumbs.db
+
+# Testing
+/cypress/videos/
+/cypress/screenshots/
+__snapshots__/
+*.spec.*
+*.test.*
+
+# Storybook
+/storybook-static
+.storybook/
+
+# Documentation
+/docs/build/
+
+# Large media files (exclude from AI context)
+/public/media/
+/public/videos/
+/public/images/*.mp4
+/public/images/*.mov
+/public/images/*.avi
+
+# Source maps in production
+*.map

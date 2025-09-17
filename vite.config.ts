@@ -13,27 +13,33 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['lucide-react', '@loadable/component'],
-          utils: ['react-helmet-async']
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          ui: ['lucide-react'],
+          helmet: ['react-helmet-async']
         },
       },
     },
-    sourcemap: process.env.NODE_ENV === 'development',
+    sourcemap: false,
     minify: 'terser',
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug']
+        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+        passes: 2
       },
       mangle: {
         safari10: true
+      },
+      format: {
+        comments: false
       }
     },
     target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14'],
     cssCodeSplit: true,
-    assetsInlineLimit: 4096
+    assetsInlineLimit: 2048,
+    chunkSizeWarningLimit: 1000
   },
   server: {
     port: 5173,
