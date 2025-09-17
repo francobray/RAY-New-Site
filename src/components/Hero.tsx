@@ -2,8 +2,6 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { TrendingUp, Star } from 'lucide-react'
 import Button from './Button'
-import HubSpotGradeModal from './HubSpotGradeModal'
-import { useHubSpotModal } from '../hooks/useHubSpotModal'
 import { COPY } from '../constants/copy'
 
 // Extend Window interface for RAYWidget
