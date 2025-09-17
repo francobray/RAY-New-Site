@@ -1,24 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useSearchParams } from 'react-router-dom'
-import { Mail, Phone, MapPin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
-
-// Form validation types
-interface FormData {
-  fullName: string
-  workEmail: string
-  company: string
-  phone: string
-  locations: string
-  message: string
-}
-
-interface FormErrors {
-  fullName?: string
-  workEmail?: string
-  company?: string
-  message?: string
-}
+import { Mail, MapPin, CheckCircle } from 'lucide-react'
 
 // Trust indicators data
 const trustIndicators = [
@@ -35,6 +18,19 @@ const trustIndicators = [
     label: 'Customer rating'
   }
 ]
+
+interface FormData {
+  fullName: string
+  workEmail: string
+  company: string
+  phone: string
+  locations: string
+  message: string
+}
+
+interface FormErrors {
+  [key: string]: string
+}
 
 const Contact: React.FC = () => {
   const [searchParams] = useSearchParams()
@@ -293,7 +289,6 @@ const Contact: React.FC = () => {
                     />
                     {errors.fullName && (
                       <div id="fullName-error" className="mt-2 flex items-center text-sm text-red-600" role="alert">
-                        <AlertCircle className="w-4 h-4 mr-1 flex-shrink-0" />
                         {errors.fullName}
                       </div>
                     )}
@@ -305,11 +300,11 @@ const Contact: React.FC = () => {
             <div className="p-8 md:p-12 text-center">
               <script charSet="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
               <script>
-                hbspt.forms.create({
+                {`hbspt.forms.create({
                   region: "na1",
                   portalId: "39590119",
                   formId: "789dfc61-6b4a-416d-bec1-9f8c145f984a"
-                });
+                });`}
               </script>
             </div>
           </div>
