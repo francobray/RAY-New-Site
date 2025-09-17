@@ -233,7 +233,7 @@ const Header: React.FC = () => {
                     )}
                   </div>
                 ) : (
-                  {item.path.startsWith('http') ? (
+                   item.path.startsWith('http') ? (
                     <a
                       href={item.path}
                       target="_blank"
@@ -255,7 +255,7 @@ const Header: React.FC = () => {
                     >
                       {item.name}
                     </Link>
-                  )}
+                   )
                 )}
               </div>
             ))}
@@ -378,7 +378,7 @@ const Header: React.FC = () => {
                       )}
                     </div>
                   ) : (
-                    {item.path.startsWith('http') ? (
+                     item.path.startsWith('http') ? (
                       <a
                         href={item.path}
                         target="_blank"
@@ -400,7 +400,7 @@ const Header: React.FC = () => {
                       >
                         {item.name}
                       </Link>
-                    )}
+                     )
                   )}
                 </div>
               ))}
