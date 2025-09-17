@@ -88,15 +88,22 @@ const Hero: React.FC = () => {
               {/* Fallback Button if widget doesn't load */}
               {!widgetLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <a 
-                    href="https://grader.rayapp.io/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-full text-xl px-12 py-6 max-w-lg mx-auto bg-ray-blue text-white rounded-lg font-semibold hover:bg-blue-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 shadow-md hover:shadow-lg hover:scale-105 flex items-center justify-center"
-                    aria-label="Grade your restaurant with RAY's free assessment tool"
+                  <Button 
+                    variant="primary" 
+                    size="lg" 
+                    fullWidth={true} 
+                    className="max-w-lg mx-auto px-12 py-6 text-xl"
                   >
-                    Grade Your Restaurant
-                  </a>
+                    <a 
+                      href="https://grader.rayapp.io/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-full h-full"
+                      aria-label="Grade your restaurant with RAY's free assessment tool"
+                    >
+                      Grade Your Restaurant
+                    </a>
+                  </Button>
                 </div>
               )}
             </div>
