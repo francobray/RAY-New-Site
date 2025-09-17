@@ -19,6 +19,7 @@ const trustIndicators = [
   }
 ]
 
+// Form data types
 interface FormData {
   fullName: string
   workEmail: string
@@ -36,7 +37,9 @@ const Contact: React.FC = () => {
   const [searchParams] = useSearchParams()
   const intent = searchParams.get('intent') || 'contact'
   
-  // Form state
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     workEmail: '',
@@ -45,11 +48,7 @@ const Contact: React.FC = () => {
     locations: '1',
     message: ''
   })
-  
   const [errors, setErrors] = useState<FormErrors>({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [submitError, setSubmitError] = useState<string | null>(null)
 
   // Dynamic content based on intent
   const getPageContent = () => {
@@ -293,9 +292,125 @@ const Contact: React.FC = () => {
                       </div>
                     )}
                   </div>
+
+                  {/* Work Email */}
+                  <div>
+                    <label htmlFor="workEmail" className="block text-sm font-semibold text-ray-dark-900 mb-2">
+                      Work Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="workEmail"
+                      value={formData.workEmail}
+                      onChange={(e) => handleInputChange('workEmail', e.target.value)}
+                      placeholder="john@restaurant.com"
+                      className={`w-full px-4 py-3 border rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent transition-colors duration-200 ${
+                        errors.workEmail ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-gray-400'
+                      }`}
+                      aria-invalid={errors.workEmail ? 'true' : 'false'}
+                      aria-describedby={errors.workEmail ? 'workEmail-error' : undefined}
+                    />
+                    {errors.workEmail && (
+                      <div id="workEmail-error" className="mt-2 flex items-center text-sm text-red-600" role="alert">
+                        {errors.workEmail}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Company */}
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-semibold text-ray-dark-900 mb-2">
+                      Restaurant/Company Name
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      value={formData.company}
+                      onChange={(e) => handleInputChange('company', e.target.value)}
+                      placeholder="Your Restaurant Name"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent hover:border-gray-400 transition-colors duration-200"
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-semibold text-ray-dark-900 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      placeholder="(555) 123-4567"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent hover:border-gray-400 transition-colors duration-200"
+                    />
+                  </div>
+
+                  {/* Number of Locations */}
+                  <div>
+                    <label htmlFor="locations" className="block text-sm font-semibold text-ray-dark-900 mb-2">
+                      Number of Locations
+                    </label>
+                    <select
+                      id="locations"
+                      value={formData.locations}
+                      onChange={(e) => handleInputChange('locations', e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent hover:border-gray-400 transition-colors duration-200"
+                    >
+                      <option value="1">1 location</option>
+                      <option value="2-5">2-5 locations</option>
+                      <option value="6-10">6-10 locations</option>
+                      <option value="11-25">11-25 locations</option>
+                      <option value="25+">25+ locations</option>
+                    </select>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-semibold text-ray-dark-900 mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={(e) => handleInputChange('message', e.target.value)}
+                      placeholder="Tell us about your restaurant and how we can help you grow..."
+                      className={`w-full px-4 py-3 border rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent transition-colors duration-200 resize-vertical ${
+                        errors.message ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-gray-400'
+                      }`}
+                      aria-invalid={errors.message ? 'true' : 'false'}
+                      aria-describedby={errors.message ? 'message-error' : undefined}
+                    />
+                    {errors.message && (
+                      <div id="message-error" className="mt-2 flex items-center text-sm text-red-600" role="alert">
+                        {errors.message}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Submit Error */}
+                  {submitError && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg" role="alert">
+                      <div className="text-sm text-red-600">
+                        {submitError}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-ray-blue hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2"
+                  >
+                    {isSubmitting ? 'Sending...' : content.submitText}
+                  </button>
                 </div>
               </form>
             )}
+            
             {/* HubSpot Form Embed */}
             <div className="p-8 md:p-12 text-center">
               <script charSet="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
