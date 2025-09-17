@@ -1,23 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useSearchParams } from 'react-router-dom'
-import { Mail, MapPin, CheckCircle } from 'lucide-react'
-
-// Trust indicators data
-const trustIndicators = [
-  {
-    metric: '1,000+',
-    label: 'Restaurants served'
-  },
-  {
-    metric: '30%',
-    label: 'Average growth'
-  },
-  {
-    metric: '4.8★',
-    label: 'Customer rating'
-  }
-]
+import { Mail, CheckCircle } from 'lucide-react'
 
 // Form data types
 interface FormData {

@@ -19,7 +19,7 @@ interface SEOHeadProps {
     description: string
     image?: string
   }
-  schema?: object
+  schema?: object | object[]
   noIndex?: boolean
 }
 
