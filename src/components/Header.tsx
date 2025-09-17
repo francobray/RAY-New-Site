@@ -118,6 +118,7 @@ const Header: React.FC = () => {
         break
       case 'Tab':
         // Allow natural tab behavior but close dropdown
+        void event;
         setOpenDropdown(null)
         break
     }
