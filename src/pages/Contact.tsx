@@ -70,7 +70,7 @@ const Contact: React.FC = () => {
       default:
         return {
           title: 'Get in Touch',
-          subtitle: 'Fill out the form below, and we'll connect you to the right team. We look forward to hearing from you!',
+          subtitle: 'Fill out the form below, and we\'ll connect you to the right team. We look forward to hearing from you!',
           submitText: 'Send Message',
           successMessage: 'Thanks for reaching out! We\'ll get back to you within 24 hours.'
         }
