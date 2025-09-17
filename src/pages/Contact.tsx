@@ -432,6 +432,14 @@ const Contact: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
               <a 
                 href="mailto:hello@rayapp.io" 
+                className="flex items-center gap-2 text-ray-blue hover:text-blue-600 transition-colors duration-200"
+              >
+                <Mail className="w-4 h-4" />
+                hello@rayapp.io
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
       
       {/* HubSpot Form Embed */}
