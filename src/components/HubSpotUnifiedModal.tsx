@@ -178,13 +178,6 @@ const HubSpotUnifiedModal: React.FC<HubSpotUnifiedModalProps> = ({
       onBeforeFormInit: (ctx: any) => {
         // Add hidden fields with page context
         if (ctx && ctx.formDefinition && ctx.formDefinition.formFieldGroups) {
-          const hiddenFields = [
-            { name: 'intent', value: config.intent },
-            { name: 'source', value: 'cta' },
-            { name: 'page_url', value: pageUrl },
-            { name: 'page_title', value: pageTitle }
-          ]
-          
           // Note: Hidden field injection depends on HubSpot form configuration
           // These would need to be set up in the HubSpot form builder
           console.log('Form context:', { intent: config.intent, pageUrl, pageTitle })
