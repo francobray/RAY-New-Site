@@ -209,7 +209,6 @@ const Contact: React.FC = () => {
       {/* Live region for form status announcements */}
       <div aria-live="polite" aria-atomic="true" className="sr-only">
         {isSubmitted && `Form submitted successfully. ${content.successMessage}`}
-        {submitError && `Form submission failed. ${submitError}`}
       </div>
     </>
   )
