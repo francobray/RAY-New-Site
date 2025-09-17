@@ -48,5 +48,5 @@ export const generatePageMeta = (config: {
       description,
       image
     }
-  }
+  } as const
 }
