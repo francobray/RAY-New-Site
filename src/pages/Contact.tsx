@@ -432,17 +432,13 @@ const Contact: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
               <a 
                 href="mailto:hello@rayapp.io" 
-                className="flex items-center text-ray-blue hover:text-blue-600 transition-colors duration-200"
-              >
-                <Mail className="w-4 h-4 mr-2" />
-                hello@rayapp.io
-              </a>
-              <div className="flex items-center text-ray-darkGray">
-                <MapPin className="w-4 h-4 mr-2" />
-                Available nationwide
-              </div>
-            </div>
-          </div>
+      </div>
+      
+      {/* HubSpot Form Embed */}
+      <div className="max-w-2xl mx-auto px-6 lg:px-8 mt-8">
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-12">
+          <script src="https://js.hsforms.net/forms/embed/39590119.js" defer></script>
+          <div className="hs-form-frame" data-region="na1" data-form-id="88d103f6-3422-49d9-8748-856de11730e6" data-portal-id="39590119"></div>
         </div>
       </div>
 
