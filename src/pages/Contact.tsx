@@ -33,18 +33,7 @@ const Contact: React.FC = () => {
     message: ''
   })
   const [errors, setErrors] = useState({})
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: '' }))
-    }
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-  }
+  const [submitError, setSubmitError] = useState('')
 
   // Dynamic content based on intent
   const getPageContent = () => {
@@ -74,6 +63,18 @@ const Contact: React.FC = () => {
   }
 
   const content = getPageContent()
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }))
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }))
+    }
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitted(true)
+  }
 
   // SEO content
   const seoTitle = content.title === 'Get in Touch' 
@@ -237,6 +238,7 @@ const Contact: React.FC = () => {
       {/* Live region for form status announcements */}
       <div aria-live="polite" aria-atomic="true" className="sr-only">
         {isSubmitted && `Form submitted successfully. ${content.successMessage}`}
+        {submitError && `Form submission failed. ${submitError}`}
       </div>
     </>
   )
