@@ -308,6 +308,20 @@ const Header: React.FC = () => {
                           role="menu"
                           aria-labelledby={`submenu-${item.name}`}
                         >
+                        <div 
+                          ref={el => { menuRefs.current[item.name] = el }}
+                          id={`submenu-${item.name}`}
+                          className="absolute top-full mt-1 w-80 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
+                          style={{
+                            ...getSubmenuPosition(item.name),
+                            animation: 'fadeInSlideDown 150ms ease-out forwards'
+                          }}
+                          onMouseEnter={handleSubmenuMouseEnter}
+                          onMouseLeave={handleSubmenuMouseLeave}
+                          onKeyDown={(e) => handleSubmenuKeyDown(e, item.name)}
+                          role="menu"
+                          aria-labelledby={`submenu-${item.name}`}
+                        >
                           {item.submenu.map((subItem) => (
                             <Link
                               key={subItem.name}
