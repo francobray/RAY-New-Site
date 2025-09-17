@@ -24,6 +24,27 @@ const Contact: React.FC = () => {
   const intent = searchParams.get('intent') || 'contact'
   
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    fullName: '',
+    workEmail: '',
+    company: '',
+    phone: '',
+    locations: '1',
+    message: ''
+  })
+  const [errors, setErrors] = useState({})
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }))
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }))
+    }
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitted(true)
+  }
 
   // Dynamic content based on intent
   const getPageContent = () => {
@@ -171,7 +192,14 @@ const Contact: React.FC = () => {
                     />
                     {errors.fullName && (
                       <div id="fullName-error" className="mt-2 flex items-center text-sm text-red-600" role="alert">
-            /* HubSpot Form Embed */
+                        {errors.fullName}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </form>
+            )}
+            {/* HubSpot Form Embed */}
             <div className="p-8 md:p-12 text-center">
               <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
               <script>
@@ -182,7 +210,7 @@ const Contact: React.FC = () => {
                 });
               </script>
             </div>
-          )}
+          </div>
 
           {/* Direct Contact Info */}
           <div className="mt-12 text-center">
