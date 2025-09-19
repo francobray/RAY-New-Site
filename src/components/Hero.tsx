@@ -15,12 +15,65 @@ const Hero: React.FC = () => {
   const [widgetLoaded, setWidgetLoaded] = useState(false)
 
   useEffect(() => {
+    // Add custom CSS to fix widget height issues
+    const addCustomStyles = () => {
+      const styleId = 'ray-widget-custom-styles';
+      if (!document.getElementById(styleId)) {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.textContent = `
+          .ray-widget {
+            min-height: 120px !important;
+          }
+          .ray-widget-title {
+            min-height: 50px !important;
+            display: flex !important;
+            align-items: center !important;
+            line-height: 1.2 !important;
+            white-space: normal !important;
+          }
+          .ray-widget-header {
+            min-height: 60px !important;
+          }
+          @media (max-width: 600px) {
+            .ray-widget {
+              min-height: 90px !important;
+              align-items: center !important;
+              padding: 12px 16px !important;
+            }
+            .ray-widget-header {
+              display: block !important;
+              min-height: 40px !important;
+            }
+            .ray-widget-title {
+              font-size: 14px !important;
+              line-height: 1.3 !important;
+              min-height: 40px !important;
+              overflow: hidden !important;
+              text-overflow: ellipsis !important;
+              display: -webkit-box !important;
+              -webkit-line-clamp: 2 !important;
+              -webkit-box-orient: vertical !important;
+              max-height: 40px !important;
+            }
+            .ray-widget-title-container {
+              min-height: 40px !important;
+              align-items: flex-start !important;
+            }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    };
+
     // Initialize RAY Widget when component mounts
     const initWidget = () => {
       if (window.RAYWidget) {
+        addCustomStyles();
         new window.RAYWidget({
           container: '#ray-widget',
-          baseUrl: 'https://grader.rayapp.io'
+          baseUrl: 'https://grader.rayapp.io',
+          width: '100%'
         })
         setWidgetLoaded(true)
       } else {
@@ -47,7 +100,7 @@ const Hero: React.FC = () => {
   return (
     <div>
       {/* Centered Hero Layout */}
-      <section className="relative min-h-[50vh] bg-ray-promise overflow-hidden">
+      <section className="relative min-h-[50vh] bg-ray-promise overflow-hidden pb-12">
         {/* Sophisticated Background Elements */}
         <div className="absolute inset-0">
           {/* Background decoration */}
@@ -81,7 +134,7 @@ const Hero: React.FC = () => {
 
             {/* Widget Container */}
             <div className="relative max-w-4xl mx-auto mb-12">
-              <div id="ray-widget" style={{ minHeight: '500px', transform: 'scale(1.5)', transformOrigin: 'center' }}></div>
+              <div id="ray-widget" style={{ overflow: 'visible' }}></div>
               
               {/* Fallback Button if widget doesn't load */}
               {!widgetLoaded && (
