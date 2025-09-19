@@ -327,7 +327,7 @@ const Header: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block bg-ray-blue text-white px-3 py-3 rounded-md text-base font-medium hover:bg-blue-600 transition-colors duration-200 text-center"
-                    onClick={(e) => {
+                    onClick={() => {
                       handleScanClick()
                       closeMenu()
                     }}
