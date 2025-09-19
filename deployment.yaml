@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: ray-new-site-container
-        image: "southamerica-east1-docker.pkg.dev/preprod1-service/preprod-repo/FRONTEND_IMAGE"
+        image: "southamerica-east1-docker.pkg.dev/prod1-svc-lzjf/prod-repo/FRONTEND_IMAGE"
         imagePullPolicy: Always
         ports:
         - containerPort:  80
@@ -55,7 +55,7 @@ metadata:
 
 spec:
   parentRefs:
-  - name: preprod-gateway
+  - name: prod-gateway
   hostnames:
   - newsite.preprod.rayapp.io
   rules:
