@@ -57,7 +57,7 @@ spec:
   parentRefs:
   - name: prod-gateway
   hostnames:
-  - newsite.preprod.rayapp.io
+  - rayapp.rayapp.io
   rules:
   - matches:
     - path:
