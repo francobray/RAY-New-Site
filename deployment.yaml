@@ -57,7 +57,7 @@ spec:
   parentRefs:
   - name: prod-gateway
   hostnames:
-  - rayapp.rayapp.io
+  - rayapp.io
   rules:
   - matches:
     - path:
