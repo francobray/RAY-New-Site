@@ -1,6 +1,6 @@
 import { writeFileSync, existsSync, mkdirSync } from 'fs'
 import path from 'path'
-import { SITE_CONFIG } from '../src/config/site'
+import { SITE_CONFIG } from '../src/config/site.js'
 
 interface SitemapUrl {
   loc: string
@@ -14,7 +14,7 @@ export class SitemapGenerator {
   private urls: SitemapUrl[] = []
 
   constructor(baseUrl?: string) {
-    this.baseUrl = baseUrl || process.env.SITE_URL || SITE_CONFIG.CANONICAL_URL
+    this.baseUrl = baseUrl || process.env.SITE_URL || 'https://rayapp.io'
   }
 
   addUrl(url: Partial<SitemapUrl> & { loc: string }): void {
@@ -57,6 +57,8 @@ export class SitemapGenerator {
     
     writeFileSync(filePath, sitemap, 'utf-8')
     console.log(`✅ Sitemap generated: ${filePath}`)
+    console.log(`📊 Total URLs: ${this.urls.length}`)
+    console.log(`🌐 Base URL: ${this.baseUrl}`)
   }
 }
 
@@ -165,8 +167,13 @@ function generateSitemap(): void {
   generator.writeSitemap()
 }
 
-// CLI usage
-if (import.meta.url === `file://${process.argv[1]}`) {
+// CLI usage - Fixed for both ESM and CommonJS environments
+const isMainModule = process.argv[1] && (
+  import.meta.url === `file://${process.argv[1]}` ||
+  import.meta.url.endsWith(process.argv[1])
+)
+
+if (isMainModule) {
   try {
     generateSitemap()
     console.log('🎉 Sitemap generation completed successfully!')

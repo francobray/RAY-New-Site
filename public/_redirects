@@ -1,1 +1,51 @@
-/*    /index.html   200
+# RAY Website Redirects and Rewrites
+# Priority: Top rules match first
+
+# CANONICAL DOMAIN ENFORCEMENT - HIGHEST PRIORITY
+# Force all traffic to https://rayapp.io (no www, no other domains)
+https://www.rayapp.io/* https://rayapp.io/:splat 301!
+https://rayrestaurant.com/* https://rayapp.io/:splat 301!
+https://www.rayrestaurant.com/* https://rayapp.io/:splat 301!
+
+# Legacy redirects (301 permanent redirects for renamed paths)
+/products/* /product/:splat 301
+/blog/* /case-studies/:splat 301
+/success-stories/* /case-studies/:splat 301
+/stories/* /case-studies/:splat 301
+
+# Canonical URL normalization
+# Force lowercase URLs
+/PRICING /pricing 301
+/ABOUT /about 301
+/CONTACT /contact 301
+/CASE-STUDIES /case-studies 301
+/FEATURES /features 301
+
+# Remove trailing slashes for consistency (except root)
+/pricing/ /pricing 301
+/about/ /about 301
+/contact/ /contact 301
+/case-studies/ /case-studies 301
+/features/ /features 301
+/product/walk-ins/ /product/walk-ins 301
+/product/bookings/ /product/bookings 301
+/product/online-orders/ /product/online-orders 301
+
+# Specific case study redirects
+/case-studies/temple-craft/ /case-studies/temple-craft-wynwood 301
+/case-studies/chimba/ /case-studies/chimba-miami 301
+
+# Health check endpoint
+/health /index.html 200
+
+# Asset optimization
+/assets/* /assets/:splat 200
+/images/* /images/:splat 200
+/fonts/* /fonts/:splat 200
+
+# API routes (if any future API endpoints)
+/api/* /api/:splat 200
+
+# SPA fallback - serve index.html for all unmatched routes
+# This must be LAST to avoid breaking explicit redirects above
+/* /index.html 200
