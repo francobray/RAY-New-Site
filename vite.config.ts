@@ -4,14 +4,24 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/',
   resolve: {
     alias: {
       '@': '/src',
     },
   },
+  publicDir: 'public',
+  define: {
+    'process.env.SITE_URL': JSON.stringify(process.env.SITE_URL || 'https://rayapp.io'),
+  },
   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
       output: {
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
         manualChunks: {
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
@@ -21,7 +31,7 @@ export default defineConfig({
       },
     },
     sourcemap: false,
-    minify: 'terser',
+    minify: false,
     terserOptions: {
       compress: {
         drop_console: true,
@@ -44,9 +54,19 @@ export default defineConfig({
   server: {
     port: 5173,
     host: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/[^.]*$/, to: '/index.html' }
+      ]
+    }
   },
   preview: {
     port: 4173,
-    host: true
+    host: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/[^.]*$/, to: '/index.html' }
+      ]
+    }
   }
 })
