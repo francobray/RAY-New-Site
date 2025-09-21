@@ -250,8 +250,9 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             ) : (
-              /* Form */
-              <form onSubmit={handleSubmit} className="p-8 md:p-12" noValidate>
+              <>
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="p-8 md:p-12" noValidate>
                 <div className="space-y-6">
                   {/* Full Name */}
                   <div>
@@ -392,13 +393,14 @@ const Contact: React.FC = () => {
                     {isSubmitting ? 'Sending...' : content.submitText}
                   </button>
                 </div>
-              </form>
-              
-              {/* HubSpot Form Embed */}
-              <div className="mt-8 pt-8 border-t border-gray-200">
-                <script src="https://js.hsforms.net/forms/embed/39590119.js" defer></script>
-                <div className="hs-form-frame" data-region="na1" data-form-id="88d103f6-3422-49d9-8748-856de11730e6" data-portal-id="39590119"></div>
-              </div>
+                </form>
+                
+                {/* HubSpot Form Embed */}
+                <div className="mt-8 pt-8 border-t border-gray-200">
+                  <script src="https://js.hsforms.net/forms/embed/39590119.js" defer></script>
+                  <div className="hs-form-frame" data-region="na1" data-form-id="88d103f6-3422-49d9-8748-856de11730e6" data-portal-id="39590119"></div>
+                </div>
+              </>
             )}
             
           </div>
