@@ -393,19 +393,14 @@ const Contact: React.FC = () => {
                   </button>
                 </div>
               </form>
+              
+              {/* HubSpot Form Embed */}
+              <div className="mt-8 pt-8 border-t border-gray-200">
+                <script src="https://js.hsforms.net/forms/embed/39590119.js" defer></script>
+                <div className="hs-form-frame" data-region="na1" data-form-id="88d103f6-3422-49d9-8748-856de11730e6" data-portal-id="39590119"></div>
+              </div>
             )}
             
-            {/* HubSpot Form Embed */}
-            <div className="p-8 md:p-12 text-center">
-              <script charSet="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-              <script>
-                {`hbspt.forms.create({
-                  region: "na1",
-                  portalId: "39590119",
-                  formId: "789dfc61-6b4a-416d-bec1-9f8c145f984a"
-                });`}
-              </script>
-            </div>
           </div>
 
           {/* Direct Contact Info */}
@@ -423,14 +418,6 @@ const Contact: React.FC = () => {
               </a>
             </div>
           </div>
-        </div>
-      </div>
-      
-      {/* HubSpot Form Embed */}
-      <div className="max-w-2xl mx-auto px-6 lg:px-8 mt-8">
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-12">
-          <script src="https://js.hsforms.net/forms/embed/39590119.js" defer></script>
-          <div className="hs-form-frame" data-region="na1" data-form-id="88d103f6-3422-49d9-8748-856de11730e6" data-portal-id="39590119"></div>
         </div>
       </div>
 
