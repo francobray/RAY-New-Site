@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "build:full": "npm run build && npm run sitemap:generate",
     "preview": "vite preview",
-    "sitemap:generate": "NODE_OPTIONS='--loader ts-node/esm' npx ts-node scripts/generate-sitemap.ts",
+    "sitemap:generate": "node --loader ts-node/esm scripts/generate-sitemap.ts",
     "sitemap:validate": "npx ts-node scripts/validate-sitemap.ts",
     "domain:check": "ts-node scripts/domain-safety-check.ts",
     "domain:test": "playwright test tests/domain-canonicalization.spec.ts",
