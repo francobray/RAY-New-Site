@@ -1,5 +1,6 @@
 import { writeFileSync, existsSync, mkdirSync } from 'fs'
 import path from 'path'
+import { SITE_CONFIG } from '../src/config/site'
 
 interface SitemapUrl {
   loc: string
@@ -13,7 +14,7 @@ export class SitemapGenerator {
   private urls: SitemapUrl[] = []
 
   constructor(baseUrl?: string) {
-    this.baseUrl = baseUrl || process.env.SITE_URL || 'https://rayrestaurant.com'
+    this.baseUrl = baseUrl || process.env.SITE_URL || SITE_CONFIG.CANONICAL_URL
   }
 
   addUrl(url: Partial<SitemapUrl> & { loc: string }): void {
@@ -165,7 +166,7 @@ function generateSitemap(): void {
 }
 
 // CLI usage
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   try {
     generateSitemap()
     console.log('🎉 Sitemap generation completed successfully!')
