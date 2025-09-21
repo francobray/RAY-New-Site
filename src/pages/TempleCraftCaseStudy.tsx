@@ -13,10 +13,10 @@ const TempleCraftCaseStudy: React.FC = () => {
         <meta name="description" content="See how Temple Craft Wynwood increased Google Maps visits by 259% and walk-ins by 66% with RAY's local SEO and reputation management platform." />
         <meta property="og:title" content="Temple Craft Wynwood Success Story - 259% Google Maps Growth | RAY Case Study" />
         <meta property="og:description" content="See how Temple Craft Wynwood increased Google Maps visits by 259% and walk-ins by 66% with RAY's local SEO and reputation management platform." />
-        <meta property="og:url" content="https://rayrestaurant.com/case-studies/temple-craft-wynwood" />
+        <meta property="og:url" content="https://rayapp.io/case-studies/temple-craft-wynwood" />
         <meta name="twitter:title" content="Temple Craft Wynwood Success Story - 259% Google Maps Growth | RAY Case Study" />
         <meta name="twitter:description" content="See how Temple Craft Wynwood increased Google Maps visits by 259% and walk-ins by 66% with RAY's local SEO and reputation management platform." />
-        <link rel="canonical" href="https://rayrestaurant.com/case-studies/temple-craft-wynwood" />
+        <link rel="canonical" href="https://rayapp.io/case-studies/temple-craft-wynwood" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

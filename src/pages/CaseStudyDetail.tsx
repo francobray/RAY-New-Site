@@ -172,7 +172,7 @@ const CaseStudyDetail: React.FC = () => {
         <meta name="description" content={`See how ${caseStudy.name} increased revenue with RAY's restaurant marketing platform. ${caseStudy.challenge}`} />
         <meta property="og:title" content={`${caseStudy.name} Success Story - RAY Case Study`} />
         <meta property="og:description" content={`See how ${caseStudy.name} increased revenue with RAY's restaurant marketing platform.`} />
-        <link rel="canonical" href={`https://rayrestaurant.com/case-studies/${id}`} />
+        <link rel="canonical" href={`https://rayapp.io/case-studies/${id}`} />
       </Helmet>
 
       {/* Hero Section */}

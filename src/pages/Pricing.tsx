@@ -137,10 +137,10 @@ const Pricing: React.FC = () => {
         <meta name="description" content="Choose the RAY product that fits your needs. Bookings, Walk-Ins, Online Orders, or get the complete platform. Transparent pricing with 30% growth guarantee." />
         <meta property="og:title" content="Pricing - Choose Your Restaurant Growth Solution | RAY" />
         <meta property="og:description" content="Choose the RAY product that fits your needs. Bookings, Walk-Ins, Online Orders, or get the complete platform. Transparent pricing with 30% growth guarantee." />
-        <meta property="og:url" content="https://rayrestaurant.com/pricing" />
+        <meta property="og:url" content="https://rayapp.io/pricing" />
         <meta name="twitter:title" content="Pricing - Choose Your Restaurant Growth Solution | RAY" />
         <meta name="twitter:description" content="Choose the RAY product that fits your needs. Bookings, Walk-Ins, Online Orders, or get the complete platform. Transparent pricing with 30% growth guarantee." />
-        <link rel="canonical" href="https://rayrestaurant.com/pricing" />
+        <link rel="canonical" href="https://rayapp.io/pricing" />
       </Helmet>
       
       {/* Hero Section */}

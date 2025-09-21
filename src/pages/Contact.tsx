@@ -171,10 +171,10 @@ const Contact: React.FC = () => {
         <meta name="description" content={seoDescription} />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
-        <meta property="og:url" content={`https://rayrestaurant.com/contact${intent !== 'contact' ? `?intent=${intent}` : ''}`} />
+        <meta property="og:url" content={`https://rayapp.io/contact${intent !== 'contact' ? `?intent=${intent}` : ''}`} />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
-        <link rel="canonical" href={`https://rayrestaurant.com/contact${intent !== 'contact' ? `?intent=${intent}` : ''}`} />
+        <link rel="canonical" href={`https://rayapp.io/contact${intent !== 'contact' ? `?intent=${intent}` : ''}`} />
         
         {/* ContactPage Schema */}
         <script type="application/ld+json">
@@ -183,11 +183,11 @@ const Contact: React.FC = () => {
             "@type": "ContactPage",
             "name": content.title,
             "description": seoDescription,
-            "url": `https://rayrestaurant.com/contact${intent !== 'contact' ? `?intent=${intent}` : ''}`,
+            "url": `https://rayapp.io/contact${intent !== 'contact' ? `?intent=${intent}` : ''}`,
             "mainEntity": {
               "@type": "Organization",
               "name": "RAY",
-              "url": "https://rayrestaurant.com",
+              "url": "https://rayapp.io",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
