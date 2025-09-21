@@ -6,7 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build:full": "npm run build && npm run sitemap:generate",
+    "preview": "vite preview",
+    "sitemap:generate": "ts-node scripts/generate-sitemap.ts",
+    "sitemap:validate": "ts-node scripts/validate-sitemap.ts",
+    "domain:check": "ts-node scripts/domain-safety-check.ts",
+    "domain:test": "playwright test tests/domain-canonicalization.spec.ts",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug"
   },
   "dependencies": {
     "lucide-react": "^0.542.0",
@@ -23,6 +31,7 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.1",
     "terser": "^5.43.1",
+    "ts-node": "^10.9.1",
     "typescript": "^5.5.3",
     "vite": "^5.4.2"
   }
