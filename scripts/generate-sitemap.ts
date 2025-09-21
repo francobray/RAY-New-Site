@@ -1,6 +1,6 @@
 import { writeFileSync, existsSync, mkdirSync } from 'fs'
 import path from 'path'
-import { SITE_CONFIG } from '../src/config/site.js'
+import { SITE_CONFIG } from '../src/config/site'
 
 interface SitemapUrl {
   loc: string
