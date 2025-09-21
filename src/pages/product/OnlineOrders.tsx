@@ -255,7 +255,7 @@ const OnlineOrders: React.FC = () => {
           <div className="relative max-w-5xl mx-auto">
             <Card className="p-8">
               <LazyImage
-                src="/images/RAY_Dashboard.png"
+                src="https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop"
                 alt="RAY dashboard showing comprehensive metrics for Almacen de Pizzas including revenue, review scores, Google Business Profile engagement, and multi-location performance analytics"
                 width={800}
                 height={500}
