@@ -12,6 +12,7 @@ const CaseStudyDetail = lazy(() => import('./pages/CaseStudyDetail'))
 const Features = lazy(() => import('./pages/Features'))
 const WalkIns = lazy(() => import('./pages/product/WalkIns'))
 const OnlineOrders = lazy(() => import('./pages/product/OnlineOrders'))
+const Bookings = lazy(() => import('./pages/product/Bookings'))
 const Pricing = lazy(() => import('./pages/Pricing'))
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
@@ -49,7 +50,7 @@ function App() {
             <Route path="/products" element={<Navigate to="/" replace />} />
             <Route path="/product/walk-ins" element={<WalkIns />} />
             <Route path="/product/online-orders" element={<OnlineOrders />} />
-            <Route path="/product/bookings" element={<Navigate to="/product/walk-ins" replace />} />
+            <Route path="/product/bookings" element={<Bookings />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

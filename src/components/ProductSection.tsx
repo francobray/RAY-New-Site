@@ -8,6 +8,15 @@ import { Calendar, MapPin, ShoppingCart } from 'lucide-react'
 
 const products = [
   {
+    icon: Calendar,
+    name: COPY.PRODUCTS.BOOKINGS.NAME,
+    description: COPY.PRODUCTS.BOOKINGS.DESCRIPTION,
+    metric: COPY.PRODUCTS.BOOKINGS.METRIC,
+    metricLabel: COPY.PRODUCTS.BOOKINGS.METRIC_LABEL,
+    href: '/product/bookings',
+    gradient: 'from-ray-green to-green-600'
+  },
+  {
     icon: MapPin,
     name: COPY.PRODUCTS.WALK_INS.NAME,
     description: COPY.PRODUCTS.WALK_INS.DESCRIPTION,
@@ -38,19 +47,18 @@ const ProductSection: React.FC = () => {
           badge={{ icon: TrendingUp, text: 'Proven Revenue Growth Platform' }}
           title={
             <>
-              Two Products.{' '}
+              {COPY.HEADLINES.THREE_PRODUCTS.split('.')[0]}.{' '}
               <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
                 One Powerful Platform.
               </span>
             </>
           }
           subtitle="RAY offers three integrated solutions designed to grow restaurant revenue both offline and online. Choose your focus or combine all for maximum impact."
-          subtitle="RAY offers two integrated solutions designed to grow restaurant revenue both offline and online. Both include bookings integration for complete restaurant management."
           className="mb-20"
         />
 
         {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {products.map((product, index) => {
             const IconComponent = product.icon
             return (

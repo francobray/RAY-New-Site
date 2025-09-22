@@ -21,8 +21,7 @@ const features = [
       'Local SEO for "restaurants near me" searches',
       'AI-powered keyword targeting',
       'Citation building across 50+ directories',
-      'Competitor analysis and monitoring',
-      'Bookings integration and management'
+      'Competitor analysis and monitoring'
     ],
     ctaText: 'Check your rankings',
     ctaLink: '#'
@@ -37,8 +36,7 @@ const features = [
       'AI-powered review response automation',
       'Review generation campaigns',
       'Negative review mitigation strategies',
-      'Reputation score tracking and alerts',
-      'Bookings integration and management'
+      'Reputation score tracking and alerts'
     ],
     ctaText: 'Protect my reputation',
     ctaLink: '#'
@@ -53,8 +51,7 @@ const features = [
       'SMS marketing for immediate impact',
       'Loyalty program management',
       'Event and promotion announcements',
-      'Customer segmentation and targeting',
-      'Bookings integration and management'
+      'Customer segmentation and targeting'
     ],
     ctaText: 'Automate my Google responses and posts!',
     ctaLink: '#'

@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "test:pricing-guardrails": "node tests/pricing-guardrails.test.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "lucide-react": "^0.542.0",

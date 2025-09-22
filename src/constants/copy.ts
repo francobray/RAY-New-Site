@@ -21,6 +21,13 @@ export const COPY = {
   
   // Products
   PRODUCTS: {
+    BOOKINGS: {
+      NAME: 'Bookings',
+      TAGLINE: 'Maximize table occupancy with smart reservation management',
+      DESCRIPTION: 'Maximize table occupancy with smart reservation management, waitlists, and guest relationship tools.',
+      METRIC: '+35%',
+      METRIC_LABEL: 'table utilization'
+    },
     WALK_INS: {
       NAME: 'Walk-Ins',
       TAGLINE: 'Turn searches into walk-ins with AI-powered local marketing',
@@ -39,7 +46,7 @@ export const COPY = {
   
   // Common Headlines
   HEADLINES: {
-    TWO_PRODUCTS: 'Two Products. One Powerful Platform.',
+    THREE_PRODUCTS: 'Three Products. One Powerful Platform.',
     CHOOSE_PLATFORM: 'Choose one, or unlock the full platform.',
     PROVEN_RESULTS: 'Proven Results from Real Restaurants',
     READY_TO_GROW: 'Ready to grow your restaurant revenue?'
