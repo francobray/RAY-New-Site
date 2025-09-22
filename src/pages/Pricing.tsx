@@ -427,6 +427,8 @@ const Pricing: React.FC = () => {
                 openModal('demo-free')
               }}
               data-cta="demo-free"
+              data-analytics="pricing-final-cta"
+              aria-label="Get started today: request a free demo to see how RAY can grow your restaurant revenue"
             >
               Get Started Today
             </Button>
