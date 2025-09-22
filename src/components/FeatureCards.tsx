@@ -1,5 +1,6 @@
 import React from 'react'
 import { MapPin, Target, TrendingUp } from 'lucide-react'
+import Button from './Button'
 import HubSpotUnifiedModal from './HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { ArrowRight, TrendingUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import Button from './Button'
 import SectionHeader from './SectionHeader'
 import { COPY } from '../constants/copy'
 
