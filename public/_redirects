@@ -9,18 +9,14 @@
 /*    Referrer-Policy: strict-origin-when-cross-origin
 /*    Permissions-Policy: camera=(), microphone=(), geolocation=()
 
-# Force HTTPS
-http://rayapp.io/*    https://rayapp.io/:splat    301!
-http://www.rayapp.io/*    https://rayapp.io/:splat    301!
-
-# Canonical domain redirects (www to non-www)
-https://www.rayapp.io/*    https://rayapp.io/:splat    301!
-
 # Legacy domain redirects - PURGE OLD DOMAIN
 https://rayrestaurant.com/*    https://rayapp.io/:splat    301!
 https://www.rayrestaurant.com/*    https://rayapp.io/:splat    301!
 http://rayrestaurant.com/*    https://rayapp.io/:splat    301!
 http://www.rayrestaurant.com/*    https://rayapp.io/:splat    301!
+
+# Canonical domain redirects (www to non-www) - ONLY for rayapp.io
+https://www.rayapp.io/*    https://rayapp.io/:splat    301!
 
 # Trailing slash normalization (remove trailing slashes except root)
 /*/    /:splat    301!
