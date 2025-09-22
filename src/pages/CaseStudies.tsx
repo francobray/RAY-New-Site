@@ -207,6 +207,13 @@ const CaseStudies: React.FC = () => {
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          
           {/* Coming Soon Card */}
           <div className="mt-8 max-w-6xl mx-auto">
             <div className="bg-white rounded-3xl shadow-lg border-2 border-dashed border-gray-300 p-12 text-center">
