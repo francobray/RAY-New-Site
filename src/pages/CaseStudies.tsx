@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowRight, TrendingUp, Star, MapPin, Eye, Users, Award, Filter } from 'lucide-react'
+import { ArrowRight, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
 import CTASection from '../components/CTASection'
 
 const caseStudies = [
@@ -59,7 +59,6 @@ const caseStudies = [
   }
 ]
 
-const allTags = Array.from(new Set(caseStudies.flatMap(study => study.tags)))
 
 const CaseStudies: React.FC = () => {
   return (
@@ -91,7 +90,7 @@ const CaseStudies: React.FC = () => {
       </Helmet>
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
+      <section className="py-12 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(13,121,229,0.05),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(111,191,115,0.05),transparent_50%)]"></div>
@@ -102,46 +101,21 @@ const CaseStudies: React.FC = () => {
             <span className="text-sm font-medium text-ray-dark-900">Proven Success Stories</span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-tight mb-4">
             Real Results from{' '}
             <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
               Real Restaurants
             </span>
           </h1>
           
-          <p className="text-xl text-ray-darkGray max-w-4xl mx-auto leading-relaxed mb-12">
+          <p className="text-xl text-ray-darkGray max-w-4xl mx-auto leading-relaxed mb-8">
             Discover how restaurants have achieved remarkable growth with RAY's platform.
           </p>
         </div>
       </section>
       
-      {/* Filters Section */}
-      <section className="py-8 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center">
-              <Filter className="w-5 h-5 text-ray-darkGray mr-3" />
-              <span className="text-ray-dark-900 font-medium">Filter by solution:</span>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <button className="px-4 py-2 bg-ray-blue text-white rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-200">
-                All Stories
-              </button>
-              {allTags.map((tag) => (
-                <button
-                  key={tag}
-                  className="px-4 py-2 bg-gray-100 text-ray-darkGray rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-200"
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      
       {/* Case Studies Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {caseStudies.map((study, index) => (
@@ -233,16 +207,6 @@ const CaseStudies: React.FC = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
-                    
-                    {/* Hover Effect */}
-                    <div className={`absolute inset-0 bg-gradient-to-t ${study.brandColors.primary} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-          
           {/* Coming Soon Card */}
           <div className="mt-8 max-w-6xl mx-auto">
             <div className="bg-white rounded-3xl shadow-lg border-2 border-dashed border-gray-300 p-12 text-center">
