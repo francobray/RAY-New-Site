@@ -54,7 +54,6 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
             </ul>
-            </ul>
           </div>
 
           {/* Contact */}
