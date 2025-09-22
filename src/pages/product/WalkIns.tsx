@@ -1,5 +1,5 @@
 import React from 'react'
-import { Star, TrendingUp, Eye, MessageSquare, Shield, ArrowRight, CheckCircle } from 'lucide-react'
+import { Star, TrendingUp, Eye, Shield, ArrowRight, CheckCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOHead from '../../components/SEOHead'
 import { generatePageMeta } from '../../utils/seo'
@@ -41,21 +41,6 @@ const features = [
     ctaText: 'Protect my reputation',
     ctaLink: '#'
   },
-  {
-    icon: MessageSquare,
-    title: 'Engagement',
-    subtitle: 'AI-Driven Customer Campaigns',
-    description: 'Keep your profile fresh and engaging with AI. Automatically publish optimized content and responses.',
-    details: [
-      'Personalized email marketing campaigns',
-      'SMS marketing for immediate impact',
-      'Loyalty program management',
-      'Event and promotion announcements',
-      'Customer segmentation and targeting'
-    ],
-    ctaText: 'Automate my Google responses and posts!',
-    ctaLink: '#'
-  }
 ]
 
 const customerStories = [
@@ -361,135 +346,69 @@ const WalkIns: React.FC = () => {
             </div>
             
             {/* Feature 2: Trust & Reputation */}
-          </div>
-        </div>
-      </section>
-      
-      {/* Feature 2: Trust & Reputation - Full Width Gray */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center lg:grid-flow-col-dense">
-            {/* Content - Right */}
-            <div className="lg:col-start-2">
-              <h3 className="text-3xl font-bold text-ray-dark-900 mb-4">
-                Trust & Reputation
-              </h3>
-              
-              <h4 className="text-xl font-semibold text-ray-blue mb-6">
-                Automated Review Management
-              </h4>
-              
-              <p className="text-lg text-ray-darkGray mb-8 leading-relaxed">
-                Spot and handle unfair reviews before they hurt you. Build customer confidence 
-                with AI-powered reputation management that responds instantly and professionally.
-              </p>
-              
-              <ul className="space-y-3 mb-8">
-                {features[1].details.map((detail, detailIndex) => (
-                  <li key={detailIndex} className="flex items-start text-ray-dark-700">
-                    <CheckCircle className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                    <span>{detail}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <button className="inline-flex items-center text-ray-blue font-semibold hover:text-blue-600 transition-colors duration-200 group">
-                Protect my reputation
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-            </div>
-            
-            {/* Visual - Left */}
-            <div className="lg:col-start-1">
-              <Card className="p-8 bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                <div className="space-y-6">
-                  <div className="bg-gray-50 rounded-lg p-6">
-                    <h5 className="font-semibold text-ray-dark-900 mb-4">Review Management</h5>
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
-                        <div>
-                          <div className="font-medium text-ray-dark-900">Positive Review</div>
-                          <div className="text-sm text-ray-darkGray">Auto-responded in 2 mins</div>
+            <div className="py-20 bg-gray-50">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center lg:grid-flow-col-dense">
+                {/* Content - Right */}
+                <div className="lg:col-start-2">
+                  <h3 className="text-3xl font-bold text-ray-dark-900 mb-4">
+                    Trust & Reputation
+                  </h3>
+                  
+                  <h4 className="text-xl font-semibold text-ray-blue mb-6">
+                    Automated Review Management
+                  </h4>
+                  
+                  <p className="text-lg text-ray-darkGray mb-8 leading-relaxed">
+                    Spot and handle unfair reviews before they hurt you. Build customer confidence 
+                    with AI-powered reputation management that responds instantly and professionally.
+                  </p>
+                  
+                  <ul className="space-y-3 mb-8">
+                    {features[1].details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="flex items-start text-ray-dark-700">
+                        <CheckCircle className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <button className="inline-flex items-center text-ray-blue font-semibold hover:text-blue-600 transition-colors duration-200 group">
+                    Protect my reputation
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </button>
+                </div>
+                
+                {/* Visual - Left */}
+                <div className="lg:col-start-1">
+                  <Card className="p-8 bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                    <div className="space-y-6">
+                      <div className="bg-gray-50 rounded-lg p-6">
+                        <h5 className="font-semibold text-ray-dark-900 mb-4">Review Management</h5>
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                            <div>
+                              <div className="font-medium text-ray-dark-900">Positive Review</div>
+                              <div className="text-sm text-ray-darkGray">Auto-responded in 2 mins</div>
+                            </div>
+                            <Star className="w-5 h-5 text-yellow-400 fill-current" />
+                          </div>
+                          <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
+                            <div>
+                              <div className="font-medium text-ray-dark-900">Negative Review</div>
+                              <div className="text-sm text-ray-darkGray">Flagged & escalated</div>
+                            </div>
+                            <Shield className="w-5 h-5 text-red-500" />
+                          </div>
                         </div>
-                        <Star className="w-5 h-5 text-yellow-400 fill-current" />
                       </div>
-                      <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
-                        <div>
-                          <div className="font-medium text-ray-dark-900">Negative Review</div>
-                          <div className="text-sm text-ray-darkGray">Flagged & escalated</div>
-                        </div>
-                        <Shield className="w-5 h-5 text-red-500" />
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-ray-green">4.8★</div>
+                        <div className="text-sm text-ray-darkGray">Average rating</div>
                       </div>
                     </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-ray-green">4.8★</div>
-                    <div className="text-sm text-ray-darkGray">Average rating</div>
-                  </div>
+                  </Card>
                 </div>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Feature 3: Engagement */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Content - Left */}
-            <div>
-              <h3 className="text-3xl font-bold text-ray-dark-900 mb-4">
-                Engagement
-              </h3>
-              
-              <h4 className="text-xl font-semibold text-ray-blue mb-6">
-                AI-Driven Customer Campaigns
-              </h4>
-              
-              <p className="text-lg text-ray-darkGray mb-8 leading-relaxed">
-                Keep your profile fresh and engaging with AI. Automatically publish optimized 
-                content and responses that drive customer engagement and repeat visits.
-              </p>
-              
-              <ul className="space-y-3 mb-8">
-                {features[2].details.map((detail, detailIndex) => (
-                  <li key={detailIndex} className="flex items-start text-ray-dark-700">
-                    <CheckCircle className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                    <span>{detail}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <button className="inline-flex items-center text-ray-blue font-semibold hover:text-blue-600 transition-colors duration-200 group">
-                Automate my Google responses and posts!
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-            </div>
-            
-            {/* Visual - Right */}
-            <div>
-              <Card className="p-8 bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                <div className="space-y-6">
-                  <div className="bg-gray-50 rounded-lg p-6">
-                    <h5 className="font-semibold text-ray-dark-900 mb-4">AI-Generated Content</h5>
-                    <div className="space-y-3">
-                      <div className="p-3 bg-blue-50 rounded-lg">
-                        <div className="font-medium text-ray-dark-900 mb-1">Weekly Special Post</div>
-                        <div className="text-sm text-ray-darkGray">Auto-published with photos</div>
-                      </div>
-                      <div className="p-3 bg-purple-50 rounded-lg">
-                        <div className="font-medium text-ray-dark-900 mb-1">Customer Response</div>
-                        <div className="text-sm text-ray-darkGray">Personalized thank you message</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-ray-green">+60%</div>
-                    <div className="text-sm text-ray-darkGray">Engagement increase</div>
-                  </div>
-                </div>
-              </Card>
+              </div>
             </div>
           </div>
         </div>
