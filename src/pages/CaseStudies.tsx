@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowRight, TrendingUp, Star, MapPin, Eye, Users, Award, Filter } from 'lucide-react'
+import { ArrowRight, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
 import CTASection from '../components/CTASection'
 
 const caseStudies = [
@@ -59,8 +59,6 @@ const caseStudies = [
   }
 ]
 
-const allTags = Array.from(new Set(caseStudies.flatMap(study => study.tags)))
-
 const CaseStudies: React.FC = () => {
   return (
     <>
@@ -115,31 +113,6 @@ const CaseStudies: React.FC = () => {
         </div>
       </section>
       
-      {/* Filters Section */}
-      <section className="py-8 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center">
-              <Filter className="w-5 h-5 text-ray-darkGray mr-3" />
-              <span className="text-ray-dark-900 font-medium">Filter by solution:</span>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <button className="px-4 py-2 bg-ray-blue text-white rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-200">
-                All Stories
-              </button>
-              {allTags.map((tag) => (
-                <button
-                  key={tag}
-                  className="px-4 py-2 bg-gray-100 text-ray-darkGray rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-200"
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      
       {/* Case Studies Grid */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -175,16 +148,6 @@ const CaseStudies: React.FC = () => {
                           <div className="text-sm opacity-90">
                             {study.industry}
                           </div>
-                        </div>
-                        <div className="flex flex-wrap gap-1">
-                          {study.tags.slice(0, 2).map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium"
-                            >
-                              {tag}
-                            </span>
-                          ))}
                         </div>
                       </div>
                       
