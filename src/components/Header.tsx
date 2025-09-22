@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import Button from './Button'
 
 interface MenuItem {
   name: string
