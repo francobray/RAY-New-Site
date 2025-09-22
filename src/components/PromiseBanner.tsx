@@ -1,6 +1,6 @@
 import React from 'react'
 import { ArrowRight } from 'lucide-react'
-import Button from './Button'
+import Button from './shared/BaseButton'
 import HubSpotUnifiedModal from './HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
@@ -34,6 +34,7 @@ const PromiseBanner: React.FC = () => {
                 size="lg"
                 onClick={() => openModal('demo-free')}
                 data-cta="demo-free"
+                data-analytics="promise_banner"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group"
                 aria-label="Book a free demo to see how RAY can help your restaurant grow"
               >

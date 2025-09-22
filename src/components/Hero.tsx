@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { TrendingUp, Star } from 'lucide-react'
-import Button from './Button'
+import Button from './shared/BaseButton'
 import { COPY } from '../constants/copy'
 
 // Extend Window interface for RAYWidget
@@ -139,21 +139,18 @@ const Hero: React.FC = () => {
               {/* Fallback Button if widget doesn't load */}
               {!widgetLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Button 
+                  <Button
                     variant="primary" 
                     size="lg" 
                     fullWidth={true} 
                     className="max-w-lg mx-auto px-12 py-6 text-xl"
+                    href="https://grader.rayapp.io/"
+                    external={true}
+                    data-cta="grader"
+                    data-analytics="hero_fallback"
+                    aria-label="Grade your restaurant with RAY's free assessment tool - run a free 60-second audit"
                   >
-                    <a 
-                      href="https://grader.rayapp.io/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center w-full h-full"
-                      aria-label="Grade your restaurant with RAY's free assessment tool"
-                    >
-                      Grade Your Restaurant
-                    </a>
+                    Grade Your Restaurant
                   </Button>
                 </div>
               )}

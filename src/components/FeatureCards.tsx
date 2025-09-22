@@ -1,5 +1,6 @@
 import React from 'react'
 import { MapPin, Target, TrendingUp } from 'lucide-react'
+import Button from './shared/BaseButton'
 import HubSpotUnifiedModal from './HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
@@ -96,14 +97,17 @@ const FeatureCards: React.FC = () => {
                     
                     {/* CTA Button with consistent sizing and Promise gradient */}
                     <div className="mt-auto">
-                      <button
+                      <Button
+                        variant="primary"
+                        size="md"
+                        className="w-full"
                         onClick={() => openModal('demo-expert')}
                         data-cta="demo-expert"
-                        className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 min-h-[56px] flex items-center justify-center"
+                        data-analytics="feature_cards"
                         aria-label="Open form to schedule a consultation with our restaurant marketing experts"
                       >
                         Talk to an Expert
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>

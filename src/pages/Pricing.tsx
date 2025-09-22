@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Check, Shield, Users, TrendingUp, ChevronDown, ChevronUp, MapPin, ShoppingCart, ArrowRight } from 'lucide-react'
 import Card from '../components/Card'
-import Button from '../components/Button'
+import Button from '../components/shared/BaseButton'
 import HubSpotUnifiedModal from '../components/HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
@@ -310,6 +310,8 @@ const Pricing: React.FC = () => {
                           className="w-full shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
                           onClick={() => handleGetStarted(product.id)}
                           data-cta="demo-free"
+                          data-analytics="pricing_cards"
+                          aria-label={`Get started with ${product.name} - ${product.description.slice(0, 50)}...`}
                         >
                           Get Started
                           <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
@@ -425,6 +427,8 @@ const Pricing: React.FC = () => {
                 openModal('demo-free')
               }}
               data-cta="demo-free"
+              data-analytics="pricing_final_cta"
+              aria-label="Get started today - request a free demo to see how RAY can grow your restaurant"
             >
               Get Started Today
             </Button>

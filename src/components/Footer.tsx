@@ -8,7 +8,11 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1">
-            <Link to="/" className="flex items-center hover:opacity-80 transition-opacity duration-200">
+            <Link 
+              to="/" 
+              className="flex items-center hover:opacity-80 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-lg"
+              aria-label="RAY - Restaurant Marketing Platform - Go to homepage"
+            >
               <img 
                 src="/images/logo-rayapp-azulwebp-300x150.webp" 
                 alt="RAY - Restaurant Marketing Platform" 
@@ -29,32 +33,56 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link to="/product/walk-ins" className="text-ray-gray hover:text-white transition-colors duration-200" aria-label="Learn about RAY's Walk-Ins marketing solution">
+                <Link 
+                  to="/product/walk-ins" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
+                  aria-label="Learn about RAY's Walk-Ins marketing solution"
+                >
                   Walk-Ins
                 </Link>
               </li>
               <li>
-                <Link to="/product/bookings" className="text-ray-gray hover:text-white transition-colors duration-200" aria-label="Learn about RAY's Bookings platform">
+                <Link 
+                  to="/product/bookings" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
+                  aria-label="Learn about RAY's Bookings platform"
+                >
                   Bookings
                 </Link>
               </li>
               <li>
-                <Link to="/product/online-orders" className="text-ray-gray hover:text-white transition-colors duration-200" aria-label="Learn about RAY's Online Orders platform">
+                <Link 
+                  to="/product/online-orders" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
+                  aria-label="Learn about RAY's Online Orders platform"
+                >
                   Online Orders
                 </Link>
               </li>
               <li>
-                <Link to="/case-studies" className="text-ray-gray hover:text-white transition-colors duration-200">
+                <Link 
+                  to="/case-studies" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label="View restaurant success stories and case studies"
+                >
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="text-ray-gray hover:text-white transition-colors duration-200">
+                <Link 
+                  to="/pricing" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label="View RAY pricing plans and packages"
+                >
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-ray-gray hover:text-white transition-colors duration-200">
+                <Link 
+                  to="/about" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label="Learn about RAY's mission and team"
+                >
                   About
                 </Link>
               </li>
@@ -68,12 +96,20 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link to="/contact" className="text-ray-gray hover:text-white transition-colors duration-200">
+                <Link 
+                  to="/contact" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label="Contact RAY for support or questions"
+                >
                   Get in Touch
                 </Link>
               </li>
               <li>
-                <a href="mailto:hello@rayapp.io" className="text-ray-gray hover:text-white transition-colors duration-200">
+                <a 
+                  href="mailto:hello@rayapp.io" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label="Email RAY at hello@rayapp.io"
+                >
                   hello@rayapp.io
                 </a>
               </li>
@@ -87,17 +123,29 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link to="/privacy-policy" className="text-ray-gray hover:text-white transition-colors duration-200">
+                <Link 
+                  to="/privacy-policy" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label="Read RAY's privacy policy"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms-of-service" className="text-ray-gray hover:text-white transition-colors duration-200">
+                <Link 
+                  to="/terms-of-service" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label="Read RAY's terms of service"
+                >
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link to="/cookie-policy" className="text-ray-gray hover:text-white transition-colors duration-200">
+                <Link 
+                  to="/cookie-policy" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label="Read RAY's cookie policy"
+                >
                   Cookie Policy
                 </Link>
               </li>

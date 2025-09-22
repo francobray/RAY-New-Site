@@ -1,6 +1,6 @@
 import React from 'react'
 import { TrendingUp } from 'lucide-react'
-import Button from './Button'
+import Button from './shared/BaseButton'
 import HubSpotUnifiedModal from './HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
@@ -38,16 +38,13 @@ const CTASection: React.FC = () => {
             variant="primary" 
             size="lg"
             className="shadow-xl hover:shadow-2xl transition-all duration-300"
+            href="https://grader.rayapp.io/"
+            external={true}
+            data-cta="grader"
+            data-analytics="cta_section"
+            aria-label="Grade your restaurant - run a free 60-second audit to see growth opportunities"
           >
-            <a 
-              href="https://grader.rayapp.io/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center"
-              aria-label="Grade your restaurant with RAY's free assessment tool"
-            >
-              Grade Your Restaurant
-            </a>
+            Grade Your Restaurant
           </Button>
           <Button 
             variant="secondary" 
@@ -55,6 +52,7 @@ const CTASection: React.FC = () => {
             className="shadow-xl hover:shadow-2xl transition-all duration-300"
             onClick={() => openModal('demo-expert')}
             data-cta="demo-expert"
+            data-analytics="cta_section"
             aria-label="Open form to schedule a consultation with our restaurant marketing experts"
           >
             Talk to an Expert

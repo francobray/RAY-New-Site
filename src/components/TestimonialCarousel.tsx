@@ -1,6 +1,7 @@
 import React from 'react'
 import { Star } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import Button from './shared/BaseButton'
 
 const customers = [
   {
@@ -139,13 +140,15 @@ const TestimonialCarousel: React.FC = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Link
-              to="/case-studies"
-              className="inline-flex items-center px-8 py-4 bg-ray-blue text-white font-semibold rounded-xl hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            <Button
+              variant="primary"
+              size="lg"
+              href="/case-studies"
+              data-analytics="testimonial_carousel"
               aria-label="View all restaurant success stories and case studies"
             >
               View All Success Stories
-            </Link>
+            </Button>
           </div>
         </div>
     </section>
