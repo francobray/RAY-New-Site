@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import LoadingSpinner from './components/LoadingSpinner'
@@ -22,10 +23,22 @@ const TempleCraftCaseStudy = lazy(() => import('./pages/TempleCraftCaseStudy'))
 const ChimbaCaseStudy = lazy(() => import('./pages/ChimbaCaseStudy'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
+// Component to handle client-side routing
+const ScrollToTop = () => {
+  const { pathname } = useLocation()
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  
+  return null
+}
+
 function App() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
+      <ScrollToTop />
       <main>
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
