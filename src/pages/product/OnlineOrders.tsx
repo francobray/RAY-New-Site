@@ -78,10 +78,10 @@ const OnlineOrders: React.FC = () => {
         <meta name="description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins." />
         <meta property="og:title" content="Online Orders - Grow Restaurant Revenue From Digital Channels | RAY" />
         <meta property="og:description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins." />
-        <meta property="og:url" content="https://rayrestaurant.com/product/online-orders" />
+        <meta property="og:url" content="https://rayapp.io/product/online-orders" />
         <meta name="twitter:title" content="Online Orders - Grow Restaurant Revenue From Digital Channels | RAY" />
         <meta name="twitter:description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins." />
-        <link rel="canonical" href="https://rayrestaurant.com/product/online-orders" />
+        <link rel="canonical" href="https://rayapp.io/product/online-orders" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
