@@ -28,8 +28,7 @@ const BaseButton: React.FC<BaseButtonProps> = ({
   disabled = false,
   'data-cta': dataCta,
   'data-analytics': dataAnalytics,
-  'aria-label': ariaLabel,
-  ...props 
+  'aria-label': ariaLabel
 }) => {
   const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 transform hover:scale-105 active:scale-95 cursor-pointer'
   
