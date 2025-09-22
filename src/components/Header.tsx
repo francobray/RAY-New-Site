@@ -21,6 +21,7 @@ const Header: React.FC = () => {
       path: '/products',
       hasDropdown: true,
       dropdownItems: [
+        { name: 'Bookings', path: '/product/bookings' },
         { name: 'Walk-ins', path: '/product/walk-ins' },
         { name: 'Online Orders', path: '/product/online-orders' }
       ]

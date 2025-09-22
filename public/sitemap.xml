@@ -10,6 +10,12 @@
   
   <!-- Product Pages -->
   <url>
+    <loc>https://rayapp.io/product/bookings</loc>
+    <lastmod>2025-01-27</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://rayapp.io/product/walk-ins</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.9</priority>
