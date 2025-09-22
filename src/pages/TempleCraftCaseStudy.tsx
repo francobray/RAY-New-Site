@@ -107,7 +107,7 @@ const TempleCraftCaseStudy: React.FC = () => {
                       <Eye className="w-8 h-8 text-yellow-400" />
                     </div>
                     <div className="text-3xl font-black text-yellow-400 mb-1">+259%</div>
-                    <div className="text-gray-300 text-sm font-medium">Google Maps Views</div>
+                    <div className="text-gray-300 text-sm font-medium">Google Maps Navigations</div>
                   </div>
                   
                   <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20">
@@ -356,7 +356,7 @@ const TempleCraftCaseStudy: React.FC = () => {
               <div className="text-center">
                 <blockquote className="text-2xl md:text-3xl text-white font-medium leading-relaxed mb-8">
                   "Since partnering with RAY, our Juramento location has seen an incredible transformation! 
-                  Our Google Maps navigations skyrocketed by <span className="text-yellow-400 font-black">259%</span>, 
+                  Our Google Maps visits skyrocketed by <span className="text-yellow-400 font-black">259%</span>, 
                   and foot traffic increased by <span className="text-green-400 font-black">66%</span>. 
                   We've never had so many new customers discovering and visiting us. 
                   The impact on our business has been remarkable!"
