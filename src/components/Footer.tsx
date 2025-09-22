@@ -24,11 +24,6 @@ const Footer: React.FC = () => {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
-              Navigation
-            </h3>
-            <ul className="mt-4 space-y-4">
-              <li>
                 <Link to="/product/walk-ins" className="text-ray-gray hover:text-white transition-colors duration-200" aria-label="Learn about RAY's Walk-Ins marketing solution">
                   Walk-Ins
                 </Link>

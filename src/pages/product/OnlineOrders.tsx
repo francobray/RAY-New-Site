@@ -29,7 +29,8 @@ const features = [
       'Delivery platform optimization',
       'Commission-free ordering solutions',
       'Upselling and cross-selling automation',
-      'Loyalty program integration'
+      'Loyalty program integration',
+      'Bookings integration and management'
     ]
   },
   {
@@ -42,7 +43,8 @@ const features = [
       'Customer lifetime value analysis',
       'Peak time and demand forecasting',
       'Channel performance comparison',
-      'ROI measurement and reporting'
+      'ROI measurement and reporting',
+      'Bookings integration and management'
     ]
   }
 ]
