@@ -139,13 +139,16 @@ const TestimonialCarousel: React.FC = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Link
-              to="/case-studies"
-              className="inline-flex items-center px-8 py-4 bg-ray-blue text-white font-semibold rounded-xl hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-              aria-label="View all restaurant success stories and case studies"
+            <Button
+              variant="primary"
+              size="lg"
+              href="/case-studies"
+              className="shadow-lg hover:shadow-xl hover:scale-105"
+              data-analytics="testimonial-carousel"
+              aria-label="View all success stories: see how restaurants have grown with RAY's marketing platform"
             >
               View All Success Stories
-            </Link>
+            </Button>
           </div>
         </div>
     </section>

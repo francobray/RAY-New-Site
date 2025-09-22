@@ -37,17 +37,14 @@ const CTASection: React.FC = () => {
           <Button 
             variant="primary" 
             size="lg"
+            href="https://grader.rayapp.io/"
+            external={true}
             className="shadow-xl hover:shadow-2xl transition-all duration-300"
+            data-cta="grader"
+            data-analytics="cta"
+            aria-label="Grade your restaurant: run a free 60-second audit to discover growth opportunities"
           >
-            <a 
-              href="https://grader.rayapp.io/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center"
-              aria-label="Grade your restaurant with RAY's free assessment tool"
-            >
-              Grade Your Restaurant
-            </a>
+            Grade Your Restaurant
           </Button>
           <Button 
             variant="secondary" 
@@ -55,7 +52,8 @@ const CTASection: React.FC = () => {
             className="shadow-xl hover:shadow-2xl transition-all duration-300"
             onClick={() => openModal('demo-expert')}
             data-cta="demo-expert"
-            aria-label="Open form to schedule a consultation with our restaurant marketing experts"
+            data-analytics="cta"
+            aria-label="Talk to an expert: schedule a consultation with our restaurant marketing specialists"
           >
             Talk to an Expert
           </Button>

@@ -1,10 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 interface BaseButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'dark'
   size?: 'sm' | 'md' | 'lg'
   children: React.ReactNode
   fullWidth?: boolean
+  href?: string
+  external?: boolean
+  'data-cta'?: string
+  'data-analytics'?: string
 }
 
 const BaseButton: React.FC<BaseButtonProps> = ({ 
@@ -13,6 +18,10 @@ const BaseButton: React.FC<BaseButtonProps> = ({
   children, 
   className = '', 
   fullWidth = false,
+  href,
+  external = false,
+  'data-cta': dataCta,
+  'data-analytics': dataAnalytics,
   ...props 
 }) => {
   const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 transform hover:scale-105 active:scale-95'
@@ -34,11 +43,44 @@ const BaseButton: React.FC<BaseButtonProps> = ({
   
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${widthClass} ${className}`
   
+  const commonProps = {
+    className: classes,
+    style: { minHeight: '44px', minWidth: '44px' },
+    'data-cta': dataCta,
+    'data-analytics': dataAnalytics,
+    ...props
+  }
+  
+  // External link
+  if (href && external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...commonProps}
+      >
+        {children}
+      </a>
+    )
+  }
+  
+  // Internal link
+  if (href && !external) {
+    return (
+      <Link
+        to={href}
+        {...commonProps}
+      >
+        {children}
+      </Link>
+    )
+  }
+  
+  // Button
   return (
     <button 
-      className={classes} 
-      {...props}
-      style={{ minHeight: '44px', minWidth: '44px' }}
+      {...commonProps}
     >
       {children}
     </button>

@@ -91,12 +91,19 @@ const ProductSection: React.FC = () => {
                   </p>
 
                   {/* CTA Button */}
-                  <Link to={product.href} className="block mt-auto">
-                    <button className="w-full bg-ray-blue text-white px-6 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 flex items-center justify-center group/btn shadow-md hover:shadow-lg hover:scale-105">
+                  <div className="mt-auto">
+                    <Button
+                      variant="primary"
+                      size="lg"
+                      href={product.href}
+                      className="w-full shadow-md hover:shadow-lg hover:scale-105 group/btn"
+                      data-analytics="product-section"
+                      aria-label={`Learn more about RAY ${product.name}: ${product.description}`}
+                    >
                       Learn More
                       <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                    </button>
-                  </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             )
@@ -108,10 +115,17 @@ const ProductSection: React.FC = () => {
           <p className="text-lg text-ray-darkGray mb-6">
             Ready to see how RAY can transform your restaurant?
           </p>
-          <Link to="/pricing" className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-ray-blue to-ray-green text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 group">
+          <Button
+            variant="primary"
+            size="lg"
+            href="/pricing"
+            className="bg-gradient-to-r from-ray-blue to-ray-green hover:shadow-xl group"
+            data-analytics="product-section"
+            aria-label="View pricing and plans: see RAY's restaurant marketing solutions and pricing options"
+          >
             View Pricing & Plans
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

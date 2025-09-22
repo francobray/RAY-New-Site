@@ -152,27 +152,24 @@ const WalkIns: React.FC = () => {
                 <Button 
                   variant="primary" 
                   size="lg"
+                  href="https://grader.rayapp.io/"
+                  external={true}
                   className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
-                  aria-label="Open restaurant grading form to get your free restaurant scan"
+                  data-cta="grader"
+                  data-analytics="hero"
+                  aria-label="Grade your restaurant: run a free 60-second audit to discover growth opportunities"
                 >
-                  <a 
-                    href="https://grader.rayapp.io/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-full h-full"
-                    aria-label="Grade your restaurant with RAY's free assessment tool"
-                  >
-                    Grade Your Restaurant
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </a>
+                  Grade Your Restaurant
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 
                   variant="secondary" 
                   size="lg"
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                 onClick={() => openModal('demo-expert')}
-                 data-cta="demo-expert"
-                  aria-label="Open form to schedule a consultation with our restaurant marketing experts"
+                  onClick={() => openModal('demo-expert')}
+                  data-cta="demo-expert"
+                  data-analytics="hero"
+                  aria-label="Talk to an expert: schedule a consultation with our restaurant marketing specialists"
                 >
                   Talk to an Expert
                 </Button>
@@ -695,18 +692,15 @@ const WalkIns: React.FC = () => {
             <Button 
               variant="primary" 
               size="lg"
+              href="https://grader.rayapp.io/"
+              external={true}
               className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
+              data-cta="grader"
+              data-analytics="final-cta"
+              aria-label="Grade your restaurant: run a free 60-second audit to discover growth opportunities"
             >
-              <a 
-                href="https://grader.rayapp.io/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-full h-full"
-                aria-label="Grade your restaurant with RAY's free assessment tool"
-              >
-                Grade Your Restaurant
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </a>
+              Grade Your Restaurant
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             <Button 
               variant="secondary" 
@@ -714,6 +708,8 @@ const WalkIns: React.FC = () => {
               className="shadow-xl hover:shadow-2xl transition-all duration-300"
               onClick={() => openModal('demo-expert')}
               data-cta="demo-expert"
+              data-analytics="final-cta"
+              aria-label="Talk to an expert: schedule a consultation with our restaurant marketing specialists"
             >
               Talk to an Expert
             </Button>

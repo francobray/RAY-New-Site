@@ -265,24 +265,28 @@ const Header: React.FC = () => {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a
+            <Button
+              variant="ghost"
+              size="sm"
               href="https://admin-v2.preprod.rayapp.io/dashboard"
-              className="text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md"
+              external={true}
               data-analytics="nav"
+              aria-label="Log in to your RAY dashboard"
             >
               Log in
-            </a>
-            <a
+            </Button>
+            <Button
+              variant="primary"
+              size="sm"
               href="https://grader.rayapp.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-ray-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 shadow-md hover:shadow-lg"
+              external={true}
               onClick={handleScanClick}
               data-cta="grader"
               data-analytics="nav"
+              aria-label="Grade your restaurant: run a free 60-second audit to discover growth opportunities"
             >
               Scan your restaurant
-            </a>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -315,28 +319,34 @@ const Header: React.FC = () => {
                   Actions
                 </div>
                 <div className="space-y-2">
-                  <a
+                  <Button
+                    variant="ghost"
+                    size="md"
                     href="https://admin-v2.preprod.rayapp.io/dashboard"
-                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200"
+                    external={true}
                     onClick={closeMenu}
                     data-analytics="nav"
+                    aria-label="Log in to your RAY dashboard"
+                    className="w-full justify-start"
                   >
                     Log in
-                  </a>
-                  <a
+                  </Button>
+                  <Button
+                    variant="primary"
+                    size="md"
                     href="https://grader.rayapp.io/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block bg-ray-blue text-white px-3 py-3 rounded-md text-base font-medium hover:bg-blue-600 transition-colors duration-200 text-center"
+                    external={true}
                     onClick={() => {
                       handleScanClick()
                       closeMenu()
                     }}
                     data-cta="grader"
                     data-analytics="nav"
+                    aria-label="Grade your restaurant: run a free 60-second audit to discover growth opportunities"
+                    className="w-full"
                   >
                     Scan your restaurant
-                  </a>
+                  </Button>
                 </div>
               </div>
 
