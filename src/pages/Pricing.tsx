@@ -1,30 +1,12 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Check, Shield, Users, TrendingUp, ChevronDown, ChevronUp, MapPin, Calendar, ShoppingCart, Star, ArrowRight } from 'lucide-react'
+import { Check, Shield, Users, TrendingUp, ChevronDown, ChevronUp, MapPin, ShoppingCart, Star, ArrowRight } from 'lucide-react'
 import Card from '../components/Card'
 import Button from '../components/Button'
 import HubSpotUnifiedModal from '../components/HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const products = [
-  {
-    id: 'bookings',
-    icon: Calendar,
-    name: 'Bookings',
-    description: 'Maximize table occupancy with smart reservation management, waitlists, and guest relationship tools.',
-    keyBenefit: 'Increase table utilization by 35%',
-    price: '$100',
-    setupFee: '$500',
-    features: [
-      'Reservation management system',
-      'Integrated booking system',
-      'Automated confirmation and reminders',
-      'No-show reduction strategies',
-      'Customer data and analytics'
-    ],
-    gradient: 'from-ray-green to-green-600',
-    bgGradient: 'from-green-50 to-emerald-50'
-  },
   {
     id: 'walk-ins',
     icon: MapPin,
@@ -38,10 +20,12 @@ const products = [
       'Review management and staff leaderboard',
       'AI-powered sentiment analysis',
       'Local SEO and visibility optimization',
-      'Performance analytics and reporting'
+      'Performance analytics and reporting',
+      'Bookings integration included'
     ],
     gradient: 'from-ray-blue to-blue-600',
-    bgGradient: 'from-blue-50 to-cyan-50'
+    bgGradient: 'from-blue-50 to-cyan-50',
+    isPopular: true
   },
   {
     id: 'online-orders',
@@ -57,7 +41,8 @@ const products = [
       'Commission-free ordering platform',
       'Delivery platform optimization',
       'Upselling and loyalty programs',
-      'Revenue analytics and insights'
+      'Revenue analytics and insights',
+      'Bookings integration included'
     ],
     gradient: 'from-purple-500 to-purple-600',
     bgGradient: 'from-purple-50 to-pink-50'
@@ -82,14 +67,38 @@ const guarantees = [
   }
 ]
 
+const compareFeatures = [
+  {
+    category: 'Core Features',
+    features: [
+      { name: 'Google Business Profile optimization', walkIns: true, onlineOrders: true },
+      { name: 'Review management', walkIns: true, onlineOrders: true },
+      { name: 'Local SEO optimization', walkIns: true, onlineOrders: true },
+      { name: 'Bookings integration', walkIns: true, onlineOrders: true },
+      { name: 'Performance analytics', walkIns: true, onlineOrders: true }
+    ]
+  },
+  {
+    category: 'Specialized Features',
+    features: [
+      { name: 'AI-powered sentiment analysis', walkIns: true, onlineOrders: false },
+      { name: 'Staff leaderboard', walkIns: true, onlineOrders: false },
+      { name: 'Direct online ordering', walkIns: false, onlineOrders: true },
+      { name: 'Commission-free platform', walkIns: false, onlineOrders: true },
+      { name: 'Delivery optimization', walkIns: false, onlineOrders: true },
+      { name: 'Upselling automation', walkIns: false, onlineOrders: true }
+    ]
+  }
+]
+
 const faqs = [
   {
     question: 'Can I purchase just one product?',
-    answer: 'Yes! Each product can be purchased individually based on your restaurant\'s specific needs. You can always add more products later.'
+    answer: 'Yes! Each product can be purchased individually based on your restaurant\'s specific needs. Both products include bookings integration as a standard feature.'
   },
   {
-    question: 'What\'s included in the All-in-One Platform?',
-    answer: 'The bundle includes all three products (Bookings, Walk-Ins, and Online Orders) with integrated analytics, unified reporting, and priority support.'
+    question: 'What\'s included in each plan?',
+    answer: 'Each plan includes comprehensive features for its focus area plus bookings integration, dedicated support, and our revenue growth guarantee.'
   },
   {
     question: 'How does billing work?',
@@ -97,7 +106,7 @@ const faqs = [
   },
   {
     question: 'What\'s included in onboarding?',
-    answer: 'Every product includes personal onboarding with a dedicated specialist, complete setup of all features, staff training, and 30 days of hands-on support.'
+    answer: 'Every product includes personal onboarding with a dedicated specialist, complete setup of all features including bookings integration, staff training, and 30 days of hands-on support.'
   },
   {
     question: 'How quickly will I see results?',
@@ -107,6 +116,7 @@ const faqs = [
 
 const Pricing: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [showCompare, setShowCompare] = useState(false)
   const { 
     isModalOpen,
     currentConfig,
@@ -124,23 +134,42 @@ const Pricing: React.FC = () => {
     openModal('demo-free')
   }
 
-  const handleGetBundle = () => {
-    console.log('pricing_bundle_click')
-    console.log('demo_form_open')
-    openModal('demo-free')
-  }
-
   return (
     <>
       <Helmet>
         <title>Pricing - Choose Your Restaurant Growth Solution | RAY</title>
-        <meta name="description" content="Choose the RAY product that fits your needs. Bookings, Walk-Ins, Online Orders, or get the complete platform. Transparent pricing with 30% growth guarantee." />
+        <meta name="description" content="Choose the RAY product that fits your needs. Walk-Ins or Online Orders - both include bookings integration. Transparent pricing with 30% growth guarantee." />
         <meta property="og:title" content="Pricing - Choose Your Restaurant Growth Solution | RAY" />
-        <meta property="og:description" content="Choose the RAY product that fits your needs. Bookings, Walk-Ins, Online Orders, or get the complete platform. Transparent pricing with 30% growth guarantee." />
+        <meta property="og:description" content="Choose the RAY product that fits your needs. Walk-Ins or Online Orders - both include bookings integration. Transparent pricing with 30% growth guarantee." />
         <meta property="og:url" content="https://rayapp.io/pricing" />
         <meta name="twitter:title" content="Pricing - Choose Your Restaurant Growth Solution | RAY" />
-        <meta name="twitter:description" content="Choose the RAY product that fits your needs. Bookings, Walk-Ins, Online Orders, or get the complete platform. Transparent pricing with 30% growth guarantee." />
+        <meta name="twitter:description" content="Choose the RAY product that fits your needs. Walk-Ins or Online Orders - both include bookings integration. Transparent pricing with 30% growth guarantee." />
         <link rel="canonical" href="https://rayapp.io/pricing" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "RAY Pricing",
+            "description": "Choose the RAY product that fits your needs. Walk-Ins or Online Orders - both include bookings integration.",
+            "url": "https://rayapp.io/pricing",
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": products.map((product, index) => ({
+                "@type": "Product",
+                "position": index + 1,
+                "name": `RAY ${product.name}`,
+                "description": product.description,
+                "offers": {
+                  "@type": "Offer",
+                  "price": product.price.replace('$', ''),
+                  "priceCurrency": "USD",
+                  "availability": "https://schema.org/InStock"
+                }
+              }))
+            }
+          })}
+        </script>
       </Helmet>
       
       {/* Hero Section */}
@@ -156,19 +185,19 @@ const Pricing: React.FC = () => {
           </div>
           
           <h1 className="text-4xl sm:text-5xl font-bold text-ray-dark-900 mb-6 leading-tight">
-            Three Products.{' '}
+            Two Products.{' '}
             <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
               One Powerful Platform.
             </span>
           </h1>
           
           <p className="text-xl text-ray-dark-700 max-w-4xl mx-auto leading-relaxed mb-4">
-            Choose one, or unlock the full platform.
+            Choose the focus that fits your needs.
           </p>
           
           <p className="text-lg text-ray-darkGray max-w-3xl mx-auto leading-relaxed">
-            Each RAY product is designed to solve specific restaurant challenges. 
-            Purchase individually based on your needs, or combine them for maximum revenue growth.
+            Each RAY product is designed to solve specific restaurant challenges and includes bookings integration. 
+            Purchase individually based on your needs for maximum revenue growth.
           </p>
         </div>
       </section>
@@ -176,16 +205,23 @@ const Pricing: React.FC = () => {
       {/* Individual Products */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {products.map((product, index) => {
               const IconComponent = product.icon
               return (
                 <div key={product.id} className={`animate-in fade-in slide-in-from-bottom duration-700 delay-${index * 200}`}>
                   <div className="group relative h-full">
+                    {/* Popular badge */}
+                    {product.isPopular && (
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-ray-blue to-ray-green text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg z-10">
+                        MOST POPULAR
+                      </div>
+                    )}
+                    
                     {/* Subtle gradient border effect on hover */}
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-ray-blue/20 to-ray-green/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
-                    <div className={`relative bg-gradient-to-br ${product.bgGradient} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 h-full flex flex-col`}>
+                    <div className={`relative bg-gradient-to-br ${product.bgGradient} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 h-full flex flex-col ${product.isPopular ? 'mt-4' : ''}`}>
                       {/* Icon */}
                       <div className="flex justify-center mb-6">
                         <div className={`w-16 h-16 bg-gradient-to-r ${product.gradient} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
@@ -224,6 +260,19 @@ const Pricing: React.FC = () => {
                         </div>
                       </div>
                       
+                      {/* Features */}
+                      <div className="mb-8 flex-grow">
+                        <h4 className="text-lg font-semibold text-ray-dark-900 mb-4">What's Included:</h4>
+                        <ul className="space-y-3">
+                          {product.features.map((feature, featureIndex) => (
+                            <li key={featureIndex} className="flex items-start">
+                              <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                              <span className="text-ray-dark-700">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
                       {/* CTA */}
                       <div className="mt-auto">
                         <Button 
@@ -246,119 +295,62 @@ const Pricing: React.FC = () => {
         </div>
       </section>
       
-      {/* All-in-One Platform Bundle */}
-      <section className="py-20 bg-gradient-to-br from-ray-blue/5 via-white to-ray-green/5 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(13,121,229,0.08),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(111,191,115,0.08),transparent_50%)]"></div>
-        
+      {/* Compare Features Section */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            {/* Bundle Header */}
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-ray-blue/10 to-ray-green/10 rounded-full text-ray-blue text-sm font-medium mb-6">
-                <Star className="w-4 h-4 mr-2 fill-current text-yellow-500" />
-                Most Popular Choice
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+              Compare Features
+            </h2>
+            <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
+              See what's included in each product to choose the right fit for your restaurant.
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <Card className="overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-4 px-6 font-semibold text-ray-dark-900">Features</th>
+                      <th className="text-center py-4 px-6 font-semibold text-ray-dark-900">Walk-Ins</th>
+                      <th className="text-center py-4 px-6 font-semibold text-ray-dark-900">Online Orders</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {compareFeatures.map((category) => (
+                      <React.Fragment key={category.category}>
+                        <tr>
+                          <td colSpan={3} className="py-4 px-6 bg-gray-50 font-semibold text-ray-dark-900 text-sm uppercase tracking-wider">
+                            {category.category}
+                          </td>
+                        </tr>
+                        {category.features.map((feature, index) => (
+                          <tr key={index} className="border-b border-gray-100">
+                            <td className="py-3 px-6 text-ray-dark-700">{feature.name}</td>
+                            <td className="py-3 px-6 text-center">
+                              {feature.walkIns ? (
+                                <Check className="w-5 h-5 text-ray-green mx-auto" />
+                              ) : (
+                                <span className="text-gray-400">—</span>
+                              )}
+                            </td>
+                            <td className="py-3 px-6 text-center">
+                              {feature.onlineOrders ? (
+                                <Check className="w-5 h-5 text-ray-green mx-auto" />
+                              ) : (
+                                <span className="text-gray-400">—</span>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </React.Fragment>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-                All-in-One Platform
-              </h2>
-              <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
-                Get all three products working together for maximum revenue growth and operational efficiency.
-              </p>
-            </div>
-            
-            {/* Bundle Card */}
-            <div className="relative">
-              {/* Gradient border effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-3xl opacity-20"></div>
-              
-              <Card className="relative p-8 md:p-12 bg-white shadow-2xl border-0 overflow-hidden">
-                {/* Popular badge */}
-                <div className="absolute top-0 right-8 bg-gradient-to-r from-ray-blue to-ray-green text-white px-6 py-2 rounded-b-xl text-sm font-bold shadow-lg">
-                  BEST VALUE
-                </div>
-                
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  {/* Left side - Bundle info */}
-                  <div>
-                    <div className="mb-8">
-                      <div className="text-5xl font-bold text-ray-dark-900 mb-2">
-                        $490
-                        <span className="text-xl font-normal text-ray-darkGray">/month</span>
-                      </div>
-                      <div className="text-lg text-ray-darkGray mb-2">
-                       + 3% per order & $1,500 setup fee
-                      </div>
-                      <div className="inline-flex items-center px-3 py-1 bg-ray-green/10 rounded-full">
-                        <span className="text-sm text-ray-green font-bold">Save $230/month vs. individual products</span>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-4 mb-8">
-                      <div className="flex items-center">
-                        <div className="w-8 h-8 bg-gradient-to-r from-ray-green to-green-600 rounded-lg flex items-center justify-center mr-3">
-                          <Calendar className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="font-medium text-ray-dark-900">Bookings Platform</span>
-                      </div>
-                      <div className="flex items-center">
-                        <div className="w-8 h-8 bg-gradient-to-r from-ray-blue to-blue-600 rounded-lg flex items-center justify-center mr-3">
-                          <MapPin className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="font-medium text-ray-dark-900">Walk-Ins Platform</span>
-                      </div>
-                      <div className="flex items-center">
-                        <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                          <ShoppingCart className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="font-medium text-ray-dark-900">Online Orders Platform</span>
-                      </div>
-                    </div>
-                    
-                    <Button 
-                      variant="primary"
-                      size="lg"
-                      className="w-full bg-gradient-to-r from-ray-blue to-ray-green hover:from-blue-600 hover:to-green-600 shadow-xl hover:shadow-2xl transition-all duration-300 group"
-                      onClick={handleGetBundle}
-                      data-cta="demo-free"
-                    >
-                      Get the Full Platform
-                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                    </Button>
-                  </div>
-                  
-                  {/* Right side - Bundle benefits */}
-                  <div>
-                    <h4 className="text-xl font-bold text-ray-dark-900 mb-6">
-                      Bundle Benefits
-                    </h4>
-                    <div className="space-y-4">
-                        <div className="flex items-start">
-                        <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-ray-dark-700">Cross-platform customer insights and analytics</span>
-                      </div>
-                      <div className="flex items-start">
-                        <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-ray-dark-700">Priority support and dedicated onboarding</span>
-                      </div>
-                      <div className="flex items-start">
-                        <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-ray-dark-700">Advanced automation and AI features</span>
-                      </div>
-                      <div className="flex items-start">
-                        <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-ray-dark-700">Integrated customer journey optimization</span>
-                      </div>
-                      <div className="flex items-start">
-                        <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-ray-dark-700 font-medium">Save $2760/year vs. individual products</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -451,7 +443,7 @@ const Pricing: React.FC = () => {
           </h2>
           
           <p className="text-xl text-ray-dark-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Choose the product that fits your needs, or get the complete platform for maximum growth.
+            Choose the product that fits your needs. Both include bookings integration for maximum growth.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
