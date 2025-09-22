@@ -92,18 +92,12 @@ const Home: React.FC = () => {
     generateOrganizationSchema(),
     generateWebsiteSchema()
   ]
-  
-  // Critical images to preload
-  const preloadImages = [
-    '/images/Screenshot 2025-08-26 at 15.22.48.jpeg'
-  ]
 
   return (
     <>
       <SEOHead
         {...pageMeta}
         schema={combinedSchema}
-        preloadImages={preloadImages}
       />
       
       <Hero />

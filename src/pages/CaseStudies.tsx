@@ -69,22 +69,22 @@ const CaseStudies: React.FC = () => {
         <meta name="description" content="See how restaurants like Temple Craft and Chimba Miami increased walk-ins and Google Maps visibility with RAY's marketing platform. Real results from real restaurants." />
         <meta property="og:title" content="Success Stories - Restaurant Marketing Case Studies | RAY" />
         <meta property="og:description" content="See how restaurants like Temple Craft and Chimba Miami increased walk-ins and Google Maps visibility with RAY's marketing platform. Real results from real restaurants." />
-        <meta property="og:url" content="https://rayapp.io/case-studies" />
+        <meta property="og:url" content="https://rayrestaurant.com/case-studies" />
         <meta name="twitter:title" content="Success Stories - Restaurant Marketing Case Studies | RAY" />
         <meta name="twitter:description" content="See how restaurants like Temple Craft and Chimba Miami increased walk-ins and Google Maps visibility with RAY's marketing platform. Real results from real restaurants." />
-        <link rel="canonical" href="https://rayapp.io/case-studies" />
+        <link rel="canonical" href="https://rayrestaurant.com/case-studies" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": "RAY Restaurant Marketing Success Stories",
             "description": "Case studies showing how restaurants increased revenue with RAY's marketing platform",
-            "url": "https://rayapp.io/case-studies",
+            "url": "https://rayrestaurant.com/case-studies",
             "mainEntity": caseStudies.map(study => ({
               "@type": "CaseStudy",
               "name": `${study.name} Success Story`,
               "description": study.description,
-              "url": `https://rayapp.io/case-studies/${study.slug}`
+              "url": `https://rayrestaurant.com/case-studies/${study.slug}`
             }))
           })}
         </script>

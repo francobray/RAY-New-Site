@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import LoadingSpinner from './components/LoadingSpinner'
-import ErrorBoundary from './components/ErrorBoundary'
 
 // Lazy load all pages for optimal code splitting
 const Home = lazy(() => import('./pages/Home'))
@@ -25,36 +24,34 @@ const NotFound = lazy(() => import('./pages/NotFound'))
 
 function App() {
   return (
-    <ErrorBoundary>
-      <div className="min-h-screen bg-white">
-        <Header />
-        <main>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
-              <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
-              <Route path="/features" element={<Features />} />
-              <Route path="/product" element={<Navigate to="/" replace />} />
-              <Route path="/products" element={<Navigate to="/" replace />} />
-              <Route path="/product/walk-ins" element={<WalkIns />} />
-              <Route path="/product/online-orders" element={<OnlineOrders />} />
-              <Route path="/product/bookings" element={<Bookings />} />
-              <Route path="/pricing" element={<Pricing />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="/cookie-policy" element={<CookiePolicy />} />
-              <Route path="/case-studies/temple-craft-wynwood" element={<TempleCraftCaseStudy />} />
-              <Route path="/case-studies/chimba-miami" element={<ChimbaCaseStudy />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-      </div>
-    </ErrorBoundary>
+    <div className="min-h-screen bg-white">
+      <Header />
+      <main>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/product" element={<Navigate to="/" replace />} />
+            <Route path="/products" element={<Navigate to="/" replace />} />
+            <Route path="/product/walk-ins" element={<WalkIns />} />
+            <Route path="/product/online-orders" element={<OnlineOrders />} />
+            <Route path="/product/bookings" element={<Bookings />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/case-studies/temple-craft-wynwood" element={<TempleCraftCaseStudy />} />
+            <Route path="/case-studies/chimba-miami" element={<ChimbaCaseStudy />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </main>
+      <Footer />
+    </div>
   )
 }
 

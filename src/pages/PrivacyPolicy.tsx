@@ -8,7 +8,7 @@ const PrivacyPolicy: React.FC = () => {
         <title>Privacy Policy - RAY</title>
         <meta name="description" content="RAY's Privacy Policy - Learn how we collect, use, and protect your personal information." />
         <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://rayapp.io/privacy-policy" />
+        <link rel="canonical" href="https://rayrestaurant.com/privacy-policy" />
       </Helmet>
       
       <div className="py-20 bg-gray-50 min-h-screen">

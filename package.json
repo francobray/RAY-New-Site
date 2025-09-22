@@ -6,23 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:full": "npm run typecheck && npm run build && npm run sitemap:generate && npm run validate",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "npm run lint -- --fix",
-    "sitemap:generate": "tsx scripts/generate-sitemap.ts",
-    "sitemap:validate": "tsx scripts/validate-sitemap.ts",
-    "validate": "npm run sitemap:validate && npm run domain:check",
-    "domain:check": "tsx scripts/domain-safety-check.ts",
-    "domain:test": "playwright test tests/domain-canonicalization.spec.ts",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:debug": "playwright test --debug",
-    "test:smoke": "playwright test tests/smoke.spec.ts",
-    "start": "npm run preview",
-    "clean": "rm -rf dist node_modules/.vite",
-    "analyze": "npx vite-bundle-analyzer dist/stats.html"
+    "preview": "vite preview"
   },
   "dependencies": {
     "lucide-react": "^0.542.0",
@@ -32,23 +16,14 @@
     "react-router-dom": "^6.26.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.55.0",
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.8",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.21",
-    "eslint": "^8.57.1",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.20",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.1",
     "terser": "^5.43.1",
-    "ts-node": "^10.9.1",
-    "tsx": "^4.20.5",
     "typescript": "^5.5.3",
-    "vite": "^5.4.2",
-    "vite-bundle-analyzer": "^0.7.0"
+    "vite": "^5.4.2"
   }
 }

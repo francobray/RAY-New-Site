@@ -87,10 +87,10 @@ const Features: React.FC = () => {
         <meta name="description" content="Discover RAY's comprehensive restaurant marketing features: Local SEO, Online Reputation Management, Customer Engagement, and more." />
         <meta property="og:title" content="Features - RAY Restaurant Marketing Platform" />
         <meta property="og:description" content="Discover RAY's comprehensive restaurant marketing features: Local SEO, Online Reputation Management, Customer Engagement, and more." />
-        <meta property="og:url" content="https://rayapp.io/features" />
+        <meta property="og:url" content="https://rayrestaurant.com/features" />
         <meta name="twitter:title" content="Features - RAY Restaurant Marketing Platform" />
         <meta name="twitter:description" content="Discover RAY's comprehensive restaurant marketing features: Local SEO, Online Reputation Management, Customer Engagement, and more." />
-        <link rel="canonical" href="https://rayapp.io/features" />
+        <link rel="canonical" href="https://rayrestaurant.com/features" />
       </Helmet>
       
       <div className="py-20 bg-white">

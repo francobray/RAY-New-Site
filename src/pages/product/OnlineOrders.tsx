@@ -78,10 +78,10 @@ const OnlineOrders: React.FC = () => {
         <meta name="description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins." />
         <meta property="og:title" content="Online Orders - Grow Restaurant Revenue From Digital Channels | RAY" />
         <meta property="og:description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins." />
-        <meta property="og:url" content="https://rayapp.io/product/online-orders" />
+        <meta property="og:url" content="https://rayrestaurant.com/product/online-orders" />
         <meta name="twitter:title" content="Online Orders - Grow Restaurant Revenue From Digital Channels | RAY" />
         <meta name="twitter:description" content="Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins." />
-        <link rel="canonical" href="https://rayapp.io/product/online-orders" />
+        <link rel="canonical" href="https://rayrestaurant.com/product/online-orders" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -255,7 +255,7 @@ const OnlineOrders: React.FC = () => {
           <div className="relative max-w-5xl mx-auto">
             <Card className="p-8">
               <LazyImage
-                src="https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop"
+                src="/images/RAY_Dashboard.png"
                 alt="RAY dashboard showing comprehensive metrics for Almacen de Pizzas including revenue, review scores, Google Business Profile engagement, and multi-location performance analytics"
                 width={800}
                 height={500}

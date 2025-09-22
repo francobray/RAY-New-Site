@@ -13,10 +13,10 @@ const ChimbaCaseStudy: React.FC = () => {
         <meta name="description" content="See how Chimba Miami increased Google Maps visits by 215% and walk-ins by 46% with RAY's local SEO and reputation management platform." />
         <meta property="og:title" content="Chimba Miami Success Story - 215% Google Maps Growth | RAY Case Study" />
         <meta property="og:description" content="See how Chimba Miami increased Google Maps visits by 215% and walk-ins by 46% with RAY's local SEO and reputation management platform." />
-        <meta property="og:url" content="https://rayapp.io/case-studies/chimba-miami" />
+        <meta property="og:url" content="https://rayrestaurant.com/case-studies/chimba-miami" />
         <meta name="twitter:title" content="Chimba Miami Success Story - 215% Google Maps Growth | RAY Case Study" />
         <meta name="twitter:description" content="See how Chimba Miami increased Google Maps visits by 215% and walk-ins by 46% with RAY's local SEO and reputation management platform." />
-        <link rel="canonical" href="https://rayapp.io/case-studies/chimba-miami" />
+        <link rel="canonical" href="https://rayrestaurant.com/case-studies/chimba-miami" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

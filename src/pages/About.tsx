@@ -58,10 +58,10 @@ const About: React.FC = () => {
         <meta name="description" content="Learn about RAY's mission to help restaurants increase revenue through proven local marketing strategies. Meet our team of restaurant marketing experts." />
         <meta property="og:title" content="About RAY - Restaurant Marketing Experts" />
         <meta property="og:description" content="Learn about RAY's mission to help restaurants increase revenue through proven local marketing strategies. Meet our team of restaurant marketing experts." />
-        <meta property="og:url" content="https://rayapp.io/about" />
+        <meta property="og:url" content="https://rayrestaurant.com/about" />
         <meta name="twitter:title" content="About RAY - Restaurant Marketing Experts" />
         <meta name="twitter:description" content="Learn about RAY's mission to help restaurants increase revenue through proven local marketing strategies. Meet our team of restaurant marketing experts." />
-        <link rel="canonical" href="https://rayapp.io/about" />
+        <link rel="canonical" href="https://rayrestaurant.com/about" />
       </Helmet>
       
       {/* Hero Section */}

@@ -8,7 +8,7 @@ const TermsOfService: React.FC = () => {
         <title>Terms of Service - RAY</title>
         <meta name="description" content="RAY's Terms of Service - Learn about the terms and conditions for using our restaurant marketing platform." />
         <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://rayapp.io/terms-of-service" />
+        <link rel="canonical" href="https://rayrestaurant.com/terms-of-service" />
       </Helmet>
       
       <div className="py-20 bg-gray-50 min-h-screen">
@@ -24,7 +24,7 @@ const TermsOfService: React.FC = () => {
               </p>
               
               <p className="mb-6 leading-relaxed">
-                These Terms and Conditions of Use govern access to and use of the www.rayapp.io and any other website, application, or service operated by BotBit S.A.S., CUIT 30-71580329-8, with its registered office at Av. Gral. Mosconi 2581, Buenos Aires City, Argentina ("RAY" or "we"), including all services offered through the platform ("Services").
+                These Terms and Conditions of Use govern access to and use of the www.rayapp.io, www.rayapp.ai and any other website, application, or service operated by BotBit S.A.S., CUIT 30-71580329-8, with its registered office at Av. Gral. Mosconi 2581, Buenos Aires City, Argentina ("RAY" or "we"), including all services offered through the platform ("Services").
               </p>
               
               <p className="mb-6 leading-relaxed">
@@ -40,7 +40,6 @@ const TermsOfService: React.FC = () => {
               </h2>
               <ul className="list-disc pl-6 mb-6 space-y-2">
                 <li><strong>"Platform":</strong> the website www.rayapp.io, www.rayapp.ai and any other website, platform, or application operated by RAY.</li>
-                <li><strong>"Platform":</strong> the website www.rayapp.io and any other website, platform, or application operated by RAY.</li>
                 <li><strong>"RAY" or "we":</strong> the company BotBit S.A.S.</li>
                 <li><strong>"Client":</strong> any person or entity that accepts these Terms and acquires the Services.</li>
                 <li><strong>"Subscription Service":</strong> the RAY Local SEO & Reputation Management service.</li>

@@ -111,10 +111,10 @@ const Bookings: React.FC = () => {
         <meta name="description" content="Maximize table occupancy with smart booking management. Handle reservations, walk-ins, and waitlists while building guest relationships that drive repeat visits." />
         <meta property="og:title" content="Bookings - Maximize Table Occupancy & Guest Experience | RAY" />
         <meta property="og:description" content="Maximize table occupancy with smart booking management. Handle reservations, walk-ins, and waitlists while building guest relationships that drive repeat visits." />
-        <meta property="og:url" content="https://rayapp.io/product/bookings" />
+        <meta property="og:url" content="https://rayrestaurant.com/product/bookings" />
         <meta name="twitter:title" content="Bookings - Maximize Table Occupancy & Guest Experience | RAY" />
         <meta name="twitter:description" content="Maximize table occupancy with smart booking management. Handle reservations, walk-ins, and waitlists while building guest relationships that drive repeat visits." />
-        <link rel="canonical" href="https://rayapp.io/product/bookings" />
+        <link rel="canonical" href="https://rayrestaurant.com/product/bookings" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
