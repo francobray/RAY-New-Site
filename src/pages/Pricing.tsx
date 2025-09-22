@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Check, Shield, Users, TrendingUp, ChevronDown, ChevronUp, MapPin, ShoppingCart, Star, ArrowRight } from 'lucide-react'
+import { Check, Shield, Users, TrendingUp, ChevronDown, ChevronUp, MapPin, ShoppingCart, ArrowRight } from 'lucide-react'
 import Card from '../components/Card'
 import Button from '../components/Button'
 import HubSpotUnifiedModal from '../components/HubSpotUnifiedModal'
@@ -13,6 +13,12 @@ const products = [
     name: 'Walk-Ins',
     description: 'Turn searches into walk-ins with AI-powered local marketing that dominates Google Maps and builds trust through reviews.',
     keyBenefit: 'Average 47% increase in foot traffic',
+    whoItsFor: 'Perfect for restaurants wanting to dominate local search and attract more walk-in customers',
+    keyOutcomes: [
+      'Rank #1 on Google Maps for local searches',
+      'Build trust with automated review management',
+      'Turn online searches into foot traffic'
+    ],
     price: '$270',
     setupFee: '$1,000',
     features: [
@@ -33,6 +39,12 @@ const products = [
     name: 'Online Orders',
     description: 'Grow revenue from digital channels with integrated ordering systems and comprehensive analytics.',
     keyBenefit: '27% growth in online orders',
+    whoItsFor: 'Ideal for restaurants focused on delivery, takeout, and maximizing online revenue streams',
+    keyOutcomes: [
+      'Reduce third-party delivery commissions',
+      'Increase direct online order volume',
+      'Maximize digital revenue channels'
+    ],
     price: '$350',
     setupFee: '$750',
     transactionFee: '+ 3% per order',
@@ -67,30 +79,6 @@ const guarantees = [
   }
 ]
 
-const compareFeatures = [
-  {
-    category: 'Core Features',
-    features: [
-      { name: 'Google Business Profile optimization', walkIns: true, onlineOrders: true },
-      { name: 'Review management', walkIns: true, onlineOrders: true },
-      { name: 'Local SEO optimization', walkIns: true, onlineOrders: true },
-      { name: 'Bookings integration', walkIns: true, onlineOrders: true },
-      { name: 'Performance analytics', walkIns: true, onlineOrders: true }
-    ]
-  },
-  {
-    category: 'Specialized Features',
-    features: [
-      { name: 'AI-powered sentiment analysis', walkIns: true, onlineOrders: false },
-      { name: 'Staff leaderboard', walkIns: true, onlineOrders: false },
-      { name: 'Direct online ordering', walkIns: false, onlineOrders: true },
-      { name: 'Commission-free platform', walkIns: false, onlineOrders: true },
-      { name: 'Delivery optimization', walkIns: false, onlineOrders: true },
-      { name: 'Upselling automation', walkIns: false, onlineOrders: true }
-    ]
-  }
-]
-
 const faqs = [
   {
     question: 'Can I purchase just one product?',
@@ -116,7 +104,6 @@ const faqs = [
 
 const Pricing: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const [showCompare, setShowCompare] = useState(false)
   const { 
     isModalOpen,
     currentConfig,
@@ -147,28 +134,52 @@ const Pricing: React.FC = () => {
         <link rel="canonical" href="https://rayapp.io/pricing" />
         
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "RAY Pricing",
-            "description": "Choose the RAY product that fits your needs. Walk-Ins or Online Orders - both include bookings integration.",
-            "url": "https://rayapp.io/pricing",
-            "mainEntity": {
-              "@type": "ItemList",
-              "itemListElement": products.map((product, index) => ({
-                "@type": "Product",
-                "position": index + 1,
-                "name": `RAY ${product.name}`,
-                "description": product.description,
-                "offers": {
-                  "@type": "Offer",
-                  "price": product.price.replace('$', ''),
+          {JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Product",
+              "name": "RAY Walk-Ins",
+              "description": "Turn searches into walk-ins with AI-powered local marketing that dominates Google Maps and builds trust through reviews.",
+              "brand": {
+                "@type": "Brand",
+                "name": "RAY"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "270",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "270",
                   "priceCurrency": "USD",
-                  "availability": "https://schema.org/InStock"
+                  "unitText": "monthly"
                 }
-              }))
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "Product",
+              "name": "RAY Online Orders",
+              "description": "Grow revenue from digital channels with integrated ordering systems and comprehensive analytics.",
+              "brand": {
+                "@type": "Brand",
+                "name": "RAY"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "350",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "350",
+                  "priceCurrency": "USD",
+                  "unitText": "monthly"
+                }
+              }
             }
-          })}
+          ])}
         </script>
       </Helmet>
       
@@ -205,7 +216,7 @@ const Pricing: React.FC = () => {
       {/* Individual Products */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {products.map((product, index) => {
               const IconComponent = product.icon
               return (
@@ -260,6 +271,24 @@ const Pricing: React.FC = () => {
                         </div>
                       </div>
                       
+                      {/* Who It's For */}
+                      <div className="mb-6">
+                        <h4 className="text-lg font-semibold text-ray-dark-900 mb-3">Who It's For:</h4>
+                        <p className="text-ray-dark-700 leading-relaxed mb-4">
+                          {product.whoItsFor}
+                        </p>
+                        
+                        <h5 className="text-md font-semibold text-ray-dark-900 mb-3">Key Outcomes:</h5>
+                        <ul className="space-y-2 mb-6">
+                          {product.keyOutcomes.map((outcome, outcomeIndex) => (
+                            <li key={outcomeIndex} className="flex items-start">
+                              <Check className="w-4 h-4 text-ray-green mr-2 flex-shrink-0 mt-1" />
+                              <span className="text-ray-dark-700 text-sm">{outcome}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
                       {/* Features */}
                       <div className="mb-8 flex-grow">
                         <h4 className="text-lg font-semibold text-ray-dark-900 mb-4">What's Included:</h4>
@@ -295,68 +324,8 @@ const Pricing: React.FC = () => {
         </div>
       </section>
       
-      {/* Compare Features Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-              Compare Features
-            </h2>
-            <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
-              See what's included in each product to choose the right fit for your restaurant.
-            </p>
-          </div>
-          
-          <div className="max-w-4xl mx-auto">
-            <Card className="overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="text-left py-4 px-6 font-semibold text-ray-dark-900">Features</th>
-                      <th className="text-center py-4 px-6 font-semibold text-ray-dark-900">Walk-Ins</th>
-                      <th className="text-center py-4 px-6 font-semibold text-ray-dark-900">Online Orders</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {compareFeatures.map((category) => (
-                      <React.Fragment key={category.category}>
-                        <tr>
-                          <td colSpan={3} className="py-4 px-6 bg-gray-50 font-semibold text-ray-dark-900 text-sm uppercase tracking-wider">
-                            {category.category}
-                          </td>
-                        </tr>
-                        {category.features.map((feature, index) => (
-                          <tr key={index} className="border-b border-gray-100">
-                            <td className="py-3 px-6 text-ray-dark-700">{feature.name}</td>
-                            <td className="py-3 px-6 text-center">
-                              {feature.walkIns ? (
-                                <Check className="w-5 h-5 text-ray-green mx-auto" />
-                              ) : (
-                                <span className="text-gray-400">—</span>
-                              )}
-                            </td>
-                            <td className="py-3 px-6 text-center">
-                              {feature.onlineOrders ? (
-                                <Check className="w-5 h-5 text-ray-green mx-auto" />
-                              ) : (
-                                <span className="text-gray-400">—</span>
-                              )}
-                            </td>
-                          </tr>
-                        ))}
-                      </React.Fragment>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-      
       {/* Guarantees & Inclusions */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
@@ -389,7 +358,7 @@ const Pricing: React.FC = () => {
       </section>
       
       {/* FAQs */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
