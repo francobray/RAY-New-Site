@@ -34,9 +34,8 @@ const PromiseBanner: React.FC = () => {
                 size="lg"
                 onClick={() => openModal('demo-free')}
                 data-cta="demo-free"
-                data-analytics="promise-banner"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group"
-                aria-label="Book a free demo: see how RAY can help your restaurant grow revenue"
+                aria-label="Book a free demo to see how RAY can help your restaurant grow"
               >
                 Book a Free Demo
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />

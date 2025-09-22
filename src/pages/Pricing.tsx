@@ -310,10 +310,8 @@ const Pricing: React.FC = () => {
                           className="w-full shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
                           onClick={() => handleGetStarted(product.id)}
                           data-cta="demo-free"
-                          data-analytics="pricing-product"
-                          aria-label={`Get started with RAY ${product.name}: request a free demo to see how this solution can grow your restaurant revenue`}
                         >
-                          Get Started Today
+                          Get Started
                           <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                         </Button>
                       </div>
@@ -427,8 +425,6 @@ const Pricing: React.FC = () => {
                 openModal('demo-free')
               }}
               data-cta="demo-free"
-              data-analytics="pricing-final-cta"
-              aria-label="Get started today: request a free demo to see how RAY can grow your restaurant revenue"
             >
               Get Started Today
             </Button>

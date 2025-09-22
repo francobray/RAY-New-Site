@@ -165,24 +165,27 @@ const Bookings: React.FC = () => {
                 <Button 
                   variant="primary" 
                   size="lg"
-                  href="https://grader.rayapp.io/"
-                  external={true}
                   className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
-                  data-cta="grader"
-                  data-analytics="hero"
-                  aria-label="Grade your restaurant: run a free 60-second audit to discover growth opportunities"
+                  aria-label="Request a free demo of RAY's booking platform"
                 >
-                  Grade Your Restaurant
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <a 
+                    href="https://grader.rayapp.io/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full h-full"
+                    aria-label="Grade your restaurant with RAY's free assessment tool"
+                  >
+                    Grade Your Restaurant
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </a>
                 </Button>
                 <Button 
                   variant="secondary" 
                   size="lg"
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                  onClick={() => openModal('demo-expert')}
-                  data-cta="demo-expert"
-                  data-analytics="hero"
-                  aria-label="Talk to an expert: get personalized advice about optimizing your restaurant bookings"
+                 onClick={() => openModal('demo-expert')}
+                 data-cta="demo-expert"
+                  aria-label="Talk to an expert about optimizing your restaurant bookings"
                 >
                   Talk to an Expert
                 </Button>
@@ -402,15 +405,18 @@ const Bookings: React.FC = () => {
             <Button 
               variant="primary" 
               size="lg"
-              href="https://grader.rayapp.io/"
-              external={true}
               className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
-              data-cta="grader"
-              data-analytics="final-cta"
-              aria-label="Grade your restaurant: run a free 60-second audit to discover growth opportunities"
             >
-              Grade Your Restaurant
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              <a 
+                href="https://grader.rayapp.io/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full h-full"
+                aria-label="Grade your restaurant with RAY's free assessment tool"
+              >
+                Grade Your Restaurant
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </a>
             </Button>
             <Button 
               variant="secondary" 
@@ -418,8 +424,6 @@ const Bookings: React.FC = () => {
               className="shadow-xl hover:shadow-2xl transition-all duration-300"
               onClick={() => openModal('demo-free')}
               data-cta="demo-free"
-              data-analytics="final-cta"
-              aria-label="Request free demo: see how RAY's booking platform can maximize your table occupancy"
             >
               Request Free Demo
             </Button>

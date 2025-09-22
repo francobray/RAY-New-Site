@@ -5,11 +5,6 @@ import { HelmetProvider } from 'react-helmet-async'
 import App from './App.tsx'
 import './index.css'
 
-// Import CTA validation in development
-if (process.env.NODE_ENV === 'development') {
-  import('./utils/cta-validation')
-}
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <HelmetProvider>
