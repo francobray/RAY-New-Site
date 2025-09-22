@@ -131,10 +131,11 @@ const Header: React.FC = () => {
 
   const handleScanClick = () => {
     // Analytics tracking
-    if (typeof window !== 'undefined' && (window as any).analytics?.track) {
-      (window as any).analytics.track('CTA Click', { 
-        type: 'grader', 
-        location: 'header' 
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: 'grader_header',
+        value: 1
       })
     }
   }

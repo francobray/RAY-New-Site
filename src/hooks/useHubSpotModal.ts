@@ -29,12 +29,28 @@ export const useHubSpotModal = () => {
   const openModal = (ctaType: string) => {
     const config = MODAL_CONFIGS[ctaType]
     if (config) {
+      // Track modal open event
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'modal_open', {
+          event_category: 'engagement',
+          event_label: ctaType,
+          value: 1
+        })
+      }
       setCurrentConfig(config)
       setIsModalOpen(true)
     }
   }
 
   const closeModal = () => {
+    // Track modal close event
+    if (typeof window !== 'undefined' && (window as any).gtag && currentConfig) {
+      (window as any).gtag('event', 'modal_close', {
+        event_category: 'engagement',
+        event_label: currentConfig.intent,
+        value: 1
+      })
+    }
     setIsModalOpen(false)
     setCurrentConfig(null)
   }

@@ -164,9 +164,25 @@ const HubSpotUnifiedModal: React.FC<HubSpotUnifiedModalProps> = ({
       },
       onFormSubmit: () => {
         console.log('Form submitted:', config.title)
+        // Track form submission
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'form_submit', {
+            event_category: 'lead_generation',
+            event_label: config.intent,
+            value: 1
+          })
+        }
       },
       onFormSubmitted: () => {
         console.log('Form submission confirmed:', config.title)
+        // Track successful form submission
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'form_submit_success', {
+            event_category: 'conversion',
+            event_label: config.intent,
+            value: 1
+          })
+        }
         setShowSuccess(true)
         
         // Auto-close after 3 seconds
