@@ -82,8 +82,7 @@ const About: React.FC = () => {
               <p className="text-xl text-ray-dark-700 mb-8 max-w-2xl leading-relaxed">
                 The restaurant industry is the backbone of American communities, employing millions 
                 and bringing people together every day. At RAY, we're dedicated to empowering 
-                restaurant owners with the tools and strategies they need to thrive in an 
-                increasingly competitive landscape.
+                restaurant owners with proven strategies that guarantee a 30%+ increase in Google Business Profile navigations.
               </p>
             </div>
             

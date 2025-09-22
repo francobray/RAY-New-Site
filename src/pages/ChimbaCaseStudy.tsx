@@ -101,7 +101,7 @@ const ChimbaCaseStudy: React.FC = () => {
                       <Eye className="w-8 h-8 text-pink-200" />
                     </div>
                     <div className="text-3xl font-black text-white mb-1">+215%</div>
-                    <div className="text-pink-200 text-sm font-medium">Google Maps Views</div>
+                    <div className="text-pink-200 text-sm font-medium">Google Maps Navigations</div>
                   </div>
                   
                   <div className="bg-gradient-to-br from-red-500/20 to-purple-500/20 backdrop-blur-sm rounded-2xl p-6 border border-red-400/30">
@@ -359,7 +359,7 @@ const ChimbaCaseStudy: React.FC = () => {
               <div className="text-center">
                 <blockquote className="text-2xl md:text-3xl text-gray-900 font-medium leading-relaxed mb-8">
                   "Since partnering with RAY, our Juramento location has seen an incredible transformation! 
-                  Our Google Maps navigations skyrocketed by <span className="text-pink-600 font-black">215%</span>, 
+                  Our Google Maps visits skyrocketed by <span className="text-pink-600 font-black">215%</span>, 
                   and foot traffic increased by <span className="text-red-600 font-black">46%</span>. 
                   We've never had so many new customers discovering and visiting us. 
                   The impact on our business has been remarkable!"

@@ -164,7 +164,7 @@ const Hero: React.FC = () => {
                   <div className="w-8 h-8 bg-gradient-to-br from-ray-green to-yellow-400 rounded-full border-2 border-white"></div>
                   <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-ray-blue rounded-full border-2 border-white"></div>
                 </div>
-                <span className="font-medium">+47% avg. walk-in increase</span>
+                <span className="font-medium">+47% avg. navigations increase</span>
               </div>
               <div className="flex items-center">
                 <TrendingUp className="w-4 h-4 text-ray-green mr-2" />

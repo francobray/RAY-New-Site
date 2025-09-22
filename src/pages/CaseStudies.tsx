@@ -45,7 +45,7 @@ const caseStudies = [
       accent: 'pink-400'
     },
     keyMetrics: [
-      { label: 'Google Maps Views', value: '+215%', icon: Eye },
+      { label: 'Google Maps Navigations', value: '+215%', icon: Eye },
       { label: 'Walk-ins', value: '+46%', icon: Users },
       { label: 'Google Rating', value: '4.7★', icon: Star }
     ],

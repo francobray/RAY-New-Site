@@ -637,7 +637,7 @@ const WalkIns: React.FC = () => {
           <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-              <span>Free scan</span>
+              <span>30%+ navigations guarantee</span>
             </div>
             <div className="flex items-center">
               <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
@@ -645,7 +645,7 @@ const WalkIns: React.FC = () => {
             </div>
             <div className="flex items-center">
               <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-              <span>Results in 24 hours</span>
+              <span>Results in 60-90 days</span>
             </div>
           </div>
         </div>

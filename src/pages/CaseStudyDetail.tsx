@@ -69,7 +69,8 @@ const caseStudyData = {
       { metric: 'Google Visits', value: '3x increase', description: 'Triple the Google profile visits' },
       { metric: 'Search Ranking', value: 'Top 3', description: 'For "healthy food near me"' },
       { metric: 'Online Reviews', value: '+150%', description: 'Significant review volume increase' },
-      { metric: 'Phone Calls', value: '+80%', description: 'More direct customer inquiries' }
+      { metric: 'Phone Calls', value: '+80%', description: 'More direct customer inquiries' },
+      { metric: 'Google Navigations', value: '+180%', description: 'More direction requests to restaurant' }
     ],
     testimonial: {
       text: "The results speak for themselves - we tripled our Google visits and now consistently rank in the top 3 for healthy food searches. RAY's approach to local SEO has been a game-changer for our business visibility and customer acquisition.",
