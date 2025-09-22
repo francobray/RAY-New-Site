@@ -54,10 +54,10 @@ const TrustMetrics: React.FC = () => (
               30%
             </div>
             <div className="text-xl font-bold text-ray-dark-900 mb-3">
-              Growth Guaranteed
+              Navigations Guaranteed
             </div>
             <div className="text-ray-darkGray text-base leading-relaxed">
-              To your Google profile in 6 months, or your money back
+              30%+ increase in Google Business Profile navigations within 6 months, or we'll refund your investment
             </div>
           </div>
         </div>

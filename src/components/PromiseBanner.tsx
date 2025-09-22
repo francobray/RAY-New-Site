@@ -23,7 +23,7 @@ const PromiseBanner: React.FC = () => {
                 Do you want to be the favorite local spot?
               </h2>
               <p className="text-xl text-ray-dark-700 leading-relaxed max-w-2xl">
-                Get at least 30% more visits to your Google profile in 6 months, or your money back.
+                We guarantee a 30%+ increase in Google Business Profile navigations within 6 months — or we'll refund your investment.
               </p>
             </div>
             

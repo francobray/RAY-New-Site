@@ -98,7 +98,7 @@ const faqs = [
   },
   {
     question: 'How quickly will I see results?',
-    answer: 'Most restaurants see initial improvements within 2-4 weeks, with significant results typically visible within 60-90 days. We guarantee 30% more Google Maps visits within 6 months.'
+    answer: 'Most restaurants see initial improvements within 2-4 weeks, with significant results typically visible within 60-90 days. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months.'
   }
 ]
 
