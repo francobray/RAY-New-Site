@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main Pages -->
   <url>
-    <loc>https://rayrestaurant.com/</loc>
+    <loc>https://rayapp.io/</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
@@ -10,19 +10,19 @@
   
   <!-- Product Pages -->
   <url>
-    <loc>https://rayrestaurant.com/product/bookings</loc>
+    <loc>https://rayapp.io/product/bookings</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://rayrestaurant.com/product/walk-ins</loc>
+    <loc>https://rayapp.io/product/walk-ins</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://rayrestaurant.com/product/online-orders</loc>
+    <loc>https://rayapp.io/product/online-orders</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
@@ -30,19 +30,19 @@
   
   <!-- Core Pages -->
   <url>
-    <loc>https://rayrestaurant.com/pricing</loc>
+    <loc>https://rayapp.io/pricing</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://rayrestaurant.com/case-studies</loc>
+    <loc>https://rayapp.io/case-studies</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://rayrestaurant.com/features</loc>
+    <loc>https://rayapp.io/features</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
@@ -50,13 +50,13 @@
   
   <!-- Case Studies -->
   <url>
-    <loc>https://rayrestaurant.com/case-studies/temple-craft-wynwood</loc>
+    <loc>https://rayapp.io/case-studies/temple-craft-wynwood</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://rayrestaurant.com/case-studies/chimba-miami</loc>
+    <loc>https://rayapp.io/case-studies/chimba-miami</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
@@ -64,13 +64,13 @@
   
   <!-- Company Pages -->
   <url>
-    <loc>https://rayrestaurant.com/about</loc>
+    <loc>https://rayapp.io/about</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://rayrestaurant.com/contact</loc>
+    <loc>https://rayapp.io/contact</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
@@ -78,19 +78,19 @@
   
   <!-- Legal Pages -->
   <url>
-    <loc>https://rayrestaurant.com/privacy-policy</loc>
+    <loc>https://rayapp.io/privacy-policy</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://rayrestaurant.com/terms-of-service</loc>
+    <loc>https://rayapp.io/terms-of-service</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://rayrestaurant.com/cookie-policy</loc>
+    <loc>https://rayapp.io/cookie-policy</loc>
     <lastmod>2025-01-27</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>

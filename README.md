@@ -41,6 +41,34 @@ npm run dev
 
 4. Open [http://localhost:5173](http://localhost:5173) in your browser.
 
+## 🔗 Deep-Link Handling & Rewrites
+
+This application implements comprehensive deep-link handling to ensure zero 404s:
+
+### Features
+- **SPA Routing**: All routes serve `index.html` with proper client-side routing
+- **Legacy Redirects**: Old URLs automatically redirect to new canonical paths
+- **URL Normalization**: Consistent trailing slash and case handling
+- **Asset Path Resolution**: Absolute asset paths work on all nested routes
+- **Canonical Domains**: Automatic redirects to canonical `rayapp.io` domain
+
+### Configuration Files
+- `public/_redirects` - Netlify redirect rules
+- `netlify.toml` - Build and header configuration
+- `tests/deep-links.spec.ts` - Comprehensive deep-link testing
+
+### Testing
+```bash
+# Run deep-link tests
+npm run test:deep-links
+
+# Run all tests with UI
+npm run test:ui
+```
+
+### CI/CD
+GitHub Actions automatically tests all critical paths and assets on every deployment to ensure no 404s occur.
+
 ## 🏗️ Build
 
 To build the project for production:
@@ -123,4 +151,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email hello@rayrestaurant.com or visit our [contact page](https://rayrestaurant.com/contact).
+For support, email hello@rayapp.io or visit our [contact page](https://rayapp.io/contact).

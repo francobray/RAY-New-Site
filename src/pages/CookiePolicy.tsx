@@ -8,7 +8,7 @@ const CookiePolicy: React.FC = () => {
         <title>Cookie Policy - RAY</title>
         <meta name="description" content="RAY's Cookie Policy - Learn about how we use cookies and similar technologies on our website." />
         <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://rayrestaurant.com/cookie-policy" />
+        <link rel="canonical" href="https://rayapp.io/cookie-policy" />
       </Helmet>
       
       <div className="py-20 bg-gray-50 min-h-screen">

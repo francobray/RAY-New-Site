@@ -20,4 +20,4 @@ Allow: /images/
 Allow: /fonts/
 Allow: /_next/static/
 
-Sitemap: https://rayrestaurant.com/sitemap.xml
+Sitemap: https://rayapp.io/sitemap.xml

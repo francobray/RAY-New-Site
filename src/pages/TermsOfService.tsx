@@ -8,7 +8,7 @@ const TermsOfService: React.FC = () => {
         <title>Terms of Service - RAY</title>
         <meta name="description" content="RAY's Terms of Service - Learn about the terms and conditions for using our restaurant marketing platform." />
         <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://rayrestaurant.com/terms-of-service" />
+        <link rel="canonical" href="https://rayapp.io/terms-of-service" />
       </Helmet>
       
       <div className="py-20 bg-gray-50 min-h-screen">
