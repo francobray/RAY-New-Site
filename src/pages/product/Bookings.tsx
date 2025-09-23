@@ -170,7 +170,7 @@ const Bookings: React.FC = () => {
                   external={true}
                   data-cta="grader"
                   data-analytics="bookings_hero"
-                  aria-label="Request a free demo of RAY's booking platform"
+                  aria-label="Grade your restaurant"
                 >
                   Grade Your Restaurant
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -182,7 +182,7 @@ const Bookings: React.FC = () => {
                  onClick={() => openModal('demo-expert')}
                  data-cta="demo-expert"
                 data-analytics="bookings_hero"
-                  aria-label="Talk to an expert about optimizing your restaurant bookings"
+                  aria-label="Talk to an expert"
                 >
                   Talk to an Expert
                 </Button>
@@ -407,7 +407,7 @@ const Bookings: React.FC = () => {
               external={true}
               data-cta="grader"
               data-analytics="bookings_final_cta"
-              aria-label="Grade your restaurant - run a free 60-second audit to optimize your bookings"
+              aria-label="Grade your restaurant"
             >
               Grade Your Restaurant
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -419,7 +419,7 @@ const Bookings: React.FC = () => {
               onClick={() => openModal('demo-free')}
               data-cta="demo-free"
               data-analytics="bookings_final_cta"
-              aria-label="Request a free demo to see how RAY can optimize your restaurant bookings"
+              aria-label="Request free demo"
             >
               Request Free Demo
             </Button>

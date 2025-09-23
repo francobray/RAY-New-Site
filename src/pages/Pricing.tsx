@@ -311,7 +311,7 @@ const Pricing: React.FC = () => {
                           onClick={() => handleGetStarted(product.id)}
                           data-cta="demo-free"
                           data-analytics="pricing_cards"
-                          aria-label={`Get started with ${product.name} - ${product.description.slice(0, 50)}...`}
+                          aria-label={`Get started with ${product.name}`}
                         >
                           Get Started
                           <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
@@ -428,7 +428,7 @@ const Pricing: React.FC = () => {
               }}
               data-cta="demo-free"
               data-analytics="pricing_final_cta"
-              aria-label="Get started today - request a free demo to see how RAY can grow your restaurant"
+              aria-label="Get started today"
             >
               Get Started Today
             </Button>

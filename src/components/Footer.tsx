@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             <Link 
               to="/" 
               className="flex items-center hover:opacity-80 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-lg"
-              aria-label="RAY - Restaurant Marketing Platform - Go to homepage"
+              aria-label="RAY homepage"
             >
               <img 
                 src="/images/logo-rayapp-azulwebp-300x150.webp" 
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
                 <Link 
                   to="/product/walk-ins" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
-                  aria-label="Learn about RAY's Walk-Ins marketing solution"
+                  aria-label="Walk-Ins product page"
                 >
                   Walk-Ins
                 </Link>
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
                 <Link 
                   to="/product/bookings" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
-                  aria-label="Learn about RAY's Bookings platform"
+                  aria-label="Bookings product page"
                 >
                   Bookings
                 </Link>
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                 <Link 
                   to="/product/online-orders" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
-                  aria-label="Learn about RAY's Online Orders platform"
+                  aria-label="Online Orders product page"
                 >
                   Online Orders
                 </Link>
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
                 <Link 
                   to="/case-studies" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label="View restaurant success stories and case studies"
+                  aria-label="Case Studies page"
                 >
                   Case Studies
                 </Link>
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
                 <Link 
                   to="/pricing" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label="View RAY pricing plans and packages"
+                  aria-label="Pricing page"
                 >
                   Pricing
                 </Link>
@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
                 <Link 
                   to="/about" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label="Learn about RAY's mission and team"
+                  aria-label="About page"
                 >
                   About
                 </Link>
@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
                 <Link 
                   to="/contact" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label="Contact RAY for support or questions"
+                  aria-label="Contact page"
                 >
                   Get in Touch
                 </Link>
@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
                 <a 
                   href="mailto:hello@rayapp.io" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label="Email RAY at hello@rayapp.io"
+                  aria-label="Email hello@rayapp.io"
                 >
                   hello@rayapp.io
                 </a>
@@ -126,7 +126,7 @@ const Footer: React.FC = () => {
                 <Link 
                   to="/privacy-policy" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label="Read RAY's privacy policy"
+                  aria-label="Privacy Policy page"
                 >
                   Privacy Policy
                 </Link>
@@ -135,7 +135,7 @@ const Footer: React.FC = () => {
                 <Link 
                   to="/terms-of-service" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label="Read RAY's terms of service"
+                  aria-label="Terms of Service page"
                 >
                   Terms of Service
                 </Link>
@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
                 <Link 
                   to="/cookie-policy" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label="Read RAY's cookie policy"
+                  aria-label="Cookie Policy page"
                 >
                   Cookie Policy
                 </Link>

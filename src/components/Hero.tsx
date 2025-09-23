@@ -148,7 +148,7 @@ const Hero: React.FC = () => {
                     external={true}
                     data-cta="grader"
                     data-analytics="hero_fallback"
-                    aria-label="Grade your restaurant with RAY's free assessment tool - run a free 60-second audit"
+                    aria-label="Grade your restaurant - free assessment"
                   >
                     Grade Your Restaurant
                   </Button>

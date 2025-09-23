@@ -236,7 +236,7 @@ const CaseStudies: React.FC = () => {
                   external={true}
                   data-cta="grader"
                   data-analytics="case_studies_coming_soon"
-                  aria-label="Grade your restaurant - run a free 60-second audit while we add more success stories"
+                  aria-label="Grade your restaurant"
                 >
                   Grade Your Restaurant
                 </Button>

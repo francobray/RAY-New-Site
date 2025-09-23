@@ -244,6 +244,7 @@ const Header: React.FC = () => {
                       className="text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md"
                       role="menuitem"
                       data-analytics="nav"
+                     aria-label={`Visit ${item.name} - opens in new tab`}
                     >
                       {item.name}
                     </a>
@@ -399,6 +400,7 @@ const Header: React.FC = () => {
                         className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
                         onClick={closeMenu}
                         data-analytics="nav"
+                       aria-label={`Visit ${item.name} - opens in new tab`}
                       >
                         {item.name}
                       </a>

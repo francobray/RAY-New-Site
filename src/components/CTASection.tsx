@@ -42,7 +42,7 @@ const CTASection: React.FC = () => {
             external={true}
             data-cta="grader"
             data-analytics="cta_section"
-            aria-label="Grade your restaurant - run a free 60-second audit to see growth opportunities"
+            aria-label="Grade your restaurant"
           >
             Grade Your Restaurant
           </Button>
@@ -53,7 +53,7 @@ const CTASection: React.FC = () => {
             onClick={() => openModal('demo-expert')}
             data-cta="demo-expert"
             data-analytics="cta_section"
-            aria-label="Open form to schedule a consultation with our restaurant marketing experts"
+            aria-label="Talk to an expert"
           >
             Talk to an Expert
           </Button>

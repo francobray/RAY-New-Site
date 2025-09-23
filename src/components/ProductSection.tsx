@@ -98,7 +98,7 @@ const ProductSection: React.FC = () => {
                       href={product.href}
                       className="w-full group/btn"
                       data-analytics="product_section"
-                      aria-label={`Learn more about ${product.name} - ${product.description.slice(0, 50)}...`}
+                      aria-label={`Learn more about ${product.name}`}
                     >
                       Learn More
                       <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
@@ -121,7 +121,7 @@ const ProductSection: React.FC = () => {
             href="/pricing"
             className="bg-gradient-to-r from-ray-blue to-ray-green hover:shadow-xl group"
             data-analytics="product_section_bottom"
-            aria-label="View pricing and plans to get started with RAY"
+            aria-label="View pricing and plans"
           >
             View Pricing & Plans
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />

@@ -132,7 +132,7 @@ const WalkIns: React.FC = () => {
                   external={true}
                   data-cta="grader"
                   data-analytics="walk_ins_hero"
-                  aria-label="Open restaurant grading form to get your free restaurant scan"
+                  aria-label="Grade your restaurant"
                 >
                   Grade Your Restaurant
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -144,7 +144,7 @@ const WalkIns: React.FC = () => {
                  onClick={() => openModal('demo-expert')}
                  data-cta="demo-expert"
                 data-analytics="walk_ins_hero"
-                  aria-label="Open form to schedule a consultation with our restaurant marketing experts"
+                  aria-label="Talk to an expert"
                 >
                   Talk to an Expert
                 </Button>
@@ -497,7 +497,7 @@ const WalkIns: React.FC = () => {
               external={true}
               data-cta="grader"
               data-analytics="walk_ins_final_cta"
-              aria-label="Grade your restaurant - run a free 60-second audit to see growth opportunities"
+              aria-label="Grade your restaurant"
             >
               Grade Your Restaurant
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -509,7 +509,7 @@ const WalkIns: React.FC = () => {
               onClick={() => openModal('demo-expert')}
               data-cta="demo-expert"
               data-analytics="walk_ins_final_cta"
-              aria-label="Talk to an expert about growing your restaurant's walk-in traffic"
+              aria-label="Talk to an expert"
             >
               Talk to an Expert
             </Button>

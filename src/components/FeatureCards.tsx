@@ -104,7 +104,7 @@ const FeatureCards: React.FC = () => {
                         onClick={() => openModal('demo-expert')}
                         data-cta="demo-expert"
                         data-analytics="feature_cards"
-                        aria-label="Open form to schedule a consultation with our restaurant marketing experts"
+                        aria-label="Talk to an expert"
                       >
                         Talk to an Expert
                       </Button>

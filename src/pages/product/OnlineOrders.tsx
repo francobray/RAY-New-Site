@@ -118,7 +118,17 @@ const OnlineOrders: React.FC = () => {
               </p>
               
               <div className="flex justify-center lg:justify-start mb-8">
-                <div className="ray-widget" data-restaurant-id="demo" data-theme="light"></div>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  href="https://grader.rayapp.io/"
+                  external={true}
+                  data-cta="grader"
+                  data-analytics="online_orders_hero"
+                  aria-label="Grade your restaurant"
+                >
+                  Grade Your Restaurant
+                </Button>
               </div>
               
               <div className="flex items-center gap-6 text-sm text-ray-dark-600">
