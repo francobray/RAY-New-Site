@@ -294,7 +294,6 @@ const WalkIns: React.FC = () => {
                 })}
               </div>
             </div>
-            </div>
             
             {/* Lead Form Column - Right */}
             <div className="lg:sticky lg:top-8">
