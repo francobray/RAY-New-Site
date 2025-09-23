@@ -23,7 +23,7 @@ export class SitemapValidator {
 
   constructor(sitemapPath?: string, baseUrl?: string) {
     this.sitemapPath = sitemapPath || path.join(process.cwd(), 'public', 'sitemap.xml')
-    this.baseUrl = baseUrl || process.env.SITE_URL || 'https://rayrestaurant.com'
+    this.baseUrl = baseUrl || process.env.SITE_URL || 'https://rayapp.io'
   }
 
   async validate(): Promise<ValidationResult> {
