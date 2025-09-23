@@ -57,7 +57,7 @@ const TrustMetrics: React.FC = () => (
               Navigations Guaranteed
             </div>
             <div className="text-ray-darkGray text-base leading-relaxed">
-              30%+ increase in Google Business Profile navigations within 6 months, or we'll refund your investment
+              30%+ increase in Google Business Profile navigations within 6 months — or we'll refund your investment
             </div>
           </div>
         </div>
