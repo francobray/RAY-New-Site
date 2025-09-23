@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Star, TrendingUp, ArrowRight, CheckCircle, MapPin, Users, BarChart3, Search, MessageSquare, Database, Globe, Camera, ChevronDown, ChevronUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOHead from '../../components/SEOHead'
