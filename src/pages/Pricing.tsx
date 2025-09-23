@@ -140,48 +140,105 @@ const Pricing: React.FC = () => {
               "@type": "Product",
               "name": "RAY Walk-Ins",
               "description": "Turn searches into walk-ins with AI-powered local marketing that dominates Google Maps and builds trust through reviews.",
+              "@id": "https://rayapp.io/product/walk-ins#product",
               "brand": {
                 "@type": "Brand",
-                "name": "RAY"
+                "name": "RAY",
+                "@id": "https://rayapp.io/#organization"
               },
+              "category": "Restaurant Marketing Software",
               "offers": {
                 "@type": "Offer",
                 "price": "270",
                 "priceCurrency": "USD",
                 "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "seller": {
+                  "@id": "https://rayapp.io/#organization"
+                },
+                "warranty": "30%+ increase in Google Business Profile navigations within 6 months or money back guarantee",
                 "priceSpecification": {
                   "@type": "UnitPriceSpecification",
                   "price": "270",
                   "priceCurrency": "USD",
                   "unitText": "monthly"
                 }
-              }
+              },
+              "additionalProperty": [
+                {
+                  "@type": "PropertyValue",
+                  "name": "Setup Fee",
+                  "value": "$1,000"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Contract",
+                  "value": "Month-to-month"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Guarantee",
+                  "value": "30%+ increase in Google Business Profile navigations within 6 months"
+                }
+              ]
             },
             {
               "@context": "https://schema.org",
               "@type": "Product",
               "name": "RAY Online Orders",
               "description": "Grow revenue from digital channels with integrated ordering systems and comprehensive analytics.",
+              "@id": "https://rayapp.io/product/online-orders#product",
               "brand": {
                 "@type": "Brand",
-                "name": "RAY"
+                "name": "RAY",
+                "@id": "https://rayapp.io/#organization"
               },
+              "category": "Restaurant Marketing Software",
               "offers": {
                 "@type": "Offer",
                 "price": "350",
                 "priceCurrency": "USD",
                 "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "seller": {
+                  "@id": "https://rayapp.io/#organization"
+                },
+                "warranty": "30%+ increase in Google Business Profile navigations within 6 months or money back guarantee",
                 "priceSpecification": {
                   "@type": "UnitPriceSpecification",
                   "price": "350",
                   "priceCurrency": "USD",
                   "unitText": "monthly"
                 }
-              }
+              },
+              "additionalProperty": [
+                {
+                  "@type": "PropertyValue",
+                  "name": "Setup Fee",
+                  "value": "$750"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Transaction Fee",
+                  "value": "3% per order"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Contract",
+                  "value": "Month-to-month"
+                }
+              ]
             }
           ])}
         </script>
       </Helmet>
+      
+      {/* AI-friendly page summary */}
+      <div className="sr-only">
+        <h1>RAY Pricing - Restaurant Marketing Platform Plans</h1>
+        <p>RAY offers two main products for restaurant marketing: Walk-Ins ($270/month) and Online Orders ($350/month). Both products include bookings integration and come with our 30%+ increase guarantee in Google Business Profile navigations within 6 months or money back. No long-term contracts required - month-to-month billing with dedicated support and onboarding included.</p>
+        <p>Walk-Ins focuses on local SEO and Google Maps visibility with $1,000 setup fee. Online Orders focuses on direct ordering systems and delivery optimization with $750 setup fee plus 3% transaction fee. Both products help restaurants reduce third-party commissions and increase direct revenue.</p>
+      </div>
       
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">

@@ -3,7 +3,7 @@ import { Star, TrendingUp, ArrowRight, CheckCircle, MapPin, BarChart3, Search, D
 import { Link } from 'react-router-dom'
 import SEOHead from '../../components/SEOHead'
 import { generatePageMeta } from '../../utils/seo'
-import { generateProductSchema } from '../../utils/schema'
+import { generateProductSchema, generateFAQSchema, generateBreadcrumbSchema, generateServiceSchema } from '../../utils/schema'
 import { COPY } from '../../constants/copy'
 import Card from '../../components/Card'
 import Button from '../../components/shared/BaseButton'
@@ -143,8 +143,8 @@ const WalkIns: React.FC = () => {
   } = useHubSpotModal()
 
   const pageMeta = generatePageMeta({
-    title: 'Walk-Ins - Turn Searches Into Restaurant Visits',
-    description: 'Turn searches into walk-ins with AI-powered local marketing. Dominate Google Maps, build trust through reviews, and engage customers with personalized campaigns that drive foot traffic.',
+    title: 'Walk-Ins - Turn Searches Into Restaurant Visits | RAY',
+    description: 'Turn searches into walk-ins with RAY\'s AI-powered local marketing platform. Dominate Google Maps, build trust through reviews, and drive 47% more foot traffic. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months.',
     path: '/product/walk-ins'
   })
 
@@ -152,11 +152,32 @@ const WalkIns: React.FC = () => {
     setOpenFaq(openFaq === index ? null : index)
   }
 
-  const productSchema = generateProductSchema({
+  const productSchema = [
+    generateProductSchema({
     name: COPY.PRODUCTS.WALK_INS.NAME,
     description: COPY.PRODUCTS.WALK_INS.DESCRIPTION,
-    url: `${pageMeta.canonical}`
-  })
+      url: pageMeta.canonical,
+      price: '270',
+      features: [
+        'Google Business Profile optimization',
+        'Review management and staff leaderboard',
+        'AI-powered sentiment analysis',
+        'Local SEO and visibility optimization',
+        'Performance analytics and reporting'
+      ]
+    }),
+    generateServiceSchema({
+      name: 'Walk-Ins Marketing Service',
+      description: 'AI-powered local marketing service that helps restaurants dominate Google Maps and drive more foot traffic',
+      url: pageMeta.canonical
+    }),
+    generateFAQSchema(faqs),
+    generateBreadcrumbSchema([
+      { name: 'Home', url: 'https://rayapp.io/' },
+      { name: 'Products', url: 'https://rayapp.io/product' },
+      { name: 'Walk-Ins', url: 'https://rayapp.io/product/walk-ins' }
+    ])
+  ]
 
   return (
     <>
@@ -164,6 +185,13 @@ const WalkIns: React.FC = () => {
         {...pageMeta}
         schema={productSchema}
       />
+      
+      {/* AI-friendly page summary */}
+      <div className="sr-only">
+        <h1>RAY Walk-Ins - Turn Searches Into Restaurant Visits</h1>
+        <p>RAY Walk-Ins is an AI-powered local marketing platform that helps restaurants dominate Google Maps and drive more foot traffic. Our service includes Google Business Profile optimization, review management, local SEO, and performance analytics. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months or refund your investment. Average restaurants see a 47% increase in walk-ins within 60-90 days.</p>
+        <p>Key features: Get found first on Google Maps, automated review collection and response, listings synchronization across 50+ platforms, local SEO optimization, and comprehensive reporting on navigations and ROI.</p>
+      </div>
       
       {/* Hero Section */}
       <section className="py-20 bg-ray-promise relative overflow-hidden">

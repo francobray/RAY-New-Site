@@ -2,7 +2,7 @@ import React from 'react'
 import { lazy, Suspense } from 'react'
 import SEOHead from '../components/SEOHead'
 import { generatePageMeta } from '../utils/seo'
-import { generateOrganizationSchema, generateWebsiteSchema } from '../utils/schema'
+import { generateOrganizationSchema, generateWebsiteSchema, generateLocalBusinessSchema, generateBreadcrumbSchema } from '../utils/schema'
 import { CSS_CLASSES } from '../constants/ui'
 import Hero from '../components/Hero'
 import FeatureCards from '../components/FeatureCards'
@@ -83,14 +83,18 @@ const TrustMetrics: React.FC = () => (
 
 const Home: React.FC = () => {
   const pageMeta = generatePageMeta({
-    title: 'Increase Restaurant Revenue | Drive More Walk-ins & Reviews',
-    description: 'Increase revenue by driving more walk-ins, orders, and reviews with RAY\'s restaurant marketing platform. Local SEO, reputation management, and customer engagement tools.',
+    title: 'RAY - Restaurant Marketing Platform | Increase Revenue by 30%+',
+    description: 'RAY is the #1 restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months or refund your investment. Trusted by 1,000+ restaurants nationwide.',
     path: '/'
   })
 
   const combinedSchema = [
     generateOrganizationSchema(),
-    generateWebsiteSchema()
+    generateWebsiteSchema(),
+    generateLocalBusinessSchema(),
+    generateBreadcrumbSchema([
+      { name: 'Home', url: 'https://rayapp.io/' }
+    ])
   ]
 
   return (
@@ -99,6 +103,12 @@ const Home: React.FC = () => {
         {...pageMeta}
         schema={combinedSchema}
       />
+      
+      {/* AI-friendly page summary */}
+      <div className="sr-only">
+        <h1>RAY Restaurant Marketing Platform</h1>
+        <p>RAY is the #1 restaurant marketing platform that helps restaurant owners increase revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months or refund your investment. Our platform includes local SEO, reputation management, and customer engagement tools trusted by over 1,000 restaurants nationwide.</p>
+      </div>
       
       <Hero />
       <TrustMetrics />

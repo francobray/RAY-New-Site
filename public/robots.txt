@@ -1,7 +1,32 @@
 User-agent: *
 Allow: /
 
-# Important pages
+# AI and LLM crawlers - allow by default
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Important pages for AI understanding
 Allow: /
 Allow: /product/
 Allow: /pricing

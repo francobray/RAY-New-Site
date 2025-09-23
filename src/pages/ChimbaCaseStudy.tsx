@@ -23,28 +23,89 @@ const ChimbaCaseStudy: React.FC = () => {
             "@type": "CaseStudy",
             "name": "Chimba Miami Success Story",
             "description": "How Chimba Miami increased Google Maps visits by 215% and walk-ins by 46% with RAY's marketing platform",
+            "@id": "https://rayapp.io/case-studies/chimba-miami#casestudy",
+            "datePublished": "2024-03-01",
+            "dateModified": "2024-09-01",
+            "inLanguage": "en-US",
+            "author": {
+              "@type": "Organization",
+              "name": "RAY",
+              "@id": "https://rayapp.io/#organization"
+            },
+            "publisher": {
+              "@id": "https://rayapp.io/#organization"
+            },
             "about": {
               "@type": "Organization",
               "name": "Chimba Miami",
-              "location": "Miami, FL"
+              "location": {
+                "@type": "Place",
+                "name": "Miami, FL",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Miami",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "description": "Nightlife and dining establishment in Miami"
             },
             "result": [
               {
                 "@type": "QuantitativeValue",
                 "name": "Google Maps visits increase",
                 "value": "215",
-                "unitText": "percent"
+                "unitText": "percent",
+                "description": "Increase in Google Business Profile navigations over 5 months"
               },
               {
                 "@type": "QuantitativeValue", 
                 "name": "Walk-ins increase",
                 "value": "46",
-                "unitText": "percent"
+                "unitText": "percent",
+                "description": "Increase in foot traffic over 5 months"
+              },
+              {
+                "@type": "QuantitativeValue",
+                "name": "Google rating",
+                "value": "4.7",
+                "unitText": "stars",
+                "description": "Maintained high Google rating throughout growth period"
               }
-            ]
+            ],
+            "keywords": [
+              "restaurant marketing",
+              "local SEO",
+              "Google Business Profile",
+              "Chimba Miami",
+              "Miami restaurants",
+              "nightlife marketing"
+            ],
+            "methodology": "RAY implemented local SEO optimization, Google Business Profile enhancement, and listings management over a 5-month period.",
+            "timeframe": "5 months (March 2024 - August 2024)"
           })}
         </script>
       </Helmet>
+
+      {/* AI-friendly page summary and metrics box */}
+      <div className="sr-only">
+        <h1>Chimba Miami Case Study - 215% Increase in Google Maps Navigations</h1>
+        <p>Chimba Miami, a nightlife and dining establishment in Miami, achieved significant growth using RAY's restaurant marketing platform. Over 5 months (March-August 2024), they increased Google Maps navigations by 215% and walk-ins by 46% while maintaining a 4.7-star Google rating.</p>
+        
+        <div>
+          <h2>Key Metrics and Results</h2>
+          <ul>
+            <li>Google Maps Navigations: +215% increase over 5 months</li>
+            <li>Walk-in Traffic: +46% increase over 5 months</li>
+            <li>Google Rating: 4.7 stars maintained</li>
+            <li>Implementation Period: March 2024 - August 2024</li>
+            <li>Location: Miami, FL</li>
+            <li>Industry: Nightlife & Dining</li>
+          </ul>
+        </div>
+        
+        <p>The success was achieved through RAY's local SEO optimization, Google Business Profile enhancement, and comprehensive listings management. This case study demonstrates RAY's effectiveness in competitive markets like Miami's nightlife scene, helping establishments increase visibility and drive measurable foot traffic growth.</p>
+      </div>
 
       {/* Hero Section - Chimba Brand Style */}
       <section className="relative min-h-screen bg-gradient-to-br from-pink-600 via-red-600 to-purple-700 text-white overflow-hidden">

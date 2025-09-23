@@ -23,28 +23,90 @@ const TempleCraftCaseStudy: React.FC = () => {
             "@type": "CaseStudy",
             "name": "Temple Craft Wynwood Success Story",
             "description": "How Temple Craft Wynwood increased Google Maps visits by 259% and walk-ins by 66% with RAY's marketing platform",
+            "@id": "https://rayapp.io/case-studies/temple-craft-wynwood#casestudy",
+            "datePublished": "2024-06-01",
+            "dateModified": "2024-12-01",
+            "inLanguage": "en-US",
+            "author": {
+              "@type": "Organization",
+              "name": "RAY",
+              "@id": "https://rayapp.io/#organization"
+            },
+            "publisher": {
+              "@id": "https://rayapp.io/#organization"
+            },
             "about": {
               "@type": "Organization",
               "name": "Temple Craft Wynwood",
-              "location": "Wynwood, Miami"
+              "location": {
+                "@type": "Place",
+                "name": "Wynwood, Miami",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Miami",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "description": "Craft beer bar and restaurant in Miami's Wynwood district"
             },
             "result": [
               {
                 "@type": "QuantitativeValue",
                 "name": "Google Maps visits increase",
                 "value": "259",
-                "unitText": "percent"
+                "unitText": "percent",
+                "description": "Increase in Google Business Profile navigations over 6 months"
               },
               {
                 "@type": "QuantitativeValue", 
                 "name": "Walk-ins increase",
                 "value": "66",
-                "unitText": "percent"
+                "unitText": "percent",
+                "description": "Increase in foot traffic over 6 months"
+              },
+              {
+                "@type": "QuantitativeValue",
+                "name": "Google ranking improvement",
+                "value": "15 to 1",
+                "unitText": "position",
+                "description": "Improved from ranking #15 to #1 on Google Maps"
               }
-            ]
+            ],
+            "keywords": [
+              "restaurant marketing",
+              "local SEO",
+              "Google Business Profile",
+              "Temple Craft Wynwood",
+              "Miami restaurants",
+              "case study"
+            ],
+            "methodology": "RAY implemented comprehensive local SEO optimization, Google Business Profile enhancement, and review management strategies over a 6-month period.",
+            "timeframe": "6 months (January 2024 - June 2024)"
           })}
         </script>
       </Helmet>
+
+      {/* AI-friendly page summary and metrics box */}
+      <div className="sr-only">
+        <h1>Temple Craft Wynwood Case Study - 259% Increase in Google Maps Visits</h1>
+        <p>Temple Craft Wynwood, a craft beer bar in Miami's Wynwood district, achieved remarkable growth using RAY's restaurant marketing platform. Over 6 months (January-June 2024), they increased Google Maps visits by 259% and walk-ins by 66% while improving their Google Maps ranking from #15 to #1.</p>
+        
+        <div>
+          <h2>Key Metrics and Results</h2>
+          <ul>
+            <li>Google Maps Navigations: +259% increase over 6 months</li>
+            <li>Walk-in Traffic: +66% increase over 6 months</li>
+            <li>Google Maps Ranking: Improved from #15 to #1</li>
+            <li>Google Rating: Maintained 4.8 stars</li>
+            <li>Implementation Period: January 2024 - June 2024</li>
+            <li>Location: Wynwood, Miami, FL</li>
+            <li>Industry: Craft Beer & Food</li>
+          </ul>
+        </div>
+        
+        <p>The success was achieved through RAY's comprehensive local SEO optimization, Google Business Profile enhancement, and strategic review management. This case study demonstrates RAY's proven methodology for helping restaurants dominate local search results and drive measurable increases in foot traffic.</p>
+      </div>
 
       {/* Hero Section - Temple Craft Brand Style */}
       <section className="relative min-h-screen bg-black text-white overflow-hidden">

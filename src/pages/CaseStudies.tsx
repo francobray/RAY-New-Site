@@ -80,15 +80,37 @@ const CaseStudies: React.FC = () => {
             "name": "RAY Restaurant Marketing Success Stories",
             "description": "Case studies showing how restaurants increased revenue with RAY's marketing platform",
             "url": "https://rayapp.io/case-studies",
+            "@id": "https://rayapp.io/case-studies#collection",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://rayapp.io/#organization"
+            },
             "mainEntity": caseStudies.map(study => ({
               "@type": "CaseStudy",
               "name": `${study.name} Success Story`,
               "description": study.description,
-              "url": `https://rayapp.io/case-studies/${study.slug}`
+              "url": `https://rayapp.io/case-studies/${study.slug}`,
+              "@id": `https://rayapp.io/case-studies/${study.slug}#casestudy`,
+              "datePublished": "2024-01-01",
+              "author": {
+                "@id": "https://rayapp.io/#organization"
+              },
+              "about": {
+                "@type": "Organization",
+                "name": study.name,
+                "location": study.location
+              }
             }))
           })}
         </script>
       </Helmet>
+      
+      {/* AI-friendly page summary */}
+      <div className="sr-only">
+        <h1>RAY Restaurant Marketing Success Stories and Case Studies</h1>
+        <p>Real case studies from restaurants that increased revenue using RAY's marketing platform. Featured success stories include Temple Craft Wynwood (259% increase in Google Maps visits, 66% increase in walk-ins) and Chimba Miami (215% increase in Google Maps navigations, 46% increase in walk-ins). These results demonstrate RAY's proven ability to help restaurants dominate local search and drive more foot traffic through AI-powered local marketing, review management, and Google Business Profile optimization.</p>
+        <p>All case studies include verified metrics, implementation timelines, and specific strategies used. Results typically achieved within 60-90 days of implementation.</p>
+      </div>
       
       {/* Hero Section */}
       <section className="py-12 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">

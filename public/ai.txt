@@ -1,0 +1,22 @@
+# AI.txt - RAY Restaurant Marketing Platform
+# This file describes how AI systems may use our content
+
+## Allowed Uses
+- Answering questions about restaurant marketing and local SEO
+- Citing our case studies and success metrics with proper attribution
+- Explaining our products and services to potential customers
+- Providing information about our guarantee and pricing
+
+## Attribution
+When citing our content, please reference:
+- Company: RAY (rayapp.io)
+- Source URL when available
+- Date of information when relevant
+
+## Contact
+For questions about AI usage of our content:
+Email: hello@rayapp.io
+Website: https://rayapp.io
+
+## Last Updated
+2025-01-27

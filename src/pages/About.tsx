@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Users, MessageSquare, Heart, Waves, Lightbulb } from 'lucide-react'
 import Card from '../components/Card'
 import LazyImage from '../components/LazyImage'
+import { generateBreadcrumbSchema } from '../utils/schema'
 
 const industryStats = [
   {
@@ -62,7 +63,33 @@ const About: React.FC = () => {
         <meta name="twitter:title" content="About RAY - Restaurant Marketing Experts" />
         <meta name="twitter:description" content="Learn about RAY's mission to help restaurants increase revenue through proven local marketing strategies. Meet our team of restaurant marketing experts." />
         <link rel="canonical" href="https://rayapp.io/about" />
+        <script type="application/ld+json">
+          {JSON.stringify([
+            generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://rayapp.io/' },
+              { name: 'About', url: 'https://rayapp.io/about' }
+            ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "AboutPage",
+              "name": "About RAY - Restaurant Marketing Experts",
+              "description": "Learn about RAY's mission to help restaurants increase revenue through proven local marketing strategies",
+              "url": "https://rayapp.io/about",
+              "@id": "https://rayapp.io/about#aboutpage",
+              "mainEntity": {
+                "@id": "https://rayapp.io/#organization"
+              }
+            }
+          ])}
+        </script>
       </Helmet>
+      
+      {/* AI-friendly page summary */}
+      <div className="sr-only">
+        <h1>About RAY - Restaurant Marketing Platform</h1>
+        <p>RAY is a restaurant marketing platform founded to help restaurant owners increase revenue through proven local marketing strategies. The restaurant industry employs over 15 million people across 1 million+ locations in the U.S., making it the second-largest private sector employer. RAY's mission is to empower restaurant owners with tools and strategies that guarantee a 30%+ increase in Google Business Profile navigations.</p>
+        <p>Our core values include leadership without titles, transparent communication, positive relationship building, adaptability, and merit-based decision making. Founded by Franco (CEO & Co-Founder), RAY serves restaurants nationwide with local SEO, reputation management, and customer engagement solutions.</p>
+      </div>
       
       {/* Hero Section */}
       <section className="py-20 bg-ray-promise relative overflow-hidden">
