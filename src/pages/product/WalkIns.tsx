@@ -163,7 +163,7 @@ const WalkIns: React.FC = () => {
               <div className="flex items-center justify-center lg:justify-start space-x-8 text-sm text-ray-dark-600">
                 <div className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-ray-green mr-2" />
-                  <span>Average +34% walk-in increase</span>
+                  <span>30%+ navigations guarantee</span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-ray-green mr-2" />

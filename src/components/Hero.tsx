@@ -168,7 +168,7 @@ const Hero: React.FC = () => {
               </div>
               <div className="flex items-center">
                 <TrendingUp className="w-4 h-4 text-ray-green mr-2" />
-                <span className="font-medium">4.8★ rating improvement</span>
+                <span className="font-medium">30%+ navigations guarantee</span>
               </div>
             </div>
           </div>
