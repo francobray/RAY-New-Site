@@ -359,7 +359,7 @@ const ChimbaCaseStudy: React.FC = () => {
               <div className="text-center">
                 <blockquote className="text-2xl md:text-3xl text-gray-900 font-medium leading-relaxed mb-8">
                   "Since partnering with RAY, our Juramento location has seen an incredible transformation! 
-                  Our Google Maps visits skyrocketed by <span className="text-pink-600 font-black">215%</span>, 
+                  Our Google Maps navigations skyrocketed by <span className="text-pink-600 font-black">215%</span>, 
                   and foot traffic increased by <span className="text-red-600 font-black">46%</span>. 
                   We've never had so many new customers discovering and visiting us. 
                   The impact on our business has been remarkable!"
@@ -393,7 +393,7 @@ const ChimbaCaseStudy: React.FC = () => {
                   </div>
                 </div>
                 <div className="text-4xl font-black mb-2">📍 215%</div>
-                <div className="font-medium mb-1">More Views</div>
+                <div className="font-medium mb-1">More Navigations</div>
                 <div className="text-sm opacity-90">on Google Maps</div>
               </div>
 
