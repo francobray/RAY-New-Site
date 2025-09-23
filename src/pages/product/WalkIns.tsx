@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Star, TrendingUp, ArrowRight, CheckCircle, MapPin, BarChart3, Search, Database, Globe, Camera, ChevronDown, ChevronUp, Eye, Users, Award } from 'lucide-react'
+import { Star, TrendingUp, ArrowRight, CheckCircle, MapPin, BarChart3, Search, Database, Globe, Camera, ChevronDown, ChevronUp, Award } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOHead from '../../components/SEOHead'
 import { generatePageMeta } from '../../utils/seo'
