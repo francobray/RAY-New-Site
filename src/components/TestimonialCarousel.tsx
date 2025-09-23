@@ -27,7 +27,7 @@ const customers = [
   {
     id: 'temple-craft',
     name: 'Temple Craft Wynwood',
-    owner: 'Juan Cheramissano',
+    owner: 'Juan Ignacio Chereminiano',
     title: 'CEO - Temple Craft Wynwood',
     metric: '+$12,000/m',
     category: 'Online Sales',

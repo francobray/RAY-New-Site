@@ -356,7 +356,7 @@ const TempleCraftCaseStudy: React.FC = () => {
               <div className="text-center">
                 <blockquote className="text-2xl md:text-3xl text-white font-medium leading-relaxed mb-8">
                   "Since partnering with RAY, our Juramento location has seen an incredible transformation! 
-                  Our Google Maps visits skyrocketed by <span className="text-yellow-400 font-black">259%</span>, 
+                  Our Google Maps navigations skyrocketed by <span className="text-yellow-400 font-black">259%</span>, 
                   and foot traffic increased by <span className="text-green-400 font-black">66%</span>. 
                   We've never had so many new customers discovering and visiting us. 
                   The impact on our business has been remarkable!"
@@ -365,7 +365,7 @@ const TempleCraftCaseStudy: React.FC = () => {
                 <div className="flex items-center justify-center">
                   <div className="text-center">
                     <div className="font-black text-white text-lg">
-                      Juani Chereminiano
+                      Juan Ignacio Chereminiano
                     </div>
                     <div className="text-gray-400">
                       CEO – Temple Craft Wynwood
@@ -390,7 +390,7 @@ const TempleCraftCaseStudy: React.FC = () => {
                   </div>
                 </div>
                 <div className="text-4xl font-black text-yellow-400 mb-2">259%</div>
-                <div className="text-white font-medium mb-1">More Views</div>
+                <div className="text-white font-medium mb-1">More Navigations</div>
                 <div className="text-sm text-gray-400">on Google Maps</div>
               </div>
 

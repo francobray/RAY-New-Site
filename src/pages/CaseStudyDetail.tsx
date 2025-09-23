@@ -80,7 +80,7 @@ const caseStudyData = {
   },
   'temple-craft': {
     name: 'Temple Craft Wynwood',
-    owner: 'Juan Cheramissano',
+    owner: 'Juan Ignacio Chereminiano',
     title: 'CEO - Temple Craft Wynwood',
     location: 'Miami, FL',
     industry: 'Craft Beer & Food',
@@ -97,7 +97,7 @@ const caseStudyData = {
     ],
     testimonial: {
       text: "RAY understood our unique position in Wynwood and helped us build a marketing strategy that resonates with our community. The $12,000 monthly revenue increase has allowed us to expand our craft beer selection and host more events.",
-      author: "Juan Cheramissano",
+      author: "Juan Ignacio Chereminiano",
       title: "CEO - Temple Craft Wynwood"
     }
   },

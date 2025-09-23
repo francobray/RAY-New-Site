@@ -69,7 +69,7 @@ const customerStories = [
   {
     id: 'temple-craft',
     name: 'Temple Craft Wynwood',
-    owner: 'Juan Cheramissano',
+    owner: 'Juan Ignacio Chereminiano',
     title: 'CEO',
     metric: '+$12,000/m',
     description: 'Monthly revenue increase',
