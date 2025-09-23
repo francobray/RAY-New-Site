@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Star, TrendingUp, ArrowRight, CheckCircle, MapPin, BarChart3, Search, Database, Globe, Camera, ChevronDown, ChevronUp } from 'lucide-react'
+import { Star, TrendingUp, ArrowRight, CheckCircle, MapPin, BarChart3, Search, Database, Globe, Camera, ChevronDown, ChevronUp, Eye, Users, Award } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOHead from '../../components/SEOHead'
 import { generatePageMeta } from '../../utils/seo'
@@ -14,55 +14,55 @@ const features = [
   {
     icon: Search,
     title: 'Get Found First',
-    description: 'Rank #1 on Google Maps and local searches',
+    description: 'Rank #1 on Google Maps when hungry customers search nearby',
     details: [
-      'Google My Business optimization',
-      'Local keyword targeting and ranking'
+      'Dominate "restaurants near me" searches',
+      'Appear in AI recommendations and voice searches'
     ]
   },
   {
     icon: Star,
     title: 'Reviews & Reputation',
-    description: 'Build trust with automated review management',
+    description: 'Build trust with automated review collection and response support',
     details: [
-      'Review collection and response automation',
-      'Staff leaderboard and response support'
+      'Staff leaderboard motivates review collection',
+      'Professional response templates and guidance'
     ]
   },
   {
     icon: Database,
     title: 'Listings & Data Sync',
-    description: 'Keep information accurate across all platforms',
+    description: 'Keep hours, menus, and info accurate across all platforms automatically',
     details: [
-      'Hours, menus, and attributes synchronized',
-      'Major platform coverage and updates'
-    ]
-  },
-  {
-    icon: BarChart3,
-    title: 'Insights & Reporting',
-    description: 'Track navigations, calls, and ROI clearly',
-    details: [
-      'Google Business Profile navigation tracking',
-      'Direction requests and performance metrics'
+      'Sync to Google, Yelp, Facebook, Apple Maps + 50 more',
+      'One update pushes everywhere instantly'
     ]
   },
   {
     icon: Globe,
     title: 'Local Pages & Schema',
-    description: 'Location pages with proper structured data',
+    description: 'Location pages optimized for search engines and customers',
     details: [
-      'SEO-optimized location pages',
-      'Structured data for better search visibility'
+      'SEO-optimized pages for each location',
+      'Structured data helps search engines understand your business'
+    ]
+  },
+  {
+    icon: BarChart3,
+    title: 'Insights & Reporting',
+    description: 'Track navigations, calls, and ROI with clear dashboards',
+    details: [
+      'Monitor Google Business Profile direction requests',
+      'See which efforts drive the most foot traffic'
     ]
   },
   {
     icon: Camera,
-    title: 'Photo & Q&A Management',
-    description: 'Keep profiles accurate and appealing',
+    title: 'Photos & Q&A Management',
+    description: 'Keep your online presence fresh and appealing',
     details: [
-      'Photo optimization and management',
-      'Q&A monitoring and response guidance'
+      'Photo optimization and management guidance',
+      'Q&A monitoring and response recommendations'
     ]
   }
 ]
@@ -71,40 +71,40 @@ const howItWorks = [
   {
     step: '1',
     title: 'Audit & Setup',
-    description: 'We analyze your current visibility and optimize your Google Business Profile'
+    description: 'We analyze your current visibility and optimize your Google Business Profile for maximum impact'
   },
   {
     step: '2',
     title: 'Optimize & Sync',
-    description: 'Your listings get updated across all major platforms with accurate information'
+    description: 'Your listings get updated across all major platforms with accurate, search-optimized information'
   },
   {
     step: '3',
     title: 'Track & Improve',
-    description: 'Monitor your increased navigations and continue optimizing for better results'
+    description: 'Monitor your increased navigations and continue optimizing based on real performance data'
   }
 ]
 
 const faqs = [
   {
-    question: 'What exactly does "navigations" mean?',
-    answer: 'Navigations refer to Google Business Profile direction requests and navigation taps - when customers click "Directions" to visit your restaurant.'
+    question: 'What exactly are "navigations"?',
+    answer: 'Navigations are Google Business Profile direction requests and navigation taps - when customers click "Directions" to visit your restaurant. This is the strongest signal of intent to visit.'
   },
   {
     question: 'How quickly will I see results?',
-    answer: 'Most restaurants see initial improvements within 2-4 weeks, with significant results typically visible within 60-90 days.'
+    answer: 'Most restaurants see initial improvements within 2-4 weeks, with significant results typically visible within 60-90 days. Our guarantee covers 6 months to ensure substantial growth.'
   },
   {
     question: 'What if I don\'t get the guaranteed 30% increase?',
-    answer: 'We guarantee a 30%+ increase in Google Business Profile navigations within 6 months — or we\'ll refund your investment.'
+    answer: 'We guarantee a 30%+ increase in Google Business Profile navigations within 6 months — or we\'ll refund your investment. We stand behind our results.'
   },
   {
-    question: 'Do you work with multiple locations?',
-    answer: 'Yes, our platform scales to manage multiple restaurant locations with centralized reporting and location-specific optimization.'
+    question: 'Do you work with multiple restaurant locations?',
+    answer: 'Yes, our platform scales to manage multiple restaurant locations with centralized reporting and location-specific optimization strategies.'
   },
   {
-    question: 'What platforms do you sync with?',
-    answer: 'We sync with Google, Yelp, Facebook, Apple Maps, and 50+ other major directories and review platforms.'
+    question: 'Which platforms do you sync with?',
+    answer: 'We sync with Google, Yelp, Facebook, Apple Maps, and 50+ other major directories and review platforms to ensure consistent information everywhere.'
   }
 ]
 
@@ -157,6 +157,7 @@ const WalkIns: React.FC = () => {
     description: COPY.PRODUCTS.WALK_INS.DESCRIPTION,
     url: `${pageMeta.canonical}`
   })
+
   return (
     <>
       <SEOHead
@@ -167,27 +168,27 @@ const WalkIns: React.FC = () => {
       {/* Hero Section */}
       <section className="py-20 bg-ray-promise relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(13,121,229,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(111,191,115,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(13,121,229,0.08),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(111,191,115,0.08),transparent_50%)]"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Content */}
-            <div className="text-center lg:text-left relative">
-              <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
-                <TrendingUp className="w-4 h-4 mr-2" />
-                AI-Powered Local Marketing
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm mb-6">
+                <TrendingUp className="w-4 h-4 mr-2 text-ray-blue" />
+                <span className="text-sm font-medium text-ray-dark-900">AI-Powered Local Marketing</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
                 Turn Searches Into{' '}
-                <span className="text-ray-blue">
+                <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
                   Walk-Ins
                 </span>
               </h1>
               
-              <p className="text-xl text-ray-dark-700 mb-8 leading-relaxed">
-                Dominate Google Maps and local search to drive more foot traffic to your restaurant.
+              <p className="text-xl text-ray-dark-700 mb-8 leading-relaxed max-w-xl">
+                Dominate Google Maps and local search to drive more hungry customers to your restaurant door.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
@@ -208,9 +209,9 @@ const WalkIns: React.FC = () => {
                   variant="secondary" 
                   size="lg"
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                 onClick={() => openModal('demo-expert')}
-                 data-cta="demo-expert"
-                data-analytics="walk_ins_hero"
+                  onClick={() => openModal('demo-expert')}
+                  data-cta="demo-expert"
+                  data-analytics="walk_ins_hero"
                   aria-label="Talk to an expert"
                 >
                   Talk to an Expert
@@ -220,77 +221,66 @@ const WalkIns: React.FC = () => {
               <div className="flex items-center justify-center lg:justify-start space-x-8 text-sm text-ray-dark-600">
                 <div className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-ray-green mr-2" />
-                  <span>47% avg. increase</span>
+                  <span className="font-medium">47% avg. increase</span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-ray-green mr-2" />
-                  <span>Results in 60-90 days</span>
+                  <span className="font-medium">Results in 60-90 days</span>
                 </div>
               </div>
             </div>
             
-            {/* Hero Visual */}
+            {/* Hero Visual - Mobile Phone with Google Maps */}
             <div className="relative">
-              {/* Mobile Phone Mockup with Real-Time Navigation */}
               <div className="relative max-w-sm mx-auto">
                 {/* Phone Frame */}
                 <div className="relative bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl">
                   {/* Screen */}
                   <div className="bg-white rounded-[2rem] overflow-hidden">
-                    <div className="p-3 space-y-2">
+                    <div className="p-4 space-y-3">
                       {/* Header */}
                       <div className="flex items-center justify-between">
-                        <div className="text-xs font-bold text-gray-900">Google Maps</div>
+                        <div className="text-sm font-bold text-gray-900">Google Maps</div>
                         <div className="w-4 h-4 bg-ray-blue rounded-full"></div>
                       </div>
                       
-                      {/* Active Navigation View */}
-                      <div className="bg-blue-50 rounded-lg p-2 mb-2 border border-blue-200">
-                        <div className="flex items-center mb-1">
-                          <div className="w-2 h-2 bg-ray-blue rounded-full mr-2 animate-pulse"></div>
-                          <div className="text-xs text-blue-700 font-medium">Walking to destination</div>
-                        </div>
-                        <div className="font-semibold text-gray-900 text-xs">Your Restaurant</div>
-                        <div className="text-xs text-gray-600">2 min walk • 0.1 miles</div>
+                      {/* Search Results */}
+                      <div className="space-y-2">
+                        <div className="text-xs text-gray-500 mb-2">Restaurants near you</div>
                         
-                        {/* Route Progress */}
-                        <div className="flex items-center mt-1">
-                          <div className="w-1.5 h-1.5 bg-ray-blue rounded-full"></div>
-                          <div className="flex-1 h-0.5 bg-gradient-to-r from-ray-blue to-ray-green mx-1"></div>
-                          <div className="w-2 h-2 bg-ray-green rounded-full"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Nearby Restaurants */}
-                      <div className="space-y-1">
-                        <div className="text-xs text-gray-500 mb-1">Nearby restaurants</div>
-                        <div className="p-2 bg-green-50 rounded-lg border-l-2 border-green-500">
+                        {/* #1 Result - Your Restaurant */}
+                        <div className="p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
                           <div className="flex items-center justify-between">
                             <div>
-                              <div className="font-semibold text-gray-900 text-xs">Your Restaurant</div>
-                              <div className="text-xs text-gray-600">4.8★ • 847 reviews</div>
+                              <div className="font-semibold text-gray-900 text-sm">Your Restaurant</div>
+                              <div className="text-xs text-gray-600 flex items-center">
+                                <Star className="w-3 h-3 text-yellow-400 fill-current mr-1" />
+                                4.8 • 847 reviews • 0.2 mi
+                              </div>
+                              <div className="text-xs text-green-600 font-medium mt-1">Open now</div>
                             </div>
-                            <div className="text-green-600 font-bold text-xs">#1</div>
+                            <div className="text-green-600 font-bold text-lg">#1</div>
                           </div>
                         </div>
                         
-                        <div className="p-1.5 bg-gray-100 rounded-lg">
+                        {/* Competitors */}
+                        <div className="p-2 bg-gray-100 rounded-lg">
                           <div className="flex items-center justify-between">
                             <div>
-                              <div className="font-medium text-gray-700 text-xs">Competitor A</div>
-                              <div className="text-xs text-gray-500">4.2★ • 234 reviews</div>
+                              <div className="font-medium text-gray-700 text-sm">Competitor A</div>
+                              <div className="text-xs text-gray-500">4.2★ • 234 reviews • 0.4 mi</div>
                             </div>
-                            <div className="text-gray-500 text-xs">#2</div>
+                            <div className="text-gray-500 text-sm">#2</div>
                           </div>
                         </div>
                         
-                        <div className="p-1.5 bg-gray-100 rounded-lg">
+                        <div className="p-2 bg-gray-100 rounded-lg">
                           <div className="flex items-center justify-between">
                             <div>
-                              <div className="font-medium text-gray-700 text-xs">Competitor B</div>
-                              <div className="text-xs text-gray-500">4.0★ • 156 reviews</div>
+                              <div className="font-medium text-gray-700 text-sm">Competitor B</div>
+                              <div className="text-xs text-gray-500">4.0★ • 156 reviews • 0.6 mi</div>
                             </div>
-                            <div className="text-gray-500 text-xs">#3</div>
+                            <div className="text-gray-500 text-sm">#3</div>
                           </div>
                         </div>
                       </div>
@@ -303,7 +293,7 @@ const WalkIns: React.FC = () => {
                 
                 {/* Floating Elements */}
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">
-                  <div className="text-lg font-bold text-ray-green">+34%</div>
+                  <div className="text-lg font-bold text-ray-green">+47%</div>
                   <div className="text-xs text-ray-darkGray">More visibility</div>
                 </div>
                 
@@ -340,16 +330,16 @@ const WalkIns: React.FC = () => {
             {features.map((feature, index) => {
               const IconComponent = feature.icon
               return (
-                <Card key={index} className="hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-ray-blue rounded-lg mb-4">
-                    <IconComponent className="w-6 h-6 text-white" />
+                <Card key={index} className="hover:shadow-xl transition-all duration-300 h-full flex flex-col group">
+                  <div className="inline-flex items-center justify-center w-14 h-14 bg-ray-blue rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                    <IconComponent className="w-7 h-7 text-white" />
                   </div>
                   
                   <h3 className="text-xl font-bold text-ray-dark-900 mb-3">
                     {feature.title}
                   </h3>
                   
-                  <p className="text-ray-darkGray mb-4 flex-grow">
+                  <p className="text-ray-darkGray mb-4 flex-grow leading-relaxed">
                     {feature.description}
                   </p>
                   
@@ -380,10 +370,15 @@ const WalkIns: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {howItWorks.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-ray-blue rounded-full text-white text-2xl font-bold mb-6">
+              <div key={index} className="text-center relative">
+                {/* Connection Line */}
+                {index < howItWorks.length - 1 && (
+                  <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-ray-blue to-ray-green opacity-30 transform translate-x-4"></div>
+                )}
+                
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-ray-blue to-ray-green rounded-full text-white text-2xl font-bold mb-6 shadow-lg">
                   {step.step}
                 </div>
                 <h3 className="text-xl font-bold text-ray-dark-900 mb-4">
@@ -417,16 +412,21 @@ const WalkIns: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
-              <TrendingUp className="w-4 h-4 mr-2" />
+            <div className="inline-flex items-center px-4 py-2 bg-ray-green/10 rounded-full text-ray-green text-sm font-medium mb-6">
+              <Award className="w-4 h-4 mr-2" />
               Proven Results
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
               Real Results from Real Restaurants
             </h2>
-            <p className="text-xl text-ray-darkGray max-w-3xl mx-auto leading-relaxed">
-              We guarantee a 30%+ increase in Google Business Profile navigations within 6 months — or we'll refund your investment.
-            </p>
+            <div className="bg-gradient-to-r from-ray-promise rounded-2xl p-8 max-w-4xl mx-auto mb-12">
+              <p className="text-xl text-ray-dark-900 font-semibold leading-relaxed">
+                We guarantee a 30%+ increase in Google Business Profile navigations within 6 months — or we'll refund your investment.
+              </p>
+              <p className="text-sm text-ray-darkGray mt-2">
+                ('Navigations' refers to Google Business Profile direction requests/navigation taps.)
+              </p>
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
@@ -441,7 +441,7 @@ const WalkIns: React.FC = () => {
                   <div className="relative h-80">
                     <img
                       src={customer.image}
-                      alt={customer.name}
+                      alt={`${customer.name} team celebrating success`}
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
@@ -463,22 +463,29 @@ const WalkIns: React.FC = () => {
                       
                       {/* Bottom Section - Restaurant & Metrics */}
                       <div>
-                        <div className="mb-3">
-                          <h3 className="text-xl font-bold mb-1">
+                        <div className="mb-4">
+                          <h3 className="text-xl font-bold mb-2">
                             {customer.name}
                           </h3>
-                          <div className="text-2xl font-bold text-ray-green">
+                          <div className="text-3xl font-bold text-yellow-300 mb-1">
                             {customer.metric}
                           </div>
                           <div className="text-sm opacity-90">
                             {customer.description}
                           </div>
                         </div>
+                        
+                        <div className="flex items-center justify-between">
+                          <div className="text-sm opacity-90">
+                            "{customer.quote.slice(0, 50)}..."
+                          </div>
+                          <div className="flex items-center text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">
+                            Read Story
+                            <ArrowRight className="w-4 h-4 ml-1" />
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    
-                    {/* Hover Effect */}
-                    <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                   </div>
                 </div>
               </Link>
@@ -497,8 +504,96 @@ const WalkIns: React.FC = () => {
         </div>
       </section>
       
-      {/* FAQ Section */}
+      {/* Lead Capture Section */}
       <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Benefits Column */}
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+                Ready to dominate local search?
+              </h2>
+              
+              <p className="text-xl text-ray-dark-700 mb-8 leading-relaxed">
+                Get your free restaurant scan and discover exactly how RAY can drive more 
+                customers to your door. See your opportunities in just 60 seconds.
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-ray-green mr-3" />
+                  <span className="text-ray-dark-700">Free 60-second restaurant audit</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-ray-green mr-3" />
+                  <span className="text-ray-dark-700">Personalized improvement recommendations</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-ray-green mr-3" />
+                  <span className="text-ray-dark-700">See your local search ranking opportunities</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-ray-green mr-3" />
+                  <span className="text-ray-dark-700">30%+ navigations guarantee</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Form Column */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-ray-dark-900 mb-2">
+                  Get Your Free Restaurant Scan
+                </h3>
+                <p className="text-ray-darkGray">
+                  Discover your local search opportunities in 60 seconds
+                </p>
+              </div>
+              
+              <Button 
+                variant="primary" 
+                size="lg"
+                className="w-full shadow-xl hover:shadow-2xl transition-all duration-300 group mb-4"
+                href="https://grader.rayapp.io/"
+                external={true}
+                data-cta="grader"
+                data-analytics="walk_ins_lead_capture"
+                aria-label="Grade your restaurant"
+              >
+                Grade Your Restaurant Now
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+              
+              <div className="text-center">
+                <button
+                  onClick={() => openModal('demo-expert')}
+                  className="text-ray-blue hover:text-blue-600 font-medium transition-colors duration-200"
+                  data-cta="demo-expert"
+                  data-analytics="walk_ins_lead_capture"
+                >
+                  Or talk to an expert instead
+                </button>
+              </div>
+              
+              <div className="mt-6 pt-6 border-t border-gray-200 text-center">
+                <div className="flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
+                    <span>No commitment</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
+                    <span>Results in 60-90 days</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
@@ -536,70 +631,6 @@ const WalkIns: React.FC = () => {
                 )}
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Final CTA Section */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(13,121,229,0.1),transparent_50%)]"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
-            <TrendingUp className="w-4 h-4 mr-2" />
-            Ready to Get Found First?
-          </div>
-          
-          <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-            Ready to increase your walk-in traffic?
-          </h2>
-          
-          <p className="text-xl text-ray-dark-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Get your free restaurant scan and discover exactly how RAY can drive more 
-            customers to your door. See your opportunities in just 60 seconds.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="primary" 
-              size="lg"
-              className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
-              href="https://grader.rayapp.io/"
-              external={true}
-              data-cta="grader"
-              data-analytics="walk_ins_final_cta"
-              aria-label="Grade your restaurant"
-            >
-              Grade Your Restaurant
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
-            <Button 
-              variant="secondary" 
-              size="lg"
-              className="shadow-xl hover:shadow-2xl transition-all duration-300"
-              onClick={() => openModal('demo-expert')}
-              data-cta="demo-expert"
-              data-analytics="walk_ins_final_cta"
-              aria-label="Talk to an expert"
-            >
-              Talk to an Expert
-            </Button>
-          </div>
-          
-          <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
-            <div className="flex items-center">
-              <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-              <span>30%+ navigations guarantee</span>
-            </div>
-            <div className="flex items-center">
-              <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-              <span>No commitment</span>
-            </div>
-            <div className="flex items-center">
-              <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-              <span>Results in 60-90 days</span>
-            </div>
           </div>
         </div>
       </section>
