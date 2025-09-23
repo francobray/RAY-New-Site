@@ -245,10 +245,3 @@ const CaseStudies: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      <CTASection />
-    </>
-  )
-}
-
-export default CaseStudies
