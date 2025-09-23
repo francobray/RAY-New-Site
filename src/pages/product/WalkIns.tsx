@@ -1,5 +1,5 @@
 import React from 'react'
-import { Star, TrendingUp, Eye, Shield, ArrowRight, CheckCircle } from 'lucide-react'
+import { Star, TrendingUp, Eye, Shield, ArrowRight, CheckCircle, MapPin, Users, BarChart3 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOHead from '../../components/SEOHead'
 import { generatePageMeta } from '../../utils/seo'
@@ -10,37 +10,27 @@ import Button from '../../components/shared/BaseButton'
 import HubSpotUnifiedModal from '../../components/HubSpotUnifiedModal'
 import { useHubSpotModal } from '../../hooks/useHubSpotModal'
 
-const features = [
+const benefits = [
   {
-    icon: Eye,
-    title: 'Visibility',
-    subtitle: 'Dominate Google Maps & Local Search',
-    description: 'Make sure your restaurant stands out and is easily found on Google and Apple Maps.',
-    details: [
-      'Google Maps optimization and ranking',
-      'Local SEO for "restaurants near me" searches',
-      'AI-powered keyword targeting',
-      'Citation building across 50+ directories',
-      'Competitor analysis and monitoring'
-    ],
-    ctaText: 'Check your rankings',
-    ctaLink: '#'
+    icon: MapPin,
+    title: 'Dominate Local Search',
+    description: 'Rank #1 when customers search "restaurants near me"'
   },
   {
-    icon: Shield,
-    title: 'Trust & Reputation',
-    subtitle: 'Automated Review Management',
-    description: 'Spot and handle unfair reviews before they hurt you. Build customer confidence with AI-powered reputation management.',
-    details: [
-      'Real-time review monitoring across all platforms',
-      'AI-powered review response automation',
-      'Review generation campaigns',
-      'Negative review mitigation strategies',
-      'Reputation score tracking and alerts'
-    ],
-    ctaText: 'Protect my reputation',
-    ctaLink: '#'
+    icon: Star,
+    title: 'Build Trust Fast',
+    description: 'AI manages reviews and builds 4.8+ star ratings'
   },
+  {
+    icon: Users,
+    title: 'More Walk-Ins',
+    description: 'Turn online searches into foot traffic daily'
+  },
+  {
+    icon: BarChart3,
+    title: 'Track Performance',
+    description: 'See exactly how many customers RAY brings you'
+  }
 ]
 
 const customerStories = [
@@ -263,247 +253,139 @@ const WalkIns: React.FC = () => {
         </div>
       </section>
       
-      {/* How RAY Drives More Walk-Ins */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
-              <Eye className="w-4 h-4 mr-2" />
-              Comprehensive Growth Strategy
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-              How RAY Drives More Walk-Ins
-            </h2>
-            <p className="text-xl text-ray-darkGray max-w-3xl mx-auto leading-relaxed">
-              Our comprehensive approach ensures customers find you, trust you, and choose you 
-              over the competition through proven strategies and AI-powered automation.
-            </p>
-          </div>
-          
-          <div className="space-y-0">
-            {/* Feature 1: Visibility */}
-            <div className="py-20 bg-white">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Content - Left */}
-                <div>
-                  <h3 className="text-3xl font-bold text-ray-dark-900 mb-4">
-                    Visibility
-                  </h3>
-                  
-                  <h4 className="text-xl font-semibold text-ray-blue mb-6">
-                    Dominate Google Maps & Local Search
-                  </h4>
-                  
-                  <p className="text-lg text-ray-darkGray mb-8 leading-relaxed">
-                    Make sure your restaurant stands out and is easily found on Google and Apple Maps. 
-                    Our AI-powered optimization ensures you appear at the top when hungry customers search.
-                  </p>
-                  
-                  <ul className="space-y-3 mb-8">
-                    {features[0].details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-start text-ray-dark-700">
-                        <CheckCircle className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <button className="inline-flex items-center text-ray-blue font-semibold hover:text-blue-600 transition-colors duration-200 group">
-                    Check your rankings
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
-                </div>
-                
-                {/* Visual - Right */}
-                <div>
-                  <Card className="p-8 bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                    <div className="space-y-6">
-                      <div className="bg-gray-50 rounded-lg p-6">
-                        <h5 className="font-semibold text-ray-dark-900 mb-4">Local Search Rankings</h5>
-                        <div className="space-y-3">
-                          <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                            <span className="font-medium text-ray-dark-900">Your Restaurant</span>
-                            <span className="text-ray-blue font-bold">#1</span>
-                          </div>
-                          <div className="flex items-center justify-between p-3 bg-gray-100 rounded-lg">
-                            <span className="text-ray-darkGray">Competitor A</span>
-                            <span className="text-ray-darkGray">#2</span>
-                          </div>
-                          <div className="flex items-center justify-between p-3 bg-gray-100 rounded-lg">
-                            <span className="text-ray-darkGray">Competitor B</span>
-                            <span className="text-ray-darkGray">#3</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-ray-green">+47%</div>
-                        <div className="text-sm text-ray-darkGray">More visibility</div>
-                      </div>
-                    </div>
-                  </Card>
-                </div>
-              </div>
-            </div>
-            
-            {/* Feature 2: Trust & Reputation */}
-            <div className="py-20 bg-gray-50">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center lg:grid-flow-col-dense">
-                {/* Content - Right */}
-                <div className="lg:col-start-2">
-                  <h3 className="text-3xl font-bold text-ray-dark-900 mb-4">
-                    Trust & Reputation
-                  </h3>
-                  
-                  <h4 className="text-xl font-semibold text-ray-blue mb-6">
-                    Automated Review Management
-                  </h4>
-                  
-                  <p className="text-lg text-ray-darkGray mb-8 leading-relaxed">
-                    Spot and handle unfair reviews before they hurt you. Build customer confidence 
-                    with AI-powered reputation management that responds instantly and professionally.
-                  </p>
-                  
-                  <ul className="space-y-3 mb-8">
-                    {features[1].details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-start text-ray-dark-700">
-                        <CheckCircle className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <button className="inline-flex items-center text-ray-blue font-semibold hover:text-blue-600 transition-colors duration-200 group">
-                    Protect my reputation
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
-                </div>
-                
-                {/* Visual - Left */}
-                <div className="lg:col-start-1">
-                  <Card className="p-8 bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                    <div className="space-y-6">
-                      <div className="bg-gray-50 rounded-lg p-6">
-                        <h5 className="font-semibold text-ray-dark-900 mb-4">Review Management</h5>
-                        <div className="space-y-3">
-                          <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
-                            <div>
-                              <div className="font-medium text-ray-dark-900">Positive Review</div>
-                              <div className="text-sm text-ray-darkGray">Auto-responded in 2 mins</div>
-                            </div>
-                            <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                          </div>
-                          <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
-                            <div>
-                              <div className="font-medium text-ray-dark-900">Negative Review</div>
-                              <div className="text-sm text-ray-darkGray">Flagged & escalated</div>
-                            </div>
-                            <Shield className="w-5 h-5 text-red-500" />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-ray-green">4.8★</div>
-                        <div className="text-sm text-ray-darkGray">Average rating</div>
-                      </div>
-                    </div>
-                  </Card>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Feature 4: Server Revenue Impact */}
+      {/* Benefits & Lead Form Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center lg:grid-flow-col-dense">
-            {/* Content - Right */}
-            <div className="lg:col-start-2">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-6">
-                <TrendingUp className="w-4 h-4 mr-2" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Benefits Column - Left */}
+            <div>
+              <div className="mb-12">
+                <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
+                  <TrendingUp className="w-4 h-4 mr-2" />
+                  Proven Results
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+                  How RAY Drives More Walk-Ins
+                </h2>
+                <p className="text-xl text-ray-darkGray leading-relaxed">
+                  Our AI-powered platform ensures customers find you, trust you, and choose you over the competition.
+                </p>
               </div>
               
-              <h3 className="text-3xl font-bold text-ray-dark-900 mb-4">
-                Identify Your Top Performers
-              </h3>
-              
-              <h4 className="text-xl font-semibold text-ray-blue mb-6">
-                Staff Performance Analytics
-              </h4>
-              
-              <p className="text-lg text-ray-darkGray mb-8 leading-relaxed">
-                Top-performing servers generate over 2x the revenue compared to average servers 
-                ($20,000 vs $10,000 per month). RAY's Review leaderboard makes it easy to identify 
-                which staff members are driving the most positive reviews.
-              </p>
-              
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start text-ray-dark-700">
-                  <CheckCircle className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                  <span>Staff performance tracking and analytics</span>
-                </li>
-                <li className="flex items-start text-ray-dark-700">
-                  <CheckCircle className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                  <span>Review attribution to individual team members</span>
-                </li>
-                <li className="flex items-start text-ray-dark-700">
-                  <CheckCircle className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
-                  <span>Revenue impact measurement per server</span>
-                </li>
-              </ul>
-              
-              <button className="inline-flex items-center text-ray-blue font-semibold hover:text-blue-600 transition-colors duration-200 group">
-                Identify Your Top Performers
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+              {/* Benefits Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {benefits.map((benefit, index) => {
+                  const IconComponent = benefit.icon
+                  return (
+                    <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200">
+                      <div className="flex items-center mb-4">
+                        <div className="w-10 h-10 bg-ray-blue/10 rounded-lg flex items-center justify-center mr-3">
+                          <IconComponent className="w-5 h-5 text-ray-blue" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-ray-dark-900">
+                          {benefit.title}
+                        </h3>
+                      </div>
+                      <p className="text-ray-darkGray leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
             </div>
             
-            {/* Visual - Left */}
-            <div className="lg:col-start-1">
-              <Card className="p-8 bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                <div className="space-y-6">
-                  <div className="bg-blue-50 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-ray-darkGray">Top Performer</span>
-                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">
-                        $20,000/month
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-gray-100 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-ray-darkGray">Average Server</span>
-                      <span className="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                        $10,000/month
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4 pt-4">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-ray-green">+$10,000</div>
-                      <div className="text-sm text-ray-darkGray">Additional Monthly Revenue</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-ray-blue">2x</div>
-                      <div className="text-sm text-ray-darkGray">Revenue Multiplier</div>
-                    </div>
-                  </div>
-                  
-                  <div className="text-xs text-ray-darkGray text-center pt-4 border-t">
-                    Based on average monthly revenue data across 1,000+ restaurants
-                  </div>
+            {/* Lead Form Column - Right */}
+            <div className="lg:sticky lg:top-8">
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
+                    Get Your Free Restaurant Scan
+                  </h3>
+                  <p className="text-ray-darkGray">
+                    See exactly how RAY can increase your walk-ins in just 60 seconds.
+                  </p>
                 </div>
-              </Card>
+                
+                {/* Lead Form */}
+                <form className="space-y-6">
+                  <div>
+                    <label htmlFor="restaurant-name" className="block text-sm font-medium text-ray-dark-900 mb-2">
+                      Restaurant Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="restaurant-name"
+                      name="restaurant-name"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent transition-colors duration-200"
+                      placeholder="Your Restaurant Name"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="owner-name" className="block text-sm font-medium text-ray-dark-900 mb-2">
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="owner-name"
+                      name="owner-name"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent transition-colors duration-200"
+                      placeholder="John Smith"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-ray-dark-900 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent transition-colors duration-200"
+                      placeholder="john@restaurant.com"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-ray-dark-900 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent transition-colors duration-200"
+                      placeholder="(555) 123-4567"
+                    />
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    className="w-full bg-ray-blue hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 shadow-lg hover:shadow-xl"
+                  >
+                    Get My Free Scan
+                  </button>
+                  
+                  <div className="text-center">
+                    <p className="text-xs text-ray-darkGray">
+                      No commitment required. Results in 24 hours.
+                    </p>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </section>
       
       {/* Customer Success Stories Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
@@ -588,12 +470,12 @@ const WalkIns: React.FC = () => {
       </section>
       
       {/* Final CTA Section */}
-      <section className="py-24 bg-ray-promise relative overflow-hidden">
+      <section className="py-20 bg-gray-50 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(13,121,229,0.1),transparent_50%)]"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <div className="inline-flex items-center px-4 py-2 bg-ray-dark-900/10 rounded-full text-ray-dark-900 text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
             <TrendingUp className="w-4 h-4 mr-2" />
             Ready to Grow Your Restaurant?
           </div>
