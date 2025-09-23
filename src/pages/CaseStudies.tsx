@@ -220,19 +220,6 @@ const CaseStudies: React.FC = () => {
             <div className="bg-white rounded-3xl shadow-lg border-2 border-dashed border-gray-300 p-12 text-center">
               <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <TrendingUp className="w-8 h-8 text-gray-400" />
-                <div className="mt-8">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    href="https://grader.rayapp.io/"
-                    external={true}
-                    data-cta="grader"
-                    data-analytics="case_studies_coming_soon"
-                    aria-label="Grade your restaurant - run a free 60-second audit while we add more success stories"
-                  >
-                    Grade Your Restaurant
-                  </Button>
-                </div>
               </div>
               <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
                 More Success Stories Coming Soon
@@ -241,7 +228,27 @@ const CaseStudies: React.FC = () => {
                 We're working with hundreds of restaurants to document their growth stories. 
                 Check back soon for more inspiring case studies and proven results.
               </p>
+              <div className="mt-8">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  href="https://grader.rayapp.io/"
+                  external={true}
+                  data-cta="grader"
+                  data-analytics="case_studies_coming_soon"
+                  aria-label="Grade your restaurant - run a free 60-second audit while we add more success stories"
+                >
+                  Grade Your Restaurant
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <CTASection />
+    </>
+  )
+}
+
+export default CaseStudies
