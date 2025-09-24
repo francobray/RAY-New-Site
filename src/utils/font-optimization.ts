@@ -12,7 +12,7 @@ export const FontOptimizer = {
   },
 
   // Check if font is loaded
-  checkFontLoaded: async (fontFamily: string, timeout: number = 3000): Promise<boolean> => {
+  checkFontLoaded: async (fontFamily: string): Promise<boolean> => {
     if (!('fonts' in document)) {
       return false
     }
