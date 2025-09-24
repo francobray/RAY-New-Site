@@ -83,6 +83,18 @@ To preview the production build:
 npm run preview
 ```
 
+## 🔤 Font Validation
+
+To validate font setup and loading:
+
+```bash
+# Validate font files and configuration
+npm run validate:fonts
+
+# Run all validations
+npm run validate:all
+```
+
 ## 📁 Project Structure
 
 ```

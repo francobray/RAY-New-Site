@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import App from './App.tsx'
 import './index.css'
 import { initCTAValidation } from './utils/cta-validation'
+import { initFontOptimization } from './utils/font-optimization'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -18,3 +19,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 // Initialize CTA validation in development
 initCTAValidation()
+
+// Initialize font optimization
+initFontOptimization()
