@@ -46,9 +46,12 @@ export const FontOptimizer = {
 
 // Initialize font optimization
 export const initFontOptimization = () => {
-  // Preload critical font
-  FontOptimizer.preloadFont('/fonts/Chopin.Trial-Regular.woff2')
+  // Preload critical font only if it exists
+  // FontOptimizer.preloadFont('/fonts/Chopin.Trial-Regular.woff2')
   
-  // Manage loading states
-  FontOptimizer.manageFontLoadingClasses('Chopin.Trial')
+  // Manage loading states only if font exists
+  // FontOptimizer.manageFontLoadingClasses('Chopin.Trial')
+  
+  // For now, use system fonts
+  document.documentElement.classList.add('font-loaded')
 }
