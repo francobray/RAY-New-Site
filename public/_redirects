@@ -31,7 +31,7 @@ http://rayapp.io/*    https://rayapp.io/:splat    301!
 /success-stories    /case-studies    301!
 /testimonials    /case-studies    301!
 /blog    https://blog.rayapp.io/    301!
-/es    https://blog.rayapp.io/es/    301!
+/es    https://blog.rayapp.io/    301!
 
 # Case studies specific redirects
 /case-study/*    /case-studies/:splat    301!

@@ -38,7 +38,7 @@ const Header: React.FC = () => {
         { name: 'Contact', path: '/contact' }
       ]
     },
-    { name: 'Blog', path: 'https://blogv2.rayapp.io/en/' }
+    { name: 'Blog', path: 'https://blog.rayapp.io/' }
   ]
 
   const toggleMenu = () => {
