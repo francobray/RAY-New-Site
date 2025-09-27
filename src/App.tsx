@@ -9,7 +9,6 @@ import LoadingSpinner from './components/LoadingSpinner'
 const Home = lazy(() => import('./pages/Home'))
 const CaseStudies = lazy(() => import('./pages/CaseStudies'))
 const CaseStudyDetail = lazy(() => import('./pages/CaseStudyDetail'))
-const Products = lazy(() => import('./pages/Products'))
 const Features = lazy(() => import('./pages/Features'))
 const WalkIns = lazy(() => import('./pages/product/WalkIns'))
 const OnlineOrders = lazy(() => import('./pages/product/OnlineOrders'))
@@ -46,9 +45,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
-            <Route path="/products" element={<Products />} />
             <Route path="/features" element={<Features />} />
             <Route path="/product" element={<Navigate to="/" replace />} />
+            <Route path="/products" element={<Navigate to="/" replace />} />
             <Route path="/product/walk-ins" element={<WalkIns />} />
             <Route path="/product/online-orders" element={<OnlineOrders />} />
             <Route path="/product/bookings" element={<Bookings />} />

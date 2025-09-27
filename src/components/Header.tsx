@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   const menuItems: MenuItem[] = [
     { 
       name: 'Products', 
-      path: '/products', 
+      path: '/products',
       hasDropdown: true,
       dropdownItems: [
         { name: 'Bookings', path: '/product/bookings' },
