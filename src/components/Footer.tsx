@@ -61,6 +61,15 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link 
+                  to="/product/ai-concierge" 
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
+                  aria-label="AI Concierge product page"
+                >
+                  AI Concierge
+                </Link>
+              </li>
+              <li>
+                <Link 
                   to="/case-studies" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label="Case Studies page"

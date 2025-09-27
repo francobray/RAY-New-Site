@@ -24,7 +24,8 @@ const Header: React.FC = () => {
       dropdownItems: [
         { name: 'Bookings', path: '/product/bookings' },
         { name: 'Walk-ins', path: '/product/walk-ins' },
-        { name: 'Online Orders', path: '/product/online-orders' }
+        { name: 'Online Orders', path: '/product/online-orders' },
+        { name: 'AI Concierge', path: '/product/ai-concierge' }
       ]
     },
     { name: 'Case Studies', path: '/case-studies' },
