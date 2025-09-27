@@ -233,8 +233,8 @@ const AIConcierge: React.FC = () => {
       
       {/* AI-friendly page summary */}
       <div className="sr-only">
-        <h1>RAY AI Concierge - Turn Messages into Bookings & Orders Automatically</h1>
-        <p>RAY's AI Concierge is an automated customer service solution that answers guest messages instantly on WhatsApp, Instagram DMs, SMS, and Google Business Messages. The AI converts conversations into bookings, orders, and visits while protecting restaurant reputation by routing complaints privately. Available 24/7 in English and Spanish with brand-trained responses.</p>
+        <h1>RAY AI Concierge - Turn Restaurant DMs Into Orders.</h1>
+        <p>Stop losing hungry customers to slow replies! Our AI takes orders, books tables, and answers menu questions across WhatsApp, Instagram, and Messenger — 24/7, even when your restaurant is closed</p>
         <p>Key features: Instant automated responses, booking and order conversion, reputation protection, multilingual support, brand voice training, and compliance with privacy regulations. Results include 30% more actions from Google and social channels.</p>
       </div>
       
