@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { MessageSquare, Clock, Globe, Shield, TrendingUp, ArrowRight, CheckCircle, Bot, Users, Star, ChevronDown, ChevronUp, Award, Zap, Languages, Phone } from 'lucide-react'
+import { MessageSquare, Clock, Globe, Shield, TrendingUp, ArrowRight, CircleCheck as CheckCircle, Bot, Users, Star, ChevronDown, ChevronUp, Award, Zap, Languages, Phone } from 'lucide-react'
 import SEOHead from '../../components/SEOHead'
 import { generatePageMeta } from '../../utils/seo'
 import { generateProductSchema, generateFAQSchema, generateBreadcrumbSchema, generateServiceSchema } from '../../utils/schema'
