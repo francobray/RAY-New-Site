@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { ArrowRight, CircleCheck as CheckCircle, Star, TrendingUp, Users, Calendar, MapPin, ShoppingCart, ChartBar as BarChart3, Zap, Shield, Clock } from 'lucide-react'
+import { ArrowRight, CircleCheck as CheckCircle, Star, TrendingUp, Users, Calendar, MapPin, ShoppingCart, Zap, Shield, Clock } from 'lucide-react'
 import Button from '../components/shared/BaseButton'
 import Card from '../components/Card'
 import HubSpotUnifiedModal from '../components/HubSpotUnifiedModal'
