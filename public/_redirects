@@ -3,11 +3,6 @@
 # Order matters: specific rules first, catch-all last
 
 # Security and performance headers
-/*    X-Frame-Options: DENY
-/*    X-XSS-Protection: 1; mode=block
-/*    X-Content-Type-Options: nosniff
-/*    Referrer-Policy: strict-origin-when-cross-origin
-/*    Permissions-Policy: camera=(), microphone=(), geolocation=()
 
 # Legacy domain redirects - Force redirect old domains
 https://rayrestaurant.com/*    https://rayapp.io/:splat    301!
