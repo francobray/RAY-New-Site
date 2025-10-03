@@ -54,7 +54,7 @@ export const COPY = {
   
   // Trust Indicators
   TRUST: {
-    RESTAURANTS_COUNT: '1,000+ restaurants',
+    RESTAURANTS_COUNT: '100+ restaurants',
     GROWTH_GUARANTEE: '30%+ navigations guarantee',
     NO_CONTRACTS: 'No long-term contracts',
     RESULTS_TIMEFRAME: 'Results in 60-90 days'

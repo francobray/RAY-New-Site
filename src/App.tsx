@@ -22,6 +22,7 @@ const TermsOfService = lazy(() => import('./pages/TermsOfService'))
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'))
 const TempleCraftCaseStudy = lazy(() => import('./pages/TempleCraftCaseStudy'))
 const ChimbaCaseStudy = lazy(() => import('./pages/ChimbaCaseStudy'))
+const Demo = lazy(() => import('./pages/Demo'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 // Component to handle client-side routing
@@ -56,6 +57,7 @@ function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/demo" element={<Demo />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
