@@ -200,7 +200,7 @@ const WalkIns: React.FC = () => {
                 <span className="text-sm font-medium text-ray-dark-900">AI-Powered Local Marketing</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-tight sm:leading-[0.95] lg:leading-[0.9] mb-6">
                 Turn Searches Into{' '}
                 <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
                   Walk-Ins
@@ -238,7 +238,7 @@ const WalkIns: React.FC = () => {
                 </Button>
               </div>
               
-              <div className="flex items-center justify-center lg:justify-start space-x-8 text-sm text-ray-dark-600">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8 text-sm text-ray-dark-600">
                 <div className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-ray-green mr-2" />
                   <span className="font-medium">47% avg. increase</span>
@@ -596,7 +596,7 @@ const WalkIns: React.FC = () => {
               </div>
               
               <div className="mt-6 pt-6 border-t border-gray-200 text-center">
-                <div className="flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6 text-sm text-ray-dark-600">
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
                     <span>No commitment</span>

@@ -244,7 +244,7 @@ const AIConcierge: React.FC = () => {
                 <span className="text-sm font-medium text-ray-dark-900">AI-Powered Customer Service</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-tight sm:leading-[0.95] lg:leading-[0.9] mb-6">
                 Turn Messages Into{' '}
                 <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
                   Bookings & Orders
@@ -607,7 +607,7 @@ const AIConcierge: React.FC = () => {
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
           
-          <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6 text-sm text-ray-dark-600">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
               <span>Setup in minutes</span>
@@ -700,7 +700,7 @@ const AIConcierge: React.FC = () => {
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
           
-          <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6 text-sm text-ray-dark-600">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
               <span>30%+ actions guarantee</span>

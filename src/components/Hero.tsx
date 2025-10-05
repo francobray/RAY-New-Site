@@ -157,7 +157,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Social Proof */}
-            <div className="flex items-center justify-center space-x-8 text-sm text-ray-dark-600">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 text-sm text-ray-dark-600">
               <div className="flex items-center">
                 <div className="flex -space-x-2 mr-3">
                   <div className="w-8 h-8 bg-gradient-to-br from-ray-blue to-ray-green rounded-full border-2 border-white"></div>

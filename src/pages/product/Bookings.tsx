@@ -179,7 +179,7 @@ const Bookings: React.FC = () => {
                 </Button>
               </div>
               
-              <div className="flex items-center justify-center lg:justify-start space-x-8 text-sm text-ray-dark-600">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8 text-sm text-ray-dark-600">
                 <div className="flex items-center">
                   <CheckCircle className="w-4 h-4 text-ray-green mr-2" />
                   <span>+35% table utilization</span>
@@ -416,7 +416,7 @@ const Bookings: React.FC = () => {
             </Button>
           </div>
           
-          <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6 text-sm text-ray-dark-600">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
               <span>30%+ navigations guarantee</span>
