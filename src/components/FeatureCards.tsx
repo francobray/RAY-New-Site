@@ -1,8 +1,6 @@
 import React from 'react'
 import { MapPin, Target, TrendingUp } from 'lucide-react'
 import Button from './shared/BaseButton'
-import HubSpotUnifiedModal from './HubSpotUnifiedModal'
-import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const features = [
   {
@@ -38,13 +36,6 @@ const features = [
 ]
 
 const FeatureCards: React.FC = () => {
-  const { 
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
-
   return (
     <>
       <section className="py-16 md:py-20 lg:py-24 bg-white">
@@ -101,12 +92,12 @@ const FeatureCards: React.FC = () => {
                         variant="primary"
                         size="md"
                         className="w-full"
-                        onClick={() => openModal('demo-expert')}
-                        data-cta="demo-expert"
+                        href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=feature_cards"
+                        data-cta="demo"
                         data-analytics="feature_cards"
-                        aria-label="Talk to an expert"
+                        aria-label="Get a free demo"
                       >
-                        Talk to an Expert
+                        Get a Free Demo
                       </Button>
                     </div>
                   </div>
@@ -116,13 +107,6 @@ const FeatureCards: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      {/* HubSpot Modal */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
     </>
   )
 }

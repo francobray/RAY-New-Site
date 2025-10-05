@@ -1,17 +1,8 @@
 import React from 'react'
 import { TrendingUp } from 'lucide-react'
 import Button from './shared/BaseButton'
-import HubSpotUnifiedModal from './HubSpotUnifiedModal'
-import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const CTASection: React.FC = () => {
-  const { 
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
-
   return (
     <>
       <section className="py-24 bg-ray-promise relative overflow-hidden">
@@ -46,16 +37,16 @@ const CTASection: React.FC = () => {
           >
             Grade Your Restaurant
           </Button>
-          <Button 
-            variant="secondary" 
+          <Button
+            variant="secondary"
             size="lg"
             className="shadow-xl hover:shadow-2xl transition-all duration-300"
-            onClick={() => openModal('demo-expert')}
-            data-cta="demo-expert"
+            href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=cta_section"
+            data-cta="demo"
             data-analytics="cta_section"
-            aria-label="Talk to an expert"
+            aria-label="Get a free demo"
           >
-            Talk to an Expert
+            Get a Free Demo
           </Button>
         </div>
         
@@ -75,13 +66,6 @@ const CTASection: React.FC = () => {
         </div>
         </div>
       </section>
-      
-      {/* HubSpot Modals */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
     </>
   )
 }

@@ -1,10 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Calendar, Users, BarChart3, Clock, Heart, CheckCircle, ArrowRight, TrendingUp, Star, UserCheck, RotateCcw, Shield } from 'lucide-react'
+import { Calendar, Users, ChartBar as BarChart3, Clock, Heart, CircleCheck as CheckCircle, ArrowRight, TrendingUp, Star, UserCheck, RotateCcw, Shield } from 'lucide-react'
 import Card from '../../components/Card'
 import Button from '../../components/shared/BaseButton'
-import HubSpotUnifiedModal from '../../components/HubSpotUnifiedModal'
-import { useHubSpotModal } from '../../hooks/useHubSpotModal'
 
 const benefits = [
   {
@@ -97,13 +95,6 @@ const metrics = [
 ]
 
 const Bookings: React.FC = () => {
-  const { 
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
-
   return (
     <>
       <Helmet>
@@ -175,16 +166,16 @@ const Bookings: React.FC = () => {
                   Grade Your Restaurant
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
-                <Button 
-                  variant="secondary" 
+                <Button
+                  variant="secondary"
                   size="lg"
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                 onClick={() => openModal('demo-expert')}
-                 data-cta="demo-expert"
-                data-analytics="bookings_hero"
-                  aria-label="Talk to an expert"
+                  href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=bookings_hero"
+                  data-cta="demo"
+                  data-analytics="bookings_hero"
+                  aria-label="Get a free demo"
                 >
-                  Talk to an Expert
+                  Get a Free Demo
                 </Button>
               </div>
               
@@ -412,16 +403,16 @@ const Bookings: React.FC = () => {
               Grade Your Restaurant
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
-            <Button 
-              variant="secondary" 
+            <Button
+              variant="secondary"
               size="lg"
               className="shadow-xl hover:shadow-2xl transition-all duration-300"
-              onClick={() => openModal('demo-free')}
-              data-cta="demo-free"
+              href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=bookings_final_cta"
+              data-cta="demo"
               data-analytics="bookings_final_cta"
-              aria-label="Request free demo"
+              aria-label="Get a free demo"
             >
-              Request Free Demo
+              Get a Free Demo
             </Button>
           </div>
           
@@ -441,13 +432,6 @@ const Bookings: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      {/* HubSpot Modals */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
     </>
   )
 }

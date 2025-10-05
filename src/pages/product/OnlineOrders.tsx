@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Calendar, ShoppingBag, BarChart3, TrendingUp, Clock, CreditCard } from 'lucide-react'
+import { Calendar, ShoppingBag, ChartBar as BarChart3, TrendingUp, Clock, CreditCard } from 'lucide-react'
 import Card from '../../components/Card'
 import Button from '../../components/Button'
 import LazyImage from '../../components/LazyImage'
@@ -307,11 +307,15 @@ const OnlineOrders: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="primary" 
+            <Button
+              variant="primary"
               size="lg"
+              href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=online_orders_final_cta"
+              data-cta="demo"
+              data-analytics="online_orders_final_cta"
+              aria-label="Get a free demo"
             >
-              Get Started Today
+              Get a Free Demo
             </Button>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useSearchParams } from 'react-router-dom'
-import { Mail, CheckCircle } from 'lucide-react'
+import { Mail, CircleCheck as CheckCircle } from 'lucide-react'
 
 // Form data types
 interface FormData {
@@ -39,16 +39,16 @@ const Contact: React.FC = () => {
     switch (intent) {
       case 'expert':
         return {
-          title: 'Talk to an Expert',
+          title: 'Get a Free Demo',
           subtitle: 'Get personalized recommendations from our restaurant marketing specialists.',
-          submitText: 'Talk to an Expert',
+          submitText: 'Get a Free Demo',
           successMessage: 'Thanks! Our expert team will reach out shortly to tailor a plan.'
         }
       case 'demo':
         return {
-          title: 'Request a Free Demo',
+          title: 'Get a Free Demo',
           subtitle: 'See how RAY can transform your restaurant\'s marketing and revenue.',
-          submitText: 'Request Free Demo',
+          submitText: 'Get a Free Demo',
           successMessage: 'You\'re in! We\'ll email your demo details and next steps.'
         }
       default:

@@ -95,12 +95,12 @@ const ProductSection: React.FC = () => {
                     <Button
                       variant="primary"
                       size="md"
-                      href={product.href}
+                      href={`https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=product_section_${product.name.toLowerCase().replace(' ', '_')}`}
                       className="w-full group/btn"
                       data-analytics="product_section"
-                      aria-label={`Learn more about ${product.name}`}
+                      aria-label={`Get a free demo for ${product.name}`}
                     >
-                      Learn More
+                      Get a Free Demo
                       <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                     </Button>
                   </div>

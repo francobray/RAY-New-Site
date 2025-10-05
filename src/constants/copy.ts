@@ -3,11 +3,9 @@ export const COPY = {
   // CTA Labels
   CTA: {
     GRADE_RESTAURANT: 'Grade Your Restaurant',
-    TALK_TO_EXPERT: 'Talk to an Expert',
-    REQUEST_DEMO: 'Request a Free Demo',
+    GET_FREE_DEMO: 'Get a Free Demo',
     GET_STARTED: 'Get Started Today',
-    VIEW_CASE_STUDIES: 'View All Success Stories',
-    LEARN_MORE: 'Learn More'
+    VIEW_CASE_STUDIES: 'View All Success Stories'
   },
   
   // Company Info

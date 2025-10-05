@@ -3,8 +3,6 @@ import { Helmet } from 'react-helmet-async'
 import { ArrowRight, CircleCheck as CheckCircle, Star, TrendingUp, Users, Calendar, MapPin, ShoppingCart, Zap, Shield, Clock } from 'lucide-react'
 import Button from '../components/shared/BaseButton'
 import Card from '../components/Card'
-import HubSpotUnifiedModal from '../components/HubSpotUnifiedModal'
-import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const products = [
   {
@@ -113,13 +111,6 @@ const testimonials = [
 ]
 
 const Products: React.FC = () => {
-  const { 
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
-
   return (
     <>
       <Helmet>
@@ -177,16 +168,16 @@ const Products: React.FC = () => {
                 Grade Your Restaurant
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
-              <Button 
-                variant="secondary" 
+              <Button
+                variant="secondary"
                 size="lg"
                 className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                onClick={() => openModal('demo-expert')}
-                data-cta="demo-expert"
+                href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=products_hero"
+                data-cta="demo"
                 data-analytics="products_hero"
-                aria-label="Talk to an expert"
+                aria-label="Get a free demo"
               >
-                Talk to an Expert
+                Get a Free Demo
               </Button>
             </div>
 
@@ -278,15 +269,15 @@ const Products: React.FC = () => {
 
                     {/* CTA */}
                     <div className="mt-auto">
-                      <Button 
+                      <Button
                         variant="primary"
                         size="lg"
-                        href={product.href}
+                        href={`https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=products_grid_${product.id}`}
                         className="w-full shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
                         data-analytics="products_grid"
-                        aria-label={`Learn more about ${product.name}`}
+                        aria-label={`Get a free demo for ${product.name}`}
                       >
-                        Learn More
+                        Get a Free Demo
                         <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                       </Button>
                     </div>
@@ -435,16 +426,16 @@ const Products: React.FC = () => {
               Grade Your Restaurant
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
-            <Button 
-              variant="secondary" 
+            <Button
+              variant="secondary"
               size="lg"
               className="shadow-xl hover:shadow-2xl transition-all duration-300"
-              onClick={() => openModal('demo-expert')}
-              data-cta="demo-expert"
+              href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=products_final_cta"
+              data-cta="demo"
               data-analytics="products_final_cta"
-              aria-label="Talk to an expert"
+              aria-label="Get a free demo"
             >
-              Talk to an Expert
+              Get a Free Demo
             </Button>
           </div>
           
@@ -464,13 +455,6 @@ const Products: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* HubSpot Modals */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
     </>
   )
 }

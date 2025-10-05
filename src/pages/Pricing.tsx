@@ -3,8 +3,6 @@ import { Helmet } from 'react-helmet-async'
 import { Check, Shield, Users, TrendingUp, ChevronDown, ChevronUp, MapPin, ShoppingCart, ArrowRight } from 'lucide-react'
 import Card from '../components/Card'
 import Button from '../components/shared/BaseButton'
-import HubSpotUnifiedModal from '../components/HubSpotUnifiedModal'
-import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const products = [
   {
@@ -104,12 +102,6 @@ const faqs = [
 
 const Pricing: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const { 
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index)
@@ -117,8 +109,7 @@ const Pricing: React.FC = () => {
 
   const handleGetStarted = (productId: string) => {
     console.log('pricing_get_started_click', { product: productId })
-    console.log('demo_form_open')
-    openModal('demo-free')
+    window.location.href = `https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=pricing_${productId}`
   }
 
   return (
@@ -361,16 +352,16 @@ const Pricing: React.FC = () => {
                       
                       {/* CTA */}
                       <div className="mt-auto">
-                        <Button 
+                        <Button
                           variant="primary"
                           size="lg"
                           className="w-full shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
                           onClick={() => handleGetStarted(product.id)}
-                          data-cta="demo-free"
+                          data-cta="demo"
                           data-analytics="pricing_cards"
-                          aria-label={`Get started with ${product.name}`}
+                          aria-label={`Get a free demo for ${product.name}`}
                         >
-                          Get Started
+                          Get a Free Demo
                           <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                         </Button>
                       </div>
@@ -475,19 +466,16 @@ const Pricing: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="primary" 
+            <Button
+              variant="primary"
               size="lg"
               className="shadow-lg hover:shadow-xl transition-all duration-300"
-              onClick={() => {
-                console.log('pricing_get_started_click', { section: 'final_cta' })
-                openModal('demo-free')
-              }}
-              data-cta="demo-free"
+              href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=pricing_final_cta"
+              data-cta="demo"
               data-analytics="pricing_final_cta"
-              aria-label="Get started today"
+              aria-label="Get a free demo"
             >
-              Get Started Today
+              Get a Free Demo
             </Button>
           </div>
           
@@ -507,16 +495,6 @@ const Pricing: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      {/* HubSpot Modals */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={() => {
-          console.log('demo_form_close')
-          closeModal()
-        }}
-        config={currentConfig}
-      />
     </>
   )
 }

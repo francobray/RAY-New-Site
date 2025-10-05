@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Star, TrendingUp, ArrowRight, CheckCircle, MapPin, BarChart3, Search, Database, Globe, Camera, ChevronDown, ChevronUp, Award } from 'lucide-react'
+import { Star, TrendingUp, ArrowRight, CircleCheck as CheckCircle, MapPin, ChartBar as BarChart3, Search, Database, Globe, Camera, ChevronDown, ChevronUp, Award } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOHead from '../../components/SEOHead'
 import { generatePageMeta } from '../../utils/seo'
@@ -7,8 +7,6 @@ import { generateProductSchema, generateFAQSchema, generateBreadcrumbSchema, gen
 import { COPY } from '../../constants/copy'
 import Card from '../../components/Card'
 import Button from '../../components/shared/BaseButton'
-import HubSpotUnifiedModal from '../../components/HubSpotUnifiedModal'
-import { useHubSpotModal } from '../../hooks/useHubSpotModal'
 
 const features = [
   {
@@ -135,12 +133,6 @@ const customerStories = [
 
 const WalkIns: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const { 
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
 
   const pageMeta = generatePageMeta({
     title: 'Walk-Ins - Turn Searches Into Restaurant Visits | RAY',
@@ -233,16 +225,16 @@ const WalkIns: React.FC = () => {
                   Grade Your Restaurant
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
-                <Button 
-                  variant="secondary" 
+                <Button
+                  variant="secondary"
                   size="lg"
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                  onClick={() => openModal('demo-expert')}
-                  data-cta="demo-expert"
+                  href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=walk_ins_hero"
+                  data-cta="demo"
                   data-analytics="walk_ins_hero"
-                  aria-label="Talk to an expert"
+                  aria-label="Get a free demo"
                 >
-                  Talk to an Expert
+                  Get a Free Demo
                 </Button>
               </div>
               
@@ -420,16 +412,16 @@ const WalkIns: React.FC = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button 
-              variant="primary" 
+            <Button
+              variant="primary"
               size="lg"
               className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
-              onClick={() => openModal('demo-expert')}
-              data-cta="demo-expert"
+              href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=walk_ins_how_it_works"
+              data-cta="demo"
               data-analytics="walk_ins_how_it_works"
-              aria-label="Talk to an expert"
+              aria-label="Get a free demo"
             >
-              Talk to an Expert
+              Get a Free Demo
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </div>
@@ -593,14 +585,14 @@ const WalkIns: React.FC = () => {
               </Button>
               
               <div className="text-center">
-                <button
-                  onClick={() => openModal('demo-expert')}
+                <a
+                  href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=walk_ins_lead_capture_alt"
                   className="text-ray-blue hover:text-blue-600 font-medium transition-colors duration-200"
-                  data-cta="demo-expert"
+                  data-cta="demo"
                   data-analytics="walk_ins_lead_capture"
                 >
-                  Or talk to an expert instead
-                </button>
+                  Or get a free demo instead
+                </a>
               </div>
               
               <div className="mt-6 pt-6 border-t border-gray-200 text-center">
@@ -662,13 +654,6 @@ const WalkIns: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      {/* HubSpot Modals */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
     </>
   )
 }

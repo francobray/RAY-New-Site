@@ -9,13 +9,13 @@ export interface ModalConfig {
 
 export const MODAL_CONFIGS: Record<string, ModalConfig> = {
   'demo-expert': {
-    title: 'Talk to an Expert',
+    title: 'Get a Free Demo',
     formId: '789dfc61-6b4a-416d-bec1-9f8c145f984a', // Expert form ID
     intent: 'expert',
     successMessage: 'Thanks! Our expert team will reach out shortly to tailor a plan.'
   },
   'demo-free': {
-    title: 'Request a Free Demo',
+    title: 'Get a Free Demo',
     formId: 'c8f9d2e1-5a6b-4c7d-8e9f-0a1b2c3d4e5f', // Demo form ID (placeholder)
     intent: 'demo',
     successMessage: "You're in! We'll email your demo details and next steps."

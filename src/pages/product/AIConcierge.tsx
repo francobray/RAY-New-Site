@@ -5,8 +5,6 @@ import { generatePageMeta } from '../../utils/seo'
 import { generateProductSchema, generateFAQSchema, generateBreadcrumbSchema, generateServiceSchema } from '../../utils/schema'
 import Card from '../../components/Card'
 import Button from '../../components/shared/BaseButton'
-import HubSpotUnifiedModal from '../../components/HubSpotUnifiedModal'
-import { useHubSpotModal } from '../../hooks/useHubSpotModal'
 
 const valueStats = [
   {
@@ -180,12 +178,6 @@ const faqs = [
 
 const AIConcierge: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const { 
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
 
   const pageMeta = generatePageMeta({
     title: 'AI Concierge for Restaurants | RAY',
@@ -278,16 +270,16 @@ const AIConcierge: React.FC = () => {
                   Scan Your Restaurant
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
-                <Button 
-                  variant="secondary" 
+                <Button
+                  variant="secondary"
                   size="lg"
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                  onClick={() => openModal('demo-expert')}
-                  data-cta="demo-expert"
+                  href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=ai_concierge_hero"
+                  data-cta="demo"
                   data-analytics="ai_concierge_hero"
-                  aria-label="See how it works"
+                  aria-label="Get a free demo"
                 >
-                  See How It Works
+                  Get a Free Demo
                 </Button>
               </div>
               
@@ -602,16 +594,16 @@ const AIConcierge: React.FC = () => {
             Garantía de 30%+ en acciones desde Google Maps en 6 meses o devolvemos la inversión.
           </p>
           
-          <Button 
-            variant="primary" 
+          <Button
+            variant="primary"
             size="lg"
             className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
-            onClick={() => openModal('demo-free')}
-            data-cta="demo-free"
+            href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=ai_concierge_pricing"
+            data-cta="demo"
             data-analytics="ai_concierge_pricing"
-            aria-label="Start your pilot"
+            aria-label="Get a free demo"
           >
-            Start Your Pilot
+            Get a Free Demo
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
           
@@ -724,13 +716,6 @@ const AIConcierge: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      {/* HubSpot Modals */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
     </>
   )
 }
