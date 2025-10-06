@@ -1,30 +1,12 @@
 import type { Metadata } from 'next'
-import dynamic from 'next/dynamic'
 import { generateOrganizationSchema, generateWebsiteSchema, generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/utils/schema'
 import { CSS_CLASSES } from '@/constants/ui'
 import Hero from '@/components/Hero'
-
-// Lazy load below-fold components for code splitting
-// SSR enabled for better SEO and initial paint
-const ProductSection = dynamic(() => import('@/components/ProductSection'), {
-  ssr: true
-})
-
-const FeatureCards = dynamic(() => import('@/components/FeatureCards'), {
-  ssr: true
-})
-
-const PromiseBanner = dynamic(() => import('@/components/PromiseBanner'), {
-  ssr: true
-})
-
-const TestimonialCarousel = dynamic(() => import('@/components/TestimonialCarousel'), {
-  ssr: false
-})
-
-const CTASection = dynamic(() => import('@/components/CTASection'), {
-  ssr: true
-})
+import ProductSection from '@/components/ProductSection'
+import FeatureCards from '@/components/FeatureCards'
+import PromiseBanner from '@/components/PromiseBanner'
+import TestimonialCarousel from '@/components/TestimonialCarousel'
+import CTASection from '@/components/CTASection'
 
 export const metadata: Metadata = {
   title: 'RAY - Restaurant Marketing Platform | Increase Revenue by 30%+',
