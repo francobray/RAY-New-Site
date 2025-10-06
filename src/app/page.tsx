@@ -3,31 +3,26 @@ import dynamic from 'next/dynamic'
 import { generateOrganizationSchema, generateWebsiteSchema, generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/utils/schema'
 import { CSS_CLASSES } from '@/constants/ui'
 import Hero from '@/components/Hero'
-import LoadingSpinner from '@/components/LoadingSpinner'
 
-// Lazy load below-fold components
+// Lazy load below-fold components for code splitting
+// SSR enabled for better SEO and initial paint
 const ProductSection = dynamic(() => import('@/components/ProductSection'), {
-  loading: () => <LoadingSpinner />,
   ssr: true
 })
 
 const FeatureCards = dynamic(() => import('@/components/FeatureCards'), {
-  loading: () => <LoadingSpinner />,
   ssr: true
 })
 
 const PromiseBanner = dynamic(() => import('@/components/PromiseBanner'), {
-  loading: () => <LoadingSpinner />,
   ssr: true
 })
 
 const TestimonialCarousel = dynamic(() => import('@/components/TestimonialCarousel'), {
-  loading: () => <LoadingSpinner />,
   ssr: false
 })
 
 const CTASection = dynamic(() => import('@/components/CTASection'), {
-  loading: () => <LoadingSpinner />,
   ssr: true
 })
 
