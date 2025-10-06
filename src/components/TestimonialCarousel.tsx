@@ -88,21 +88,21 @@ const TestimonialCarousel: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {customers.map((customer, index) => (
+            {customers.map((customer) => (
               <Link
                 key={customer.id}
                 href={`/case-studies/${customer.id}`}
                 className="group block"
               >
-                <div className={`relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 animate-in fade-in slide-in-from-bottom duration-700 delay-${index * 100}`}>
+                <div className={`relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300`}>
                   {/* Background Image */}
-                  <div className="relative h-80">
+                  <div className="relative aspect-[4/5] h-80">
                     <Image
                       src={customer.image}
                       alt={customer.name}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover"
                       loading="lazy"
                     />
                     
@@ -124,10 +124,10 @@ const TestimonialCarousel: React.FC = () => {
                       {/* Bottom Section - Restaurant & Metrics */}
                       <div>
                         <div className="mb-3">
-                          <h3 className="text-xl font-bold mb-1 group-hover:text-ray-gradient-start transition-colors duration-300">
+                          <h3 className="text-xl font-bold mb-1">
                             {customer.name}
                           </h3>
-                          <div className="text-3xl font-bold text-ray-green mb-1 group-hover:scale-110 transition-transform duration-300">
+                          <div className="text-3xl font-bold text-ray-green mb-1">
                             {customer.metric}
                           </div>
                           <div className="text-sm opacity-90">

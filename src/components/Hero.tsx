@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
   return (
     <div>
       {/* Centered Hero Layout */}
-      <section className="relative min-h-[50vh] bg-ray-promise overflow-hidden pb-12">
+      <section className="relative min-h-[600px] md:min-h-[650px] bg-ray-promise overflow-hidden pb-12">
         {/* Sophisticated Background Elements */}
         <div className="absolute inset-0">
           {/* Background decoration */}
@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(111,191,115,0.05),transparent_50%)]"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[50vh] flex items-center py-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[600px] md:min-h-[650px] flex items-center py-6">
           <div className="w-full text-center">
             {/* Trust Badge */}
             <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm mb-4">
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
               <Button
                 variant="primary"
                 size="lg"
-                className="w-full sm:w-auto px-8 py-4 text-lg sm:text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                className="w-full sm:w-auto px-8 py-4 text-lg sm:text-xl font-bold shadow-lg"
                 href="https://grader.rayapp.io/?utm_source=hero&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-primary"
                 external={true}
                 data-cta="grader"
