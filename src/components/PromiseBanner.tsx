@@ -3,33 +3,8 @@
 import React from 'react'
 import { ArrowRight } from 'lucide-react'
 import Button from './shared/BaseButton'
-import HubSpotUnifiedModal from './HubSpotUnifiedModal'
-import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const PromiseBanner: React.FC = () => {
-  const {
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
-
-  const handleDemoClick = () => {
-    // Track with GA4 and UTM parameters
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'cta_click', {
-        event_category: 'engagement',
-        event_label: 'demo-free',
-        cta_location: 'promise_banner',
-        utm_source: 'promise-banner',
-        utm_medium: 'website',
-        utm_campaign: 'site-cta-refresh-2025q4',
-        utm_content: 'promise-cta',
-        value: 1
-      })
-    }
-    openModal('demo-free')
-  }
 
   return (
     <>
@@ -51,7 +26,8 @@ const PromiseBanner: React.FC = () => {
               <Button
                 variant="primary"
                 size="lg"
-                onClick={handleDemoClick}
+                href="https://calendly.com/ray-demo/30min?utm_source=promise-banner&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=promise-cta"
+                external={true}
                 data-cta="demo-free"
                 data-analytics="promise_banner"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group"
@@ -64,13 +40,6 @@ const PromiseBanner: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* HubSpot Modal */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
     </>
   )
 }
