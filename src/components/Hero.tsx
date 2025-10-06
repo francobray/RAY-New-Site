@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrendingUp, Star } from 'lucide-react'
+import { Star } from 'lucide-react'
 import Button from './shared/BaseButton'
 import { COPY } from '../constants/copy'
 
@@ -57,21 +57,6 @@ const Hero: React.FC = () => {
               <p className="text-xs sm:text-sm text-ray-dark-600 mt-3">Free • 60 seconds • No credit card required</p>
             </div>
 
-            {/* Social Proof */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 text-sm text-ray-dark-600">
-              <div className="flex items-center">
-                <div className="flex -space-x-2 mr-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-ray-blue to-ray-green rounded-full border-2 border-white"></div>
-                  <div className="w-8 h-8 bg-gradient-to-br from-ray-green to-yellow-400 rounded-full border-2 border-white"></div>
-                  <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-ray-blue rounded-full border-2 border-white"></div>
-                </div>
-                <span className="font-medium">+47% avg. navigations increase</span>
-              </div>
-              <div className="flex items-center">
-                <TrendingUp className="w-4 h-4 text-ray-green mr-2" />
-                <span className="font-medium">30%+ navigations guarantee</span>
-              </div>
-            </div>
           </div>
         </div>
 
