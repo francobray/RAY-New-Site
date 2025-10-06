@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import { TrendingUp, Star } from 'lucide-react'
 import Button from './shared/BaseButton'
@@ -30,7 +28,7 @@ const Hero: React.FC = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-4">
               Boost revenue by driving more{' '}
               <span className="relative">
-                <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent animate-pulse">
+                <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">
                   walk-ins, bookings & orders
                 </span>
                 {/* Underline decoration */}
@@ -77,10 +75,10 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Scroll Indicator - Removed to reduce spacing */}
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce">
+        {/* Bottom Scroll Indicator */}
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2">
           <div className="w-6 h-10 border-2 border-ray-blue/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-ray-blue rounded-full mt-2 animate-pulse"></div>
+            <div className="w-1 h-3 bg-ray-blue rounded-full mt-2"></div>
           </div>
         </div>
       </section>

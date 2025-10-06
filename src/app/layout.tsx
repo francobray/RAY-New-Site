@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { initializeFontOptimization, initializeCTAValidation } from '@/lib/client-init'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rayapp.io'),
@@ -52,11 +51,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://grader.rayapp.io" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.rayapp.io" />
         <meta name="theme-color" content="#0D79E5" />
       </head>
       <body className="min-h-screen bg-white antialiased">
@@ -65,23 +63,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <ClientInitializer />
       </body>
     </html>
-  )
-}
-
-function ClientInitializer() {
-  return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-          ${initializeFontOptimization.toString()};
-          ${initializeCTAValidation.toString()};
-          initializeFontOptimization();
-          initializeCTAValidation();
-        `,
-      }}
-    />
   )
 }
