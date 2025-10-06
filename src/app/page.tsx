@@ -1,14 +1,35 @@
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import { generateOrganizationSchema, generateWebsiteSchema, generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/utils/schema'
 import { CSS_CLASSES } from '@/constants/ui'
 import Hero from '@/components/Hero'
-import FeatureCards from '@/components/FeatureCards'
-import ProductSection from '@/components/ProductSection'
-import PromiseBanner from '@/components/PromiseBanner'
-import CTASection from '@/components/CTASection'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import TestimonialCarousel from '@/components/TestimonialCarousel'
+
+// Lazy load below-fold components
+const ProductSection = dynamic(() => import('@/components/ProductSection'), {
+  loading: () => <LoadingSpinner />,
+  ssr: true
+})
+
+const FeatureCards = dynamic(() => import('@/components/FeatureCards'), {
+  loading: () => <LoadingSpinner />,
+  ssr: true
+})
+
+const PromiseBanner = dynamic(() => import('@/components/PromiseBanner'), {
+  loading: () => <LoadingSpinner />,
+  ssr: true
+})
+
+const TestimonialCarousel = dynamic(() => import('@/components/TestimonialCarousel'), {
+  loading: () => <LoadingSpinner />,
+  ssr: false
+})
+
+const CTASection = dynamic(() => import('@/components/CTASection'), {
+  loading: () => <LoadingSpinner />,
+  ssr: true
+})
 
 export const metadata: Metadata = {
   title: 'RAY - Restaurant Marketing Platform | Increase Revenue by 30%+',
@@ -41,8 +62,8 @@ const TrustMetrics = () => (
 
       <div className={`${CSS_CLASSES.GRID_3} gap-8 max-w-6xl mx-auto`}>
         <div className="group">
-          <div className={`bg-white rounded-2xl shadow-lg ${CSS_CLASSES.HOVER_SHADOW} p-8 ${CSS_CLASSES.TEXT_CENTER} border border-gray-100 hover:-translate-y-2 ${CSS_CLASSES.FADE_IN} h-full ${CSS_CLASSES.FLEX_COL} justify-center`}>
-            <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300">
+          <div className={`bg-white rounded-2xl shadow-lg ${CSS_CLASSES.HOVER_SHADOW} p-8 ${CSS_CLASSES.TEXT_CENTER} border border-gray-100 h-full ${CSS_CLASSES.FLEX_COL} justify-center`}>
+            <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent mb-4">
               #1
             </div>
             <div className="text-xl font-bold text-ray-dark-900 mb-3">
@@ -55,8 +76,8 @@ const TrustMetrics = () => (
         </div>
 
         <div className="group">
-          <div className={`bg-white rounded-2xl shadow-lg ${CSS_CLASSES.HOVER_SHADOW} p-8 ${CSS_CLASSES.TEXT_CENTER} border border-gray-100 hover:-translate-y-2 ${CSS_CLASSES.FADE_IN} delay-200 h-full ${CSS_CLASSES.FLEX_COL} justify-center`}>
-            <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300">
+          <div className={`bg-white rounded-2xl shadow-lg ${CSS_CLASSES.HOVER_SHADOW} p-8 ${CSS_CLASSES.TEXT_CENTER} border border-gray-100 h-full ${CSS_CLASSES.FLEX_COL} justify-center`}>
+            <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent mb-4">
               30%
             </div>
             <div className="text-xl font-bold text-ray-dark-900 mb-3">
@@ -69,8 +90,8 @@ const TrustMetrics = () => (
         </div>
 
         <div className="group">
-          <div className={`bg-white rounded-2xl shadow-lg ${CSS_CLASSES.HOVER_SHADOW} p-8 ${CSS_CLASSES.TEXT_CENTER} border border-gray-100 hover:-translate-y-2 ${CSS_CLASSES.FADE_IN} delay-400 h-full ${CSS_CLASSES.FLEX_COL} justify-center`}>
-            <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300">
+          <div className={`bg-white rounded-2xl shadow-lg ${CSS_CLASSES.HOVER_SHADOW} p-8 ${CSS_CLASSES.TEXT_CENTER} border border-gray-100 h-full ${CSS_CLASSES.FLEX_COL} justify-center`}>
+            <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent mb-4">
               1,000+
             </div>
             <div className="text-xl font-bold text-ray-dark-900 mb-3">
@@ -113,9 +134,7 @@ export default function HomePage() {
       <ProductSection />
       <FeatureCards />
       <PromiseBanner />
-      <Suspense fallback={<LoadingSpinner />}>
-        <TestimonialCarousel />
-      </Suspense>
+      <TestimonialCarousel />
       <CTASection />
     </>
   )
