@@ -42,6 +42,7 @@ const CTASection: React.FC = () => {
             size="lg"
             className="shadow-xl hover:shadow-2xl transition-all duration-300"
             href="https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=cta_section"
+            external={true}
             data-cta="demo"
             data-analytics="cta_section"
             aria-label="Get a free demo"

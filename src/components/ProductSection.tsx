@@ -96,7 +96,9 @@ const ProductSection: React.FC = () => {
                       variant="primary"
                       size="md"
                       href={`https://www.rayapp.io/demo?utm_source=website&utm_medium=cta&utm_campaign=product_section_${product.name.toLowerCase().replace(' ', '_')}`}
+                      external={true}
                       className="w-full group/btn"
+                      data-cta="demo"
                       data-analytics="product_section"
                       aria-label={`Get a free demo for ${product.name}`}
                     >
