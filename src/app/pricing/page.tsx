@@ -3,8 +3,6 @@
 import React from 'react'
 import { Check, X, ArrowRight, TrendingUp, Shield, Zap } from 'lucide-react'
 import Button from '@/components/shared/BaseButton'
-import { useHubSpotModal } from '@/hooks/useHubSpotModal'
-import HubSpotUnifiedModal from '@/components/HubSpotUnifiedModal'
 
 interface PricingTier {
   id: string
@@ -47,7 +45,7 @@ const pricingTiers: PricingTier[] = [
     ],
     ctaText: 'Start Free Scan',
     ctaDestination: 'grader',
-    ctaUrl: 'https://grader.rayapp.io/'
+    ctaUrl: 'https://grader.rayapp.io/?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-starter'
   },
   {
     id: 'growth',
@@ -69,6 +67,7 @@ const pricingTiers: PricingTier[] = [
     ],
     ctaText: 'Get Started',
     ctaDestination: 'demo',
+    ctaUrl: 'https://www.rayapp.io/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-growth',
     isPopular: true,
     badge: 'Most Popular'
   },
@@ -92,18 +91,12 @@ const pricingTiers: PricingTier[] = [
       'Training & onboarding'
     ],
     ctaText: 'Contact Sales',
-    ctaDestination: 'contact'
+    ctaDestination: 'contact',
+    ctaUrl: 'https://www.rayapp.io/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-enterprise'
   }
 ]
 
 const PricingPage = () => {
-  const {
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
-
   const handleCtaClick = (tier: PricingTier) => {
     // Analytics tracking
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -116,12 +109,8 @@ const PricingPage = () => {
     }
 
     // Handle different CTA destinations
-    if (tier.ctaDestination === 'grader' && tier.ctaUrl) {
+    if (tier.ctaUrl) {
       window.open(tier.ctaUrl, '_blank', 'noopener,noreferrer')
-    } else if (tier.ctaDestination === 'demo') {
-      openModal('demo-free')
-    } else if (tier.ctaDestination === 'contact') {
-      openModal('contact-sales')
     }
   }
 
@@ -354,7 +343,8 @@ const PricingPage = () => {
               <Button
                 variant="primary"
                 size="lg"
-                onClick={() => openModal('demo-free')}
+                href="https://www.rayapp.io/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-bottom-primary"
+                external={true}
                 data-cta="demo-free"
                 data-analytics="pricing_bottom_cta"
                 className="shadow-xl hover:shadow-2xl transition-all duration-300"
@@ -365,7 +355,7 @@ const PricingPage = () => {
               <Button
                 variant="secondary"
                 size="lg"
-                href="https://grader.rayapp.io/"
+                href="https://grader.rayapp.io/?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-bottom"
                 external={true}
                 data-cta="grader"
                 data-analytics="pricing_bottom_cta"
@@ -378,13 +368,6 @@ const PricingPage = () => {
           </div>
         </section>
       </div>
-
-      {/* HubSpot Modal */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
     </>
   )
 }

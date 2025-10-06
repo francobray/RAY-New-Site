@@ -43,7 +43,7 @@ const Header: React.FC = () => {
         { name: 'Contact', path: '/contact' }
       ]
     },
-    { name: 'Blog', path: 'https://blog.rayapp.io/' }
+    { name: 'Blog', path: 'https://blog.rayapp.io/?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-blog' }
   ]
 
   const toggleMenu = () => {
@@ -286,7 +286,7 @@ const Header: React.FC = () => {
             <Button
               variant="primary"
               size="sm"
-              href="https://grader.rayapp.io/"
+              href="https://grader.rayapp.io/?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-desktop"
               external={true}
               data-cta="grader"
               data-analytics="nav"
@@ -342,7 +342,7 @@ const Header: React.FC = () => {
                   <Button
                     variant="primary"
                     size="md"
-                    href="https://grader.rayapp.io/"
+                    href="https://grader.rayapp.io/?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile"
                     external={true}
                     className="w-full"
                     data-cta="grader"

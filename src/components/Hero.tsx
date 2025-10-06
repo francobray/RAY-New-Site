@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
                 variant="primary"
                 size="lg"
                 className="w-full sm:w-auto px-8 py-4 text-lg sm:text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
-                href="https://grader.rayapp.io/"
+                href="https://grader.rayapp.io/?utm_source=hero&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-primary"
                 external={true}
                 data-cta="grader"
                 data-analytics="hero_primary"
