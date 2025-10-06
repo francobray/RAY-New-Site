@@ -28,11 +28,11 @@ const PromiseBanner: React.FC = () => {
                 external={true}
                 data-cta="demo-free"
                 data-analytics="promise_banner"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold shadow-lg transition-colors duration-200 group"
                 aria-label="Book a free demo"
               >
                 Book a Free Demo
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
           </div>

@@ -69,7 +69,7 @@ const ProductSection: React.FC = () => {
                 <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 h-full flex flex-col">
                   {/* Icon with gradient background */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className={`w-14 h-14 bg-gradient-to-r ${product.gradient} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+                    <div className={`w-14 h-14 bg-gradient-to-r ${product.gradient} rounded-xl flex items-center justify-center shadow-md`}>
                       <IconComponent className="w-7 h-7 text-white" />
                     </div>
                     
@@ -103,7 +103,7 @@ const ProductSection: React.FC = () => {
                       aria-label={`Get a free demo for ${product.name}`}
                     >
                       Get a Free Demo
-                      <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                      <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ const ProductSection: React.FC = () => {
             aria-label="View pricing and plans"
           >
             View Pricing & Plans
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>
       </div>
