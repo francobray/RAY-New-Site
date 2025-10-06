@@ -1,6 +1,8 @@
+'use client'
+
 import React from 'react'
 import { Star } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import Button from './shared/BaseButton'
 
 const customers = [
@@ -88,7 +90,7 @@ const TestimonialCarousel: React.FC = () => {
             {customers.map((customer, index) => (
               <Link
                 key={customer.id}
-                to={`/case-studies/${customer.id}`}
+                href={`/case-studies/${customer.id}`}
                 className="group block"
               >
                 <div className={`relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 animate-in fade-in slide-in-from-bottom duration-700 delay-${index * 100}`}>

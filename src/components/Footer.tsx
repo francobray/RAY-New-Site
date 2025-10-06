@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 const Footer: React.FC = () => {
   return (
@@ -8,8 +8,8 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1">
-            <Link 
-              to="/" 
+            <Link
+              href="/"
               className="flex items-center hover:opacity-80 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-lg"
               aria-label="RAY homepage"
             >
@@ -33,8 +33,8 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link 
-                  to="/product/walk-ins" 
+                <Link
+                  href="/product/walk-ins" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
                   aria-label="Walk-Ins product page"
                 >
@@ -42,8 +42,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/product/bookings" 
+                <Link
+                  href="/product/bookings" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
                   aria-label="Bookings product page"
                 >
@@ -51,8 +51,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/product/online-orders" 
+                <Link
+                  href="/product/online-orders" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
                   aria-label="Online Orders product page"
                 >
@@ -60,8 +60,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/product/ai-concierge" 
+                <Link
+                  href="/product/ai-concierge" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
                   aria-label="AI Concierge product page"
                 >
@@ -69,8 +69,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/case-studies" 
+                <Link
+                  href="/case-studies" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label="Case Studies page"
                 >
@@ -78,8 +78,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/pricing" 
+                <Link
+                  href="/pricing" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label="Pricing page"
                 >
@@ -87,8 +87,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/about" 
+                <Link
+                  href="/about" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label="About page"
                 >
@@ -105,8 +105,8 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link 
-                  to="/contact" 
+                <Link
+                  href="/contact" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label="Contact page"
                 >
@@ -132,8 +132,8 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link 
-                  to="/privacy-policy" 
+                <Link
+                  href="/privacy-policy" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label="Privacy Policy page"
                 >
@@ -141,8 +141,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/terms-of-service" 
+                <Link
+                  href="/terms-of-service" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label="Terms of Service page"
                 >
@@ -150,8 +150,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/cookie-policy" 
+                <Link
+                  href="/cookie-policy" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label="Cookie Policy page"
                 >

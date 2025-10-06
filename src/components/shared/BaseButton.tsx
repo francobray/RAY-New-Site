@@ -1,5 +1,7 @@
+'use client'
+
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 interface BaseButtonProps {
   variant?: 'primary' | 'secondary' | 'ghost' | 'dark'
@@ -101,7 +103,7 @@ const BaseButton: React.FC<BaseButtonProps> = ({
   // Internal link
   if (href) {
     return (
-      <Link {...commonProps} to={href} onClick={handleClick}>
+      <Link {...commonProps} href={href} onClick={handleClick}>
         {children}
       </Link>
     )

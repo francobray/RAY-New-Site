@@ -107,7 +107,6 @@ export class FontValidator {
   }
 
   private validateCaseSensitivity(result: FontValidationResult): void {
-    const expectedPath = '/fonts/Chopin.Trial-Regular.woff2'
     const actualFileName = path.basename(this.fontPath)
     const expectedFileName = 'Chopin.Trial-Regular.woff2'
     

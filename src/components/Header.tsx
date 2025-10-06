@@ -1,5 +1,8 @@
+'use client'
+
 import React, { useState, useRef, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import Button from './shared/BaseButton'
 
 interface MenuItem {
@@ -12,7 +15,7 @@ interface MenuItem {
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
-  const location = useLocation()
+  const pathname = usePathname()
   const menuRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const dropdownTimeouts = useRef<{ [key: string]: number }>({})
 
@@ -165,7 +168,7 @@ const Header: React.FC = () => {
   // Close mobile menu on route change
   useEffect(() => {
     closeMenu()
-  }, [location.pathname])
+  }, [pathname])
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -173,8 +176,8 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link 
-              to="/" 
+            <Link
+              href="/"
               className="flex items-center hover:opacity-80 transition-opacity duration-200"
               data-analytics="nav"
             >
@@ -204,7 +207,7 @@ const Header: React.FC = () => {
                       onClick={() => handleDropdownClick(item.name)}
                       onKeyDown={(e) => handleKeyDown(e, item.name, true)}
                       className={`text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md ${
-                        location.pathname === item.path || item.dropdownItems?.some(subItem => location.pathname === subItem.path) ? 'text-ray-blue' : ''
+                        pathname === item.path || item.dropdownItems?.some(subItem => pathname === subItem.path) ? 'text-ray-blue' : ''
                       }`}
                       aria-expanded={openDropdown === item.name}
                       aria-haspopup="true"
@@ -224,7 +227,7 @@ const Header: React.FC = () => {
                         {item.dropdownItems?.map((dropdownItem) => (
                           <Link
                             key={dropdownItem.name}
-                            to={dropdownItem.path}
+                            href={dropdownItem.path}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-ray-blue focus:outline-none focus:bg-gray-100 focus:text-ray-blue"
                             onClick={closeMenu}
                             role="menuitem"
@@ -251,9 +254,9 @@ const Header: React.FC = () => {
                     </a>
                   ) : (
                     <Link
-                      to={item.path}
+                      href={item.path}
                       className={`text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md ${
-                        location.pathname === item.path ? 'text-ray-blue' : ''
+                        pathname === item.path ? 'text-ray-blue' : ''
                       }`}
                       role="menuitem"
                       data-analytics="nav"
@@ -381,7 +384,7 @@ const Header: React.FC = () => {
                           {item.dropdownItems?.map((dropdownItem) => (
                             <Link
                               key={dropdownItem.name}
-                              to={dropdownItem.path}
+                              href={dropdownItem.path}
                               className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
                               onClick={closeMenu}
                               data-analytics="nav"
@@ -407,9 +410,9 @@ const Header: React.FC = () => {
                       </a>
                     ) : (
                       <Link
-                        to={item.path}
+                        href={item.path}
                         className={`block px-3 py-2 text-base font-medium hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center ${
-                          location.pathname === item.path ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
+                          pathname === item.path ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
                         }`}
                         onClick={closeMenu}
                         data-analytics="nav"
