@@ -26,7 +26,7 @@ const PromiseBanner: React.FC = () => {
               <Button
                 variant="primary"
                 size="lg"
-                href="https://calendly.com/ray-demo/30min?utm_source=promise-banner&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=promise-cta"
+                href="https://www.rayapp.io/demo?utm_source=promise-banner&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=promise-cta"
                 external={true}
                 data-cta="demo-free"
                 data-analytics="promise_banner"

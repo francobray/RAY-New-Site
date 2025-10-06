@@ -67,7 +67,7 @@ const pricingTiers: PricingTier[] = [
     ],
     ctaText: 'Get Started',
     ctaDestination: 'demo',
-    ctaUrl: 'https://calendly.com/ray-demo/30min?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-growth',
+    ctaUrl: 'https://www.rayapp.io/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-growth',
     isPopular: true,
     badge: 'Most Popular'
   },
@@ -92,7 +92,7 @@ const pricingTiers: PricingTier[] = [
     ],
     ctaText: 'Contact Sales',
     ctaDestination: 'contact',
-    ctaUrl: 'https://calendly.com/ray-demo/30min?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-enterprise'
+    ctaUrl: 'https://www.rayapp.io/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-enterprise'
   }
 ]
 
@@ -343,7 +343,7 @@ const PricingPage = () => {
               <Button
                 variant="primary"
                 size="lg"
-                href="https://calendly.com/ray-demo/30min?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-bottom-primary"
+                href="https://www.rayapp.io/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-bottom-primary"
                 external={true}
                 data-cta="demo-free"
                 data-analytics="pricing_bottom_cta"
