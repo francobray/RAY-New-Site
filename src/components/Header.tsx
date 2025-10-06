@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import Button from './shared/BaseButton'
 
@@ -181,12 +182,13 @@ const Header: React.FC = () => {
               className="flex items-center hover:opacity-80 transition-opacity duration-200"
               data-analytics="nav"
             >
-              <img 
-                src="/images/logo-rayapp-azulwebp-300x150.webp" 
-                alt="RAY - Restaurant Marketing Platform" 
-                className="h-8 w-auto"
+              <Image
+                src="/images/logo-rayapp-azulwebp-300x150.webp"
+                alt="RAY - Restaurant Marketing Platform"
                 width={120}
                 height={40}
+                className="h-8 w-auto"
+                priority
               />
             </Link>
           </div>

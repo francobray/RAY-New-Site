@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Footer: React.FC = () => {
   return (
@@ -13,12 +14,12 @@ const Footer: React.FC = () => {
               className="flex items-center hover:opacity-80 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-lg"
               aria-label="RAY homepage"
             >
-              <img 
-                src="/images/logo-rayapp-azulwebp-300x150.webp" 
-                alt="RAY - Restaurant Marketing Platform" 
-                className="h-8 w-auto mb-4"
+              <Image
+                src="/images/logo-rayapp-azulwebp-300x150.webp"
+                alt="RAY - Restaurant Marketing Platform"
                 width={120}
                 height={40}
+                className="h-8 w-auto mb-4"
               />
             </Link>
             <p className="mt-4 text-ray-gray max-w-md">

@@ -3,6 +3,7 @@
 import React from 'react'
 import { Star } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Button from './shared/BaseButton'
 
 const customers = [
@@ -96,10 +97,13 @@ const TestimonialCarousel: React.FC = () => {
                 <div className={`relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 animate-in fade-in slide-in-from-bottom duration-700 delay-${index * 100}`}>
                   {/* Background Image */}
                   <div className="relative h-80">
-                    <img
+                    <Image
                       src={customer.image}
                       alt={customer.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
                     />
                     
                     {/* Gradient Overlay */}

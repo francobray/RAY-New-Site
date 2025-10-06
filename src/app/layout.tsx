@@ -54,8 +54,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://grader.rayapp.io" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <meta name="theme-color" content="#0D79E5" />
       </head>
-      <body className="min-h-screen bg-white">
+      <body className="min-h-screen bg-white antialiased">
         <Header />
         <main>
           {children}

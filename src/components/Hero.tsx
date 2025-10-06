@@ -1,103 +1,11 @@
 'use client'
 
 import React from 'react'
-import { useEffect, useState } from 'react'
 import { TrendingUp, Star } from 'lucide-react'
 import Button from './shared/BaseButton'
 import { COPY } from '../constants/copy'
 
-// Extend Window interface for RAYWidget
-declare global {
-  interface Window {
-    RAYWidget: any
-  }
-}
-
 const Hero: React.FC = () => {
-  const [widgetLoaded, setWidgetLoaded] = useState(false)
-
-  useEffect(() => {
-    // Add custom CSS to fix widget height issues
-    const addCustomStyles = () => {
-      const styleId = 'ray-widget-custom-styles';
-      if (!document.getElementById(styleId)) {
-        const style = document.createElement('style');
-        style.id = styleId;
-        style.textContent = `
-          .ray-widget {
-            min-height: 120px !important;
-          }
-          .ray-widget-title {
-            min-height: 50px !important;
-            display: flex !important;
-            align-items: center !important;
-            line-height: 1.2 !important;
-            white-space: normal !important;
-          }
-          .ray-widget-header {
-            min-height: 60px !important;
-          }
-          @media (max-width: 600px) {
-            .ray-widget {
-              min-height: 90px !important;
-              align-items: center !important;
-              padding: 12px 16px !important;
-            }
-            .ray-widget-header {
-              display: block !important;
-              min-height: 40px !important;
-            }
-            .ray-widget-title {
-              font-size: 14px !important;
-              line-height: 1.3 !important;
-              min-height: 40px !important;
-              overflow: hidden !important;
-              text-overflow: ellipsis !important;
-              display: -webkit-box !important;
-              -webkit-line-clamp: 2 !important;
-              -webkit-box-orient: vertical !important;
-              max-height: 40px !important;
-            }
-            .ray-widget-title-container {
-              min-height: 40px !important;
-              align-items: flex-start !important;
-            }
-          }
-        `;
-        document.head.appendChild(style);
-      }
-    };
-
-    // Initialize RAY Widget when component mounts
-    const initWidget = () => {
-      if (window.RAYWidget) {
-        addCustomStyles();
-        new window.RAYWidget({
-          container: '#ray-widget',
-          baseUrl: 'https://grader.rayapp.io',
-          width: '100%'
-        })
-        setWidgetLoaded(true)
-      } else {
-        setWidgetLoaded(false)
-        // If RAYWidget is not loaded yet, try again after a short delay
-        setTimeout(initWidget, 100);
-      }
-    };
-
-    // Wait for DOM to be ready
-    if (document.readyState === 'loading') {
-      setWidgetLoaded(false)
-      document.addEventListener('DOMContentLoaded', initWidget);
-    } else {
-      initWidget();
-    }
-
-    return () => {
-      document.removeEventListener('DOMContentLoaded', initWidget);
-      setWidgetLoaded(false)
-    };
-  }, []);
 
   return (
     <div>
@@ -134,28 +42,21 @@ const Hero: React.FC = () => {
               {COPY.COMPANY.DESCRIPTION}
             </p>
 
-            {/* Widget Container */}
-            <div className="relative max-w-4xl mx-auto mb-12">
-              <div id="ray-widget" style={{ overflow: 'visible' }}></div>
-              
-              {/* Fallback Button if widget doesn't load */}
-              {!widgetLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Button
-                    variant="primary" 
-                    size="lg" 
-                    fullWidth={true} 
-                    className="max-w-lg mx-auto px-12 py-6 text-xl"
-                    href="https://grader.rayapp.io/"
-                    external={true}
-                    data-cta="grader"
-                    data-analytics="hero_fallback"
-                    aria-label="Grade your restaurant - free assessment"
-                  >
-                    Grade Your Restaurant
-                  </Button>
-                </div>
-              )}
+            {/* CTA Button - Prominently displayed */}
+            <div className="relative max-w-2xl mx-auto mb-8">
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full sm:w-auto px-8 py-4 text-lg sm:text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                href="https://grader.rayapp.io/"
+                external={true}
+                data-cta="grader"
+                data-analytics="hero_primary"
+                aria-label="Grade your restaurant - free 60-second assessment"
+              >
+                Grade Your Restaurant
+              </Button>
+              <p className="text-xs sm:text-sm text-ray-dark-600 mt-3">Free • 60 seconds • No credit card required</p>
             </div>
 
             {/* Social Proof */}
