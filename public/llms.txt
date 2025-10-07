@@ -1,4 +1,4 @@
-# AI.txt - RAY Restaurant Marketing Platform
+# llms.txt - RAY Restaurant Marketing Platform
 # This file describes how AI systems may use our content
 
 ## Allowed Uses

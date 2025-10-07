@@ -188,6 +188,7 @@ const Header: React.FC = () => {
                 width={120}
                 height={40}
                 className="h-8 w-auto"
+                priority
               />
             </Link>
           </div>

@@ -20,6 +20,7 @@ const Footer: React.FC = () => {
                 width={120}
                 height={40}
                 className="h-8 w-auto mb-4"
+                loading="lazy"
               />
             </Link>
             <p className="mt-4 text-ray-gray max-w-md">

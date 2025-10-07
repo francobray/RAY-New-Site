@@ -44,7 +44,7 @@ const customers = [
     title: 'CEO - Chimba Miami',
     metric: '+$14,000/m',
     category: 'Online Sales',
-    image: '/images/Chimba_Miami.jpeg',
+    image: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
     bgColor: 'from-red-600 to-red-700'
   },
   {
@@ -99,7 +99,7 @@ const TestimonialCarousel: React.FC = () => {
                   <div className="relative aspect-[4/5] h-80">
                     <Image
                       src={customer.image}
-                      alt={customer.name}
+                      alt={`${customer.name} restaurant - RAY customer success story showing ${customer.metric} improvement`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover"

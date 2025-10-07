@@ -101,16 +101,16 @@ export const generateProductSchema = (product: {
   })) || []
 })
 
-export const generateFAQSchema = (faqs: Array<{ question: string; answer: string }>) => ({
+export const generateFAQSchema = (faqs: Array<{ question: string; answer: string }>, url?: string) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "@id": `${window.location.href}#faq`,
+  "@id": `${url || SEO_CONFIG.SITE_URL}#faq`,
   "mainEntity": faqs.map(faq => ({
     "@type": "Question",
     "name": faq.question,
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": faq.answer
+      "text": faq.answer.replace(/\n\n/g, ' ')
     }
   }))
 })

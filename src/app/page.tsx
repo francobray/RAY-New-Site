@@ -6,6 +6,7 @@ import ProductSection from '@/components/ProductSection'
 import FeatureCards from '@/components/FeatureCards'
 import PromiseBanner from '@/components/PromiseBanner'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
+import FAQ from '@/components/FAQ'
 import CTASection from '@/components/CTASection'
 
 export const metadata: Metadata = {
@@ -102,7 +103,6 @@ export default function HomePage() {
       />
 
       <div className="sr-only">
-        <h1>RAY Restaurant Marketing Platform</h1>
         <p>RAY is the #1 restaurant marketing platform that helps restaurant owners increase revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months or refund your investment. Our platform includes local SEO, reputation management, and customer engagement tools trusted by over 1,000 restaurants nationwide.</p>
       </div>
 
@@ -112,6 +112,7 @@ export default function HomePage() {
       <FeatureCards />
       <PromiseBanner />
       <TestimonialCarousel />
+      <FAQ />
       <CTASection />
     </>
   )
