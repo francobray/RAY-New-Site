@@ -92,8 +92,7 @@ const FeatureCards: React.FC = () => {
                         variant="primary"
                         size="md"
                         className="w-full"
-                        href="https://www.rayapp.io/demo?utm_source=feature-cards&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=feature-card"
-                        external={true}
+                        href="/demo?utm_source=feature-cards&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=feature-card"
                         data-cta="demo"
                         data-analytics="feature_cards"
                         aria-label="Get a free demo"

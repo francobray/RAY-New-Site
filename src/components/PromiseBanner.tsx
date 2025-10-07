@@ -24,8 +24,7 @@ const PromiseBanner: React.FC = () => {
               <Button
                 variant="primary"
                 size="lg"
-                href="https://www.rayapp.io/demo?utm_source=promise-banner&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=promise-cta"
-                external={true}
+                href="/demo?utm_source=promise-banner&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=promise-cta"
                 data-cta="demo-free"
                 data-analytics="promise_banner"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold shadow-lg transition-colors duration-200 group"

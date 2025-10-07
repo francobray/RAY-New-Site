@@ -67,7 +67,7 @@ const pricingTiers: PricingTier[] = [
     ],
     ctaText: 'Get Started',
     ctaDestination: 'demo',
-    ctaUrl: 'https://www.rayapp.io/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-growth',
+    ctaUrl: '/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-growth',
     isPopular: true,
     badge: 'Most Popular'
   },
@@ -92,7 +92,7 @@ const pricingTiers: PricingTier[] = [
     ],
     ctaText: 'Contact Sales',
     ctaDestination: 'contact',
-    ctaUrl: 'https://www.rayapp.io/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-enterprise'
+    ctaUrl: '/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-enterprise'
   }
 ]
 
@@ -343,8 +343,7 @@ const PricingPage = () => {
               <Button
                 variant="primary"
                 size="lg"
-                href="https://www.rayapp.io/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-bottom-primary"
-                external={true}
+                href="/demo?utm_source=pricing&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=pricing-bottom-primary"
                 data-cta="demo-free"
                 data-analytics="pricing_bottom_cta"
                 className="shadow-xl hover:shadow-2xl transition-all duration-300"

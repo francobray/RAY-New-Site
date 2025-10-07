@@ -95,8 +95,7 @@ const ProductSection: React.FC = () => {
                     <Button
                       variant="primary"
                       size="md"
-                      href={`https://www.rayapp.io/demo?utm_source=product-section&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=product-${product.name.toLowerCase().replace(' ', '-')}`}
-                      external={true}
+                      href={`/demo?utm_source=product-section&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=product-${product.name.toLowerCase().replace(' ', '-')}`}
                       className="w-full group/btn"
                       data-cta="demo"
                       data-analytics="product_section"

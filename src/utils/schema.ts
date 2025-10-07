@@ -1,41 +1,194 @@
 // Schema.org structured data generators
 import { SEO_CONFIG } from './seo'
 
-// Enhanced Organization schema with more AI-friendly data
+// Enhanced Organization schema with comprehensive RAY company information
 export const generateOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "RAY",
-  "alternateName": "RAY Restaurant Marketing Platform",
-  "description": "Restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews",
+  "legalName": "BotBit S.A.S.",
+  "alternateName": ["RAY Restaurant Marketing Platform", "RAY App", "BotBit S.A.S."],
+  "description": "RAY is the #1 restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months or refund your investment.",
   "url": SEO_CONFIG.SITE_URL,
   "@id": `${SEO_CONFIG.SITE_URL}/#organization`,
-  "logo": `${SEO_CONFIG.SITE_URL}/images/logo-rayapp-azulwebp-300x150.webp`,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${SEO_CONFIG.SITE_URL}/images/logo-rayapp-azulwebp-300x150.webp`,
+    "width": 300,
+    "height": 150,
+    "caption": "RAY Restaurant Marketing Platform Logo"
+  },
   "foundingDate": "2020",
-  "numberOfEmployees": "11-50",
-  "industry": "Restaurant Marketing Technology",
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Buenos Aires, Argentina"
+  },
+  "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "value": "11-50"
+  },
+  "industry": ["Restaurant Marketing Technology", "SaaS", "Local SEO", "Digital Marketing"],
+  "naics": "541613", // Marketing Consulting Services
+  "taxID": "30-71580329-8",
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "US"
+    "streetAddress": "Av. Gral. Mosconi 2581",
+    "addressLocality": "Buenos Aires",
+    "addressRegion": "Buenos Aires",
+    "addressCountry": "AR",
+    "postalCode": "C1427"
   },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-555-RAY-HELP",
-    "contactType": "customer service",
-    "email": "hello@rayapp.io",
-    "availableLanguage": "English"
-  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1-555-RAY-HELP",
+      "contactType": "customer service",
+      "email": "hello@rayapp.io",
+      "availableLanguage": ["English", "Spanish"],
+      "areaServed": "US",
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00",
+        "timeZone": "America/New_York"
+      }
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "technical support",
+      "email": "support@rayapp.io",
+      "availableLanguage": ["English", "Spanish"],
+      "areaServed": "US"
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "hello@rayapp.io",
+      "availableLanguage": ["English", "Spanish"],
+      "areaServed": "US"
+    }
+  ],
   "sameAs": [
     "https://www.linkedin.com/company/rayapp",
-    "https://twitter.com/rayapp"
+    "https://twitter.com/rayapp",
+    "https://www.facebook.com/rayapp",
+    "https://www.instagram.com/rayapp"
   ],
   "knowsAbout": [
     "Restaurant Marketing",
     "Local SEO",
     "Google Business Profile Optimization",
     "Online Reputation Management",
-    "Restaurant Technology"
-  ]
+    "Restaurant Technology",
+    "Digital Marketing",
+    "Google Maps Marketing",
+    "Restaurant Analytics",
+    "Customer Acquisition",
+    "Revenue Optimization"
+  ],
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "39.8283",
+      "longitude": "-98.5795"
+    },
+    "geoRadius": "2500000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "RAY Restaurant Marketing Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Walk-Ins Marketing",
+          "description": "AI-powered local marketing to drive more foot traffic"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bookings Management",
+          "description": "Smart booking management and customer relationship tools"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Online Orders Optimization",
+          "description": "Revenue growth from digital channels and delivery platforms"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Concierge",
+          "description": "24/7 multilingual AI customer service for restaurants"
+        }
+      }
+    ]
+  },
+  "award": [
+    "#1 Restaurant Marketing Platform",
+    "30%+ Revenue Increase Guarantee"
+  ],
+  "slogan": "Increase Restaurant Revenue by 30%+",
+  "mission": "To help restaurant owners increase revenue through proven marketing strategies and technology solutions",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "1000",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Temple Craft Wynwood"
+      },
+      "reviewBody": "RAY helped us increase Google Maps visits by 259% and walk-ins by 66%. Outstanding results!"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Chimba Miami"
+      },
+      "reviewBody": "Our Google Maps navigations increased by 215% and foot traffic by 46%. Highly recommend RAY!"
+    }
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "BotBit S.A.S.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Gral. Mosconi 2581",
+      "addressLocality": "Buenos Aires",
+      "addressCountry": "AR"
+    }
+  }
 })
 
 // Enhanced Website schema with SearchAction

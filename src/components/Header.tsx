@@ -32,7 +32,11 @@ const Header: React.FC = () => {
         { name: 'AI Concierge', path: '/product/ai-concierge' }
       ]
     },
-    { name: 'Case Studies', path: '/case-studies' },
+    { name: 'Case Studies', path: '/case-studies', hasDropdown: true, dropdownItems: [
+      { name: 'All Case Studies', path: '/case-studies' },
+      { name: 'Temple Craft Wynwood', path: '/case-studies/temple-craft-wynwood' },
+      { name: 'Chimba Miami', path: '/case-studies/chimba-miami' }
+    ] },
     { name: 'Pricing', path: '/pricing' },
     { 
       name: 'About Us', 
@@ -276,12 +280,11 @@ const Header: React.FC = () => {
             <Button
               variant="ghost"
               size="sm"
-              href="https://admin-v2.preprod.rayapp.io/dashboard"
-              external={true}
+              href="/demo?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-demo"
               data-analytics="nav"
-              aria-label="Log in to your RAY dashboard"
+              aria-label="Get a demo of RAY's restaurant marketing platform"
             >
-              Log in
+              Get a Demo
             </Button>
             <Button
               variant="primary"
@@ -330,14 +333,13 @@ const Header: React.FC = () => {
                   <Button
                     variant="ghost"
                     size="md"
-                    href="https://admin-v2.preprod.rayapp.io/dashboard"
-                    external={true}
+                    href="/demo?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile-demo"
                     className="w-full justify-start"
                     data-analytics="nav"
-                    aria-label="Log in to your RAY dashboard"
+                    aria-label="Get a demo of RAY's restaurant marketing platform"
                     onClick={closeMenu}
                   >
-                    Log in
+                    Get a Demo
                   </Button>
                   <Button
                     variant="primary"
