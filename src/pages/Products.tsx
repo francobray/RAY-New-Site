@@ -1,5 +1,6 @@
+'use client'
+
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { ArrowRight, CircleCheck as CheckCircle, Star, TrendingUp, Users, Calendar, MapPin, ShoppingCart, Zap, Shield, Clock } from 'lucide-react'
 import Button from '../components/shared/BaseButton'
 import Card from '../components/Card'
@@ -7,6 +8,25 @@ import HubSpotUnifiedModal from '../components/HubSpotUnifiedModal'
 import { useHubSpotModal } from '../hooks/useHubSpotModal'
 
 const products = [
+  {
+    id: 'online-orders',
+    icon: ShoppingCart,
+    name: 'Online Orders',
+    tagline: 'Grow revenue from digital channels',
+    description: 'Increase direct orders, reduce third-party commissions, and maximize digital revenue with integrated ordering systems and analytics.',
+    keyBenefit: '+27% online orders',
+    features: [
+      'Direct online ordering system',
+      'Commission-free ordering platform',
+      'Delivery platform optimization',
+      'Upselling & loyalty programs',
+      'Revenue analytics & insights'
+    ],
+    href: '/product/online-orders',
+    gradient: 'from-purple-500 to-pink-600',
+    bgGradient: 'from-purple-50 to-pink-50',
+    isPopular: false
+  },
   {
     id: 'bookings',
     icon: Calendar,
@@ -44,25 +64,6 @@ const products = [
     gradient: 'from-blue-500 to-indigo-600',
     bgGradient: 'from-blue-50 to-indigo-50',
     isPopular: true
-  },
-  {
-    id: 'online-orders',
-    icon: ShoppingCart,
-    name: 'Online Orders',
-    tagline: 'Grow revenue from digital channels',
-    description: 'Increase direct orders, reduce third-party commissions, and maximize digital revenue with integrated ordering systems and analytics.',
-    keyBenefit: '+27% online orders',
-    features: [
-      'Direct online ordering system',
-      'Commission-free ordering platform',
-      'Delivery platform optimization',
-      'Upselling & loyalty programs',
-      'Revenue analytics & insights'
-    ],
-    href: '/product/online-orders',
-    gradient: 'from-purple-500 to-pink-600',
-    bgGradient: 'from-purple-50 to-pink-50',
-    isPopular: false
   }
 ]
 
@@ -70,7 +71,7 @@ const benefits = [
   {
     icon: TrendingUp,
     title: 'Proven Results',
-    description: 'Average 30%+ increase in Google Business Profile navigations within 6 months',
+    description: 'Average 30%+ increase in Google Business Profile Google Maps directions within 6 months',
     stat: '30%+'
   },
   {
@@ -97,7 +98,7 @@ const testimonials = [
   {
     name: 'Juan Ignacio Chereminiano',
     title: 'CEO, Temple Craft Wynwood',
-    quote: 'Our Google Maps navigations skyrocketed by 259%, and foot traffic increased by 66%. The impact on our business has been remarkable!',
+    quote: 'Our Google Maps directions skyrocketed by 259%, and foot traffic increased by 66%. The impact on our business has been remarkable!',
     metric: '+259%',
     metricLabel: 'Google Maps visits',
     image: '/images/Temple_Team.jpeg'
@@ -105,10 +106,10 @@ const testimonials = [
   {
     name: 'Franco Yannelli',
     title: 'CMO, Chimba Miami',
-    quote: 'Our Google Maps navigations increased by 215%, and foot traffic grew by 46%. We\'ve never had so many new customers discovering us.',
+    quote: 'Our Google Maps directions increased by 215%, and foot traffic grew by 46%. We\'ve never had so many new customers discovering us.',
     metric: '+215%',
     metricLabel: 'Google Maps visits',
-    image: '/images/Restaurant-photo-ray.jpeg'
+    image: '/images/Chimba_Miami_Celebrating.jpeg'
   }
 ]
 
@@ -116,23 +117,11 @@ const Products: React.FC = () => {
   const { 
     isModalOpen,
     currentConfig,
-    openModal,
     closeModal
   } = useHubSpotModal()
 
   return (
-    <>
-      <Helmet>
-        <title>Products - Restaurant Marketing Solutions | RAY</title>
-        <meta name="description" content="Discover RAY's comprehensive restaurant marketing products: Bookings, Walk-Ins, and Online Orders. Increase revenue with proven solutions trusted by 1,000+ restaurants." />
-        <meta property="og:title" content="Products - Restaurant Marketing Solutions | RAY" />
-        <meta property="og:description" content="Discover RAY's comprehensive restaurant marketing products: Bookings, Walk-Ins, and Online Orders. Increase revenue with proven solutions trusted by 1,000+ restaurants." />
-        <meta property="og:url" content="https://rayapp.io/products" />
-        <meta name="twitter:title" content="Products - Restaurant Marketing Solutions | RAY" />
-        <meta name="twitter:description" content="Discover RAY's comprehensive restaurant marketing products: Bookings, Walk-Ins, and Online Orders. Increase revenue with proven solutions trusted by 1,000+ restaurants." />
-        <link rel="canonical" href="https://rayapp.io/products" />
-      </Helmet>
-
+    <div>
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden">
         {/* Background Elements */}
@@ -172,16 +161,16 @@ const Products: React.FC = () => {
                 external={true}
                 data-cta="grader"
                 data-analytics="products_hero"
-                aria-label="Grade your restaurant"
+                aria-label="Scan your restaurant"
               >
-                Grade Your Restaurant
+                Scan your restaurant
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               <Button 
                 variant="secondary" 
                 size="lg"
                 className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                onClick={() => openModal('demo-expert')}
+                href="/demo?utm_source=products-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-expert"
                 data-cta="demo-expert"
                 data-analytics="products_hero"
                 aria-label="Talk to an expert"
@@ -194,7 +183,7 @@ const Products: React.FC = () => {
             <div className="flex items-center justify-center space-x-8 text-sm text-ray-dark-600">
               <div className="flex items-center">
                 <CheckCircle className="w-4 h-4 text-ray-green mr-2" />
-                <span className="font-medium">30%+ navigations guarantee</span>
+                <span className="font-medium">30%+ Google Maps directions guarantee</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="w-4 h-4 text-ray-green mr-2" />
@@ -430,16 +419,16 @@ const Products: React.FC = () => {
               external={true}
               data-cta="grader"
               data-analytics="products_final_cta"
-              aria-label="Grade your restaurant"
+              aria-label="Scan your restaurant"
             >
-              Grade Your Restaurant
+              Scan your restaurant
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             <Button 
               variant="secondary" 
               size="lg"
               className="shadow-xl hover:shadow-2xl transition-all duration-300"
-              onClick={() => openModal('demo-expert')}
+              href="/demo?utm_source=products-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=final-expert"
               data-cta="demo-expert"
               data-analytics="products_final_cta"
               aria-label="Talk to an expert"
@@ -451,7 +440,7 @@ const Products: React.FC = () => {
           <div className="flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-              <span>30%+ navigations guarantee</span>
+              <span>30%+ Google Maps directions guarantee</span>
             </div>
             <div className="flex items-center">
               <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
@@ -471,7 +460,7 @@ const Products: React.FC = () => {
         onClose={closeModal}
         config={currentConfig}
       />
-    </>
+    </div>
   )
 }
 

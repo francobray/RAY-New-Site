@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { ArrowLeft, TrendingUp, Star, MapPin, Instagram, Eye, Users, Award } from 'lucide-react'
+import { ArrowLeft, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
 import LazyImage from '../components/LazyImage'
 import CTASection from '../components/CTASection'
 
@@ -18,7 +18,7 @@ const TempleCraftCaseStudy: React.FC = () => {
         <div>
           <h2>Key Metrics and Results</h2>
           <ul>
-            <li>Google Maps Navigations: +259% increase over 6 months</li>
+            <li>Google Maps Directions: +259% increase over 6 months</li>
             <li>Walk-in Traffic: +66% increase over 6 months</li>
             <li>Google Maps Ranking: Improved from #15 to #1</li>
             <li>Google Rating: Maintained 4.8 stars</li>
@@ -92,7 +92,7 @@ const TempleCraftCaseStudy: React.FC = () => {
                       <Eye className="w-8 h-8 text-yellow-400" />
                     </div>
                     <div className="text-3xl font-black text-yellow-400 mb-1">+259%</div>
-                    <div className="text-gray-300 text-sm font-medium">Google Maps Navigations</div>
+                    <div className="text-gray-300 text-sm font-medium">Google Maps Directions</div>
                   </div>
                   
                   <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20">
@@ -290,7 +290,7 @@ const TempleCraftCaseStudy: React.FC = () => {
               <div className="text-center">
                 <blockquote className="text-2xl md:text-3xl text-white font-medium leading-relaxed mb-8">
                   "Since partnering with RAY, our Juramento location has seen an incredible transformation! 
-                  Our Google Maps navigations skyrocketed by <span className="text-yellow-400 font-black">259%</span>, 
+                  Our Google Maps directions skyrocketed by <span className="text-yellow-400 font-black">259%</span>, 
                   and foot traffic increased by <span className="text-green-400 font-black">66%</span>. 
                   We've never had so many new customers discovering and visiting us. 
                   The impact on our business has been remarkable!"
@@ -324,7 +324,7 @@ const TempleCraftCaseStudy: React.FC = () => {
                   </div>
                 </div>
                 <div className="text-4xl font-black text-yellow-400 mb-2">259%</div>
-                <div className="text-white font-medium mb-1">More Navigations</div>
+                <div className="text-white font-medium mb-1">More Google Maps Directions</div>
                 <div className="text-sm text-gray-400">on Google Maps</div>
               </div>
 

@@ -15,7 +15,7 @@ const PromiseBanner: React.FC = () => {
                 Do you want to be the favorite local spot?
               </h2>
               <p className="text-xl text-ray-dark-700 leading-relaxed max-w-2xl">
-                We guarantee a 30%+ increase in Google Business Profile navigations within 6 months — or we'll refund your investment. <span className="text-sm text-ray-darkGray">('Navigations' refers to Google Business Profile direction requests/navigation taps.)</span>
+                We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months — or we'll refund your investment. <span className="text-sm text-ray-darkGray">('Google Maps Directions' refers to Google Business Profile direction requests/navigation taps.)</span>
               </p>
             </div>
             

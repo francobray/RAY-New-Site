@@ -62,7 +62,7 @@ const pricingTiers: PricingTier[] = [
       'Customer engagement tools',
       'Booking & ordering integrations',
       'Performance dashboard & analytics',
-      '30%+ navigations increase guarantee',
+      '30%+ Google Maps directions increase guarantee',
       'Email & chat support'
     ],
     ctaText: 'Get Started',
@@ -151,10 +151,10 @@ const PricingPage = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-ray-dark-900 mb-2">
-                    30%+ Navigations Increase Guaranteed
+                    30%+ Google Maps Directions Increase Guaranteed
                   </h3>
                   <p className="text-ray-dark-700 leading-relaxed">
-                    We guarantee a 30%+ increase in Google Business Profile navigations within 6 months — or we'll refund your investment.
+                    We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months — or we'll refund your investment.
                   </p>
                 </div>
               </div>
@@ -278,7 +278,7 @@ const PricingPage = () => {
                   What does the 30%+ guarantee cover?
                 </h3>
                 <p className="text-ray-dark-700 leading-relaxed">
-                  We guarantee a 30%+ increase in Google Business Profile navigations within 6 months. "Navigations" refers to direction requests and navigation taps on your Google Business Profile. If we don't hit this target, we'll refund your investment.
+                  We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months. "Google Maps Directions" refers to direction requests and navigation taps on your Google Business Profile. If we don't hit this target, we'll refund your investment.
                 </p>
               </div>
 

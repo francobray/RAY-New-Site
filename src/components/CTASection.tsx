@@ -33,9 +33,9 @@ const CTASection: React.FC = () => {
             external={true}
             data-cta="grader"
             data-analytics="cta_section"
-            aria-label="Grade your restaurant"
+            aria-label="Scan your restaurant"
           >
-            Grade Your Restaurant
+            Scan your restaurant
           </Button>
           <Button
             variant="secondary"
@@ -53,7 +53,7 @@ const CTASection: React.FC = () => {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6 text-sm text-ray-dark-600">
           <div className="flex items-center">
             <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-            <span>30%+ navigations guarantee</span>
+            <span>30%+ Google Maps directions guarantee</span>
           </div>
           <div className="flex items-center">
             <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>

@@ -2,7 +2,7 @@
 export const COPY = {
   // CTA Labels
   CTA: {
-    GRADE_RESTAURANT: 'Grade Your Restaurant',
+    GRADE_RESTAURANT: 'Scan your restaurant',
     GET_FREE_DEMO: 'Get a Free Demo',
     GET_STARTED: 'Get Started Today',
     VIEW_CASE_STUDIES: 'View All Success Stories'
@@ -53,7 +53,7 @@ export const COPY = {
   // Trust Indicators
   TRUST: {
     RESTAURANTS_COUNT: '100+ restaurants',
-    GROWTH_GUARANTEE: '30%+ navigations guarantee',
+    GROWTH_GUARANTEE: '30%+ Google Maps directions guarantee',
     NO_CONTRACTS: 'No long-term contracts',
     RESULTS_TIMEFRAME: 'Results in 60-90 days'
   }

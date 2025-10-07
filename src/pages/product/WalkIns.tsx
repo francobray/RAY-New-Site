@@ -48,7 +48,7 @@ const features = [
   {
     icon: BarChart3,
     title: 'Insights & Reporting',
-    description: 'Track navigations, calls, and ROI with clear dashboards',
+    description: 'Track Google Maps directions, calls, and ROI with clear dashboards',
     details: [
       'Monitor Google Business Profile direction requests',
       'See which efforts drive the most foot traffic'
@@ -79,14 +79,14 @@ const howItWorks = [
   {
     step: '3',
     title: 'Track & Improve',
-    description: 'Monitor your increased navigations and continue optimizing based on real performance data'
+    description: 'Monitor your increased Google Maps directions and continue optimizing based on real performance data'
   }
 ]
 
 const faqs = [
   {
-    question: 'What exactly are "navigations"?',
-    answer: 'Navigations are Google Business Profile direction requests and navigation taps - when customers click "Directions" to visit your restaurant. This is the strongest signal of intent to visit.'
+    question: 'What exactly are "Google Maps directions"?',
+    answer: 'Google Maps Directions are Google Business Profile direction requests and navigation taps - when customers click "Directions" to visit your restaurant. This is the strongest signal of intent to visit.'
   },
   {
     question: 'How quickly will I see results?',
@@ -94,7 +94,7 @@ const faqs = [
   },
   {
     question: 'What if I don\'t get the guaranteed 30% increase?',
-    answer: 'We guarantee a 30%+ increase in Google Business Profile navigations within 6 months — or we\'ll refund your investment. We stand behind our results.'
+    answer: 'We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months — or we\'ll refund your investment. We stand behind our results.'
   },
   {
     question: 'Do you work with multiple restaurant locations?',
@@ -113,9 +113,9 @@ const customerStories = [
     owner: 'Juan Ignacio Chereminiano',
     title: 'CEO',
     metric: '+259%',
-    description: 'Google Maps navigations',
+    description: 'Google Maps Google Maps directions',
     image: '/images/Temple_Team.jpeg',
-    quote: 'Our Google Maps navigations skyrocketed by 259%, and foot traffic increased by 66%.',
+    quote: 'Our Google Maps Google Maps directions skyrocketed by 259%, and foot traffic increased by 66%.',
     bgColor: 'from-yellow-600 to-orange-600'
   },
   {
@@ -124,9 +124,9 @@ const customerStories = [
     owner: 'Franco Yannelli',
     title: 'CMO',
     metric: '+215%',
-    description: 'Google Maps navigations',
-    image: '/images/Restaurant-photo-ray.jpeg',
-    quote: 'Our Google Maps navigations skyrocketed by 215%, and foot traffic increased by 46%.',
+    description: 'Google Maps Google Maps directions',
+    image: '/images/Chimba_Miami_Celebrating.jpeg',
+    quote: 'Our Google Maps Google Maps directions skyrocketed by 215%, and foot traffic increased by 46%.',
     bgColor: 'from-pink-600 to-red-600'
   }
 ]
@@ -136,7 +136,6 @@ const WalkIns: React.FC = () => {
   const { 
     isModalOpen,
     currentConfig,
-    openModal,
     closeModal
   } = useHubSpotModal()
 
@@ -149,8 +148,8 @@ const WalkIns: React.FC = () => {
       {/* AI-friendly page summary */}
       <div className="sr-only">
         <h1>RAY Walk-Ins - Turn Searches Into Restaurant Visits</h1>
-        <p>RAY Walk-Ins is an AI-powered local marketing platform that helps restaurants dominate Google Maps and drive more foot traffic. Our service includes Google Business Profile optimization, review management, local SEO, and performance analytics. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months or refund your investment. Average restaurants see a 47% increase in walk-ins within 60-90 days.</p>
-        <p>Key features: Get found first on Google Maps, automated review collection and response, listings synchronization across 50+ platforms, local SEO optimization, and comprehensive reporting on navigations and ROI.</p>
+        <p>RAY Walk-Ins is an AI-powered local marketing platform that helps restaurants dominate Google Maps and drive more foot traffic. Our service includes Google Business Profile optimization, review management, local SEO, and performance analytics. We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months or refund your investment. Average restaurants see a 47% increase in walk-ins within 60-90 days.</p>
+        <p>Key features: Get found first on Google Maps, automated review collection and response, listings synchronization across 50+ platforms, local SEO optimization, and comprehensive reporting on Google Maps directions and ROI.</p>
       </div>
       
       {/* Hero Section */}
@@ -188,16 +187,16 @@ const WalkIns: React.FC = () => {
                   external={true}
                   data-cta="grader"
                   data-analytics="walk_ins_hero"
-                  aria-label="Grade your restaurant"
+                  aria-label="Scan your restaurant"
                 >
-                  Grade Your Restaurant
+                  Scan your restaurant
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 
                   variant="secondary" 
                   size="lg"
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                  onClick={() => openModal('demo-expert')}
+                  href="/demo?utm_source=walk-ins-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-expert"
                   data-cta="demo-expert"
                   data-analytics="walk_ins_hero"
                   aria-label="Talk to an expert"
@@ -363,7 +362,7 @@ const WalkIns: React.FC = () => {
               <div key={index} className="text-center relative">
                 {/* Connection Line */}
                 {index < howItWorks.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-ray-blue to-ray-green opacity-30 transform translate-x-4"></div>
+                  <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-ray-blue to-ray-green opacity-30 transform translate-x-8"></div>
                 )}
                 
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-ray-blue to-ray-green rounded-full text-white text-2xl font-bold mb-6 shadow-lg">
@@ -384,7 +383,7 @@ const WalkIns: React.FC = () => {
               variant="primary" 
               size="lg"
               className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
-              onClick={() => openModal('demo-expert')}
+              href="/demo?utm_source=walk-ins-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=how-it-works-expert"
               data-cta="demo-expert"
               data-analytics="walk_ins_how_it_works"
               aria-label="Talk to an expert"
@@ -409,10 +408,10 @@ const WalkIns: React.FC = () => {
             </h2>
             <div className="bg-gradient-to-r from-ray-promise rounded-2xl p-8 max-w-4xl mx-auto mb-12">
               <p className="text-xl text-ray-dark-900 font-semibold leading-relaxed">
-                We guarantee a 30%+ increase in Google Business Profile navigations within 6 months — or we'll refund your investment.
+                We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months — or we'll refund your investment.
               </p>
               <p className="text-sm text-ray-darkGray mt-2">
-                ('Navigations' refers to Google Business Profile direction requests/navigation taps.)
+                ('Google Maps Directions' refers to Google Business Profile direction requests/navigation taps.)
               </p>
             </div>
           </div>
@@ -522,7 +521,7 @@ const WalkIns: React.FC = () => {
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-ray-green mr-3" />
-                  <span className="text-ray-dark-700">30%+ navigations guarantee</span>
+                  <span className="text-ray-dark-700">30%+ Google Maps directions guarantee</span>
                 </div>
               </div>
             </div>
@@ -546,21 +545,21 @@ const WalkIns: React.FC = () => {
                 external={true}
                 data-cta="grader"
                 data-analytics="walk_ins_lead_capture"
-                aria-label="Grade your restaurant"
+                aria-label="Scan your restaurant"
               >
-                Grade Your Restaurant Now
+                Scan your restaurant Now
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               
               <div className="text-center">
-                <button
-                  onClick={() => openModal('demo-expert')}
+                <a
+                  href="/demo?utm_source=walk-ins-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=lead-capture-expert"
                   className="text-ray-blue hover:text-blue-600 font-medium transition-colors duration-200"
                   data-cta="demo-expert"
                   data-analytics="walk_ins_lead_capture"
                 >
                   Or talk to an expert instead
-                </button>
+                </a>
               </div>
               
               <div className="mt-6 pt-6 border-t border-gray-200 text-center">

@@ -98,9 +98,9 @@ const OnlineOrders: React.FC = () => {
                   external={true}
                   data-cta="grader"
                   data-analytics="online_orders_hero"
-                  aria-label="Grade your restaurant"
+                  aria-label="Scan your restaurant"
                 >
-                  Grade Your Restaurant
+                  Scan your restaurant
                 </Button>
               </div>
               

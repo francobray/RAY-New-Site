@@ -92,7 +92,7 @@ export const generateProductSchema = (product: {
     "seller": {
       "@id": `${SEO_CONFIG.SITE_URL}/#organization`
     },
-    "warranty": "30%+ increase in Google Business Profile navigations within 6 months or money back guarantee"
+    "warranty": "30%+ increase in Google Business Profile Google Maps directions within 6 months or money back guarantee"
   },
   "additionalProperty": product.features?.map(feature => ({
     "@type": "PropertyValue",

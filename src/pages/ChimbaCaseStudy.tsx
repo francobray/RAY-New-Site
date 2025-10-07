@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { ArrowLeft, TrendingUp, Star, MapPin, Instagram, Eye, Users, Award } from 'lucide-react'
+import { ArrowLeft, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
 import LazyImage from '../components/LazyImage'
 import CTASection from '../components/CTASection'
 
@@ -12,13 +12,13 @@ const ChimbaCaseStudy: React.FC = () => {
 
       {/* AI-friendly page summary and metrics box */}
       <div className="sr-only">
-        <h1>Chimba Miami Case Study - 215% Increase in Google Maps Navigations</h1>
-        <p>Chimba Miami, a nightlife and dining establishment in Miami, achieved significant growth using RAY's restaurant marketing platform. Over 5 months (March-August 2024), they increased Google Maps navigations by 215% and walk-ins by 46% while maintaining a 4.7-star Google rating.</p>
+        <h1>Chimba Miami Case Study - 215% Increase in Google Maps Directions</h1>
+        <p>Chimba Miami, a nightlife and dining establishment in Miami, achieved significant growth using RAY's restaurant marketing platform. Over 5 months (March-August 2024), they increased Google Maps directions by 215% and walk-ins by 46% while maintaining a 4.7-star Google rating.</p>
         
         <div>
           <h2>Key Metrics and Results</h2>
           <ul>
-            <li>Google Maps Navigations: +215% increase over 5 months</li>
+            <li>Google Maps Directions: +215% increase over 5 months</li>
             <li>Walk-in Traffic: +46% increase over 5 months</li>
             <li>Google Rating: 4.7 stars maintained</li>
             <li>Implementation Period: March 2024 - August 2024</li>
@@ -85,7 +85,7 @@ const ChimbaCaseStudy: React.FC = () => {
                       <Eye className="w-8 h-8 text-pink-200" />
                     </div>
                     <div className="text-3xl font-black text-white mb-1">+215%</div>
-                    <div className="text-pink-200 text-sm font-medium">Google Maps Navigations</div>
+                    <div className="text-pink-200 text-sm font-medium">Google Maps Directions</div>
                   </div>
                   
                   <div className="bg-gradient-to-br from-red-500/20 to-purple-500/20 backdrop-blur-sm rounded-2xl p-6 border border-red-400/30">
@@ -138,7 +138,7 @@ const ChimbaCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <LazyImage
-              src="/images/Restaurant-photo-ray.jpeg"
+              src="/images/Chimba_Miami_Celebrating.jpeg"
               alt="Chimba Miami team celebrating explosive local growth"
               width={1200}
               height={600}
@@ -288,7 +288,7 @@ const ChimbaCaseStudy: React.FC = () => {
               <div className="text-center">
                 <blockquote className="text-2xl md:text-3xl text-gray-900 font-medium leading-relaxed mb-8">
                   "Since partnering with RAY, our Juramento location has seen an incredible transformation! 
-                  Our Google Maps navigations skyrocketed by <span className="text-pink-600 font-black">215%</span>, 
+                  Our Google Maps directions skyrocketed by <span className="text-pink-600 font-black">215%</span>, 
                   and foot traffic increased by <span className="text-red-600 font-black">46%</span>. 
                   We've never had so many new customers discovering and visiting us. 
                   The impact on our business has been remarkable!"
@@ -322,7 +322,7 @@ const ChimbaCaseStudy: React.FC = () => {
                   </div>
                 </div>
                 <div className="text-4xl font-black mb-2">📍 215%</div>
-                <div className="font-medium mb-1">More Navigations</div>
+                <div className="font-medium mb-1">More Google Maps Directions</div>
                 <div className="text-sm opacity-90">on Google Maps</div>
               </div>
 

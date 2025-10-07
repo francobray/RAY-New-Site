@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: 'RAY - Restaurant Marketing Platform | Increase Revenue by 30%+',
     template: '%s | RAY Restaurant Platform'
   },
-  description: 'RAY is the #1 restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months or refund your investment.',
+  description: 'RAY is the #1 restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months or refund your investment.',
   keywords: ['restaurant marketing', 'restaurant management', 'online ordering', 'restaurant bookings', 'walk-in management', 'restaurant SEO', 'Google Business Profile', 'restaurant reviews'],
   authors: [{ name: 'RAY' }],
   creator: 'RAY',

@@ -11,7 +11,7 @@ import CTASection from '@/components/CTASection'
 
 export const metadata: Metadata = {
   title: 'RAY - Restaurant Marketing Platform | Increase Revenue by 30%+',
-  description: 'RAY is the #1 restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months or refund your investment. Trusted by 1,000+ restaurants nationwide.',
+  description: 'RAY is the #1 restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months or refund your investment. Trusted by 1,000+ restaurants nationwide.',
   alternates: {
     canonical: 'https://rayapp.io/'
   },
@@ -59,10 +59,10 @@ const TrustMetrics = () => (
               30%
             </div>
             <div className="text-xl font-bold text-ray-dark-900 mb-3">
-              Navigations Guaranteed
+              Google Maps Directions Guaranteed
             </div>
             <div className="text-ray-darkGray text-base leading-relaxed">
-              30%+ increase in Google Business Profile navigations within 6 months — or we'll refund your investment
+              30%+ increase in Google Business Profile Google Maps directions within 6 months — or we'll refund your investment
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function HomePage() {
       />
 
       <div className="sr-only">
-        <p>RAY is the #1 restaurant marketing platform that helps restaurant owners increase revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months or refund your investment. Our platform includes local SEO, reputation management, and customer engagement tools trusted by over 1,000 restaurants nationwide.</p>
+        <p>RAY is the #1 restaurant marketing platform that helps restaurant owners increase revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months or refund your investment. Our platform includes local SEO, reputation management, and customer engagement tools trusted by over 1,000 restaurants nationwide.</p>
       </div>
 
       <Hero />

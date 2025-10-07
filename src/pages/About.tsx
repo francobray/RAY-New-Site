@@ -58,7 +58,7 @@ const About: React.FC = () => {
       {/* AI-friendly page summary */}
       <div className="sr-only">
         <h1>About RAY - Restaurant Marketing Platform</h1>
-        <p>RAY is a restaurant marketing platform founded to help restaurant owners increase revenue through proven local marketing strategies. The restaurant industry employs over 15 million people across 1 million+ locations in the U.S., making it the second-largest private sector employer. RAY's mission is to empower restaurant owners with tools and strategies that guarantee a 30%+ increase in Google Business Profile navigations.</p>
+        <p>RAY is a restaurant marketing platform founded to help restaurant owners increase revenue through proven local marketing strategies. The restaurant industry employs over 15 million people across 1 million+ locations in the U.S., making it the second-largest private sector employer. RAY's mission is to empower restaurant owners with tools and strategies that guarantee a 30%+ increase in Google Business Profile Google Maps directions.</p>
         <p>Our core values include leadership without titles, transparent communication, positive relationship building, adaptability, and merit-based decision making. Founded by Franco (CEO & Co-Founder), RAY serves restaurants nationwide with local SEO, reputation management, and customer engagement solutions.</p>
       </div>
       
@@ -80,7 +80,7 @@ const About: React.FC = () => {
               <p className="text-xl text-ray-dark-700 mb-8 max-w-2xl leading-relaxed">
                 The restaurant industry is the backbone of American communities, employing millions 
                 and bringing people together every day. At RAY, we're dedicated to empowering 
-                restaurant owners with proven strategies that guarantee a 30%+ increase in Google Business Profile navigations.
+                restaurant owners with proven strategies that guarantee a 30%+ increase in Google Business Profile Google Maps directions.
               </p>
             </div>
             

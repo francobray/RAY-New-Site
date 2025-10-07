@@ -12,8 +12,8 @@ interface Props {
 // Case study data for metadata
 const caseStudyData = {
   'chimba-miami': {
-    title: 'Chimba Miami Case Study - 215% Increase in Google Maps Navigations | RAY',
-    description: 'See how Chimba Miami increased Google Maps navigations by 215% and foot traffic by 46% using RAY\'s restaurant marketing platform. Real results from Miami\'s top nightlife destination.',
+    title: 'Chimba Miami Case Study - 215% Increase in Google Maps Directions | RAY',
+    description: 'See how Chimba Miami increased Google Maps directions by 215% and foot traffic by 46% using RAY\'s restaurant marketing platform. Real results from Miami\'s top nightlife destination.',
     component: ChimbaCaseStudy
   },
   'temple-craft-wynwood': {

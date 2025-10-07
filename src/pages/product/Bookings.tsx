@@ -101,7 +101,6 @@ const Bookings: React.FC = () => {
   const { 
     isModalOpen,
     currentConfig,
-    openModal,
     closeModal
   } = useHubSpotModal()
 
@@ -143,18 +142,18 @@ const Bookings: React.FC = () => {
                   external={true}
                   data-cta="grader"
                   data-analytics="bookings_hero"
-                  aria-label="Grade your restaurant"
+                  aria-label="Scan your restaurant"
                 >
-                  Grade Your Restaurant
+                  Scan your restaurant
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 
                   variant="secondary" 
                   size="lg"
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                 onClick={() => openModal('demo-expert')}
-                 data-cta="demo-expert"
-                data-analytics="bookings_hero"
+                  href="/demo?utm_source=bookings-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-expert"
+                  data-cta="demo-expert"
+                  data-analytics="bookings_hero"
                   aria-label="Talk to an expert"
                 >
                   Talk to an Expert
@@ -380,9 +379,9 @@ const Bookings: React.FC = () => {
               external={true}
               data-cta="grader"
               data-analytics="bookings_final_cta"
-              aria-label="Grade your restaurant"
+              aria-label="Scan your restaurant"
             >
-              Grade Your Restaurant
+              Scan your restaurant
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             <Button 
@@ -401,7 +400,7 @@ const Bookings: React.FC = () => {
           <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-              <span>30%+ navigations guarantee</span>
+              <span>30%+ Google Maps directions guarantee</span>
             </div>
             <div className="flex items-center">
               <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>

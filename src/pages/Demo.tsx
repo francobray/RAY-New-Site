@@ -46,7 +46,7 @@ const demoBenefits = [
   },
   {
     title: "Revenue Analytics",
-    description: "Real performance data, case studies, and our 30%+ navigations guarantee."
+    description: "Real performance data, case studies, and our 30%+ Google Maps directions guarantee."
   }
 ]
 
@@ -174,7 +174,7 @@ const Demo = () => {
                 </h1>
                 
                 <p className="text-lg text-gray-600 mb-6">
-                  We guarantee a 30%+ increase in Google Business Profile navigations within 6 months — or we'll refund your investment. Join {COPY.TRUST.RESTAURANTS_COUNT} already growing their revenue with {COPY.COMPANY.NAME}.
+                  We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months — or we'll refund your investment. Join {COPY.TRUST.RESTAURANTS_COUNT} already growing their revenue with {COPY.COMPANY.NAME}.
                 </p>
                 
                 <ResultsShowcase />

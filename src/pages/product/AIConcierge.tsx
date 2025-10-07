@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { MessageSquare, Clock, Globe, Shield, TrendingUp, ArrowRight, CircleCheck as CheckCircle, Bot, Users, Star, ChevronDown, ChevronUp, Award, Zap, Languages } from 'lucide-react'
+import { Clock, Globe, Shield, TrendingUp, ArrowRight, CircleCheck as CheckCircle, Bot, Users, Star, ChevronDown, ChevronUp, Award, Zap, Languages } from 'lucide-react'
 import Card from '../../components/Card'
 import Button from '../../components/shared/BaseButton'
 import HubSpotUnifiedModal from '../../components/HubSpotUnifiedModal'
@@ -22,27 +22,6 @@ const valueStats = [
     icon: Languages,
     title: 'Multilingual',
     description: 'English/Español support'
-  }
-]
-
-const howItWorks = [
-  {
-    step: '1',
-    title: 'Ask',
-    description: 'Guests message you on WhatsApp, Instagram DMs, SMS, or Google.',
-    icon: MessageSquare
-  },
-  {
-    step: '2',
-    title: 'Answer',
-    description: 'AI Concierge replies in seconds: hours, menus, directions, reservations, reviews policy.',
-    icon: Bot
-  },
-  {
-    step: '3',
-    title: 'Convert',
-    description: 'Sends them to book, order, or visit—then logs interactions in your dashboard.',
-    icon: TrendingUp
   }
 ]
 
@@ -237,7 +216,7 @@ const AIConcierge: React.FC = () => {
                   data-analytics="ai_concierge_hero"
                   aria-label="Scan your restaurant"
                 >
-                  Scan Your Restaurant
+                  Scan your restaurant
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 

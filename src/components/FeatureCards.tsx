@@ -11,7 +11,8 @@ const features = [
       'Capture more customers nearby',
       'Dominate Google Search',
       'Be discovered in AI recommendations'
-    ]
+    ],
+    color: 'bg-blue-500'
   },
   {
     icon: Target,
@@ -21,7 +22,8 @@ const features = [
       'Turn searches into visits & orders',
       'Seamless customer experiences',
       'Mobile-optimized visibility'
-    ]
+    ],
+    color: 'bg-green-500'
   },
   {
     icon: TrendingUp,
@@ -31,7 +33,8 @@ const features = [
       'More walk-ins & bookings',
       'Increase gift card sales',
       'Grow online orders & repeat visits'
-    ]
+    ],
+    color: 'bg-yellow-500'
   }
 ]
 
@@ -63,9 +66,9 @@ const FeatureCards: React.FC = () => {
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 via-yellow-300 to-yellow-400 rounded-2xl opacity-0 group-hover:opacity-30 transition-all duration-300"></div>
                   
                   <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 md:p-8 text-center border border-gray-100 flex flex-col h-full">
-                    {/* Icon with Promise gradient background */}
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 via-yellow-300 to-yellow-400 rounded-xl mb-6 shadow-md mx-auto">
-                      <IconComponent className="w-8 h-8 text-ray-dark-900" aria-hidden="true" />
+                    {/* Icon with solid color background */}
+                    <div className={`inline-flex items-center justify-center w-16 h-16 ${feature.color} rounded-xl mb-6 shadow-md mx-auto`}>
+                      <IconComponent className="w-8 h-8 text-white" aria-hidden="true" />
                     </div>
                     
                     {/* Content */}

@@ -8,7 +8,7 @@ export const generateOrganizationSchema = () => ({
   "name": "RAY",
   "legalName": "BotBit S.A.S.",
   "alternateName": ["RAY Restaurant Marketing Platform", "RAY App", "BotBit S.A.S."],
-  "description": "RAY is the #1 restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile navigations within 6 months or refund your investment.",
+  "description": "RAY is the #1 restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months or refund your investment.",
   "url": SEO_CONFIG.SITE_URL,
   "@id": `${SEO_CONFIG.SITE_URL}/#organization`,
   "logo": {
@@ -177,7 +177,7 @@ export const generateOrganizationSchema = () => ({
         "@type": "Organization",
         "name": "Chimba Miami"
       },
-      "reviewBody": "Our Google Maps navigations increased by 215% and foot traffic by 46%. Highly recommend RAY!"
+      "reviewBody": "Our Google Maps Google Maps directions increased by 215% and foot traffic by 46%. Highly recommend RAY!"
     }
   ],
   "parentOrganization": {
@@ -246,7 +246,7 @@ export const generateProductSchema = (product: {
     "seller": {
       "@id": `${SEO_CONFIG.SITE_URL}/#organization`
     },
-    "warranty": "30%+ increase in Google Business Profile navigations within 6 months or money back guarantee"
+    "warranty": "30%+ increase in Google Business Profile Google Maps directions within 6 months or money back guarantee"
   },
   "additionalProperty": product.features?.map(feature => ({
     "@type": "PropertyValue",

@@ -39,14 +39,14 @@ const caseStudies = [
     name: 'Chimba Miami',
     location: 'Miami, FL',
     industry: 'Nightlife & Dining',
-    image: '/images/Restaurant-photo-ray.jpeg',
+    image: '/images/Chimba_Miami_Celebrating.jpeg',
     brandColors: {
       primary: 'from-pink-500 to-red-500',
       secondary: 'from-red-500 to-purple-500',
       accent: 'pink-400'
     },
     keyMetrics: [
-      { label: 'Google Maps Navigations', value: '+215%', icon: Eye },
+      { label: 'Google Maps Directions', value: '+215%', icon: Eye },
       { label: 'Walk-ins', value: '+46%', icon: Users },
       { label: 'Google Rating', value: '4.7★', icon: Star }
     ],
@@ -69,7 +69,7 @@ const CaseStudies: React.FC = () => {
       {/* AI-friendly page summary */}
       <div className="sr-only">
         <h1>RAY Restaurant Marketing Success Stories and Case Studies</h1>
-        <p>Real case studies from restaurants that increased revenue using RAY's marketing platform. Featured success stories include Temple Craft Wynwood (259% increase in Google Maps visits, 66% increase in walk-ins) and Chimba Miami (215% increase in Google Maps navigations, 46% increase in walk-ins). These results demonstrate RAY's proven ability to help restaurants dominate local search and drive more foot traffic through AI-powered local marketing, review management, and Google Business Profile optimization.</p>
+        <p>Real case studies from restaurants that increased revenue using RAY's marketing platform. Featured success stories include Temple Craft Wynwood (259% increase in Google Maps visits, 66% increase in walk-ins) and Chimba Miami (215% increase in Google Maps directions, 46% increase in walk-ins). These results demonstrate RAY's proven ability to help restaurants dominate local search and drive more foot traffic through AI-powered local marketing, review management, and Google Business Profile optimization.</p>
         <p>All case studies include verified metrics, implementation timelines, and specific strategies used. Results typically achieved within 60-90 days of implementation.</p>
       </div>
       
@@ -219,9 +219,9 @@ const CaseStudies: React.FC = () => {
                   external={true}
                   data-cta="grader"
                   data-analytics="case_studies_coming_soon"
-                  aria-label="Grade your restaurant"
+                  aria-label="Scan your restaurant"
                 >
-                  Grade Your Restaurant
+                  Scan your restaurant
                 </Button>
               </div>
             </div>

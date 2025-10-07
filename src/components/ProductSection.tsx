@@ -8,6 +8,15 @@ import { Calendar, MapPin, ShoppingCart } from 'lucide-react'
 
 const products = [
   {
+    icon: ShoppingCart,
+    name: COPY.PRODUCTS.ONLINE_ORDERS.NAME,
+    description: COPY.PRODUCTS.ONLINE_ORDERS.DESCRIPTION,
+    metric: COPY.PRODUCTS.ONLINE_ORDERS.METRIC,
+    metricLabel: COPY.PRODUCTS.ONLINE_ORDERS.METRIC_LABEL,
+    href: '/product/online-orders',
+    gradient: 'from-purple-500 to-purple-600'
+  },
+  {
     icon: Calendar,
     name: COPY.PRODUCTS.BOOKINGS.NAME,
     description: COPY.PRODUCTS.BOOKINGS.DESCRIPTION,
@@ -24,15 +33,6 @@ const products = [
     metricLabel: COPY.PRODUCTS.WALK_INS.METRIC_LABEL,
     href: '/product/walk-ins',
     gradient: 'from-ray-blue to-blue-600'
-  },
-  {
-    icon: ShoppingCart,
-    name: COPY.PRODUCTS.ONLINE_ORDERS.NAME,
-    description: COPY.PRODUCTS.ONLINE_ORDERS.DESCRIPTION,
-    metric: COPY.PRODUCTS.ONLINE_ORDERS.METRIC,
-    metricLabel: COPY.PRODUCTS.ONLINE_ORDERS.METRIC_LABEL,
-    href: '/product/online-orders',
-    gradient: 'from-purple-500 to-purple-600'
   }
 ]
 const ProductSection: React.FC = () => {
