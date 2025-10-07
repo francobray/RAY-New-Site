@@ -71,9 +71,10 @@ export const generateOrganizationSchema = () => ({
   ],
   "sameAs": [
     "https://www.linkedin.com/company/rayapp",
-    "https://twitter.com/rayapp",
-    "https://www.facebook.com/rayapp",
-    "https://www.instagram.com/rayapp"
+    "https://x.com/therayapp",
+    "https://www.facebook.com/profile.php?id=61575577091289",
+    "https://www.instagram.com/rayapp.io/",
+    "https://www.youtube.com/channel/UCFx-_4rw0lQR107I5e9M1UA"
   ],
   "knowsAbout": [
     "Restaurant Marketing",

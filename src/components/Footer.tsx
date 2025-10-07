@@ -1,12 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-ray-dark-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="col-span-1">
             <Link
@@ -161,6 +162,62 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
             </ul>
+          </div>
+
+          {/* Social Media */}
+          <div>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+              Follow Us
+            </h3>
+            <div className="mt-4 flex space-x-4">
+              <a
+                href="https://www.facebook.com/profile.php?id=61575577091289"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md p-1"
+                aria-label="Follow RAY on Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/rayapp.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md p-1"
+                aria-label="Follow RAY on Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://x.com/therayapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md p-1"
+                aria-label="Follow RAY on X (Twitter)"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/rayapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md p-1"
+                aria-label="Follow RAY on LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCFx-_4rw0lQR107I5e9M1UA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md p-1"
+                aria-label="Follow RAY on YouTube"
+              >
+                <Youtube className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
 
