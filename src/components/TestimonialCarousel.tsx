@@ -14,7 +14,7 @@ const customers = [
     title: 'CEO & Founder & CEO, Chef Burger',
     metric: '+$8,000/m',
     category: 'Online Sales',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    image: '/images/Restaurant-photo-ray.jpeg',
     bgColor: 'from-gray-800 to-gray-900'
   },
   {
@@ -24,7 +24,7 @@ const customers = [
     title: 'CEO - MKT Director, Green Eat Pro Connection',
     metric: 'x3 visits google',
     category: 'Online Sales',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    image: '/images/Chimba_Miami_Celebrating.jpeg',
     bgColor: 'from-orange-600 to-orange-700'
   },
   {
@@ -44,7 +44,7 @@ const customers = [
     title: 'CEO - Chimba Miami',
     metric: '+$14,000/m',
     category: 'Online Sales',
-    image: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    image: '/images/Chimba_Miami_Celebrating.jpeg',
     bgColor: 'from-red-600 to-red-700'
   },
   {
@@ -54,7 +54,7 @@ const customers = [
     title: 'Co-Founder and co-CEO - Dolcezza',
     metric: '+$8,000/m',
     category: 'Online Sales',
-    image: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    image: '/images/Chimba_Miami_Celebrating.jpeg',
     bgColor: 'from-gray-700 to-gray-800'
   },
   {
@@ -64,7 +64,7 @@ const customers = [
     title: 'CMO - Juan Valdez',
     metric: '+$8,000/m',
     category: 'Online Sales',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    image: '/images/Temple_Team.jpeg',
     bgColor: 'from-amber-600 to-amber-700'
   }
 ]

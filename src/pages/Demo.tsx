@@ -224,6 +224,7 @@ const Demo = () => {
                       src="/images/Temple_Team.jpeg"
                       alt="Restaurant Success Story"
                       className="w-12 h-12 rounded-full object-cover"
+                      loading="lazy"
                     />
                     <div>
                       <p className="text-gray-700 italic mb-2">

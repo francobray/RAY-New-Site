@@ -54,7 +54,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://grader.rayapp.io" />
-        <link rel="preconnect" href="https://images.pexels.com" />
         <link rel="dns-prefetch" href="https://www.rayapp.io" />
         <meta name="theme-color" content="#0D79E5" />
       </head>

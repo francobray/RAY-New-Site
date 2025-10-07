@@ -118,8 +118,8 @@ const OnlineOrders: React.FC = () => {
             
             <div className="relative">
               <LazyImage
-                src="https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-                alt="Restaurant staff managing online orders on tablet"
+                src="/images/Restaurant-photo-ray.jpeg"
+                alt="Restaurant staff managing online orders efficiently with RAY platform"
                 width={600}
                 height={400}
                 className="rounded-xl shadow-2xl"
