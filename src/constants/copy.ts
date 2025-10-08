@@ -64,7 +64,7 @@ export const COPY = {
       GROWTH_GUARANTEE: 'Garantía de 30%+ direcciones en Google Maps',
       NO_CONTRACTS: 'Sin compromiso',
       RESULTS_TIMEFRAME: 'Resultados en 60-90 días',
-      TRUSTED_BY: 'Confiado por 1,000+ restaurantes'
+      TRUSTED_BY: 'Ya confian en RAY más de 1,000 restaurantes'
     },
 
     // Homepage sections
@@ -787,6 +787,164 @@ export const COPY = {
         SUBTITLE: 'Reserva una demo gratuita y ve cómo RAY puede transformar la presencia online de tu restaurante e impulsar más ingresos.',
         PRIMARY_CTA: 'Reservar Demo Gratuita',
         SECONDARY_CTA: 'Comenzar Escaneo Gratis'
+      }
+    },
+
+    AI_CONCIERGE_PAGE: {
+      HERO: {
+        TITLE: 'Convierte los DMs de Restaurante',
+        TITLE_HIGHLIGHT: 'en Pedidos.',
+        SUBTITLE: '¡Deja de perder clientes hambrientos por respuestas lentas! Nuestra IA toma pedidos, reserva mesas y responde preguntas del menú en WhatsApp, Instagram y Messenger — 24/7, incluso cuando tu restaurante está cerrado. 🚀',
+        BADGES: [
+          'Tomar pedidos mientras duermes',
+          'Auto-reservar mesas',
+          'Responder preguntas del menú',
+          'Enviar campañas inteligentes'
+        ],
+        TRY_CHAT: 'Probar chat',
+        TRY_PHONE: 'Probar llamada'
+      },
+      PROBLEM: {
+        TITLE: 'Demasiados DMs. Personal insuficiente. 😤',
+        ISSUES: [
+          'Los huéspedes te envían mensajes día y noche en todas las plataformas',
+          'Tu personal no puede responder lo suficientemente rápido a todos',
+          'Chats perdidos = pedidos perdidos y huéspedes frustrados'
+        ],
+        SOLUTION: {
+          TITLE: 'Nuestro agente de IA nunca duerme. ⚡',
+          SUBTITLE: 'Responde en segundos, así nunca pierdes un huésped otra vez.'
+        }
+      },
+      HOW_IT_WORKS: {
+        TITLE: 'Un Agente. Tres Canales. 🚀',
+        PLATFORMS: [
+          {
+            name: 'WhatsApp',
+            description: 'Donde la mayoría de tus huéspedes ya chatean. Perfecto para pedidos y preguntas rápidas.',
+            features: [
+              'Confirmaciones instantáneas de pedidos',
+              'Compartir menú',
+              'Actualizaciones de entrega'
+            ]
+          },
+          {
+            name: 'Messenger',
+            description: 'Conecta con seguidores de Facebook. Genial para reservas y eventos.',
+            features: [
+              'Reservas de mesas',
+              'Consultas de eventos',
+              'Ofertas especiales'
+            ]
+          },
+          {
+            name: 'Instagram',
+            description: 'Interactúa con tu audiencia visual. Perfecto para mostrar platos y construir comunidad.',
+            features: [
+              'Pedidos basados en fotos',
+              'Interacciones de stories',
+              'Asociaciones con influencers'
+            ]
+          },
+          {
+            name: 'Llamadas de Voz',
+            description: 'Nunca pierdas un pedido telefónico otra vez. Conversaciones de voz naturales que se sienten humanas.',
+            features: [
+              'Contestador telefónico 24/7',
+              'Pedidos de voz naturales',
+              'Soporte multilingüe'
+            ]
+          }
+        ]
+      },
+      POS_INTEGRATION: {
+        TITLE: 'Construido para funcionar con tu POS. 🔗',
+        SUBTITLE: 'Sin interrupciones en tu flujo de trabajo. Nuestra IA se sincroniza con tu sistema de punto de venta existente para que los pedidos fluyan directamente a tu cocina sin pasos adicionales.',
+        FEATURES: [
+          {
+            title: 'Sincronización de menú (artículos, modificadores, precios, impuestos)',
+            description: 'Precios y disponibilidad siempre actualizados'
+          },
+          {
+            title: 'Inyección de pedidos al POS (recogida, entrega, comer en el lugar)',
+            description: 'Los pedidos aparecen directamente en tu sistema de cocina'
+          },
+          {
+            title: 'Stock y artículos agotados respetados',
+            description: 'Nunca vendas lo que no tienes'
+          },
+          {
+            title: 'Control de pedidos por carga de cocina',
+            description: 'Ritmo inteligente para prevenir saturación'
+          },
+          {
+            title: 'Horarios de tienda, tipos de servicio y tarifas respetados',
+            description: 'Respeta las reglas de tu negocio automáticamente'
+          },
+          {
+            title: 'Recibos + IDs de pedidos que coinciden con tu POS',
+            description: 'Seguimiento y reconciliación perfectos'
+          }
+        ],
+        COMPATIBILITY_NOTE: '¿No ves el tuyo? Confirmaremos compatibilidad.'
+      },
+      BENEFITS: {
+        TITLE: 'Por qué los restaurantes lo aman ❤️',
+        DASHBOARD_TITLE: 'Es como tener un anfitrión, mesero y especialista en marketing de tiempo completo... dentro de tu bandeja de entrada. 🎯',
+        FEATURES: [
+          {
+            title: '⚡ Respuestas instantáneas 24/7',
+            description: 'Nunca pierdas un mensaje, incluso cuando estés cerrado o ocupado'
+          },
+          {
+            title: '🍕 Más pedidos automáticamente',
+            description: 'Convierte cada mensaje en una venta potencial'
+          },
+          {
+            title: '📅 Reservas automáticas',
+            description: 'Permite que los huéspedes reserven mesas sin llamar'
+          },
+          {
+            title: '⭐ Construir recompensas de lealtad',
+            description: 'Mantén a los clientes regresando con puntos y ofertas'
+          },
+          {
+            title: '🛠️ No se necesita personal adicional',
+            description: 'Ahorra en costos laborales mientras mejoras el servicio'
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'Preguntas Frecuentes',
+        SUBTITLE: 'Todo lo que necesitas saber sobre el Conserje de IA.',
+        QUESTIONS: [
+          {
+            question: '¿Cuánto tarda en implementarse?',
+            answer: 'Opt-in en minutos; ajustes de contenido en 1 hora.'
+          },
+          {
+            question: '¿Responde como "robot"?',
+            answer: 'No. Usa tu tono y FAQs; puedes revisar y mejorar respuestas.'
+          },
+          {
+            question: '¿Qué pasa con quejas?',
+            answer: 'Las canaliza en privado y notifica a tu equipo.'
+          },
+          {
+            question: '¿Multi-sede?',
+            answer: 'Sí, contenido y horarios por local, con métricas por tienda.'
+          },
+          {
+            question: '¿Privacidad y consentimiento?',
+            answer: 'Opt-in/opt-out y registro de interacción incluidos.'
+          }
+        ]
+      },
+      FINAL_CTA: {
+        TITLE: 'Sé donde están tus huéspedes — sin mover un dedo. 🙌',
+        SUBTITLE: 'Únete a cientos de restaurantes que ya usan IA para impulsar sus ventas. Comienza tu prueba gratuita hoy y ve la diferencia en 24 horas.',
+        CTA: 'Reservar Demo Ahora',
+        DISCLAIMER: 'No se requiere tarjeta de crédito • Prueba gratuita de 14 días • Configuración en menos de 5 minutos'
       }
     }
   },
@@ -1577,6 +1735,164 @@ export const COPY = {
         SUBTITLE: 'Book a free demo and see how RAY can transform your restaurant\'s online presence and drive more revenue.',
         PRIMARY_CTA: 'Book a Free Demo',
         SECONDARY_CTA: 'Start Free Scan'
+      }
+    },
+
+    AI_CONCIERGE_PAGE: {
+      HERO: {
+        TITLE: 'Turn Restaurant',
+        TITLE_HIGHLIGHT: 'DMs Into Orders.',
+        SUBTITLE: 'Stop losing hungry customers to slow replies! Our AI takes orders, books tables, and answers menu questions across WhatsApp, Instagram, and Messenger — 24/7, even when your restaurant is closed. 🚀',
+        BADGES: [
+          'Take orders while you sleep',
+          'Auto-book reservations',
+          'Answer menu questions',
+          'Send smart campaigns'
+        ],
+        TRY_CHAT: 'Try chat',
+        TRY_PHONE: 'Try phone call'
+      },
+      PROBLEM: {
+        TITLE: 'Too many DMs. Not enough staff. 😤',
+        ISSUES: [
+          'Guests message you day and night across all platforms',
+          'Your staff can\'t reply fast enough to everyone',
+          'Missed chats = missed orders and frustrated guests'
+        ],
+        SOLUTION: {
+          TITLE: 'Our AI agent never sleeps. ⚡',
+          SUBTITLE: 'It replies in seconds, so you never lose a guest again.'
+        }
+      },
+      HOW_IT_WORKS: {
+        TITLE: 'One Agent. Three Channels. 🚀',
+        PLATFORMS: [
+          {
+            name: 'WhatsApp',
+            description: 'Where most of your guests already chat. Perfect for orders and quick questions.',
+            features: [
+              'Instant order confirmations',
+              'Menu sharing',
+              'Delivery updates'
+            ]
+          },
+          {
+            name: 'Messenger',
+            description: 'Connect with Facebook followers. Great for reservations and events.',
+            features: [
+              'Table bookings',
+              'Event inquiries',
+              'Special offers'
+            ]
+          },
+          {
+            name: 'Instagram',
+            description: 'Engage with your visual audience. Perfect for showcasing dishes and building community.',
+            features: [
+              'Photo-based orders',
+              'Story interactions',
+              'Influencer partnerships'
+            ]
+          },
+          {
+            name: 'Voice Calls',
+            description: 'Never miss a phone order again. Natural voice conversations that feel human.',
+            features: [
+              '24/7 phone answering',
+              'Natural voice orders',
+              'Multilingual support'
+            ]
+          }
+        ]
+      },
+      POS_INTEGRATION: {
+        TITLE: 'Built to work with your POS. 🔗',
+        SUBTITLE: 'No disruption to your workflow. Our AI syncs with your existing point-of-sale system so orders flow directly into your kitchen without any extra steps.',
+        FEATURES: [
+          {
+            title: 'Menu sync (items, modifiers, prices, taxes)',
+            description: 'Always up-to-date pricing and availability'
+          },
+          {
+            title: 'Order injection to POS (pickup, delivery, dine-in)',
+            description: 'Orders appear directly in your kitchen system'
+          },
+          {
+            title: 'Stock & 86\'d items respected',
+            description: 'Never sell what you don\'t have'
+          },
+          {
+            title: 'Order throttling by kitchen load',
+            description: 'Smart pacing to prevent overwhelm'
+          },
+          {
+            title: 'Store hours, service types, and fees honored',
+            description: 'Respects your business rules automatically'
+          },
+          {
+            title: 'Receipts + order IDs that match your POS',
+            description: 'Perfect tracking and reconciliation'
+          }
+        ],
+        COMPATIBILITY_NOTE: 'Don\'t see yours? We\'ll confirm compatibility.'
+      },
+      BENEFITS: {
+        TITLE: 'Why restaurants love it ❤️',
+        DASHBOARD_TITLE: 'It\'s like having a full-time host, server, and marketer… inside your inbox. 🎯',
+        FEATURES: [
+          {
+            title: '⚡ 24/7 instant replies',
+            description: 'Never miss a message, even when you\'re closed or busy'
+          },
+          {
+            title: '🍕 More orders automatically',
+            description: 'Turn every message into a potential sale'
+          },
+          {
+            title: '📅 Automatic bookings',
+            description: 'Let guests reserve tables without calling'
+          },
+          {
+            title: '⭐ Build loyalty rewards',
+            description: 'Keep customers coming back with points and offers'
+          },
+          {
+            title: '🛠️ No extra staff needed',
+            description: 'Save on labor costs while improving service'
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'Frequently Asked Questions',
+        SUBTITLE: 'Everything you need to know about AI Concierge.',
+        QUESTIONS: [
+          {
+            question: 'How long does implementation take?',
+            answer: 'Opt-in in minutes; content adjustments in 1 hour.'
+          },
+          {
+            question: 'Does it reply like a "robot"?',
+            answer: 'No. Uses your tone and FAQs; you can review and improve responses.'
+          },
+          {
+            question: 'What about complaints?',
+            answer: 'Channels them privately and notifies your team.'
+          },
+          {
+            question: 'Multi-location?',
+            answer: 'Yes, content and hours per location, with metrics per store.'
+          },
+          {
+            question: 'Privacy and consent?',
+            answer: 'Opt-in/opt-out and interaction logging included.'
+          }
+        ]
+      },
+      FINAL_CTA: {
+        TITLE: 'Be everywhere your guests are — without lifting a finger. 🙌',
+        SUBTITLE: 'Join hundreds of restaurants already using AI to boost their sales. Start your free trial today and see the difference in 24 hours.',
+        CTA: 'Book a Demo Now',
+        DISCLAIMER: 'No credit card required • 14-day free trial • Setup in under 5 minutes'
       }
     }
   }

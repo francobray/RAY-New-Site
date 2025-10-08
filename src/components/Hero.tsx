@@ -1,6 +1,7 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect } from 'react'
 import { Star } from 'lucide-react'
-import Button from './shared/BaseButton'
 import { useTranslations } from '@/hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
 
@@ -10,6 +11,31 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ locale }) => {
   const t = useTranslations(locale)
+
+  useEffect(() => {
+    // Load the RAY widget script
+    const script = document.createElement('script')
+    script.src = 'https://grader.rayapp.io/ray-widget.js'
+    script.setAttribute('data-cfasync', 'false')
+    document.head.appendChild(script)
+
+    script.onload = () => {
+      // Initialize the widget after the script loads
+      if (typeof window !== 'undefined' && (window as any).RAYWidget) {
+        new (window as any).RAYWidget({
+          container: '#ray-widget',
+          baseUrl: 'https://grader.rayapp.io'
+        })
+      }
+    }
+
+    return () => {
+      // Cleanup script on component unmount
+      if (document.head.contains(script)) {
+        document.head.removeChild(script)
+      }
+    }
+  }, [])
 
   return (
     <div>
@@ -47,24 +73,9 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
             </p>
 
             
-
-            {/* CTA Button - Prominently displayed */}
-            <div className="relative max-w-2xl mx-auto">
-              <Button
-                variant="primary"
-                size="lg"
-                className="w-full sm:w-auto px-8 py-4 text-lg sm:text-xl font-bold shadow-lg"
-                href="https://grader.rayapp.io/?utm_source=hero&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-primary"
-                external={true}
-                data-cta="grader"
-                data-analytics="hero_primary"
-                aria-label="Scan your restaurant - free 60-second assessment"
-              >
-                {t.CTA.GRADE_RESTAURANT}
-              </Button>
-              <p className="text-xs sm:text-sm text-ray-dark-600 mt-1">
-                {t.HOMEPAGE.HERO.SUBTITLE}
-              </p>
+            {/* RAY Lead-Magnet Widget */}
+            <div className="mb-8">
+              <div id="ray-widget"></div>
             </div>
 
           </div>

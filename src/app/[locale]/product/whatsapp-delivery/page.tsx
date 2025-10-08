@@ -1,5 +1,10 @@
 import { Metadata } from 'next'
 import AIConcierge from '@/components/pages/product/AIConcierge'
+import { type Locale } from '@/constants/copy'
+
+interface WhatsAppDeliveryPageProps {
+  params: { locale: Locale }
+}
 
 export const metadata: Metadata = {
   title: 'WhatsApp Delivery for Restaurants | RAY',
@@ -18,6 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function WhatsAppDeliveryPage() {
-  return <AIConcierge />
+export default function WhatsAppDeliveryPage({ params }: WhatsAppDeliveryPageProps) {
+  return <AIConcierge locale={params.locale} />
 }

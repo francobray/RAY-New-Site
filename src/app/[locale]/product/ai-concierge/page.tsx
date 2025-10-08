@@ -1,5 +1,10 @@
 import { Metadata } from 'next'
 import AIConcierge from '@/components/pages/product/AIConcierge'
+import { type Locale } from '@/constants/copy'
+
+interface AIConciergePageProps {
+  params: { locale: Locale }
+}
 
 export const metadata: Metadata = {
   title: 'WhatsApp Orders for Restaurants | RAY',
@@ -18,6 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function AIConciergeePage() {
-  return <AIConcierge />
+export default function AIConciergeePage({ params }: AIConciergePageProps) {
+  return <AIConcierge locale={params.locale} />
 }

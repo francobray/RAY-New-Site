@@ -6,6 +6,25 @@ import HubSpotUnifiedModal from '../../HubSpotUnifiedModal'
 import TryItNowModal from '../../TryItNowModal'
 import PhoneCallModal from '../../PhoneCallModal'
 import { useHubSpotModal } from '../../../hooks/useHubSpotModal'
+import { useTranslations } from '../../../hooks/useTranslations'
+import { type Locale } from '@/constants/copy'
+
+interface AIConciergeProps {
+  locale: Locale
+}
+
+const AIConcierge: React.FC<AIConciergeProps> = ({ locale }) => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false)
+  const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false)
+  const { 
+    isModalOpen,
+    currentConfig,
+    openModal,
+    closeModal
+  } = useHubSpotModal()
+  
+  const t = useTranslations(locale)
 
 // ChatCarousel Component
 const ChatCarousel = () => {
@@ -305,44 +324,6 @@ const ChatCarousel = () => {
   );
 }
 
-const faqs = [
-  {
-    question: '¿Cuánto tarda en implementarse?',
-    answer: 'Opt-in en minutos; ajustes de contenido en 1 hora.'
-  },
-  {
-    question: '¿Responde como "robot"?',
-    answer: 'No. Usa tu tono y FAQs; puedes revisar y mejorar respuestas.'
-  },
-  {
-    question: '¿Qué pasa con quejas?',
-    answer: 'Las canaliza en privado y notifica a tu equipo.'
-  },
-  {
-    question: '¿Multi-sede?',
-    answer: 'Sí, contenido y horarios por local, con métricas por tienda.'
-  },
-  {
-    question: '¿Privacidad y consentimiento?',
-    answer: 'Opt-in/opt-out y registro de interacción incluidos.'
-  }
-]
-
-interface AIConciergeProps {
-  // No props needed for the original version
-}
-
-const AIConcierge: React.FC<AIConciergeProps> = () => {
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const [isChatModalOpen, setIsChatModalOpen] = useState(false)
-  const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false)
-  const { 
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
-
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index)
   }
@@ -361,30 +342,28 @@ const AIConcierge: React.FC<AIConciergeProps> = () => {
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-              Turn Restaurant{' '}
+              {t.AI_CONCIERGE_PAGE.HERO.TITLE}{' '}
               <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-                DMs Into Orders.
+                {t.AI_CONCIERGE_PAGE.HERO.TITLE_HIGHLIGHT}
                 </span>
               </h1>
               
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Stop losing hungry customers to slow replies! Our AI takes orders, books tables, 
-              and answers menu questions across WhatsApp, Instagram, and Messenger — 24/7, 
-              even when your restaurant is closed. 🚀
+              {t.AI_CONCIERGE_PAGE.HERO.SUBTITLE}
             </p>
             
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center bg-emerald-50 px-4 py-2 rounded-full">
-                <span className="text-emerald-600 font-semibold">✅ Take orders while you sleep</span>
+                <span className="text-emerald-600 font-semibold">✅ {t.AI_CONCIERGE_PAGE.HERO.BADGES[0]}</span>
               </div>
               <div className="flex items-center bg-blue-50 px-4 py-2 rounded-full">
-                <span className="text-blue-600 font-semibold">📅 Auto-book reservations</span>
-                        </div>
+                <span className="text-blue-600 font-semibold">📅 {t.AI_CONCIERGE_PAGE.HERO.BADGES[1]}</span>
+                            </div>
               <div className="flex items-center bg-purple-50 px-4 py-2 rounded-full">
-                <span className="text-purple-600 font-semibold">💬 Answer menu questions</span>
-                      </div>
+                <span className="text-purple-600 font-semibold">💬 {t.AI_CONCIERGE_PAGE.HERO.BADGES[2]}</span>
+                          </div>
               <div className="flex items-center bg-orange-50 px-4 py-2 rounded-full">
-                <span className="text-orange-600 font-semibold">📢 Send smart campaigns</span>
+                <span className="text-orange-600 font-semibold">📢 {t.AI_CONCIERGE_PAGE.HERO.BADGES[3]}</span>
               </div>
             </div>
             
@@ -398,14 +377,14 @@ const AIConcierge: React.FC<AIConciergeProps> = () => {
                   alt="WhatsApp" 
                   className="w-6 h-6"
                 />
-                <span>Try chat</span>
-              </button>
-              <button 
-                onClick={() => setIsPhoneModalOpen(true)}
-                className="bg-indigo-600 text-white px-8 py-4 rounded-full hover:bg-indigo-700 transition-colors font-semibold text-lg flex items-center space-x-2"
-              >
-                <Phone className="w-5 h-5" />
-                <span>Try phone call</span>
+                  <span>{t.AI_CONCIERGE_PAGE.HERO.TRY_CHAT}</span>
+                </button>
+                <button 
+                  onClick={() => setIsPhoneModalOpen(true)}
+                  className="bg-indigo-600 text-white px-8 py-4 rounded-full hover:bg-indigo-700 transition-colors font-semibold text-lg flex items-center space-x-2"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>{t.AI_CONCIERGE_PAGE.HERO.TRY_PHONE}</span>
               </button>
                           </div>
                         </div>
@@ -421,36 +400,36 @@ const AIConcierge: React.FC<AIConciergeProps> = () => {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-            Too many DMs. Not enough staff. 😤
+            {t.AI_CONCIERGE_PAGE.PROBLEM.TITLE}
           </h2>
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="space-y-4">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
                 <MessageCircle className="w-8 h-8 text-red-600" />
               </div>
-              <p className="text-gray-600">Guests message you day and night across all platforms</p>
+              <p className="text-gray-600">{t.AI_CONCIERGE_PAGE.PROBLEM.ISSUES[0]}</p>
             </div>
             <div className="space-y-4">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
                 <Users className="w-8 h-8 text-orange-600" />
-                          </div>
-              <p className="text-gray-600">Your staff can't reply fast enough to everyone</p>
-                        </div>
+              </div>
+              <p className="text-gray-600">{t.AI_CONCIERGE_PAGE.PROBLEM.ISSUES[1]}</p>
+            </div>
             <div className="space-y-4">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
                 <ArrowRight className="w-8 h-8 text-red-600" />
-                          </div>
-              <p className="text-gray-600">Missed chats = missed orders and frustrated guests</p>
-                        </div>
-                      </div>
+              </div>
+              <p className="text-gray-600">{t.AI_CONCIERGE_PAGE.PROBLEM.ISSUES[2]}</p>
+            </div>
+          </div>
           <div className="bg-emerald-50 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Our AI agent never sleeps. ⚡
+              {t.AI_CONCIERGE_PAGE.PROBLEM.SOLUTION.TITLE}
             </h3>
             <p className="text-lg text-gray-700">
-              It replies in seconds, so you never lose a guest again.
+              {t.AI_CONCIERGE_PAGE.PROBLEM.SOLUTION.SUBTITLE}
             </p>
-                    </div>
+          </div>
                   </div>
       </section>
 
@@ -458,7 +437,7 @@ const AIConcierge: React.FC<AIConciergeProps> = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-            One Agent. Three Channels. 🚀
+            {t.AI_CONCIERGE_PAGE.HOW_IT_WORKS.TITLE}
           </h2>
           
           {/* Flow Diagram */}
@@ -496,58 +475,30 @@ const AIConcierge: React.FC<AIConciergeProps> = () => {
                 
           {/* Four Columns */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-lg">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
-                  alt="WhatsApp" 
-                  className="w-8 h-8"
-                />
-              </div>
-              <h3 className="text-xl font-bold mb-4">WhatsApp</h3>
-              <p className="text-gray-600 mb-4">Where most of your guests already chat. Perfect for orders and quick questions.</p>
-              <ul className="space-y-2 text-sm text-gray-500">
-                <li>• Instant order confirmations</li>
-                <li>• Menu sharing</li>
-                <li>• Delivery updates</li>
-              </ul>
-            </div>
-            <div className="bg-white rounded-xl p-8 shadow-lg">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <MessageCircle className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Messenger</h3>
-              <p className="text-gray-600 mb-4">Connect with Facebook followers. Great for reservations and events.</p>
-              <ul className="space-y-2 text-sm text-gray-500">
-                <li>• Table bookings</li>
-                <li>• Event inquiries</li>
-                <li>• Special offers</li>
-              </ul>
-            </div>
-            <div className="bg-white rounded-xl p-8 shadow-lg">
-              <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-6">
-                <Instagram className="w-8 h-8 text-pink-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Instagram</h3>
-              <p className="text-gray-600 mb-4">Engage with your visual audience. Perfect for showcasing dishes and building community.</p>
-              <ul className="space-y-2 text-sm text-gray-500">
-                <li>• Photo-based orders</li>
-                <li>• Story interactions</li>
-                <li>• Influencer partnerships</li>
-              </ul>
-            </div>
-            <div className="bg-white rounded-xl p-8 shadow-lg">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                <Phone className="w-8 h-8 text-indigo-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Voice Calls</h3>
-              <p className="text-gray-600 mb-4">Never miss a phone order again. Natural voice conversations that feel human.</p>
-              <ul className="space-y-2 text-sm text-gray-500">
-                <li>• 24/7 phone answering</li>
-                <li>• Natural voice orders</li>
-                <li>• Multilingual support</li>
-              </ul>
-            </div>
+            {t.AI_CONCIERGE_PAGE.HOW_IT_WORKS.PLATFORMS.map((platform, index) => {
+              const icons = [
+                <img key="whatsapp" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="WhatsApp" className="w-8 h-8" />,
+                <MessageCircle key="messenger" className="w-8 h-8 text-blue-600" />,
+                <Instagram key="instagram" className="w-8 h-8 text-pink-600" />,
+                <Phone key="phone" className="w-8 h-8 text-indigo-600" />
+              ]
+              const bgColors = ['bg-green-100', 'bg-blue-100', 'bg-pink-100', 'bg-indigo-100']
+              
+              return (
+                <div key={index} className="bg-white rounded-xl p-8 shadow-lg">
+                  <div className={`w-16 h-16 ${bgColors[index]} rounded-full flex items-center justify-center mb-6`}>
+                    {icons[index]}
+                  </div>
+                  <h3 className="text-xl font-bold mb-4">{platform.name}</h3>
+                  <p className="text-gray-600 mb-4">{platform.description}</p>
+                  <ul className="space-y-2 text-sm text-gray-500">
+                    {platform.features.map((feature, featureIndex) => (
+                      <li key={featureIndex}>• {feature}</li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -556,80 +507,25 @@ const AIConcierge: React.FC<AIConciergeProps> = () => {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-            Built to work with your POS. 🔗
+            {t.AI_CONCIERGE_PAGE.POS_INTEGRATION.TITLE}
             </h2>
           <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-            No disruption to your workflow. Our AI syncs with your existing point-of-sale system 
-            so orders flow directly into your kitchen without any extra steps.
+            {t.AI_CONCIERGE_PAGE.POS_INTEGRATION.SUBTITLE}
           </p>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-1 flex-shrink-0 mt-1">
-                  <CheckCircle className="w-5 h-5 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Menu sync (items, modifiers, prices, taxes)</h3>
-                  <p className="text-gray-600 text-sm">Always up-to-date pricing and availability</p>
-                </div>
+              {t.AI_CONCIERGE_PAGE.POS_INTEGRATION.FEATURES.map((feature, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  <div className="bg-emerald-100 rounded-full p-1 flex-shrink-0 mt-1">
+                    <CheckCircle className="w-5 h-5 text-emerald-600" />
                   </div>
-                  
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-1 flex-shrink-0 mt-1">
-                  <CheckCircle className="w-5 h-5 text-emerald-600" />
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm">{feature.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Order injection to POS (pickup, delivery, dine-in)</h3>
-                  <p className="text-gray-600 text-sm">Orders appear directly in your kitchen system</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-1 flex-shrink-0 mt-1">
-                  <CheckCircle className="w-5 h-5 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Stock & 86'd items respected</h3>
-                  <p className="text-gray-600 text-sm">Never sell what you don't have</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-1 flex-shrink-0 mt-1">
-                  <CheckCircle className="w-5 h-5 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Order throttling by kitchen load</h3>
-                  <p className="text-gray-600 text-sm">Smart pacing to prevent overwhelm</p>
-          </div>
-        </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-1 flex-shrink-0 mt-1">
-                  <CheckCircle className="w-5 h-5 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Store hours, service types, and fees honored</h3>
-                  <p className="text-gray-600 text-sm">Respects your business rules automatically</p>
-                </div>
-          </div>
-          
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-1 flex-shrink-0 mt-1">
-                  <CheckCircle className="w-5 h-5 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Receipts + order IDs that match your POS</h3>
-                  <p className="text-gray-600 text-sm">Perfect tracking and reconciliation</p>
-                </div>
-              </div>
-              
-              <div className="bg-gray-50 rounded-lg p-4 mt-6">
-                <p className="text-sm text-gray-600">
-                  <strong>Don't see yours?</strong> We'll confirm compatibility.
-                </p>
-              </div>
+              ))}
             </div>
             
             <div className="relative">
@@ -642,46 +538,6 @@ const AIConcierge: React.FC<AIConciergeProps> = () => {
             </div>
           </div>
           
-          {/* POS Logos */}
-          <div className="mt-16">
-            <p className="text-center text-gray-600 mb-8 font-medium">Works with your POS:</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-              <div className="bg-white rounded-lg shadow-sm border p-4 flex items-center justify-center h-16 w-24">
-                <span className="font-bold text-gray-700">Toast</span>
-              </div>
-              <div className="bg-white rounded-lg shadow-sm border p-4 flex items-center justify-center h-16 w-24">
-                <span className="font-bold text-gray-700">Square</span>
-              </div>
-              <div className="bg-white rounded-lg shadow-sm border p-4 flex items-center justify-center h-16 w-24">
-                <span className="font-bold text-gray-700">Clover</span>
-              </div>
-              <div className="bg-white rounded-lg shadow-sm border p-4 flex items-center justify-center h-16 w-24 relative">
-                <span className="font-bold text-gray-700">Lightspeed</span>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full"></div>
-              </div>
-              <div className="bg-white rounded-lg shadow-sm border p-4 flex items-center justify-center h-16 w-24 relative">
-                <span className="font-bold text-gray-700">Micros</span>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full"></div>
-              </div>
-              <div className="bg-white rounded-lg shadow-sm border p-4 flex items-center justify-center h-16 w-24 relative">
-                <span className="font-bold text-gray-700">Brink</span>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full"></div>
-              </div>
-              <div className="bg-emerald-50 border-2 border-dashed border-emerald-300 rounded-lg p-4 flex items-center justify-center h-16 w-32">
-                <span className="text-emerald-600 font-medium text-sm">Ask about your POS</span>
-              </div>
-            </div>
-            <div className="flex justify-center mt-4 space-x-6 text-xs">
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                <span className="text-gray-600">Supported today</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="text-gray-600">In beta</span>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
       
@@ -689,65 +545,32 @@ const AIConcierge: React.FC<AIConciergeProps> = () => {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-            Why restaurants love it ❤️
+            {t.AI_CONCIERGE_PAGE.BENEFITS.TITLE}
             </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-2 flex-shrink-0">
-                  <Zap className="w-6 h-6 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">⚡ 24/7 instant replies</h3>
-                  <p className="text-gray-600">Never miss a message, even when you're closed or busy</p>
-                  </div>
-                  </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-2 flex-shrink-0">
-                  <MessageCircle className="w-6 h-6 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">🍕 More orders automatically</h3>
-                  <p className="text-gray-600">Turn every message into a potential sale</p>
-          </div>
-        </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-2 flex-shrink-0">
-                  <Calendar className="w-6 h-6 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">📅 Automatic bookings</h3>
-                  <p className="text-gray-600">Let guests reserve tables without calling</p>
-                </div>
-          </div>
-          
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-2 flex-shrink-0">
-                  <Star className="w-6 h-6 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">⭐ Build loyalty rewards</h3>
-                  <p className="text-gray-600">Keep customers coming back with points and offers</p>
-                      </div>
+              {t.AI_CONCIERGE_PAGE.BENEFITS.FEATURES.map((feature, index) => {
+                const icons = [Zap, MessageCircle, Calendar, Star, Users]
+                const IconComponent = icons[index] || Zap
+                
+                return (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="bg-emerald-100 rounded-full p-2 flex-shrink-0">
+                      <IconComponent className="w-6 h-6 text-emerald-600" />
                     </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="bg-emerald-100 rounded-full p-2 flex-shrink-0">
-                  <Users className="w-6 h-6 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">🛠️ No extra staff needed</h3>
-                  <p className="text-gray-600">Save on labor costs while improving service</p>
-                </div>
-              </div>
-          </div>
-          
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                      <p className="text-gray-600">{feature.description}</p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            
             <div className="bg-gray-50 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                It's like having a full-time host, server, and marketer… inside your inbox. 🎯
+                {t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_TITLE}
               </h3>
               <div className="bg-white rounded-xl p-6 shadow-sm">
                 <div className="flex items-center justify-between mb-4">
@@ -783,15 +606,15 @@ const AIConcierge: React.FC<AIConciergeProps> = () => {
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Frequently Asked Questions
+              {t.AI_CONCIERGE_PAGE.FAQ.TITLE}
             </h2>
             <p className="text-xl text-gray-600">
-              Everything you need to know about AI Concierge.
+              {t.AI_CONCIERGE_PAGE.FAQ.SUBTITLE}
             </p>
           </div>
           
           <div className="space-y-4">
-            {faqs.map((faq, index) => (
+            {t.AI_CONCIERGE_PAGE.FAQ.QUESTIONS.map((faq, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
                 <button
                   onClick={() => toggleFaq(index)}
@@ -825,20 +648,19 @@ const AIConcierge: React.FC<AIConciergeProps> = () => {
       <section className="py-16 bg-gradient-to-r from-emerald-600 to-blue-600">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Be everywhere your guests are — without lifting a finger. 🙌
+            {t.AI_CONCIERGE_PAGE.FINAL_CTA.TITLE}
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Join hundreds of restaurants already using AI to boost their sales. 
-            Start your free trial today and see the difference in 24 hours.
+            {t.AI_CONCIERGE_PAGE.FINAL_CTA.SUBTITLE}
           </p>
           <button 
             onClick={() => openModal('demo-free')}
             className="bg-white text-emerald-600 px-12 py-4 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 font-bold text-xl shadow-2xl"
           >
-            Book a Demo Now
+            {t.AI_CONCIERGE_PAGE.FINAL_CTA.CTA}
           </button>
           <p className="mt-4 text-sm opacity-75">
-            No credit card required • 14-day free trial • Setup in under 5 minutes
+            {t.AI_CONCIERGE_PAGE.FINAL_CTA.DISCLAIMER}
           </p>
         </div>
       </section>
