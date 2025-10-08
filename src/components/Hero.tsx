@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
             </p>
 
             {/* CTA Button - Prominently displayed */}
-            <div className="relative max-w-2xl mx-auto mb-8">
+            <div className="relative max-w-2xl mx-auto">
               <Button
                 variant="primary"
                 size="lg"
@@ -54,24 +54,9 @@ const Hero: React.FC = () => {
               >
                 Scan your restaurant
               </Button>
-              <p className="text-xs sm:text-sm text-ray-dark-600 mt-3">Free • 60 seconds • No credit card required</p>
+              <p className="text-xs sm:text-sm text-ray-dark-600 mt-1">Free • 60 seconds • No credit card required</p>
             </div>
 
-            {/* Social Proof */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 text-sm text-ray-dark-600">
-              <div className="flex items-center">
-                <div className="flex -space-x-2 mr-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-ray-blue to-ray-green rounded-full border-2 border-white"></div>
-                  <div className="w-8 h-8 bg-gradient-to-br from-ray-green to-yellow-400 rounded-full border-2 border-white"></div>
-                  <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-ray-blue rounded-full border-2 border-white"></div>
-                </div>
-                <span className="font-medium">+47% avg. Google Maps directions increase</span>
-              </div>
-              <div className="flex items-center">
-                <TrendingUp className="w-4 h-4 text-ray-green mr-2" />
-                <span className="font-medium">30%+ Google Maps directions guarantee</span>
-              </div>
-            </div>
           </div>
         </div>
 

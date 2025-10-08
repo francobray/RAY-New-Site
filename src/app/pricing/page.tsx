@@ -141,24 +141,6 @@ const PricingPage = () => {
               </p>
             </div>
 
-            {/* 30% Guarantee Banner */}
-            <div className="bg-ray-promise rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto mb-12 shadow-lg border border-yellow-200">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 via-yellow-300 to-yellow-400 rounded-full flex items-center justify-center shadow-md">
-                    <Shield className="w-8 h-8 text-ray-dark-900" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-2">
-                    30%+ Google Maps Directions Increase Guaranteed
-                  </h3>
-                  <p className="text-ray-dark-700 leading-relaxed">
-                    We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months — or we'll refund your investment.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 

@@ -4,7 +4,6 @@ import { CSS_CLASSES } from '@/constants/ui'
 import Hero from '@/components/Hero'
 import ProductSection from '@/components/ProductSection'
 import FeatureCards from '@/components/FeatureCards'
-import PromiseBanner from '@/components/PromiseBanner'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
 import FAQ from '@/components/FAQ'
 import CTASection from '@/components/CTASection'
@@ -56,13 +55,13 @@ const TrustMetrics = () => (
         <div className="group">
           <div className={`bg-white rounded-2xl shadow-lg ${CSS_CLASSES.HOVER_SHADOW} p-8 ${CSS_CLASSES.TEXT_CENTER} border border-gray-100 h-full ${CSS_CLASSES.FLEX_COL} justify-center`}>
             <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent mb-4">
-              30%
+              1,000+
             </div>
             <div className="text-xl font-bold text-ray-dark-900 mb-3">
-              Google Maps Directions Guaranteed
+              Restaurants Trust RAY
             </div>
             <div className="text-ray-darkGray text-base leading-relaxed">
-              30%+ increase in Google Business Profile Google Maps directions within 6 months — or we'll refund your investment
+              Nationwide success stories
             </div>
           </div>
         </div>
@@ -110,7 +109,6 @@ export default function HomePage() {
       <TrustMetrics />
       <ProductSection />
       <FeatureCards />
-      <PromiseBanner />
       <TestimonialCarousel />
       <FAQ />
       <CTASection />
