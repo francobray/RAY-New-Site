@@ -1,26 +1,50 @@
-# Use a Node.js base image
-FROM node:20-alpine
-
-# Set the working directory inside the container
+# --- Base Image ---
+FROM node:20-alpine AS base
 WORKDIR /app
+ENV NODE_ENV=production
+
 ENV HOST 0.0.0.0 
-
-# Copy package.json and package-lock.json to leverage Docker cache
+# --- Dependencies Stage (Install ALL dependencies for the build) ---
+FROM base AS deps
 COPY package.json package-lock.json ./
+# CRITICAL: Install all dependencies (including dev) needed for 'next build'
+RUN npm install 
 
-# Install ALL dependencies (development and production)
-# We don't use --production here because we need dev tools like TypeScript and Webpack.
+
+# --- Builder Stage (Alternative) ---
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# Copy all files needed to install dependencies and build
+COPY package.json package-lock.json ./
+COPY . . 
+
+# Install ALL dependencies (dev and prod) in this single stage
 RUN npm install
 
-# Copy the rest of the application source code (including 'src', 'public', etc.)
-COPY . .
+# Run the build
+RUN npm run build
 
-# Expose port 3000, the default Next.js development port
+
+# --- Runner Stage (Final minimal image) ---
+FROM base AS runner
+
+# Set the environment variables for the runtime
+ENV NEXT_TELEMETRY_DISABLED 1
+# This is often needed in production environments (like Kubernetes/Docker)
+ENV HOST 0.0.0.0 
+
+# Copy the standalone server and its dependencies
+COPY --from=builder /app/.next/standalone ./
+
+# Copy the public assets (images, fonts, etc.)
+COPY --from=builder /app/public ./public
+
+# Copy the optimized static assets (JS, CSS, etc.) built by Next.js
+COPY --from=builder /app/.next/static ./.next/static
+
 EXPOSE 3000
+ENV PORT 3000
 
-# Set the HOST to 0.0.0.0 so the server is accessible from outside the container
-ENV HOST 0.0.0.0
-
-# Command to run the development server
-# Make sure your package.json has a "dev" script, e.g., "next dev".
-CMD ["npm", "run", "dev"]
+# Start the Node.js server that runs your Next.js application.
+CMD ["node", "server.js"]
