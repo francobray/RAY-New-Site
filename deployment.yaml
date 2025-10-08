@@ -43,7 +43,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 3000
   selector:
     app: ray-new-site
   sessionAffinity: None
