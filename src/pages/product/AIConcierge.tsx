@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Clock, Globe, Shield, TrendingUp, ArrowRight, CircleCheck as CheckCircle, Bot, Users, Star, ChevronDown, ChevronUp, Award, Zap, Languages, MessageCircle, Instagram, Phone, Eye, Heart, UserCheck, BarChart3, Timer, HeadphonesIcon, ChevronLeft, ChevronRight, Mic, Volume2, PhoneOff, Calendar } from 'lucide-react'
+import { TrendingUp, ArrowRight, CircleCheck as CheckCircle, Users, Star, ChevronDown, ChevronUp, Zap, MessageCircle, Instagram, Phone, ChevronLeft, ChevronRight, Mic, Volume2, PhoneOff, Calendar } from 'lucide-react'
 import Card from '../../components/Card'
 import Button from '../../components/shared/BaseButton'
 import HubSpotUnifiedModal from '../../components/HubSpotUnifiedModal'
