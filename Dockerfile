@@ -1,26 +1,21 @@
-# Use a Node.js base image
-FROM node:20-alpine
-
-# Set the working directory inside the container
+FROM node:alpine as BUILD_IMAGE
 WORKDIR /app
-ENV HOST 0.0.0.0 
-
-# Copy package.json and package-lock.json to leverage Docker cache
-COPY package.json package-lock.json ./
-
-# Install ALL dependencies (development and production)
-# We don't use --production here because we need dev tools like TypeScript and Webpack.
-RUN npm install
-
-# Copy the rest of the application source code (including 'src', 'public', etc.)
+COPY package.json  ./
+# install dependencies
+RUN yarn install --frozen-lockfile
 COPY . .
-
-# Expose port 3000, the default Next.js development port
-EXPOSE 3000
-
-# Set the HOST to 0.0.0.0 so the server is accessible from outside the container
+# build
 ENV HOST 0.0.0.0
-
-# Command to run the development server
-# Make sure your package.json has a "dev" script, e.g., "next dev".
-CMD ["npm", "run", "dev"]
+RUN yarn build
+# remove dev dependencies
+RUN npm prune --production
+FROM node:alpine
+WORKDIR /app
+# copy from build image
+ENV HOST 0.0.0.0
+COPY --from=BUILD_IMAGE /app/package.json ./package.json
+COPY --from=BUILD_IMAGE /app/node_modules ./node_modules
+COPY --from=BUILD_IMAGE /app/.next ./.next
+COPY --from=BUILD_IMAGE /app/public ./public
+EXPOSE 3000
+CMD ["yarn", "start"]
