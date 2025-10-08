@@ -40,6 +40,8 @@ const Hero: React.FC = () => {
               {COPY.COMPANY.DESCRIPTION}
             </p>
 
+            
+
             {/* CTA Button - Prominently displayed */}
             <div className="relative max-w-2xl mx-auto">
               <Button
