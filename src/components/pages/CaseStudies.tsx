@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ArrowRight, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
 import Button from '../shared/BaseButton'
 import CTASection from '../CTASection'
+import { useTranslations } from '../../hooks/useTranslations'
 import { type Locale } from '@/constants/copy'
 
 const caseStudies = [
@@ -68,6 +69,8 @@ interface CaseStudiesProps {
 }
 
 const CaseStudies: React.FC<CaseStudiesProps> = ({ locale }) => {
+  const t = useTranslations(locale)
+  
   return (
     <>
       
@@ -87,18 +90,18 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ locale }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm mb-6">
             <Award className="w-4 h-4 text-ray-blue mr-2" />
-            <span className="text-sm font-medium text-ray-dark-900">Proven Success Stories</span>
+            <span className="text-sm font-medium text-ray-dark-900">{t.CASE_STUDIES_PAGE.BADGE}</span>
           </div>
           
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-tight mb-4">
-            Real Results from{' '}
+            {t.CASE_STUDIES_PAGE.HERO_TITLE}{' '}
             <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
-              Real Restaurants
+              {t.CASE_STUDIES_PAGE.HERO_TITLE_HIGHLIGHT}
             </span>
           </h1>
           
           <p className="text-xl text-ray-darkGray max-w-4xl mx-auto leading-relaxed mb-8">
-            Discover how restaurants have achieved remarkable growth with RAY's platform.
+            {t.CASE_STUDIES_PAGE.HERO_SUBTITLE}
           </p>
         </div>
       </section>

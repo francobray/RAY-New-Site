@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
       path: `/${locale}/products`,
       hasDropdown: true,
       dropdownItems: [
-        { name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Orders', path: `/${locale}/product/ai-concierge` },
+        { name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Orders', path: `/${locale}/product/whatsapp-delivery` },
         { name: t.PRODUCTS.ONLINE_ORDERS.NAME, path: `/${locale}/product/online-orders` },
         { name: t.PRODUCTS.BOOKINGS.NAME, path: `/${locale}/product/bookings` },
         { name: t.PRODUCTS.WALK_INS.NAME, path: `/${locale}/product/walk-ins` }

@@ -3,55 +3,19 @@
 import React from 'react'
 import { Users, MessageSquare, Heart, Waves, Lightbulb } from 'lucide-react'
 import Card from '../Card'
-import LazyImage from '../LazyImage'
+import Image from 'next/image'
+import { useTranslations } from '../../hooks/useTranslations'
+import { type Locale } from '@/constants/copy'
 
-const industryStats = [
-  {
-    number: '1M+',
-    label: 'Restaurant Locations',
-    description: 'across the U.S.'
-  },
-  {
-    number: '15M+',
-    label: 'Employees',
-    description: 'second-largest private sector employer'
-  },
-  {
-    number: '1 in 2',
-    label: 'Adults',
-    description: 'had their first job in a restaurant'
-  }
-]
+interface AboutProps {
+  locale: Locale
+}
 
-const values = [
-  {
-    icon: Users,
-    title: 'Leaders Without a Title',
-    description: 'Every team member takes initiative, leads by example, and steps up—regardless of job title.'
-  },
-  {
-    icon: MessageSquare,
-    title: 'We Speak the Truth',
-    description: 'We communicate with clarity and honesty—no fluff, no ambiguity.'
-  },
-  {
-    icon: Heart,
-    title: 'We Build Positive Relationships',
-    description: 'A positive mindset helps us build strong, authentic connections that stand the test of challenge.'
-  },
-  {
-    icon: Waves,
-    title: 'We Flow Like Water',
-    description: 'We stay flexible, adapt quickly, and keep moving forward—no matter the obstacles.'
-  },
-  {
-    icon: Lightbulb,
-    title: 'The Best Idea Wins',
-    description: 'We embrace constant, respectful feedback. Ego doesn\'t stand in the way of progress.'
-  }
-]
+const About: React.FC<AboutProps> = ({ locale }) => {
+  const t = useTranslations(locale)
+  
+  const valueIcons = [Users, MessageSquare, Heart, Waves, Lightbulb]
 
-const About: React.FC = () => {
   return (
     <>
       
@@ -73,20 +37,18 @@ const About: React.FC = () => {
             {/* Left side - Content */}
             <div className="text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-tight mb-6">
-                Restaurants Power America.{' '}
-                <span className="text-ray-blue">We Power Restaurants.</span>
+                {t.ABOUT_PAGE.HERO.TITLE}{' '}
+                <span className="text-ray-blue">{t.ABOUT_PAGE.HERO.TITLE_HIGHLIGHT}</span>
               </h1>
               
               <p className="text-xl text-ray-dark-700 mb-8 max-w-2xl leading-relaxed">
-                The restaurant industry is the backbone of American communities, employing millions 
-                and bringing people together every day. At RAY, we're dedicated to empowering 
-                restaurant owners with proven strategies that guarantee a 30%+ increase in Google Business Profile Google Maps directions.
+                {t.ABOUT_PAGE.HERO.SUBTITLE}
               </p>
             </div>
             
             {/* Right side - Industry Stats */}
             <div className="grid grid-cols-1 gap-6">
-              {industryStats.map((stat, index) => (
+              {t.ABOUT_PAGE.INDUSTRY_STATS.map((stat, index) => (
                 <Card key={index} className="text-center hover:shadow-xl transition-shadow duration-300">
                   <div className="text-4xl font-bold text-ray-blue mb-2">
                     {stat.number}
@@ -109,17 +71,16 @@ const About: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-              Our Values
+              {t.ABOUT_PAGE.VALUES.TITLE}
             </h2>
             <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
-              These core principles guide everything we do and shape how we serve 
-              our restaurant partners every day.
+              {t.ABOUT_PAGE.VALUES.SUBTITLE}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {values.map((value, index) => {
-              const IconComponent = value.icon
+            {t.ABOUT_PAGE.VALUES.LIST.map((value, index) => {
+              const IconComponent = valueIcons[index]
               return (
                 <Card key={index} className="text-center hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-ray-blue rounded-full mb-6">
@@ -145,16 +106,17 @@ const About: React.FC = () => {
             {/* Left side - Franco's Image */}
             <div className="text-center lg:text-left">
               <div className="relative inline-block">
-                <LazyImage
+                <Image
                   src="/images/Franco.jpg"
                   alt="Franco, CEO & Co-Founder of RAY"
                   width={400}
                   height={500}
                   className="rounded-2xl shadow-2xl"
+                  priority
                 />
                 <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
-                  <div className="text-sm font-semibold text-ray-dark-900">Franco</div>
-                  <div className="text-xs text-ray-darkGray">CEO & Co-Founder</div>
+                  <div className="text-sm font-semibold text-ray-dark-900">{t.ABOUT_PAGE.CEO_LETTER.SIGNATURE}</div>
+                  <div className="text-xs text-ray-darkGray">{t.ABOUT_PAGE.CEO_LETTER.POSITION}</div>
                 </div>
               </div>
             </div>
@@ -162,38 +124,23 @@ const About: React.FC = () => {
             {/* Right side - Letter Content */}
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-8">
-                A Letter from Our CEO
+                {t.ABOUT_PAGE.CEO_LETTER.TITLE}
               </h2>
               
               <div className="prose prose-lg text-ray-dark-700 leading-relaxed space-y-6">
                 <p>
-                  Dear Restaurant Community,
+                  {t.ABOUT_PAGE.CEO_LETTER.GREETING}
                 </p>
                 
-                <p>
-                  When I started my first restaurant, I quickly learned that great food and 
-                  exceptional service weren't enough. In today's digital world, restaurants 
-                  need to be found online, build trust through reviews, and create lasting 
-                  relationships with their customers.
-                </p>
-                
-                <p>
-                  That's why we built RAY. We saw too many incredible restaurants struggling 
-                  to attract customers despite serving amazing food. We knew there had to be 
-                  a better way to help restaurant owners focus on what they do best—creating 
-                  memorable dining experiences—while we handle the marketing that drives 
-                  customers through their doors.
-                </p>
-                
-                <p>
-                  Our mission is simple: to empower every restaurant with the tools and 
-                  strategies they need to thrive. We believe that when restaurants succeed, 
-                  entire communities flourish. That's the future we're building together.
-                </p>
+                {t.ABOUT_PAGE.CEO_LETTER.PARAGRAPHS.map((paragraph, index) => (
+                  <p key={index}>
+                    {paragraph}
+                  </p>
+                ))}
                 
                 <div className="pt-6">
-                  <div className="text-xl font-semibold text-ray-dark-900">Franco</div>
-                  <div className="text-ray-darkGray">CEO & Co-Founder, RAY</div>
+                  <div className="text-xl font-semibold text-ray-dark-900">{t.ABOUT_PAGE.CEO_LETTER.SIGNATURE}</div>
+                  <div className="text-ray-darkGray">{t.ABOUT_PAGE.CEO_LETTER.POSITION}</div>
                 </div>
               </div>
             </div>

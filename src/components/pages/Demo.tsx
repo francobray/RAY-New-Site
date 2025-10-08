@@ -1,7 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { COPY } from '../../constants/copy-compat'
+import { useTranslations } from '../../hooks/useTranslations'
+import { type Locale } from '@/constants/copy'
+
+interface DemoProps {
+  locale: Locale
+}
 
 // Icons component for the lightning icons
 const LightningIcon = () => (
@@ -10,47 +15,9 @@ const LightningIcon = () => (
   </svg>
 )
 
-// Results showcase component
-const ResultsShowcase = () => (
-  <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
-    <div className="flex items-center justify-between">
-      <div className="text-center">
-        <div className="text-2xl font-bold text-ray-blue">+47%</div>
-        <div className="text-xs text-gray-600">Avg. Navigation Increase</div>
-      </div>
-      <div className="text-center">
-        <div className="text-2xl font-bold text-ray-green">60-90</div>
-        <div className="text-xs text-gray-600">Days to Results</div>
-      </div>
-      <div className="text-center">
-        <div className="text-2xl font-bold text-gray-900">100+</div>
-        <div className="text-xs text-gray-600">Restaurants Trust RAY</div>
-      </div>
-    </div>
-  </div>
-)
-
-// Demo benefits data
-const demoBenefits = [
-  {
-    title: "Walk-Ins Strategy",
-    description: "AI-powered local marketing to dominate Google Maps and drive foot traffic."
-  },
-  {
-    title: "Online Orders Growth",
-    description: "Integrated ordering systems with comprehensive analytics to boost digital revenue."
-  },
-  {
-    title: "Bookings Optimization", 
-    description: "Smart reservation management and waitlist tools to maximize table occupancy."
-  },
-  {
-    title: "Revenue Analytics",
-    description: "Real performance data, case studies, and our 30%+ Google Maps directions guarantee."
-  }
-]
-
-const Demo = () => {
+const Demo = ({ locale }: DemoProps) => {
+  const t = useTranslations(locale)
+  
   const [formData, setFormData] = useState({
     role: '',
     firstName: '',
@@ -71,33 +38,33 @@ const Demo = () => {
     const errors: Record<string, string> = {}
     
     if (!formData.role) {
-      errors.role = 'Please select your role'
+      errors.role = t.DEMO_PAGE.FORM.VALIDATION.ROLE_REQUIRED
     }
     
     if (!formData.firstName.trim()) {
-      errors.firstName = 'First name is required'
+      errors.firstName = t.DEMO_PAGE.FORM.VALIDATION.FIRST_NAME_REQUIRED
     }
     
     if (!formData.lastName.trim()) {
-      errors.lastName = 'Last name is required'
+      errors.lastName = t.DEMO_PAGE.FORM.VALIDATION.LAST_NAME_REQUIRED
     }
     
     if (!formData.email.trim()) {
-      errors.email = 'Email is required'
+      errors.email = t.DEMO_PAGE.FORM.VALIDATION.EMAIL_REQUIRED
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errors.email = 'Please enter a valid email address'
+      errors.email = t.DEMO_PAGE.FORM.VALIDATION.EMAIL_INVALID
     }
     
     if (!formData.cellphone.trim()) {
-      errors.cellphone = 'Phone number is required'
+      errors.cellphone = t.DEMO_PAGE.FORM.VALIDATION.PHONE_REQUIRED
     } else {
       if (formData.phoneCountry === 'us') {
         if (!/^\d{10}$/.test(formData.cellphone.replace(/\D/g, ''))) {
-          errors.cellphone = 'Please enter a valid 10-digit phone number'
+          errors.cellphone = t.DEMO_PAGE.FORM.VALIDATION.PHONE_INVALID_US
         }
       } else {
         if (!/^\+\d{7,}$/.test(formData.cellphone)) {
-          errors.cellphone = 'Please enter a valid international phone number starting with "+" and at least 8 characters'
+          errors.cellphone = t.DEMO_PAGE.FORM.VALIDATION.PHONE_INVALID_INTL
         }
       }
     }
@@ -159,9 +126,28 @@ const Demo = () => {
     }
   }
 
+  // Results showcase component
+  const ResultsShowcase = () => (
+    <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
+      <div className="flex items-center justify-between">
+        <div className="text-center">
+          <div className="text-2xl font-bold text-ray-blue">{t.DEMO_PAGE.STATS.NAVIGATION_INCREASE}</div>
+          <div className="text-xs text-gray-600">{t.DEMO_PAGE.STATS.NAVIGATION_LABEL}</div>
+        </div>
+        <div className="text-center">
+          <div className="text-2xl font-bold text-ray-green">{t.DEMO_PAGE.STATS.DAYS_TO_RESULTS}</div>
+          <div className="text-xs text-gray-600">{t.DEMO_PAGE.STATS.DAYS_LABEL}</div>
+        </div>
+        <div className="text-center">
+          <div className="text-2xl font-bold text-gray-900">{t.DEMO_PAGE.STATS.RESTAURANTS_COUNT}</div>
+          <div className="text-xs text-gray-600">{t.DEMO_PAGE.STATS.RESTAURANTS_LABEL}</div>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <>
-      
       <div className="bg-gray-50 min-h-screen py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -170,30 +156,32 @@ const Demo = () => {
               {/* Left Column - Information */}
               <div className="p-8 lg:p-12 bg-gray-50">
                 <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                  See the #1 restaurant sales platform in action
+                  {t.DEMO_PAGE.HERO_TITLE}
                 </h1>
                 
                 <p className="text-lg text-gray-600 mb-6">
-                  We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months — or we'll refund your investment. Join {COPY.TRUST.RESTAURANTS_COUNT} already growing their revenue with {COPY.COMPANY.NAME}.
+                  {t.DEMO_PAGE.HERO_SUBTITLE
+                    .replace('{RESTAURANTS_COUNT}', t.TRUST.RESTAURANTS_COUNT)
+                    .replace('{COMPANY_NAME}', t.COMPANY.NAME)}
                 </p>
                 
                 <ResultsShowcase />
                 
                 <h2 className="text-xl font-semibold text-gray-900 mb-6">
-                  On your 20 minute demo, we'll show you how to
+                  {t.DEMO_PAGE.DEMO_INTRO}
                 </h2>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                  {demoBenefits.map((benefit, index) => (
+                  {t.DEMO_PAGE.BENEFITS.map((benefit, index) => (
                     <div key={index} className="bg-white p-4 rounded-lg shadow-sm">
                       <div className="flex items-start gap-3">
                         <LightningIcon />
                         <div>
                           <h3 className="font-semibold text-gray-900 mb-1">
-                            {benefit.title}
+                            {benefit.TITLE}
                           </h3>
                           <p className="text-sm text-gray-600">
-                            {benefit.description}
+                            {benefit.DESCRIPTION}
                           </p>
                         </div>
                       </div>
@@ -206,13 +194,13 @@ const Demo = () => {
                   <div className="bg-white p-4 rounded-lg shadow-sm text-center">
                     <div className="text-2xl mb-2">📈</div>
                     <div className="font-semibold text-gray-900 text-sm">
-                      {COPY.TRUST.GROWTH_GUARANTEE}
+                      {t.TRUST.GROWTH_GUARANTEE}
                     </div>
                   </div>
                   <div className="bg-white p-4 rounded-lg shadow-sm text-center">
                     <div className="text-2xl mb-2">🚀</div>
                     <div className="font-semibold text-gray-900 text-sm">
-                      {COPY.TRUST.RESULTS_TIMEFRAME}
+                      {t.TRUST.RESULTS_TIMEFRAME}
                     </div>
                   </div>
                 </div>
@@ -228,10 +216,10 @@ const Demo = () => {
                     />
                     <div>
                       <p className="text-gray-700 italic mb-2">
-                        "RAY transformed our business. We've seen a 47% increase in walk-ins and our online orders have grown consistently every month."
+                        "{t.DEMO_PAGE.TESTIMONIAL.QUOTE}"
                       </p>
                       <p className="text-sm font-semibold text-gray-900">
-                        Restaurant Owner, Miami FL
+                        {t.DEMO_PAGE.TESTIMONIAL.AUTHOR}
                       </p>
                     </div>
                   </div>
@@ -241,14 +229,14 @@ const Demo = () => {
               {/* Right Column - Form */}
               <div className="p-8 lg:p-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-8">
-                  Book your free demo
+                  {t.DEMO_PAGE.FORM_TITLE}
                 </h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Role */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Role
+                      {t.DEMO_PAGE.FORM.ROLE_LABEL}
                     </label>
                     <select
                       name="role"
@@ -259,11 +247,11 @@ const Demo = () => {
                       }`}
                       required
                     >
-                      <option value="">Select one...</option>
-                      <option value="owner">Restaurant Owner</option>
-                      <option value="manager">Restaurant Manager</option>
-                      <option value="marketing">Marketing Manager</option>
-                      <option value="other">Other</option>
+                      <option value="">{t.DEMO_PAGE.FORM.ROLE_PLACEHOLDER}</option>
+                      <option value="owner">{t.DEMO_PAGE.FORM.ROLE_OPTIONS.OWNER}</option>
+                      <option value="manager">{t.DEMO_PAGE.FORM.ROLE_OPTIONS.MANAGER}</option>
+                      <option value="marketing">{t.DEMO_PAGE.FORM.ROLE_OPTIONS.MARKETING}</option>
+                      <option value="other">{t.DEMO_PAGE.FORM.ROLE_OPTIONS.OTHER}</option>
                     </select>
                     {formErrors.role && (
                       <p className="text-red-500 text-sm mt-1">{formErrors.role}</p>
@@ -274,14 +262,14 @@ const Demo = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        First name
+                        {t.DEMO_PAGE.FORM.FIRST_NAME_LABEL}
                       </label>
                       <input
                         type="text"
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleInputChange}
-                        placeholder="First name"
+                        placeholder={t.DEMO_PAGE.FORM.FIRST_NAME_PLACEHOLDER}
                         className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                           formErrors.firstName ? 'border-red-500' : 'border-gray-300'
                         }`}
@@ -293,14 +281,14 @@ const Demo = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Last name
+                        {t.DEMO_PAGE.FORM.LAST_NAME_LABEL}
                       </label>
                       <input
                         type="text"
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
-                        placeholder="Last name"
+                        placeholder={t.DEMO_PAGE.FORM.LAST_NAME_PLACEHOLDER}
                         className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                           formErrors.lastName ? 'border-red-500' : 'border-gray-300'
                         }`}
@@ -315,14 +303,14 @@ const Demo = () => {
                   {/* Email */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email
+                      {t.DEMO_PAGE.FORM.EMAIL_LABEL}
                     </label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="Email"
+                      placeholder={t.DEMO_PAGE.FORM.EMAIL_PLACEHOLDER}
                       className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                         formErrors.email ? 'border-red-500' : 'border-gray-300'
                       }`}
@@ -336,7 +324,7 @@ const Demo = () => {
                   {/* Cellphone */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Cellphone
+                      {t.DEMO_PAGE.FORM.PHONE_LABEL}
                     </label>
                     <div className="flex">
                       <select
@@ -353,7 +341,7 @@ const Demo = () => {
                         name="cellphone"
                         value={formData.cellphone}
                         onChange={handleInputChange}
-                        placeholder="Cellphone"
+                        placeholder={t.DEMO_PAGE.FORM.PHONE_PLACEHOLDER}
                         className={`flex-1 px-3 py-2 border rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                           formErrors.cellphone ? 'border-red-500' : 'border-gray-300'
                         }`}
@@ -368,25 +356,25 @@ const Demo = () => {
                   {/* Restaurant name */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Restaurant name
+                      {t.DEMO_PAGE.FORM.RESTAURANT_NAME_LABEL}
                     </label>
                     <input
                       type="text"
                       name="restaurantName"
                       value={formData.restaurantName}
                       onChange={handleInputChange}
-                      placeholder="Search your restaurant name..."
+                      placeholder={t.DEMO_PAGE.FORM.RESTAURANT_NAME_PLACEHOLDER}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                     <p className="text-xs text-gray-500 mt-1">
-                      Start typing, then select your restaurant from the list
+                      {t.DEMO_PAGE.FORM.RESTAURANT_NAME_HINT}
                     </p>
                   </div>
                   
                   {/* How did you hear about us */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      How did you hear about us?
+                      {t.DEMO_PAGE.FORM.HOW_HEARD_LABEL}
                     </label>
                     <select
                       name="howDidYouHear"
@@ -394,12 +382,12 @@ const Demo = () => {
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     >
-                      <option value="">Select one...</option>
-                      <option value="google">Google Search</option>
-                      <option value="social">Social Media</option>
-                      <option value="referral">Referral</option>
-                      <option value="advertising">Online Advertising</option>
-                      <option value="other">Other</option>
+                      <option value="">{t.DEMO_PAGE.FORM.HOW_HEARD_PLACEHOLDER}</option>
+                      <option value="google">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.GOOGLE}</option>
+                      <option value="social">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.SOCIAL}</option>
+                      <option value="referral">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.REFERRAL}</option>
+                      <option value="advertising">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.ADVERTISING}</option>
+                      <option value="other">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.OTHER}</option>
                     </select>
                   </div>
                   
@@ -414,13 +402,11 @@ const Demo = () => {
                         className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                       />
                       <span className="text-sm text-gray-600">
-                        I agree to receive automated text messages from {COPY.COMPANY.NAME} at the phone number 
-                        provided to help me schedule a demo and evaluate the platform. Consent is not 
-                        required. By signing up, I'll receive approximately 4 messages per month.
+                        {t.DEMO_PAGE.FORM.CONSENT_TEXT.replace('{COMPANY_NAME}', t.COMPANY.NAME)}
                       </span>
                     </label>
                     <p className="text-xs text-gray-500">
-                      Message & data rates may apply. Reply STOP to cancel anytime.
+                      {t.DEMO_PAGE.FORM.CONSENT_DISCLAIMER}
                     </p>
                   </div>
                   
@@ -428,7 +414,7 @@ const Demo = () => {
                   {submitStatus === 'success' && (
                     <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                       <p className="text-green-800 text-sm">
-                        ✓ Form submitted successfully! We'll send you an email shortly.
+                        {t.DEMO_PAGE.FORM.SUCCESS_MESSAGE}
                       </p>
                     </div>
                   )}
@@ -436,7 +422,7 @@ const Demo = () => {
                   {submitStatus === 'error' && (
                     <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                       <p className="text-red-800 text-sm">
-                        ✗ Something went wrong. Please try again or contact support.
+                        {t.DEMO_PAGE.FORM.ERROR_MESSAGE}
                       </p>
                     </div>
                   )}
@@ -457,23 +443,22 @@ const Demo = () => {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
                         </svg>
-                        Submitting...
+                        {t.DEMO_PAGE.FORM.SUBMITTING}
                       </span>
                     ) : (
-                      'Get a free demo →'
+                      t.DEMO_PAGE.FORM.SUBMIT_BUTTON
                     )}
                   </button>
                   
                   {/* Legal text */}
                   <p className="text-xs text-gray-500 text-center">
-                    By providing us with your information you are consenting to the collection and use 
-                    of your information in accordance with our{' '}
+                    {t.DEMO_PAGE.FORM.LEGAL_TEXT}{' '}
                     <a href="/terms-of-service" className="text-blue-600 hover:underline">
-                      Terms of Service
+                      {t.DEMO_PAGE.FORM.TERMS_LINK}
                     </a>{' '}
-                    and{' '}
+                    {locale === 'es' ? 'y' : 'and'}{' '}
                     <a href="/privacy-policy" className="text-blue-600 hover:underline">
-                      Privacy Policy
+                      {t.DEMO_PAGE.FORM.PRIVACY_LINK}
                     </a>.
                   </p>
                 </form>
@@ -482,7 +467,6 @@ const Demo = () => {
           </div>
         </div>
       </div>
-      
     </>
   )
 }

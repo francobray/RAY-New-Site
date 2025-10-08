@@ -1,5 +1,10 @@
 import { Metadata } from 'next'
 import Contact from '@/components/pages/Contact'
+import { type Locale } from '@/constants/copy'
+
+interface ContactPageProps {
+  params: { locale: Locale }
+}
 
 export const metadata: Metadata = {
   title: 'Contact Us - Get Started with RAY Restaurant Marketing | RAY',
@@ -18,6 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ContactPage() {
-  return <Contact />
+export default function ContactPage({ params }: ContactPageProps) {
+  return <Contact locale={params.locale} />
 }

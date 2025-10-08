@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react'
 import { Mail, CheckCircle } from 'lucide-react'
+import { useTranslations } from '../../hooks/useTranslations'
+import { type Locale } from '@/constants/copy'
 
 // Form data types
 interface FormData {
@@ -17,7 +19,12 @@ interface FormErrors {
   [key: string]: string
 }
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  locale: Locale
+}
+
+const Contact: React.FC<ContactProps> = ({ locale }) => {
+  const t = useTranslations(locale)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
@@ -34,10 +41,10 @@ const Contact: React.FC = () => {
   // Dynamic content based on intent
   const getPageContent = () => {
     return {
-      title: 'Get in Touch',
-      subtitle: 'Fill out the form below, and we\'ll connect you to the right team. We look forward to hearing from you!',
-      submitText: 'Send Message',
-      successMessage: 'Thanks for reaching out! We\'ll get back to you within 24 hours.'
+      title: t.CONTACT_PAGE.TITLE,
+      subtitle: t.CONTACT_PAGE.SUBTITLE,
+      submitText: t.CONTACT_PAGE.FORM.SUBMIT_BUTTON,
+      successMessage: t.CONTACT_PAGE.FORM.SUCCESS_MESSAGE
     }
   }
 
@@ -47,17 +54,17 @@ const Contact: React.FC = () => {
   const validateField = (name: keyof FormData, value: string): string | undefined => {
     switch (name) {
       case 'fullName':
-        if (!value.trim()) return 'Full name is required'
-        if (value.trim().length < 2) return 'Please enter your full name'
+        if (!value.trim()) return t.CONTACT_PAGE.FORM.VALIDATION.FULL_NAME_REQUIRED
+        if (value.trim().length < 2) return t.CONTACT_PAGE.FORM.VALIDATION.FULL_NAME_MIN
         break
       case 'workEmail':
-        if (!value.trim()) return 'Work email is required'
+        if (!value.trim()) return t.CONTACT_PAGE.FORM.VALIDATION.EMAIL_REQUIRED
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(value)) return 'Please enter a valid email address'
+        if (!emailRegex.test(value)) return t.CONTACT_PAGE.FORM.VALIDATION.EMAIL_INVALID
         break
       case 'message':
-        if (!value.trim()) return 'Message is required'
-        if (value.trim().length < 10) return 'Please provide more details (at least 10 characters)'
+        if (!value.trim()) return t.CONTACT_PAGE.FORM.VALIDATION.MESSAGE_REQUIRED
+        if (value.trim().length < 10) return t.CONTACT_PAGE.FORM.VALIDATION.MESSAGE_MIN
         break
     }
     return undefined
@@ -158,7 +165,7 @@ const Contact: React.FC = () => {
                   <CheckCircle className="w-8 h-8 text-green-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-ray-dark-900 mb-4">
-                  Message Sent Successfully!
+                  {t.CONTACT_PAGE.FORM.SUCCESS_TITLE}
                 </h2>
                 <p className="text-ray-darkGray mb-8 leading-relaxed">
                   {content.successMessage}
@@ -196,14 +203,14 @@ const Contact: React.FC = () => {
                   {/* Full Name */}
                   <div>
                     <label htmlFor="fullName" className="block text-sm font-semibold text-ray-dark-900 mb-2">
-                      Full Name *
+                      {t.CONTACT_PAGE.FORM.FULL_NAME} *
                     </label>
                     <input
                       type="text"
                       id="fullName"
                       value={formData.fullName}
                       onChange={(e) => handleInputChange('fullName', e.target.value)}
-                      placeholder="John Smith"
+                      placeholder={t.CONTACT_PAGE.FORM.FULL_NAME_PLACEHOLDER}
                       className={`w-full px-4 py-3 border rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent transition-colors duration-200 ${
                         errors.fullName ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-gray-400'
                       }`}
@@ -220,14 +227,14 @@ const Contact: React.FC = () => {
                   {/* Work Email */}
                   <div>
                     <label htmlFor="workEmail" className="block text-sm font-semibold text-ray-dark-900 mb-2">
-                      Work Email *
+                      {t.CONTACT_PAGE.FORM.WORK_EMAIL} *
                     </label>
                     <input
                       type="email"
                       id="workEmail"
                       value={formData.workEmail}
                       onChange={(e) => handleInputChange('workEmail', e.target.value)}
-                      placeholder="john@restaurant.com"
+                      placeholder={t.CONTACT_PAGE.FORM.WORK_EMAIL_PLACEHOLDER}
                       className={`w-full px-4 py-3 border rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent transition-colors duration-200 ${
                         errors.workEmail ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-gray-400'
                       }`}
@@ -244,14 +251,14 @@ const Contact: React.FC = () => {
                   {/* Company */}
                   <div>
                     <label htmlFor="company" className="block text-sm font-semibold text-ray-dark-900 mb-2">
-                      Restaurant/Company Name
+                      {t.CONTACT_PAGE.FORM.COMPANY}
                     </label>
                     <input
                       type="text"
                       id="company"
                       value={formData.company}
                       onChange={(e) => handleInputChange('company', e.target.value)}
-                      placeholder="Your Restaurant Name"
+                      placeholder={t.CONTACT_PAGE.FORM.COMPANY_PLACEHOLDER}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent hover:border-gray-400 transition-colors duration-200"
                     />
                   </div>
@@ -259,14 +266,14 @@ const Contact: React.FC = () => {
                   {/* Phone */}
                   <div>
                     <label htmlFor="phone" className="block text-sm font-semibold text-ray-dark-900 mb-2">
-                      Phone Number
+                      {t.CONTACT_PAGE.FORM.PHONE}
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      placeholder="(555) 123-4567"
+                      placeholder={t.CONTACT_PAGE.FORM.PHONE_PLACEHOLDER}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent hover:border-gray-400 transition-colors duration-200"
                     />
                   </div>
@@ -274,7 +281,7 @@ const Contact: React.FC = () => {
                   {/* Number of Locations */}
                   <div>
                     <label htmlFor="locations" className="block text-sm font-semibold text-ray-dark-900 mb-2">
-                      Number of Locations
+                      {t.CONTACT_PAGE.FORM.LOCATIONS}
                     </label>
                     <select
                       id="locations"
@@ -282,25 +289,23 @@ const Contact: React.FC = () => {
                       onChange={(e) => handleInputChange('locations', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent hover:border-gray-400 transition-colors duration-200"
                     >
-                      <option value="1">1 location</option>
-                      <option value="2-5">2-5 locations</option>
-                      <option value="6-10">6-10 locations</option>
-                      <option value="11-25">11-25 locations</option>
-                      <option value="25+">25+ locations</option>
+                      {t.CONTACT_PAGE.FORM.LOCATIONS_OPTIONS.map(option => (
+                        <option key={option.value} value={option.value}>{option.label}</option>
+                      ))}
                     </select>
                   </div>
 
                   {/* Message */}
                   <div>
                     <label htmlFor="message" className="block text-sm font-semibold text-ray-dark-900 mb-2">
-                      Message *
+                      {t.CONTACT_PAGE.FORM.MESSAGE} *
                     </label>
                     <textarea
                       id="message"
                       rows={4}
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
-                      placeholder="Tell us about your restaurant and how we can help you grow..."
+                      placeholder={t.CONTACT_PAGE.FORM.MESSAGE_PLACEHOLDER}
                       className={`w-full px-4 py-3 border rounded-lg text-ray-dark-900 placeholder-ray-darkGray focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent transition-colors duration-200 resize-vertical ${
                         errors.message ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-gray-400'
                       }`}
@@ -329,16 +334,15 @@ const Contact: React.FC = () => {
                     disabled={isSubmitting}
                     className="w-full bg-ray-blue hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2"
                   >
-                    {isSubmitting ? 'Sending...' : content.submitText}
+                    {isSubmitting ? t.CONTACT_PAGE.FORM.SUBMITTING : content.submitText}
                   </button>
                 </div>
                 </form>
                 
-                {/* HubSpot Form Embed */}
-                <div className="mt-8 pt-8 border-t border-gray-200">
-                  <script src="https://js.hsforms.net/forms/embed/39590119.js" defer></script>
+                {/* HubSpot Form Embed - Removed to fix build errors */}
+                {/* <div className="mt-8 pt-8 border-t border-gray-200">
                   <div className="hs-form-frame" data-region="na1" data-form-id="88d103f6-3422-49d9-8748-856de11730e6" data-portal-id="39590119"></div>
-                </div>
+                </div> */}
               </>
             )}
             
@@ -347,7 +351,7 @@ const Contact: React.FC = () => {
           {/* Direct Contact Info */}
           <div className="mt-12 text-center">
             <div className="text-sm text-ray-darkGray mb-4">
-              Prefer to reach out directly?
+              {t.CONTACT_PAGE.DIRECT_CONTACT}
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
               <a 

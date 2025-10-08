@@ -1,5 +1,10 @@
 import { Metadata } from 'next'
 import About from '@/components/pages/About'
+import { type Locale } from '@/constants/copy'
+
+interface AboutPageProps {
+  params: { locale: Locale }
+}
 
 export const metadata: Metadata = {
   title: 'About Us - Restaurant Marketing Experts | RAY',
@@ -18,6 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function AboutPage() {
-  return <About />
+export default function AboutPage({ params }: AboutPageProps) {
+  return <About locale={params.locale} />
 }

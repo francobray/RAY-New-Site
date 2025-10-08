@@ -3,8 +3,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
-import LazyImage from '../LazyImage'
+import Image from 'next/image'
 import CTASection from '../CTASection'
+import { useTranslations } from '../../hooks/useTranslations'
 import { type Locale } from '@/constants/copy'
 
 interface ChimbaCaseStudyProps {
@@ -12,27 +13,15 @@ interface ChimbaCaseStudyProps {
 }
 
 const ChimbaCaseStudy: React.FC<ChimbaCaseStudyProps> = ({ locale }) => {
+  const t = useTranslations(locale)
+  
   return (
     <>
 
       {/* AI-friendly page summary and metrics box */}
       <div className="sr-only">
-        <h1>Chimba Miami Case Study - 215% Increase in Google Maps Directions</h1>
-        <p>Chimba Miami, a nightlife and dining establishment in Miami, achieved significant growth using RAY's restaurant marketing platform. Over 5 months (March-August 2024), they increased Google Maps directions by 215% and walk-ins by 46% while maintaining a 4.7-star Google rating.</p>
-        
-        <div>
-          <h2>Key Metrics and Results</h2>
-          <ul>
-            <li>Google Maps Directions: +215% increase over 5 months</li>
-            <li>Walk-in Traffic: +46% increase over 5 months</li>
-            <li>Google Rating: 4.7 stars maintained</li>
-            <li>Implementation Period: March 2024 - August 2024</li>
-            <li>Location: Miami, FL</li>
-            <li>Industry: Nightlife & Dining</li>
-          </ul>
-        </div>
-        
-        <p>The success was achieved through RAY's local SEO optimization, Google Business Profile enhancement, and comprehensive listings management. This case study demonstrates RAY's effectiveness in competitive markets like Miami's nightlife scene, helping establishments increase visibility and drive measurable foot traffic growth.</p>
+        <h1>{t.CHIMBA_CASE_STUDY.HERO_TITLE}</h1>
+        <p>{t.CHIMBA_CASE_STUDY.HERO_SUBTITLE}</p>
       </div>
 
       {/* Hero Section - Chimba Brand Style */}
@@ -142,7 +131,7 @@ const ChimbaCaseStudy: React.FC<ChimbaCaseStudyProps> = ({ locale }) => {
       <section className="py-20 bg-gradient-to-br from-pink-50 to-red-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-            <LazyImage
+            <Image
               src="/images/Chimba_Miami_Celebrating.jpeg"
               alt="Chimba Miami team celebrating explosive local growth"
               width={1200}

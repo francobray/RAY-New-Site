@@ -1,5 +1,10 @@
 import { Metadata } from 'next'
 import Bookings from '@/components/pages/product/Bookings'
+import { type Locale } from '@/constants/copy'
+
+interface BookingsPageProps {
+  params: { locale: Locale }
+}
 
 export const metadata: Metadata = {
   title: 'Simplify Bookings. Connect with Every Customer.',
@@ -18,6 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BookingsPage() {
-  return <Bookings />
+export default function BookingsPage({ params }: BookingsPageProps) {
+  return <Bookings locale={params.locale} />
 }

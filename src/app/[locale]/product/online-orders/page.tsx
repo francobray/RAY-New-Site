@@ -1,5 +1,10 @@
 import { Metadata } from 'next'
 import OnlineOrders from '@/components/pages/product/OnlineOrders'
+import { type Locale } from '@/constants/copy'
+
+interface OnlineOrdersPageProps {
+  params: { locale: Locale }
+}
 
 export const metadata: Metadata = {
   title: 'Online Orders - Grow Restaurant Revenue From Digital Channels | RAY',
@@ -18,6 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function OnlineOrdersPage() {
-  return <OnlineOrders />
+export default function OnlineOrdersPage({ params }: OnlineOrdersPageProps) {
+  return <OnlineOrders locale={params.locale} />
 }

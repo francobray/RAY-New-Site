@@ -328,7 +328,11 @@ const faqs = [
   }
 ]
 
-const AIConcierge: React.FC = () => {
+interface AIConciergeProps {
+  // No props needed for the original version
+}
+
+const AIConcierge: React.FC<AIConciergeProps> = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [isChatModalOpen, setIsChatModalOpen] = useState(false)
   const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false)
@@ -347,7 +351,7 @@ const AIConcierge: React.FC = () => {
     <>
       {/* AI-friendly page summary */}
       <div className="sr-only">
-        <h1>RAY WhatsApp Orders - Turn Restaurant DMs Into Orders.</h1>
+        <h1>RAY AI Concierge - Turn Restaurant DMs Into Orders.</h1>
         <p>Stop losing hungry customers to slow replies! Our AI takes orders, books tables, and answers menu questions across WhatsApp, Instagram, and Messenger — 24/7, even when your restaurant is closed</p>
         <p>Key features: Instant automated responses, booking and order conversion, reputation protection, multilingual support, brand voice training, and compliance with privacy regulations. Results include 30% more actions from Google and social channels.</p>
       </div>
@@ -364,7 +368,7 @@ const AIConcierge: React.FC = () => {
               </h1>
               
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Stop losing hungry customers to slow replies! Our WhatsApp Orders system takes orders, books tables, 
+              Stop losing hungry customers to slow replies! Our AI takes orders, books tables, 
               and answers menu questions across WhatsApp, Instagram, and Messenger — 24/7, 
               even when your restaurant is closed. 🚀
             </p>
@@ -620,6 +624,12 @@ const AIConcierge: React.FC = () => {
                   <p className="text-gray-600 text-sm">Perfect tracking and reconciliation</p>
                 </div>
               </div>
+              
+              <div className="bg-gray-50 rounded-lg p-4 mt-6">
+                <p className="text-sm text-gray-600">
+                  <strong>Don't see yours?</strong> We'll confirm compatibility.
+                </p>
+              </div>
             </div>
             
             <div className="relative">
@@ -637,7 +647,7 @@ const AIConcierge: React.FC = () => {
             <p className="text-center text-gray-600 mb-8 font-medium">Works with your POS:</p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
               <div className="bg-white rounded-lg shadow-sm border p-4 flex items-center justify-center h-16 w-24">
-                <span className="font-bold text-gray-700">Thinkion</span>
+                <span className="font-bold text-gray-700">Toast</span>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-4 flex items-center justify-center h-16 w-24">
                 <span className="font-bold text-gray-700">Square</span>
@@ -654,8 +664,11 @@ const AIConcierge: React.FC = () => {
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full"></div>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-4 flex items-center justify-center h-16 w-24 relative">
-                <span className="font-bold text-gray-700">Aloha</span>
+                <span className="font-bold text-gray-700">Brink</span>
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full"></div>
+              </div>
+              <div className="bg-emerald-50 border-2 border-dashed border-emerald-300 rounded-lg p-4 flex items-center justify-center h-16 w-32">
+                <span className="text-emerald-600 font-medium text-sm">Ask about your POS</span>
               </div>
             </div>
             <div className="flex justify-center mt-4 space-x-6 text-xs">
@@ -773,7 +786,7 @@ const AIConcierge: React.FC = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-xl text-gray-600">
-              Everything you need to know about WhatsApp Orders.
+              Everything you need to know about AI Concierge.
             </p>
           </div>
           

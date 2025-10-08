@@ -1,5 +1,10 @@
 import { Metadata } from 'next'
 import Demo from '@/components/pages/Demo'
+import { type Locale } from '@/constants/copy'
+
+interface DemoPageProps {
+  params: { locale: Locale }
+}
 
 export const metadata: Metadata = {
   title: 'Free Demo - See RAY Restaurant Marketing Platform in Action | RAY',
@@ -18,6 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function DemoPage() {
-  return <Demo />
+export default function DemoPage({ params }: DemoPageProps) {
+  return <Demo locale={params.locale} />
 }

@@ -3,8 +3,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
-import LazyImage from '../LazyImage'
+import Image from 'next/image'
 import CTASection from '../CTASection'
+import { useTranslations } from '../../hooks/useTranslations'
 import { type Locale } from '@/constants/copy'
 
 interface TempleCraftCaseStudyProps {
@@ -12,28 +13,15 @@ interface TempleCraftCaseStudyProps {
 }
 
 const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) => {
+  const t = useTranslations(locale)
+  
   return (
     <>
 
       {/* AI-friendly page summary and metrics box */}
       <div className="sr-only">
-        <h1>Temple Craft Wynwood Case Study - 259% Increase in Google Maps Visits</h1>
-        <p>Temple Craft Wynwood, a craft beer bar in Miami's Wynwood district, achieved remarkable growth using RAY's restaurant marketing platform. Over 6 months (January-June 2024), they increased Google Maps visits by 259% and walk-ins by 66% while improving their Google Maps ranking from #15 to #1.</p>
-        
-        <div>
-          <h2>Key Metrics and Results</h2>
-          <ul>
-            <li>Google Maps Directions: +259% increase over 6 months</li>
-            <li>Walk-in Traffic: +66% increase over 6 months</li>
-            <li>Google Maps Ranking: Improved from #15 to #1</li>
-            <li>Google Rating: Maintained 4.8 stars</li>
-            <li>Implementation Period: January 2024 - June 2024</li>
-            <li>Location: Wynwood, Miami, FL</li>
-            <li>Industry: Craft Beer & Food</li>
-          </ul>
-        </div>
-        
-        <p>The success was achieved through RAY's comprehensive local SEO optimization, Google Business Profile enhancement, and strategic review management. This case study demonstrates RAY's proven methodology for helping restaurants dominate local search results and drive measurable increases in foot traffic.</p>
+        <h1>{t.TEMPLE_CASE_STUDY.HERO_TITLE}</h1>
+        <p>{t.TEMPLE_CASE_STUDY.HERO_SUBTITLE}</p>
       </div>
 
       {/* Hero Section - Temple Craft Brand Style */}
@@ -156,7 +144,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-            <LazyImage
+            <Image
               src="/images/Temple_Team.jpeg"
               alt="Temple Craft team at the Wynwood location celebrating explosive local growth"
               width={1200}

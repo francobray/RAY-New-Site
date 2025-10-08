@@ -1,0 +1,23 @@
+import { Metadata } from 'next'
+import AIConcierge from '@/components/pages/product/AIConcierge'
+
+export const metadata: Metadata = {
+  title: 'WhatsApp Delivery for Restaurants | RAY',
+  description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
+  openGraph: {
+    title: 'WhatsApp Delivery for Restaurants | RAY',
+    description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
+    url: 'https://rayapp.io/product/whatsapp-delivery',
+  },
+  twitter: {
+    title: 'WhatsApp Delivery for Restaurants | RAY',
+    description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
+  },
+  alternates: {
+    canonical: 'https://rayapp.io/product/whatsapp-delivery',
+  },
+}
+
+export default function WhatsAppDeliveryPage() {
+  return <AIConcierge />
+}
