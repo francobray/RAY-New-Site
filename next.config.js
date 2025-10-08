@@ -7,6 +7,7 @@ const nextConfig = {
     minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
+    output: 'standlone',
     remotePatterns: [],
   },
   compress: true,
