@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
+import packageJson from '../../package.json'
 
 interface FooterProps {
   locale: Locale
@@ -262,9 +263,14 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-ray-dark-700">
-          <p className="text-ray-gray text-sm text-center">
-            {locale === 'es' ? '© 2025 RAY. Todos los derechos reservados.' : '© 2025 RAY. All rights reserved.'}
-          </p>
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-ray-gray text-sm text-center sm:text-left">
+              {locale === 'es' ? '© 2025 RAY. Todos los derechos reservados.' : '© 2025 RAY. All rights reserved.'}
+            </p>
+            <p className="text-ray-dark-600 text-xs mt-2 sm:mt-0 opacity-50">
+              v{packageJson.version}
+            </p>
+          </div>
         </div>
       </div>
     </footer>
