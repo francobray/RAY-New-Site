@@ -1,0 +1,51 @@
+# Dockerfile for a Standalone Next.js App (Recommended)
+
+# --- Base Image ---
+# Use a specific Node.js version for reproducibility.
+FROM node:20-alpine AS base
+WORKDIR /app
+ENV NODE_ENV=production
+
+# --- Dependencies Stage ---
+# Install ALL dependencies (including dev dependencies) required to run 'npm run build'.
+FROM base AS deps
+COPY package.json package-lock.json ./
+# 1. Install all dependencies needed for the build (this includes dev dependencies)
+RUN npm install 
+
+
+# --- Builder Stage ---
+# Copy all source code and build the application.
+FROM base AS builder
+# Copy the full source code (including src, tsconfig.json, next.config.js, etc.)
+COPY . .
+# Copy the installed dependencies from the 'deps' stage
+COPY --from=deps /app/node_modules ./node_modules
+
+# Run the build. This step generates the production build output and the 'standalone' directory.
+RUN npm run build
+
+
+# --- Runner Stage ---
+# This is the final, minimal production image.
+FROM base AS runner
+
+# Set the environment to run the server in the standalone mode
+ENV NEXT_TELEMETRY_DISABLED 1
+
+# Copy the standalone server and its dependencies
+# The 'standalone' folder contains everything needed to run the app without 'node_modules'.
+COPY --from=builder /app/.next/standalone ./
+
+# Copy the public assets (images, fonts, etc.)
+COPY --from=builder /app/public ./public
+
+# Copy the optimized static assets (JS, CSS, etc.) built by Next.js
+COPY --from=builder /app/.next/static ./.next/static
+
+EXPOSE 3000
+ENV PORT 3000
+
+# Start the Node.js server that runs your Next.js application.
+# The server entry point is server.js inside the standalone folder.
+CMD ["node", "server.js"]
