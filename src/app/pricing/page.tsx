@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Check, X, ArrowRight, TrendingUp, Shield, Zap } from 'lucide-react'
+import { Check, X, ArrowRight, TrendingUp, Zap } from 'lucide-react'
 import Button from '@/components/shared/BaseButton'
 
 interface PricingTier {
