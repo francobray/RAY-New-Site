@@ -33,6 +33,14 @@ spec:
           limits:
             cpu: "1000m"
             memory: "256Mi"
+        readinessProbe: # <--- ADDED THIS SECTION
+          httpGet:
+            path: /es # The endpoint your Spring app exposes for health checks
+            port: 3000    # The port your container listens on
+          initialDelaySeconds: 10 # Initial delay before readiness checks begin
+          periodSeconds: 5      # How often to perform the check
+          timeoutSeconds: 3     # How long to wait for a response
+          failureThreshold: 3
 ---
 apiVersion: v1
 kind: Service
@@ -67,3 +75,38 @@ spec:
     backendRefs:
     - name: ray-new-sitesvc
       port: 80
+---
+apiVersion: networking.gke.io/v1
+kind: HealthCheckPolicy
+metadata:
+  name: ray-net-site-healthcheck
+spec:
+  default:
+    checkIntervalSec: 10
+    timeoutSec: 5
+    healthyThreshold: 1
+    unhealthyThreshold: 3
+    logConfig:
+      enabled: true
+    config:
+      type: HTTP
+      httpHealthCheck:
+        portSpecification: USE_FIXED_PORT
+        port: 3000
+        requestPath: /es
+  targetRef:
+    group: ""
+    kind: Service
+    name: ray-new-sitesvc
+---
+apiVersion: networking.gke.io/v1
+kind: GCPBackendPolicy
+metadata:
+  name: ray-new-site-policy
+spec:
+  default:
+    timeoutSec: 300
+  targetRef:
+    group: ""
+    kind: Service
+    name: ray-new-sitesvc
