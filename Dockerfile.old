@@ -3,6 +3,7 @@ FROM node:20-alpine AS base
 WORKDIR /app
 ENV NODE_ENV=production
 
+ENV HOST 0.0.0.0 
 # --- Dependencies Stage (Install ALL dependencies for the build) ---
 FROM base AS deps
 COPY package.json package-lock.json ./
