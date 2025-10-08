@@ -30,7 +30,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
       description: t.PRODUCTS.BOOKINGS.DESCRIPTION,
       metric: t.PRODUCTS.BOOKINGS.METRIC,
       metricLabel: t.PRODUCTS.BOOKINGS.METRIC_LABEL,
-      href: '/product/bookings',
+      href: '/product/direct-bookings',
       gradient: 'from-ray-green to-green-600'
     },
     {

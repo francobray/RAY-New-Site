@@ -1,0 +1,517 @@
+'use client'
+
+import React, { useState } from 'react'
+import { TrendingUp, ArrowRight, CheckCircle, Truck, Phone, ChevronDown, ChevronUp, DollarSign, Users, Clock } from 'lucide-react'
+import Card from '../../Card'
+import Button from '../../shared/BaseButton'
+import { type Locale } from '../../../lib/i18n'
+
+interface ZeroCommissionDeliveryProps {
+  locale?: Locale
+}
+
+const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale = 'es' }) => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+
+  const features = [
+    {
+      icon: DollarSign,
+      title: locale === 'es' ? 'Tarifa fija para delivery' : 'Pay a flat rate for delivery',
+      description: locale === 'es' ? 'Usa drivers de terceros a tarifas fijas favorables para delivery sin markup o drivers propios, tú eliges el mejor precio.' : 'Use third-party drivers at fixed rates favorable for delivery or small drivers, you choose the longer price.',
+      details: locale === 'es' ? [
+        'Tarifas transparentes sin sorpresas',
+        'Control total sobre los costos de delivery'
+      ] : [
+        'Transparent rates with no surprises',
+        'Full control over delivery costs'
+      ]
+    },
+    {
+      icon: Users,
+      title: locale === 'es' ? 'Obtén los mejores drivers, sin comisión' : 'Get the best drivers, commission free',
+      description: locale === 'es' ? 'Solo usamos drivers calificados 4.5 estrellas o más para entregar tu comida.' : 'We only use drivers rated 4.5 stars or higher to deliver your food.',
+      details: locale === 'es' ? [
+        'Drivers verificados y de alta calidad',
+        'Servicio confiable para tus clientes'
+      ] : [
+        'Verified and high-quality drivers',
+        'Reliable service for your customers'
+      ]
+    },
+    {
+      icon: Phone,
+      title: locale === 'es' ? 'Una línea directa a tus clientes' : 'A direct line to your customers',
+      description: locale === 'es' ? 'Puedes llamar a los clientes directamente. Cubrimos reembolsos por cualquier problema de delivery.' : 'You can call customers directly. We\'ll cover refunds for any delivery issues.',
+      details: locale === 'es' ? [
+        'Comunicación directa con clientes',
+        'Soporte completo para problemas de delivery'
+      ] : [
+        'Direct communication with customers',
+        'Full support for delivery issues'
+      ]
+    }
+  ]
+
+  const deliveryOptions = [
+    {
+      title: locale === 'es' ? 'Usa tus drivers internos, de terceros, o ambos.' : 'Use your in-house delivery drivers, third-party, or both.',
+      description: locale === 'es' ? 'Opciones de delivery flexibles' : 'Flexible delivery options'
+    },
+    {
+      title: locale === 'es' ? 'Los mejores drivers de terceros entregan por ti. Una tarifa fija. Sin markup de nosotros.' : 'Top third-party drivers deliver for you. One flat fee. No markup from us.',
+      description: locale === 'es' ? 'Drivers de calidad con tarifas justas' : 'Quality drivers with fair rates'
+    },
+    {
+      title: locale === 'es' ? 'Llama a tus clientes si es necesario. Pagaremos por cualquier problema de delivery.' : 'Call your customers if needed. We\'ll pay for any delivery problems.',
+      description: locale === 'es' ? 'Soporte completo y garantía' : 'Full support and guarantee'
+    }
+  ]
+
+  const faqs = [
+    {
+      question: locale === 'es' ? '¿Por qué los clientes ordenarían desde mi app en lugar de terceros?' : 'Why would customers order from my app instead of third parties?',
+      answer: locale === 'es' ? 'Tu app ofrece una experiencia más directa y personalizada. Los clientes pueden ganar puntos de lealtad, obtener ofertas exclusivas, y tener comunicación directa contigo. Además, sus pedidos favoritos se guardan para reordenar fácilmente.' : 'Your app offers a more direct and personalized experience. Customers can earn loyalty points, get exclusive offers, and have direct communication with you. Plus, their favorite orders are saved for easy reordering.'
+    },
+    {
+      question: locale === 'es' ? '¿Quién paga por el delivery, el cliente o el restaurante?' : 'Who pays for delivery, the guest or the restaurant?',
+      answer: locale === 'es' ? 'Tú decides. Puedes cobrar a los clientes una tarifa de delivery, absorber el costo como parte de tu estrategia de precios, o usar un modelo híbrido. Te damos total flexibilidad para estructurar tus precios.' : 'You decide. You can charge customers a delivery fee, absorb the cost as part of your pricing strategy, or use a hybrid model. We give you total flexibility to structure your pricing.'
+    },
+    {
+      question: locale === 'es' ? '¿Por qué las apps de terceros aceptarían esto?' : 'Why would third-party apps go for this?',
+      answer: locale === 'es' ? 'Trabajamos con una red de drivers independientes y servicios de delivery que buscan más trabajo. Al ofrecer tarifas justas y volumen consistente, creamos una situación donde todos ganan: tú obtienes mejor servicio, los drivers ganan más, y los clientes reciben mejor experiencia.' : 'We work with a network of independent drivers and delivery services looking for more work. By offering fair rates and consistent volume, we create a win-win situation: you get better service, drivers earn more, and customers receive better experience.'
+    }
+  ]
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index)
+  }
+
+  return (
+    <>
+      {/* AI-friendly page summary */}
+      <div className="sr-only">
+        <h1>{locale === 'es' ? 'RAY Delivery Sin Comisión - Delivery rentable y gran experiencia para huéspedes' : 'RAY Zero-Commission Delivery - Profitable delivery and great guest experience'}</h1>
+        <p>{locale === 'es' ? 'RAY Delivery Sin Comisión ofrece delivery rentable con drivers de calidad y tarifas fijas transparentes.' : 'RAY Zero-Commission Delivery offers profitable delivery with quality drivers and transparent flat rates.'}</p>
+      </div>
+      
+      {/* Hero Section */}
+      <section className="py-20 bg-ray-promise relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(13,121,229,0.08),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(111,191,115,0.08),transparent_50%)]"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Content */}
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm mb-6">
+                <TrendingUp className="w-4 h-4 mr-2 text-ray-blue" />
+                <span className="text-sm font-medium text-ray-dark-900">
+                  {locale === 'es' ? 'Delivery Rentable' : 'Profitable Delivery'}
+                </span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
+                {locale === 'es' ? 'Delivery rentable y una ' : 'Profitable delivery and a '}
+                <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
+                  {locale === 'es' ? 'gran experiencia para huéspedes.' : 'great guest experience.'}
+                </span>
+              </h1>
+              
+              <p className="text-xl text-ray-dark-700 mb-8 leading-relaxed max-w-xl">
+                {locale === 'es' ? 'Haz que tus clientes ordenen desde tu app, con drivers de alta calificación, a un precio justo.' : 'Get your customers to order from your app, with top-rated drivers, at a fair price.'}
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                <Button 
+                  variant="primary" 
+                  size="lg"
+                  className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                  href={`/${locale}/demo?utm_source=delivery-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-demo`}
+                  data-cta="demo"
+                  data-analytics="delivery_hero"
+                  aria-label="Get a free demo"
+                >
+                  {locale === 'es' ? 'Obtén una demo gratis' : 'Get a free demo'}
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </Button>
+                <Button 
+                  variant="secondary" 
+                  size="lg"
+                  className="shadow-xl hover:shadow-2xl transition-all duration-300"
+                  href={`/${locale}/pricing?utm_source=delivery-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-pricing`}
+                  data-cta="pricing"
+                  data-analytics="delivery_hero"
+                  aria-label="View Pricing"
+                >
+                  {locale === 'es' ? 'Ver Precios' : 'View Pricing'}
+                </Button>
+              </div>
+            </div>
+            
+            {/* Hero Visual - Video Placeholder */}
+            <div className="relative">
+              <div className="relative max-w-lg mx-auto">
+                {/* Video mockup */}
+                <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="aspect-video bg-gradient-to-br from-purple-600 to-pink-600 relative">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-white">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                          <div className="w-0 h-0 border-l-[12px] border-l-white border-y-[8px] border-y-transparent ml-1"></div>
+                        </div>
+                        <p className="text-sm opacity-90">
+                          {locale === 'es' ? 'Ve los datos de The Modern Vegan fans trabajando con Owner para delivery' : 'See why data from The Modern Vegan fans working with Owner for delivery'}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Overlay text */}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="bg-black/60 backdrop-blur-sm rounded-lg p-3">
+                        <p className="text-white text-sm font-medium">
+                          {locale === 'es' ? 'Ve los datos de The Modern Vegan fans trabajando con Owner para delivery' : 'See why data from The Modern Vegan fans working with Owner for delivery'}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Floating Elements */}
+                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">
+                  <div className="text-lg font-bold text-ray-green">4.8★</div>
+                  <div className="text-xs text-ray-darkGray">{locale === 'es' ? 'Drivers calificados' : 'Rated drivers'}</div>
+                </div>
+                
+                <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">
+                  <div className="text-lg font-bold text-ray-blue">$0</div>
+                  <div className="text-xs text-ray-darkGray">{locale === 'es' ? 'Comisiones' : 'Commission'}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+              {locale === 'es' ? 'Delivery que es mejor para ti y tus huéspedes' : 'Delivery that\'s better for you and your guests'}
+            </h2>
+            <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
+              {locale === 'es' ? 'Controla tu experiencia de delivery con drivers de calidad y precios transparentes.' : 'Control your delivery experience with quality drivers and transparent pricing.'}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+            {/* Left side - Phone mockup */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-xl">
+                {/* Phone mockup */}
+                <div className="bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl max-w-sm mx-auto">
+                  <div className="bg-white rounded-[2rem] overflow-hidden">
+                    {/* Status bar */}
+                    <div className="bg-white px-6 py-3 flex justify-between items-center text-sm">
+                      <span className="font-medium">9:41</span>
+                      <div className="flex items-center space-x-1">
+                        <div className="w-4 h-2 bg-gray-300 rounded-sm"></div>
+                        <div className="w-1 h-4 bg-gray-300 rounded-full"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Delivery tracking interface */}
+                    <div className="relative h-96 bg-gradient-to-br from-green-100 to-blue-100">
+                      {/* Map background */}
+                      <div className="absolute inset-0 bg-gray-200 p-4">
+                        <div className="h-full bg-white rounded-lg p-4 flex flex-col justify-between">
+                          <div>
+                            <h3 className="font-semibold text-gray-900 mb-2">
+                              {locale === 'es' ? 'Siguiendo tu pedido' : 'Tracking your order'}
+                            </h3>
+                            <div className="space-y-3">
+                              <div className="flex items-center space-x-3">
+                                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                  <CheckCircle className="w-4 h-4 text-white" />
+                                </div>
+                                <div>
+                                  <div className="text-sm font-medium text-gray-900">
+                                    {locale === 'es' ? 'Pedido confirmado' : 'Order confirmed'}
+                                  </div>
+                                  <div className="text-xs text-gray-500">2:24 PM</div>
+                                </div>
+                              </div>
+                              
+                              <div className="flex items-center space-x-3">
+                                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                  <Clock className="w-4 h-4 text-white" />
+                                </div>
+                                <div>
+                                  <div className="text-sm font-medium text-gray-900">
+                                    {locale === 'es' ? 'Preparando comida' : 'Preparing food'}
+                                  </div>
+                                  <div className="text-xs text-gray-500">
+                                    {locale === 'es' ? 'Estimado 15-20 min' : 'Est. 15-20 min'}
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <div className="flex items-center space-x-3">
+                                <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                                  <Truck className="w-4 h-4 text-white" />
+                                </div>
+                                <div>
+                                  <div className="text-sm font-medium text-gray-500">
+                                    {locale === 'es' ? 'En camino' : 'On the way'}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="bg-green-50 rounded-lg p-3">
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <div className="text-sm font-medium text-green-800">
+                                  {locale === 'es' ? 'Driver: María G.' : 'Driver: Maria G.'}
+                                </div>
+                                <div className="text-xs text-green-600">4.9★ • 847 entregas</div>
+                              </div>
+                              <Phone className="w-5 h-5 text-green-600" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right side - Features */}
+            <div className="space-y-8">
+              {features.map((feature, index) => {
+                const IconComponent = feature.icon
+                return (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-ray-blue to-ray-green rounded-xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-ray-dark-900 mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-ray-darkGray mb-4 leading-relaxed">
+                        {feature.description}
+                      </p>
+                      <ul className="space-y-2">
+                        {feature.details.map((detail, detailIndex) => (
+                          <li key={detailIndex} className="flex items-start text-sm text-ray-dark-700">
+                            <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Delivery Options Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+              {locale === 'es' ? 'Haz que tu comida sea entregada por drivers mejor calificados' : 'Get your food delivered by top-rated drivers'}
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left side - Phone tracking */}
+            <div className="relative">
+              <div className="bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl max-w-sm mx-auto">
+                <div className="bg-white rounded-[2rem] overflow-hidden">
+                  {/* Map interface */}
+                  <div className="relative h-96 bg-gradient-to-br from-blue-100 to-green-100 p-4">
+                    <div className="bg-white rounded-lg h-full p-4 flex flex-col justify-between">
+                      <div>
+                        <div className="text-center mb-4">
+                          <div className="text-lg font-bold text-gray-900">
+                            {locale === 'es' ? 'Entrega de terceros' : 'Third party delivery'}
+                          </div>
+                        </div>
+                        
+                        <div className="bg-blue-50 rounded-lg p-3 mb-4">
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-blue-600 mb-1">
+                              {locale === 'es' ? 'Los mejores drivers de terceros entregan por ti. Una tarifa fija. Sin markup de nosotros.' : 'Top third-party drivers deliver for you. One flat fee. No markup from us.'}
+                            </div>
+                            <div className="flex justify-center space-x-4 mt-4">
+                              <div className="text-center">
+                                <div className="w-8 h-8 bg-black rounded mx-auto mb-1"></div>
+                                <div className="text-xs">Uber Eats</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="w-8 h-8 bg-red-500 rounded mx-auto mb-1"></div>
+                                <div className="text-xs">DoorDash</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <div className="bg-green-50 rounded-lg p-2">
+                          <div className="text-xs font-medium text-green-800">
+                            {locale === 'es' ? 'Opciones de delivery flexibles' : 'Flexible delivery options'}
+                          </div>
+                          <div className="text-xs text-green-600">
+                            {locale === 'es' ? 'Usa tus drivers internos, de terceros, o ambos.' : 'Use your in-house delivery drivers, third-party, or both.'}
+                          </div>
+                        </div>
+                        
+                        <div className="bg-blue-50 rounded-lg p-2">
+                          <div className="text-xs font-medium text-blue-800">
+                            {locale === 'es' ? 'Llama a tus clientes si es necesario' : 'Call your customers if needed'}
+                          </div>
+                          <div className="text-xs text-blue-600">
+                            {locale === 'es' ? 'Pagaremos por cualquier problema de delivery.' : 'We\'ll pay for any delivery problems.'}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right side - Options list */}
+            <div className="space-y-6">
+              {deliveryOptions.map((option, index) => (
+                <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-gradient-to-r from-ray-blue to-ray-green rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-sm">{index + 1}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-ray-dark-900 mb-2">
+                        {option.title}
+                      </h3>
+                      <p className="text-ray-darkGray text-sm">
+                        {option.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">FAQs</h2>
+            <p className="text-xl text-ray-darkGray">
+              {locale === 'es' ? 'Respuestas a preguntas comunes sobre nuestro servicio de delivery sin comisión.' : 'Answers to common questions about our zero-commission delivery service.'}
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="overflow-hidden">
+                <button
+                  className="w-full p-6 text-left flex justify-between items-start hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <div className="flex-1 pr-4">
+                    <h3 className="text-lg font-semibold text-ray-dark-900 mb-2">
+                      {faq.question}
+                    </h3>
+                  </div>
+                  {openFaq === index ? (
+                    <ChevronUp className="w-5 h-5 text-ray-blue flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-ray-blue flex-shrink-0" />
+                  )}
+                </button>
+                
+                {openFaq === index && (
+                  <div className="px-6 pb-6 border-t border-gray-200">
+                    <p className="text-ray-dark-700 leading-relaxed pt-4">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </Card>
+            ))}
+          </div>
+          
+          {/* Testimonial Card */}
+          <div className="mt-16">
+            <Card className="p-8 bg-gradient-to-r from-ray-blue/5 to-ray-green/5">
+              <div className="flex items-center space-x-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-ray-blue to-ray-green rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-bold text-xl">R</span>
+                </div>
+                <div>
+                  <blockquote className="text-lg font-medium text-ray-dark-900 mb-2">
+                    "{locale === 'es' ? 'No pasa una semana que no me pregunten de dónde vienen nuestros huéspedes. Nuestro sitio web y app porque hace que su experiencia sea mucho más fácil.' : 'There\'s not a week that goes by where I don\'t hear from our guests how much they love our website and app because it makes their experience so much easier.'}"
+                  </blockquote>
+                  <div className="text-sm text-ray-darkGray">
+                    <div className="font-medium">Rahul Bhalla</div>
+                    <div>{locale === 'es' ? 'Propietario de Satyam Indian Kitchen' : 'Owner of Satyam Indian Kitchen'}</div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-24 bg-ray-dark-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            {locale === 'es' ? 'Haz crecer los re-pedidos con una app móvil' : 'Grow re-orders with a mobile app'}
+          </h2>
+          <p className="text-xl text-gray-300 mb-8">
+            {locale === 'es' ? 'Tu propia app móvil. Owner hace crecer tus pedidos repetidos con tu app móvil con marca.' : 'Your own mobile app. Owner grows your repeat orders with your branded mobile app.'}
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              variant="primary" 
+              size="lg"
+              className="shadow-xl hover:shadow-2xl transition-all duration-300"
+              href={`/${locale}/demo?utm_source=delivery-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=final-demo`}
+              data-cta="demo"
+              data-analytics="delivery_final"
+            >
+              {locale === 'es' ? 'Obtén una demo gratis' : 'Get a free demo'}
+            </Button>
+            <Button 
+              variant="secondary" 
+              size="lg"
+              className="shadow-xl hover:shadow-2xl transition-all duration-300 bg-white text-ray-dark-900 hover:bg-gray-100"
+              href={`/${locale}/product/branded-apps?utm_source=delivery-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=final-branded-apps`}
+              data-cta="branded-apps"
+              data-analytics="delivery_final"
+            >
+              {locale === 'es' ? 'Ver App Móvil' : 'See Mobile App'}
+            </Button>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
+
+export default ZeroCommissionDelivery

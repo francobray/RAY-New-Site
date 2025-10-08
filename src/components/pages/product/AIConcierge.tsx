@@ -2,12 +2,11 @@
 
 import React, { useState, useEffect } from 'react'
 import { ArrowRight, CircleCheck as CheckCircle, Users, Star, ChevronDown, ChevronUp, Zap, MessageCircle, Instagram, Phone, ChevronLeft, ChevronRight, Mic, Volume2, PhoneOff, Calendar } from 'lucide-react'
-import HubSpotUnifiedModal from '../../HubSpotUnifiedModal'
 import TryItNowModal from '../../TryItNowModal'
 import PhoneCallModal from '../../PhoneCallModal'
-import { useHubSpotModal } from '../../../hooks/useHubSpotModal'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/constants/copy'
+import Button from '../../shared/BaseButton'
 
 interface AIConciergeProps {
   locale: Locale
@@ -17,12 +16,6 @@ const AIConcierge: React.FC<AIConciergeProps> = ({ locale }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [isChatModalOpen, setIsChatModalOpen] = useState(false)
   const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false)
-  const { 
-    isModalOpen,
-    currentConfig,
-    openModal,
-    closeModal
-  } = useHubSpotModal()
   
   const t = useTranslations(locale)
 
@@ -653,24 +646,22 @@ const ChatCarousel = () => {
           <p className="text-xl mb-8 opacity-90">
             {t.AI_CONCIERGE_PAGE.FINAL_CTA.SUBTITLE}
           </p>
-          <button 
-            onClick={() => openModal('demo-free')}
-            className="bg-white text-emerald-600 px-12 py-4 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 font-bold text-xl shadow-2xl"
+          <Button 
+            variant="secondary"
+            size="lg"
+            className="bg-white text-emerald-600 px-12 py-4 rounded-full hover:bg-emerald-50 hover:text-emerald-700 transition-all transform hover:scale-105 font-bold text-xl shadow-2xl border-2 border-emerald-600"
+            href={`/${locale}/demo`}
+            data-cta="demo-free"
+            data-analytics="ai_concierge_final_cta"
+            aria-label="Book a demo"
           >
             {t.AI_CONCIERGE_PAGE.FINAL_CTA.CTA}
-          </button>
+          </Button>
           <p className="mt-4 text-sm opacity-75">
             {t.AI_CONCIERGE_PAGE.FINAL_CTA.DISCLAIMER}
           </p>
         </div>
       </section>
-      
-      {/* HubSpot Modals */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
       
       {/* Try It Now Modals */}
       <TryItNowModal

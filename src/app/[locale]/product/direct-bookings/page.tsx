@@ -12,14 +12,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bookings - Maximize Table Occupancy & Guest Experience | RAY',
     description: 'Maximize table occupancy with smart booking management. Handle reservations, walk-ins, and waitlists while building guest relationships that drive repeat visits.',
-    url: 'https://rayapp.io/product/bookings',
+    url: 'https://rayapp.io/product/direct-bookings',
   },
   twitter: {
     title: 'Bookings - Maximize Table Occupancy & Guest Experience | RAY',
     description: 'Maximize table occupancy with smart booking management. Handle reservations, walk-ins, and waitlists while building guest relationships that drive repeat visits.',
   },
   alternates: {
-    canonical: 'https://rayapp.io/product/bookings',
+    canonical: 'https://rayapp.io/product/direct-bookings',
   },
 }
 

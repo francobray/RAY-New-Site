@@ -4,8 +4,6 @@ import React from 'react'
 import { Calendar, Users, BarChart3, Clock, Heart, CheckCircle, ArrowRight, TrendingUp, Star, UserCheck, RotateCcw, Shield } from 'lucide-react'
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
-import HubSpotUnifiedModal from '../../HubSpotUnifiedModal'
-import { useHubSpotModal } from '../../../hooks/useHubSpotModal'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/constants/copy'
 
@@ -15,7 +13,6 @@ interface BookingsProps {
 
 const Bookings: React.FC<BookingsProps> = ({ locale }) => {
   const t = useTranslations(locale)
-  const { openModal, isModalOpen, closeModal, currentConfig } = useHubSpotModal()
 
   const benefits = [
     {
@@ -145,7 +142,7 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
                 <Button
                   variant="secondary"
                   size="lg"
-                  onClick={() => openModal('demo-expert')}
+                  href={`/${locale}/demo`}
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
                   data-cta="demo-expert"
                   data-analytics="bookings_hero"
@@ -304,7 +301,7 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
             <Button
               variant="secondary"
               size="lg"
-              onClick={() => openModal('demo-free')}
+              href={`/${locale}/demo`}
               className="shadow-xl hover:shadow-2xl transition-all duration-300"
               data-cta="demo-free"
               data-analytics="bookings_final_cta"
@@ -323,8 +320,6 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
           </div>
         </div>
       </section>
-
-      <HubSpotUnifiedModal isOpen={isModalOpen} onClose={closeModal} config={currentConfig} />
     </>
   )
 }

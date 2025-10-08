@@ -4,8 +4,6 @@ import React from 'react'
 import { ArrowRight, CircleCheck as CheckCircle, Star, TrendingUp, Users, Calendar, MapPin, ShoppingCart, Zap, Shield, Clock } from 'lucide-react'
 import Button from '../shared/BaseButton'
 import Card from '../Card'
-import HubSpotUnifiedModal from '../HubSpotUnifiedModal'
-import { useHubSpotModal } from '../../hooks/useHubSpotModal'
 
 const products = [
   {
@@ -41,7 +39,7 @@ const products = [
       'Automated reminders & confirmations',
       'Analytics & insights dashboard'
     ],
-    href: '/product/bookings',
+    href: '/product/direct-bookings',
     gradient: 'from-emerald-500 to-teal-600',
     bgGradient: 'from-emerald-50 to-teal-50',
     isPopular: false
@@ -114,12 +112,6 @@ const testimonials = [
 ]
 
 const Products: React.FC = () => {
-  const { 
-    isModalOpen,
-    currentConfig,
-    closeModal
-  } = useHubSpotModal()
-
   return (
     <div>
       {/* Hero Section */}
@@ -453,13 +445,6 @@ const Products: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* HubSpot Modals */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
     </div>
   )
 }

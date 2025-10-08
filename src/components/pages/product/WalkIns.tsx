@@ -4,8 +4,6 @@ import React, { useState } from 'react'
 import { Star, TrendingUp, ArrowRight, CheckCircle, BarChart3, Search, Database, Globe, Camera, ChevronDown, ChevronUp } from 'lucide-react'
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
-import HubSpotUnifiedModal from '../../HubSpotUnifiedModal'
-import { useHubSpotModal } from '../../../hooks/useHubSpotModal'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '../../../lib/i18n'
 
@@ -14,13 +12,8 @@ interface WalkInsProps {
 }
 
 const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
-  const t = useTranslations(locale)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const { 
-    isModalOpen,
-    currentConfig,
-    closeModal
-  } = useHubSpotModal()
+  const t = useTranslations(locale)
 
   const features = [
     {
@@ -140,7 +133,7 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
                   variant="secondary" 
                   size="lg"
                   className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                  href="/demo?utm_source=walk-ins-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-expert"
+                  href={`/${locale}/demo?utm_source=walk-ins-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-expert`}
                   data-cta="demo-expert"
                   data-analytics="walk_ins_hero"
                   aria-label="Talk to an expert"
@@ -338,13 +331,6 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
           </div>
         </div>
       </section>
-      
-      {/* HubSpot Modals */}
-      <HubSpotUnifiedModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        config={currentConfig}
-      />
     </>
   )
 }

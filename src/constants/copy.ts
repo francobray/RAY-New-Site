@@ -13,7 +13,7 @@ export const COPY = {
     COMPANY: {
       NAME: 'RAY',
       TAGLINE: 'Aumenta los Ingresos de tu Restaurante',
-      DESCRIPTION: 'RAY es el software #1 que ayuda a restaurantes a atraer más Delivery directo, tráfico en sucursal y reservas directas',
+      DESCRIPTION: 'RAY ayuda a restaurantes a conseguir más Delivery directo, tráfico en sucursal y reservas directas',
       EMAIL: 'hello@rayapp.io',
       SUPPORT_EMAIL: 'support@rayapp.io'
     },
@@ -23,7 +23,7 @@ export const COPY = {
       BOOKINGS: {
         NAME: 'Reservas',
         TAGLINE: 'Maximiza la ocupación de mesas con gestión inteligente de reservas',
-        DESCRIPTION: 'Maximiza la ocupación de mesas con gestión inteligente de reservas, listas de espera y herramientas de relación con huéspedes.',
+        DESCRIPTION: 'Maximiza la ocupación de mesas con gestión inteligente de reservas, listas de espera y herramientas de relación con clientes.',
         METRIC: '+35%',
         METRIC_LABEL: 'utilización de mesas'
       },
@@ -78,9 +78,11 @@ export const COPY = {
         TITLE: 'Por qué los Propietarios de Restaurantes Eligen RAY',
         SUBTITLE: 'La plataforma comprobada que entrega resultados para propietarios de restaurantes a nivel nacional',
         SALES_PLATFORM: 'WhatsApp, Delivery, Reservas y Loyalty todo en uno',
-        SALES_PLATFORM_DESC: 'Un sistema probado que aumenta ventas (no una herramienta sin resultados)',
-        RESTAURANTS_TRUST: 'Integrado al POS y pensado para restaurantes independientes',
-        SUCCESS_STORIES: 'Integrado al POS y pensado para restaurantes independientes'
+        SALES_PLATFORM_DESC: 'Plataforma completa de marketing para restaurantes',
+        RESTAURANTS_TRUST: 'Un sistema probado que aumenta ventas (no una herramienta sin resultados)',
+        RESTAURANTS_TRUST_DESC: 'Metodología garantizada con resultados comprobados',
+        SUCCESS_STORIES: 'Integrado al POS y pensado para restaurantes independientes',
+        SUCCESS_STORIES_DESC: 'Construido específicamente para propietarios de restaurantes locales'
       },
       PRODUCTS_SECTION: {
         BADGE: 'Plataforma de Crecimiento de Ingresos Comprobada',
@@ -213,7 +215,7 @@ export const COPY = {
         TITLE: 'Demasiados DMs. Personal insuficiente. 😤',
         PROBLEMS: [
           {
-            TITLE: 'Los huéspedes te envían mensajes día y noche en todas las plataformas',
+            TITLE: 'Los clientes te envían mensajes día y noche en todas las plataformas',
             DESCRIPTION: 'Instagram, Facebook, WhatsApp, Google - están por todas partes'
           },
           {
@@ -221,7 +223,7 @@ export const COPY = {
             DESCRIPTION: 'Las respuestas lentas = clientes perdidos y reseñas negativas'
           },
           {
-            TITLE: 'Chats perdidos = pedidos perdidos y huéspedes frustrados',
+            TITLE: 'Chats perdidos = pedidos perdidos y clientes frustrados',
             DESCRIPTION: 'Cada mensaje sin respuesta es dinero que se va por la ventana'
           }
         ]
@@ -272,7 +274,7 @@ export const COPY = {
         SUBTITLE: 'Funciona con los sistemas que ya usas.',
         POS_SYSTEMS: ['Thinkion', 'Aloha', 'Square', 'Toast']
       },
-      FINAL_CTA_TITLE: 'Estar donde están tus huéspedes — sin mover un dedo',
+      FINAL_CTA_TITLE: 'Estar donde están tus clientes — sin mover un dedo',
       FINAL_CTA_SUBTITLE: 'Únete a cientos de restaurantes que ya usan IA para impulsar sus ventas. Comienza tu prueba gratuita hoy y ve la diferencia en 24 horas.',
       FINAL_CTA_BUTTON: 'Reservar una Demo Ahora',
       FINAL_CTA_DISCLAIMER: 'Sin tarjeta de crédito requerida • Prueba gratuita de 14 días • Configuración en menos de 5 minutos'
@@ -283,7 +285,7 @@ export const COPY = {
       BADGE: 'Gestión Inteligente de Reservas',
       HERO_TITLE: 'Obtén Más Reservas Directas. Conéctate con',
       HERO_TITLE_HIGHLIGHT: 'Cada Cliente',
-      HERO_SUBTITLE: 'Gestiona reservas, walk-ins y listas de espera sin problemas mientras construyes relaciones duraderas con tus huéspedes que generan visitas repetidas.',
+      HERO_SUBTITLE: 'Gestiona reservas, walk-ins y listas de espera sin problemas mientras construyes relaciones duraderas con tus clientes que generan visitas repetidas.',
       CTA_PRIMARY: 'Escanea tu restaurante',
       CTA_SECONDARY: 'Habla con un Experto',
       STATS: {
@@ -306,7 +308,7 @@ export const COPY = {
       FEATURES_SECTION: {
         BADGE: 'Gestión Completa de Reservas',
         TITLE: 'Todo lo que Necesitas para Maximizar Cada Mesa',
-        SUBTITLE: 'Desde reservas online hasta gestión de walk-ins, nuestra plataforma maneja cada aspecto de las reservas de huéspedes mientras construye relaciones que impulsan negocios repetidos.',
+        SUBTITLE: 'Desde reservas online hasta gestión de walk-ins, nuestra plataforma maneja cada aspecto de las reservas de clientes mientras construye relaciones que impulsan negocios repetidos.',
         FEATURES: [
           {
             TITLE: 'Reservas Online y Mayor Visibilidad',
@@ -317,12 +319,12 @@ export const COPY = {
             DESCRIPTION: 'Nunca rechaces a un huésped otra vez. Gestiona walk-ins y listas de espera eficientemente durante horas pico.'
           },
           {
-            TITLE: 'CRM de Huéspedes y Preferencias',
-            DESCRIPTION: 'Construye relaciones duraderas con perfiles detallados de huéspedes, preferencias e historial de visitas.'
+            TITLE: 'CRM de clientes y preferencias',
+            DESCRIPTION: 'Construye relaciones duraderas con perfiles detallados de clientes, preferencias e historial de visitas.'
           },
           {
             TITLE: 'Análisis e Insights',
-            DESCRIPTION: 'Toma decisiones basadas en datos con análisis comprensivos sobre reservas, no-shows y flujo de huéspedes.'
+            DESCRIPTION: 'Toma decisiones basadas en datos con análisis comprensivos sobre reservas, no-shows y flujo de clientes.'
           },
           {
             TITLE: 'Recordatorios y Confirmaciones Automáticas',
@@ -356,7 +358,7 @@ export const COPY = {
         ]
       },
       TESTIMONIAL: {
-        QUOTE: 'La plataforma de reservas de RAY transformó cómo gestionamos nuestro restaurante. Pasamos de rechazar constantemente personas a maximizar cada mesa. Solo la función de lista de espera aumentó nuestros ingresos en 35% durante horas pico, y a nuestros huéspedes les encanta la experiencia sin problemas.',
+        QUOTE: 'La plataforma de reservas de RAY transformó cómo gestionamos nuestro restaurante. Pasamos de rechazar constantemente personas a maximizar cada mesa. Solo la función de lista de espera aumentó nuestros ingresos en 35% durante horas pico, y a nuestros clientes les encanta la experiencia sin problemas.',
         AUTHOR: 'María Rodríguez',
         POSITION: 'Propietaria, Restaurante Bella Vista'
       },
@@ -807,9 +809,9 @@ export const COPY = {
       PROBLEM: {
         TITLE: 'Demasiados DMs. Personal insuficiente. 😤',
         ISSUES: [
-          'Los huéspedes te envían mensajes día y noche en todas las plataformas',
+          'Los clientes te envían mensajes día y noche en todas las plataformas',
           'Tu personal no puede responder lo suficientemente rápido a todos',
-          'Chats perdidos = pedidos perdidos y huéspedes frustrados'
+          'Chats perdidos = pedidos perdidos y clientes frustrados'
         ],
         SOLUTION: {
           TITLE: 'Nuestro agente de IA nunca duerme. ⚡',
@@ -821,7 +823,7 @@ export const COPY = {
         PLATFORMS: [
           {
             name: 'WhatsApp',
-            description: 'Donde la mayoría de tus huéspedes ya chatean. Perfecto para pedidos y preguntas rápidas.',
+            description: 'Donde la mayoría de tus clientes ya chatean. Perfecto para pedidos y preguntas rápidas.',
             features: [
               'Confirmaciones instantáneas de pedidos',
               'Compartir menú',
@@ -902,7 +904,7 @@ export const COPY = {
           },
           {
             title: '📅 Reservas automáticas',
-            description: 'Permite que los huéspedes reserven mesas sin llamar'
+            description: 'Permite que los clientes reserven mesas sin llamar'
           },
           {
             title: '⭐ Construir recompensas de lealtad',
@@ -941,10 +943,326 @@ export const COPY = {
         ]
       },
       FINAL_CTA: {
-        TITLE: 'Sé donde están tus huéspedes — sin mover un dedo. 🙌',
+        TITLE: 'Sé donde están tus clientes — sin mover un dedo. 🙌',
         SUBTITLE: 'Únete a cientos de restaurantes que ya usan IA para impulsar sus ventas. Comienza tu prueba gratuita hoy y ve la diferencia en 24 horas.',
         CTA: 'Reservar Demo Ahora',
         DISCLAIMER: 'No se requiere tarjeta de crédito • Prueba gratuita de 14 días • Configuración en menos de 5 minutos'
+      }
+    },
+    LOYALTY_PAGE: {
+      HERO: {
+        TITLE: 'Ofrece un programa de recompensas',
+        TITLE_HIGHLIGHT: 'como las cadenas nacionales.',
+        SUBTITLE: 'Construye lealtad del cliente con un programa de recompensas. Mantén a los clientes regresando por más, como las grandes marcas.',
+        CTA_DEMO: 'Obtener demo gratis',
+        CTA_PRICING: 'Ver Precios'
+      },
+      FEATURES: {
+        TITLE: 'Ejecuta un programa de lealtad que tus clientes habituales amarán',
+        LIST: [
+          {
+            title: 'Usa recompensas para conseguir más fanáticos',
+            description: 'Los puntos de lealtad convierten compradores ocasionales en clientes habituales leales.'
+          },
+          {
+            title: 'Registro sin complicaciones para clientes',
+            description: 'Los clientes pueden unirse a tu programa de recompensas en segundos.'
+          },
+          {
+            title: 'Fácil para clientes rastrear recompensas',
+            description: 'Los clientes pueden rastrear puntos fácilmente, especialmente en tu app.'
+          }
+        ]
+      },
+      BOOST_ORDERS: {
+        TITLE: 'Impulsa tus pedidos repetidos',
+        SUBTITLE: 'Anima a clientes casuales a regresar.',
+        SETUP_TITLE: 'Configuración simple. Fácil para clientes ganar. Fácil de rastrear.',
+        SETUP_DESCRIPTION: 'Configura tu programa de recompensas en minutos y permite que los clientes comiencen a ganar puntos inmediatamente.'
+      },
+      SIGNUP: {
+        TITLE: 'El registro rápido de recompensas consigue más fanáticos leales.',
+        SUCCESS_MESSAGE: '¡Ya estás registrado en el programa de recompensas de Ottavio!'
+      },
+      FAQ: {
+        TITLE: 'Preguntas Frecuentes',
+        QUESTIONS: [
+          {
+            question: '¿Cómo ayudará este programa de lealtad a aumentar mis ventas?',
+            answer: 'Los programas de lealtad aumentan la retención de clientes en un 5% lo que puede impulsar las ganancias en un 25-95%. Los clientes habituales gastan 67% más que los nuevos clientes y es más probable que prueben nuevos elementos del menú.'
+          },
+          {
+            question: '¿Cómo se registran los clientes en mi programa de lealtad?',
+            answer: 'Los clientes pueden registrarse a través de tu app, sitio web, o en la tienda con solo su número de teléfono o email. El proceso toma menos de 30 segundos y pueden comenzar a ganar puntos inmediatamente.'
+          },
+          {
+            question: '¿Puedo personalizar las recompensas para que se ajusten a la marca de mi restaurante?',
+            answer: '¡Sí! Puedes personalizar valores de puntos, niveles de recompensas, ofertas especiales, e incluso la apariencia para que coincida con la marca de tu restaurante y las preferencias de los clientes.'
+          }
+        ]
+      },
+      TESTIMONIAL: {
+        QUOTE: 'La plataforma ha sido como un superpoder para restaurantes que aumenta las ventas e impulsa nuevos clientes consistentemente.',
+        AUTHOR: 'Rahul Bhalla',
+        POSITION: 'Propietario de Satyam Indian Kitchen',
+        SALES: '+$4,500,000',
+        LOCATIONS: '+4',
+        SALES_LABEL: 'en ventas',
+        LOCATIONS_LABEL: 'ubicaciones',
+        CTA: 'Ver la historia de Rahul →'
+      },
+      GUIDES: {
+        TITLE: 'Ve nuestras guías para programas de lealtad y recompensas',
+        CTA: 'Leer el blog',
+        GUIDE_1: 'Así es Como Construir un Programa de Lealtad Rentable',
+        GUIDE_2: 'Cómo un Programa de Lealtad Aumentó Dramáticamente las Ventas Online de Ottavio'
+      },
+      FINAL_CTA: {
+        TITLE: 'Automatiza el marketing a tus clientes',
+        SUBTITLE: 'Ejecuta campañas de marketing de crecimiento que hagan crecer tus ventas online.',
+        CTA: 'Comenzar hoy'
+      }
+    },
+    MOBILE_APP_PAGE: {
+      HERO: {
+        BADGE: 'App Móvil Personalizada',
+        TITLE: 'Imagina tener tu propia',
+        TITLE_HIGHLIGHT: 'app móvil',
+        SUBTITLE: 'Con una app móvil, envía a los clientes a ordenar directamente — en lugar de ir a terceros.',
+        CTA_DEMO: 'Obtener una demo gratuita',
+        CTA_PRICING: 'Ver precios',
+        STAT_1: '85% más pedidos repetidos',
+        STAT_2: 'Sin comisiones'
+      },
+      BENEFITS: {
+        TITLE: 'Cada restaurante hoy necesita una app móvil',
+        FEATURES: [
+          {
+            title: 'La forma más rápida para que tus clientes habituales ordenen',
+            description: 'Los clientes pueden reordenar en unos pocos toques. Sin distracciones de otros restaurantes.'
+          },
+          {
+            title: 'Tu propia app móvil de 5 estrellas',
+            description: 'Hemos ayudado a restaurantes a obtener miles de reseñas de 5 estrellas en Apple y Android.'
+          },
+          {
+            title: 'Impulsa pedidos repetidos',
+            description: 'Los restaurantes con apps obtienen 85% más clientes que regresan.'
+          }
+        ]
+      },
+      REORDER_SECTION: {
+        BADGE: 'Pedido rápido',
+        TITLE: 'Los clientes habituales pueden reordenar en segundos.',
+        SUBTITLE: 'Tu app guarda sus pedidos favoritos y información de pago para una experiencia de reorden súper rápida.'
+      },
+      SOCIAL_PROOF: {
+        BADGE: 'Controla las opciones de entrega',
+        TITLE: 'Miles de calificaciones de 5 estrellas en Apple y Android. Es tu turno.',
+        APP_STORE_LABEL: 'Reseñas de App Store',
+        GOOGLE_PLAY_LABEL: 'Reseñas de Google Play',
+        LOYALTY_TITLE: 'Lealtad del cliente',
+        LOYALTY_STAT: 'Las apps impulsan 85% más pedidos repetidos.',
+        LOYALTY_DESCRIPTION: 'Los clientes con tu app ordenan con más frecuencia y gastan más por pedido.',
+        TESTIMONIAL: '"La app hace que ordenar sea muy fácil. Uso mis pedidos guardados todo el tiempo!"'
+      },
+      FAQ: {
+        TITLE: 'Preguntas Frecuentes',
+        QUESTIONS: [
+          {
+            question: '¿Los restaurantes independientes realmente necesitan su propia app?',
+            answer: 'Sí, especialmente si quieres competir con las cadenas nacionales. Una app móvil te da control directo sobre la experiencia del cliente y elimina las comisiones de terceros.'
+          },
+          {
+            question: '¿Construyen una app personalizada desde cero?',
+            answer: 'Creamos una app completamente personalizada con tu marca, colores, logo y menú. Aunque usamos una plataforma probada, cada app es única para tu restaurante.'
+          },
+          {
+            question: '¿Cuánto cuesta esto?',
+            answer: 'Nuestras apps móviles comienzan desde $270/mes con una tarifa de configuración única. Sin comisiones por pedido - todos los ingresos van directamente a ti.'
+          }
+        ]
+      },
+      FINAL_CTA: {
+        TITLE: 'Obtén tu propia app móvil hoy',
+        SUBTITLE: 'Únete a cientos de restaurantes que ya tienen su propia app móvil personalizada.',
+        CTA: 'Comenzar hoy'
+      }
+    },
+    WEBSITE_BUILDER_PAGE: {
+      HERO: {
+        BADGE: 'Sitios Web Impulsados por IA',
+        TITLE: 'Sitios web de restaurante construidos para',
+        TITLE_HIGHLIGHT: 'ventas primero, estilo segundo.',
+        SUBTITLE: 'Owner construye tu sitio web para impulsar ventas. Nuestro diseño comprobado genera tráfico de Google, optimiza aplicaciones de delivery y aloja tu competencia.',
+        CTA_DEMO: 'Obtén una demo gratis',
+        CTA_PRICING: 'Ver Precios',
+        STAT_1: 'Listo en días, no meses',
+        STAT_2: 'Optimizado para Google'
+      },
+      FEATURES: {
+        TITLE: 'Un diseño comprobado que genera más tráfico',
+        SUBTITLE: 'Sitios optimizados por IA impulsan el SEO y el tráfico de Google.',
+        LIST: [
+          {
+            title: 'Sitios Web Optimizados para SEO',
+            description: 'Sitios web diseñados para ser encontrados en Google y convertir visitantes en clientes',
+            details: [
+              'Optimización automática para búsquedas locales',
+              'Páginas que cargan rápido para mejor experiencia'
+            ]
+          },
+          {
+            title: 'Diseño Móvil Primero',
+            description: 'Sitios web que se ven perfectos en cualquier dispositivo, especialmente móviles',
+            details: [
+              'Diseño responsivo para todos los tamaños de pantalla',
+              'Experiencia optimizada para pedidos móviles'
+            ]
+          },
+          {
+            title: 'Configuración Rápida',
+            description: 'Tu nuevo sitio web estará listo en días, no meses',
+            details: [
+              'Configuración automática con tu información existente',
+              'Diseños probados que convierten visitantes en clientes'
+            ]
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'Preguntas Frecuentes',
+        SUBTITLE: 'Todo lo que necesitas saber sobre nuestro constructor de sitios web para restaurantes.',
+        QUESTIONS: [
+          {
+            question: '¿Qué pasa con mi sitio web actual?',
+            answer: 'RAY reemplaza tu sitio web actual. Redirigimos tu dominio a tu nuevo sitio web con RAY, manteniendo toda tu presencia online intacta.'
+          },
+          {
+            question: '¿Cuánto tiempo toma tener mi nuevo sitio web?',
+            answer: 'La mayoría de sitios web están listos en 3-5 días hábiles. Tendrás un especialista dedicado que te guiará durante todo el proceso.'
+          },
+          {
+            question: '¿Puedo personalizar el diseño de mi sitio web?',
+            answer: 'Sí, trabajamos contigo para personalizar colores, fotos, menús y contenido para que refleje perfectamente la marca de tu restaurante.'
+          }
+        ]
+      }
+    },
+    ZERO_COMMISSION_DELIVERY_PAGE: {
+      HERO: {
+        BADGE: 'Delivery Rentable',
+        TITLE: 'Delivery rentable y una',
+        TITLE_HIGHLIGHT: 'gran experiencia para huéspedes.',
+        SUBTITLE: 'Haz que tus clientes ordenen desde tu app, con drivers de alta calificación, a un precio justo.',
+        CTA_DEMO: 'Obtén una demo gratis',
+        CTA_PRICING: 'Ver Precios'
+      },
+      FEATURES: {
+        TITLE: 'Delivery que es mejor para ti y tus huéspedes',
+        SUBTITLE: 'Controla tu experiencia de delivery con drivers de calidad y precios transparentes.',
+        LIST: [
+          {
+            title: 'Tarifa fija para delivery',
+            description: 'Usa drivers de terceros a tarifas fijas favorables para delivery sin markup o drivers propios, tú eliges el mejor precio.',
+            details: [
+              'Tarifas transparentes sin sorpresas',
+              'Control total sobre los costos de delivery'
+            ]
+          },
+          {
+            title: 'Obtén los mejores drivers, sin comisión',
+            description: 'Solo usamos drivers calificados 4.5 estrellas o más para entregar tu comida.',
+            details: [
+              'Drivers verificados y de alta calidad',
+              'Servicio confiable para tus clientes'
+            ]
+          },
+          {
+            title: 'Una línea directa a tus clientes',
+            description: 'Puedes llamar a los clientes directamente. Cubrimos reembolsos por cualquier problema de delivery.',
+            details: [
+              'Comunicación directa con clientes',
+              'Soporte completo para problemas de delivery'
+            ]
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'FAQs',
+        SUBTITLE: 'Respuestas a preguntas comunes sobre nuestro servicio de delivery sin comisión.',
+        QUESTIONS: [
+          {
+            question: '¿Por qué los clientes ordenarían desde mi app en lugar de terceros?',
+            answer: 'Tu app ofrece una experiencia más directa y personalizada. Los clientes pueden ganar puntos de lealtad, obtener ofertas exclusivas, y tener comunicación directa contigo. Además, sus pedidos favoritos se guardan para reordenar fácilmente.'
+          },
+          {
+            question: '¿Quién paga por el delivery, el cliente o el restaurante?',
+            answer: 'Tú decides. Puedes cobrar a los clientes una tarifa de delivery, absorber el costo como parte de tu estrategia de precios, o usar un modelo híbrido. Te damos total flexibilidad para estructurar tus precios.'
+          },
+          {
+            question: '¿Por qué las apps de terceros aceptarían esto?',
+            answer: 'Trabajamos con una red de drivers independientes y servicios de delivery que buscan más trabajo. Al ofrecer tarifas justas y volumen consistente, creamos una situación donde todos ganan: tú obtienes mejor servicio, los drivers ganan más, y los clientes reciben mejor experiencia.'
+          }
+        ]
+      }
+    },
+    AUTOMATED_MARKETING_PAGE: {
+      HERO: {
+        BADGE: 'Marketing Impulsado por Datos',
+        TITLE: 'Marketing que genera dinero,',
+        TITLE_HIGHLIGHT: 'impulsado por datos de clientes',
+        SUBTITLE: 'Convierte cada pedido en datos valiosos. Usa esos datos para ejecutar campañas de marketing automatizadas que hacen crecer tus ventas.',
+        CTA_DEMO: 'Obtén una demo gratis',
+        CTA_PRICING: 'Ver Precios'
+      },
+      FEATURES: {
+        TITLE: 'Alcanza más clientes con marketing automatizado',
+        SUBTITLE: 'Usa datos de clientes para crear campañas que generan más ventas automáticamente.',
+        LIST: [
+          {
+            title: 'Haz crecer tus ventas con campañas comprobadas',
+            description: 'Ejecuta campañas de marketing automatizadas que hacen crecer pedidos.',
+            details: [
+              'Campañas probadas que generan resultados',
+              'Automatización completa para ahorrar tiempo'
+            ]
+          },
+          {
+            title: 'Haz crecer tu lista de clientes',
+            description: 'Cada cliente directo genera más datos, dándote más datos para impulsar más ventas.',
+            details: [
+              'Construcción automática de base de datos de clientes',
+              'Segmentación inteligente para mejores resultados'
+            ]
+          },
+          {
+            title: 'Escribe más rápido con IA',
+            description: 'Simplifica tus campañas de marketing. Usa nuestra IA asistente para escribir correos inteligentes en segundos.',
+            details: [
+              'Generación de contenido impulsada por IA',
+              'Plantillas optimizadas para restaurantes'
+            ]
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'FAQs',
+        SUBTITLE: 'Respuestas a preguntas comunes sobre nuestro marketing automatizado.',
+        QUESTIONS: [
+          {
+            question: '¿Cuáles son algunos ejemplos de tus campañas comprobadas?',
+            answer: 'Nuestras campañas incluyen recordatorios de pedidos, ofertas de lealtad, promociones estacionales, seguimiento post-compra, y campañas de reactivación de clientes inactivos. Todas están optimizadas específicamente para restaurantes y han demostrado aumentar las ventas consistentemente.'
+          },
+          {
+            question: '¿Puedo ejecutar mis propias campañas de marketing?',
+            answer: 'Absolutamente. Puedes crear campañas personalizadas usando nuestro editor intuitivo y asistente de IA. También proporcionamos plantillas probadas que puedes personalizar según tu marca y necesidades específicas.'
+          },
+          {
+            question: '¿Debería dejar de usar apps de terceros?',
+            answer: 'No necesariamente. Nuestro marketing automatizado funciona mejor cuando tienes clientes directos, pero puede complementar tus esfuerzos en plataformas de terceros. Te ayudamos a migrar gradualmente más clientes a pedidos directos donde tienes mejor control y márgenes.'
+          }
+        ]
       }
     }
   },
@@ -1026,9 +1344,11 @@ export const COPY = {
         TITLE: 'Why Restaurant Owners Choose RAY',
         SUBTITLE: 'The proven platform that delivers results for restaurant owners nationwide',
         SALES_PLATFORM: 'WhatsApp, Delivery, Bookings & Loyalty all in one',
-        SALES_PLATFORM_DESC: 'A proven system that increases sales (not a tool without results)',
-        RESTAURANTS_TRUST: 'POS integrated and designed for independent restaurants',
-        SUCCESS_STORIES: 'POS integrated and designed for independent restaurants'
+        SALES_PLATFORM_DESC: 'Complete restaurant marketing platform',
+        RESTAURANTS_TRUST: 'A proven system that increases sales (not a tool without results)',
+        RESTAURANTS_TRUST_DESC: 'Guaranteed methodology with proven results',
+        SUCCESS_STORIES: 'POS integrated and designed for independent restaurants',
+        SUCCESS_STORIES_DESC: 'Built specifically for local restaurant owners'
       },
       PRODUCTS_SECTION: {
         BADGE: 'Proven Revenue Growth Platform',
@@ -1893,6 +2213,322 @@ export const COPY = {
         SUBTITLE: 'Join hundreds of restaurants already using AI to boost their sales. Start your free trial today and see the difference in 24 hours.',
         CTA: 'Book a Demo Now',
         DISCLAIMER: 'No credit card required • 14-day free trial • Setup in under 5 minutes'
+      }
+    },
+    LOYALTY_PAGE: {
+      HERO: {
+        TITLE: 'Offer a rewards program',
+        TITLE_HIGHLIGHT: 'like the national chains.',
+        SUBTITLE: 'Build customer loyalty with a rewards program. Keep guests coming back for more, just like the big brands.',
+        CTA_DEMO: 'Get a free demo',
+        CTA_PRICING: 'View Pricing'
+      },
+      FEATURES: {
+        TITLE: 'Run a loyalty program your regulars will love',
+        LIST: [
+          {
+            title: 'Use rewards to get more fans',
+            description: 'Loyalty points turn occasional buyers into loyal regulars.'
+          },
+          {
+            title: 'No-brainer guest signup',
+            description: 'Customers can join your rewards program in seconds.'
+          },
+          {
+            title: 'Easy for guests to track rewards',
+            description: 'Guests can track points easily, especially on your app.'
+          }
+        ]
+      },
+      BOOST_ORDERS: {
+        TITLE: 'Boost your repeat orders',
+        SUBTITLE: 'Encourage casual customers to come back.',
+        SETUP_TITLE: 'Simple setup. Easy for customers to earn. Easy to track.',
+        SETUP_DESCRIPTION: 'Set up your rewards program in minutes and let customers start earning points immediately.'
+      },
+      SIGNUP: {
+        TITLE: 'Quick rewards signup gets more loyal fans.',
+        SUCCESS_MESSAGE: 'You\'re now signed up for Ottavio\'s rewards program!'
+      },
+      FAQ: {
+        TITLE: 'FAQs',
+        QUESTIONS: [
+          {
+            question: 'How will this loyalty program help increase my sales?',
+            answer: 'Loyalty programs increase customer retention by 5% which can boost profits by 25-95%. Regular customers spend 67% more than new customers and are more likely to try new menu items.'
+          },
+          {
+            question: 'How do customers sign up for my loyalty program?',
+            answer: 'Customers can sign up through your app, website, or in-store with just their phone number or email. The process takes less than 30 seconds and they can start earning points immediately.'
+          },
+          {
+            question: 'Can I customize the rewards to fit my restaurant\'s brand?',
+            answer: 'Yes! You can customize point values, reward tiers, special offers, and even the look and feel to match your restaurant\'s branding and customer preferences.'
+          }
+        ]
+      },
+      TESTIMONIAL: {
+        QUOTE: 'The platform has been like a superpower for restaurants that increases sales and drives new customers consistently.',
+        AUTHOR: 'Rahul Bhalla',
+        POSITION: 'Owner of Satyam Indian Kitchen',
+        SALES: '+$4,500,000',
+        LOCATIONS: '+4',
+        SALES_LABEL: 'in sales',
+        LOCATIONS_LABEL: 'locations',
+        CTA: 'See Rahul\'s story →'
+      },
+      GUIDES: {
+        TITLE: 'See our guides for loyalty and rewards programs',
+        CTA: 'Read the blog',
+        GUIDE_1: 'Here\'s How To Build A Profitable Loyalty Program',
+        GUIDE_2: 'How a Loyalty Program Dramatically Increased Ottavio\'s Online Sales'
+      },
+      FINAL_CTA: {
+        TITLE: 'Automate marketing to your customers',
+        SUBTITLE: 'Run growth marketing campaigns that grow your online sales.',
+        CTA: 'Get started today'
+      }
+    },
+    MOBILE_APP_PAGE: {
+      HERO: {
+        BADGE: 'Custom Mobile App',
+        TITLE: 'Imagine having your own',
+        TITLE_HIGHLIGHT: 'restaurant mobile app',
+        SUBTITLE: 'With a mobile app, send customers order directly — instead of going to third parties.',
+        CTA_DEMO: 'Get a free demo',
+        CTA_PRICING: 'View Pricing',
+        STAT_1: '85% more repeat orders',
+        STAT_2: 'No commissions'
+      },
+      BENEFITS: {
+        TITLE: 'Every restaurant today needs a mobile app',
+        FEATURES: [
+          {
+            title: 'The fastest way for your regulars to order',
+            description: 'Customers can re-order in a few taps. No distractions from other restaurants.'
+          },
+          {
+            title: 'Your own 5-star mobile app',
+            description: 'We\'ve helped restaurants earn thousands of 5-star reviews on Apple and Android.'
+          },
+          {
+            title: 'It drives repeat orders',
+            description: 'Restaurants with apps get 85% more return customers.'
+          }
+        ]
+      },
+      REORDER_SECTION: {
+        BADGE: 'Fast ordering',
+        TITLE: 'Regulars can reorder in seconds.',
+        SUBTITLE: 'Your app saves their favorite orders and payment info for a super-fast reordering experience.'
+      },
+      SOCIAL_PROOF: {
+        BADGE: 'Control delivery options',
+        TITLE: 'Thousands of 5-star ratings on Apple and Android. It\'s your turn.',
+        APP_STORE_LABEL: 'App Store Reviews',
+        GOOGLE_PLAY_LABEL: 'Google Play Reviews',
+        LOYALTY_TITLE: 'Customer loyalty',
+        LOYALTY_STAT: 'Apps drive 85% more repeat orders.',
+        LOYALTY_DESCRIPTION: 'Customers with your app order more frequently and spend more per order.',
+        TESTIMONIAL: '"The app makes ordering so easy. I use my saved orders all the time!"'
+      },
+      FAQ: {
+        TITLE: 'FAQs',
+        QUESTIONS: [
+          {
+            question: 'Do independent restaurants really need their own app?',
+            answer: 'Yes, especially if you want to compete with national chains. A mobile app gives you direct control over the customer experience and eliminates third-party commissions.'
+          },
+          {
+            question: 'Do you build me a custom app from scratch?',
+            answer: 'We create a fully customized app with your branding, colors, logo, and menu. While we use a proven platform, each app is unique to your restaurant.'
+          },
+          {
+            question: 'How much does this cost?',
+            answer: 'Our mobile apps start at $270/month with a one-time setup fee. No per-order commissions - all revenue goes directly to you.'
+          }
+        ]
+      },
+      FINAL_CTA: {
+        TITLE: 'Get your own mobile app today',
+        SUBTITLE: 'Join hundreds of restaurants that already have their own custom mobile app.',
+        CTA: 'Get started today'
+      }
+    },
+    WEBSITE_BUILDER_PAGE: {
+      HERO: {
+        BADGE: 'AI-Powered Websites',
+        TITLE: 'Restaurant websites built for',
+        TITLE_HIGHLIGHT: 'sales first, style second.',
+        SUBTITLE: 'Owner builds your website to drive sales. Our proven design grows Google traffic, optimizes delivery apps, and hosts your competition.',
+        CTA_DEMO: 'Get a free demo',
+        CTA_PRICING: 'View Pricing',
+        STAT_1: 'Ready in days, not months',
+        STAT_2: 'Google optimized'
+      },
+      FEATURES: {
+        TITLE: 'A proven design that drives more traffic',
+        SUBTITLE: 'AI-optimized sites boost SEO and Google traffic.',
+        LIST: [
+          {
+            title: 'SEO-Optimized Websites',
+            description: 'Websites designed to be found on Google and convert visitors into customers',
+            details: [
+              'Automatic optimization for local searches',
+              'Fast-loading pages for better experience'
+            ]
+          },
+          {
+            title: 'Mobile-First Design',
+            description: 'Websites that look perfect on any device, especially mobile',
+            details: [
+              'Responsive design for all screen sizes',
+              'Optimized experience for mobile ordering'
+            ]
+          },
+          {
+            title: 'Quick Setup',
+            description: 'Your new website will be ready in days, not months',
+            details: [
+              'Automatic setup with your existing information',
+              'Proven designs that convert visitors into customers'
+            ]
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'Frequently Asked Questions',
+        SUBTITLE: 'Everything you need to know about our restaurant website builder.',
+        QUESTIONS: [
+          {
+            question: 'What happens to my current website?',
+            answer: 'RAY replaces your current website. We redirect your domain to your new website with RAY, keeping all your online presence intact.'
+          },
+          {
+            question: 'How long does it take to get my new website?',
+            answer: 'Most websites are ready in 3-5 business days. You\'ll have a dedicated specialist guiding you through the entire process.'
+          },
+          {
+            question: 'Can I customize my website design?',
+            answer: 'Yes, we work with you to customize colors, photos, menus, and content so it perfectly reflects your restaurant\'s brand.'
+          }
+        ]
+      }
+    },
+    ZERO_COMMISSION_DELIVERY_PAGE: {
+      HERO: {
+        BADGE: 'Profitable Delivery',
+        TITLE: 'Profitable delivery and a',
+        TITLE_HIGHLIGHT: 'great guest experience.',
+        SUBTITLE: 'Get your customers to order from your app, with top-rated drivers, at a fair price.',
+        CTA_DEMO: 'Get a free demo',
+        CTA_PRICING: 'View Pricing'
+      },
+      FEATURES: {
+        TITLE: 'Delivery that\'s better for you and your guests',
+        SUBTITLE: 'Control your delivery experience with quality drivers and transparent pricing.',
+        LIST: [
+          {
+            title: 'Pay a flat rate for delivery',
+            description: 'Use third-party drivers at fixed rates favorable for delivery or small drivers, you choose the longer price.',
+            details: [
+              'Transparent rates with no surprises',
+              'Full control over delivery costs'
+            ]
+          },
+          {
+            title: 'Get the best drivers, commission free',
+            description: 'We only use drivers rated 4.5 stars or higher to deliver your food.',
+            details: [
+              'Verified and high-quality drivers',
+              'Reliable service for your customers'
+            ]
+          },
+          {
+            title: 'A direct line to your customers',
+            description: 'You can call customers directly. We\'ll cover refunds for any delivery issues.',
+            details: [
+              'Direct communication with customers',
+              'Full support for delivery issues'
+            ]
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'FAQs',
+        SUBTITLE: 'Answers to common questions about our zero-commission delivery service.',
+        QUESTIONS: [
+          {
+            question: 'Why would customers order from my app instead of third parties?',
+            answer: 'Your app offers a more direct and personalized experience. Customers can earn loyalty points, get exclusive offers, and have direct communication with you. Plus, their favorite orders are saved for easy reordering.'
+          },
+          {
+            question: 'Who pays for delivery, the guest or the restaurant?',
+            answer: 'You decide. You can charge customers a delivery fee, absorb the cost as part of your pricing strategy, or use a hybrid model. We give you total flexibility to structure your pricing.'
+          },
+          {
+            question: 'Why would third-party apps go for this?',
+            answer: 'We work with a network of independent drivers and delivery services looking for more work. By offering fair rates and consistent volume, we create a win-win situation: you get better service, drivers earn more, and customers receive better experience.'
+          }
+        ]
+      }
+    },
+    AUTOMATED_MARKETING_PAGE: {
+      HERO: {
+        BADGE: 'Data-Powered Marketing',
+        TITLE: 'Money-making marketing,',
+        TITLE_HIGHLIGHT: 'powered by customer data',
+        SUBTITLE: 'Turn every order into valuable data. Use that data to run automated marketing campaigns that grow your sales.',
+        CTA_DEMO: 'Get a free demo',
+        CTA_PRICING: 'View Pricing'
+      },
+      FEATURES: {
+        TITLE: 'Reach more customers with automated marketing',
+        SUBTITLE: 'Use customer data to create campaigns that generate more sales automatically.',
+        LIST: [
+          {
+            title: 'Grow your sales with proven campaigns',
+            description: 'Run automated marketing campaigns that grow orders.',
+            details: [
+              'Proven campaigns that generate results',
+              'Full automation to save time'
+            ]
+          },
+          {
+            title: 'Grow your customer list',
+            description: 'Every direct order grows your list, giving you more data to drive more sales.',
+            details: [
+              'Automatic customer database building',
+              'Smart segmentation for better results'
+            ]
+          },
+          {
+            title: 'Write faster with AI',
+            description: 'Simplify your marketing campaigns. Use our AI assistant to write smart emails in seconds.',
+            details: [
+              'AI-powered content generation',
+              'Templates optimized for restaurants'
+            ]
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'FAQs',
+        SUBTITLE: 'Answers to common questions about our automated marketing.',
+        QUESTIONS: [
+          {
+            question: 'What are some examples of your proven campaigns?',
+            answer: 'Our campaigns include order reminders, loyalty offers, seasonal promotions, post-purchase follow-ups, and inactive customer reactivation campaigns. All are specifically optimized for restaurants and have proven to increase sales consistently.'
+          },
+          {
+            question: 'Can I run my own marketing campaigns?',
+            answer: 'Absolutely. You can create custom campaigns using our intuitive editor and AI assistant. We also provide proven templates that you can customize to match your brand and specific needs.'
+          },
+          {
+            question: 'Should I stop using third-party apps?',
+            answer: 'Not necessarily. Our automated marketing works best when you have direct customers, but it can complement your third-party platform efforts. We help you gradually migrate more customers to direct orders where you have better control and margins.'
+          }
+        ]
       }
     }
   }

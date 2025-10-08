@@ -8,11 +8,19 @@ import Button from './shared/BaseButton'
 import { useTranslations } from '@/hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
 
+interface ProductItem {
+  name: string
+  path: string
+  description: string
+  icon: string
+}
+
 interface MenuItem {
   name: string
   path: string
   hasDropdown?: boolean
   dropdownItems?: { name: string; path: string }[]
+  productItems?: ProductItem[]
 }
 
 interface HeaderProps {
@@ -35,14 +43,58 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
 
   const menuItems: MenuItem[] = [
     { 
-      name: locale === 'es' ? 'Productos' : 'Products', 
+      name: locale === 'es' ? 'Productos' : 'Product', 
       path: `/${locale}/products`,
       hasDropdown: true,
-      dropdownItems: [
-        { name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Orders', path: `/${locale}/product/whatsapp-delivery` },
-        { name: t.PRODUCTS.ONLINE_ORDERS.NAME, path: `/${locale}/product/online-orders` },
-        { name: t.PRODUCTS.BOOKINGS.NAME, path: `/${locale}/product/bookings` },
-        { name: t.PRODUCTS.WALK_INS.NAME, path: `/${locale}/product/walk-ins` }
+      productItems: [
+        { 
+          name: locale === 'es' ? 'Constructor de Sitios Web' : 'Website Builder',
+          path: `/${locale}/product/restaurant-website-ai`,
+          description: locale === 'es' ? 'Convierte más visitantes en clientes con un sitio web impulsado por IA.' : 'Convert more visitors into customers with an AI-powered website.',
+          icon: '💻'
+        },
+        { 
+          name: locale === 'es' ? 'Marketing Automatizado' : 'Automated Marketing',
+          path: `/${locale}/product/automated-marketing`,
+          description: locale === 'es' ? 'Impulsa ventas de clientes con campañas automatizadas comprobadas.' : 'Drive sales from customers with proven, automated campaigns.',
+          icon: '📊'
+        },
+        { 
+          name: locale === 'es' ? 'Delivery Sin Comisión' : 'Zero-Commission Delivery',
+          path: `/${locale}/product/zero-commission-delivery`,
+          description: locale === 'es' ? 'Delivery rentable por conductores mejor calificados a precio justo.' : 'Profitable delivery by top-rated drivers at a fair price.',
+          icon: '🚚'
+        },
+        { 
+          name: locale === 'es' ? 'Pedidos Online' : 'Online Ordering',
+          path: `/${locale}/product/online-orders`,
+          description: locale === 'es' ? 'Obtén más pedidos con pedidos online que se sienten familiares y fáciles.' : 'Get more orders with online ordering that feels familiar and easy.',
+          icon: '📱'
+        },
+        { 
+          name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Delivery',
+          path: `/${locale}/product/whatsapp-delivery`,
+          description: locale === 'es' ? 'Convierte DMs de restaurante en pedidos automáticamente 24/7.' : 'Turn restaurant DMs into orders automatically 24/7.',
+          icon: '💬'
+        },
+        { 
+          name: locale === 'es' ? 'Reservas Directas' : 'Direct Bookings',
+          path: `/${locale}/product/direct-bookings`,
+          description: locale === 'es' ? 'Maximiza la ocupación de mesas con gestión inteligente de reservas.' : 'Maximize table occupancy with intelligent booking management.',
+          icon: '📅'
+        },
+        { 
+          name: locale === 'es' ? 'App Móvil Personalizada' : 'Custom Mobile App',
+          path: `/${locale}/product/branded-apps`,
+          description: locale === 'es' ? 'Haz crecer pedidos repetidos con una app móvil de 5 estrellas.' : 'Grow repeat orders with a 5-star mobile app.',
+          icon: '📲'
+        },
+        { 
+          name: locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program',
+          path: `/${locale}/product/loyalty`,
+          description: locale === 'es' ? 'Construye lealtad con un programa de recompensas inspirado en las grandes marcas.' : 'Build loyalty with a rewards program inspired by the big brands.',
+          icon: '⭐'
+        }
       ]
     },
     { 
@@ -231,7 +283,9 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                       onClick={() => handleDropdownClick(item.name)}
                       onKeyDown={(e) => handleKeyDown(e, item.name, true)}
                       className={`text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md ${
-                        pathname === item.path || item.dropdownItems?.some(subItem => pathname === subItem.path) ? 'text-ray-blue' : ''
+                        pathname === item.path || 
+                        item.dropdownItems?.some(subItem => pathname === subItem.path) ||
+                        item.productItems?.some(subItem => pathname === subItem.path) ? 'text-ray-blue' : ''
                       }`}
                       aria-expanded={openDropdown === item.name}
                       aria-haspopup="true"
@@ -244,22 +298,60 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                     {openDropdown === item.name && (
                       <div 
                         id={`${item.name}-dropdown`}
-                        className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200"
+                        className={`absolute top-full mt-1 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200 ${
+                          item.productItems 
+                            ? 'w-[900px] right-0 lg:left-0 lg:right-auto' 
+                            : 'w-48 left-0'
+                        }`}
                         role="menu"
                         onKeyDown={(e) => handleDropdownKeyDown(e, item.name)}
                       >
-                        {item.dropdownItems?.map((dropdownItem) => (
-                          <Link
-                            key={dropdownItem.name}
-                            href={dropdownItem.path}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-ray-blue focus:outline-none focus:bg-gray-100 focus:text-ray-blue"
-                            onClick={closeMenu}
-                            role="menuitem"
-                            data-analytics="nav"
-                          >
-                            {dropdownItem.name}
-                          </Link>
-                        ))}
+                        {item.productItems ? (
+                          <div className="p-6">
+                            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4 text-center">
+                              {locale === 'es' ? 'Productos' : 'Product'}
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                              {item.productItems.map((productItem) => (
+                                <Link
+                                  key={productItem.name}
+                                  href={productItem.path}
+                                  className="group flex items-start space-x-3 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:bg-gray-50"
+                                  onClick={closeMenu}
+                                  role="menuitem"
+                                  data-analytics="nav"
+                                >
+                                  <div className="flex-shrink-0 text-2xl">
+                                    {productItem.icon}
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="text-sm font-medium text-gray-900 group-hover:text-ray-blue">
+                                      {productItem.name}
+                                    </div>
+                                    <div className="text-sm text-gray-500 mt-1 leading-5">
+                                      {productItem.description}
+                                    </div>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          <>
+                            {item.dropdownItems?.map((dropdownItem) => (
+                              <Link
+                                key={dropdownItem.name}
+                                href={dropdownItem.path}
+                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-ray-blue focus:outline-none focus:bg-gray-100 focus:text-ray-blue"
+                                onClick={closeMenu}
+                                role="menuitem"
+                                data-analytics="nav"
+                              >
+                                {dropdownItem.name}
+                              </Link>
+                            ))}
+                          </>
+                        )}
                       </div>
                     )}
                   </div>
@@ -455,17 +547,41 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                       </button>
                       {openDropdown === item.name && (
                         <div className="pl-4 mt-1 space-y-1">
-                          {item.dropdownItems?.map((dropdownItem) => (
-                            <Link
-                              key={dropdownItem.name}
-                              href={dropdownItem.path}
-                              className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
-                              onClick={closeMenu}
-                              data-analytics="nav"
-                            >
-                              {dropdownItem.name}
-                            </Link>
-                          ))}
+                          {item.productItems ? (
+                            item.productItems.map((productItem) => (
+                              <Link
+                                key={productItem.name}
+                                href={productItem.path}
+                                className="flex items-start space-x-3 px-3 py-3 text-sm font-medium text-gray-600 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px]"
+                                onClick={closeMenu}
+                                data-analytics="nav"
+                              >
+                                <div className="flex-shrink-0 text-lg">
+                                  {productItem.icon}
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <div className="text-sm font-medium text-gray-900">
+                                    {productItem.name}
+                                  </div>
+                                  <div className="text-xs text-gray-500 mt-1 leading-4">
+                                    {productItem.description}
+                                  </div>
+                                </div>
+                              </Link>
+                            ))
+                          ) : (
+                            item.dropdownItems?.map((dropdownItem) => (
+                              <Link
+                                key={dropdownItem.name}
+                                href={dropdownItem.path}
+                                className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
+                                onClick={closeMenu}
+                                data-analytics="nav"
+                              >
+                                {dropdownItem.name}
+                              </Link>
+                            ))
+                          )}
                         </div>
                       )}
                     </div>
