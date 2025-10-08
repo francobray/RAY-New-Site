@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrendingUp, Star } from 'lucide-react'
+import { Star } from 'lucide-react'
 import Button from './shared/BaseButton'
 import { COPY } from '../constants/copy'
 
