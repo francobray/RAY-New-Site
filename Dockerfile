@@ -1,46 +1,25 @@
-# Dockerfile for a Standalone Next.js App (Recommended)
+# Use a Node.js base image
+FROM node:20-alpine
 
-# --- Base Image ---
-# Use a specific Node.js version for reproducibility. 'base' will be used for all stages.
-FROM node:20-alpine AS base
+# Set the working directory inside the container
 WORKDIR /app
-ENV NODE_ENV=production
 
-
-# --- Dependencies Stage ---
-# Install only production dependencies to keep the image small.
-# This leverages Docker's layer caching, so dependencies are only re-installed when package.json changes.
-FROM base AS deps
+# Copy package.json and package-lock.json to leverage Docker cache
 COPY package.json package-lock.json ./
-RUN npm install --production
 
+# Install ALL dependencies (development and production)
+# We don't use --production here because we need dev tools like TypeScript and Webpack.
+RUN npm install
 
-# --- Builder Stage ---
-# Copy all source code and build the application.
-# The build output will include the '.next/standalone' directory.
-FROM base AS builder
+# Copy the rest of the application source code (including 'src', 'public', etc.)
 COPY . .
-COPY --from=deps /app/node_modules ./node_modules
-RUN npm run build
 
-
-# --- Runner Stage ---
-# This is the final, minimal production image.
-# It copies only the necessary artifacts from the builder stage.
-FROM base AS runner
-
-# Copy the standalone server and its dependencies
-COPY --from=builder /app/.next/standalone ./
-
-# Copy the public assets (images, fonts, etc.)
-COPY --from=builder /app/public ./public
-
-# Copy the optimized static assets (JS, CSS, etc.) built by Next.js
-COPY --from=builder /app/.next/static ./.next/static
-
+# Expose port 3000, the default Next.js development port
 EXPOSE 3000
-ENV PORT 3000
 
-# Start the Node.js server that runs your Next.js application.
-CMD ["node", "server.js"]
+# Set the HOST to 0.0.0.0 so the server is accessible from outside the container
+ENV HOST 0.0.0.0
 
+# Command to run the development server
+# Make sure your package.json has a "dev" script, e.g., "next dev".
+CMD ["npm", "run", "dev"]
