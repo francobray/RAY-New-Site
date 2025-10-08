@@ -1,9 +1,15 @@
 import React from 'react'
 import { Star } from 'lucide-react'
 import Button from './shared/BaseButton'
-import { COPY } from '../constants/copy'
+import { useTranslations } from '@/hooks/useTranslations'
+import { type Locale } from '@/lib/i18n'
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  locale: Locale
+}
+
+const Hero: React.FC<HeroProps> = ({ locale }) => {
+  const t = useTranslations(locale)
 
   return (
     <div>
@@ -21,15 +27,15 @@ const Hero: React.FC = () => {
             {/* Trust Badge */}
             <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm mb-4">
               <Star className="w-4 h-4 text-yellow-500 mr-2 fill-current" />
-              <span className="text-sm font-medium text-ray-dark-900">Trusted by 1,000+ restaurants</span>
+              <span className="text-sm font-medium text-ray-dark-900">{t.TRUST.TRUSTED_BY}</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-4">
-              Boost revenue by driving more{' '}
+              {t.HOMEPAGE.HERO.TITLE}{' '}
               <span className="relative">
                 <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">
-                  walk-ins, bookings & orders
+                  {t.HOMEPAGE.HERO.TITLE_HIGHLIGHT}
                 </span>
                 {/* Underline decoration */}
                 <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-full opacity-30"></div>
@@ -37,7 +43,7 @@ const Hero: React.FC = () => {
             </h1>
             
             <p className="text-lg sm:text-xl text-ray-dark-700 leading-relaxed max-w-4xl mx-auto mb-10">
-              {COPY.COMPANY.DESCRIPTION}
+              {t.COMPANY.DESCRIPTION}
             </p>
 
             
@@ -54,9 +60,11 @@ const Hero: React.FC = () => {
                 data-analytics="hero_primary"
                 aria-label="Scan your restaurant - free 60-second assessment"
               >
-                Scan your restaurant
+                {t.CTA.GRADE_RESTAURANT}
               </Button>
-              <p className="text-xs sm:text-sm text-ray-dark-600 mt-1">Free • 60 seconds • No credit card required</p>
+              <p className="text-xs sm:text-sm text-ray-dark-600 mt-1">
+                {t.HOMEPAGE.HERO.SUBTITLE}
+              </p>
             </div>
 
           </div>

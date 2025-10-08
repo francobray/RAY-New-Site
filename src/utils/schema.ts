@@ -133,7 +133,7 @@ export const generateOrganizationSchema = () => ({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AI Concierge",
+          "name": "WhatsApp Orders",
           "description": "24/7 multilingual AI customer service for restaurants"
         }
       }

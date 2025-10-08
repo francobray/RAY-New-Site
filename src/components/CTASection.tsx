@@ -1,8 +1,16 @@
 import React from 'react'
 import { TrendingUp } from 'lucide-react'
 import Button from './shared/BaseButton'
+import { useTranslations } from '@/hooks/useTranslations'
+import { type Locale } from '@/lib/i18n'
 
-const CTASection: React.FC = () => {
+interface CTASectionProps {
+  locale: Locale
+}
+
+const CTASection: React.FC<CTASectionProps> = ({ locale }) => {
+  const t = useTranslations(locale)
+  
   return (
     <>
       <section className="py-24 bg-ray-promise relative overflow-hidden">
@@ -12,16 +20,15 @@ const CTASection: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
         <div className="inline-flex items-center px-4 py-2 bg-ray-dark-900/10 rounded-full text-ray-dark-900 text-sm font-medium mb-6">
           <TrendingUp className="w-4 h-4 mr-2" />
-          Ready to Grow Your Restaurant?
+          {t.CTA_SECTION.BADGE}
         </div>
         
         <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-          Ready to increase your restaurant revenue?
+          {t.CTA_SECTION.TITLE}
         </h2>
         
         <p className="text-xl text-ray-dark-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Join hundreds of successful restaurants using RAY to drive more walk-ins, 
-          orders, and positive reviews. Get your free restaurant scan today.
+          {t.CTA_SECTION.SUBTITLE}
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -35,7 +42,7 @@ const CTASection: React.FC = () => {
             data-analytics="cta_section"
             aria-label="Scan your restaurant"
           >
-            Scan your restaurant
+            {t.CTA_SECTION.SCAN_RESTAURANT}
           </Button>
           <Button
             variant="secondary"
@@ -46,22 +53,22 @@ const CTASection: React.FC = () => {
             data-analytics="cta_section"
             aria-label="Get a free demo"
           >
-            Get a Free Demo
+            {t.CTA.GET_FREE_DEMO}
           </Button>
         </div>
         
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6 text-sm text-ray-dark-600">
           <div className="flex items-center">
             <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-            <span>30%+ Google Maps directions guarantee</span>
+            <span>{t.CTA_SECTION.GUARANTEE}</span>
           </div>
           <div className="flex items-center">
             <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-            <span>No commitment</span>
+            <span>{t.CTA_SECTION.NO_COMMITMENT}</span>
           </div>
           <div className="flex items-center">
             <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
-            <span>Results in 60-90 days</span>
+            <span>{t.CTA_SECTION.RESULTS_TIME}</span>
           </div>
         </div>
         </div>

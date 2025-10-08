@@ -2,8 +2,15 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
+import { useTranslations } from '@/hooks/useTranslations'
+import { type Locale } from '@/lib/i18n'
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  locale: Locale
+}
+
+const Footer: React.FC<FooterProps> = ({ locale }) => {
+  const t = useTranslations(locale)
   return (
     <footer className="bg-ray-dark-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -11,7 +18,7 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="col-span-1">
             <Link
-              href="/"
+              href={`/${locale}`}
               className="flex items-center hover:opacity-80 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-lg"
               aria-label="RAY homepage"
             >
@@ -25,7 +32,7 @@ const Footer: React.FC = () => {
               />
             </Link>
             <p className="mt-4 text-ray-gray max-w-md">
-              RAY is the #1 sales platform helping restaurants attract more customers, grow revenue from walk-ins, orders, and bookings, and protect their reputation.
+              {t.COMPANY.DESCRIPTION}
             </p>
           </div>
 
@@ -66,9 +73,9 @@ const Footer: React.FC = () => {
                 <Link
                   href="/product/ai-concierge" 
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1" 
-                  aria-label="AI Concierge product page"
+                  aria-label="WhatsApp Orders product page"
                 >
-                  AI Concierge
+                  WhatsApp Orders
                 </Link>
               </li>
               <li>

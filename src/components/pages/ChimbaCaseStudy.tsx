@@ -3,8 +3,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
-import LazyImage from '../components/LazyImage'
-import CTASection from '../components/CTASection'
+import LazyImage from '../LazyImage'
+import CTASection from '../CTASection'
 import { type Locale } from '@/constants/copy'
 
 interface ChimbaCaseStudyProps {

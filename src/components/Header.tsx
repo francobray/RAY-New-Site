@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import Button from './shared/BaseButton'
+import { useTranslations } from '@/hooks/useTranslations'
+import { type Locale } from '@/lib/i18n'
 
 interface MenuItem {
   name: string
@@ -13,38 +15,54 @@ interface MenuItem {
   dropdownItems?: { name: string; path: string }[]
 }
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  locale: Locale
+}
+
+const Header: React.FC<HeaderProps> = ({ locale }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const pathname = usePathname()
   const menuRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const dropdownTimeouts = useRef<{ [key: string]: number }>({})
+  const t = useTranslations(locale)
+
+  // Language switcher function
+  const switchLanguage = (newLocale: Locale) => {
+    const currentPath = pathname?.replace(`/${locale}`, '') || '/'
+    window.location.href = `/${newLocale}${currentPath}`
+  }
 
   const menuItems: MenuItem[] = [
     { 
-      name: 'Products', 
-      path: '/products',
+      name: locale === 'es' ? 'Productos' : 'Products', 
+      path: `/${locale}/products`,
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Bookings', path: '/product/bookings' },
-        { name: 'Walk-ins', path: '/product/walk-ins' },
-        { name: 'Online Orders', path: '/product/online-orders' },
-        { name: 'AI Concierge', path: '/product/ai-concierge' }
+        { name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Orders', path: `/${locale}/product/ai-concierge` },
+        { name: t.PRODUCTS.ONLINE_ORDERS.NAME, path: `/${locale}/product/online-orders` },
+        { name: t.PRODUCTS.BOOKINGS.NAME, path: `/${locale}/product/bookings` },
+        { name: t.PRODUCTS.WALK_INS.NAME, path: `/${locale}/product/walk-ins` }
       ]
     },
-    { name: 'Case Studies', path: '/case-studies', hasDropdown: true, dropdownItems: [
-      { name: 'All Case Studies', path: '/case-studies' },
-      { name: 'Temple Craft Wynwood', path: '/case-studies/temple-craft-wynwood' },
-      { name: 'Chimba Miami', path: '/case-studies/chimba-miami' }
-    ] },
-    { name: 'Pricing', path: '/pricing' },
     { 
-      name: 'About Us', 
-      path: '/about',
+      name: locale === 'es' ? 'Casos de Éxito' : 'Case Studies', 
+      path: `/${locale}/case-studies`, 
+      hasDropdown: true, 
+      dropdownItems: [
+        { name: locale === 'es' ? 'Todos los Casos' : 'All Case Studies', path: `/${locale}/case-studies` },
+        { name: 'Temple Craft Wynwood', path: `/${locale}/case-studies/temple-craft-wynwood` },
+        { name: 'Chimba Miami', path: `/${locale}/case-studies/chimba-miami` }
+      ] 
+    },
+    { name: locale === 'es' ? 'Precios' : 'Pricing', path: `/${locale}/pricing` },
+    { 
+      name: locale === 'es' ? 'Nosotros' : 'About Us', 
+      path: `/${locale}/about`,
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Our Story', path: '/about' },
-        { name: 'Contact', path: '/contact' }
+        { name: locale === 'es' ? 'Nuestra Historia' : 'Our Story', path: `/${locale}/about` },
+        { name: locale === 'es' ? 'Contacto' : 'Contact', path: `/${locale}/contact` }
       ]
     },
     { name: 'Blog', path: 'https://blog.rayapp.io/?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-blog' }
@@ -277,14 +295,38 @@ const Header: React.FC = () => {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
+            {/* Language Switcher */}
+            <div className="flex items-center space-x-1 border border-gray-300 rounded-md">
+              <button
+                onClick={() => switchLanguage('es')}
+                className={`px-2 py-1 text-xs font-medium rounded-l-md transition-colors ${
+                  locale === 'es' 
+                    ? 'bg-ray-blue text-white' 
+                    : 'text-gray-600 hover:text-ray-blue hover:bg-gray-50'
+                }`}
+              >
+                ES
+              </button>
+              <button
+                onClick={() => switchLanguage('en')}
+                className={`px-2 py-1 text-xs font-medium rounded-r-md transition-colors ${
+                  locale === 'en' 
+                    ? 'bg-ray-blue text-white' 
+                    : 'text-gray-600 hover:text-ray-blue hover:bg-gray-50'
+                }`}
+              >
+                EN
+              </button>
+            </div>
+            
             <Button
               variant="ghost"
               size="sm"
-              href="/demo?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-demo"
+              href={`/${locale}/demo?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-demo`}
               data-analytics="nav"
               aria-label="Get a demo of RAY's restaurant marketing platform"
             >
-              Get a Demo
+              {t.CTA.GET_FREE_DEMO}
             </Button>
             <Button
               variant="primary"
@@ -296,7 +338,7 @@ const Header: React.FC = () => {
               aria-label="Scan your restaurant - run a free 60-second audit to see how RAY can help"
               onClick={handleScanClick}
             >
-              Scan your restaurant
+              {t.CTA.GRADE_RESTAURANT}
             </Button>
           </div>
 
@@ -327,19 +369,47 @@ const Header: React.FC = () => {
               {/* Actions Block */}
               <div className="mb-4 pb-4 border-b border-gray-200">
                 <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 px-3">
-                  Actions
+                  {locale === 'es' ? 'Idioma' : 'Language'}
+                </div>
+                <div className="px-3 mb-4">
+                  <div className="flex items-center space-x-1 border border-gray-300 rounded-md">
+                    <button
+                      onClick={() => switchLanguage('es')}
+                      className={`px-3 py-2 text-sm font-medium rounded-l-md transition-colors flex-1 ${
+                        locale === 'es' 
+                          ? 'bg-ray-blue text-white' 
+                          : 'text-gray-600 hover:text-ray-blue hover:bg-gray-50'
+                      }`}
+                    >
+                      Español
+                    </button>
+                    <button
+                      onClick={() => switchLanguage('en')}
+                      className={`px-3 py-2 text-sm font-medium rounded-r-md transition-colors flex-1 ${
+                        locale === 'en' 
+                          ? 'bg-ray-blue text-white' 
+                          : 'text-gray-600 hover:text-ray-blue hover:bg-gray-50'
+                      }`}
+                    >
+                      English
+                    </button>
+                  </div>
+                </div>
+                
+                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 px-3">
+                  {locale === 'es' ? 'Acciones' : 'Actions'}
                 </div>
                 <div className="space-y-2">
                   <Button
                     variant="ghost"
                     size="md"
-                    href="/demo?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile-demo"
+                    href={`/${locale}/demo?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile-demo`}
                     className="w-full justify-start"
                     data-analytics="nav"
                     aria-label="Get a demo of RAY's restaurant marketing platform"
                     onClick={closeMenu}
                   >
-                    Get a Demo
+                    {t.CTA.GET_FREE_DEMO}
                   </Button>
                   <Button
                     variant="primary"
@@ -355,7 +425,7 @@ const Header: React.FC = () => {
                       closeMenu()
                     }}
                   >
-                    Scan your restaurant
+                    {t.CTA.GRADE_RESTAURANT}
                   </Button>
                 </div>
               </div>

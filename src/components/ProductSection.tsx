@@ -2,40 +2,48 @@ import React from 'react'
 import { ArrowRight, TrendingUp } from 'lucide-react'
 import Button from './shared/BaseButton'
 import SectionHeader from './SectionHeader'
-import { COPY } from '../constants/copy'
+import { useTranslations } from '@/hooks/useTranslations'
+import { type Locale } from '@/lib/i18n'
 
 import { Calendar, MapPin, ShoppingCart } from 'lucide-react'
 
-const products = [
-  {
-    icon: ShoppingCart,
-    name: COPY.PRODUCTS.ONLINE_ORDERS.NAME,
-    description: COPY.PRODUCTS.ONLINE_ORDERS.DESCRIPTION,
-    metric: COPY.PRODUCTS.ONLINE_ORDERS.METRIC,
-    metricLabel: COPY.PRODUCTS.ONLINE_ORDERS.METRIC_LABEL,
-    href: '/product/online-orders',
-    gradient: 'from-purple-500 to-purple-600'
-  },
-  {
-    icon: Calendar,
-    name: COPY.PRODUCTS.BOOKINGS.NAME,
-    description: COPY.PRODUCTS.BOOKINGS.DESCRIPTION,
-    metric: COPY.PRODUCTS.BOOKINGS.METRIC,
-    metricLabel: COPY.PRODUCTS.BOOKINGS.METRIC_LABEL,
-    href: '/product/bookings',
-    gradient: 'from-ray-green to-green-600'
-  },
-  {
-    icon: MapPin,
-    name: COPY.PRODUCTS.WALK_INS.NAME,
-    description: COPY.PRODUCTS.WALK_INS.DESCRIPTION,
-    metric: COPY.PRODUCTS.WALK_INS.METRIC,
-    metricLabel: COPY.PRODUCTS.WALK_INS.METRIC_LABEL,
-    href: '/product/walk-ins',
-    gradient: 'from-ray-blue to-blue-600'
-  }
-]
-const ProductSection: React.FC = () => {
+interface ProductSectionProps {
+  locale: Locale
+}
+
+const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
+  const t = useTranslations(locale)
+  
+  const products = [
+    {
+      icon: ShoppingCart,
+      name: t.PRODUCTS.ONLINE_ORDERS.NAME,
+      description: t.PRODUCTS.ONLINE_ORDERS.DESCRIPTION,
+      metric: t.PRODUCTS.ONLINE_ORDERS.METRIC,
+      metricLabel: t.PRODUCTS.ONLINE_ORDERS.METRIC_LABEL,
+      href: '/product/online-orders',
+      gradient: 'from-purple-500 to-purple-600'
+    },
+    {
+      icon: Calendar,
+      name: t.PRODUCTS.BOOKINGS.NAME,
+      description: t.PRODUCTS.BOOKINGS.DESCRIPTION,
+      metric: t.PRODUCTS.BOOKINGS.METRIC,
+      metricLabel: t.PRODUCTS.BOOKINGS.METRIC_LABEL,
+      href: '/product/bookings',
+      gradient: 'from-ray-green to-green-600'
+    },
+    {
+      icon: MapPin,
+      name: t.PRODUCTS.WALK_INS.NAME,
+      description: t.PRODUCTS.WALK_INS.DESCRIPTION,
+      metric: t.PRODUCTS.WALK_INS.METRIC,
+      metricLabel: t.PRODUCTS.WALK_INS.METRIC_LABEL,
+      href: '/product/walk-ins',
+      gradient: 'from-ray-blue to-blue-600'
+    }
+  ]
+  
   return (
     <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
       {/* Background decoration */}
@@ -44,16 +52,16 @@ const ProductSection: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <SectionHeader
-          badge={{ icon: TrendingUp, text: 'Proven Revenue Growth Platform' }}
+          badge={{ icon: TrendingUp, text: t.HOMEPAGE.PRODUCTS_SECTION.BADGE }}
           title={
             <>
-              {COPY.HEADLINES.THREE_PRODUCTS.split('.')[0]}.{' '}
+              {t.HEADLINES.THREE_PRODUCTS.split('.')[0]}.{' '}
               <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
-                One Powerful Platform.
+                {t.HEADLINES.THREE_PRODUCTS.split('.')[1]}.
               </span>
             </>
           }
-          subtitle="RAY offers three integrated solutions designed to grow restaurant revenue both offline and online. Choose your focus or combine all for maximum impact."
+          subtitle={t.HOMEPAGE.PRODUCTS_SECTION.SUBTITLE}
           className="mb-20"
         />
 
@@ -101,7 +109,7 @@ const ProductSection: React.FC = () => {
                       data-analytics="product_section"
                       aria-label={`Get a free demo for ${product.name}`}
                     >
-                      Get a Free Demo
+                      {t.CTA.GET_FREE_DEMO}
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
                   </div>
@@ -114,7 +122,7 @@ const ProductSection: React.FC = () => {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <p className="text-lg text-ray-darkGray mb-6">
-            Ready to see how RAY can transform your restaurant?
+            {t.HOMEPAGE.PRODUCTS_SECTION.BOTTOM_CTA}
           </p>
           <Button
             variant="primary"
@@ -124,7 +132,7 @@ const ProductSection: React.FC = () => {
             data-analytics="product_section_bottom"
             aria-label="View pricing and plans"
           >
-            View Pricing & Plans
+            {t.HOMEPAGE.PRODUCTS_SECTION.VIEW_PRICING}
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>

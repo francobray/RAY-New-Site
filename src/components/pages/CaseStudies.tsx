@@ -3,8 +3,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
-import Button from '../components/shared/BaseButton'
-import CTASection from '../components/CTASection'
+import Button from '../shared/BaseButton'
+import CTASection from '../CTASection'
 import { type Locale } from '@/constants/copy'
 
 const caseStudies = [

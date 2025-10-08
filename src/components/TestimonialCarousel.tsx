@@ -5,6 +5,12 @@ import { Star } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Button from './shared/BaseButton'
+import { useTranslations } from '@/hooks/useTranslations'
+import { type Locale } from '@/lib/i18n'
+
+interface TestimonialCarouselProps {
+  locale: Locale
+}
 
 const customers = [
   {
@@ -69,21 +75,22 @@ const customers = [
   }
 ]
 
-const TestimonialCarousel: React.FC = () => {
+const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ locale }) => {
+  const t = useTranslations(locale)
+  
   return (
     <section className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
               <Star className="w-4 h-4 mr-2" />
-              Customer Success Stories
+              {t.TESTIMONIALS.BADGE}
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-4">
-              Real Results from Real Restaurants
+              {t.TESTIMONIALS.TITLE}
             </h2>
             <p className="text-xl text-ray-darkGray max-w-3xl mx-auto leading-relaxed">
-              See how restaurant owners across the country have transformed 
-              their business with RAY's marketing platform.
+              {t.TESTIMONIALS.SUBTITLE}
             </p>
           </div>
           
@@ -131,7 +138,7 @@ const TestimonialCarousel: React.FC = () => {
                             {customer.metric}
                           </div>
                           <div className="text-sm opacity-90">
-                            Revenue Growth
+                            {t.TESTIMONIALS.REVENUE_GROWTH}
                           </div>
                         </div>
                       </div>
@@ -153,7 +160,7 @@ const TestimonialCarousel: React.FC = () => {
               data-analytics="testimonial_carousel"
               aria-label="View all restaurant success stories and case studies"
             >
-              View All Success Stories
+              {t.TESTIMONIALS.VIEW_ALL}
             </Button>
           </div>
         </div>
