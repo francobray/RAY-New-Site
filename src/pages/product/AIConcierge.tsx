@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { TrendingUp, ArrowRight, CircleCheck as CheckCircle, Users, Star, ChevronDown, ChevronUp, Zap, MessageCircle, Instagram, Phone, ChevronLeft, ChevronRight, Mic, Volume2, PhoneOff, Calendar } from 'lucide-react'
-import Card from '../../components/Card'
-import Button from '../../components/shared/BaseButton'
+import { ArrowRight, CircleCheck as CheckCircle, Users, Star, ChevronDown, ChevronUp, Zap, MessageCircle, Instagram, Phone, ChevronLeft, ChevronRight, Mic, Volume2, PhoneOff, Calendar } from 'lucide-react'
 import HubSpotUnifiedModal from '../../components/HubSpotUnifiedModal'
+import TryItNowModal from '../../components/TryItNowModal'
+import PhoneCallModal from '../../components/PhoneCallModal'
 import { useHubSpotModal } from '../../hooks/useHubSpotModal'
 
 // ChatCarousel Component
@@ -330,6 +330,8 @@ const faqs = [
 
 const AIConcierge: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false)
+  const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false)
   const { 
     isModalOpen,
     currentConfig,
@@ -384,7 +386,7 @@ const AIConcierge: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
-                onClick={() => openModal('demo-expert')}
+                onClick={() => setIsChatModalOpen(true)}
                 className="bg-white text-emerald-600 border-2 border-emerald-600 px-8 py-4 rounded-full hover:bg-emerald-50 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg flex items-center justify-center space-x-2"
               >
                 <img 
@@ -395,7 +397,7 @@ const AIConcierge: React.FC = () => {
                 <span>Try chat</span>
               </button>
               <button 
-                onClick={() => openModal('demo-expert')}
+                onClick={() => setIsPhoneModalOpen(true)}
                 className="bg-indigo-600 text-white px-8 py-4 rounded-full hover:bg-indigo-700 transition-colors font-semibold text-lg flex items-center space-x-2"
               >
                 <Phone className="w-5 h-5" />
@@ -842,6 +844,17 @@ const AIConcierge: React.FC = () => {
         isOpen={isModalOpen}
         onClose={closeModal}
         config={currentConfig}
+      />
+      
+      {/* Try It Now Modals */}
+      <TryItNowModal
+        isOpen={isChatModalOpen}
+        onClose={() => setIsChatModalOpen(false)}
+      />
+      
+      <PhoneCallModal
+        isOpen={isPhoneModalOpen}
+        onClose={() => setIsPhoneModalOpen(false)}
       />
     </>
   )

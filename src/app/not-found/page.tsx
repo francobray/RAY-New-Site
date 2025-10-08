@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import Button from '@/components/Button'
+import Button from '@/components/shared/BaseButton'
 
 export const metadata: Metadata = {
   title: 'Page Not Found - RAY',

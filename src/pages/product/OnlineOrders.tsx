@@ -3,7 +3,7 @@
 import React from 'react'
 import { Calendar, ShoppingBag, BarChart3, TrendingUp, Clock, CreditCard } from 'lucide-react'
 import Card from '../../components/Card'
-import Button from '../../components/Button'
+import Button from '../../components/shared/BaseButton'
 import LazyImage from '../../components/LazyImage'
 
 const features = [
