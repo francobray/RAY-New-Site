@@ -20,7 +20,6 @@ EXPOSE 3000
 # Set the HOST to 0.0.0.0 so the server is accessible from outside the container
 ENV HOST 0.0.0.0
 
-RUN npm run build
 # Command to run the development server
 # Make sure your package.json has a "dev" script, e.g., "next dev".
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev"]
