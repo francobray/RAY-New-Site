@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { Star, TrendingUp, ArrowRight, CheckCircle, BarChart3, Globe, Zap, Smartphone, ChevronDown, ChevronUp, Search, Clock } from 'lucide-react'
+import { TrendingUp, ArrowRight, CheckCircle, BarChart3, Globe, Smartphone, ChevronDown, ChevronUp, Search, Clock, MessageCircle } from 'lucide-react'
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
 import { type Locale } from '../../../lib/i18n'
@@ -18,15 +18,15 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
 
   const features = [
     {
-      icon: Globe,
-      title: locale === 'es' ? 'Sitios Web Optimizados para SEO' : 'SEO-Optimized Websites',
-      description: locale === 'es' ? 'Sitios web diseñados para ser encontrados en Google y convertir visitantes en clientes' : 'Websites designed to be found on Google and convert visitors into customers',
+      icon: MessageCircle,
+      title: locale === 'es' ? 'Sitios Web que Aparecen en ChatGPT' : 'Websites that appear in ChatGPT',
+      description: locale === 'es' ? 'Tu restaurante aparece cuando los clientes buscan recomendaciones en ChatGPT y otros AI' : 'Your restaurant appears when customers search for recommendations in ChatGPT and other AI',
       details: locale === 'es' ? [
-        'Optimización automática para búsquedas locales',
-        'Páginas que cargan rápido para mejor experiencia'
+        'Optimización para motores de búsqueda de IA',
+        'Contenido estructurado para mejores recomendaciones'
       ] : [
-        'Automatic optimization for local searches',
-        'Fast-loading pages for better experience'
+        'Optimization for AI search engines',
+        'Structured content for better recommendations'
       ]
     },
     {
@@ -42,15 +42,15 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
       ]
     },
     {
-      icon: Zap,
-      title: locale === 'es' ? 'Configuración Rápida' : 'Quick Setup',
-      description: locale === 'es' ? 'Tu nuevo sitio web estará listo en días, no meses' : 'Your new website will be ready in days, not months',
+      icon: Globe,
+      title: locale === 'es' ? 'Sitios Web Optimizados para SEO' : 'SEO-Optimized Websites',
+      description: locale === 'es' ? 'Sitios web diseñados para ser encontrados en Google y convertir visitantes en clientes' : 'Websites designed to be found on Google and convert visitors into customers',
       details: locale === 'es' ? [
-        'Configuración automática con tu información existente',
-        'Diseños probados que convierten visitantes en clientes'
+        'Optimización automática para búsquedas locales',
+        'Páginas que cargan rápido para mejor experiencia'
       ] : [
-        'Automatic setup with your existing information',
-        'Proven designs that convert visitors into customers'
+        'Automatic optimization for local searches',
+        'Fast-loading pages for better experience'
       ]
     },
     {
@@ -199,7 +199,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
                 {/* Website Screenshot */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image 
-                    src="/images/product-website/Temple-website.png"
+                    src={locale === 'en' ? '/images/product-website/Temple-website-US.png' : '/images/product-website/Temple-website.png'}
                     alt={locale === 'es' ? 'Sitio web de restaurante Temple Craft construido con RAY' : 'Temple Craft restaurant website built with RAY'}
                     width={1200}
                     height={800}
@@ -282,54 +282,16 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
               </div>
             </div>
             
-            {/* Right side - Website preview */}
+            {/* Right side - Google Local Pack Preview */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-xl">
-                <div className="space-y-6">
-                  {/* Search result mockup */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                        <Search className="w-4 h-4 text-white" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-medium text-gray-900">
-                          {locale === 'es' ? 'restaurantes cerca de mí' : 'restaurants near me'}
-                        </div>
-                        <div className="text-xs text-gray-500">Google Search</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Restaurant listing */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm border-2 border-green-200">
-                    <div className="flex justify-between items-start mb-3">
-                      <div>
-                        <h4 className="font-semibold text-gray-900">{locale === 'es' ? 'Tu Restaurante' : 'Your Restaurant'}</h4>
-                        <div className="flex items-center space-x-1 text-sm text-gray-600">
-                          <div className="flex text-yellow-400">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-3 h-3 fill-current" />
-                            ))}
-                          </div>
-                          <span>4.8 • 234 {locale === 'es' ? 'reseñas' : 'reviews'}</span>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-green-600">#1</div>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="bg-blue-500 text-white text-xs p-2 rounded text-center font-medium">
-                        {locale === 'es' ? 'Ordenar' : 'Order'}
-                      </div>
-                      <div className="bg-green-500 text-white text-xs p-2 rounded text-center font-medium">
-                        {locale === 'es' ? 'Reservar' : 'Book'}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <Image 
+                  src="/images/product-website/google-local-pack.png"
+                  alt={locale === 'es' ? 'Resultados de Google Local Pack mostrando restaurantes' : 'Google Local Pack results showing restaurants'}
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
+                />
               </div>
             </div>
           </div>
@@ -348,28 +310,28 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((feature, index) => {
               const IconComponent = feature.icon
               return (
                 <Card key={index} className="h-full hover:shadow-xl transition-shadow duration-300">
-                  <div className="p-8">
-                    <div className="w-12 h-12 bg-gradient-to-r from-ray-blue to-ray-green rounded-xl flex items-center justify-center mb-6">
-                      <IconComponent className="w-6 h-6 text-white" />
+                  <div className="p-5">
+                    <div className="w-10 h-10 bg-gradient-to-r from-ray-blue to-ray-green rounded-xl flex items-center justify-center mb-4">
+                      <IconComponent className="w-5 h-5 text-white" />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-ray-dark-900 mb-4">
+                    <h3 className="text-lg font-bold text-ray-dark-900 mb-3">
                       {feature.title}
                     </h3>
                     
-                    <p className="text-ray-darkGray mb-6 leading-relaxed">
+                    <p className="text-sm text-ray-darkGray mb-4 leading-relaxed">
                       {feature.description}
                     </p>
                     
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5">
                       {feature.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="flex items-start text-sm text-ray-dark-700">
-                          <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                        <li key={detailIndex} className="flex items-start text-xs text-ray-dark-700">
+                          <CheckCircle className="w-3 h-3 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
                           {detail}
                         </li>
                       ))}

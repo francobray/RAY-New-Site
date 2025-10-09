@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ShoppingBag, TrendingUp, ArrowRight, CheckCircle, ChevronDown, ChevronUp, CreditCard, Smartphone, Globe, Users, BarChart3 } from 'lucide-react'
+import Image from 'next/image'
+import { ShoppingBag, TrendingUp, ArrowRight, CheckCircle, ChevronDown, ChevronUp, CreditCard, Smartphone, Globe, BarChart3 } from 'lucide-react'
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
 import { type Locale } from '../../../lib/i18n'
@@ -106,67 +107,19 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
               </div>
             </div>
             
-            {/* Hero Visual - Online Ordering Interface */}
+            {/* Hero Visual - Real Time Tracking */}
             <div className="relative">
-              <div className="relative max-w-lg mx-auto">
-                {/* Main ordering interface */}
-                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-                  {/* Header */}
-                  <div className="bg-ray-blue text-white px-6 py-4">
-                    <h3 className="text-lg font-semibold">
-                      {locale === 'es' ? 'Pedidos Online' : 'Online Orders'}
-                    </h3>
-                    <div className="flex space-x-4 mt-2 text-sm opacity-90">
-                      <span>{locale === 'es' ? 'Web • App • QR' : 'Web • App • QR'}</span>
-                    </div>
-                  </div>
-                  
-                  {/* Order items */}
-                  <div className="p-6">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                            <span className="text-orange-600 font-bold">🍕</span>
-                          </div>
-                          <div>
-                            <div className="font-medium text-gray-900">
-                              {locale === 'es' ? 'Pizza Margherita' : 'Margherita Pizza'}
-                            </div>
-                            <div className="text-sm text-gray-500">$18.99</div>
-                          </div>
-                        </div>
-                        <div className="text-ray-green font-bold">2x</div>
-                      </div>
-                      
-                      <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                            <span className="text-green-600 font-bold">🥗</span>
-                          </div>
-                          <div>
-                            <div className="font-medium text-gray-900">
-                              {locale === 'es' ? 'Ensalada César' : 'Caesar Salad'}
-                            </div>
-                            <div className="text-sm text-gray-500">$12.99</div>
-                          </div>
-                        </div>
-                        <div className="text-ray-green font-bold">1x</div>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-6 pt-4 border-t border-gray-200">
-                      <div className="flex justify-between items-center mb-4">
-                        <span className="text-lg font-semibold text-gray-900">
-                          {locale === 'es' ? 'Total' : 'Total'}
-                        </span>
-                        <span className="text-2xl font-bold text-ray-green">$50.97</span>
-                      </div>
-                      <button className="w-full bg-ray-green text-white py-3 rounded-lg font-semibold hover:bg-ray-green/90 transition-colors">
-                        {locale === 'es' ? 'Confirmar Pedido' : 'Confirm Order'}
-                      </button>
-                    </div>
-                  </div>
+              <div className="relative w-full">
+                {/* Mobile App Real Time Tracking Image */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src="/images/online-ordering/Temple-ordering-2.png"
+                    alt={locale === 'es' ? 'Interfaz de pedidos online de Temple Craft' : 'Temple Craft online ordering interface'}
+                    width={800}
+                    height={600}
+                    className="w-full h-auto"
+                    priority
+                  />
                 </div>
                 
                 {/* Floating stats */}
@@ -335,59 +288,17 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
               </div>
             </div>
             
-            {/* Right side - Phone mockup */}
+            {/* Right side - Temple App Real Time Tracking */}
             <div className="relative">
-              <div className="bg-white rounded-2xl p-4 shadow-2xl max-w-sm mx-auto">
-                <div className="bg-gray-100 rounded-xl p-4">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-10 h-10 bg-ray-green rounded-full flex items-center justify-center">
-                      <Users className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-900">
-                        {locale === 'es' ? 'Pedido en camino' : 'Order on the way'}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {locale === 'es' ? 'Llegará en 25 min' : 'Arriving in 25 min'}
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                          <span className="text-orange-600 text-sm">🍔</span>
-                        </div>
-                        <span className="text-sm font-medium text-gray-900">
-                          {locale === 'es' ? 'Hamburguesa Clásica' : 'Classic Burger'}
-                        </span>
-                      </div>
-                      <span className="text-sm text-gray-500">$14.99</span>
-                    </div>
-                    
-                    <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
-                          <span className="text-yellow-600 text-sm">🍟</span>
-                        </div>
-                        <span className="text-sm font-medium text-gray-900">
-                          {locale === 'es' ? 'Papas Fritas' : 'French Fries'}
-                        </span>
-                      </div>
-                      <span className="text-sm text-gray-500">$4.99</span>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-4 pt-3 border-t border-gray-200">
-                    <div className="flex justify-between items-center">
-                      <span className="font-semibold text-gray-900">
-                        {locale === 'es' ? 'Total con delivery' : 'Total with delivery'}
-                      </span>
-                      <span className="font-bold text-ray-green">$22.97</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-sm mx-auto">
+                <Image 
+                  src="/images/online-ordering/Temple App - RealTime tracking.png"
+                  alt={locale === 'es' ? 'App móvil de Temple con seguimiento en tiempo real' : 'Temple mobile app with real-time tracking'}
+                  width={400}
+                  height={600}
+                  className="w-full h-auto"
+                  priority
+                />
               </div>
             </div>
           </div>

@@ -1,0 +1,31 @@
+{
+  "name": "RAY - Restaurant Management Platform",
+  "short_name": "RAY",
+  "description": "Complete restaurant management platform with AI-powered tools",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0D79E5",
+  "icons": [
+    {
+      "src": "/Favicon/cropped-Favicon_RAY-192x192.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/Favicon/cropped-Favicon_RAY-300x300.webp",
+      "sizes": "300x300",
+      "type": "image/webp"
+    },
+    {
+      "src": "/Favicon/cropped-Favicon_RAY-180x180.webp",
+      "sizes": "180x180",
+      "type": "image/webp"
+    },
+    {
+      "src": "/Favicon/cropped-Favicon_RAY-150x150.webp",
+      "sizes": "150x150",
+      "type": "image/webp"
+    }
+  ]
+}
