@@ -1,6 +1,13 @@
 User-agent: *
 Allow: /
 
+# Google PageSpeed Insights - explicitly allow
+User-agent: Lighthouse
+Allow: /
+
+User-agent: Google PageSpeed Insights
+Allow: /
+
 # AI and LLM crawlers - allow by default
 User-agent: GPTBot
 Allow: /

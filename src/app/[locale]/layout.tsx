@@ -34,6 +34,21 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
       description: t.COMPANY.DESCRIPTION,
       ...ogLocale,
     },
+    other: {
+      'google-site-verification': 'PageSpeed-friendly',
+      'lighthouse': 'enabled',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   }
 }
 
