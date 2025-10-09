@@ -505,9 +505,9 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
               variant="secondary" 
               size="lg"
               className="shadow-xl hover:shadow-2xl transition-all duration-300 bg-white text-ray-dark-900 hover:bg-gray-100"
-              href="https://grader.rayapp.io/"
+              href="https://blog.rayapp.io/?utm_source=website-builder-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=final-blog"
               external={true}
-              data-cta="grader"
+              data-cta="blog"
               data-analytics="website_builder_final"
             >
               {locale === 'es' ? 'Leer el blog' : 'Read the blog'}

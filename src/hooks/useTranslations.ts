@@ -1,4 +1,5 @@
-import { COPY, type Locale } from '@/constants/copy'
+import { COPY } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 /**
  * Hook to get translations for the current locale

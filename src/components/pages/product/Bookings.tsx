@@ -5,7 +5,7 @@ import { Calendar, Users, BarChart3, Clock, Heart, CheckCircle, ArrowRight, Tren
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface BookingsProps {
   locale: Locale
@@ -311,7 +311,7 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
             </Button>
           </div>
           <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-ray-dark-600">
-            {t.BOOKINGS_PAGE.FINAL_CTA.GUARANTEES.map((guarantee, index) => (
+            {t.BOOKINGS_PAGE.FINAL_CTA.GUARANTEES.map((guarantee: string, index: number) => (
               <div key={index} className="flex items-center">
                 <div className="w-2 h-2 bg-ray-green rounded-full mr-2"></div>
                 <span>{guarantee}</span>

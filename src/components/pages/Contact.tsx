@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { Mail, CheckCircle } from 'lucide-react'
 import { useTranslations } from '../../hooks/useTranslations'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 // Form data types
 interface FormData {
@@ -21,6 +21,11 @@ interface FormErrors {
 
 interface ContactProps {
   locale: Locale
+}
+
+interface SelectOption {
+  value: string
+  label: string
 }
 
 const Contact: React.FC<ContactProps> = ({ locale }) => {
@@ -289,7 +294,7 @@ const Contact: React.FC<ContactProps> = ({ locale }) => {
                       onChange={(e) => handleInputChange('locations', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg text-ray-dark-900 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:border-transparent hover:border-gray-400 transition-colors duration-200"
                     >
-                      {t.CONTACT_PAGE.FORM.LOCATIONS_OPTIONS.map(option => (
+                      {t.CONTACT_PAGE.FORM.LOCATIONS_OPTIONS.map((option: SelectOption) => (
                         <option key={option.value} value={option.value}>{option.label}</option>
                       ))}
                     </select>

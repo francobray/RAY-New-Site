@@ -8,6 +8,11 @@ interface FAQProps {
   locale: Locale
 }
 
+interface FAQItem {
+  question: string
+  answer: string
+}
+
 const FAQ: React.FC<FAQProps> = ({ locale }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const t = useTranslations(locale)
@@ -25,7 +30,7 @@ const FAQ: React.FC<FAQProps> = ({ locale }) => {
         </div>
 
         <div className="space-y-4">
-          {t.FAQ.QUESTIONS.map((faq, index) => (
+          {t.FAQ.QUESTIONS.map((faq: FAQItem, index: number) => (
             <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200">
               <button
                 className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset rounded-lg"

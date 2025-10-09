@@ -6,7 +6,7 @@ import { ArrowLeft, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-r
 import Image from 'next/image'
 import CTASection from '../CTASection'
 import { useTranslations } from '../../hooks/useTranslations'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface TempleCraftCaseStudyProps {
   locale: Locale

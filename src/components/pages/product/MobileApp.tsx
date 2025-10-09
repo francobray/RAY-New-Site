@@ -11,6 +11,16 @@ interface MobileAppProps {
   locale?: Locale
 }
 
+interface Benefit {
+  title: string
+  description: string
+}
+
+interface FAQ {
+  question: string
+  answer: string
+}
+
 const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const t = useTranslations(locale)
@@ -177,7 +187,7 @@ const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
             
             {/* Right side - Benefits */}
             <div className="space-y-8">
-              {benefits.map((benefit, index) => {
+              {benefits.map((benefit: Benefit, index: number) => {
                 const icons = [Zap, Star, Users]
                 const IconComponent = icons[index] || Zap
                 
@@ -379,7 +389,7 @@ const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
           </div>
           
           <div className="space-y-4">
-            {faqs.map((faq, index) => (
+            {faqs.map((faq: FAQ, index: number) => (
               <Card key={index} className="overflow-hidden">
                 <button
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"

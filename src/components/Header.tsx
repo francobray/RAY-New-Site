@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Delivery',
           path: `/${locale}/product/whatsapp-delivery`,
           description: locale === 'es' ? 'Convierte DMs de restaurante en pedidos automáticamente 24/7.' : 'Turn restaurant DMs into orders automatically 24/7.',
-          icon: '💬'
+          icon: 'whatsapp'
         },
         { 
           name: locale === 'es' ? 'Reservas Directas' : 'Direct Bookings',
@@ -322,7 +322,15 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                   data-analytics="nav"
                                 >
                                   <div className="flex-shrink-0 text-2xl">
-                                    {productItem.icon}
+                                    {productItem.icon === 'whatsapp' ? (
+                                      <img 
+                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
+                                        alt="WhatsApp" 
+                                        className="w-7 h-7"
+                                      />
+                                    ) : (
+                                      productItem.icon
+                                    )}
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <div className="text-sm font-medium text-gray-900 group-hover:text-ray-blue">

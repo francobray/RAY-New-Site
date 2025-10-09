@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import AIConcierge from '@/components/pages/product/AIConcierge'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface WhatsAppDeliveryPageProps {
   params: { locale: Locale }

@@ -2,10 +2,15 @@
 
 import { useState } from 'react'
 import { useTranslations } from '../../hooks/useTranslations'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface DemoProps {
   locale: Locale
+}
+
+interface Benefit {
+  TITLE: string
+  DESCRIPTION: string
 }
 
 // Icons component for the lightning icons
@@ -172,7 +177,7 @@ const Demo = ({ locale }: DemoProps) => {
                 </h2>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                  {t.DEMO_PAGE.BENEFITS.map((benefit, index) => (
+                  {t.DEMO_PAGE.BENEFITS.map((benefit: Benefit, index: number) => (
                     <div key={index} className="bg-white p-4 rounded-lg shadow-sm">
                       <div className="flex items-start gap-3">
                         <LightningIcon />

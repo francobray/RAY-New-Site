@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import About from '@/components/pages/About'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface AboutPageProps {
   params: { locale: Locale }

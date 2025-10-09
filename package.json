@@ -1,6 +1,6 @@
 {
   "name": "ray-restaurant-website",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,9 +9,13 @@
     "lint": "next lint",
     "validate:fonts": "tsx scripts/font-validation.ts",
     "validate:sitemap": "tsx scripts/validate-sitemap.ts",
-    "validate:all": "npm run validate:fonts && npm run validate:sitemap",
+    "validate:llms": "tsx scripts/validate-llms-txt.ts",
+    "validate:all": "npm run validate:fonts && npm run validate:sitemap && npm run validate:llms",
     "sitemap:generate": "tsx scripts/generate-sitemap.ts",
     "sitemap:validate": "npm run sitemap:generate && npm run validate:sitemap",
+    "llms:generate": "tsx scripts/generate-llms-txt.ts",
+    "llms:validate": "npm run llms:generate && npm run validate:llms",
+    "generate:all": "npm run sitemap:generate && npm run llms:generate",
     "analyze:bundle": "tsx scripts/analyze-bundle.ts",
     "analyze:next": "ANALYZE=true npm run build",
     "optimize:advanced": "tsx scripts/advanced-performance.ts",

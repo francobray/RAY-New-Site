@@ -5,10 +5,21 @@ import { Users, MessageSquare, Heart, Waves, Lightbulb } from 'lucide-react'
 import Card from '../Card'
 import Image from 'next/image'
 import { useTranslations } from '../../hooks/useTranslations'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface AboutProps {
   locale: Locale
+}
+
+interface IndustryStat {
+  number: string
+  label: string
+  description: string
+}
+
+interface Value {
+  title: string
+  description: string
 }
 
 const About: React.FC<AboutProps> = ({ locale }) => {
@@ -48,7 +59,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
             
             {/* Right side - Industry Stats */}
             <div className="grid grid-cols-1 gap-6">
-              {t.ABOUT_PAGE.INDUSTRY_STATS.map((stat, index) => (
+              {t.ABOUT_PAGE.INDUSTRY_STATS.map((stat: IndustryStat, index: number) => (
                 <Card key={index} className="text-center hover:shadow-xl transition-shadow duration-300">
                   <div className="text-4xl font-bold text-ray-blue mb-2">
                     {stat.number}
@@ -79,7 +90,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {t.ABOUT_PAGE.VALUES.LIST.map((value, index) => {
+            {t.ABOUT_PAGE.VALUES.LIST.map((value: Value, index: number) => {
               const IconComponent = valueIcons[index]
               return (
                 <Card key={index} className="text-center hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
@@ -132,7 +143,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
                   {t.ABOUT_PAGE.CEO_LETTER.GREETING}
                 </p>
                 
-                {t.ABOUT_PAGE.CEO_LETTER.PARAGRAPHS.map((paragraph, index) => (
+                {t.ABOUT_PAGE.CEO_LETTER.PARAGRAPHS.map((paragraph: string, index: number) => (
                   <p key={index}>
                     {paragraph}
                   </p>

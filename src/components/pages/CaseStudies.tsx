@@ -6,7 +6,7 @@ import { ArrowRight, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-
 import Button from '../shared/BaseButton'
 import CTASection from '../CTASection'
 import { useTranslations } from '../../hooks/useTranslations'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 const caseStudies = [
   {

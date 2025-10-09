@@ -273,7 +273,7 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
                     </p>
                     
                     <ul className="space-y-2">
-                      {feature.details.map((detail, detailIndex) => (
+                      {feature.details.map((detail: string, detailIndex: number) => (
                         <li key={detailIndex} className="flex items-start text-sm text-ray-dark-700">
                           <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
                           {detail}

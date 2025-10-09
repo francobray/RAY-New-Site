@@ -1,15 +1,25 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { ArrowRight, CircleCheck as CheckCircle, Users, Star, ChevronDown, ChevronUp, Zap, MessageCircle, Instagram, Phone, ChevronLeft, ChevronRight, Mic, Volume2, PhoneOff, Calendar } from 'lucide-react'
+import { ArrowRight, CircleCheck as CheckCircle, Users, Star, ChevronDown, ChevronUp, Zap, MessageCircle, ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
 import TryItNowModal from '../../TryItNowModal'
 import PhoneCallModal from '../../PhoneCallModal'
 import { useTranslations } from '../../../hooks/useTranslations'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 import Button from '../../shared/BaseButton'
 
 interface AIConciergeProps {
   locale: Locale
+}
+
+interface Feature {
+  title: string
+  description: string
+}
+
+interface FAQ {
+  question: string
+  answer: string
 }
 
 const AIConcierge: React.FC<AIConciergeProps> = ({ locale }) => {
@@ -26,10 +36,31 @@ const ChatCarousel = () => {
       id: 1,
       platform: 'WhatsApp',
       platformLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png',
-      businessName: 'Mario\'s Pizza',
-      status: 'Online',
+      businessName: locale === 'es' ? 'Pizza de Mario' : 'Mario\'s Pizza',
+      status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
-      messages: [
+      messages: locale === 'es' ? [
+        {
+          type: 'customer',
+          text: '¡Hola! ¿Puedo pedir 2 pizzas grandes de pepperoni a domicilio?',
+          time: '2:15 AM'
+        },
+        {
+          type: 'ai',
+          text: '¡Claro que sí! 🍕 2 pizzas grandes de pepperoni en camino. ¿Cuál es tu dirección?',
+          time: '2:15 AM'
+        },
+        {
+          type: 'customer',
+          text: 'Calle Principal 123. ¿Cuánto tarda la entrega?',
+          time: '2:16 AM'
+        },
+        {
+          type: 'ai',
+          text: '¡Perfecto! Pedido confirmado ✅ Total: $28.50. Entrega en 25-30 mins. ¡Gracias!',
+          time: '2:16 AM'
+        }
+      ] : [
         {
           type: 'customer',
           text: 'Hi! Can I get 2 large pepperoni pizzas for delivery?',
@@ -51,81 +82,225 @@ const ChatCarousel = () => {
           time: '2:16 AM'
         }
       ],
-      badge: 'Order taken automatically at 2am'
+      badge: locale === 'es' ? 'Pedido tomado automáticamente a las 2am' : 'Order taken automatically at 2am'
     },
     {
       id: 2,
-      platform: 'Instagram',
-      platformLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png',
-      businessName: 'Bella Vista',
-      status: 'Active now',
-      headerColor: 'bg-pink-500',
-      messages: [
+      platform: 'WhatsApp',
+      platformLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png',
+      businessName: locale === 'es' ? 'Sushi Bar Tokyo' : 'Tokyo Sushi Bar',
+      status: locale === 'es' ? 'En línea' : 'Online',
+      headerColor: 'bg-green-600',
+      messages: locale === 'es' ? [
         {
           type: 'customer',
-          text: 'Do you have tables available for tonight? Party of 4',
-          time: '6:30 PM'
+          text: '¿Mesa para 4 esta noche a las 7pm?',
+          time: '3:42 PM'
         },
         {
           type: 'ai',
-          text: 'Yes! 🍽️ I have availability for 4 people. What time works best?',
-          time: '6:30 PM'
+          text: '¡Sí! Tenemos disponibilidad a las 7pm para 4 personas 🍣 ¿Me das tu nombre?',
+          time: '3:42 PM'
         },
         {
           type: 'customer',
-          text: '8:00 PM would be perfect',
-          time: '6:31 PM'
+          text: 'Sarah Chen. ¿Tienen mesas afuera?',
+          time: '3:43 PM'
         },
         {
           type: 'ai',
-          text: 'Booked! ✅ Table for 4 at 8:00 PM tonight. See you then!',
-          time: '6:31 PM'
+          text: '¡Reservado! Mesa para 4 a nombre de Sarah a las 7pm en el patio. ¡Nos vemos! 🌸',
+          time: '3:43 PM'
+        }
+      ] : [
+        {
+          type: 'customer',
+          text: 'Table for 4 tonight at 7pm?',
+          time: '3:42 PM'
+        },
+        {
+          type: 'ai',
+          text: 'Yes! We have availability at 7pm for 4 guests 🍣 May I have your name?',
+          time: '3:42 PM'
+        },
+        {
+          type: 'customer',
+          text: 'Sarah Chen. Any outdoor seating?',
+          time: '3:43 PM'
+        },
+        {
+          type: 'ai',
+          text: 'Booked! Table for 4 under Sarah at 7pm on our patio. See you soon! 🌸',
+          time: '3:43 PM'
         }
       ],
-      badge: 'Table booked instantly'
+      badge: locale === 'es' ? 'Reservación hecha en segundos' : 'Reservation made in seconds'
     },
     {
       id: 3,
-      platform: 'Messenger',
-      platformLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/2048px-Facebook_Messenger_logo_2020.svg.png',
-      businessName: 'Taco Libre',
-      status: 'Usually replies instantly',
-      headerColor: 'bg-blue-600',
-      messages: [
+      platform: 'WhatsApp',
+      platformLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png',
+      businessName: locale === 'es' ? 'Café Amanecer' : 'Sunrise Café',
+      status: locale === 'es' ? 'En línea' : 'Online',
+      headerColor: 'bg-green-600',
+      messages: locale === 'es' ? [
         {
           type: 'customer',
-          text: 'What\'s in your fish tacos?',
-          time: '1:45 PM'
+          text: '¡Buenos días! 2 tostadas de aguacate y 2 lattes por favor',
+          time: '8:12 AM'
         },
         {
           type: 'ai',
-          text: 'Our fish tacos have grilled mahi-mahi, cabbage slaw, pico de gallo, and chipotle crema on corn tortillas 🌮',
-          time: '1:45 PM'
+          text: '¡Buenos días! ☀️ 2 tostadas de aguacate y 2 lattes en camino. ¿Para comer aquí o para llevar?',
+          time: '8:12 AM'
         },
         {
           type: 'customer',
-          text: 'Sounds amazing! I\'ll take 3 fish tacos',
-          time: '1:46 PM'
+          text: 'Para llevar por favor. ¿Cuánto es?',
+          time: '8:13 AM'
         },
         {
           type: 'ai',
-          text: 'Great choice! 3 fish tacos = $18. Pickup or delivery?',
-          time: '1:46 PM'
+          text: '¡Perfecto! Total: $22. Listo para recoger en 8 minutos. ¡Gracias! ☕',
+          time: '8:13 AM'
+        }
+      ] : [
+        {
+          type: 'customer',
+          text: 'Good morning! 2 avocado toasts and 2 lattes please',
+          time: '8:12 AM'
+        },
+        {
+          type: 'ai',
+          text: 'Good morning! ☀️ 2 avocado toasts & 2 lattes coming up. For here or to go?',
+          time: '8:12 AM'
+        },
+        {
+          type: 'customer',
+          text: 'To go please! How much?',
+          time: '8:13 AM'
+        },
+        {
+          type: 'ai',
+          text: 'Perfect! Total: $22. Ready for pickup in 8 minutes. Thanks! ☕',
+          time: '8:13 AM'
         }
       ],
-      badge: 'Menu questions answered instantly'
+      badge: locale === 'es' ? 'Pedido confirmado durante la hora pico' : 'Order confirmed during morning rush'
     },
     {
       id: 4,
-      platform: 'Phone',
-      platformLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Phone_icon.svg/2048px-Phone_icon.svg.png',
-      businessName: 'Sakura Sushi',
-      status: 'Connected',
-      headerColor: 'bg-gray-900',
-      isPhoneCall: true,
-      currentMessage: 'Perfect! California roll and miso soup. That\'s $16.50. Ready in 15 minutes!',
-      callDuration: '00:45',
-      badge: 'Phone order taken after hours'
+      platform: 'WhatsApp',
+      platformLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png',
+      businessName: 'La Cocina Mexicana',
+      status: locale === 'es' ? 'En línea' : 'Online',
+      headerColor: 'bg-green-600',
+      messages: locale === 'es' ? [
+        {
+          type: 'customer',
+          text: '¿Hacen catering? Necesito comida para 30 personas el próximo viernes',
+          time: '11:23 AM'
+        },
+        {
+          type: 'ai',
+          text: '¡Sí! 🌮 Nos encantaría atender tu evento. ¿Qué tipo de platillos te interesan?',
+          time: '11:23 AM'
+        },
+        {
+          type: 'customer',
+          text: '¡Una barra de tacos sería genial!',
+          time: '11:25 AM'
+        },
+        {
+          type: 'ai',
+          text: '¡Excelente elección! Nuestro gerente de catering te llamará en la próxima hora para los detalles. 🎉',
+          time: '11:25 AM'
+        }
+      ] : [
+        {
+          type: 'customer',
+          text: 'Do you do catering? Need food for 30 people next Friday',
+          time: '11:23 AM'
+        },
+        {
+          type: 'ai',
+          text: 'Yes! 🌮 We\'d love to cater your event. What type of items are you interested in?',
+          time: '11:23 AM'
+        },
+        {
+          type: 'customer',
+          text: 'Taco bar would be great!',
+          time: '11:25 AM'
+        },
+        {
+          type: 'ai',
+          text: 'Excellent choice! I\'ll have our catering manager call you within the hour to finalize details. 🎉',
+          time: '11:25 AM'
+        }
+      ],
+      badge: locale === 'es' ? 'Lead de catering capturado al instante' : 'Catering lead captured instantly'
+    },
+    {
+      id: 5,
+      platform: 'WhatsApp',
+      platformLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png',
+      businessName: locale === 'es' ? 'Pastelería Dulces Sueños' : 'Sweet Dreams Bakery',
+      status: locale === 'es' ? 'En línea' : 'Online',
+      headerColor: 'bg-green-600',
+      messages: locale === 'es' ? [
+        {
+          type: 'customer',
+          text: '¿Pueden hacer un pastel de cumpleaños personalizado para el sábado?',
+          time: '4:18 PM'
+        },
+        {
+          type: 'ai',
+          text: '¡Por supuesto! 🎂 ¿Qué sabor y para cuántas personas?',
+          time: '4:18 PM'
+        },
+        {
+          type: 'customer',
+          text: 'Pastel de chocolate para 12. ¿Pueden escribir "Feliz cumple Mike 30"?',
+          time: '4:19 PM'
+        },
+        {
+          type: 'ai',
+          text: '¡Perfecto! Pastel de chocolate para 12 con mensaje personalizado. $65. ¿Recoges el sábado después de las 2pm? ✨',
+          time: '4:19 PM'
+        },
+        {
+          type: 'customer',
+          text: '¡Perfecto, sí!',
+          time: '4:20 PM'
+        }
+      ] : [
+        {
+          type: 'customer',
+          text: 'Can you make a custom birthday cake for Saturday?',
+          time: '4:18 PM'
+        },
+        {
+          type: 'ai',
+          text: 'Absolutely! 🎂 What flavor and how many people?',
+          time: '4:18 PM'
+        },
+        {
+          type: 'customer',
+          text: 'Chocolate cake for 12. Can you write "Happy 30th Mike"?',
+          time: '4:19 PM'
+        },
+        {
+          type: 'ai',
+          text: 'Perfect! Chocolate cake for 12 with custom message. $65. Pick up Saturday after 2pm? ✨',
+          time: '4:19 PM'
+        },
+        {
+          type: 'customer',
+          text: 'Perfect, yes!',
+          time: '4:20 PM'
+        }
+      ],
+      badge: locale === 'es' ? 'Pedido personalizado manejado sin esfuerzo' : 'Custom order handled effortlessly'
     }
   ];
 
@@ -173,128 +348,52 @@ const ChatCarousel = () => {
 
       {/* Phone Mockup */}
       <div className="bg-black rounded-[2.5rem] p-2">
-        <div className={`${currentExample.isPhoneCall ? 'bg-gray-900' : 'bg-white'} rounded-[2rem] h-[600px] overflow-hidden`}>
-          
-          {currentExample.isPhoneCall ? (
-            /* Phone Call Interface */
-            <div className="text-white h-full flex flex-col">
-              {/* Status bar */}
-              <div className="flex justify-between items-center p-4 text-sm">
-                <span>9:41</span>
-                <div className="flex space-x-1">
-                  <div className="w-4 h-2 bg-white rounded-sm"></div>
-                  <div className="w-4 h-2 bg-white rounded-sm"></div>
-                  <div className="w-4 h-2 bg-white/50 rounded-sm"></div>
+        <div className="bg-white rounded-[2rem] h-[600px] overflow-hidden">
+          {/* WhatsApp Chat Interface */}
+          <>
+            {/* Chat Header */}
+            <div className={`${currentExample.headerColor} p-4 text-white`}>
+              <div className="flex items-center space-x-3">
+                <img 
+                  src={currentExample.platformLogo} 
+                  alt={currentExample.platform} 
+                  className="w-10 h-10 bg-white rounded-full p-1"
+                />
+                <div>
+                  <h3 className="font-semibold">{currentExample.businessName}</h3>
+                  <p className="text-sm opacity-90">{currentExample.status}</p>
                 </div>
               </div>
+            </div>
 
-              {/* Call info */}
-              <div className="text-center mb-8 px-4">
-                <h2 className="text-xl font-semibold mb-1">{currentExample.businessName}</h2>
-                <p className="text-green-400 text-sm mb-2">{currentExample.status}</p>
-                <p className="text-gray-400 text-sm">{currentExample.callDuration}</p>
-              </div>
-
-              {/* Avatar with speaking animation */}
-              <div className="flex justify-center mb-12">
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center scale-110 shadow-lg shadow-blue-500/50">
-                  <Phone className="w-12 h-12 text-white" />
-                </div>
-              </div>
-
-              {/* Current message display */}
-              <div className="flex-1 flex items-center justify-center px-4 mb-8">
-                <div className="bg-gray-800 rounded-2xl p-6 max-w-xs text-center">
-                  <div className="flex items-center justify-center space-x-2 mb-3">
-                    <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                    <span className="text-sm text-gray-400">🤖 AI Agent</span>
-                  </div>
-                  <p className="text-sm text-gray-100 leading-relaxed">
-                    {currentExample.currentMessage}
-                  </p>
-                  <div className="flex justify-center space-x-1 mt-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            {/* Chat Messages */}
+            <div className="p-4 space-y-4 h-[480px] overflow-y-auto">
+              {currentExample.messages?.map((message, index) => (
+                <div key={index} className={`flex ${message.type === 'customer' ? 'justify-start' : 'justify-end'}`}>
+                  <div className={`rounded-2xl p-3 max-w-xs ${
+                    message.type === 'customer' 
+                      ? 'bg-gray-200 rounded-bl-md' 
+                      : 'bg-green-500 text-white rounded-br-md'
+                  }`}>
+                    <p className="text-sm">{message.text}</p>
+                    <p className={`text-xs mt-1 ${
+                      message.type === 'customer' ? 'text-gray-500' : 'text-green-100'
+                    }`}>
+                      {message.time}
+                    </p>
                   </div>
                 </div>
-              </div>
-
-              {/* Call controls */}
-              <div className="px-8 pb-8">
-                <div className="flex justify-center space-x-8">
-                  <button className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
-                    <Mic className="w-6 h-6" />
-                  </button>
-                  <button className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
-                    <Volume2 className="w-6 h-6" />
-                  </button>
-                  <button className="w-14 h-14 bg-red-500 rounded-full flex items-center justify-center">
-                    <PhoneOff className="w-6 h-6" />
-                  </button>
-                </div>
-              </div>
-
+              ))}
+              
               {/* Success Badge */}
-              <div className="text-center pb-4">
+              <div className="text-center pt-4">
                 <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-xs font-semibold">
                   <CheckCircle className="w-4 h-4 mr-2" />
                   {currentExample.badge}
                 </div>
               </div>
             </div>
-          ) : (
-            /* Chat Interface */
-            <>
-              {/* Chat Header */}
-              <div className={`${currentExample.headerColor} p-4 text-white`}>
-                <div className="flex items-center space-x-3">
-                  <img 
-                    src={currentExample.platformLogo} 
-                    alt={currentExample.platform} 
-                    className="w-10 h-10 bg-white rounded-full p-1"
-                  />
-                  <div>
-                    <h3 className="font-semibold">{currentExample.businessName}</h3>
-                    <p className="text-sm opacity-90">{currentExample.status}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Chat Messages */}
-              <div className="p-4 space-y-4 h-[480px] overflow-y-auto">
-                {currentExample.messages?.map((message, index) => (
-                  <div key={index} className={`flex ${message.type === 'customer' ? 'justify-start' : 'justify-end'}`}>
-                    <div className={`rounded-2xl p-3 max-w-xs ${
-                      message.type === 'customer' 
-                        ? 'bg-gray-200 rounded-bl-md' 
-                        : `${currentExample.platform === 'WhatsApp' ? 'bg-green-500' : 
-                             currentExample.platform === 'Messenger' ? 'bg-blue-500' : 
-                             'bg-pink-500'} text-white rounded-br-md`
-                    }`}>
-                      <p className="text-sm">{message.text}</p>
-                      <p className={`text-xs mt-1 ${
-                        message.type === 'customer' ? 'text-gray-500' : 
-                        currentExample.platform === 'WhatsApp' ? 'text-green-100' :
-                        currentExample.platform === 'Messenger' ? 'text-blue-100' :
-                        'text-pink-100'
-                      }`}>
-                        {message.time}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-                
-                {/* Success Badge */}
-                <div className="text-center pt-4">
-                  <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-xs font-semibold">
-                    <CheckCircle className="w-4 h-4 mr-2" />
-                    {currentExample.badge}
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
+          </>
         </div>
       </div>
 
@@ -325,9 +424,8 @@ const ChatCarousel = () => {
     <>
       {/* AI-friendly page summary */}
       <div className="sr-only">
-        <h1>RAY AI Concierge - Turn Restaurant DMs Into Orders.</h1>
-        <p>Stop losing hungry customers to slow replies! Our AI takes orders, books tables, and answers menu questions across WhatsApp, Instagram, and Messenger — 24/7, even when your restaurant is closed</p>
-        <p>Key features: Instant automated responses, booking and order conversion, reputation protection, multilingual support, brand voice training, and compliance with privacy regulations. Results include 30% more actions from Google and social channels.</p>
+        <h1>{t.AI_CONCIERGE_PAGE.HERO.TITLE} {t.AI_CONCIERGE_PAGE.HERO.TITLE_HIGHLIGHT}</h1>
+        <p>{t.AI_CONCIERGE_PAGE.HERO.SUBTITLE}</p>
       </div>
       
       {/* Hero Section */}
@@ -372,13 +470,6 @@ const ChatCarousel = () => {
                 />
                   <span>{t.AI_CONCIERGE_PAGE.HERO.TRY_CHAT}</span>
                 </button>
-                <button 
-                  onClick={() => setIsPhoneModalOpen(true)}
-                  className="bg-indigo-600 text-white px-8 py-4 rounded-full hover:bg-indigo-700 transition-colors font-semibold text-lg flex items-center space-x-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>{t.AI_CONCIERGE_PAGE.HERO.TRY_PHONE}</span>
-              </button>
                           </div>
                         </div>
                         
@@ -425,77 +516,6 @@ const ChatCarousel = () => {
           </div>
                   </div>
       </section>
-
-      {/* How It Works Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-            {t.AI_CONCIERGE_PAGE.HOW_IT_WORKS.TITLE}
-          </h2>
-          
-          {/* Flow Diagram */}
-          <div className="flex flex-col md:flex-row items-center justify-between mb-16 space-y-8 md:space-y-0">
-            <div className="bg-white rounded-xl p-6 shadow-lg text-center">
-              <Users className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900">Your Guests</h3>
-              <p className="text-sm text-gray-600">Message you anywhere</p>
-            </div>
-            <ArrowRight className="w-8 h-8 text-gray-400 rotate-90 md:rotate-0" />
-            <div className="bg-white rounded-xl p-6 shadow-lg text-center">
-              <div className="flex justify-center space-x-2 mb-4">
-                <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
-                  alt="WhatsApp" 
-                  className="w-8 h-8"
-                />
-                <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-white" />
-                </div>
-                <div className="w-8 h-8 bg-pink-500 rounded flex items-center justify-center">
-                  <Instagram className="w-5 h-5 text-white" />
-                </div>
-              </div>
-              <h3 className="font-bold text-gray-900">AI Agent</h3>
-              <p className="text-sm text-gray-600">Responds instantly</p>
-            </div>
-            <ArrowRight className="w-8 h-8 text-gray-400 rotate-90 md:rotate-0" />
-            <div className="bg-white rounded-xl p-6 shadow-lg text-center">
-              <CheckCircle className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900">Results</h3>
-              <p className="text-sm text-gray-600">Orders, bookings, loyalty</p>
-            </div>
-                </div>
-                
-          {/* Four Columns */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {t.AI_CONCIERGE_PAGE.HOW_IT_WORKS.PLATFORMS.map((platform, index) => {
-              const icons = [
-                <img key="whatsapp" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="WhatsApp" className="w-8 h-8" />,
-                <MessageCircle key="messenger" className="w-8 h-8 text-blue-600" />,
-                <Instagram key="instagram" className="w-8 h-8 text-pink-600" />,
-                <Phone key="phone" className="w-8 h-8 text-indigo-600" />
-              ]
-              const bgColors = ['bg-green-100', 'bg-blue-100', 'bg-pink-100', 'bg-indigo-100']
-              
-              return (
-                <div key={index} className="bg-white rounded-xl p-8 shadow-lg">
-                  <div className={`w-16 h-16 ${bgColors[index]} rounded-full flex items-center justify-center mb-6`}>
-                    {icons[index]}
-                  </div>
-                  <h3 className="text-xl font-bold mb-4">{platform.name}</h3>
-                  <p className="text-gray-600 mb-4">{platform.description}</p>
-                  <ul className="space-y-2 text-sm text-gray-500">
-                    {platform.features.map((feature, featureIndex) => (
-                      <li key={featureIndex}>• {feature}</li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-      
       {/* POS Integration Section */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
@@ -508,13 +528,13 @@ const ChatCarousel = () => {
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              {t.AI_CONCIERGE_PAGE.POS_INTEGRATION.FEATURES.map((feature, index) => (
+              {t.AI_CONCIERGE_PAGE.POS_INTEGRATION.FEATURES.map((feature: Feature, index: number) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="bg-emerald-100 rounded-full p-1 flex-shrink-0 mt-1">
                     <CheckCircle className="w-5 h-5 text-emerald-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
+                    <h3 className="text-base font-semibold text-gray-900 mb-1">{feature.title}</h3>
                     <p className="text-gray-600 text-sm">{feature.description}</p>
                   </div>
                 </div>
@@ -543,7 +563,7 @@ const ChatCarousel = () => {
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              {t.AI_CONCIERGE_PAGE.BENEFITS.FEATURES.map((feature, index) => {
+              {t.AI_CONCIERGE_PAGE.BENEFITS.FEATURES.map((feature: Feature, index: number) => {
                 const icons = [Zap, MessageCircle, Calendar, Star, Users]
                 const IconComponent = icons[index] || Zap
                 
@@ -553,8 +573,8 @@ const ChatCarousel = () => {
                       <IconComponent className="w-6 h-6 text-emerald-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                      <p className="text-gray-600">{feature.description}</p>
+                      <h3 className="text-base font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                      <p className="text-gray-600 text-sm">{feature.description}</p>
                     </div>
                   </div>
                 )
@@ -562,29 +582,29 @@ const ChatCarousel = () => {
             </div>
             
             <div className="bg-gray-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
                 {t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_TITLE}
               </h3>
               <div className="bg-white rounded-xl p-6 shadow-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-medium text-gray-500">AI Dashboard</span>
+                  <span className="text-sm font-medium text-gray-500">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_HEADER}</span>
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 </div>
                 <div className="space-y-4">
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">Messages today</span>
+                    <span className="text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.MESSAGES_TODAY}</span>
                     <span className="text-sm font-semibold text-gray-900">247</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">Orders taken</span>
+                    <span className="text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.ORDERS_TAKEN}</span>
                     <span className="text-sm font-semibold text-emerald-600">89</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">Tables booked</span>
+                    <span className="text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.TABLES_BOOKED}</span>
                     <span className="text-sm font-semibold text-blue-600">23</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">Response time</span>
+                    <span className="text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.RESPONSE_TIME}</span>
                     <span className="text-sm font-semibold text-purple-600">1.2s</span>
                   </div>
                 </div>
@@ -633,7 +653,7 @@ const ChatCarousel = () => {
           </div>
           
           <div className="space-y-4">
-            {t.AI_CONCIERGE_PAGE.FAQ.QUESTIONS.map((faq, index) => (
+            {t.AI_CONCIERGE_PAGE.FAQ.QUESTIONS.map((faq: FAQ, index: number) => (
               <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
                 <button
                   onClick={() => toggleFaq(index)}

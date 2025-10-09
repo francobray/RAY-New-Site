@@ -58,29 +58,25 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   }
 
   return (
-    <html lang={locale}>
-      <head>
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-CFH2T8RJ0P');
-            `,
-          }}
-        />
-      </head>
-      <body className="antialiased">
-        <Header locale={locale} />
-        <main>
-          {children}
-        </main>
-        <Footer locale={locale} />
-      </body>
-    </html>
+    <>
+      {/* Google Analytics */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P"></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CFH2T8RJ0P');
+          `,
+        }}
+      />
+      <Header locale={locale} />
+      <main>
+        {children}
+      </main>
+      <Footer locale={locale} />
+    </>
   )
 }
 

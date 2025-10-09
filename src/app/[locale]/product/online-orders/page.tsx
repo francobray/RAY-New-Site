@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import OnlineOrders from '@/components/pages/product/OnlineOrders'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 import { generateProductWithReviewsSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/utils/schema'
 
 interface OnlineOrdersPageProps {

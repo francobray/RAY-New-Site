@@ -38,7 +38,6 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 
 export default function HomePage({ params }: HomePageProps) {
   const locale = params.locale as Locale
-  const t = getTranslations(locale)
   
   const combinedSchema = [
     generateOrganizationSchema(),

@@ -4,11 +4,21 @@ import React, { useState } from 'react'
 import { ArrowRight, ChevronDown, ChevronUp, Play, Users, Gift, Smartphone, CheckCircle } from 'lucide-react'
 import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 import Image from 'next/image'
 
 interface LoyaltyProps {
   locale: Locale
+}
+
+interface Feature {
+  title: string
+  description: string
+}
+
+interface FAQ {
+  question: string
+  answer: string
 }
 
 const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
@@ -157,7 +167,7 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
             
             {/* Right side - Features */}
             <div className="space-y-8">
-              {features.map((feature, index) => {
+              {features.map((feature: Feature, index: number) => {
                 const icons = [Users, Smartphone, Gift]
                 const IconComponent = icons[index] || Users
                 
@@ -386,7 +396,7 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
           </div>
 
           <div className="space-y-6">
-            {faqs.map((faq, index) => (
+            {faqs.map((faq: FAQ, index: number) => (
               <div key={index} className="bg-white rounded-xl p-6">
                 <button
                   onClick={() => toggleFaq(index)}

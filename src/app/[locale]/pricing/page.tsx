@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/utils/schema'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 import { getTranslations } from '@/hooks/useTranslations'
 import PricingPageClient from './PricingPageClient'
 

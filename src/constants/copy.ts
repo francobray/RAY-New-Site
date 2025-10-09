@@ -1,5 +1,7 @@
 // Centralized copy constants for consistency - Multi-language support
-export const COPY = {
+import { type Locale } from '@/lib/i18n'
+
+export const COPY: Record<Locale, any> = {
   es: {
     // CTA Labels
     CTA: {
@@ -796,7 +798,7 @@ export const COPY = {
       HERO: {
         TITLE: 'Convierte los DMs de Restaurante',
         TITLE_HIGHLIGHT: 'en Pedidos.',
-        SUBTITLE: '¡Deja de perder clientes hambrientos por respuestas lentas! Nuestra IA toma pedidos, reserva mesas y responde preguntas del menú en WhatsApp, Instagram y Messenger — 24/7, incluso cuando tu restaurante está cerrado. 🚀',
+        SUBTITLE: '¡Deja de perder clientes hambrientos por respuestas lentas! Nuestro empleado toma pedidos, reserva mesas y responde preguntas del menú en WhatsApp — 24/7, incluso cuando tu restaurante está cerrado. 🚀',
         BADGES: [
           'Tomar pedidos mientras duermes',
           'Auto-reservar mesas',
@@ -807,11 +809,11 @@ export const COPY = {
         TRY_PHONE: 'Probar llamada'
       },
       PROBLEM: {
-        TITLE: 'Demasiados DMs. Personal insuficiente. 😤',
+        TITLE: 'Demasiados mensajes de WhatsApp. Personal insuficiente. 😤',
         ISSUES: [
-          'Los clientes te envían mensajes día y noche en todas las plataformas',
-          'Tu personal no puede responder lo suficientemente rápido a todos',
-          'Chats perdidos = pedidos perdidos y clientes frustrados'
+          'Los clientes te envían mensajes de WhatsApp día y noche',
+          'Tu personal no puede responder lo suficientemente rápido',
+          'Mensajes perdidos = pedidos perdidos y clientes frustrados'
         ],
         SOLUTION: {
           TITLE: 'Nuestro agente de IA nunca duerme. ⚡',
@@ -819,42 +821,42 @@ export const COPY = {
         }
       },
       HOW_IT_WORKS: {
-        TITLE: 'Un Agente. Tres Canales. 🚀',
+        TITLE: 'Tu Asistente de WhatsApp 24/7. 🚀',
         PLATFORMS: [
           {
-            name: 'WhatsApp',
-            description: 'Donde la mayoría de tus clientes ya chatean. Perfecto para pedidos y preguntas rápidas.',
+            name: 'Pedidos Automáticos',
+            description: 'Toma pedidos completos de delivery y recogida directamente en WhatsApp.',
             features: [
-              'Confirmaciones instantáneas de pedidos',
-              'Compartir menú',
-              'Actualizaciones de entrega'
+              'Confirmación instantánea',
+              'Cálculo de totales',
+              'Envío al POS automático'
             ]
           },
           {
-            name: 'Messenger',
-            description: 'Conecta con seguidores de Facebook. Genial para reservas y eventos.',
+            name: 'Reservas de Mesas',
+            description: 'Gestiona reservaciones sin necesidad de llamadas telefónicas.',
             features: [
-              'Reservas de mesas',
-              'Consultas de eventos',
-              'Ofertas especiales'
+              'Disponibilidad en tiempo real',
+              'Confirmaciones automáticas',
+              'Recordatorios a clientes'
             ]
           },
           {
-            name: 'Instagram',
-            description: 'Interactúa con tu audiencia visual. Perfecto para mostrar platos y construir comunidad.',
+            name: 'Preguntas del Menú',
+            description: 'Responde consultas sobre platos, ingredientes y precios al instante.',
             features: [
-              'Pedidos basados en fotos',
-              'Interacciones de stories',
-              'Asociaciones con influencers'
+              'Información de alérgenos',
+              'Recomendaciones personalizadas',
+              'Promociones actuales'
             ]
           },
           {
-            name: 'Llamadas de Voz',
-            description: 'Nunca pierdas un pedido telefónico otra vez. Conversaciones de voz naturales que se sienten humanas.',
+            name: 'Campañas Inteligentes',
+            description: 'Envía ofertas personalizadas a tus clientes en el momento perfecto.',
             features: [
-              'Contestador telefónico 24/7',
-              'Pedidos de voz naturales',
-              'Soporte multilingüe'
+              'Segmentación automática',
+              'Mensajes personalizados',
+              'Métricas de conversión'
             ]
           }
         ]
@@ -893,6 +895,13 @@ export const COPY = {
       BENEFITS: {
         TITLE: 'Por qué los restaurantes lo aman ❤️',
         DASHBOARD_TITLE: 'Es como tener un anfitrión, mesero y especialista en marketing de tiempo completo... dentro de tu bandeja de entrada. 🎯',
+        DASHBOARD_HEADER: 'Panel IA',
+        DASHBOARD_LABELS: {
+          MESSAGES_TODAY: 'Mensajes hoy',
+          ORDERS_TAKEN: 'Pedidos tomados',
+          TABLES_BOOKED: 'Mesas reservadas',
+          RESPONSE_TIME: 'Tiempo de respuesta'
+        },
         FEATURES: [
           {
             title: '⚡ Respuestas instantáneas 24/7',
@@ -2062,7 +2071,7 @@ export const COPY = {
       HERO: {
         TITLE: 'Turn Restaurant',
         TITLE_HIGHLIGHT: 'DMs Into Orders.',
-        SUBTITLE: 'Stop losing hungry customers to slow replies! Our AI takes orders, books tables, and answers menu questions across WhatsApp, Instagram, and Messenger — 24/7, even when your restaurant is closed. 🚀',
+        SUBTITLE: 'Stop losing hungry customers to slow replies! Our AI takes orders, books tables, and answers menu questions on WhatsApp — 24/7, even when your restaurant is closed. 🚀',
         BADGES: [
           'Take orders while you sleep',
           'Auto-book reservations',
@@ -2073,11 +2082,11 @@ export const COPY = {
         TRY_PHONE: 'Try phone call'
       },
       PROBLEM: {
-        TITLE: 'Too many DMs. Not enough staff. 😤',
+        TITLE: 'Too many WhatsApp messages. Not enough staff. 😤',
         ISSUES: [
-          'Guests message you day and night across all platforms',
-          'Your staff can\'t reply fast enough to everyone',
-          'Missed chats = missed orders and frustrated guests'
+          'Guests message you on WhatsApp day and night',
+          'Your staff can\'t reply fast enough',
+          'Missed messages = missed orders and frustrated guests'
         ],
         SOLUTION: {
           TITLE: 'Our AI agent never sleeps. ⚡',
@@ -2085,42 +2094,42 @@ export const COPY = {
         }
       },
       HOW_IT_WORKS: {
-        TITLE: 'One Agent. Three Channels. 🚀',
+        TITLE: 'Your 24/7 WhatsApp Assistant. 🚀',
         PLATFORMS: [
           {
-            name: 'WhatsApp',
-            description: 'Where most of your guests already chat. Perfect for orders and quick questions.',
+            name: 'Automatic Orders',
+            description: 'Take complete delivery and pickup orders directly on WhatsApp.',
             features: [
-              'Instant order confirmations',
-              'Menu sharing',
-              'Delivery updates'
+              'Instant confirmation',
+              'Total calculation',
+              'Auto-send to POS'
             ]
           },
           {
-            name: 'Messenger',
-            description: 'Connect with Facebook followers. Great for reservations and events.',
+            name: 'Table Reservations',
+            description: 'Manage bookings without phone calls.',
             features: [
-              'Table bookings',
-              'Event inquiries',
-              'Special offers'
+              'Real-time availability',
+              'Automatic confirmations',
+              'Guest reminders'
             ]
           },
           {
-            name: 'Instagram',
-            description: 'Engage with your visual audience. Perfect for showcasing dishes and building community.',
+            name: 'Menu Questions',
+            description: 'Answer questions about dishes, ingredients, and prices instantly.',
             features: [
-              'Photo-based orders',
-              'Story interactions',
-              'Influencer partnerships'
+              'Allergen information',
+              'Personalized recommendations',
+              'Current promotions'
             ]
           },
           {
-            name: 'Voice Calls',
-            description: 'Never miss a phone order again. Natural voice conversations that feel human.',
+            name: 'Smart Campaigns',
+            description: 'Send personalized offers to your customers at the perfect time.',
             features: [
-              '24/7 phone answering',
-              'Natural voice orders',
-              'Multilingual support'
+              'Automatic segmentation',
+              'Personalized messages',
+              'Conversion metrics'
             ]
           }
         ]
@@ -2159,6 +2168,13 @@ export const COPY = {
       BENEFITS: {
         TITLE: 'Why restaurants love it ❤️',
         DASHBOARD_TITLE: 'It\'s like having a full-time host, server, and marketer… inside your inbox. 🎯',
+        DASHBOARD_HEADER: 'AI Dashboard',
+        DASHBOARD_LABELS: {
+          MESSAGES_TODAY: 'Messages today',
+          ORDERS_TAKEN: 'Orders taken',
+          TABLES_BOOKED: 'Tables booked',
+          RESPONSE_TIME: 'Response time'
+        },
         FEATURES: [
           {
             title: '⚡ 24/7 instant replies',
@@ -2535,5 +2551,4 @@ export const COPY = {
 } as const
 
 // Type helpers for translations
-export type Locale = 'es' | 'en'
 export type TranslationKeys = typeof COPY.es

@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import CaseStudies from '@/components/pages/CaseStudies'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface CaseStudiesPageProps {
   params: { locale: Locale }

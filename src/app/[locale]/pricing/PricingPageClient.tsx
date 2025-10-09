@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Check, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react'
 import Button from '@/components/shared/BaseButton'
 import { useTranslations } from '@/hooks/useTranslations'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface PricingPageClientProps {
   locale: Locale

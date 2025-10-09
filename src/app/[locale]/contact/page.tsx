@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Contact from '@/components/pages/Contact'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface ContactPageProps {
   params: { locale: Locale }

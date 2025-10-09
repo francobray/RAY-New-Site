@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Loyalty from '@/components/pages/product/Loyalty'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/utils/schema'
 
 interface LoyaltyPageProps {

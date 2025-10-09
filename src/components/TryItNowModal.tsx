@@ -17,15 +17,14 @@ interface TryItNowModalProps {
 
 const aiResponsesConfig = {
   es: {
-    greeting: "👋 ¡Hola! Soy Donna, tu asistente IA de Mario's Pizza. Puedo ayudarte a realizar pedidos, responder preguntas del menú y reservar mesas. ¿Qué te gustaría saber?",
+    greeting: "👋 ¡Hola! Soy Donna de Mario's Pizza. Puedo ayudarte a realizar pedidos, responder preguntas del menú y reservar mesas. ¿Qué te gustaría saber?",
     menu: "🍕 Nuestro menú incluye:\n\n• Pizza Margherita - $18\n• Pizza Pepperoni - $20\n• Pizza Suprema - $24\n• Ensalada César - $12\n• Pan de Ajo - $8\n\n¿Qué te llama la atención?",
     order: "¡Excelente elección! 🍕 Me encantaría ayudarte con tu pedido. ¿Qué tamaño te gustaría?\n\n• Pequeña (10\") - $18\n• Mediana (12\") - $22\n• Grande (14\") - $26",
     delivery: "¡Perfecto! Para el delivery, necesito tu dirección. Hacemos entregas dentro de 8 km de nuestra ubicación y típicamente toma 25-30 minutos. ¿Cuál es tu dirección de entrega?",
     hours: "⏰ Estamos abiertos:\n\nLun-Jue: 11am - 10pm\nVie-Sáb: 11am - 11pm\nDom: 12pm - 9pm\n\n¡Estamos abiertos ahora! ¿Te gustaría hacer un pedido?",
     reservation: "🍽️ ¡Me encantaría ayudarte a reservar una mesa! ¿Qué fecha y hora te viene bien, y cuántas personas vendrán?",
     default: "Puedo ayudarte con pedidos, preguntas del menú, reservas u horarios. ¿Qué te gustaría saber? 😊",
-    securityNotice: "Este negocio utiliza un servicio seguro de Meta para gestionar este chat. Toca para saber más.",
-    assistantSubtitle: "Tu Asistente IA",
+    assistantSubtitle: "Mario's Pizza",
     placeholder: "Escribe un mensaje",
     quickReplies: [
       "Muéstrame tu menú",
@@ -42,7 +41,6 @@ const aiResponsesConfig = {
     hours: "⏰ We're open:\n\nMon-Thu: 11am - 10pm\nFri-Sat: 11am - 11pm\nSun: 12pm - 9pm\n\nWe're currently open! Would you like to place an order?",
     reservation: "🍽️ I'd love to help you book a table! What date and time works for you, and how many people will be joining?",
     default: "I can help you with orders, menu questions, reservations, or store hours. What would you like to know? 😊",
-    securityNotice: "This business uses a secure service from Meta to manage this chat. Tap to learn more.",
     assistantSubtitle: "Your AI Assistant",
     placeholder: "Type a message",
     quickReplies: [
@@ -184,16 +182,6 @@ export default function TryItNowModal({ isOpen, onClose, locale = 'en' }: TryItN
           >
             <X className="w-6 h-6" />
           </button>
-        </div>
-
-        {/* Security Notice */}
-        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-xs text-gray-600">
-          <div className="flex items-center space-x-2">
-            <div className="w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center">
-              <span className="text-white text-xs">ℹ</span>
-            </div>
-            <span>{content.securityNotice}</span>
-          </div>
         </div>
 
         {/* Messages */}

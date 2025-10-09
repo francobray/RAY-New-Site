@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import MobileApp from '@/components/pages/product/MobileApp'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/utils/schema'
 import { getTranslations } from '@/hooks/useTranslations'
 

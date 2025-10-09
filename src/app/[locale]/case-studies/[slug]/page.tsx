@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ChimbaCaseStudy from '@/components/pages/ChimbaCaseStudy'
 import TempleCraftCaseStudy from '@/components/pages/TempleCraftCaseStudy'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface Props {
   params: {

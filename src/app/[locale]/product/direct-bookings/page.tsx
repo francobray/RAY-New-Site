@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Bookings from '@/components/pages/product/Bookings'
-import { type Locale } from '@/constants/copy'
+import { type Locale } from '@/lib/i18n'
 
 interface BookingsPageProps {
   params: { locale: Locale }
