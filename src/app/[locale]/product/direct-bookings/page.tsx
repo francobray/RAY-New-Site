@@ -7,7 +7,7 @@ interface BookingsPageProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Simplify Bookings. Connect with Every Customer.',
+  title: 'Get more direct Bookings. Connect with Every Customer.',
   description: 'Maximize table occupancy with smart booking management. Handle reservations, walk-ins, and waitlists while building guest relationships that drive repeat visits.',
   openGraph: {
     title: 'Bookings - Maximize Table Occupancy & Guest Experience | RAY',

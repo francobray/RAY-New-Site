@@ -90,7 +90,7 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
     <>
       {/* AI-friendly page summary */}
       <div className="sr-only">
-        <h1>{locale === 'es' ? 'RAY Delivery Sin Comisión - Delivery rentable y gran experiencia para huéspedes' : 'RAY Zero-Commission Delivery - Profitable delivery and great guest experience'}</h1>
+        <h1>{locale === 'es' ? 'RAY Delivery Sin Comisión - Delivery rentable y gran experiencia para clientes' : 'RAY Zero-Commission Delivery - Profitable delivery and great guest experience'}</h1>
         <p>{locale === 'es' ? 'RAY Delivery Sin Comisión ofrece delivery rentable con drivers de calidad y tarifas fijas transparentes.' : 'RAY Zero-Commission Delivery offers profitable delivery with quality drivers and transparent flat rates.'}</p>
       </div>
       
@@ -114,7 +114,7 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
                 {locale === 'es' ? 'Delivery rentable y una ' : 'Profitable delivery and a '}
                 <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
-                  {locale === 'es' ? 'gran experiencia para huéspedes.' : 'great guest experience.'}
+                  {locale === 'es' ? 'gran experiencia para clientes.' : 'great guest experience.'}
                 </span>
               </h1>
               
@@ -198,7 +198,7 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-              {locale === 'es' ? 'Delivery que es mejor para ti y tus huéspedes' : 'Delivery that\'s better for you and your guests'}
+              {locale === 'es' ? 'Delivery que es mejor para ti y tus clientes' : 'Delivery that\'s better for you and your guests'}
             </h2>
             <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
               {locale === 'es' ? 'Controla tu experiencia de delivery con drivers de calidad y precios transparentes.' : 'Control your delivery experience with quality drivers and transparent pricing.'}
@@ -498,7 +498,7 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
                 </div>
                 <div>
                   <blockquote className="text-lg font-medium text-ray-dark-900 mb-2">
-                    "{locale === 'es' ? 'No pasa una semana que no me pregunten de dónde vienen nuestros huéspedes. Nuestro sitio web y app porque hace que su experiencia sea mucho más fácil.' : 'There\'s not a week that goes by where I don\'t hear from our guests how much they love our website and app because it makes their experience so much easier.'}"
+                    "{locale === 'es' ? 'No pasa una semana que no me pregunten de dónde vienen nuestros clientes. Nuestro sitio web y app porque hace que su experiencia sea mucho más fácil.' : 'There\'s not a week that goes by where I don\'t hear from our guests how much they love our website and app because it makes their experience so much easier.'}"
                   </blockquote>
                   <div className="text-sm text-ray-darkGray">
                     <div className="font-medium">Rahul Bhalla</div>

@@ -1198,13 +1198,13 @@ export const COPY: Record<Locale, any> = {
       HERO: {
         BADGE: 'Delivery Rentable',
         TITLE: 'Delivery rentable y una',
-        TITLE_HIGHLIGHT: 'gran experiencia para huéspedes.',
+        TITLE_HIGHLIGHT: 'gran experiencia para clientes.',
         SUBTITLE: 'Haz que tus clientes ordenen desde tu app, con drivers de alta calificación, a un precio justo.',
         CTA_DEMO: 'Obtén una demo gratis',
         CTA_PRICING: 'Ver Precios'
       },
       FEATURES: {
-        TITLE: 'Delivery que es mejor para ti y tus huéspedes',
+        TITLE: 'Delivery que es mejor para ti y tus clientes',
         SUBTITLE: 'Controla tu experiencia de delivery con drivers de calidad y precios transparentes.',
         LIST: [
           {

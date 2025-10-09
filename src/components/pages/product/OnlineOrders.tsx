@@ -235,70 +235,74 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
         </div>
       </section>
 
-      {/* Delivery Section */}
-      <section className="py-24 bg-ray-dark-900 text-white">
+      {/* Direct Ordering Experience Section */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              {locale === 'es' ? 'Ofrece delivery a tus clientes con tarifas fijas y justas' : 'Offer delivery for your customers with flat, fair fees'}
+            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+              {locale === 'es' ? 'Pedidos online que se sienten como las apps de delivery' : 'Online ordering that feels like the delivery apps'}
             </h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Delivery info */}
+            {/* Left side - Mobile App Interface */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-ray-blue to-ray-green rounded-2xl p-8 text-white shadow-2xl">
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold mb-2">
-                    {locale === 'es' ? 'Delivery para restaurantes' : 'Delivery for restaurants'}
-                  </h3>
-                  <p className="text-lg opacity-90">
-                    {locale === 'es' ? 'Precios de delivery simples que son mejores para ti y más baratos para tus huéspedes.' : 'Simple delivery pricing that\'s better for you and cheaper for your guests.'}
-                  </p>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm opacity-90">
-                        {locale === 'es' ? 'Tarifa fija de delivery' : 'Flat delivery fee'}
-                      </span>
-                      <span className="font-bold">$2.99</span>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm opacity-90">
-                        {locale === 'es' ? 'Sin comisiones ocultas' : 'No hidden fees'}
-                      </span>
-                      <span className="font-bold">$0.00</span>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm opacity-90">
-                        {locale === 'es' ? 'Tiempo promedio de entrega' : 'Average delivery time'}
-                      </span>
-                      <span className="font-bold">25-35 min</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-xs mx-auto">
+                <Image 
+                  src="/images/branded-apps/Temple-mobile-app-menu.png"
+                  alt={locale === 'es' ? 'Interfaz de menú de la app móvil de Temple' : 'Temple mobile app menu interface'}
+                  width={300}
+                  height={600}
+                  className="w-full h-auto"
+                />
               </div>
             </div>
             
-            {/* Right side - Temple App Real Time Tracking */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-sm mx-auto">
-                <Image 
-                  src="/images/online-ordering/Temple App - RealTime tracking.png"
-                  alt={locale === 'es' ? 'App móvil de Temple con seguimiento en tiempo real' : 'Temple mobile app with real-time tracking'}
-                  width={400}
-                  height={600}
-                  className="w-full h-auto"
-                  priority
-                />
+            {/* Right side - Benefits */}
+            <div className="space-y-8">
+              {/* Benefit 1 */}
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="text-2xl">⚡</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-ray-dark-900 mb-2">
+                    {locale === 'es' ? 'Fácil para que tus clientes hagan el cambio' : 'Easy for your guests to make the switch'}
+                  </h3>
+                  <p className="text-ray-darkGray">
+                    {locale === 'es' ? 'Tanto tu sitio web como tu aplicación móvil de pedidos online son fáciles para los clientes, ya que se sienten familiares.' : 'Both your website and mobile online ordering are easy for customers, since they feel familiar.'}
+                  </p>
+                </div>
+              </div>
+              
+              {/* Benefit 2 */}
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="text-2xl">📊</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-ray-dark-900 mb-2">
+                    {locale === 'es' ? 'Comienza a ser dueño de los datos de tus clientes' : 'Start owning your customer data'}
+                  </h3>
+                  <p className="text-ray-darkGray">
+                    {locale === 'es' ? 'Los pedidos directos significan que obtienes los datos de los clientes, no terceros. Construye más conexiones con tus clientes.' : 'Direct orders mean you get customer data, not third-parties. Build more connections with your guests.'}
+                  </p>
+                </div>
+              </div>
+              
+              {/* Benefit 3 */}
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="text-2xl">💰</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-ray-dark-900 mb-2">
+                    {locale === 'es' ? 'Más barato y mejor para tus clientes' : 'Cheaper and better for your guests'}
+                  </h3>
+                  <p className="text-ray-darkGray">
+                    {locale === 'es' ? 'Ordenar directamente significa que los clientes evitan las tarifas de terceros, por lo que acudirán a ti primero.' : 'Ordering directly means that guests avoid third-party fees, so they\'ll go to you first.'}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

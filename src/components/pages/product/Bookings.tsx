@@ -1,7 +1,8 @@
 'use client'
 
-import React from 'react'
-import { Calendar, Users, BarChart3, Clock, Heart, CheckCircle, ArrowRight, TrendingUp, Star, UserCheck, RotateCcw, Shield } from 'lucide-react'
+import React, { useState } from 'react'
+import Image from 'next/image'
+import { Calendar, Users, BarChart3, Clock, Heart, CheckCircle, ArrowRight, TrendingUp, Star, UserCheck, RotateCcw, Shield, ChevronDown, ChevronUp } from 'lucide-react'
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
@@ -13,6 +14,11 @@ interface BookingsProps {
 
 const Bookings: React.FC<BookingsProps> = ({ locale }) => {
   const t = useTranslations(locale)
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index)
+  }
 
   const benefits = [
     {
@@ -104,6 +110,29 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
     }
   ]
 
+  const faqs = [
+    {
+      question: locale === 'es' ? '¿Cómo funciona el sistema de reservas?' : 'How does the reservation system work?',
+      answer: locale === 'es' ? 'Nuestro sistema de reservas se integra directamente con tu sitio web y permite a los clientes reservar mesas 24/7. Los clientes reciben confirmaciones automáticas y recordatorios, mientras tú mantienes control total sobre la disponibilidad y configuración.' : 'Our reservation system integrates directly with your website and allows customers to book tables 24/7. Customers receive automatic confirmations and reminders, while you maintain full control over availability and settings.'
+    },
+    {
+      question: locale === 'es' ? '¿Se integra con mi sistema POS actual?' : 'Does it integrate with my current POS system?',
+      answer: locale === 'es' ? 'Sí, nuestro sistema de reservas se integra con los principales sistemas POS incluyendo Toast, Square, Clover, y muchos más. La integración permite sincronizar automáticamente las reservas con tu flujo de trabajo existente.' : 'Yes, our reservation system integrates with major POS systems including Toast, Square, Clover, and many more. The integration allows you to automatically sync reservations with your existing workflow.'
+    },
+    {
+      question: locale === 'es' ? '¿Puedo gestionar walk-ins y listas de espera?' : 'Can I manage walk-ins and waitlists?',
+      answer: locale === 'es' ? 'Absolutamente. Nuestro sistema incluye gestión digital de walk-ins y listas de espera con estimaciones automáticas de tiempo de espera. Los clientes reciben notificaciones SMS cuando su mesa está lista.' : 'Absolutely. Our system includes digital walk-in and waitlist management with automatic wait time estimates. Guests receive SMS notifications when their table is ready.'
+    },
+    {
+      question: locale === 'es' ? '¿Cómo ayuda a reducir los no-shows?' : 'How does it help reduce no-shows?',
+      answer: locale === 'es' ? 'Enviamos recordatorios automáticos por SMS y email antes de la reserva. También ofrecemos opciones de confirmación y políticas de cancelación personalizables. Esto ha demostrado reducir los no-shows hasta en un 40%.' : 'We send automatic SMS and email reminders before the reservation. We also offer customizable confirmation options and cancellation policies. This has been proven to reduce no-shows by up to 40%.'
+    },
+    {
+      question: locale === 'es' ? '¿Qué datos de clientes obtengo?' : 'What customer data do I get?',
+      answer: locale === 'es' ? 'Obtienes perfiles completos de clientes incluyendo historial de visitas, preferencias de mesa, información de contacto, y notas especiales. Esta información te ayuda a personalizar la experiencia y construir relaciones duraderas con tus clientes.' : 'You get complete guest profiles including visit history, table preferences, contact information, and special notes. This information helps you personalize the experience and build lasting relationships with your customers.'
+    }
+  ]
+
   return (
     <>
       {/* Hero Section */}
@@ -111,7 +140,7 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(13,121,229,0.1),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(111,191,115,0.1),transparent_50%)]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12 items-center">
             <div className="text-center lg:text-left relative">
               <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
                 <Calendar className="w-4 h-4 mr-2" />
@@ -163,37 +192,15 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
               </div>
             </div>
             <div className="relative">
-              <div className="relative max-w-md mx-auto">
-                <Card className="p-6 bg-white shadow-2xl">
-                  <div className="space-y-4">
-                    <div className="text-center">
-                      <h3 className="text-lg font-bold text-ray-dark-900 mb-2">{t.BOOKINGS_PAGE.BOOKING_WIDGET.RESERVE_TABLE}</h3>
-                      <p className="text-sm text-ray-darkGray">{t.BOOKINGS_PAGE.BOOKING_WIDGET.AVAILABLE_TONIGHT}</p>
-                    </div>
-                    <div className="grid grid-cols-3 gap-2">
-                      <button className="p-2 bg-gray-100 rounded-lg text-sm font-medium text-ray-darkGray">6:00 PM</button>
-                      <button className="p-2 bg-ray-blue text-white rounded-lg text-sm font-medium">7:30 PM</button>
-                      <button className="p-2 bg-gray-100 rounded-lg text-sm font-medium text-ray-darkGray">9:00 PM</button>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-ray-dark-900 mb-2">{t.BOOKINGS_PAGE.BOOKING_WIDGET.PARTY_SIZE}</label>
-                      <select className="w-full p-2 border border-gray-300 rounded-lg">
-                        <option>{t.BOOKINGS_PAGE.BOOKING_WIDGET.PEOPLE_2}</option>
-                        <option>{t.BOOKINGS_PAGE.BOOKING_WIDGET.PEOPLE_4}</option>
-                        <option>{t.BOOKINGS_PAGE.BOOKING_WIDGET.PEOPLE_6}</option>
-                      </select>
-                    </div>
-                    <button className="w-full bg-ray-green text-white py-3 rounded-lg font-semibold">{t.BOOKINGS_PAGE.BOOKING_WIDGET.BOOK_TABLE}</button>
-                  </div>
-                </Card>
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">
-                  <div className="text-lg font-bold text-ray-green">{t.BOOKINGS_PAGE.BOOKING_WIDGET.TABLE_UTILIZATION_STAT}</div>
-                  <div className="text-xs text-ray-darkGray">{t.BOOKINGS_PAGE.BOOKING_WIDGET.TABLE_UTILIZATION_LABEL}</div>
-                </div>
-                <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">
-                  <div className="text-lg font-bold text-ray-blue">{t.BOOKINGS_PAGE.BOOKING_WIDGET.NO_SHOWS_STAT}</div>
-                  <div className="text-xs text-ray-darkGray">{t.BOOKINGS_PAGE.BOOKING_WIDGET.NO_SHOWS_LABEL}</div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image 
+                  src="/images/product-website/Temple-website-bookings.png"
+                  alt={locale === 'es' ? 'Interfaz de reservas del sitio web de Temple' : 'Temple website booking interface'}
+                  width={800}
+                  height={600}
+                  className="w-full h-auto"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -208,7 +215,12 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
               <TrendingUp className="w-4 h-4 mr-2" />
               {t.BOOKINGS_PAGE.FEATURES_SECTION.BADGE}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">{t.BOOKINGS_PAGE.FEATURES_SECTION.TITLE}</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+              {locale === 'es' ? 'Obtén Más Reservas Directas. Conéctate con ' : 'Get More Direct Bookings. Connect with '}
+              <span className="text-ray-blue">
+                {locale === 'es' ? 'Cada Cliente' : 'Every Customer'}
+              </span>
+            </h2>
             <p className="text-xl text-ray-darkGray max-w-3xl mx-auto leading-relaxed">{t.BOOKINGS_PAGE.FEATURES_SECTION.SUBTITLE}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -226,52 +238,92 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
       </section>
 
       {/* Results Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(13,121,229,0.03),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(111,191,115,0.03),transparent_50%)]"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">{t.BOOKINGS_PAGE.RESULTS_SECTION.TITLE}</h2>
-            <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">{t.BOOKINGS_PAGE.RESULTS_SECTION.SUBTITLE}</p>
-          </div>
-          <div className="max-w-5xl mx-auto">
-            <Card className="p-8 md:p-12">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                {metrics.map((metric, index) => (
-                  <div key={index} className="text-center group">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-ray-blue to-ray-green rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <metric.icon className="w-8 h-8 text-white" />
+      <section className="py-20 relative overflow-hidden min-h-[600px] flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/bookings/fondo-bookings-01.jpg"
+            alt="Restaurant booking background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-2xl">
+            <div className="mb-8">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+                {locale === 'es' ? 'Resultados Comprobados para Operaciones de Restaurantes' : 'Proven Results for Restaurant Operations'}
+              </h2>
+              <p className="text-xl text-white/90 leading-relaxed">
+                {locale === 'es' ? 'Mira el impacto medible que nuestra plataforma de reservas tiene en la eficiencia y los ingresos del restaurante.' : 'See the measurable impact our booking platform has on restaurant efficiency and revenue.'}
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 gap-6">
+              {metrics.map((metric, index) => (
+                <div key={index} className="text-left group">
+                  <div className="flex items-start space-x-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl mb-2 group-hover:scale-110 transition-transform duration-300 shadow-lg flex-shrink-0">
+                      <metric.icon className="w-6 h-6 text-white" />
                     </div>
-                    <div className="text-3xl md:text-4xl font-black text-ray-dark-900 mb-2 group-hover:text-ray-blue transition-colors duration-300">{metric.value}</div>
-                    <div className="text-lg font-semibold text-ray-dark-900 mb-3 leading-tight">{metric.label}</div>
-                    <div className="text-sm text-ray-darkGray font-medium">{metric.description}</div>
+                    <div className="flex-1">
+                      <div className="text-2xl md:text-3xl font-black text-white mb-1 group-hover:text-ray-green transition-colors duration-300">{metric.value}</div>
+                      <div className="text-base font-semibold text-white mb-1 leading-tight">{metric.label}</div>
+                      <div className="text-sm text-white/80 font-medium">{metric.description}</div>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </Card>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-20 bg-white">
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="p-8 md:p-12 text-center">
-            <div className="flex items-center justify-center mb-6">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
-              ))}
-            </div>
-            <blockquote className="text-2xl md:text-3xl text-ray-dark-900 font-medium leading-relaxed mb-8">
-              "{t.BOOKINGS_PAGE.TESTIMONIAL.QUOTE}"
-            </blockquote>
-            <div className="flex items-center justify-center">
-              <div className="text-center">
-                <div className="font-bold text-ray-dark-900 text-lg">{t.BOOKINGS_PAGE.TESTIMONIAL.AUTHOR}</div>
-                <div className="text-ray-darkGray">{t.BOOKINGS_PAGE.TESTIMONIAL.POSITION}</div>
-              </div>
-            </div>
-          </Card>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+              {locale === 'es' ? 'Preguntas Frecuentes' : 'Frequently Asked Questions'}
+            </h2>
+            <p className="text-xl text-ray-darkGray">
+              {locale === 'es' ? 'Todo lo que necesitas saber sobre nuestro sistema de reservas.' : 'Everything you need to know about our reservation system.'}
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="overflow-hidden">
+                <button
+                  className="w-full p-6 text-left flex justify-between items-start hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <div className="flex-1 pr-4">
+                    <h3 className="text-lg font-semibold text-ray-dark-900 mb-2">
+                      {faq.question}
+                    </h3>
+                  </div>
+                  {openFaq === index ? (
+                    <ChevronUp className="w-5 h-5 text-ray-blue flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-ray-blue flex-shrink-0" />
+                  )}
+                </button>
+                
+                {openFaq === index && (
+                  <div className="px-6 pb-6 border-t border-gray-200">
+                    <p className="text-ray-dark-700 leading-relaxed pt-4">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 

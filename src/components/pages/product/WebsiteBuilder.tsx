@@ -298,6 +298,87 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
         </div>
       </section>
 
+      {/* Direct Booking Section */}
+      <section className="py-24 bg-ray-dark-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              {locale === 'es' ? 'Reservas directas desde tu sitio web' : 'Direct bookings from your website'}
+            </h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              {locale === 'es' ? 'Permite que tus clientes reserven mesas directamente desde tu sitio web con nuestro sistema integrado de reservas.' : 'Let your customers book tables directly from your website with our integrated reservation system.'}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] gap-16 items-center">
+            {/* Left side - Direct Booking Features */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-ray-blue to-ray-green rounded-2xl p-8 text-white shadow-2xl">
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold mb-2">
+                    {locale === 'es' ? 'Sistema de reservas inteligente' : 'Smart reservation system'}
+                  </h3>
+                  <p className="text-lg opacity-90">
+                    {locale === 'es' ? 'Gestión automática de disponibilidad, confirmaciones instantáneas y recordatorios para reducir no-shows.' : 'Automatic availability management, instant confirmations, and reminders to reduce no-shows.'}
+                  </p>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm opacity-90">
+                        {locale === 'es' ? 'Reservas en tiempo real' : 'Real-time reservations'}
+                      </span>
+                      <CheckCircle className="w-5 h-5" />
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm opacity-90">
+                        {locale === 'es' ? 'Confirmación automática' : 'Automatic confirmation'}
+                      </span>
+                      <CheckCircle className="w-5 h-5" />
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm opacity-90">
+                        {locale === 'es' ? 'Recordatorios SMS/Email' : 'SMS/Email reminders'}
+                      </span>
+                      <CheckCircle className="w-5 h-5" />
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm opacity-90">
+                        {locale === 'es' ? 'Gestión de capacidad' : 'Capacity management'}
+                      </span>
+                      <CheckCircle className="w-5 h-5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right side - Website Booking Interface */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image 
+                  src="/images/product-website/Temple-website-bookings.png"
+                  alt={locale === 'es' ? 'Interfaz de reservas del sitio web de Temple' : 'Temple website booking interface'}
+                  width={800}
+                  height={600}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : 'Zero-Commission Delivery for Restaurants - RAY'
     
   const description = locale === 'es'
-    ? 'Delivery rentable y gran experiencia para huéspedes. Haz que tus clientes ordenen desde tu app, con drivers de alta calificación, a un precio justo.'
+    ? 'Delivery rentable y gran experiencia para tus clientes. Haz que tus clientes ordenen desde tu app, con drivers de alta calificación, a un precio justo.'
     : 'Profitable delivery and great guest experience. Get your customers to order from your app, with top-rated drivers, at a fair price.'
 
   return {
