@@ -62,26 +62,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   return (
     <html lang={locale}>
       <head>
-        {/* Disable Cloudflare Rocket Loader to prevent hydration issues */}
-        <script data-cfasync="false">
-          {`// Disable Cloudflare Rocket Loader for this script`}
-        </script>
-        
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P" data-cfasync="false"></script>
-        <script
-          data-cfasync="false"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-CFH2T8RJ0P', {
-                send_page_view: false
-              });
-            `,
-          }}
-        />
+        {/* Google Analytics will be loaded client-side only to avoid hydration issues */}
         
         {/* Hreflang tags for SEO */}
         <link rel="alternate" hrefLang="es" href="https://rayapp.io/es" />
