@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { getTranslations } from '@/hooks/useTranslations'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import ClientAnalytics from '@/components/ClientAnalytics'
 import '@/styles/critical.css'
 
 interface LocaleLayoutProps {
@@ -60,15 +62,23 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   return (
     <html lang={locale}>
       <head>
+        {/* Disable Cloudflare Rocket Loader to prevent hydration issues */}
+        <script data-cfasync="false">
+          {`// Disable Cloudflare Rocket Loader for this script`}
+        </script>
+        
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P" data-cfasync="false"></script>
         <script
+          data-cfasync="false"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-CFH2T8RJ0P');
+              gtag('config', 'G-CFH2T8RJ0P', {
+                send_page_view: false
+              });
             `,
           }}
         />
@@ -90,6 +100,9 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         />
       </head>
       <body className="antialiased">
+        <Suspense fallback={null}>
+          <ClientAnalytics />
+        </Suspense>
         <Header locale={locale} />
         <main>
           {children}
