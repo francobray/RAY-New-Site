@@ -301,44 +301,6 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">FAQs</h2>
-          </div>
-
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-xl p-6">
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 rounded-lg"
-                  aria-expanded={openFaq === index}
-                >
-                  <h3 className="text-xl font-bold text-gray-900 pr-4">
-                    {faq.question}
-                  </h3>
-                  {openFaq === index ? (
-                    <ChevronUp className="w-5 h-5 text-purple-600 flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-purple-600 flex-shrink-0" />
-                  )}
-                </button>
-                
-                {openFaq === index && (
-                  <div className="mt-4 pt-4 border-t border-gray-200 animate-in fade-in slide-in-from-top duration-200">
-                    <p className="text-gray-700 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Testimonial Section */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -413,6 +375,44 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
           >
             {t.LOYALTY_PAGE.FINAL_CTA.CTA}
           </Button>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">FAQs</h2>
+          </div>
+
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-white rounded-xl p-6">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 rounded-lg"
+                  aria-expanded={openFaq === index}
+                >
+                  <h3 className="text-xl font-bold text-gray-900 pr-4">
+                    {faq.question}
+                  </h3>
+                  {openFaq === index ? (
+                    <ChevronUp className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                  )}
+                </button>
+                
+                {openFaq === index && (
+                  <div className="mt-4 pt-4 border-t border-gray-200 animate-in fade-in slide-in-from-top duration-200">
+                    <p className="text-gray-700 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

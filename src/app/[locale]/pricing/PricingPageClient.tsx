@@ -116,6 +116,40 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
         </div>
       </section>
 
+      {/* Bottom CTA */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-ray-promise relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-ray-blue to-ray-green"></div>
+        <div className="relative max-w-4xl mx-auto text-center text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            {locale === 'es' ? '¿Listo para crecer?' : 'Ready to grow?'}
+          </h2>
+          <p className="text-xl mb-8 text-white/90">
+            {locale === 'es' ? 'Comienza hoy y ve resultados en 60 días' : 'Start today and see results in 60 days'}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              variant="secondary"
+              size="lg"
+              href="/demo"
+              className="bg-white text-ray-blue hover:bg-gray-100"
+              data-analytics="pricing_bottom_demo_cta"
+            >
+              {locale === 'es' ? 'Agendar Demo' : 'Book Demo'}
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="lg"
+              href="/contact"
+              className="border border-white text-white hover:bg-white hover:text-ray-blue"
+              data-analytics="pricing_bottom_contact_cta"
+            >
+              {locale === 'es' ? 'Contactar Ventas' : 'Contact Sales'}
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
@@ -155,40 +189,6 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
                 )}
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-ray-promise relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-ray-blue to-ray-green"></div>
-        <div className="relative max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            {locale === 'es' ? '¿Listo para crecer?' : 'Ready to grow?'}
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            {locale === 'es' ? 'Comienza hoy y ve resultados en 60 días' : 'Start today and see results in 60 days'}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              variant="secondary"
-              size="lg"
-              href="/demo"
-              className="bg-white text-ray-blue hover:bg-gray-100"
-              data-analytics="pricing_bottom_demo_cta"
-            >
-              {locale === 'es' ? 'Agendar Demo' : 'Book Demo'}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="lg"
-              href="/contact"
-              className="border border-white text-white hover:bg-white hover:text-ray-blue"
-              data-analytics="pricing_bottom_contact_cta"
-            >
-              {locale === 'es' ? 'Contactar Ventas' : 'Contact Sales'}
-            </Button>
           </div>
         </div>
       </section>

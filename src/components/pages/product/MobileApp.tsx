@@ -346,6 +346,29 @@ const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
         </div>
       </section>
 
+      {/* Final CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-ray-blue to-ray-green">
+        <div className="max-w-4xl mx-auto px-4 text-center text-white">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            {t.MOBILE_APP_PAGE.FINAL_CTA.TITLE}
+          </h2>
+          <p className="text-xl mb-8 opacity-90">
+            {t.MOBILE_APP_PAGE.FINAL_CTA.SUBTITLE}
+          </p>
+          <Button 
+            variant="secondary"
+            size="lg"
+            className="bg-white text-ray-blue px-12 py-4 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 font-bold text-xl shadow-2xl border-2 border-white"
+            href={`/${locale}/demo`}
+            data-cta="demo-free"
+            data-analytics="mobile_app_final_cta"
+            aria-label="Get started today"
+          >
+            {t.MOBILE_APP_PAGE.FINAL_CTA.CTA}
+          </Button>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -377,29 +400,6 @@ const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-ray-blue to-ray-green">
-        <div className="max-w-4xl mx-auto px-4 text-center text-white">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            {t.MOBILE_APP_PAGE.FINAL_CTA.TITLE}
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            {t.MOBILE_APP_PAGE.FINAL_CTA.SUBTITLE}
-          </p>
-          <Button 
-            variant="secondary"
-            size="lg"
-            className="bg-white text-ray-blue px-12 py-4 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 font-bold text-xl shadow-2xl border-2 border-white"
-            href={`/${locale}/demo`}
-            data-cta="demo-free"
-            data-analytics="mobile_app_final_cta"
-            aria-label="Get started today"
-          >
-            {t.MOBILE_APP_PAGE.FINAL_CTA.CTA}
-          </Button>
         </div>
       </section>
     </>

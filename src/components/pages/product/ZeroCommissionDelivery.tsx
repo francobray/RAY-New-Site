@@ -414,6 +414,41 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
         </div>
       </section>
 
+      {/* Final CTA Section */}
+      <section className="py-24 bg-ray-dark-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            {locale === 'es' ? 'Haz crecer los re-pedidos con una app móvil' : 'Grow re-orders with a mobile app'}
+          </h2>
+          <p className="text-xl text-gray-300 mb-8">
+            {locale === 'es' ? 'Tu propia app móvil. Owner hace crecer tus pedidos repetidos con tu app móvil con marca.' : 'Your own mobile app. Owner grows your repeat orders with your branded mobile app.'}
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              variant="primary" 
+              size="lg"
+              className="shadow-xl hover:shadow-2xl transition-all duration-300"
+              href={`/${locale}/demo?utm_source=delivery-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=final-demo`}
+              data-cta="demo"
+              data-analytics="delivery_final"
+            >
+              {locale === 'es' ? 'Obtén una demo gratis' : 'Get a free demo'}
+            </Button>
+            <Button 
+              variant="secondary" 
+              size="lg"
+              className="shadow-xl hover:shadow-2xl transition-all duration-300 bg-white text-ray-dark-900 hover:bg-gray-100"
+              href={`/${locale}/product/branded-apps?utm_source=delivery-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=final-branded-apps`}
+              data-cta="branded-apps"
+              data-analytics="delivery_final"
+            >
+              {locale === 'es' ? 'Ver App Móvil' : 'See Mobile App'}
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -472,41 +507,6 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
                 </div>
               </div>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="py-24 bg-ray-dark-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            {locale === 'es' ? 'Haz crecer los re-pedidos con una app móvil' : 'Grow re-orders with a mobile app'}
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            {locale === 'es' ? 'Tu propia app móvil. Owner hace crecer tus pedidos repetidos con tu app móvil con marca.' : 'Your own mobile app. Owner grows your repeat orders with your branded mobile app.'}
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="primary" 
-              size="lg"
-              className="shadow-xl hover:shadow-2xl transition-all duration-300"
-              href={`/${locale}/demo?utm_source=delivery-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=final-demo`}
-              data-cta="demo"
-              data-analytics="delivery_final"
-            >
-              {locale === 'es' ? 'Obtén una demo gratis' : 'Get a free demo'}
-            </Button>
-            <Button 
-              variant="secondary" 
-              size="lg"
-              className="shadow-xl hover:shadow-2xl transition-all duration-300 bg-white text-ray-dark-900 hover:bg-gray-100"
-              href={`/${locale}/product/branded-apps?utm_source=delivery-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=final-branded-apps`}
-              data-cta="branded-apps"
-              data-analytics="delivery_final"
-            >
-              {locale === 'es' ? 'Ver App Móvil' : 'See Mobile App'}
-            </Button>
           </div>
         </div>
       </section>

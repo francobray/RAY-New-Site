@@ -495,68 +495,6 @@ const AutomatedMarketing: React.FC<AutomatedMarketingProps> = ({ locale = 'es' }
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">FAQs</h2>
-            <p className="text-xl text-ray-darkGray">
-              {locale === 'es' ? 'Respuestas a preguntas comunes sobre nuestro marketing automatizado.' : 'Answers to common questions about our automated marketing.'}
-            </p>
-          </div>
-          
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="overflow-hidden">
-                <button
-                  className="w-full p-6 text-left flex justify-between items-start hover:bg-gray-50 transition-colors duration-200"
-                  onClick={() => toggleFaq(index)}
-                >
-                  <div className="flex-1 pr-4">
-                    <h3 className="text-lg font-semibold text-ray-dark-900 mb-2">
-                      {faq.question}
-                    </h3>
-                  </div>
-                  {openFaq === index ? (
-                    <ChevronUp className="w-5 h-5 text-ray-blue flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-ray-blue flex-shrink-0" />
-                  )}
-                </button>
-                
-                {openFaq === index && (
-                  <div className="px-6 pb-6 border-t border-gray-200">
-                    <p className="text-ray-dark-700 leading-relaxed pt-4">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </Card>
-            ))}
-          </div>
-          
-          {/* Testimonial Card */}
-          <div className="mt-16">
-            <Card className="p-8 bg-gradient-to-r from-ray-blue/5 to-ray-green/5">
-              <div className="flex items-center space-x-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-ray-blue to-ray-green rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-xl">R</span>
-                </div>
-                <div>
-                  <blockquote className="text-lg font-medium text-ray-dark-900 mb-2">
-                    "{locale === 'es' ? 'Puedo decir con confianza que Owner es la mejor tecnología en nuestro restaurante. Hemos aumentado las ventas directas online en más de $7,000 en los últimos 10 meses en SÓLO.' : 'I can say confidently that Owner is the best technology in our restaurant. We\'ve increased direct online sales by over $7,000 in the past 10 months in SÓLO.'}"
-                  </blockquote>
-                  <div className="text-sm text-ray-darkGray">
-                    <div className="font-medium">James</div>
-                    <div>{locale === 'es' ? 'Propietario de SÓLO San Diego' : 'Owner of SÓLO San Diego'}</div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Testimonial Section */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -656,6 +594,68 @@ const AutomatedMarketing: React.FC<AutomatedMarketingProps> = ({ locale = 'es' }
                     <p className="text-white text-sm font-medium">
                       {locale === 'es' ? 'Las 5 Campañas de Email de Marketing Que Todo Restaurante Debe Enviar' : 'The 5 Money-Making Email Campaigns Every Restaurant Must Send'}
                     </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">FAQs</h2>
+            <p className="text-xl text-ray-darkGray">
+              {locale === 'es' ? 'Respuestas a preguntas comunes sobre nuestro marketing automatizado.' : 'Answers to common questions about our automated marketing.'}
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="overflow-hidden">
+                <button
+                  className="w-full p-6 text-left flex justify-between items-start hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <div className="flex-1 pr-4">
+                    <h3 className="text-lg font-semibold text-ray-dark-900 mb-2">
+                      {faq.question}
+                    </h3>
+                  </div>
+                  {openFaq === index ? (
+                    <ChevronUp className="w-5 h-5 text-ray-blue flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-ray-blue flex-shrink-0" />
+                  )}
+                </button>
+                
+                {openFaq === index && (
+                  <div className="px-6 pb-6 border-t border-gray-200">
+                    <p className="text-ray-dark-700 leading-relaxed pt-4">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </Card>
+            ))}
+          </div>
+          
+          {/* Testimonial Card */}
+          <div className="mt-16">
+            <Card className="p-8 bg-gradient-to-r from-ray-blue/5 to-ray-green/5">
+              <div className="flex items-center space-x-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-ray-blue to-ray-green rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-bold text-xl">R</span>
+                </div>
+                <div>
+                  <blockquote className="text-lg font-medium text-ray-dark-900 mb-2">
+                    "{locale === 'es' ? 'Puedo decir con confianza que Owner es la mejor tecnología en nuestro restaurante. Hemos aumentado las ventas directas online en más de $7,000 en los últimos 10 meses en SÓLO.' : 'I can say confidently that Owner is the best technology in our restaurant. We\'ve increased direct online sales by over $7,000 in the past 10 months in SÓLO.'}"
+                  </blockquote>
+                  <div className="text-sm text-ray-darkGray">
+                    <div className="font-medium">James</div>
+                    <div>{locale === 'es' ? 'Propietario de SÓLO San Diego' : 'Owner of SÓLO San Diego'}</div>
                   </div>
                 </div>
               </div>

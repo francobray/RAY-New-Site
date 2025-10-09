@@ -594,6 +594,32 @@ const ChatCarousel = () => {
         </div>
       </section>
       
+      {/* Final CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-emerald-600 to-blue-600">
+        <div className="max-w-4xl mx-auto px-4 text-center text-white">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            {t.AI_CONCIERGE_PAGE.FINAL_CTA.TITLE}
+          </h2>
+          <p className="text-xl mb-8 opacity-90">
+            {t.AI_CONCIERGE_PAGE.FINAL_CTA.SUBTITLE}
+          </p>
+          <Button 
+            variant="secondary"
+            size="lg"
+            className="bg-white text-emerald-600 px-12 py-4 rounded-full hover:bg-emerald-50 hover:text-emerald-700 transition-all transform hover:scale-105 font-bold text-xl shadow-2xl border-2 border-emerald-600"
+            href={`/${locale}/demo`}
+            data-cta="demo-free"
+            data-analytics="ai_concierge_final_cta"
+            aria-label="Book a demo"
+          >
+            {t.AI_CONCIERGE_PAGE.FINAL_CTA.CTA}
+          </Button>
+          <p className="mt-4 text-sm opacity-75">
+            {t.AI_CONCIERGE_PAGE.FINAL_CTA.DISCLAIMER}
+          </p>
+        </div>
+      </section>
+      
       {/* FAQ Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
@@ -634,32 +660,6 @@ const ChatCarousel = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-      
-      {/* Final CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-emerald-600 to-blue-600">
-        <div className="max-w-4xl mx-auto px-4 text-center text-white">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            {t.AI_CONCIERGE_PAGE.FINAL_CTA.TITLE}
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            {t.AI_CONCIERGE_PAGE.FINAL_CTA.SUBTITLE}
-          </p>
-          <Button 
-            variant="secondary"
-            size="lg"
-            className="bg-white text-emerald-600 px-12 py-4 rounded-full hover:bg-emerald-50 hover:text-emerald-700 transition-all transform hover:scale-105 font-bold text-xl shadow-2xl border-2 border-emerald-600"
-            href={`/${locale}/demo`}
-            data-cta="demo-free"
-            data-analytics="ai_concierge_final_cta"
-            aria-label="Book a demo"
-          >
-            {t.AI_CONCIERGE_PAGE.FINAL_CTA.CTA}
-          </Button>
-          <p className="mt-4 text-sm opacity-75">
-            {t.AI_CONCIERGE_PAGE.FINAL_CTA.DISCLAIMER}
-          </p>
         </div>
       </section>
       

@@ -282,90 +282,6 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">FAQs</h2>
-            <p className="text-xl text-ray-darkGray">
-              {locale === 'es' ? 'Respuestas a preguntas comunes sobre pedidos online.' : 'Answers to common questions about online ordering.'}
-            </p>
-          </div>
-          
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="overflow-hidden">
-                <button
-                  className="w-full p-6 text-left flex justify-between items-start hover:bg-gray-50 transition-colors duration-200"
-                  onClick={() => toggleFaq(index)}
-                >
-                  <div className="flex-1 pr-4">
-                    <h3 className="text-lg font-semibold text-ray-dark-900 mb-2">
-                      {faq.question}
-                    </h3>
-                  </div>
-                  {openFaq === index ? (
-                    <ChevronUp className="w-5 h-5 text-ray-blue flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-ray-blue flex-shrink-0" />
-                  )}
-                </button>
-                
-                {openFaq === index && (
-                  <div className="px-6 pb-6 border-t border-gray-200">
-                    <p className="text-ray-dark-700 leading-relaxed pt-4">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="p-8 bg-gradient-to-r from-gray-50 to-gray-100">
-            <div className="flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-8">
-              <div className="w-32 h-32 bg-gradient-to-r from-ray-blue to-ray-green rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-3xl">R</span>
-              </div>
-              <div className="flex-1">
-                <blockquote className="text-xl lg:text-2xl font-medium text-ray-dark-900 mb-4">
-                  "{locale === 'es' ? 'La plataforma ha sido como un superpoder para restaurantes que aumenta las ventas e impulsa nuevos clientes consistentemente.' : 'The platform has been like a superpower for restaurants that increases sales and drives new customers consistently.'}"
-                </blockquote>
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                  <div className="text-ray-darkGray mb-4 lg:mb-0">
-                    <div className="font-semibold text-lg">Rahul Bhalla</div>
-                    <div>{locale === 'es' ? 'Propietario de Satyam Indian Kitchen' : 'Owner of Satyam Indian Kitchen'}</div>
-                  </div>
-                  <div className="flex items-center space-x-6">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-ray-green">+$4,500,000</div>
-                      <div className="text-sm text-ray-darkGray">{locale === 'es' ? 'Ventas online' : 'Online sales'}</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-ray-blue">+4</div>
-                      <div className="text-sm text-ray-darkGray">{locale === 'es' ? 'Ubicaciones' : 'Locations'}</div>
-                    </div>
-                    <Button 
-                      variant="secondary" 
-                      size="sm"
-                      href={`/${locale}/case-studies?utm_source=online-orders-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=testimonial`}
-                      className="ml-4"
-                    >
-                      {locale === 'es' ? 'Ver la historia de Rahul' : 'See Rahul\'s story'}
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </section>
-
       {/* Delivery Section */}
       <section className="py-24 bg-ray-dark-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -539,6 +455,48 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
                 </div>
               </div>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">FAQs</h2>
+            <p className="text-xl text-ray-darkGray">
+              {locale === 'es' ? 'Respuestas a preguntas comunes sobre pedidos online.' : 'Answers to common questions about online ordering.'}
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="overflow-hidden">
+                <button
+                  className="w-full p-6 text-left flex justify-between items-start hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <div className="flex-1 pr-4">
+                    <h3 className="text-lg font-semibold text-ray-dark-900 mb-2">
+                      {faq.question}
+                    </h3>
+                  </div>
+                  {openFaq === index ? (
+                    <ChevronUp className="w-5 h-5 text-ray-blue flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-ray-blue flex-shrink-0" />
+                  )}
+                </button>
+                
+                {openFaq === index && (
+                  <div className="px-6 pb-6 border-t border-gray-200">
+                    <p className="text-ray-dark-700 leading-relaxed pt-4">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </Card>
+            ))}
           </div>
         </div>
       </section>

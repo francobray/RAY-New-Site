@@ -113,7 +113,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ locale }) => {
             {caseStudies.map((study, index) => (
               <Link
                 key={study.id}
-                href={`/case-studies/${study.slug}`}
+                href={`/${locale}/case-studies/${study.slug}`}
                 className="group block"
               >
                 <div className={`relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-105 animate-in fade-in slide-in-from-bottom duration-700 delay-${index * 200}`}>
