@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { Suspense } from 'react'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { getTranslations } from '@/hooks/useTranslations'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import ClientAnalytics from '@/components/ClientAnalytics'
 import '@/styles/critical.css'
 
 interface LocaleLayoutProps {
@@ -81,14 +79,34 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         />
       </head>
       <body className="antialiased">
-        <Suspense fallback={null}>
-          <ClientAnalytics />
-        </Suspense>
         <Header locale={locale} />
         <main>
           {children}
         </main>
         <Footer locale={locale} />
+        
+        {/* Google Analytics - Load after page is ready */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('load', function() {
+                if (typeof window.dataLayer === 'undefined') {
+                  window.dataLayer = [];
+                }
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;
+                gtag('js', new Date());
+                gtag('config', 'G-CFH2T8RJ0P');
+                
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P';
+                script.setAttribute('data-cfasync', 'false');
+                document.head.appendChild(script);
+              });
+            `,
+          }}
+        />
       </body>
     </html>
   )
