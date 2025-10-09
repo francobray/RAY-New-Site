@@ -130,7 +130,7 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
             <Button
               variant="secondary"
               size="lg"
-              href="/demo"
+              href={`/${locale}/demo`}
               className="bg-white text-ray-blue hover:bg-gray-100"
               data-analytics="pricing_bottom_demo_cta"
             >
@@ -140,7 +140,7 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
             <Button
               variant="ghost"
               size="lg"
-              href="/contact"
+              href={`/${locale}/contact`}
               className="border border-white text-white hover:bg-white hover:text-ray-blue"
               data-analytics="pricing_bottom_contact_cta"
             >

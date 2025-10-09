@@ -4,6 +4,11 @@ import React from 'react'
 import { ArrowRight, CircleCheck as CheckCircle, Star, TrendingUp, Users, Calendar, MapPin, ShoppingCart, Zap, Shield, Clock } from 'lucide-react'
 import Button from '../shared/BaseButton'
 import Card from '../Card'
+import { type Locale } from '@/lib/i18n'
+
+interface ProductsProps {
+  locale: Locale
+}
 
 const products = [
   {
@@ -111,7 +116,7 @@ const testimonials = [
   }
 ]
 
-const Products: React.FC = () => {
+const Products: React.FC<ProductsProps> = ({ locale }) => {
   return (
     <div>
       {/* Hero Section */}
@@ -162,7 +167,7 @@ const Products: React.FC = () => {
                 variant="secondary" 
                 size="lg"
                 className="shadow-xl hover:shadow-2xl transition-all duration-300"
-                href="/demo?utm_source=products-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-expert"
+                href={`/${locale}/demo?utm_source=products-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-expert`}
                 data-cta="demo-expert"
                 data-analytics="products_hero"
                 aria-label="Talk to an expert"
@@ -370,7 +375,7 @@ const Products: React.FC = () => {
             <Button
               variant="secondary"
               size="lg"
-              href="/case-studies"
+              href={`/${locale}/case-studies`}
               className="shadow-lg hover:shadow-xl transition-all duration-300 group"
               data-analytics="products_testimonials"
               aria-label="View all success stories"
@@ -420,7 +425,7 @@ const Products: React.FC = () => {
               variant="secondary" 
               size="lg"
               className="shadow-xl hover:shadow-2xl transition-all duration-300"
-              href="/demo?utm_source=products-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=final-expert"
+              href={`/${locale}/demo?utm_source=products-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=final-expert`}
               data-cta="demo-expert"
               data-analytics="products_final_cta"
               aria-label="Talk to an expert"

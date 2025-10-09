@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Button from '@/components/shared/BaseButton'
+import { type Locale } from '@/lib/i18n'
 
 export const metadata: Metadata = {
   title: 'Page Not Found - RAY',
@@ -8,7 +9,12 @@ export const metadata: Metadata = {
   robots: 'noindex, nofollow',
 }
 
-export default function NotFoundPage() {
+interface NotFoundPageProps {
+  params: { locale: Locale }
+}
+
+export default function NotFoundPage({ params }: NotFoundPageProps) {
+  const locale = params.locale || 'es'
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full text-center">
@@ -24,12 +30,12 @@ export default function NotFoundPage() {
         </div>
         
         <div className="space-y-4">
-          <Link href="/">
+          <Link href={`/${locale}`}>
             <Button variant="primary" className="w-full">
               Go Back Home
             </Button>
           </Link>
-          <Link href="/contact">
+          <Link href={`/${locale}/contact`}>
             <Button variant="ghost" className="w-full">
               Contact Support
             </Button>

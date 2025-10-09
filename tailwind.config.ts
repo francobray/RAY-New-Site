@@ -42,6 +42,31 @@ const config: Config = {
         'ray-gradient': 'linear-gradient(135deg, #7CFFB2 0%, #C9E57C 50%, #FFD27A 100%)',
         'ray-promise': 'linear-gradient(to right, #34d399, #fef08a, #fcd34d)',
       },
+      animation: {
+        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+        'gradient-x': 'gradientX 3s ease infinite',
+        'expand': 'expand 0.6s ease-out 0.3s forwards',
+      },
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        gradientX: {
+          '0%, 100%': { 
+            backgroundSize: '200% 200%',
+            backgroundPosition: 'left center',
+          },
+          '50%': { 
+            backgroundSize: '200% 200%',
+            backgroundPosition: 'right center',
+          },
+        },
+        expand: {
+          '0%': { transform: 'scaleX(0)', opacity: '0' },
+          '100%': { transform: 'scaleX(1)', opacity: '0.3' },
+        },
+      },
     },
   },
   plugins: [],

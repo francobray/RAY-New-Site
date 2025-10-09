@@ -16,11 +16,11 @@ const customers = [
   {
     id: 'chef-burger',
     name: 'Chef Burger',
-    owner: 'Tom Cesario',
+    owner: 'Ivan Castaño',
     title: 'CEO & Founder & CEO, Chef Burger',
     metric: '+$8,000/m',
     category: 'Online Sales',
-    image: '/images/Restaurant-photo-ray.jpeg',
+    image: '/images/Chef_burguer.jpeg',
     bgColor: 'from-gray-800 to-gray-900'
   },
   {
@@ -60,7 +60,7 @@ const customers = [
     title: 'Co-Founder and co-CEO - Dolcezza',
     metric: '+$8,000/m',
     category: 'Online Sales',
-    image: '/images/Chimba_Miami_Celebrating.jpeg',
+    image: '/images/Dolcezza.png',
     bgColor: 'from-gray-700 to-gray-800'
   },
   {
@@ -70,7 +70,7 @@ const customers = [
     title: 'CMO - Juan Valdez',
     metric: '+$8,000/m',
     category: 'Online Sales',
-    image: '/images/Temple_Team.jpeg',
+    image: '/images/Juan_valdez.jpg',
     bgColor: 'from-amber-600 to-amber-700'
   }
 ]
@@ -98,12 +98,12 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ locale }) => 
             {customers.map((customer) => (
               <Link
                 key={customer.id}
-                href={`/case-studies/${customer.id}`}
+                href={`/${locale}/case-studies/${customer.id}`}
                 className="group block"
               >
                 <div className={`relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300`}>
                   {/* Background Image */}
-                  <div className="relative aspect-[4/5] h-80">
+                  <div className="relative aspect-[4/5] w-full">
                     <Image
                       src={customer.image}
                       alt={`${customer.name} restaurant - RAY customer success story showing ${customer.metric} improvement`}
@@ -156,7 +156,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ locale }) => 
             <Button
               variant="primary"
               size="lg"
-              href="/case-studies"
+              href={`/${locale}/case-studies`}
               data-analytics="testimonial_carousel"
               aria-label="View all restaurant success stories and case studies"
             >

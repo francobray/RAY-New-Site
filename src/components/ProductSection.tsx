@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowRight, TrendingUp } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Button from './shared/BaseButton'
 import SectionHeader from './SectionHeader'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -52,7 +52,6 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <SectionHeader
-          badge={{ icon: TrendingUp, text: t.HOMEPAGE.PRODUCTS_SECTION.BADGE }}
           title={
             <>
               {t.HEADLINES.THREE_PRODUCTS.split('.')[0]}.{' '}
@@ -103,7 +102,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
                     <Button
                       variant="primary"
                       size="md"
-                      href={`/demo?utm_source=product-section&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=product-${product.name.toLowerCase().replace(' ', '-')}`}
+                      href={`/${locale}/demo?utm_source=product-section&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=product-${product.name.toLowerCase().replace(' ', '-')}`}
                       className="w-full group/btn"
                       data-cta="demo"
                       data-analytics="product_section"
@@ -127,7 +126,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
           <Button
             variant="primary"
             size="lg"
-            href="/pricing"
+            href={`/${locale}/pricing`}
             className="bg-gradient-to-r from-ray-blue to-ray-green hover:shadow-xl group"
             data-analytics="product_section_bottom"
             aria-label="View pricing and plans"

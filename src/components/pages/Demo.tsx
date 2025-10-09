@@ -458,11 +458,11 @@ const Demo = ({ locale }: DemoProps) => {
                   {/* Legal text */}
                   <p className="text-xs text-gray-500 text-center">
                     {t.DEMO_PAGE.FORM.LEGAL_TEXT}{' '}
-                    <a href="/terms-of-service" className="text-blue-600 hover:underline">
+                    <a href={`/${locale}/terms-of-service`} className="text-blue-600 hover:underline">
                       {t.DEMO_PAGE.FORM.TERMS_LINK}
                     </a>{' '}
                     {locale === 'es' ? 'y' : 'and'}{' '}
-                    <a href="/privacy-policy" className="text-blue-600 hover:underline">
+                    <a href={`/${locale}/privacy-policy`} className="text-blue-600 hover:underline">
                       {t.DEMO_PAGE.FORM.PRIVACY_LINK}
                     </a>.
                   </p>

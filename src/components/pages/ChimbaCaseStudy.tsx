@@ -42,7 +42,7 @@ const ChimbaCaseStudy: React.FC<ChimbaCaseStudyProps> = ({ locale }) => {
             {/* Breadcrumb */}
             <div className="mb-12">
               <Link 
-                href="/case-studies" 
+                href={`/${locale}/case-studies`} 
                 className="inline-flex items-center text-pink-200 hover:text-white transition-colors duration-300 text-sm font-medium"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
