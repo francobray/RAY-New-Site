@@ -1,6 +1,6 @@
 {
   "name": "ray-restaurant-website",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "validate:fonts": "tsx scripts/font-validation.ts",
-    "validate:all": "npm run validate:fonts"
+    "validate:sitemap": "tsx scripts/validate-sitemap.ts",
+    "validate:all": "npm run validate:fonts && npm run validate:sitemap",
+    "sitemap:generate": "tsx scripts/generate-sitemap.ts",
+    "sitemap:validate": "npm run sitemap:generate && npm run validate:sitemap"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.2",

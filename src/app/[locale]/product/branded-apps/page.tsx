@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import MobileApp from '@/components/pages/product/MobileApp'
 import { type Locale } from '@/constants/copy'
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/utils/schema'
+import { getTranslations } from '@/hooks/useTranslations'
 
 interface MobileAppPageProps {
   params: { locale: Locale }
@@ -24,5 +26,28 @@ export const metadata: Metadata = {
 }
 
 export default function MobileAppPage({ params }: MobileAppPageProps) {
-  return <MobileApp locale={params.locale} />
+  const locale = params.locale as Locale
+  const t = getTranslations(locale)
+  
+  // FAQ schema - using the same FAQs from the component
+  const faqSchema = generateFAQSchema(t.MOBILE_APP_PAGE.FAQ.QUESTIONS, 'https://rayapp.io/product/branded-apps')
+
+  // Breadcrumb schema
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
+    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
+    { name: locale === 'es' ? 'App Personalizada' : 'Branded Apps', url: 'https://rayapp.io/product/branded-apps' }
+  ])
+
+  const combinedSchema = [faqSchema, breadcrumbSchema]
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
+      />
+      <MobileApp locale={locale} />
+    </>
+  )
 }

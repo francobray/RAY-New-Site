@@ -21,3 +21,6 @@ export function removeLocaleFromPath(path: string): string {
   }
   return path
 }
+
+
+

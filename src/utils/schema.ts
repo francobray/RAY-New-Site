@@ -255,7 +255,7 @@ export const generateProductSchema = (product: {
   })) || []
 })
 
-export const generateFAQSchema = (faqs: Array<{ question: string; answer: string }>, url?: string) => ({
+export const generateFAQSchema = (faqs: ReadonlyArray<{ readonly question: string; readonly answer: string }>, url?: string) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "@id": `${url || SEO_CONFIG.SITE_URL}#faq`,
@@ -317,6 +317,113 @@ export const generateCaseStudySchema = (caseStudy: {
     "case study",
     caseStudy.organization
   ]
+})
+
+// Enhanced Review schema for individual reviews
+export const generateReviewSchema = (review: {
+  author: string
+  rating: number
+  reviewBody: string
+  datePublished?: string
+  itemReviewed?: {
+    name: string
+    type?: string
+  }
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": review.rating.toString(),
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "author": {
+    "@type": "Person",
+    "name": review.author
+  },
+  "reviewBody": review.reviewBody,
+  "datePublished": review.datePublished || new Date().toISOString().split('T')[0],
+  ...(review.itemReviewed && {
+    "itemReviewed": {
+      "@type": review.itemReviewed.type || "Product",
+      "name": review.itemReviewed.name
+    }
+  }),
+  "publisher": {
+    "@type": "Organization",
+    "name": "RAY",
+    "@id": `${SEO_CONFIG.SITE_URL}/#organization`
+  }
+})
+
+// Product-specific schema with reviews for individual products
+export const generateProductWithReviewsSchema = (product: {
+  name: string
+  description: string
+  url: string
+  price?: string
+  features?: string[]
+  reviews?: Array<{
+    author: string
+    rating: number
+    reviewBody: string
+    datePublished?: string
+  }>
+  aggregateRating?: {
+    ratingValue: number
+    reviewCount: number
+  }
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": `RAY ${product.name}`,
+  "description": product.description,
+  "url": product.url,
+  "@id": `${product.url}#product`,
+  "category": "Restaurant Marketing Software",
+  "brand": {
+    "@type": "Brand",
+    "name": "RAY",
+    "@id": `${SEO_CONFIG.SITE_URL}/#organization`
+  },
+  "manufacturer": {
+    "@id": `${SEO_CONFIG.SITE_URL}/#organization`
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "USD",
+    "price": product.price || "270",
+    "priceValidUntil": "2025-12-31",
+    "seller": {
+      "@id": `${SEO_CONFIG.SITE_URL}/#organization`
+    },
+    "warranty": "30%+ increase in Google Business Profile Google Maps directions within 6 months or money back guarantee"
+  },
+  "additionalProperty": product.features?.map(feature => ({
+    "@type": "PropertyValue",
+    "name": "Feature",
+    "value": feature
+  })) || [],
+  ...(product.aggregateRating && {
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": product.aggregateRating.ratingValue.toString(),
+      "reviewCount": product.aggregateRating.reviewCount.toString(),
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  }),
+  ...(product.reviews && product.reviews.length > 0 && {
+    "review": product.reviews.map(review => generateReviewSchema({
+      ...review,
+      itemReviewed: {
+        name: `RAY ${product.name}`,
+        type: "Product"
+      }
+    }))
+  })
 })
 
 // Breadcrumb schema generator

@@ -74,3 +74,6 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
     </html>
   )
 }
+
+
+

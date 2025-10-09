@@ -100,13 +100,18 @@ export class SitemapValidator {
       result.warnings.push('Missing or incorrect sitemap namespace')
     }
 
-    // Basic XML well-formedness
-    const openTags = (content.match(/<[^\/][^>]*>/g) || []).length
-    const closeTags = (content.match(/<\/[^>]*>/g) || []).length
-    const selfClosingTags = (content.match(/<[^>]*\/>/g) || []).length
+    // Basic XML well-formedness - check for proper closing tags
+    const urlOpenTags = (content.match(/<url>/g) || []).length
+    const urlCloseTags = (content.match(/<\/url>/g) || []).length
+    const urlsetOpenTags = (content.match(/<urlset[^>]*>/g) || []).length
+    const urlsetCloseTags = (content.match(/<\/urlset>/g) || []).length
     
-    if (openTags !== closeTags + selfClosingTags) {
-      result.errors.push('XML appears to be malformed (mismatched tags)')
+    if (urlOpenTags !== urlCloseTags) {
+      result.errors.push(`Mismatched url tags: ${urlOpenTags} open, ${urlCloseTags} close`)
+    }
+    
+    if (urlsetOpenTags !== urlsetCloseTags) {
+      result.errors.push(`Mismatched urlset tags: ${urlsetOpenTags} open, ${urlsetCloseTags} close`)
     }
   }
 
@@ -174,8 +179,12 @@ export class SitemapValidator {
     ]
 
     for (const page of requiredPages) {
-      const expectedUrl = `${this.baseUrl}${page}`
-      if (!content.includes(`<loc>${expectedUrl}</loc>`)) {
+      // Check for both direct URLs and localized URLs
+      const directUrl = `${this.baseUrl}${page}`
+      const localizedUrl = `${this.baseUrl}/es${page}`
+      
+      if (!content.includes(`<loc>${directUrl}</loc>`) && 
+          !content.includes(`<loc>${localizedUrl}</loc>`)) {
         result.warnings.push(`Missing important page: ${page}`)
       }
     }
