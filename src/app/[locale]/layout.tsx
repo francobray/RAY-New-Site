@@ -4,6 +4,7 @@ import { isValidLocale, type Locale } from '@/lib/i18n'
 import { getTranslations } from '@/hooks/useTranslations'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Analytics from '@/components/Analytics'
 import '@/styles/critical.css'
 
 interface LocaleLayoutProps {
@@ -60,6 +61,19 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   return (
     <html lang={locale}>
       <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-CFH2T8RJ0P');
+            `,
+          }}
+        />
+        
         {/* Hreflang tags for SEO */}
         <link rel="alternate" hrefLang="es" href="https://rayapp.io/es" />
         <link rel="alternate" hrefLang="en" href="https://rayapp.io/en" />
@@ -77,6 +91,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         />
       </head>
       <body className="antialiased">
+        <Analytics />
         <Header locale={locale} />
         <main>
           {children}
