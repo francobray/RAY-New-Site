@@ -57,7 +57,7 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
                 {locale === 'es' ? 'Impulsa pedidos directos con ' : 'Drive direct orders with '}
                 <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
                   {locale === 'es' ? 'márgenes más altos' : 'higher margins'}

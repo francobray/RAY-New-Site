@@ -432,7 +432,7 @@ const ChatCarousel = () => {
       <section className="bg-gradient-to-br from-emerald-50 to-blue-50 py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
               {t.AI_CONCIERGE_PAGE.HERO.TITLE}{' '}
               <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
                 {t.AI_CONCIERGE_PAGE.HERO.TITLE_HIGHLIGHT}

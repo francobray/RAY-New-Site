@@ -1,10 +1,12 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Star, TrendingUp, ArrowRight, CheckCircle, BarChart3, Globe, Zap, Smartphone, ChevronDown, ChevronUp, Eye, Search, Clock } from 'lucide-react'
+import Image from 'next/image'
+import { Star, TrendingUp, ArrowRight, CheckCircle, BarChart3, Globe, Zap, Smartphone, ChevronDown, ChevronUp, Search, Clock } from 'lucide-react'
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
 import { type Locale } from '../../../lib/i18n'
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface WebsiteBuilderProps {
   locale?: Locale
@@ -12,6 +14,7 @@ interface WebsiteBuilderProps {
 
 const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const t = useTranslations(locale)
 
   const features = [
     {
@@ -140,10 +143,10 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
-                {locale === 'es' ? 'Sitios web de restaurante construidos para ' : 'Restaurant websites built for '}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
+                {t.WEBSITE_BUILDER_PAGE.HERO.TITLE}{' '}
                 <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
-                  {locale === 'es' ? 'ventas primero, estilo segundo.' : 'sales first, style second.'}
+                  {t.WEBSITE_BUILDER_PAGE.HERO.TITLE_HIGHLIGHT}
                 </span>
               </h1>
               
@@ -190,80 +193,25 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
               </div>
             </div>
             
-            {/* Hero Visual - Website Mockup */}
+            {/* Hero Visual - Website Screenshot */}
             <div className="relative">
-              <div className="relative max-w-lg mx-auto">
-                {/* Browser mockup */}
-                <div className="bg-gray-900 rounded-t-xl p-3 shadow-2xl">
-                  <div className="flex items-center space-x-2 mb-3">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <div className="flex-1 bg-gray-700 rounded px-3 py-1 text-xs text-gray-300 ml-4">
-                      {locale === 'es' ? 'turestaurante.com' : 'yourrestaurant.com'}
-                    </div>
-                  </div>
-                  
-                  {/* Website content */}
-                  <div className="bg-white rounded-lg overflow-hidden">
-                    {/* Header */}
-                    <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white p-4">
-                      <div className="flex justify-between items-center">
-                        <h2 className="text-lg font-bold">{locale === 'es' ? 'Auténtico sabor de Italia, en California' : 'Italy\'s authentic taste, in California'}</h2>
-                        <Eye className="w-5 h-5" />
-                      </div>
-                    </div>
-                    
-                    {/* Content sections */}
-                    <div className="p-4 space-y-4">
-                      {/* CTA Buttons */}
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="bg-blue-500 text-white text-xs p-2 rounded text-center font-medium">
-                          {locale === 'es' ? 'Ordenar Ahora' : 'Order Now'}
-                        </div>
-                        <div className="bg-green-500 text-white text-xs p-2 rounded text-center font-medium">
-                          {locale === 'es' ? 'Reservar Mesa' : 'Book Table'}
-                        </div>
-                      </div>
-                      
-                      {/* Features */}
-                      <div className="space-y-2">
-                        <div className="flex items-center text-xs text-gray-600">
-                          <CheckCircle className="w-3 h-3 text-green-500 mr-1" />
-                          <span>{locale === 'es' ? 'Pedidos online 24/7' : '24/7 online ordering'}</span>
-                        </div>
-                        <div className="flex items-center text-xs text-gray-600">
-                          <CheckCircle className="w-3 h-3 text-green-500 mr-1" />
-                          <span>{locale === 'es' ? 'Reservas instantáneas' : 'Instant reservations'}</span>
-                        </div>
-                        <div className="flex items-center text-xs text-gray-600">
-                          <CheckCircle className="w-3 h-3 text-green-500 mr-1" />
-                          <span>{locale === 'es' ? 'Programa de recompensas' : 'Rewards program'}</span>
-                        </div>
-                      </div>
-                      
-                      {/* Testimonial */}
-                      <div className="bg-gray-50 p-3 rounded">
-                        <div className="flex items-center mb-2">
-                          <div className="flex text-yellow-400">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-3 h-3 fill-current" />
-                            ))}
-                          </div>
-                          <span className="text-xs text-gray-600 ml-2">4.8/5</span>
-                        </div>
-                        <p className="text-xs text-gray-700 italic">
-                          "{locale === 'es' ? 'La mejor experiencia de pedido online que he tenido' : 'Best online ordering experience I\'ve had'}"
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+              <div className="relative max-w-3xl mx-auto">
+                {/* Website Screenshot */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src="/images/product-website/Temple-website.png"
+                    alt={locale === 'es' ? 'Sitio web de restaurante Temple Craft construido con RAY' : 'Temple Craft restaurant website built with RAY'}
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto"
+                    priority
+                  />
                 </div>
                 
                 {/* Floating Elements */}
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">
-                  <div className="text-lg font-bold text-ray-blue">+35%</div>
-                  <div className="text-xs text-ray-darkGray">{locale === 'es' ? 'Más pedidos online' : 'More online orders'}</div>
+                  <div className="text-lg font-bold text-ray-blue">+50%</div>
+                  <div className="text-xs text-ray-darkGray">{locale === 'es' ? 'Más conversiones web' : 'More web conversions'}</div>
                 </div>
                 
                 <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">

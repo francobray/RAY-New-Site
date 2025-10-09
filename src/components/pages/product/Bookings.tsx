@@ -117,7 +117,7 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
                 <Calendar className="w-4 h-4 mr-2" />
                 {t.BOOKINGS_PAGE.BADGE}
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-tight mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 leading-tight mb-6">
                 {t.BOOKINGS_PAGE.HERO_TITLE} {' '}
                 <span className="text-ray-blue">
                   {t.BOOKINGS_PAGE.HERO_TITLE_HIGHLIGHT}

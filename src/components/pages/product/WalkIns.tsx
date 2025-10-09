@@ -104,7 +104,7 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
                 <span className="text-sm font-medium text-ray-dark-900">{t.WALK_INS_PAGE.BADGE}</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
                 {t.WALK_INS_PAGE.HERO_TITLE}{' '}
                 <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
                   {t.WALK_INS_PAGE.HERO_TITLE_HIGHLIGHT}

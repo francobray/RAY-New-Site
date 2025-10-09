@@ -8,7 +8,8 @@ export const COPY: Record<Locale, any> = {
       GRADE_RESTAURANT: 'Escanea tu restaurante',
       GET_FREE_DEMO: 'Obtén una Demo Gratis',
       GET_STARTED: 'Comienza Hoy',
-      VIEW_CASE_STUDIES: 'Ver Casos de Éxito'
+      VIEW_CASE_STUDIES: 'Ver Casos de Éxito',
+      LEARN_MORE: 'Ver más'
     },
     
     // Company Info
@@ -49,13 +50,48 @@ export const COPY: Record<Locale, any> = {
         DESCRIPTION: 'Deja de perder clientes hambrientos por respuestas lentas. Nuestro sistema de IA toma pedidos, reserva mesas y responde preguntas del menú 24/7.',
         METRIC: '+30%',
         METRIC_LABEL: 'más acciones desde Google y redes sociales'
+      },
+      WEBSITE_BUILDER: {
+        NAME: 'Constructor de Sitios Web',
+        TAGLINE: 'Sitios web construidos para ventas primero',
+        DESCRIPTION: 'Convierte más visitantes en clientes con un sitio web impulsado por IA que optimiza conversiones y domina Google.',
+        METRIC: '+50%',
+        METRIC_LABEL: 'más conversiones web'
+      },
+      AUTOMATED_MARKETING: {
+        NAME: 'Marketing Automatizado',
+        TAGLINE: 'Campañas que generan dinero',
+        DESCRIPTION: 'Impulsa ventas con campañas automatizadas comprobadas que se ejecutan en piloto automático.',
+        METRIC: '+40%',
+        METRIC_LABEL: 'retorno de inversión'
+      },
+      ZERO_COMMISSION_DELIVERY: {
+        NAME: 'Delivery Sin Comisión',
+        TAGLINE: 'Delivery rentable y excelente servicio',
+        DESCRIPTION: 'Delivery rentable por conductores mejor calificados a precio justo sin comisiones de terceros.',
+        METRIC: '0%',
+        METRIC_LABEL: 'comisiones'
+      },
+      BRANDED_APPS: {
+        NAME: 'App Móvil Personalizada',
+        TAGLINE: 'App móvil de 5 estrellas',
+        DESCRIPTION: 'Haz crecer pedidos repetidos con una app móvil de 5 estrellas que mantiene a los clientes regresando.',
+        METRIC: '+85%',
+        METRIC_LABEL: 'más pedidos repetidos'
+      },
+      LOYALTY: {
+        NAME: 'Programa de Lealtad',
+        TAGLINE: 'Recompensas como las grandes cadenas',
+        DESCRIPTION: 'Construye lealtad con un programa de recompensas inspirado en las grandes marcas que funciona automáticamente.',
+        METRIC: '+60%',
+        METRIC_LABEL: 'retención de clientes'
       }
     },
     
     // Common Headlines
     HEADLINES: {
-      THREE_PRODUCTS: 'Tres Productos. Una Plataforma Poderosa.',
-      CHOOSE_PLATFORM: 'Elige uno, o desbloquea la plataforma completa.',
+      THREE_PRODUCTS: 'Ocho soluciones. Un solo producto.',
+      CHOOSE_PLATFORM: 'Elige una, varias o desbloquea la plataforma completa.',
       PROVEN_RESULTS: 'Resultados Comprobados de Restaurantes Reales',
       READY_TO_GROW: '¿Listo para aumentar los ingresos de tu restaurante?'
     },
@@ -88,7 +124,7 @@ export const COPY: Record<Locale, any> = {
       },
       PRODUCTS_SECTION: {
         BADGE: 'Plataforma de Crecimiento de Ingresos Comprobada',
-        SUBTITLE: 'RAY ofrece tres soluciones integradas diseñadas para hacer crecer los ingresos de restaurantes tanto offline como online. Elige tu enfoque o combina todo para máximo impacto.',
+        SUBTITLE: 'RAY ofrece ocho soluciones integradas diseñadas para hacer crecer los ingresos de restaurantes tanto offline como online. Elige tu enfoque o combina todo para máximo impacto.',
         BOTTOM_CTA: '¿Listo para ver cómo RAY puede transformar tu restaurante?',
         VIEW_PRICING: 'Ver Precios y Planes'
       }
@@ -1102,7 +1138,7 @@ export const COPY: Record<Locale, any> = {
       HERO: {
         BADGE: 'Sitios Web Impulsados por IA',
         TITLE: 'Sitios web de restaurante construidos para',
-        TITLE_HIGHLIGHT: 'ventas primero, estilo segundo.',
+        TITLE_HIGHLIGHT: 'ventas primero, estilo después.',
         SUBTITLE: 'Owner construye tu sitio web para impulsar ventas. Nuestro diseño comprobado genera tráfico de Google, optimiza aplicaciones de delivery y aloja tu competencia.',
         CTA_DEMO: 'Obtén una demo gratis',
         CTA_PRICING: 'Ver Precios',
@@ -1281,7 +1317,8 @@ export const COPY: Record<Locale, any> = {
       GRADE_RESTAURANT: 'Scan your restaurant',
       GET_FREE_DEMO: 'Get a Free Demo',
       GET_STARTED: 'Get Started Today',
-      VIEW_CASE_STUDIES: 'View All Success Stories'
+      VIEW_CASE_STUDIES: 'View All Success Stories',
+      LEARN_MORE: 'Learn more'
     },
     
     // Company Info
@@ -1322,13 +1359,48 @@ export const COPY: Record<Locale, any> = {
         DESCRIPTION: 'Stop losing hungry customers to slow replies! Our AI takes orders, books tables, and answers menu questions 24/7.',
         METRIC: '+30%',
         METRIC_LABEL: 'more actions from Google and social'
+      },
+      WEBSITE_BUILDER: {
+        NAME: 'Website Builder',
+        TAGLINE: 'Websites built for sales first',
+        DESCRIPTION: 'Convert more visitors into customers with an AI-powered website that optimizes conversions and dominates Google.',
+        METRIC: '+50%',
+        METRIC_LABEL: 'more web conversions'
+      },
+      AUTOMATED_MARKETING: {
+        NAME: 'Automated Marketing',
+        TAGLINE: 'Money-making campaigns',
+        DESCRIPTION: 'Drive sales with proven, automated campaigns that run on autopilot.',
+        METRIC: '+40%',
+        METRIC_LABEL: 'return on investment'
+      },
+      ZERO_COMMISSION_DELIVERY: {
+        NAME: 'Zero-Commission Delivery',
+        TAGLINE: 'Profitable delivery and great service',
+        DESCRIPTION: 'Profitable delivery by top-rated drivers at a fair price without third-party commissions.',
+        METRIC: '0%',
+        METRIC_LABEL: 'commissions'
+      },
+      BRANDED_APPS: {
+        NAME: 'Custom Mobile App',
+        TAGLINE: '5-star mobile app',
+        DESCRIPTION: 'Grow repeat orders with a 5-star mobile app that keeps customers coming back.',
+        METRIC: '+85%',
+        METRIC_LABEL: 'more repeat orders'
+      },
+      LOYALTY: {
+        NAME: 'Loyalty Program',
+        TAGLINE: 'Rewards like the big chains',
+        DESCRIPTION: 'Build loyalty with a rewards program inspired by the big brands that works automatically.',
+        METRIC: '+60%',
+        METRIC_LABEL: 'customer retention'
       }
     },
     
     // Common Headlines
     HEADLINES: {
-      THREE_PRODUCTS: 'Three Products. One Powerful Platform.',
-      CHOOSE_PLATFORM: 'Choose one, or unlock the full platform.',
+      THREE_PRODUCTS: 'Eight solutions. One product.',
+      CHOOSE_PLATFORM: 'Choose one, several, or unlock the full platform.',
       PROVEN_RESULTS: 'Proven Results from Real Restaurants',
       READY_TO_GROW: 'Ready to grow your restaurant revenue?'
     },
@@ -1361,7 +1433,7 @@ export const COPY: Record<Locale, any> = {
       },
       PRODUCTS_SECTION: {
         BADGE: 'Proven Revenue Growth Platform',
-        SUBTITLE: 'RAY offers three integrated solutions designed to grow restaurant revenue both offline and online. Choose your focus or combine all for maximum impact.',
+        SUBTITLE: 'RAY offers eight integrated solutions designed to grow restaurant revenue both offline and online. Choose your focus or combine all for maximum impact.',
         BOTTOM_CTA: 'Ready to see how RAY can transform your restaurant?',
         VIEW_PRICING: 'View Pricing & Plans'
       }

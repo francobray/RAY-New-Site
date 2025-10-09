@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Star, ArrowRight, CheckCircle, ChevronDown, ChevronUp, Smartphone, Users, Clock, Zap, Play } from 'lucide-react'
+import Image from 'next/image'
+import { Star, ArrowRight, CheckCircle, ChevronDown, ChevronUp, Smartphone, Users, Clock, Zap } from 'lucide-react'
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
@@ -55,7 +56,7 @@ const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
                 <span className="text-sm font-medium text-ray-dark-900">{t.MOBILE_APP_PAGE.HERO.BADGE}</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
                 {t.MOBILE_APP_PAGE.HERO.TITLE}{' '}
                 <span className="bg-gradient-to-r from-ray-blue to-ray-green bg-clip-text text-transparent">
                   {t.MOBILE_APP_PAGE.HERO.TITLE_HIGHLIGHT}
@@ -104,24 +105,30 @@ const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
               </div>
             </div>
             
-            {/* Hero Visual - Mobile App Mockup */}
+            {/* Hero Visual - Mobile App Screenshots */}
             <div className="relative">
-              <div className="relative max-w-sm mx-auto">
-                {/* Phone mockup with video */}
-                <div className="bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl">
-                  <div className="bg-white rounded-[2rem] overflow-hidden relative">
-                    {/* Video placeholder with play button */}
-                    <div className="relative h-96 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                      <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                        <button className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
-                          <Play className="w-6 h-6 text-gray-900 ml-1" />
-                        </button>
-                      </div>
-                      <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3">
-                        <p className="text-sm font-medium text-gray-900">{locale === 'es' ? 'Ve cómo Mr from Phnom Penh Noodle Shack consigue más pedidos repetidos con su app móvil' : 'See how Mr from Phnom Penh Noodle Shack gets more repeat orders with his mobile app'}</p>
-                      </div>
-                    </div>
-                  </div>
+              <div className="relative max-w-lg mx-auto flex gap-4 justify-center">
+                {/* Temple Mobile App Main Screenshot */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src="/images/branded-apps/Temple-mobile-app.png"
+                    alt={locale === 'es' ? 'App móvil de Temple Craft construida con RAY' : 'Temple Craft mobile app built with RAY'}
+                    width={400}
+                    height={600}
+                    className="w-full h-auto max-w-48"
+                    priority
+                  />
+                </div>
+                
+                {/* Temple Mobile App Menu Screenshot */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src="/images/branded-apps/Temple-mobile-app-menu.png"
+                    alt={locale === 'es' ? 'Menú de la app móvil de Temple Craft' : 'Temple Craft mobile app menu'}
+                    width={400}
+                    height={600}
+                    className="w-full h-auto max-w-48"
+                  />
                 </div>
                 
                 {/* Floating Elements */}
@@ -150,37 +157,18 @@ const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Phone mockup */}
+            {/* Left side - Phone screenshot */}
             <div className="relative">
-              <div className="relative max-w-sm mx-auto">
-                <div className="bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl">
-                  <div className="bg-white rounded-[2rem] h-[600px] overflow-hidden">
-                    {/* App interface mockup */}
-                    <div className="relative h-full bg-gradient-to-br from-orange-50 to-yellow-50">
-                      {/* Status bar */}
-                      <div className="flex justify-between items-center p-4 text-sm">
-                        <span>9:41</span>
-                        <div className="flex space-x-1">
-                          <div className="w-4 h-2 bg-gray-800 rounded-sm"></div>
-                        </div>
-                      </div>
-                      
-                      {/* App content */}
-                      <div className="px-4">
-                        <div className="bg-white rounded-xl p-4 mb-4 shadow-sm">
-                          <div className="w-full h-32 bg-gray-200 rounded-lg mb-3"></div>
-                          <h3 className="font-bold text-gray-900 mb-1">Pasta Bolognese</h3>
-                          <p className="text-sm text-gray-600 mb-2">Classic pasta with meat sauce</p>
-                          <div className="flex justify-between items-center">
-                            <span className="font-bold text-lg">$16.99</span>
-                            <button className="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                              {locale === 'es' ? 'Agregar' : 'Add'}
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div className="relative max-w-60 mx-auto">
+                {/* Temple Mobile App Orders Screenshot */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src="/images/branded-apps/Temple-mobile-app-orders.png"
+                    alt={locale === 'es' ? 'Pantalla de pedidos de la app móvil de Temple Craft' : 'Temple Craft mobile app orders screen'}
+                    width={400}
+                    height={600}
+                    className="w-full h-auto"
+                  />
                 </div>
               </div>
             </div>
@@ -218,51 +206,18 @@ const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - App mockup */}
+            {/* Left side - App screenshot */}
             <div className="relative">
-              <div className="relative max-w-sm mx-auto">
-                <div className="bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl">
-                  <div className="bg-white rounded-[2rem] h-[600px] overflow-hidden">
-                    <div className="relative h-full bg-gradient-to-br from-blue-50 to-indigo-50 p-4">
-                      {/* Header */}
-                      <div className="text-center mb-6 pt-8">
-                        <h3 className="text-xl font-bold text-gray-900">Manhattan Beach</h3>
-                        <p className="text-sm text-gray-600">{locale === 'es' ? 'Abierto hasta las 10:00' : 'Open until 10:00'}</p>
-                      </div>
-                      
-                      {/* Menu items */}
-                      <div className="space-y-3">
-                        <div className="bg-white rounded-lg p-3 shadow-sm flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-gray-200 rounded-lg"></div>
-                          <div className="flex-1">
-                            <h4 className="font-medium text-sm">Grilled Salmon</h4>
-                            <p className="text-xs text-gray-600">$24.99</p>
-                          </div>
-                        </div>
-                        <div className="bg-white rounded-lg p-3 shadow-sm flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-gray-200 rounded-lg"></div>
-                          <div className="flex-1">
-                            <h4 className="font-medium text-sm">Caesar Salad</h4>
-                            <p className="text-xs text-gray-600">$16.99</p>
-                          </div>
-                        </div>
-                        <div className="bg-white rounded-lg p-3 shadow-sm flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-gray-200 rounded-lg"></div>
-                          <div className="flex-1">
-                            <h4 className="font-medium text-sm">Ribeye Steak</h4>
-                            <p className="text-xs text-gray-600">$32.99</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* CTA Button */}
-                      <div className="absolute bottom-6 left-4 right-4">
-                        <button className="w-full bg-orange-500 text-white py-3 rounded-lg font-medium">
-                          {locale === 'es' ? 'ORDENAR AHORA' : 'ORDER NOW'}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+              <div className="relative max-w-60 mx-auto">
+                {/* Temple Mobile App Checkout Screenshot */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src="/images/branded-apps/Temple-mobile-app-checkout.png"
+                    alt={locale === 'es' ? 'Pantalla de checkout de la app móvil de Temple Craft' : 'Temple Craft mobile app checkout screen'}
+                    width={400}
+                    height={600}
+                    className="w-full h-auto"
+                  />
                 </div>
               </div>
             </div>

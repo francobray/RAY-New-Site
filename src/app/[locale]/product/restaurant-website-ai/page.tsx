@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : 'Restaurant Website Builder - RAY'
     
   const description = locale === 'es'
-    ? 'Sitios web de restaurante construidos para ventas primero, estilo segundo. Nuestro diseño comprobado genera tráfico de Google, optimiza aplicaciones de delivery y aloja tu competencia.'
+    ? 'Sitios web de restaurante construidos para ventas primero, estilo después. Nuestro diseño comprobado genera tráfico de Google, optimiza aplicaciones de delivery y aloja tu competencia.'
     : 'Restaurant websites built for sales first, style second. Our proven design grows Google traffic, optimizes delivery apps, and hosts your competition.'
 
   return {

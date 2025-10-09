@@ -56,7 +56,7 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
                 <span className="text-sm font-medium text-ray-dark-900">{locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program'}</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
                 {t.LOYALTY_PAGE.HERO.TITLE}{' '}
                 <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                   {t.LOYALTY_PAGE.HERO.TITLE_HIGHLIGHT}
