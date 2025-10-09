@@ -4,7 +4,6 @@ import { isValidLocale, type Locale } from '@/lib/i18n'
 import { getTranslations } from '@/hooks/useTranslations'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import Analytics from '@/components/Analytics'
 import '@/styles/critical.css'
 
 interface LocaleLayoutProps {
@@ -91,7 +90,6 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         />
       </head>
       <body className="antialiased">
-        <Analytics />
         <Header locale={locale} />
         <main>
           {children}
