@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { getTranslations } from '@/hooks/useTranslations'
+import { getCriticalCSS } from '@/utils/critical-css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -59,10 +60,17 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   return (
     <html lang={locale}>
       <head>
+        {/* Critical CSS for above-the-fold content */}
+        <style dangerouslySetInnerHTML={{ __html: getCriticalCSS() }} />
+        
         {/* Hreflang tags for SEO */}
         <link rel="alternate" hrefLang="es" href="https://rayapp.io/es" />
         <link rel="alternate" hrefLang="en" href="https://rayapp.io/en" />
         <link rel="alternate" hrefLang="x-default" href="https://rayapp.io/es" />
+        
+        {/* Preload critical resources */}
+        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/logo-rayapp-azulwebp-300x150.webp" as="image" />
       </head>
       <body className="antialiased">
         <Header locale={locale} />
@@ -74,6 +82,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
     </html>
   )
 }
+
 
 
 
