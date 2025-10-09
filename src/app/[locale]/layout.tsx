@@ -60,22 +60,17 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   return (
     <html lang={locale}>
       <head>
-        {/* Google Analytics will be loaded client-side only to avoid hydration issues */}
-        
-        {/* Hreflang tags for SEO */}
-        <link rel="alternate" hrefLang="es" href="https://rayapp.io/es" />
-        <link rel="alternate" hrefLang="en" href="https://rayapp.io/en" />
-        <link rel="alternate" hrefLang="x-default" href="https://rayapp.io/es" />
-        
-        {/* Preload critical resources */}
-        <link rel="preload" href="/images/logo-rayapp-azulwebp-300x150.webp" as="image" />
-        
-        {/* Optimize font loading */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
-          rel="stylesheet"
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-CFH2T8RJ0P');
+            `,
+          }}
         />
       </head>
       <body className="antialiased">
@@ -84,29 +79,6 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
           {children}
         </main>
         <Footer locale={locale} />
-        
-        {/* Google Analytics - Load after page is ready */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.addEventListener('load', function() {
-                if (typeof window.dataLayer === 'undefined') {
-                  window.dataLayer = [];
-                }
-                function gtag(){dataLayer.push(arguments);}
-                window.gtag = gtag;
-                gtag('js', new Date());
-                gtag('config', 'G-CFH2T8RJ0P');
-                
-                var script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P';
-                script.setAttribute('data-cfasync', 'false');
-                document.head.appendChild(script);
-              });
-            `,
-          }}
-        />
       </body>
     </html>
   )
