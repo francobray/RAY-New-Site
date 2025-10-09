@@ -48,8 +48,8 @@ export const COPY: Record<Locale, any> = {
         NAME: 'Delivery por WhatsApp',
         TAGLINE: 'Convierte DMs de restaurante en pedidos',
         DESCRIPTION: 'Deja de perder clientes hambrientos por respuestas lentas. Nuestro sistema de IA toma pedidos, reserva mesas y responde preguntas del menú 24/7.',
-        METRIC: '+30%',
-        METRIC_LABEL: 'más acciones desde Google y redes sociales'
+        METRIC: '+28%',
+        METRIC_LABEL: 'más pedidos'
       },
       WEBSITE_BUILDER: {
         NAME: 'Constructor de Sitios Web',
@@ -1357,8 +1357,8 @@ export const COPY: Record<Locale, any> = {
         NAME: 'WhatsApp Orders',
         TAGLINE: 'Turn Restaurant DMs Into Orders',
         DESCRIPTION: 'Stop losing hungry customers to slow replies! Our AI takes orders, books tables, and answers menu questions 24/7.',
-        METRIC: '+30%',
-        METRIC_LABEL: 'more actions from Google and social'
+        METRIC: '+28%',
+        METRIC_LABEL: 'more orders'
       },
       WEBSITE_BUILDER: {
         NAME: 'Website Builder',

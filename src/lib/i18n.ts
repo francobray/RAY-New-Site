@@ -22,6 +22,28 @@ export function removeLocaleFromPath(path: string): string {
   return path
 }
 
+// SEO Metadata helpers
+export function generateHreflangMetadata(path: string, currentLocale: Locale) {
+  const baseUrl = 'https://rayapp.io'
+  const cleanPath = path.startsWith('/') ? path : `/${path}`
+  
+  return {
+    canonical: `${baseUrl}/${currentLocale}${cleanPath}`,
+    languages: {
+      'es': `${baseUrl}/es${cleanPath}`,
+      'en': `${baseUrl}/en${cleanPath}`,
+      'x-default': `${baseUrl}/en${cleanPath}`, // English as international default
+    },
+  }
+}
+
+export function generateOpenGraphLocale(locale: Locale) {
+  return {
+    locale: locale === 'es' ? 'es_ES' : 'en_US',
+    alternateLocale: locale === 'es' ? ['en_US'] : ['es_ES'],
+  }
+}
+
 
 
 

@@ -40,9 +40,9 @@ export default function HomePage({ params }: HomePageProps) {
   const locale = params.locale as Locale
   
   const combinedSchema = [
-    generateOrganizationSchema(),
-    generateWebsiteSchema(),
-    generateLocalBusinessSchema(),
+    generateOrganizationSchema(locale),
+    generateWebsiteSchema(locale),
+    generateLocalBusinessSchema(locale),
     generateBreadcrumbSchema([
       { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` }
     ])

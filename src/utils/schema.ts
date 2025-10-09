@@ -1,16 +1,20 @@
 // Schema.org structured data generators
 import { SEO_CONFIG } from './seo'
+import { type Locale } from '@/lib/i18n'
 
 // Enhanced Organization schema with comprehensive RAY company information
-export const generateOrganizationSchema = () => ({
+export const generateOrganizationSchema = (locale?: Locale) => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "RAY",
   "legalName": "BotBit S.A.S.",
   "alternateName": ["RAY Restaurant Marketing Platform", "RAY App", "BotBit S.A.S."],
-  "description": "RAY is the #1 restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months or refund your investment.",
+  "description": locale === 'es' 
+    ? "RAY es la plataforma #1 de marketing para restaurantes que aumenta ingresos impulsando más walk-ins, pedidos y reseñas. Garantizamos un aumento del 30%+ en direcciones de Google Business Profile en Google Maps en 6 meses o devolvemos tu inversión."
+    : "RAY is the #1 restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews. We guarantee a 30%+ increase in Google Business Profile Google Maps directions within 6 months or refund your investment.",
   "url": SEO_CONFIG.SITE_URL,
   "@id": `${SEO_CONFIG.SITE_URL}/#organization`,
+  "inLanguage": locale === 'es' ? "es" : "en",
   "logo": {
     "@type": "ImageObject",
     "url": `${SEO_CONFIG.SITE_URL}/images/logo-rayapp-azulwebp-300x150.webp`,
@@ -193,14 +197,16 @@ export const generateOrganizationSchema = () => ({
 })
 
 // Enhanced Website schema with SearchAction
-export const generateWebsiteSchema = () => ({
+export const generateWebsiteSchema = (locale?: Locale) => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "RAY",
   "@id": `${SEO_CONFIG.SITE_URL}/#website`,
   "url": SEO_CONFIG.SITE_URL,
-  "description": "Restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews",
-  "inLanguage": "en-US",
+  "description": locale === 'es' 
+    ? "Plataforma de marketing para restaurantes que aumenta ingresos impulsando más walk-ins, pedidos y reseñas"
+    : "Restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews",
+  "inLanguage": locale === 'es' ? "es-ES" : "en-US",
   "publisher": {
     "@id": `${SEO_CONFIG.SITE_URL}/#organization`
   },
@@ -255,10 +261,11 @@ export const generateProductSchema = (product: {
   })) || []
 })
 
-export const generateFAQSchema = (faqs: ReadonlyArray<{ readonly question: string; readonly answer: string }>, url?: string) => ({
+export const generateFAQSchema = (faqs: ReadonlyArray<{ readonly question: string; readonly answer: string }>, url?: string, locale?: Locale) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "@id": `${url || SEO_CONFIG.SITE_URL}#faq`,
+  "inLanguage": locale === 'es' ? "es-ES" : "en-US",
   "mainEntity": faqs.map(faq => ({
     "@type": "Question",
     "name": faq.question,
@@ -439,13 +446,16 @@ export const generateBreadcrumbSchema = (breadcrumbs: Array<{ name: string; url:
 })
 
 // Local Business schema for company info
-export const generateLocalBusinessSchema = () => ({
+export const generateLocalBusinessSchema = (locale?: Locale) => ({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${SEO_CONFIG.SITE_URL}/#localbusiness`,
   "name": "RAY",
-  "description": "Restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews",
+  "description": locale === 'es' 
+    ? "Plataforma de marketing para restaurantes que aumenta ingresos impulsando más walk-ins, pedidos y reseñas"
+    : "Restaurant marketing platform that increases revenue by driving more walk-ins, orders, and reviews",
   "url": SEO_CONFIG.SITE_URL,
+  "inLanguage": locale === 'es' ? "es-ES" : "en-US",
   "telephone": "+1-555-RAY-HELP",
   "email": "hello@rayapp.io",
   "address": {

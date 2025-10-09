@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import Button from './shared/BaseButton'
 import { useTranslations } from '@/hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
@@ -31,14 +31,21 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const pathname = usePathname()
+  const router = useRouter()
   const menuRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const dropdownTimeouts = useRef<{ [key: string]: number }>({})
   const t = useTranslations(locale)
 
-  // Language switcher function
+  // Enhanced language switcher function using Next.js router
   const switchLanguage = (newLocale: Locale) => {
-    const currentPath = pathname?.replace(`/${locale}`, '') || '/'
-    window.location.href = `/${newLocale}${currentPath}`
+    if (!pathname) return
+    
+    // Remove current locale from path
+    const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/'
+    const newPath = `/${newLocale}${pathWithoutLocale}`
+    
+    // Use Next.js router for smooth transition (no page reload)
+    router.push(newPath)
   }
 
   const menuItems: MenuItem[] = [

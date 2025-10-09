@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import WebsiteBuilder from '../../../../components/pages/product/WebsiteBuilder'
-import { Locale } from '../../../../lib/i18n'
+import { Locale, generateHreflangMetadata, generateOpenGraphLocale } from '../../../../lib/i18n'
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/utils/schema'
 
 interface PageProps {
@@ -11,6 +11,9 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = params
+  const path = '/product/restaurant-website-ai'
+  const hreflangData = generateHreflangMetadata(path, locale)
+  const ogLocale = generateOpenGraphLocale(locale)
   
   const title = locale === 'es' 
     ? 'Constructor de Sitios Web para Restaurantes - RAY'
@@ -23,10 +26,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
+    alternates: hreflangData,
     openGraph: {
       title,
       description,
-      type: 'website'
+      type: 'website',
+      url: `https://rayapp.io/${locale}${path}`,
+      ...ogLocale,
     },
     twitter: {
       card: 'summary_large_image',
@@ -53,7 +59,7 @@ export default function WebsiteBuilderPage({ params }: PageProps) {
       question: locale === 'es' ? '¿Puedo hacer cambios después del lanzamiento?' : 'Can I make changes after launch?',
       answer: locale === 'es' ? 'Sí, incluye un panel de administración fácil de usar para que puedas actualizar contenido, menús, y promociones por ti mismo.' : 'Yes, it includes an easy-to-use admin panel so you can update content, menus, and promotions yourself.'
     }
-  ], 'https://rayapp.io/product/restaurant-website-ai')
+  ], 'https://rayapp.io/product/restaurant-website-ai', locale)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([

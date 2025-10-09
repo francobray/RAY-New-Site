@@ -1,27 +1,39 @@
 import { Metadata } from 'next'
 import OnlineOrders from '@/components/pages/product/OnlineOrders'
-import { type Locale } from '@/lib/i18n'
+import { type Locale, generateHreflangMetadata, generateOpenGraphLocale } from '@/lib/i18n'
 import { generateProductWithReviewsSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/utils/schema'
 
 interface OnlineOrdersPageProps {
   params: { locale: Locale }
 }
 
-export const metadata: Metadata = {
-  title: 'Online Orders - Grow Restaurant Revenue From Digital Channels | RAY',
-  description: 'Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins.',
-  openGraph: {
-    title: 'Online Orders - Grow Restaurant Revenue From Digital Channels | RAY',
-    description: 'Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins.',
-    url: 'https://rayapp.io/product/online-orders',
-  },
-  twitter: {
-    title: 'Online Orders - Grow Restaurant Revenue From Digital Channels | RAY',
-    description: 'Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins.',
-  },
-  alternates: {
-    canonical: 'https://rayapp.io/product/online-orders',
-  },
+export async function generateMetadata({ params }: OnlineOrdersPageProps): Promise<Metadata> {
+  const { locale } = params
+  const path = '/product/online-orders'
+  const hreflangData = generateHreflangMetadata(path, locale)
+  const ogLocale = generateOpenGraphLocale(locale)
+
+  return {
+    title: locale === 'es' ? 'Pedidos Online - Impulsa Ingresos Desde Canales Digitales | RAY' : 'Online Orders - Grow Restaurant Revenue From Digital Channels | RAY',
+    description: locale === 'es' 
+      ? 'Aumenta ingresos desde pedidos online, reservas y delivery con integraciones perfectas, sistemas de pedidos directos e insights basados en datos que incrementan márgenes de ganancia.'
+      : 'Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins.',
+    alternates: hreflangData,
+    openGraph: {
+      title: locale === 'es' ? 'Pedidos Online - RAY' : 'Online Orders - RAY',
+      description: locale === 'es' 
+        ? 'Aumenta ingresos desde pedidos online, reservas y delivery con integraciones perfectas y sistemas de pedidos directos.'
+        : 'Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins.',
+      url: `https://rayapp.io/${locale}${path}`,
+      ...ogLocale,
+    },
+    twitter: {
+      title: locale === 'es' ? 'Pedidos Online - RAY' : 'Online Orders - RAY',
+      description: locale === 'es' 
+        ? 'Aumenta ingresos desde pedidos online, reservas y delivery con integraciones perfectas.'
+        : 'Grow revenue from online orders, reservations, and deliveries with seamless integrations.',
+    },
+  }
 }
 
 export default function OnlineOrdersPage({ params }: OnlineOrdersPageProps) {
@@ -80,7 +92,7 @@ export default function OnlineOrdersPage({ params }: OnlineOrdersPageProps) {
       question: locale === 'es' ? '¿Funciona con mi sistema POS actual?' : 'Does it work with my current POS system?',
       answer: locale === 'es' ? 'Sí, nos integramos con más de 50 sistemas POS populares para sincronizar pedidos, menús y datos de clientes automáticamente.' : 'Yes, we integrate with over 50 popular POS systems to automatically sync orders, menus, and customer data.'
     }
-  ], 'https://rayapp.io/product/online-orders')
+  ], 'https://rayapp.io/product/online-orders', locale)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([

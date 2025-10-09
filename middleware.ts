@@ -37,6 +37,13 @@ export function middleware(request: NextRequest) {
       )
     )
   }
+
+  // Add enhanced SEO headers for better performance and indexing
+  const response = NextResponse.next()
+  response.headers.set('X-Robots-Tag', 'index, follow')
+  response.headers.set('X-Content-Type-Options', 'nosniff')
+  
+  return response
 }
 
 export const config = {
