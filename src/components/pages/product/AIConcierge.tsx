@@ -667,11 +667,13 @@ const ChatCarousel = () => {
       <TryItNowModal
         isOpen={isChatModalOpen}
         onClose={() => setIsChatModalOpen(false)}
+        locale={locale}
       />
       
       <PhoneCallModal
         isOpen={isPhoneModalOpen}
         onClose={() => setIsPhoneModalOpen(false)}
+        locale={locale}
       />
     </>
   )

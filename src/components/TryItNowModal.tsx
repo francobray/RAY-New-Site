@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, Send, Smile, Paperclip } from 'lucide-react';
+import { type Locale } from '@/lib/i18n';
 
 interface Message {
   id: number;
@@ -11,43 +12,96 @@ interface Message {
 interface TryItNowModalProps {
   isOpen: boolean;
   onClose: () => void;
+  locale?: Locale;
 }
 
-const aiResponses = {
-  greeting: "👋 Hi! I'm Donna, your AI assistant for Mario's Pizza. I can help you place orders, answer menu questions, and book tables. What would you like to know?",
-  menu: "🍕 Our menu includes:\n\n• Margherita Pizza - $18\n• Pepperoni Pizza - $20\n• Supreme Pizza - $24\n• Caesar Salad - $12\n• Garlic Bread - $8\n\nWhat catches your eye?",
-  order: "Great choice! 🍕 I'd be happy to help you order. What size would you like?\n\n• Small (10\") - $18\n• Medium (12\") - $22\n• Large (14\") - $26",
-  delivery: "Perfect! For delivery, I'll need your address. We deliver within 5 miles of our location and it typically takes 25-30 minutes. What's your delivery address?",
-  hours: "⏰ We're open:\n\nMon-Thu: 11am - 10pm\nFri-Sat: 11am - 11pm\nSun: 12pm - 9pm\n\nWe're currently open! Would you like to place an order?",
-  reservation: "🍽️ I'd love to help you book a table! What date and time works for you, and how many people will be joining?",
-  default: "I can help you with orders, menu questions, reservations, or store hours. What would you like to know? 😊"
-};
-
-const getAIResponse = (userMessage: string): string => {
-  const message = userMessage.toLowerCase();
-  
-  if (message.includes('menu') || message.includes('food') || message.includes('pizza')) {
-    return aiResponses.menu;
-  } else if (message.includes('order') || message.includes('buy') || message.includes('get')) {
-    return aiResponses.order;
-  } else if (message.includes('delivery') || message.includes('deliver')) {
-    return aiResponses.delivery;
-  } else if (message.includes('hours') || message.includes('open') || message.includes('time')) {
-    return aiResponses.hours;
-  } else if (message.includes('table') || message.includes('reservation') || message.includes('book')) {
-    return aiResponses.reservation;
-  } else if (message.includes('hi') || message.includes('hello') || message.includes('hey')) {
-    return aiResponses.greeting;
-  } else {
-    return aiResponses.default;
+const aiResponsesConfig = {
+  es: {
+    greeting: "👋 ¡Hola! Soy Donna, tu asistente IA de Mario's Pizza. Puedo ayudarte a realizar pedidos, responder preguntas del menú y reservar mesas. ¿Qué te gustaría saber?",
+    menu: "🍕 Nuestro menú incluye:\n\n• Pizza Margherita - $18\n• Pizza Pepperoni - $20\n• Pizza Suprema - $24\n• Ensalada César - $12\n• Pan de Ajo - $8\n\n¿Qué te llama la atención?",
+    order: "¡Excelente elección! 🍕 Me encantaría ayudarte con tu pedido. ¿Qué tamaño te gustaría?\n\n• Pequeña (10\") - $18\n• Mediana (12\") - $22\n• Grande (14\") - $26",
+    delivery: "¡Perfecto! Para el delivery, necesito tu dirección. Hacemos entregas dentro de 8 km de nuestra ubicación y típicamente toma 25-30 minutos. ¿Cuál es tu dirección de entrega?",
+    hours: "⏰ Estamos abiertos:\n\nLun-Jue: 11am - 10pm\nVie-Sáb: 11am - 11pm\nDom: 12pm - 9pm\n\n¡Estamos abiertos ahora! ¿Te gustaría hacer un pedido?",
+    reservation: "🍽️ ¡Me encantaría ayudarte a reservar una mesa! ¿Qué fecha y hora te viene bien, y cuántas personas vendrán?",
+    default: "Puedo ayudarte con pedidos, preguntas del menú, reservas u horarios. ¿Qué te gustaría saber? 😊",
+    securityNotice: "Este negocio utiliza un servicio seguro de Meta para gestionar este chat. Toca para saber más.",
+    assistantSubtitle: "Tu Asistente IA",
+    placeholder: "Escribe un mensaje",
+    quickReplies: [
+      "Muéstrame tu menú",
+      "Quiero ordenar una pizza",
+      "¿Cuáles son tus horarios?",
+      "Reservar mesa para 4"
+    ]
+  },
+  en: {
+    greeting: "👋 Hi! I'm Donna, your AI assistant for Mario's Pizza. I can help you place orders, answer menu questions, and book tables. What would you like to know?",
+    menu: "🍕 Our menu includes:\n\n• Margherita Pizza - $18\n• Pepperoni Pizza - $20\n• Supreme Pizza - $24\n• Caesar Salad - $12\n• Garlic Bread - $8\n\nWhat catches your eye?",
+    order: "Great choice! 🍕 I'd be happy to help you order. What size would you like?\n\n• Small (10\") - $18\n• Medium (12\") - $22\n• Large (14\") - $26",
+    delivery: "Perfect! For delivery, I'll need your address. We deliver within 5 miles of our location and it typically takes 25-30 minutes. What's your delivery address?",
+    hours: "⏰ We're open:\n\nMon-Thu: 11am - 10pm\nFri-Sat: 11am - 11pm\nSun: 12pm - 9pm\n\nWe're currently open! Would you like to place an order?",
+    reservation: "🍽️ I'd love to help you book a table! What date and time works for you, and how many people will be joining?",
+    default: "I can help you with orders, menu questions, reservations, or store hours. What would you like to know? 😊",
+    securityNotice: "This business uses a secure service from Meta to manage this chat. Tap to learn more.",
+    assistantSubtitle: "Your AI Assistant",
+    placeholder: "Type a message",
+    quickReplies: [
+      "Show me your menu",
+      "I want to order a pizza",
+      "What are your hours?",
+      "Book a table for 4"
+    ]
   }
 };
 
-export default function TryItNowModal({ isOpen, onClose }: TryItNowModalProps) {
+const getAIResponse = (userMessage: string, locale: Locale = 'en'): string => {
+  const message = userMessage.toLowerCase();
+  const responses = aiResponsesConfig[locale];
+  
+  // Check for Spanish keywords
+  const spanishKeywords = {
+    menu: ['menú', 'menu', 'comida', 'pizza'],
+    order: ['ordenar', 'order', 'comprar', 'quiero'],
+    delivery: ['delivery', 'entrega', 'domicilio'],
+    hours: ['horarios', 'hours', 'abierto', 'open', 'hora'],
+    reservation: ['mesa', 'table', 'reserva', 'reservation', 'reservar', 'book']
+  };
+  
+  // Check for English keywords
+  const englishKeywords = {
+    menu: ['menu', 'food', 'pizza'],
+    order: ['order', 'buy', 'get', 'want'],
+    delivery: ['delivery', 'deliver'],
+    hours: ['hours', 'open', 'time'],
+    reservation: ['table', 'reservation', 'book']
+  };
+  
+  const keywords = locale === 'es' ? spanishKeywords : englishKeywords;
+  
+  if (keywords.menu.some(k => message.includes(k))) {
+    return responses.menu;
+  } else if (keywords.order.some(k => message.includes(k))) {
+    return responses.order;
+  } else if (keywords.delivery.some(k => message.includes(k))) {
+    return responses.delivery;
+  } else if (keywords.hours.some(k => message.includes(k))) {
+    return responses.hours;
+  } else if (keywords.reservation.some(k => message.includes(k))) {
+    return responses.reservation;
+  } else if (message.includes('hi') || message.includes('hello') || message.includes('hey') || message.includes('hola')) {
+    return responses.greeting;
+  } else {
+    return responses.default;
+  }
+};
+
+export default function TryItNowModal({ isOpen, onClose, locale = 'en' }: TryItNowModalProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  const content = aiResponsesConfig[locale];
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -63,14 +117,14 @@ export default function TryItNowModal({ isOpen, onClose }: TryItNowModalProps) {
       setTimeout(() => {
         const initialMessage: Message = {
           id: 1,
-          text: aiResponses.greeting,
+          text: content.greeting,
           sender: 'ai',
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         };
         setMessages([initialMessage]);
       }, 500);
     }
-  }, [isOpen]);
+  }, [isOpen, content.greeting]);
 
   const sendMessage = async () => {
     if (!inputText.trim()) return;
@@ -90,7 +144,7 @@ export default function TryItNowModal({ isOpen, onClose }: TryItNowModalProps) {
     setTimeout(() => {
       const aiMessage: Message = {
         id: messages.length + 2,
-        text: getAIResponse(inputText),
+        text: getAIResponse(inputText, locale),
         sender: 'ai',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
@@ -105,13 +159,6 @@ export default function TryItNowModal({ isOpen, onClose }: TryItNowModalProps) {
       sendMessage();
     }
   };
-
-  const quickReplies = [
-    "Show me your menu",
-    "I want to order a pizza",
-    "What are your hours?",
-    "Book a table for 4"
-  ];
 
   if (!isOpen) return null;
 
@@ -128,7 +175,7 @@ export default function TryItNowModal({ isOpen, onClose }: TryItNowModalProps) {
             />
             <div>
               <h3 className="font-semibold">Donna</h3>
-              <p className="text-sm opacity-90">Your AI Assistant</p>
+              <p className="text-sm opacity-90">{content.assistantSubtitle}</p>
             </div>
           </div>
           <button 
@@ -145,7 +192,7 @@ export default function TryItNowModal({ isOpen, onClose }: TryItNowModalProps) {
             <div className="w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center">
               <span className="text-white text-xs">ℹ</span>
             </div>
-            <span>This business uses a secure service from Meta to manage this chat. Tap to learn more.</span>
+            <span>{content.securityNotice}</span>
           </div>
         </div>
 
@@ -186,7 +233,7 @@ export default function TryItNowModal({ isOpen, onClose }: TryItNowModalProps) {
         {messages.length <= 1 && (
           <div className="px-4 pb-2">
             <div className="flex flex-wrap gap-2">
-              {quickReplies.map((reply, index) => (
+              {content.quickReplies.map((reply, index) => (
                 <button
                   key={index}
                   onClick={() => {
@@ -212,7 +259,7 @@ export default function TryItNowModal({ isOpen, onClose }: TryItNowModalProps) {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Type a message"
+              placeholder={content.placeholder}
               className="flex-1 bg-transparent outline-none text-sm"
             />
             <button 

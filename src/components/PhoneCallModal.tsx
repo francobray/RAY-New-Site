@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { X, Phone, PhoneOff, Mic, MicOff, Volume2 } from 'lucide-react';
+import { type Locale } from '@/lib/i18n';
 
 interface PhoneCallModalProps {
   isOpen: boolean;
   onClose: () => void;
+  locale?: Locale;
 }
 
 interface CallStep {
