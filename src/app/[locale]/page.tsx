@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateOrganizationSchema, generateWebsiteSchema, generateLocalBusinessSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/utils/schema'
+import { generateOrganizationSchema, generateWebsiteSchema, generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/utils/schema'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { getTranslations } from '@/hooks/useTranslations'
 import Hero from '@/components/Hero'
@@ -46,8 +46,7 @@ export default function HomePage({ params }: HomePageProps) {
     generateLocalBusinessSchema(),
     generateBreadcrumbSchema([
       { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` }
-    ]),
-    generateFAQSchema(t.FAQ.QUESTIONS, `https://rayapp.io/${locale}`)
+    ])
   ]
 
   return (
