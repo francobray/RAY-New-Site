@@ -33,10 +33,14 @@ jobs:
         run: npm run validate:sitemap
         
       - name: Commit sitemap changes
-        if: git diff --quiet; then echo "No changes"; else echo "Changes detected"; fi
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public/sitemap.xml
-          git diff --staged --quiet || git commit -m "🤖 Auto-update sitemap.xml [skip ci]"
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to sitemap.xml"
+          else
+            echo "Changes detected in sitemap.xml"
+            git commit -m "🤖 Auto-update sitemap.xml [skip ci]"
+            git push
+          fi
