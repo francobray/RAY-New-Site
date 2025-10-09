@@ -69,8 +69,15 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         <link rel="alternate" hrefLang="x-default" href="https://rayapp.io/es" />
         
         {/* Preload critical resources */}
-        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/images/logo-rayapp-azulwebp-300x150.webp" as="image" />
+        
+        {/* Optimize font loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+          rel="stylesheet"
+        />
       </head>
       <body className="antialiased">
         <Header locale={locale} />

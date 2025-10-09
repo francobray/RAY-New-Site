@@ -27,6 +27,11 @@ const nextConfig = {
   // Performance optimizations
   experimental: {
     optimizePackageImports: ['lucide-react'],
+    scrollRestoration: true,
+  },
+  // Additional optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
   // Bundle analyzer for debugging
   webpack: (config, { dev, isServer }) => {
@@ -131,6 +136,24 @@ const nextConfig = {
       },
       {
         source: '/:path*.js',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.min.js',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',

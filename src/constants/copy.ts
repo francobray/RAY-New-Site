@@ -12,7 +12,7 @@ export const COPY = {
     // Company Info
     COMPANY: {
       NAME: 'RAY',
-      TAGLINE: 'Aumenta los Ingresos de tu Restaurante',
+      TAGLINE: 'Vende mas delivery por WhatsApp y aumenta los ingresos de tu Restaurante',
       DESCRIPTION: 'RAY ayuda a restaurantes a conseguir más Delivery directo, tráfico en sucursal y reservas directas',
       EMAIL: 'hello@rayapp.io',
       SUPPORT_EMAIL: 'support@rayapp.io'
