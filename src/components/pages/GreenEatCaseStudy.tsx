@@ -103,7 +103,7 @@ const GreenEatCaseStudy: React.FC<GreenEatCaseStudyProps> = ({ locale }) => {
               <div className="relative">
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/success-stories/Dolcezza.png"
+                    src="/images/success-stories/Green-Eat.jpg"
                     alt="Green Eat - Sustainable Restaurant Success"
                     fill
                     className="object-cover"

@@ -103,7 +103,7 @@ const WingsFCCaseStudy: React.FC<WingsFCCaseStudyProps> = ({ locale }) => {
               <div className="relative">
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/success-stories/Chef_burguer.jpeg"
+                    src="/images/success-stories/WingsFC.png"
                     alt="WingsFC - Sports Bar Success"
                     fill
                     className="object-cover"

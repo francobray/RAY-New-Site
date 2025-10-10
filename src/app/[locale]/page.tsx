@@ -6,7 +6,6 @@ import Hero from '@/components/Hero'
 import ProductSection from '@/components/ProductSection'
 import SuccessCarousel from '@/components/SuccessCarousel'
 import ProductShowcase from '@/components/ProductShowcase'
-import SuccessStoryBlock from '@/components/SuccessStoryBlock'
 import FAQ from '@/components/FAQ'
 import CTASection from '@/components/CTASection'
 
@@ -41,6 +40,11 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 export default function HomePage({ params }: HomePageProps) {
   const locale = params.locale as Locale
   
+  if (!isValidLocale(locale)) {
+    // Redirect to default locale or return error
+    return <div>Invalid locale</div>
+  }
+  
   const combinedSchema = [
     generateOrganizationSchema(locale),
     generateWebsiteSchema(locale),
@@ -65,7 +69,6 @@ export default function HomePage({ params }: HomePageProps) {
       <ProductSection locale={locale} />
       <SuccessCarousel locale={locale} />
       <ProductShowcase locale={locale} />
-      <SuccessStoryBlock locale={locale} />
       <FAQ locale={locale} />
       <CTASection locale={locale} />
     </>

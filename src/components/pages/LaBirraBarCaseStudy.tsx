@@ -103,7 +103,7 @@ const LaBirraBarCaseStudy: React.FC<LaBirraBarCaseStudyProps> = ({ locale }) => 
               <div className="relative">
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/success-stories/Temple_Bar.jpg"
+                    src="/images/success-stories/La-Birra-Bar.jpg"
                     alt="La Birra Bar - Craft Beer Bar Success"
                     fill
                     className="object-cover"

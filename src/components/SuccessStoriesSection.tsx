@@ -178,7 +178,7 @@ const successStories = [
   },
   {
     id: 16,
-    ownerName: 'Havanna Management',
+    ownerName: 'Havanna',
     title: 'Coffee Chain Leadership',
     restaurantName: 'Havanna',
     metric: '+$32,000',

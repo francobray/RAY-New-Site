@@ -55,7 +55,7 @@ const successStories = [
     metric: '+$35,000',
     period: 'monthly revenue increase',
     description: 'How WingsFC maximized game day revenue and created the ultimate sports fan destination',
-    image: '/images/success-stories/Chef_burguer.jpeg',
+    image: '/images/success-stories/WingsFC.png',
     bgGradient: 'from-blue-500 to-red-700',
     slug: 'wingsfc'
   },
@@ -91,19 +91,19 @@ const successStories = [
     metric: '+$18,000',
     period: 'monthly revenue increase',
     description: 'How Green Eat connected with environmentally conscious customers',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Green-Eat.jpg',
     bgGradient: 'from-green-500 to-emerald-700',
     slug: 'green-eat'
   },
   {
     id: 16,
-    ownerName: 'Havanna Management',
+    ownerName: 'Havanna',
     title: 'Coffee Chain Leadership',
     restaurantName: 'Havanna',
     metric: '+$32,000',
     period: 'monthly revenue increase',
     description: 'How Havanna modernized their digital presence while maintaining tradition',
-    image: '/images/success-stories/Juan_valdez.jpg',
+    image: '/images/success-stories/Havanna.png',
     bgGradient: 'from-amber-500 to-orange-700',
     slug: 'havanna'
   },
@@ -115,7 +115,7 @@ const successStories = [
     metric: '+$28,000',
     period: 'monthly revenue increase',
     description: 'How CRAFT built a community around their artisanal beer',
-    image: '/images/success-stories/Temple_Bar.jpg',
+    image: '/images/success-stories/CRAFT.webp',
     bgGradient: 'from-indigo-500 to-purple-700',
     slug: 'craft'
   },
@@ -127,7 +127,7 @@ const successStories = [
     metric: '+$22,000',
     period: 'monthly revenue increase',
     description: 'How La Birra Bar created a community of craft beer lovers',
-    image: '/images/success-stories/Temple_Bar.jpg',
+    image: '/images/success-stories/La-Birra-Bar.jpg',
     bgGradient: 'from-amber-500 to-orange-700',
     slug: 'la-birra-bar'
   },
@@ -274,7 +274,7 @@ const SuccessCarousel: React.FC<SuccessCarouselProps> = ({ locale }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Trusted by thousands of owners
+            Trusted by thousands of restaurants
           </h2>
         </div>
       </div>

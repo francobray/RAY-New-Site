@@ -77,7 +77,7 @@ const caseStudies = [
     name: 'Green Eat',
     location: 'Eco-Conscious Market',
     industry: 'Sustainable Restaurant',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Green-Eat.jpg',
     keyMetrics: [
       { label: 'Monthly Revenue', value: '+$18K', icon: TrendingUp },
       { label: 'Conscious Customers', value: '+240%', icon: Users },
@@ -98,7 +98,7 @@ const caseStudies = [
     name: 'Havanna',
     location: 'Coffee Market',
     industry: 'Coffee Chain',
-    image: '/images/success-stories/Juan_valdez.jpg',
+    image: '/images/success-stories/Havanna.png',
     keyMetrics: [
       { label: 'Monthly Revenue', value: '+$32K', icon: TrendingUp },
       { label: 'Frequent Customers', value: '+165%', icon: Users },
@@ -109,7 +109,7 @@ const caseStudies = [
     tags: ['Cultural Marketing', 'Digital Transformation', 'Loyalty Programs'],
     testimonial: {
       text: 'RAY allowed us to modernize our digital presence without losing our traditional essence.',
-      author: 'Havanna Management',
+      author: 'Havanna',
       title: 'Coffee Chain'
     }
   },
@@ -119,7 +119,7 @@ const caseStudies = [
     name: 'CRAFT',
     location: 'Local Brewery Scene',
     industry: 'Craft Brewery',
-    image: '/images/success-stories/Temple_Bar.jpg',
+    image: '/images/success-stories/CRAFT.webp',
     keyMetrics: [
       { label: 'Monthly Revenue', value: '+$28K', icon: TrendingUp },
       { label: 'Taproom Visits', value: '+195%', icon: Users },
@@ -140,7 +140,7 @@ const caseStudies = [
     name: 'WingsFC',
     location: 'Sports Bar Market',
     industry: 'Sports Bar',
-    image: '/images/success-stories/Chef_burguer.jpeg',
+    image: '/images/success-stories/WingsFC.png',
     keyMetrics: [
       { label: 'Monthly Revenue', value: '+$35K', icon: TrendingUp },
       { label: 'Game Day Growth', value: '+280%', icon: Users },
@@ -182,7 +182,7 @@ const caseStudies = [
     name: 'La Birra Bar',
     location: 'Craft Beer Scene',
     industry: 'Craft Beer Bar',
-    image: '/images/success-stories/Temple_Bar.jpg',
+    image: '/images/success-stories/La-Birra-Bar.jpg',
     keyMetrics: [
       { label: 'Monthly Revenue', value: '+$22K', icon: TrendingUp },
       { label: 'Regular Customers', value: '+210%', icon: Users },

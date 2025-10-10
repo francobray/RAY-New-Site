@@ -103,7 +103,7 @@ const HavannaCaseStudy: React.FC<HavannaCaseStudyProps> = ({ locale }) => {
               <div className="relative">
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/success-stories/Juan_valdez.jpg"
+                    src="/images/success-stories/Havanna.png"
                     alt="Havanna - Coffee Chain Success"
                     fill
                     className="object-cover"

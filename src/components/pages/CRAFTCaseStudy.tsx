@@ -103,7 +103,7 @@ const CRAFTCaseStudy: React.FC<CRAFTCaseStudyProps> = ({ locale }) => {
               <div className="relative">
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/success-stories/Temple_Bar.jpg"
+                    src="/images/success-stories/CRAFT.webp"
                     alt="CRAFT - Brewery Success"
                     fill
                     className="object-cover"
