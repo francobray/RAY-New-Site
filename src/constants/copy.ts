@@ -1309,6 +1309,29 @@ export const COPY: Record<Locale, any> = {
           }
         ]
       }
+    },
+
+    // Partners Page
+    PARTNERS_PAGE: {
+      META_TITLE: 'Socios - RAY',
+      META_DESCRIPTION: 'Únete a nuestro programa de socios y ayuda a los restaurantes a crecer con RAY.',
+      MAIN_TITLE_PART1: 'Trabaja con',
+      MAIN_TITLE_PART2: 'RAY',
+      SUBTITLE: 'Elige la asociación que mejor se adapte a ti:',
+      GET_STARTED: 'Comenzar',
+      CLICK_HERE_TO_GET_STARTED: 'Haz clic aquí para comenzar.',
+      AFFILIATE_PROGRAM: {
+        TITLE: 'Programa de Afiliados',
+        SHORT_DESCRIPTION: 'Para editores, influencers, bloggers, sitios de reseñas y socios de medios que llegan a propietarios de restaurantes.',
+        DETAILED_DESCRIPTION_PART1: 'Los afiliados promocionan',
+        DETAILED_DESCRIPTION_PART2: 'a sus audiencias a través de contenido, publicidad y ubicaciones creativas. Tu rol es generar leads calificados conectando restaurantes con nuestra plataforma. Te proporcionaremos seguimiento, recursos y soporte continuo para que puedas maximizar resultados. La compensación se basa en leads, recompensándote por las nuevas oportunidades que creas. Juntos, ayudaremos a los restaurantes a descubrir'
+      },
+      REFERRAL_PARTNERSHIPS: {
+        TITLE: 'Asociaciones de Referencia',
+        SHORT_DESCRIPTION: 'Para agencias, consultores, contadores y distribuidores que trabajan directamente con restaurantes.',
+        DETAILED_DESCRIPTION_PART1: 'Los Socios de Referencia van más allá de la promoción: presentas activamente',
+        DETAILED_DESCRIPTION_PART2: 'a los restaurantes que ya atiendes. Te equiparemos con capacitación, recursos y soporte continuo para que puedas integrar con confianza'
+      }
     }
   },
   en: {
@@ -1465,6 +1488,29 @@ export const COPY: Record<Locale, any> = {
           answer: 'We help you educate your customers and set up reward programs so customers earn points when they order direct.'
         }
       ]
+    },
+
+    // Partners Page
+    PARTNERS_PAGE: {
+      META_TITLE: 'Partners - RAY',
+      META_DESCRIPTION: 'Join our partner program and help restaurants grow with RAY.',
+      MAIN_TITLE_PART1: 'Partner with',
+      MAIN_TITLE_PART2: 'RAY',
+      SUBTITLE: 'Choose the partnership that\'s the best fit for you:',
+      GET_STARTED: 'Get Started',
+      CLICK_HERE_TO_GET_STARTED: 'Click here to get started.',
+      AFFILIATE_PROGRAM: {
+        TITLE: 'Affiliate Program',
+        SHORT_DESCRIPTION: 'For publishers, influencers, bloggers, review sites, and media partners who reach restaurant owners.',
+        DETAILED_DESCRIPTION_PART1: 'Affiliates promote',
+        DETAILED_DESCRIPTION_PART2: 'to their audiences through content, advertising, and creative placements. Your role is to generate qualified leads by connecting restaurants with our platform. We\'ll provide tracking, resources, and ongoing support so you can maximize results. Compensation is lead-based, rewarding you for the new opportunities you create. Together, we\'ll help restaurants discover'
+      },
+      REFERRAL_PARTNERSHIPS: {
+        TITLE: 'Referral Partnerships',
+        SHORT_DESCRIPTION: 'For agencies, consultants, accountants, and distributors who work directly with restaurants.',
+        DETAILED_DESCRIPTION_PART1: 'Referral Partners go beyond promotion—you actively introduce',
+        DETAILED_DESCRIPTION_PART2: 'to the restaurants you already serve. We\'ll equip you with training, resources, and ongoing support so you can confidently integrate'
+      }
     },
 
     // Testimonials Section
