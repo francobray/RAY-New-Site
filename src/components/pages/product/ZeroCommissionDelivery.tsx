@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { TrendingUp, ArrowRight, CheckCircle, Truck, Phone, ChevronDown, ChevronUp, DollarSign, Users, Clock } from 'lucide-react'
+import { TrendingUp, ArrowRight, CheckCircle, Phone, ChevronDown, ChevronUp, DollarSign, Users } from 'lucide-react'
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
 import { type Locale } from '../../../lib/i18n'
