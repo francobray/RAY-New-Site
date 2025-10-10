@@ -61,10 +61,10 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           icon: '💻'
         },
         { 
-          name: locale === 'es' ? 'Marketing Automatizado' : 'Automated Marketing',
-          path: `/${locale}/product/automated-marketing`,
-          description: locale === 'es' ? 'Impulsa ventas de clientes con campañas automatizadas comprobadas.' : 'Drive sales from customers with proven, automated campaigns.',
-          icon: '📊'
+          name: locale === 'es' ? 'Walk-Ins' : 'Walk-Ins',
+          path: `/${locale}/product/walk-ins`,
+          description: locale === 'es' ? 'Convierte búsquedas en visitas con marketing local impulsado por IA.' : 'Turn searches into walk-ins with AI-powered local marketing.',
+          icon: '🚶'
         },
         { 
           name: locale === 'es' ? 'Delivery Sin Comisión' : 'Zero-Commission Delivery',
@@ -111,7 +111,14 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
       dropdownItems: [
         { name: locale === 'es' ? 'Todos los Casos' : 'All Case Studies', path: `/${locale}/case-studies` },
         { name: 'Temple Craft Wynwood', path: `/${locale}/case-studies/temple-craft-wynwood` },
-        { name: 'Chimba Miami', path: `/${locale}/case-studies/chimba-miami` }
+        { name: 'Chimba Miami', path: `/${locale}/case-studies/chimba-miami` },
+        { name: 'V&E Hospitality Group', path: `/${locale}/case-studies/ve-hospitality` },
+        { name: 'Green Eat', path: `/${locale}/case-studies/green-eat` },
+        { name: 'Havanna', path: `/${locale}/case-studies/havanna` },
+        { name: 'CRAFT', path: `/${locale}/case-studies/craft` },
+        { name: 'WingsFC', path: `/${locale}/case-studies/wingsfc` },
+        { name: 'Dolcezza', path: `/${locale}/case-studies/dolcezza` },
+        { name: 'La Birra Bar', path: `/${locale}/case-studies/la-birra-bar` }
       ] 
     },
     { name: locale === 'es' ? 'Precios' : 'Pricing', path: `/${locale}/pricing` },

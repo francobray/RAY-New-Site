@@ -24,11 +24,11 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
     },
     {
       icon: TrendingUp,
-      name: t.PRODUCTS.AUTOMATED_MARKETING.NAME,
-      description: t.PRODUCTS.AUTOMATED_MARKETING.DESCRIPTION,
-      metric: t.PRODUCTS.AUTOMATED_MARKETING.METRIC,
-      metricLabel: t.PRODUCTS.AUTOMATED_MARKETING.METRIC_LABEL,
-      href: '/product/automated-marketing',
+      name: t.PRODUCTS.WALK_INS.NAME,
+      description: t.PRODUCTS.WALK_INS.DESCRIPTION,
+      metric: t.PRODUCTS.WALK_INS.METRIC,
+      metricLabel: t.PRODUCTS.WALK_INS.METRIC_LABEL,
+      href: '/product/walk-ins',
       gradient: 'from-pink-500 to-pink-600'
     },
     {

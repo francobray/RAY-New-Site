@@ -117,7 +117,7 @@ const AutomatedMarketing: React.FC<AutomatedMarketingProps> = ({ locale = 'es' }
                   data-analytics="marketing_hero"
                   aria-label="Get a free demo"
                 >
-                  {locale === 'es' ? 'Obtén una demo gratis' : 'Get a free demo'}
+                  {locale === 'es' ? 'Agenda una Demo' : 'Get a free demo'}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 

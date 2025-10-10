@@ -140,7 +140,7 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(13,121,229,0.1),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(111,191,115,0.1),transparent_50%)]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12 items-center">
             <div className="text-center lg:text-left relative">
               <div className="inline-flex items-center px-4 py-2 bg-ray-blue/10 rounded-full text-ray-blue text-sm font-medium mb-6">
                 <Calendar className="w-4 h-4 mr-2" />

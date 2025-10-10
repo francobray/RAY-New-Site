@@ -6,7 +6,7 @@ export const COPY: Record<Locale, any> = {
     // CTA Labels
     CTA: {
       GRADE_RESTAURANT: 'Escanea tu restaurante',
-      GET_FREE_DEMO: 'Obtén una Demo Gratis',
+      GET_FREE_DEMO: 'Agenda una Demo',
       GET_STARTED: 'Comienza Hoy',
       VIEW_CASE_STUDIES: 'Ver Casos de Éxito',
       LEARN_MORE: 'Ver más'
@@ -145,7 +145,7 @@ export const COPY: Record<Locale, any> = {
         },
         {
           question: '¿Qué pasa con mi sitio web actual?',
-          answer: 'RAY reemplaza tu sitio web actual. Redirigimos tu dominio a tu nuevo sitio web con RAY.'
+          answer: 'Hacemos un backup de tu website actual. Luego RAY reemplaza tu sitio web actual. Redirigimos tu dominio a tu nuevo sitio web con RAY.'
         },
         {
           question: '¿Hacen marketing en redes sociales?',
@@ -184,7 +184,7 @@ export const COPY: Record<Locale, any> = {
       HERO_TITLE: 'Convierte Búsquedas de Google Maps en',
       HERO_TITLE_HIGHLIGHT: 'Visitas a tu restaurante',
       HERO_SUBTITLE: 'Domina Google Maps y búsquedas de Google Maps para atraer más clientes hambrientos a la puerta de tu restaurante.',
-      TALK_TO_EXPERT: 'Hablar con un Experto',
+      TALK_TO_EXPERT: 'Agenda una demo',
       SCAN_RESTAURANT: 'Escanea tu restaurante',
       AVG_INCREASE: '47% aumento promedio',
       RESULTS_TIME: 'Resultados en 60-90 días',
@@ -325,7 +325,7 @@ export const COPY: Record<Locale, any> = {
       HERO_TITLE_HIGHLIGHT: 'Cada Cliente',
       HERO_SUBTITLE: 'Gestiona reservas, walk-ins y listas de espera sin problemas mientras construyes relaciones duraderas con tus clientes que generan visitas repetidas.',
       CTA_PRIMARY: 'Escanea tu restaurante',
-      CTA_SECONDARY: 'Habla con un Experto',
+      CTA_SECONDARY: 'Agenda una demo',
       STATS: {
         TABLE_UTILIZATION: '+35% utilización de mesas',
         NO_SHOWS: '40% menos no-shows'
@@ -542,7 +542,7 @@ export const COPY: Record<Locale, any> = {
       },
       TESTIMONIAL: {
         QUOTE: 'RAY transformó nuestro negocio. Hemos visto un aumento del 47% en visitas y nuestros pedidos online han crecido constantemente cada mes.',
-        AUTHOR: 'Propietario de Restaurante, Miami FL'
+        AUTHOR: 'Juan Ignacio Chereminiano, CEO de Temple Craft Wynwood'
       },
       FORM: {
         ROLE_LABEL: 'Rol',
@@ -999,7 +999,7 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Ofrece un programa de recompensas',
         TITLE_HIGHLIGHT: 'como las cadenas nacionales.',
         SUBTITLE: 'Construye lealtad del cliente con un programa de recompensas. Mantén a los clientes regresando por más, como las grandes marcas.',
-        CTA_DEMO: 'Obtener demo gratis',
+        CTA_DEMO: 'Agenda una Demo',
         CTA_PRICING: 'Ver Precios'
       },
       FEATURES: {
@@ -1140,7 +1140,7 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Sitios web de restaurante construidos para',
         TITLE_HIGHLIGHT: 'ventas primero, estilo después.',
         SUBTITLE: 'Owner construye tu sitio web para impulsar ventas. Nuestro diseño comprobado genera tráfico de Google, optimiza aplicaciones de delivery y aloja tu competencia.',
-        CTA_DEMO: 'Obtén una demo gratis',
+        CTA_DEMO: 'Agenda una Demo',
         CTA_PRICING: 'Ver Precios',
         STAT_1: 'Listo en días, no meses',
         STAT_2: 'Optimizado para Google'
@@ -1200,7 +1200,7 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Delivery rentable y una',
         TITLE_HIGHLIGHT: 'gran experiencia para clientes.',
         SUBTITLE: 'Haz que tus clientes ordenen desde tu app, con drivers de alta calificación, a un precio justo.',
-        CTA_DEMO: 'Obtén una demo gratis',
+        CTA_DEMO: 'Agenda una Demo',
         CTA_PRICING: 'Ver Precios'
       },
       FEATURES: {
@@ -1258,7 +1258,7 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Marketing que genera dinero,',
         TITLE_HIGHLIGHT: 'impulsado por datos de clientes',
         SUBTITLE: 'Convierte cada pedido en datos valiosos. Usa esos datos para ejecutar campañas de marketing automatizadas que hacen crecer tus ventas.',
-        CTA_DEMO: 'Obtén una demo gratis',
+        CTA_DEMO: 'Agenda una Demo',
         CTA_PRICING: 'Ver Precios'
       },
       FEATURES: {

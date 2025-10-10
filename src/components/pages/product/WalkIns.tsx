@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { Star, TrendingUp, ArrowRight, CheckCircle, BarChart3, Search, Database, Globe, Camera, ChevronDown, ChevronUp } from 'lucide-react'
+import Image from 'next/image'
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
@@ -154,77 +155,18 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
               </div>
             </div>
             
-            {/* Hero Visual - Mobile Phone with Google Maps */}
+            {/* Hero Visual - Walk-ins Image */}
             <div className="relative">
-              <div className="relative max-w-sm mx-auto">
-                {/* Phone mockup */}
-                <div className="bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl">
-                  <div className="bg-white rounded-[2rem] overflow-hidden">
-                    {/* Status bar */}
-                    <div className="bg-white px-6 py-3 flex justify-between items-center text-sm">
-                      <span className="font-medium">9:41</span>
-                      <div className="flex items-center space-x-1">
-                        <div className="w-4 h-2 bg-gray-300 rounded-sm"></div>
-                        <div className="w-1 h-4 bg-gray-300 rounded-full"></div>
-                      </div>
-                    </div>
-                    
-                    {/* Google Maps interface */}
-                    <div className="relative h-96 bg-gradient-to-br from-green-100 to-blue-100">
-                      {/* Map background */}
-                      <div className="absolute inset-0 bg-gray-200"></div>
-                      
-                      {/* Restaurant listings */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-xl p-4 shadow-lg">
-                        <div className="space-y-3">
-                          {/* Your Restaurant - #1 */}
-                          <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border-2 border-green-200">
-                            <div className="flex items-center space-x-3">
-                              <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-                                1
-                              </div>
-                              <div>
-                                <div className="font-semibold text-gray-900">{locale === 'es' ? 'Tu Restaurante' : 'Your Restaurant'}</div>
-                                <div className="text-sm text-gray-600">⭐ 4.8 • 847 {locale === 'es' ? 'reseñas' : 'reviews'} • 0.2 mi</div>
-                                <div className="text-xs text-green-600 font-medium">{locale === 'es' ? 'Abierto ahora' : 'Open now'}</div>
-                              </div>
-                            </div>
-                            <div className="text-right">
-                              <div className="text-2xl font-bold text-green-600">#1</div>
-                            </div>
-                          </div>
-                          
-                          {/* Competitors */}
-                          <div className="flex items-center justify-between p-2">
-                            <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center text-white text-sm">
-                                2
-                              </div>
-                              <div>
-                                <div className="text-sm font-medium text-gray-700">{locale === 'es' ? 'Competidor A' : 'Competitor A'}</div>
-                                <div className="text-xs text-gray-500">4.2⭐ • 234 {locale === 'es' ? 'reseñas' : 'reviews'} • 0.4 mi</div>
-                              </div>
-                            </div>
-                            <div className="text-gray-400 text-sm">#2</div>
-                          </div>
-                          
-                          <div className="flex items-center justify-between p-2">
-                            <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center text-white text-sm">
-                                3
-                              </div>
-                              <div>
-                                <div className="text-sm font-medium text-gray-700">{locale === 'es' ? 'Competidor B' : 'Competitor B'}</div>
-                                <div className="text-xs text-gray-500">6 {locale === 'es' ? 'reseñas' : 'reviews'} • 0.6 mi</div>
-                              </div>
-                            </div>
-                            <div className="text-gray-400 text-sm">#3</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative max-w-3xl mx-auto">
+        {/* Main Walk-ins Image */}
+        <Image 
+          src="/images/walkIns/Walkins-1.png"
+          alt={locale === 'es' ? 'Interfaz de Google Maps mostrando restaurantes y direcciones' : 'Google Maps interface showing restaurants and directions'}
+          width={1248}
+          height={936}
+          className="w-full h-auto"
+          priority
+        />
                 
                 {/* Floating Elements */}
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">
@@ -236,6 +178,98 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
                   <div className="text-lg font-bold text-ray-blue">4.8★</div>
                   <div className="text-xs text-ray-darkGray">{locale === 'es' ? 'Calificación promedio' : 'Average rating'}</div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Optimization Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left side - Content */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
+                  {locale === 'es' ? 'Consigue 30% más de tráfico en tu restaurante' : 'Get up to 30% more WalkIns in your resstaurant'}
+                </h2>
+                <p className="text-xl text-ray-darkGray leading-relaxed">
+                  {locale === 'es' ? 'Nuestra solución utiliza inteligencia artificial para analizar tu Perfil de Negocio de Google y identificar oportunidades específicas de optimización que impulsan más visitas locales.' : 'Our solution uses artificial intelligence to analyze your Google Business Profile and identify specific optimization opportunities that drive more local visits.'}
+                </p>
+              </div>
+
+              {/* Feature Cards */}
+              <div className="space-y-6">
+                {/* Feature 1 */}
+                <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
+                  <div className="flex-shrink-0 w-8 h-8 bg-ray-blue rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-ray-dark-900 mb-1">
+                      {locale === 'es' ? 'Análisis Automático del Perfil de Negocio' : 'Automatic Business Profile Analysis'}
+                    </h3>
+                    <p className="text-sm text-ray-darkGray">
+                      {locale === 'es' ? 'Conectamos directamente con tu Google Business Profile para analizar automáticamente todos los aspectos de tu presencia local.' : 'We connect directly to your Google Business Profile to automatically analyze every aspect of your local presence.'}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Feature 2 */}
+                <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
+                  <div className="flex-shrink-0 w-8 h-8 bg-ray-blue rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-ray-dark-900 mb-1">
+                      {locale === 'es' ? 'Identificación de Oportunidades Específicas' : 'Specific Opportunity Identification'}
+                    </h3>
+                    <p className="text-sm text-ray-darkGray">
+                      {locale === 'es' ? 'Nuestra IA identifica exactamente qué optimizaciones necesitas: fotos faltantes, horarios incorrectos, categorías no optimizadas, y más.' : 'Our AI identifies exactly what optimizations you need: missing photos, incorrect hours, unoptimized categories, and more.'}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Feature 3 */}
+                <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
+                  <div className="flex-shrink-0 w-8 h-8 bg-ray-blue rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-ray-dark-900 mb-1">
+                      {locale === 'es' ? 'Optimización Continua y Monitoreo' : 'Continuous Optimization & Monitoring'}
+                    </h3>
+                    <p className="text-sm text-ray-darkGray">
+                      {locale === 'es' ? 'Implementamos las mejoras automáticamente y monitoreamos continuamente tu rendimiento para mantenerte por encima de la competencia.' : 'We implement improvements automatically and continuously monitor your performance to keep you ahead of the competition.'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right side - Visual */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image 
+                  src="/images/walkIns/Walkins-3.png"
+                  alt={locale === 'es' ? 'Interfaz de búsqueda local mostrando optimizaciones de IA' : 'Local search interface showing AI optimizations'}
+                  width={800}
+                  height={600}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
+              
+              {/* Floating Elements */}
+              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">
+                <div className="text-lg font-bold text-ray-green">+47%</div>
+                <div className="text-xs text-ray-darkGray">{locale === 'es' ? 'Más visibilidad local' : 'More local visibility'}</div>
+              </div>
+              
+              <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">
+                <div className="text-lg font-bold text-ray-blue">AI</div>
+                <div className="text-xs text-ray-darkGray">{locale === 'es' ? 'Optimización automática' : 'Automatic optimization'}</div>
               </div>
             </div>
           </div>

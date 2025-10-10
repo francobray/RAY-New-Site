@@ -13,18 +13,20 @@ interface TryItNowModalProps {
   isOpen: boolean;
   onClose: () => void;
   locale?: Locale;
+  restaurantName?: string;
+  ownerName?: string;
 }
 
-const aiResponsesConfig = {
+const getAiResponsesConfig = (restaurantName?: string) => ({
   es: {
-    greeting: "👋 ¡Hola! Soy Donna de Mario's Pizza. Puedo ayudarte a realizar pedidos, responder preguntas del menú y reservar mesas. ¿Qué te gustaría saber?",
+    greeting: `👋 ¡Hola! Soy Donna${restaurantName ? ` de ${restaurantName}` : ', tu asistente de IA'}. Puedo ayudarte a realizar pedidos, responder preguntas del menú y reservar mesas. ¿Qué te gustaría saber?`,
     menu: "🍕 Nuestro menú incluye:\n\n• Pizza Margherita - $18\n• Pizza Pepperoni - $20\n• Pizza Suprema - $24\n• Ensalada César - $12\n• Pan de Ajo - $8\n\n¿Qué te llama la atención?",
     order: "¡Excelente elección! 🍕 Me encantaría ayudarte con tu pedido. ¿Qué tamaño te gustaría?\n\n• Pequeña (10\") - $18\n• Mediana (12\") - $22\n• Grande (14\") - $26",
     delivery: "¡Perfecto! Para el delivery, necesito tu dirección. Hacemos entregas dentro de 8 km de nuestra ubicación y típicamente toma 25-30 minutos. ¿Cuál es tu dirección de entrega?",
     hours: "⏰ Estamos abiertos:\n\nLun-Jue: 11am - 10pm\nVie-Sáb: 11am - 11pm\nDom: 12pm - 9pm\n\n¡Estamos abiertos ahora! ¿Te gustaría hacer un pedido?",
     reservation: "🍽️ ¡Me encantaría ayudarte a reservar una mesa! ¿Qué fecha y hora te viene bien, y cuántas personas vendrán?",
     default: "Puedo ayudarte con pedidos, preguntas del menú, reservas u horarios. ¿Qué te gustaría saber? 😊",
-    assistantSubtitle: "Mario's Pizza",
+    assistantSubtitle: restaurantName || "Asistente de IA",
     placeholder: "Escribe un mensaje",
     quickReplies: [
       "Muéstrame tu menú",
@@ -34,14 +36,14 @@ const aiResponsesConfig = {
     ]
   },
   en: {
-    greeting: "👋 Hi! I'm Donna, your AI assistant for Mario's Pizza. I can help you place orders, answer menu questions, and book tables. What would you like to know?",
+    greeting: `👋 Hi! I'm Donna${restaurantName ? ` from ${restaurantName}` : ', your AI assistant'}. I can help you place orders, answer menu questions, and book tables. What would you like to know?`,
     menu: "🍕 Our menu includes:\n\n• Margherita Pizza - $18\n• Pepperoni Pizza - $20\n• Supreme Pizza - $24\n• Caesar Salad - $12\n• Garlic Bread - $8\n\nWhat catches your eye?",
     order: "Great choice! 🍕 I'd be happy to help you order. What size would you like?\n\n• Small (10\") - $18\n• Medium (12\") - $22\n• Large (14\") - $26",
     delivery: "Perfect! For delivery, I'll need your address. We deliver within 5 miles of our location and it typically takes 25-30 minutes. What's your delivery address?",
     hours: "⏰ We're open:\n\nMon-Thu: 11am - 10pm\nFri-Sat: 11am - 11pm\nSun: 12pm - 9pm\n\nWe're currently open! Would you like to place an order?",
     reservation: "🍽️ I'd love to help you book a table! What date and time works for you, and how many people will be joining?",
     default: "I can help you with orders, menu questions, reservations, or store hours. What would you like to know? 😊",
-    assistantSubtitle: "Your AI Assistant",
+    assistantSubtitle: restaurantName || "Your AI Assistant",
     placeholder: "Type a message",
     quickReplies: [
       "Show me your menu",
@@ -50,11 +52,11 @@ const aiResponsesConfig = {
       "Book a table for 4"
     ]
   }
-};
+});
 
-const getAIResponse = (userMessage: string, locale: Locale = 'en'): string => {
+const getAIResponse = (userMessage: string, locale: Locale = 'en', restaurantName?: string): string => {
   const message = userMessage.toLowerCase();
-  const responses = aiResponsesConfig[locale];
+  const responses = getAiResponsesConfig(restaurantName)[locale];
   
   // Check for Spanish keywords
   const spanishKeywords = {
@@ -93,13 +95,13 @@ const getAIResponse = (userMessage: string, locale: Locale = 'en'): string => {
   }
 };
 
-export default function TryItNowModal({ isOpen, onClose, locale = 'en' }: TryItNowModalProps) {
+export default function TryItNowModal({ isOpen, onClose, locale = 'en', restaurantName, ownerName: _ }: TryItNowModalProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
-  const content = aiResponsesConfig[locale];
+  const content = getAiResponsesConfig(restaurantName)[locale];
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -109,9 +111,9 @@ export default function TryItNowModal({ isOpen, onClose, locale = 'en' }: TryItN
     scrollToBottom();
   }, [messages]);
 
+  // Add greeting message when modal opens
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      // Add initial greeting when modal opens
       setTimeout(() => {
         const initialMessage: Message = {
           id: 1,
@@ -121,6 +123,8 @@ export default function TryItNowModal({ isOpen, onClose, locale = 'en' }: TryItN
         };
         setMessages([initialMessage]);
       }, 500);
+    } else if (!isOpen) {
+      setMessages([]);
     }
   }, [isOpen, content.greeting]);
 
@@ -142,7 +146,7 @@ export default function TryItNowModal({ isOpen, onClose, locale = 'en' }: TryItN
     setTimeout(() => {
       const aiMessage: Message = {
         id: messages.length + 2,
-        text: getAIResponse(inputText, locale),
+        text: getAIResponse(inputText, locale, restaurantName),
         sender: 'ai',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
@@ -166,11 +170,13 @@ export default function TryItNowModal({ isOpen, onClose, locale = 'en' }: TryItN
         {/* Header */}
         <div className="bg-emerald-600 text-white p-4 rounded-t-2xl flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
-              alt="WhatsApp" 
-              className="w-8 h-8 bg-white rounded-full p-1"
-            />
+            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center p-1">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
+                alt="WhatsApp" 
+                className="w-5 h-5 object-contain"
+              />
+            </div>
             <div>
               <h3 className="font-semibold">Donna</h3>
               <p className="text-sm opacity-90">{content.assistantSubtitle}</p>

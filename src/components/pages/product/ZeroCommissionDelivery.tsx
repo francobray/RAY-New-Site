@@ -133,7 +133,7 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
                   data-analytics="delivery_hero"
                   aria-label="Get a free demo"
                 >
-                  {locale === 'es' ? 'Obtén una demo gratis' : 'Get a free demo'}
+                  {locale === 'es' ? 'Agenda una Demo' : 'Get a free demo'}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 
@@ -253,7 +253,7 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
             {/* Left side - Zero commission drivers image */}
             <div className="relative">
               <Image
-                src="/images/online-ordering/zero-commission-drivers.png"
+                src="/images/zero-commission/zero-commission-drivers.png"
                 alt={locale === 'es' ? 'Drivers de terceros sin comisión' : 'Third-party drivers without commission'}
                 width={480}
                 height={720}
@@ -304,7 +304,7 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
               data-cta="demo"
               data-analytics="delivery_final"
             >
-              {locale === 'es' ? 'Obtén una demo gratis' : 'Get a free demo'}
+              {locale === 'es' ? 'Agenda una Demo' : 'Get a free demo'}
             </Button>
             <Button 
               variant="secondary" 

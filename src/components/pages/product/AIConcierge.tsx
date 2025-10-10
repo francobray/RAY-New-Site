@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { ArrowRight, CircleCheck as CheckCircle, Users, Star, ChevronDown, ChevronUp, Zap, MessageCircle, ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
 import TryItNowModal from '../../TryItNowModal'
 import PhoneCallModal from '../../PhoneCallModal'
+import RestaurantInfoModal from '../../RestaurantInfoModal'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
 import Button from '../../shared/BaseButton'
@@ -26,6 +27,12 @@ const AIConcierge: React.FC<AIConciergeProps> = ({ locale }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [isChatModalOpen, setIsChatModalOpen] = useState(false)
   const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false)
+  const [isRestaurantInfoModalOpen, setIsRestaurantInfoModalOpen] = useState(false)
+  const [restaurantInfo, setRestaurantInfo] = useState<{
+    restaurantName: string
+    ownerName: string
+    email: string
+  } | null>(null)
   
   const t = useTranslations(locale)
 
@@ -312,7 +319,7 @@ const ChatCarousel = () => {
     
     const interval = setInterval(() => {
       setCurrentChat((prev) => (prev + 1) % chatExamples.length);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
@@ -460,7 +467,7 @@ const ChatCarousel = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                onClick={() => setIsChatModalOpen(true)}
+                onClick={() => setIsRestaurantInfoModalOpen(true)}
                 className="bg-white text-emerald-600 border-2 border-emerald-600 px-8 py-4 rounded-full hover:bg-emerald-50 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg flex items-center justify-center space-x-2"
               >
                 <img 
@@ -468,7 +475,7 @@ const ChatCarousel = () => {
                   alt="WhatsApp" 
                   className="w-6 h-6"
                 />
-                  <span>{t.AI_CONCIERGE_PAGE.HERO.TRY_CHAT}</span>
+                  <span>{locale === 'es' ? 'Probar Ahora' : 'Try Now'}</span>
                 </button>
                           </div>
                         </div>
@@ -686,13 +693,29 @@ const ChatCarousel = () => {
       {/* Try It Now Modals */}
       <TryItNowModal
         isOpen={isChatModalOpen}
-        onClose={() => setIsChatModalOpen(false)}
+        onClose={() => {
+          setIsChatModalOpen(false)
+          setRestaurantInfo(null)
+        }}
         locale={locale}
+        restaurantName={restaurantInfo?.restaurantName}
+        ownerName={restaurantInfo?.ownerName}
       />
       
       <PhoneCallModal
         isOpen={isPhoneModalOpen}
         onClose={() => setIsPhoneModalOpen(false)}
+        locale={locale}
+      />
+
+      <RestaurantInfoModal
+        isOpen={isRestaurantInfoModalOpen}
+        onClose={() => setIsRestaurantInfoModalOpen(false)}
+        onSuccess={(restaurantName, ownerName, email) => {
+          setRestaurantInfo({ restaurantName, ownerName, email })
+          setIsRestaurantInfoModalOpen(false)
+          setIsChatModalOpen(true)
+        }}
         locale={locale}
       />
     </>
