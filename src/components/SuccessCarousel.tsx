@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Button from './shared/BaseButton'
+import { useTranslations } from '@/hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
 
 interface SuccessCarouselProps {
@@ -231,6 +232,7 @@ const successStories = [
 
 const SuccessCarousel: React.FC<SuccessCarouselProps> = ({ locale }) => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const t = useTranslations(locale)
 
   // Duplicate stories for seamless loop
   const duplicatedStories = [...successStories, ...successStories]
@@ -274,7 +276,7 @@ const SuccessCarousel: React.FC<SuccessCarouselProps> = ({ locale }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Trusted by thousands of restaurants
+            {t.SUCCESS_CAROUSEL.TRUSTED_BY}
           </h2>
         </div>
       </div>
@@ -361,7 +363,7 @@ const SuccessCarousel: React.FC<SuccessCarouselProps> = ({ locale }) => {
             data-analytics="success_carousel"
             aria-label="View all restaurant success stories and case studies"
           >
-            View All Success Stories
+            {t.SUCCESS_CAROUSEL.VIEW_ALL_STORIES}
           </Button>
         </div>
       </div>

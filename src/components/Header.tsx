@@ -128,7 +128,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
       hasDropdown: true,
       dropdownItems: [
         { name: locale === 'es' ? 'Nuestra Historia' : 'Our Story', path: `/${locale}/about` },
-        { name: locale === 'es' ? 'Socios' : 'Partners', path: `/${locale}/partners` },
+        { name: locale === 'es' ? 'Partners' : 'Partners', path: `/${locale}/partners` },
         { name: locale === 'es' ? 'Contacto' : 'Contact', path: `/${locale}/contact` }
       ]
     },
@@ -489,7 +489,10 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                 <div className="px-3 mb-4">
                   <div className="flex items-center space-x-1 border border-gray-300 rounded-md">
                     <button
-                      onClick={() => switchLanguage('es')}
+                      onClick={() => {
+                        switchLanguage('es')
+                        closeMenu()
+                      }}
                       className={`px-3 py-2 text-sm font-medium rounded-l-md transition-colors flex-1 ${
                         locale === 'es' 
                           ? 'bg-ray-blue text-white' 
@@ -499,7 +502,10 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                       Español
                     </button>
                     <button
-                      onClick={() => switchLanguage('en')}
+                      onClick={() => {
+                        switchLanguage('en')
+                        closeMenu()
+                      }}
                       className={`px-3 py-2 text-sm font-medium rounded-r-md transition-colors flex-1 ${
                         locale === 'en' 
                           ? 'bg-ray-blue text-white' 

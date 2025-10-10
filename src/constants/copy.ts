@@ -1311,10 +1311,16 @@ export const COPY: Record<Locale, any> = {
       }
     },
 
+    // Success Carousel
+    SUCCESS_CAROUSEL: {
+      TRUSTED_BY: 'Confiamos en miles de restaurantes',
+      VIEW_ALL_STORIES: 'Ver Todos los Casos de Éxito'
+    },
+
     // Partners Page
     PARTNERS_PAGE: {
-      META_TITLE: 'Socios - RAY',
-      META_DESCRIPTION: 'Únete a nuestro programa de socios y ayuda a los restaurantes a crecer con RAY.',
+      META_TITLE: 'Partners - RAY',
+      META_DESCRIPTION: 'Únete a nuestro programa de Partners y ayuda a los restaurantes a crecer con RAY.',
       MAIN_TITLE_PART1: 'Trabaja con',
       MAIN_TITLE_PART2: 'RAY',
       SUBTITLE: 'Elige la asociación que mejor se adapte a ti:',
@@ -1488,6 +1494,12 @@ export const COPY: Record<Locale, any> = {
           answer: 'We help you educate your customers and set up reward programs so customers earn points when they order direct.'
         }
       ]
+    },
+
+    // Success Carousel
+    SUCCESS_CAROUSEL: {
+      TRUSTED_BY: 'Trusted by thousands of restaurants',
+      VIEW_ALL_STORIES: 'View All Success Stories'
     },
 
     // Partners Page
