@@ -150,32 +150,18 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
               </div>
             </div>
             
-            {/* Hero Visual - Video Placeholder */}
+            {/* Hero Visual - Desktop Order Tracking */}
             <div className="relative">
               <div className="relative max-w-lg mx-auto">
-                {/* Video mockup */}
-                <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
-                  <div className="aspect-video bg-gradient-to-br from-purple-600 to-pink-600 relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                          <div className="w-0 h-0 border-l-[12px] border-l-white border-y-[8px] border-y-transparent ml-1"></div>
-                        </div>
-                        <p className="text-sm opacity-90">
-                          {locale === 'es' ? 'Ve los datos de The Modern Vegan fans trabajando con Owner para delivery' : 'See why data from The Modern Vegan fans working with Owner for delivery'}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    {/* Overlay text */}
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="bg-black/60 backdrop-blur-sm rounded-lg p-3">
-                        <p className="text-white text-sm font-medium">
-                          {locale === 'es' ? 'Ve los datos de The Modern Vegan fans trabajando con Owner para delivery' : 'See why data from The Modern Vegan fans working with Owner for delivery'}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/images/zero-commission/Temple-desktop-order-tracking.png"
+                    alt={locale === 'es' ? 'Interfaz de seguimiento de pedidos de escritorio de Temple' : 'Temple desktop order tracking interface'}
+                    width={600}
+                    height={400}
+                    className="w-full h-auto"
+                    priority
+                  />
                 </div>
                 
                 {/* Floating Elements */}
