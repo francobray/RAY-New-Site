@@ -217,7 +217,7 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label={locale === 'es' ? 'Página de Nosotros' : 'About page'}
                 >
-                  {locale === 'es' ? 'Nosotros' : 'About'}
+                  {locale === 'es' ? 'Compañía' : 'Company'}
                 </Link>
               </li>
               <li>

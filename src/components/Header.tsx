@@ -123,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
     },
     { name: locale === 'es' ? 'Precios' : 'Pricing', path: `/${locale}/pricing` },
     { 
-      name: locale === 'es' ? 'Nosotros' : 'About Us', 
+      name: locale === 'es' ? 'Sobre nosotros' : 'About Us', 
       path: `/${locale}/about`,
       hasDropdown: true,
       dropdownItems: [

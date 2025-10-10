@@ -41,15 +41,15 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ locale }) => {
 
         {/* Product Showcase Image */}
         <div className="flex justify-center items-center">
-          <div className="relative w-full max-w-3xl mx-auto">
+          <div className="relative w-full max-w-4xl mx-auto">
             <Image
               src="/images/homepage-product.png"
               alt={locale === 'es' 
                 ? 'Plataforma de tecnología para restaurantes - App móvil, sitio web con IA y sistema de pedidos online' 
                 : 'Restaurant technology platform - Mobile app, AI website and online ordering system'
               }
-              width={540}
-              height={360}
+              width={621}
+              height={414}
               className="rounded-2xl shadow-2xl mx-auto"
               priority
             />

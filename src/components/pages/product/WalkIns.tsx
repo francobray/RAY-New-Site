@@ -160,7 +160,7 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
               <div className="relative max-w-3xl mx-auto">
         {/* Main Walk-ins Image */}
         <Image 
-          src="/images/walkIns/Walkins-1.png"
+          src="/images/walkIns/Walkins-4.png"
           alt={locale === 'es' ? 'Interfaz de Google Maps mostrando restaurantes y direcciones' : 'Google Maps interface showing restaurants and directions'}
           width={1248}
           height={936}

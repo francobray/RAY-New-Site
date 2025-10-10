@@ -196,6 +196,321 @@ const caseStudies = [
       author: 'La Birra Bar Team',
       title: 'Craft Beer Bar'
     }
+  },
+  {
+    id: 'almacen-de-pizzas',
+    slug: 'almacen-de-pizzas',
+    name: 'Almacen de Pizzas',
+    location: 'Pizza Market',
+    industry: 'Pizzeria',
+    image: '/images/success-stories/Chef_burguer.jpeg',
+    keyMetrics: [
+      { label: 'Delivery Orders', value: '+247%', icon: TrendingUp },
+      { label: 'Online Visibility', value: '+89%', icon: Eye },
+      { label: 'Google Rating', value: '4.9★', icon: Star }
+    ],
+    headline: 'Zero-Commission Delivery Success',
+    description: 'Almacen de Pizzas transformed their delivery business by cutting third-party commissions and building a thriving direct ordering channel.',
+    tags: ['Zero Commission', 'Delivery Optimization', 'Direct Orders'],
+    testimonial: {
+      text: 'Direct delivery orders increased by 247%, and we\'re saving over $8,000 monthly on commissions.',
+      author: 'Management Team',
+      title: 'Almacen de Pizzas'
+    }
+  },
+  {
+    id: 'efes-mg-group',
+    slug: 'efes-mg-group',
+    name: 'Efes MG Group',
+    location: 'Multiple Locations',
+    industry: 'Restaurant Group',
+    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
+    keyMetrics: [
+      { label: 'Online Bookings', value: '+312%', icon: Users },
+      { label: 'Walk-ins', value: '+156%', icon: TrendingUp },
+      { label: 'Average Rating', value: '4.8★', icon: Star }
+    ],
+    headline: 'Multi-Location Booking Excellence',
+    description: 'Efes MG Group unified their restaurant empire with centralized booking management across 8 locations.',
+    tags: ['Multi-Location', 'Unified Booking', 'Restaurant Group'],
+    testimonial: {
+      text: 'Online bookings increased by 312% across all locations. Having everything unified has been a game-changer.',
+      author: 'Management Team',
+      title: 'Efes MG Group'
+    }
+  },
+  {
+    id: 'la-parolaccia',
+    slug: 'la-parolaccia',
+    name: 'La Parolaccia',
+    location: 'Italian Cuisine Market',
+    industry: 'Italian Restaurant',
+    image: '/images/success-stories/Dolcezza.png',
+    keyMetrics: [
+      { label: 'Google Maps Visibility', value: '+198%', icon: Eye },
+      { label: 'Reservations', value: '+127%', icon: Users },
+      { label: 'Google Rating', value: '4.7★', icon: Star }
+    ],
+    headline: 'Dominating Italian Cuisine Searches',
+    description: 'La Parolaccia became the neighborhood\'s favorite Italian restaurant by dominating local search results.',
+    tags: ['Local SEO', 'Italian Cuisine', 'Reservations'],
+    testimonial: {
+      text: 'Google Maps visibility increased by 198%, and reservations grew by 127%. We\'re fully booked most nights!',
+      author: 'Restaurant Management',
+      title: 'La Parolaccia'
+    }
+  },
+  {
+    id: 'libertino-cafe',
+    slug: 'libertino-cafe',
+    name: 'Libertino Cafe',
+    location: 'Coffee Market',
+    industry: 'Cafe',
+    image: '/images/success-stories/Juan_valdez.jpg',
+    keyMetrics: [
+      { label: 'Morning Traffic', value: '+276%', icon: Users },
+      { label: 'Loyalty Members', value: '+145%', icon: TrendingUp },
+      { label: 'Google Rating', value: '4.9★', icon: Star }
+    ],
+    headline: 'Morning Coffee Destination',
+    description: 'Libertino Cafe became the neighborhood\'s favorite morning spot with smart loyalty programs and mobile ordering.',
+    tags: ['Coffee Shop', 'Loyalty Program', 'Mobile Ordering'],
+    testimonial: {
+      text: 'Morning traffic increased by 276%, and we now have over 1,200 loyalty members.',
+      author: 'Management Team',
+      title: 'Libertino Cafe'
+    }
+  },
+  {
+    id: 'cerveza-patagonia',
+    slug: 'cerveza-patagonia',
+    name: 'Cerveza Patagonia',
+    location: 'Craft Beer Scene',
+    industry: 'Craft Brewery',
+    image: '/images/success-stories/Temple_Bar.jpg',
+    keyMetrics: [
+      { label: 'Event Bookings', value: '+334%', icon: Users },
+      { label: 'Taproom Visits', value: '+218%', icon: TrendingUp },
+      { label: 'Google Rating', value: '4.8★', icon: Star }
+    ],
+    headline: 'Premier Craft Beer Event Venue',
+    description: 'Cerveza Patagonia transformed their taproom into the premier event destination for craft beer celebrations.',
+    tags: ['Event Management', 'Craft Beer', 'Venue Booking'],
+    testimonial: {
+      text: 'Event bookings skyrocketed by 334%, and we now host 10-12 events monthly.',
+      author: 'Management Team',
+      title: 'Cerveza Patagonia'
+    }
+  },
+  {
+    id: 'karne-garibaldi',
+    slug: 'karne-garibaldi',
+    name: 'Karne Garibaldi',
+    location: 'Fast Service Market',
+    industry: 'Fast Service Restaurant',
+    image: '/images/success-stories/Chef_burguer.jpeg',
+    keyMetrics: [
+      { label: 'Table Turnover', value: '+289%', icon: TrendingUp },
+      { label: 'Reservations', value: '+195%', icon: Users },
+      { label: 'Google Rating', value: '4.7★', icon: Star }
+    ],
+    headline: 'Fast Service Optimization',
+    description: 'Karne Garibaldi optimized their legendary fast-service model with smart waitlist and reservation management.',
+    tags: ['Fast Service', 'Waitlist Management', 'Table Optimization'],
+    testimonial: {
+      text: 'Table turnover increased by 289%. The digital waitlist eliminated walkouts completely!',
+      author: 'Management Team',
+      title: 'Karne Garibaldi'
+    }
+  },
+  {
+    id: 'la-guitarrita',
+    slug: 'la-guitarrita',
+    name: 'La Guitarrita',
+    location: 'Mexican Cuisine Market',
+    industry: 'Mexican Restaurant',
+    image: '/images/success-stories/Chef_burguer.jpeg',
+    keyMetrics: [
+      { label: 'Delivery Orders', value: '+267%', icon: TrendingUp },
+      { label: 'Catering Bookings', value: '+178%', icon: Users },
+      { label: 'Google Rating', value: '4.8★', icon: Star }
+    ],
+    headline: 'Mexican Delivery & Catering Leader',
+    description: 'La Guitarrita expanded their reach with WhatsApp ordering and built a thriving catering business.',
+    tags: ['WhatsApp Orders', 'Catering', 'Delivery Optimization'],
+    testimonial: {
+      text: 'Direct delivery orders increased by 267%, and catering bookings grew by 178%.',
+      author: 'Management Team',
+      title: 'La Guitarrita'
+    }
+  },
+  {
+    id: 'le-pain-quotidien',
+    slug: 'le-pain-quotidien',
+    name: 'Le Pain Quotidien',
+    location: 'Multiple Locations',
+    industry: 'Bakery-Cafe Chain',
+    image: '/images/success-stories/Dolcezza.png',
+    keyMetrics: [
+      { label: 'Online Bookings', value: '+223%', icon: Users },
+      { label: 'Loyalty Enrollment', value: '+168%', icon: TrendingUp },
+      { label: 'Average Rating', value: '4.8★', icon: Star }
+    ],
+    headline: 'Unified Bakery-Cafe Experience',
+    description: 'Le Pain Quotidien unified their cafe network with cross-location loyalty and centralized booking.',
+    tags: ['Multi-Location', 'Loyalty Program', 'Unified Experience'],
+    testimonial: {
+      text: 'Online bookings increased by 223% across all locations. We\'ve created a true community around our brand!',
+      author: 'Management Team',
+      title: 'Le Pain Quotidien'
+    }
+  },
+  {
+    id: 'la-panera-rosa',
+    slug: 'la-panera-rosa',
+    name: 'La Panera Rosa',
+    location: 'Bakery Market',
+    industry: 'Bakery',
+    image: '/images/success-stories/Dolcezza.png',
+    keyMetrics: [
+      { label: 'Breakfast Orders', value: '+256%', icon: TrendingUp },
+      { label: 'App Usage', value: '+189%', icon: Users },
+      { label: 'App Rating', value: '4.9★', icon: Star }
+    ],
+    headline: 'Morning Bakery Digital Leader',
+    description: 'La Panera Rosa built a thriving morning business with branded mobile app and order-ahead functionality.',
+    tags: ['Mobile App', 'Breakfast Orders', 'Digital First'],
+    testimonial: {
+      text: 'Breakfast orders increased by 256%, and app usage grew by 189%. We\'ve become their daily morning ritual!',
+      author: 'Management Team',
+      title: 'La Panera Rosa'
+    }
+  },
+  {
+    id: 'ninina',
+    slug: 'ninina',
+    name: 'Ninina',
+    location: 'Business Lunch Market',
+    industry: 'Corporate Catering',
+    image: '/images/success-stories/Dolcezza.png',
+    keyMetrics: [
+      { label: 'Lunch Orders', value: '+294%', icon: TrendingUp },
+      { label: 'Corporate Catering', value: '+172%', icon: Users },
+      { label: 'Google Rating', value: '4.8★', icon: Star }
+    ],
+    headline: 'Corporate Lunch Champion',
+    description: 'Ninina tapped into the lucrative corporate lunch market with dedicated catering tools and bulk ordering.',
+    tags: ['Corporate Catering', 'Lunch Delivery', 'Business Orders'],
+    testimonial: {
+      text: 'Lunch orders increased by 294%. We now serve 15+ offices daily with recurring lunch orders.',
+      author: 'Management Team',
+      title: 'Ninina'
+    }
+  },
+  {
+    id: 'pasta-rossa',
+    slug: 'pasta-rossa',
+    name: 'Pasta Rossa',
+    location: 'Italian Dining Market',
+    industry: 'Italian Restaurant',
+    image: '/images/success-stories/Dolcezza.png',
+    keyMetrics: [
+      { label: 'Reservations', value: '+278%', icon: Users },
+      { label: 'Online Visibility', value: '+193%', icon: Eye },
+      { label: 'Google Rating', value: '4.9★', icon: Star }
+    ],
+    headline: 'Premier Italian Dining Destination',
+    description: 'Pasta Rossa filled their tables consistently with smart reservation management and Italian cuisine SEO.',
+    tags: ['Reservations', 'Italian Cuisine', 'Table Optimization'],
+    testimonial: {
+      text: 'Reservations increased by 278%, and we\'re now fully booked most nights.',
+      author: 'Management Team',
+      title: 'Pasta Rossa'
+    }
+  },
+  {
+    id: 'rapanui',
+    slug: 'rapanui',
+    name: 'Rapanui',
+    location: 'Ice Cream Market',
+    industry: 'Sustainable Ice Cream',
+    image: '/images/success-stories/Dolcezza.png',
+    keyMetrics: [
+      { label: 'Online Orders', value: '+305%', icon: TrendingUp },
+      { label: 'App Downloads', value: '+245%', icon: Users },
+      { label: 'App Rating', value: '4.9★', icon: Star }
+    ],
+    headline: 'Digital Ecosystem for Sustainable Brand',
+    description: 'Rapanui built a thriving digital ecosystem with branded app and omnichannel ordering for their eco-conscious ice cream.',
+    tags: ['Branded App', 'Sustainable', 'Digital Ecosystem'],
+    testimonial: {
+      text: 'Online orders increased by 305%, and our app has been downloaded over 12,000 times.',
+      author: 'Management Team',
+      title: 'Rapanui'
+    }
+  },
+  {
+    id: 'tea-connection',
+    slug: 'tea-connection',
+    name: 'Tea Connection',
+    location: 'Tea House Market',
+    industry: 'Tea House',
+    image: '/images/success-stories/Juan_valdez.jpg',
+    keyMetrics: [
+      { label: 'Afternoon Tea Bookings', value: '+234%', icon: Users },
+      { label: 'Retail Sales', value: '+187%', icon: TrendingUp },
+      { label: 'Google Rating', value: '4.9★', icon: Star }
+    ],
+    headline: 'Afternoon Tea Experience Destination',
+    description: 'Tea Connection monetized their premium afternoon tea experience and built thriving retail tea sales online.',
+    tags: ['Experience Booking', 'E-Commerce', 'Tea House'],
+    testimonial: {
+      text: 'Afternoon tea bookings increased by 234%, and retail tea sales grew by 187% through online orders.',
+      author: 'Management Team',
+      title: 'Tea Connection'
+    }
+  },
+  {
+    id: 'tostado',
+    slug: 'tostado',
+    name: 'Tostado',
+    location: 'Breakfast Market',
+    industry: 'Breakfast Restaurant',
+    image: '/images/success-stories/Chef_burguer.jpeg',
+    keyMetrics: [
+      { label: 'Breakfast Delivery', value: '+318%', icon: TrendingUp },
+      { label: 'Mobile Orders', value: '+226%', icon: Users },
+      { label: 'Google Rating', value: '4.8★', icon: Star }
+    ],
+    headline: 'Breakfast Delivery Champion',
+    description: 'Tostado became the go-to breakfast delivery choice with WhatsApp ordering and subscription breakfast plans.',
+    tags: ['Breakfast Delivery', 'Mobile Orders', 'Subscriptions'],
+    testimonial: {
+      text: 'Breakfast orders increased by 318%. Our subscription breakfast program has over 500 daily customers.',
+      author: 'Management Team',
+      title: 'Tostado'
+    }
+  },
+  {
+    id: 'ypf-full',
+    slug: 'ypf-full',
+    name: 'YPF Full',
+    location: 'Multiple Locations',
+    industry: 'Convenience Store Chain',
+    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
+    keyMetrics: [
+      { label: 'Quick Service Orders', value: '+342%', icon: TrendingUp },
+      { label: 'Mobile Pre-Orders', value: '+287%', icon: Users },
+      { label: 'Average Rating', value: '4.7★', icon: Star }
+    ],
+    headline: 'Digital Convenience Store Network',
+    description: 'YPF Full digitized their 50+ location convenience store chain with unified mobile pre-ordering.',
+    tags: ['Multi-Location', 'Pre-Order', 'Quick Service'],
+    testimonial: {
+      text: 'Quick service orders increased by 342% across all 50+ locations. Customers love ordering ahead and skipping lines.',
+      author: 'Management Team',
+      title: 'YPF Full'
+    }
   }
 ]
 

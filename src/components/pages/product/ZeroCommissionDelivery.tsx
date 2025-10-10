@@ -157,8 +157,8 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
                   <Image
                     src="/images/zero-commission/Temple-desktop-order-tracking.png"
                     alt={locale === 'es' ? 'Interfaz de seguimiento de pedidos de escritorio de Temple' : 'Temple desktop order tracking interface'}
-                    width={600}
-                    height={400}
+                    width={480}
+                    height={320}
                     className="w-full h-auto"
                     priority
                   />
