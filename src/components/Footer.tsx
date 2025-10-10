@@ -105,29 +105,38 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
               </li>
               <li>
                 <Link
-                  href={`/${locale}/product/automated-marketing`}
-                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label={locale === 'es' ? 'Página de Marketing Automatizado' : 'Automated Marketing product page'}
-                >
-                  {locale === 'es' ? 'Marketing Automatizado' : 'Automated Marketing'}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`/${locale}/product/zero-commission-delivery`}
-                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label={locale === 'es' ? 'Página de Delivery Sin Comisión' : 'Zero-Commission Delivery product page'}
-                >
-                  {locale === 'es' ? 'Delivery Sin Comisión' : 'Zero-Commission Delivery'}
-                </Link>
-              </li>
-              <li>
-                <Link
                   href={`/${locale}/product/online-orders`}
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label={locale === 'es' ? 'Página de Pedidos Online' : 'Online Orders product page'}
                 >
                   {locale === 'es' ? 'Pedidos Online' : 'Online Orders'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${locale}/product/direct-bookings`}
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label={locale === 'es' ? 'Página de Reservas Directas' : 'Direct Bookings product page'}
+                >
+                  {locale === 'es' ? 'Reservas Directas' : 'Direct Bookings'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${locale}/product/walk-ins`}
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label={locale === 'es' ? 'Página de Walk-Ins' : 'Walk-Ins product page'}
+                >
+                  {locale === 'es' ? 'Walk-Ins' : 'Walk-Ins'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${locale}/product/whatsapp-delivery`}
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label={locale === 'es' ? 'Página de Delivery por WhatsApp' : 'WhatsApp Delivery product page'}
+                >
+                  {locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Delivery'}
                 </Link>
               </li>
               <li>
@@ -146,6 +155,33 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                   aria-label={locale === 'es' ? 'Página de Programa de Lealtad' : 'Loyalty Program product page'}
                 >
                   {locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${locale}/product/ai-concierge`}
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label={locale === 'es' ? 'Página de Conserje IA' : 'AI Concierge product page'}
+                >
+                  {locale === 'es' ? 'Conserje IA' : 'AI Concierge'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${locale}/product/automated-marketing`}
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label={locale === 'es' ? 'Página de Marketing Automatizado' : 'Automated Marketing product page'}
+                >
+                  {locale === 'es' ? 'Marketing Automatizado' : 'Automated Marketing'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${locale}/product/zero-commission-delivery`}
+                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
+                  aria-label={locale === 'es' ? 'Página de Delivery Sin Comisión' : 'Zero-Commission Delivery product page'}
+                >
+                  {locale === 'es' ? 'Delivery Sin Comisión' : 'Zero-Commission Delivery'}
                 </Link>
               </li>
             </ul>

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { TrendingUp, ArrowRight, CheckCircle, Truck, Phone, ChevronDown, ChevronUp, DollarSign, Users, Clock } from 'lucide-react'
 import Card from '../../Card'
 import Button from '../../shared/BaseButton'
@@ -206,86 +207,17 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
-            {/* Left side - Phone mockup */}
+            {/* Left side - Real-time tracking app image */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-xl">
-                {/* Phone mockup */}
-                <div className="bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl max-w-sm mx-auto">
-                  <div className="bg-white rounded-[2rem] overflow-hidden">
-                    {/* Status bar */}
-                    <div className="bg-white px-6 py-3 flex justify-between items-center text-sm">
-                      <span className="font-medium">9:41</span>
-                      <div className="flex items-center space-x-1">
-                        <div className="w-4 h-2 bg-gray-300 rounded-sm"></div>
-                        <div className="w-1 h-4 bg-gray-300 rounded-full"></div>
-                      </div>
-                    </div>
-                    
-                    {/* Delivery tracking interface */}
-                    <div className="relative h-96 bg-gradient-to-br from-green-100 to-blue-100">
-                      {/* Map background */}
-                      <div className="absolute inset-0 bg-gray-200 p-4">
-                        <div className="h-full bg-white rounded-lg p-4 flex flex-col justify-between">
-                          <div>
-                            <h3 className="font-semibold text-gray-900 mb-2">
-                              {locale === 'es' ? 'Siguiendo tu pedido' : 'Tracking your order'}
-                            </h3>
-                            <div className="space-y-3">
-                              <div className="flex items-center space-x-3">
-                                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                  <CheckCircle className="w-4 h-4 text-white" />
-                                </div>
-                                <div>
-                                  <div className="text-sm font-medium text-gray-900">
-                                    {locale === 'es' ? 'Pedido confirmado' : 'Order confirmed'}
-                                  </div>
-                                  <div className="text-xs text-gray-500">2:24 PM</div>
-                                </div>
-                              </div>
-                              
-                              <div className="flex items-center space-x-3">
-                                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                                  <Clock className="w-4 h-4 text-white" />
-                                </div>
-                                <div>
-                                  <div className="text-sm font-medium text-gray-900">
-                                    {locale === 'es' ? 'Preparando comida' : 'Preparing food'}
-                                  </div>
-                                  <div className="text-xs text-gray-500">
-                                    {locale === 'es' ? 'Estimado 15-20 min' : 'Est. 15-20 min'}
-                                  </div>
-                                </div>
-                              </div>
-                              
-                              <div className="flex items-center space-x-3">
-                                <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-                                  <Truck className="w-4 h-4 text-white" />
-                                </div>
-                                <div>
-                                  <div className="text-sm font-medium text-gray-500">
-                                    {locale === 'es' ? 'En camino' : 'On the way'}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="bg-green-50 rounded-lg p-3">
-                            <div className="flex items-center justify-between">
-                              <div>
-                                <div className="text-sm font-medium text-green-800">
-                                  {locale === 'es' ? 'Driver: María G.' : 'Driver: Maria G.'}
-                                </div>
-                                <div className="text-xs text-green-600">4.9★ • 847 entregas</div>
-                              </div>
-                              <Phone className="w-5 h-5 text-green-600" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-xs mx-auto">
+                <Image
+                  src="/images/online-ordering/Temple-App-RealTime-tracking.png"
+                  alt={locale === 'es' ? 'Interfaz de seguimiento en tiempo real de la app de Temple' : 'Temple app real-time tracking interface'}
+                  width={188}
+                  height={375}
+                  className="w-full h-auto"
+                  priority
+                />
               </div>
             </div>
             
@@ -332,62 +264,15 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Phone tracking */}
+            {/* Left side - Zero commission drivers image */}
             <div className="relative">
-              <div className="bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl max-w-sm mx-auto">
-                <div className="bg-white rounded-[2rem] overflow-hidden">
-                  {/* Map interface */}
-                  <div className="relative h-96 bg-gradient-to-br from-blue-100 to-green-100 p-4">
-                    <div className="bg-white rounded-lg h-full p-4 flex flex-col justify-between">
-                      <div>
-                        <div className="text-center mb-4">
-                          <div className="text-lg font-bold text-gray-900">
-                            {locale === 'es' ? 'Entrega de terceros' : 'Third party delivery'}
-                          </div>
-                        </div>
-                        
-                        <div className="bg-blue-50 rounded-lg p-3 mb-4">
-                          <div className="text-center">
-                            <div className="text-2xl font-bold text-blue-600 mb-1">
-                              {locale === 'es' ? 'Los mejores drivers de terceros entregan por ti. Una tarifa fija. Sin markup de nosotros.' : 'Top third-party drivers deliver for you. One flat fee. No markup from us.'}
-                            </div>
-                            <div className="flex justify-center space-x-4 mt-4">
-                              <div className="text-center">
-                                <div className="w-8 h-8 bg-black rounded mx-auto mb-1"></div>
-                                <div className="text-xs">Uber Eats</div>
-                              </div>
-                              <div className="text-center">
-                                <div className="w-8 h-8 bg-red-500 rounded mx-auto mb-1"></div>
-                                <div className="text-xs">DoorDash</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <div className="bg-green-50 rounded-lg p-2">
-                          <div className="text-xs font-medium text-green-800">
-                            {locale === 'es' ? 'Opciones de delivery flexibles' : 'Flexible delivery options'}
-                          </div>
-                          <div className="text-xs text-green-600">
-                            {locale === 'es' ? 'Usa tus drivers internos, de terceros, o ambos.' : 'Use your in-house delivery drivers, third-party, or both.'}
-                          </div>
-                        </div>
-                        
-                        <div className="bg-blue-50 rounded-lg p-2">
-                          <div className="text-xs font-medium text-blue-800">
-                            {locale === 'es' ? 'Llama a tus clientes si es necesario' : 'Call your customers if needed'}
-                          </div>
-                          <div className="text-xs text-blue-600">
-                            {locale === 'es' ? 'Pagaremos por cualquier problema de delivery.' : 'We\'ll pay for any delivery problems.'}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Image
+                src="/images/online-ordering/zero-commission-drivers.png"
+                alt={locale === 'es' ? 'Drivers de terceros sin comisión' : 'Third-party drivers without commission'}
+                width={480}
+                height={720}
+                className="w-full h-auto max-w-sm mx-auto"
+              />
             </div>
             
             {/* Right side - Options list */}
@@ -487,26 +372,6 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
                 )}
               </Card>
             ))}
-          </div>
-          
-          {/* Testimonial Card */}
-          <div className="mt-16">
-            <Card className="p-8 bg-gradient-to-r from-ray-blue/5 to-ray-green/5">
-              <div className="flex items-center space-x-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-ray-blue to-ray-green rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-xl">R</span>
-                </div>
-                <div>
-                  <blockquote className="text-lg font-medium text-ray-dark-900 mb-2">
-                    "{locale === 'es' ? 'No pasa una semana que no me pregunten de dónde vienen nuestros clientes. Nuestro sitio web y app porque hace que su experiencia sea mucho más fácil.' : 'There\'s not a week that goes by where I don\'t hear from our guests how much they love our website and app because it makes their experience so much easier.'}"
-                  </blockquote>
-                  <div className="text-sm text-ray-darkGray">
-                    <div className="font-medium">Rahul Bhalla</div>
-                    <div>{locale === 'es' ? 'Propietario de Satyam Indian Kitchen' : 'Owner of Satyam Indian Kitchen'}</div>
-                  </div>
-                </div>
-              </div>
-            </Card>
           </div>
         </div>
       </section>
