@@ -220,3 +220,61 @@
 #ray-widget .ray-widget-input-container {
   margin-top: 0.5rem !important;  /* 8px gap above */
 }
+
+/* --------------------------------------------------
+   Mobile-only fixes for the Hero RAY widget
+   -------------------------------------------------- */
+@media (max-width: 640px) {
+  /* Shrink the widget container on small screens */
+  #ray-widget {
+    width: min(96vw, 26rem) !important; /* 90% of viewport, capped */
+    max-width: 26rem !important;        /* ≈416 px */
+  }
+
+  /* Core container tweaks */
+  #ray-widget {
+    min-height: 64px !important;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem !important;
+    border: none !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08), 12px 16px 32px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 1.25rem !important; /* 20 px */
+  }
+
+  /* Hide the animated header to keep things compact */
+  #ray-widget .ray-widget-header {
+    display: none !important;
+  }
+
+  /* Input / button row should stay on a single compact line */
+  #ray-widget .ray-widget-input-container {
+    margin-top: 0 !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    align-items: center !important;
+  }
+
+  /* Input text tweaks */
+  #ray-widget input[type="text"],
+  #ray-widget input[type="search"] {
+    font-size: 0.875rem !important;        /* 14 px */
+    padding: 0.5rem 0.75rem 0.5rem 0.25rem !important;
+    line-height: 1rem !important;
+    height: 40px !important;
+  }
+
+  #ray-widget input::placeholder {
+    font-size: 0.938rem !important;        /* ≈15 px so it matches design */
+  }
+
+  /* Circle arrow button */
+  #ray-widget button {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    font-size: 0 !important; /* hide text, we just keep the icon */
+  }
+  #ray-widget .ray-widget-button-arrow {
+    font-size: 18px !important;
+  }
+}
