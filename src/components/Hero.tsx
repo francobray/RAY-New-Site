@@ -123,7 +123,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
               {/* Hero Banner Image */}
               <div className="relative w-full max-w-[600px] sm:max-w-[460px] md:max-w-[520px] lg:max-w-[560px]">
                 <img 
-                  src="/images/hero-banner.png" 
+                  src="/images/hero-bannerpng.png" 
                   alt="RAY Score Dashboard"
                   className="w-full h-auto rounded-xl scale-[1.90] sm:scale-100"
                   loading="eager"
