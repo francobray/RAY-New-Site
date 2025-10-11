@@ -22,11 +22,35 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
     script.onload = () => {
       // Initialize the widget after the script loads
       if (typeof window !== 'undefined' && (window as any).RAYWidget) {
-        new (window as any).RAYWidget({
+        // Determine widget texts based on locale
+        const isSpanish = locale === 'es'
+
+        // Shared widget configuration
+        const widgetConfig: Record<string, any> = {
           container: '#ray-widget',
-          baseUrl: 'https://grader.rayapp.io',
-          placeholder: 'Find your restaurant name'
-        })
+          baseUrl: 'https://grader.rayapp.io'
+        }
+
+        if (isSpanish) {
+          // Spanish overrides
+          Object.assign(widgetConfig, {
+            placeholder: 'Busca tu restaurante',
+            buttonText: 'Obtener mi reporte',
+            loadingText: 'Analizando tu negocio...',
+            animatedTitles: [
+              'Escanea tu sitio y descubre qué no funciona',
+              'Mira cuántas ventas podrías obtener con keywords',
+              'Compárate con tu competencia local'
+            ]
+          })
+        } else {
+          // English defaults / overrides (acts as fallback)
+          Object.assign(widgetConfig, {
+            placeholder: 'Find your restaurant name'
+          })
+        }
+
+        new (window as any).RAYWidget(widgetConfig)
         
         // Wait a bit for the widget content to load, then style the specific text
         setTimeout(() => {

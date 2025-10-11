@@ -150,6 +150,30 @@
   .shadow-3xl {
     box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
   }
+
+  /* --------------------------------------------------
+     Spanish overrides for RAY Lead-Magnet Widget
+     -------------------------------------------------- */
+  /* If <html lang="es"> is present or pathname ends with /es, we assume Spanish homepage */
+  html[lang="es"] #ray-widget,
+  body.pathname-es #ray-widget {
+    /* Example: ensure Spanish placeholder size remains consistent */
+  }
+
+  html[lang="es"] #ray-widget button {
+    font-size: 0.80rem !important; /* Slightly smaller (~12.8px) to offset longer text */
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Mobile: hide text so arrow icon appears (match English behavior) */
+  @media (max-width: 600px) {
+    html[lang="es"] #ray-widget button {
+      font-size: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
 }
 
 /* --------------------------------------------------
