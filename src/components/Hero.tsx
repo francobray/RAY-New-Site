@@ -24,8 +24,24 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
       if (typeof window !== 'undefined' && (window as any).RAYWidget) {
         new (window as any).RAYWidget({
           container: '#ray-widget',
-          baseUrl: 'https://grader.rayapp.io'
+          baseUrl: 'https://grader.rayapp.io',
+          placeholder: 'Find your restaurant name'
         })
+        
+        // Wait a bit for the widget content to load, then style the specific text
+        setTimeout(() => {
+          const widgetContainer = document.querySelector('#ray-widget')
+          if (widgetContainer) {
+            // Find elements containing "Compare" text and make them smaller
+            const allElements = widgetContainer.querySelectorAll('*')
+            allElements.forEach((element: Element) => {
+              if (element.textContent?.includes('Compare yourself with your local competition')) {
+                (element as HTMLElement).style.fontSize = '0.7rem'
+                (element as HTMLElement).style.lineHeight = '1.1'
+              }
+            })
+          }
+        }, 1000)
       }
     }
 
@@ -40,7 +56,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   return (
     <div>
       {/* Centered Hero Layout */}
-      <section className="relative min-h-[600px] md:min-h-[650px] bg-ray-promise overflow-hidden pb-12">
+      <section className="relative bg-ray-promise overflow-hidden pt-0 md:pt-4 pb-4 -mt-4 md:-mt-6">
         {/* Sophisticated Background Elements */}
         <div className="absolute inset-0">
           {/* Background decoration */}
@@ -48,34 +64,50 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(111,191,115,0.05),transparent_50%)]"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[600px] md:min-h-[650px] flex items-center py-6">
-          <div className="w-full text-center">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm mb-4">
-              <Star className="w-4 h-4 text-yellow-500 mr-2 fill-current" />
-              <span className="text-sm font-medium text-ray-dark-900">{t.TRUST.TRUSTED_BY}</span>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
+            
+            {/* Left Column - Text Content */}
+            <div className="text-center lg:text-left">
+              {/* Trust Badge */}
+              <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm mb-6">
+                <Star className="w-4 h-4 text-yellow-500 mr-2 fill-current" />
+                <span className="text-sm font-medium text-ray-dark-900">{t.TRUST.TRUSTED_BY}</span>
+              </div>
+
+              {/* Main Headline */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-6 mt-0">
+                {t.HOMEPAGE.HERO.TITLE}{' '}
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">
+                    {t.HOMEPAGE.HERO.TITLE_HIGHLIGHT}
+                  </span>
+                  {/* Underline decoration */}
+                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-full opacity-30"></div>
+                </span>
+              </h1>
+              
+              <p className="text-lg sm:text-xl text-ray-dark-700 leading-relaxed mb-8">
+                {t.COMPANY.DESCRIPTION}
+              </p>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-4">
-              {t.HOMEPAGE.HERO.TITLE}{' '}
-              <span className="relative">
-                <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">
-                  {t.HOMEPAGE.HERO.TITLE_HIGHLIGHT}
-                </span>
-                {/* Underline decoration */}
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-full opacity-30"></div>
-              </span>
-            </h1>
-            
-            <p className="text-lg sm:text-xl text-ray-dark-700 leading-relaxed max-w-4xl mx-auto mb-10">
-              {t.COMPANY.DESCRIPTION}
-            </p>
-
-            
-            {/* RAY Lead-Magnet Widget */}
-            <div className="mb-8">
-              <div id="ray-widget"></div>
+            {/* Right Column - Widget and Hero Image */}
+            <div className="relative flex justify-center lg:justify-end">
+              {/* Hero Banner Image */}
+              <div className="relative w-full max-w-[420px] sm:max-w-[460px] md:max-w-[520px] lg:max-w-[560px]">
+                <img 
+                  src="/images/hero-banner.png" 
+                  alt="RAY Score Dashboard"
+                  className="w-full h-auto rounded-xl"
+                  loading="eager"
+                />
+                
+                  {/* RAY Lead-Magnet Widget - Positioned above the image */}
+                  <div className="absolute bottom-24 md:bottom-28 lg:bottom-32 left-1/2 -translate-x-1/2 w-[30rem] md:w-[32rem] lg:w-[36rem] max-w-xl z-10">
+                    <div id="ray-widget" className="min-h-[220px]"></div>
+                  </div>
+              </div>
             </div>
 
           </div>

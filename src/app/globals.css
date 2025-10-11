@@ -138,10 +138,19 @@
 /* --------------------------------------------------
    Custom overrides for the RAY lead-magnet widget
    -------------------------------------------------- */
-#ray-widget,
+#ray-widget {
+  /* Allow the widget container to grow */
+  min-height: 120px !important;
+  height: auto !important;
+  /* Subtle light-gray border around the widget */
+  border: 1px solid rgba(229, 231, 235, 0.6) !important; /* lighter gray, ~40% transparent */
+  /* Slightly darker shadow for more depth */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10), 14px 18px 34px rgba(0, 0, 0, 0.18) !important;
+}
+
 #ray-widget * {
   /* Ensure enough vertical space for two-line placeholder text */
-  min-height: 2rem !important; /* 56px */
+  min-height: 2rem !important; /* 32px */
   line-height: 1.25rem !important; /* Prevent clipping inside inputs */
 }
 
@@ -155,8 +164,59 @@
 
 /* Fine-tune the call-to-action button inside the widget */
 #ray-widget button {
-  padding-top: 0.75rem !important;   /* 8px */
-  padding-bottom: 0.75rem !important;
-  min-height: 2.25rem !important;   /* 36px – keeps it clickable while slimmer */
+  padding-top: 0.5rem !important;   /* 8px */
+  padding-bottom: 0.5rem !important;
+  min-height: 2rem !important;   /* 32px – keeps it clickable while slimmer */
   height: auto !important;
+}
+
+/* Make text elements smaller, but keep button text normal */
+#ray-widget p,
+#ray-widget span:not(button span),
+#ray-widget div:not(button div),
+#ray-widget input::placeholder {
+  font-size: 0.85rem !important;  /* ~13.6px, smaller than default */
+  line-height: 1.2 !important;
+}
+
+/* Ensure button text stays normal size */
+#ray-widget button,
+#ray-widget button span,
+#ray-widget button div {
+  font-size: 0.95rem !important;  /* Keep button text readable */
+}
+
+/* Make the "Compare yourself with your local competition" text smaller */
+#ray-widget [class*="subtitle"],
+#ray-widget [class*="description"],
+#ray-widget [class*="tagline"],
+#ray-widget .subtitle,
+#ray-widget .description,
+#ray-widget .tagline {
+  font-size: 0.7rem !important;  /* ~11.2px, smaller for subtitle text */
+}
+
+/* --------------------------------------------------
+   Further reductions for specific widget elements
+   -------------------------------------------------- */
+#ray-widget button,
+#ray-widget button span,
+#ray-widget button div {
+  font-size: 0.80rem !important; /* Slightly smaller – approx 12.8px */
+}
+
+#ray-widget h2.ray-widget-title {
+  font-size: 0.90rem !important; /* Reduce dynamic title size */
+  line-height: 1.1 !important;
+}
+
+/* Reduce button height & horizontal padding */
+#ray-widget button {
+  padding: 0.35rem 0.75rem !important; /* 6px top/bottom, 12px left/right */
+  min-height: 1.75rem !important;      /* ~28px */
+}
+
+/* Increase space above the input/button container */
+#ray-widget .ray-widget-input-container {
+  margin-top: 0.5rem !important;  /* 8px gap above */
 }
