@@ -104,7 +104,7 @@ const testimonials = [
     quote: 'Our Google Maps directions skyrocketed by 259%, and foot traffic increased by 66%. The impact on our business has been remarkable!',
     metric: '+259%',
     metricLabel: 'Google Maps visits',
-    image: '/images/Temple_Team.jpeg'
+    image: '/images/success-stories/Temple_Team.jpeg'
   },
   {
     name: 'Franco Yannelli',

@@ -145,7 +145,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/Temple_Team.jpeg"
+              src="/images/success-stories/Temple_Team.jpeg"
               alt="Temple Craft team at the Wynwood location celebrating explosive local growth"
               width={1200}
               height={600}

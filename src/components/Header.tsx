@@ -12,7 +12,6 @@ import {
   MapPin, 
   Truck, 
   ShoppingCart, 
-  Clock, 
   MessageCircle, 
   Calendar, 
   Smartphone, 
@@ -91,12 +90,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           path: `/${locale}/product/online-orders`,
           description: locale === 'es' ? 'Obtén más pedidos con pedidos online que se sienten familiares y fáciles.' : 'Get more orders with online ordering that feels familiar and easy.',
           icon: ShoppingCart
-        },
-        { 
-          name: locale === 'es' ? 'Marketing Automatizado' : 'Automated Marketing',
-          path: `/${locale}/product/automated-marketing`,
-          description: locale === 'es' ? 'Impulsa ventas de clientes con campañas probadas y automatizadas.' : 'Drive sales from customers with proven, automated campaigns.',
-          icon: Clock
         },
         { 
           name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Delivery',
@@ -506,8 +499,60 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
+          {/* Mobile menu button and actions */}
+          <div className="lg:hidden flex items-center space-x-4">
+            {/* Language Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                className="flex items-center space-x-1 px-2 py-1.5 text-sm font-medium text-gray-700 hover:text-ray-blue rounded-md transition-colors duration-200"
+                aria-expanded={isLanguageDropdownOpen}
+                aria-haspopup="true"
+              >
+                <span className="text-base">{locale === 'es' ? '🇪🇸' : '🇺🇸'}</span>
+                <svg
+                  className={`w-3 h-3 transition-transform duration-200 ${
+                    isLanguageDropdownOpen ? 'rotate-180' : ''
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
+                  <button
+                    onClick={() => {
+                      switchLanguage('es')
+                      setIsLanguageDropdownOpen(false)
+                    }}
+                    className={`w-full text-left px-3 py-2 text-sm flex items-center space-x-2 hover:bg-gray-50 transition-colors ${
+                      locale === 'es' ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
+                    }`}
+                  >
+                    <span className="text-base">🇪🇸</span>
+                    <span>ES</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      switchLanguage('en')
+                      setIsLanguageDropdownOpen(false)
+                    }}
+                    className={`w-full text-left px-3 py-2 text-sm flex items-center space-x-2 hover:bg-gray-50 transition-colors ${
+                      locale === 'en' ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
+                    }`}
+                  >
+                    <span className="text-base">🇺🇸</span>
+                    <span>EN</span>
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile menu toggle */}
             <button
               onClick={toggleMenu}
               className="text-gray-700 hover:text-ray-blue focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md p-2"
@@ -529,81 +574,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div id="mobile-menu" className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-              {/* Actions Block */}
-              <div className="mb-3 pb-3 border-b border-gray-200">
-                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 px-3">
-                  {locale === 'es' ? 'Idioma' : 'Language'}
-                </div>
-                <div className="px-3 mb-2">
-                  <div className="flex items-center space-x-1 border border-gray-300 rounded-md">
-                    <button
-                      onClick={() => {
-                        switchLanguage('es')
-                        closeMenu()
-                      }}
-                      className={`px-2 py-1.5 text-xs font-medium rounded-l-md transition-colors flex-1 flex items-center justify-center space-x-1 ${
-                        locale === 'es' 
-                          ? 'bg-ray-blue text-white' 
-                          : 'text-gray-600 hover:text-ray-blue hover:bg-gray-50'
-                      }`}
-                      title="Español"
-                    >
-                      <span className="text-sm">🇪🇸</span>
-                      <span className="text-xs">ES</span>
-                    </button>
-                    <button
-                      onClick={() => {
-                        switchLanguage('en')
-                        closeMenu()
-                      }}
-                      className={`px-2 py-1.5 text-xs font-medium rounded-r-md transition-colors flex-1 flex items-center justify-center space-x-1 ${
-                        locale === 'en' 
-                          ? 'bg-ray-blue text-white' 
-                          : 'text-gray-600 hover:text-ray-blue hover:bg-gray-50'
-                      }`}
-                      title="English"
-                    >
-                      <span className="text-sm">🇺🇸</span>
-                      <span className="text-xs">EN</span>
-                    </button>
-                  </div>
-                </div>
-                
-                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 px-3">
-                  {locale === 'es' ? 'Acciones' : 'Actions'}
-                </div>
-                <div className="space-y-1.5">
-                  <Button
-                    variant="ghost"
-                    size="md"
-                    href={`/${locale}/demo?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile-demo`}
-                    className="w-full justify-start"
-                    data-analytics="nav"
-                    aria-label="Get a demo of RAY's restaurant marketing platform"
-                    onClick={closeMenu}
-                  >
-                    {t.CTA.GET_FREE_DEMO}
-                  </Button>
-                  <Button
-                    variant="primary"
-                    size="md"
-                    href="https://grader.rayapp.io/?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile"
-                    external={true}
-                    className="w-full"
-                    data-cta="grader"
-                    data-analytics="nav"
-                    aria-label="Scan your restaurant - run a free 60-second audit to see how RAY can help"
-                    onClick={() => {
-                      handleScanClick()
-                      closeMenu()
-                    }}
-                  >
-                    {t.CTA.GRADE_RESTAURANT}
-                  </Button>
-                </div>
-              </div>
-
+            <div className="px-4 pt-4 pb-3 space-y-1 bg-white border-t border-gray-200">
               {/* Navigation Items */}
               {menuItems.map((item) => (
                 <div key={item.id || item.name}>
@@ -640,6 +611,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                 href={productItem.path}
                                 className="flex items-start space-x-3 px-3 py-3 text-sm font-medium text-gray-600 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px]"
                                 data-analytics="nav"
+                                onClick={closeMenu}
                               >
                                 <div className="flex-shrink-0 text-gray-600">
                                   <productItem.icon className="w-5 h-5" />
@@ -661,6 +633,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                 href={dropdownItem.path}
                                 className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
                                 data-analytics="nav"
+                                onClick={closeMenu}
                               >
                                 {dropdownItem.name}
                               </Link>
@@ -677,7 +650,8 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                         rel="noopener noreferrer"
                         className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
                         data-analytics="nav"
-                       aria-label={`Visit ${item.name} - opens in new tab`}
+                        aria-label={`Visit ${item.name} - opens in new tab`}
+                        onClick={closeMenu}
                       >
                         {item.name}
                       </a>
@@ -688,6 +662,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                           pathname === item.path ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
                         }`}
                         data-analytics="nav"
+                        onClick={closeMenu}
                       >
                         {item.name}
                       </Link>
@@ -695,6 +670,37 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                   )}
                 </div>
               ))}
+
+              {/* Action Buttons at Bottom */}
+              <div className="pt-4 mt-4 border-t border-gray-200 space-y-2">
+                <Button
+                  variant="ghost"
+                  size="md"
+                  href={`/${locale}/demo?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile-demo`}
+                  className="w-full justify-center"
+                  data-analytics="nav"
+                  aria-label="Get a demo of RAY's restaurant marketing platform"
+                  onClick={closeMenu}
+                >
+                  {t.CTA.GET_FREE_DEMO}
+                </Button>
+                <Button
+                  variant="primary"
+                  size="md"
+                  href="https://grader.rayapp.io/?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile"
+                  external={true}
+                  className="w-full justify-center"
+                  data-cta="grader"
+                  data-analytics="nav"
+                  aria-label="Scan your restaurant - run a free 60-second audit to see how RAY can help"
+                  onClick={() => {
+                    handleScanClick()
+                    closeMenu()
+                  }}
+                >
+                  {t.CTA.GRADE_RESTAURANT}
+                </Button>
+              </div>
             </div>
           </div>
         )}

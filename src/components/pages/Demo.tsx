@@ -215,7 +215,7 @@ const Demo = ({ locale }: DemoProps) => {
                 <div className="bg-white p-6 rounded-lg shadow-sm">
                   <div className="flex items-start gap-4">
                     <img
-                      src="/images/Temple_Team.jpeg"
+                      src="/images/success-stories/Temple_Team.jpeg"
                       alt="Restaurant Success Story"
                       className="w-12 h-12 rounded-full object-cover"
                       loading="lazy"

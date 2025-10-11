@@ -177,28 +177,29 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl w-full max-w-lg shadow-2xl">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+      <div className="bg-white rounded-2xl w-full max-w-lg shadow-2xl my-auto max-h-[95vh] overflow-y-auto">
         {/* Header */}
-        <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white p-6 rounded-t-2xl">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="bg-white bg-opacity-20 rounded-full p-2 flex items-center justify-center">
+        <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white p-4 sm:p-6 rounded-t-2xl sticky top-0 z-10">
+          <div className="flex items-start justify-between gap-2">
+            <div className="flex items-start space-x-2 sm:space-x-3 flex-1 min-w-0">
+              <div className="bg-white bg-opacity-20 rounded-full p-1.5 sm:p-2 flex items-center justify-center flex-shrink-0">
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
                   alt="WhatsApp" 
-                  className="w-5 h-5 object-contain"
+                  className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
                 />
               </div>
-              <div>
-                <h2 className="text-xl font-bold">{t.title}</h2>
-                <p className="text-emerald-100 text-sm">{t.subtitle}</p>
+              <div className="flex-1 min-w-0">
+                <h2 className="text-lg sm:text-xl font-bold leading-tight">{t.title}</h2>
+                <p className="text-emerald-100 text-xs sm:text-sm mt-1 leading-snug">{t.subtitle}</p>
               </div>
             </div>
             <button 
               onClick={onClose}
-              className="text-white hover:bg-white hover:bg-opacity-20 rounded-full p-2 transition-colors"
+              className="text-white hover:bg-white hover:bg-opacity-20 rounded-full p-1.5 sm:p-2 transition-colors flex-shrink-0"
               disabled={isSubmitting}
+              aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
@@ -206,41 +207,41 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
         </div>
 
         {/* Form */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {submitStatus === 'success' ? (
-            <div className="text-center py-8">
-              <div className="bg-green-100 rounded-full p-3 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <ArrowRight className="w-8 h-8 text-green-600" />
+            <div className="text-center py-6 sm:py-8">
+              <div className="bg-green-100 rounded-full p-3 w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 flex items-center justify-center">
+                <ArrowRight className="w-7 h-7 sm:w-8 sm:h-8 text-green-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">¡Listo!</h3>
-              <p className="text-gray-600">{t.successMessage}</p>
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">¡Listo!</h3>
+              <p className="text-sm sm:text-base text-gray-600">{t.successMessage}</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* Restaurant Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  <MapPin className="w-4 h-4 inline mr-1" />
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
+                  <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1" />
                   {t.restaurantLabel}
                 </label>
                 <PlacesAutocomplete
                   value={formData.restaurantName}
                   onChange={handleRestaurantNameChange}
                   placeholder={t.restaurantPlaceholder}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors ${
+                  className={`w-full px-3 py-2.5 sm:px-4 sm:py-3 border rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors ${
                     errors.restaurantName ? 'border-red-500' : 'border-gray-300'
                   }`}
                   required
                 />
                 {errors.restaurantName && (
-                  <p className="text-red-500 text-sm mt-1">{errors.restaurantName}</p>
+                  <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.restaurantName}</p>
                 )}
               </div>
 
               {/* Owner Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  <User className="w-4 h-4 inline mr-1" />
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
+                  <User className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1" />
                   {t.nameLabel}
                 </label>
                 <input
@@ -249,20 +250,20 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
                   value={formData.ownerName}
                   onChange={handleInputChange}
                   placeholder={t.namePlaceholder}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors ${
+                  className={`w-full px-3 py-2.5 sm:px-4 sm:py-3 border rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors ${
                     errors.ownerName ? 'border-red-500' : 'border-gray-300'
                   }`}
                   required
                 />
                 {errors.ownerName && (
-                  <p className="text-red-500 text-sm mt-1">{errors.ownerName}</p>
+                  <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.ownerName}</p>
                 )}
               </div>
 
               {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  <Mail className="w-4 h-4 inline mr-1" />
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
+                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1" />
                   {t.emailLabel}
                 </label>
                 <input
@@ -271,20 +272,20 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder={t.emailPlaceholder}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors ${
+                  className={`w-full px-3 py-2.5 sm:px-4 sm:py-3 border rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
                   }`}
                   required
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.email}</p>
                 )}
               </div>
 
               {/* Error Message */}
               {submitStatus === 'error' && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                  <p className="text-red-800 text-sm">{t.errorMessage}</p>
+                <div className="bg-red-50 border border-red-200 rounded-lg p-3 sm:p-4">
+                  <p className="text-red-800 text-xs sm:text-sm">{t.errorMessage}</p>
                 </div>
               )}
 
@@ -292,10 +293,10 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center space-x-2 ${
+                className={`w-full py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-semibold transition-all duration-200 flex items-center justify-center space-x-2 ${
                   isSubmitting
                     ? 'bg-emerald-400 text-white cursor-not-allowed'
-                    : 'bg-emerald-600 text-white hover:bg-emerald-700 transform hover:scale-105'
+                    : 'bg-emerald-600 text-white hover:bg-emerald-700 active:scale-95 sm:hover:scale-105'
                 }`}
               >
                 {isSubmitting ? (

@@ -58,13 +58,6 @@ export const COPY: Record<Locale, any> = {
         METRIC: '+50%',
         METRIC_LABEL: 'más conversiones web'
       },
-      AUTOMATED_MARKETING: {
-        NAME: 'Marketing Automatizado',
-        TAGLINE: 'Campañas que generan dinero',
-        DESCRIPTION: 'Impulsa ventas con campañas automatizadas comprobadas que se ejecutan en piloto automático.',
-        METRIC: '+40%',
-        METRIC_LABEL: 'retorno de inversión'
-      },
       ZERO_COMMISSION_DELIVERY: {
         NAME: 'Delivery Sin Comisión',
         TAGLINE: 'Delivery rentable y excelente servicio',
@@ -1252,64 +1245,6 @@ export const COPY: Record<Locale, any> = {
         ]
       }
     },
-    AUTOMATED_MARKETING_PAGE: {
-      HERO: {
-        BADGE: 'Marketing Impulsado por Datos',
-        TITLE: 'Marketing que genera dinero,',
-        TITLE_HIGHLIGHT: 'impulsado por datos de clientes',
-        SUBTITLE: 'Convierte cada pedido en datos valiosos. Usa esos datos para ejecutar campañas de marketing automatizadas que hacen crecer tus ventas.',
-        CTA_DEMO: 'Agenda una Demo',
-        CTA_PRICING: 'Ver Precios'
-      },
-      FEATURES: {
-        TITLE: 'Alcanza más clientes con marketing automatizado',
-        SUBTITLE: 'Usa datos de clientes para crear campañas que generan más ventas automáticamente.',
-        LIST: [
-          {
-            title: 'Haz crecer tus ventas con campañas comprobadas',
-            description: 'Ejecuta campañas de marketing automatizadas que hacen crecer pedidos.',
-            details: [
-              'Campañas probadas que generan resultados',
-              'Automatización completa para ahorrar tiempo'
-            ]
-          },
-          {
-            title: 'Haz crecer tu lista de clientes',
-            description: 'Cada cliente directo genera más datos, dándote más datos para impulsar más ventas.',
-            details: [
-              'Construcción automática de base de datos de clientes',
-              'Segmentación inteligente para mejores resultados'
-            ]
-          },
-          {
-            title: 'Escribe más rápido con IA',
-            description: 'Simplifica tus campañas de marketing. Usa nuestra IA asistente para escribir correos inteligentes en segundos.',
-            details: [
-              'Generación de contenido impulsada por IA',
-              'Plantillas optimizadas para restaurantes'
-            ]
-          }
-        ]
-      },
-      FAQ: {
-        TITLE: 'FAQs',
-        SUBTITLE: 'Respuestas a preguntas comunes sobre nuestro marketing automatizado.',
-        QUESTIONS: [
-          {
-            question: '¿Cuáles son algunos ejemplos de tus campañas comprobadas?',
-            answer: 'Nuestras campañas incluyen recordatorios de pedidos, ofertas de lealtad, promociones estacionales, seguimiento post-compra, y campañas de reactivación de clientes inactivos. Todas están optimizadas específicamente para restaurantes y han demostrado aumentar las ventas consistentemente.'
-          },
-          {
-            question: '¿Puedo ejecutar mis propias campañas de marketing?',
-            answer: 'Absolutamente. Puedes crear campañas personalizadas usando nuestro editor intuitivo y asistente de IA. También proporcionamos plantillas probadas que puedes personalizar según tu marca y necesidades específicas.'
-          },
-          {
-            question: '¿Debería dejar de usar apps de terceros?',
-            answer: 'No necesariamente. Nuestro marketing automatizado funciona mejor cuando tienes clientes directos, pero puede complementar tus esfuerzos en plataformas de terceros. Te ayudamos a migrar gradualmente más clientes a pedidos directos donde tienes mejor control y márgenes.'
-          }
-        ]
-      }
-    },
 
     // Success Carousel
     SUCCESS_CAROUSEL: {
@@ -1395,13 +1330,6 @@ export const COPY: Record<Locale, any> = {
         DESCRIPTION: 'Convert more visitors into customers with an AI-powered website that optimizes conversions and dominates Google.',
         METRIC: '+50%',
         METRIC_LABEL: 'more web conversions'
-      },
-      AUTOMATED_MARKETING: {
-        NAME: 'Automated Marketing',
-        TAGLINE: 'Money-making campaigns',
-        DESCRIPTION: 'Drive sales with proven, automated campaigns that run on autopilot.',
-        METRIC: '+40%',
-        METRIC_LABEL: 'return on investment'
       },
       ZERO_COMMISSION_DELIVERY: {
         NAME: 'Zero-Commission Delivery',
@@ -2615,64 +2543,6 @@ export const COPY: Record<Locale, any> = {
           {
             question: 'Why would third-party apps go for this?',
             answer: 'We work with a network of independent drivers and delivery services looking for more work. By offering fair rates and consistent volume, we create a win-win situation: you get better service, drivers earn more, and customers receive better experience.'
-          }
-        ]
-      }
-    },
-    AUTOMATED_MARKETING_PAGE: {
-      HERO: {
-        BADGE: 'Data-Powered Marketing',
-        TITLE: 'Money-making marketing,',
-        TITLE_HIGHLIGHT: 'powered by customer data',
-        SUBTITLE: 'Turn every order into valuable data. Use that data to run automated marketing campaigns that grow your sales.',
-        CTA_DEMO: 'Get a free demo',
-        CTA_PRICING: 'View Pricing'
-      },
-      FEATURES: {
-        TITLE: 'Reach more customers with automated marketing',
-        SUBTITLE: 'Use customer data to create campaigns that generate more sales automatically.',
-        LIST: [
-          {
-            title: 'Grow your sales with proven campaigns',
-            description: 'Run automated marketing campaigns that grow orders.',
-            details: [
-              'Proven campaigns that generate results',
-              'Full automation to save time'
-            ]
-          },
-          {
-            title: 'Grow your customer list',
-            description: 'Every direct order grows your list, giving you more data to drive more sales.',
-            details: [
-              'Automatic customer database building',
-              'Smart segmentation for better results'
-            ]
-          },
-          {
-            title: 'Write faster with AI',
-            description: 'Simplify your marketing campaigns. Use our AI assistant to write smart emails in seconds.',
-            details: [
-              'AI-powered content generation',
-              'Templates optimized for restaurants'
-            ]
-          }
-        ]
-      },
-      FAQ: {
-        TITLE: 'FAQs',
-        SUBTITLE: 'Answers to common questions about our automated marketing.',
-        QUESTIONS: [
-          {
-            question: 'What are some examples of your proven campaigns?',
-            answer: 'Our campaigns include order reminders, loyalty offers, seasonal promotions, post-purchase follow-ups, and inactive customer reactivation campaigns. All are specifically optimized for restaurants and have proven to increase sales consistently.'
-          },
-          {
-            question: 'Can I run my own marketing campaigns?',
-            answer: 'Absolutely. You can create custom campaigns using our intuitive editor and AI assistant. We also provide proven templates that you can customize to match your brand and specific needs.'
-          },
-          {
-            question: 'Should I stop using third-party apps?',
-            answer: 'Not necessarily. Our automated marketing works best when you have direct customers, but it can complement your third-party platform efforts. We help you gradually migrate more customers to direct orders where you have better control and margins.'
           }
         ]
       }
