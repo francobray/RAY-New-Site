@@ -255,9 +255,10 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node
+      // Consider clicks inside desktop dropdowns or mobile menu as inside
       const isInsideMenu = Object.values(menuRefs.current).some(ref => 
         ref && ref.contains(target)
-      )
+      ) || (target instanceof HTMLElement && target.closest('#mobile-menu'))
       
       if (!isInsideMenu) {
         setOpenDropdown(null)
@@ -354,7 +355,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                   key={productItem.name}
                                   href={productItem.path}
                                   className="group flex items-start space-x-3 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:bg-gray-50"
-                                  onClick={closeMenu}
                                   role="menuitem"
                                   data-analytics="nav"
                                 >
@@ -380,7 +380,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                 key={dropdownItem.name}
                                 href={dropdownItem.path}
                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-ray-blue focus:outline-none focus:bg-gray-100 focus:text-ray-blue"
-                                onClick={closeMenu}
                                 role="menuitem"
                                 data-analytics="nav"
                               >
@@ -611,7 +610,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                 href={productItem.path}
                                 className="flex items-start space-x-3 px-3 py-3 text-sm font-medium text-gray-600 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px]"
                                 data-analytics="nav"
-                                onClick={closeMenu}
                               >
                                 <div className="flex-shrink-0 text-gray-600">
                                   <productItem.icon className="w-5 h-5" />
@@ -633,7 +631,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                 href={dropdownItem.path}
                                 className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
                                 data-analytics="nav"
-                                onClick={closeMenu}
                               >
                                 {dropdownItem.name}
                               </Link>
@@ -651,7 +648,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                         className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
                         data-analytics="nav"
                         aria-label={`Visit ${item.name} - opens in new tab`}
-                        onClick={closeMenu}
                       >
                         {item.name}
                       </a>
@@ -662,7 +658,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                           pathname === item.path ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
                         }`}
                         data-analytics="nav"
-                        onClick={closeMenu}
                       >
                         {item.name}
                       </Link>
