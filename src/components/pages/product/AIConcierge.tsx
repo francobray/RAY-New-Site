@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { ArrowRight, CircleCheck as CheckCircle, Users, Star, ChevronDown, ChevronUp, Zap, MessageCircle, ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
 import TryItNowModal from '../../TryItNowModal'
 import PhoneCallModal from '../../PhoneCallModal'
+import RestaurantInfoModal from '../../RestaurantInfoModal'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
 import Button from '../../shared/BaseButton'
@@ -26,6 +27,12 @@ const AIConcierge: React.FC<AIConciergeProps> = ({ locale }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [isChatModalOpen, setIsChatModalOpen] = useState(false)
   const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false)
+  const [isRestaurantInfoModalOpen, setIsRestaurantInfoModalOpen] = useState(false)
+  const [restaurantInfo, setRestaurantInfo] = useState<{
+    restaurantName: string
+    ownerName: string
+    email: string
+  } | null>(null)
   
   const t = useTranslations(locale)
 
@@ -312,7 +319,7 @@ const ChatCarousel = () => {
     
     const interval = setInterval(() => {
       setCurrentChat((prev) => (prev + 1) % chatExamples.length);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
@@ -330,53 +337,55 @@ const ChatCarousel = () => {
   const currentExample = chatExamples[currentChat];
 
   return (
-    <div className="relative mx-auto w-80">
+    <div className="relative mx-auto w-full max-w-[320px] sm:max-w-sm px-8 sm:px-0">
       {/* Navigation Arrows */}
       <button
         onClick={prevChat}
-        className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
+        className="absolute left-0 sm:-left-12 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-1.5 sm:p-2 shadow-lg transition-all"
+        aria-label="Previous chat example"
       >
-        <ChevronLeft className="w-5 h-5 text-gray-600" />
+        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
       </button>
       
       <button
         onClick={nextChat}
-        className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
+        className="absolute right-0 sm:-right-12 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-1.5 sm:p-2 shadow-lg transition-all"
+        aria-label="Next chat example"
       >
-        <ChevronRight className="w-5 h-5 text-gray-600" />
+        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
       </button>
 
       {/* Phone Mockup */}
-      <div className="bg-black rounded-[2.5rem] p-2">
-        <div className="bg-white rounded-[2rem] h-[600px] overflow-hidden">
+      <div className="bg-black rounded-[2rem] sm:rounded-[2.5rem] p-1.5 sm:p-2">
+        <div className="bg-white rounded-[1.75rem] sm:rounded-[2rem] h-[500px] sm:h-[600px] overflow-hidden">
           {/* WhatsApp Chat Interface */}
           <>
             {/* Chat Header */}
-            <div className={`${currentExample.headerColor} p-4 text-white`}>
-              <div className="flex items-center space-x-3">
+            <div className={`${currentExample.headerColor} p-3 sm:p-4 text-white`}>
+              <div className="flex items-center space-x-2 sm:space-x-3">
                 <img 
                   src={currentExample.platformLogo} 
                   alt={currentExample.platform} 
-                  className="w-10 h-10 bg-white rounded-full p-1"
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full p-1"
                 />
-                <div>
-                  <h3 className="font-semibold">{currentExample.businessName}</h3>
-                  <p className="text-sm opacity-90">{currentExample.status}</p>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-sm sm:text-base truncate">{currentExample.businessName}</h3>
+                  <p className="text-xs sm:text-sm opacity-90">{currentExample.status}</p>
                 </div>
               </div>
             </div>
 
             {/* Chat Messages */}
-            <div className="p-4 space-y-4 h-[480px] overflow-y-auto">
+            <div className="p-3 sm:p-4 space-y-3 sm:space-y-4 h-[400px] sm:h-[480px] overflow-y-auto">
               {currentExample.messages?.map((message, index) => (
                 <div key={index} className={`flex ${message.type === 'customer' ? 'justify-start' : 'justify-end'}`}>
-                  <div className={`rounded-2xl p-3 max-w-xs ${
+                  <div className={`rounded-2xl p-2 sm:p-3 max-w-[75%] sm:max-w-xs ${
                     message.type === 'customer' 
                       ? 'bg-gray-200 rounded-bl-md' 
                       : 'bg-green-500 text-white rounded-br-md'
                   }`}>
-                    <p className="text-sm">{message.text}</p>
-                    <p className={`text-xs mt-1 ${
+                    <p className="text-xs sm:text-sm leading-relaxed">{message.text}</p>
+                    <p className={`text-[10px] sm:text-xs mt-1 ${
                       message.type === 'customer' ? 'text-gray-500' : 'text-green-100'
                     }`}>
                       {message.time}
@@ -386,10 +395,10 @@ const ChatCarousel = () => {
               ))}
               
               {/* Success Badge */}
-              <div className="text-center pt-4">
-                <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-xs font-semibold">
-                  <CheckCircle className="w-4 h-4 mr-2" />
-                  {currentExample.badge}
+              <div className="text-center pt-3 sm:pt-4">
+                <div className="inline-flex items-center bg-green-100 text-green-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold">
+                  <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 flex-shrink-0" />
+                  <span className="leading-tight">{currentExample.badge}</span>
                 </div>
               </div>
             </div>
@@ -398,7 +407,7 @@ const ChatCarousel = () => {
       </div>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center space-x-2 mt-6">
+      <div className="flex justify-center space-x-1.5 sm:space-x-2 mt-4 sm:mt-6">
         {chatExamples.map((_, index) => (
           <button
             key={index}
@@ -406,9 +415,10 @@ const ChatCarousel = () => {
               setCurrentChat(index);
               setIsAutoPlaying(false);
             }}
-            className={`w-2 h-2 rounded-full transition-colors ${
+            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${
               index === currentChat ? 'bg-emerald-600' : 'bg-gray-300'
             }`}
+            aria-label={`Go to chat example ${index + 1}`}
           />
         ))}
       </div>
@@ -443,32 +453,32 @@ const ChatCarousel = () => {
               {t.AI_CONCIERGE_PAGE.HERO.SUBTITLE}
             </p>
             
-            <div className="flex flex-wrap gap-4 text-sm">
-              <div className="flex items-center bg-emerald-50 px-4 py-2 rounded-full">
+            <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm">
+              <div className="flex items-center bg-emerald-50 px-3 sm:px-4 py-2 rounded-full">
                 <span className="text-emerald-600 font-semibold">✅ {t.AI_CONCIERGE_PAGE.HERO.BADGES[0]}</span>
               </div>
-              <div className="flex items-center bg-blue-50 px-4 py-2 rounded-full">
+              <div className="flex items-center bg-blue-50 px-3 sm:px-4 py-2 rounded-full">
                 <span className="text-blue-600 font-semibold">📅 {t.AI_CONCIERGE_PAGE.HERO.BADGES[1]}</span>
                             </div>
-              <div className="flex items-center bg-purple-50 px-4 py-2 rounded-full">
+              <div className="flex items-center bg-purple-50 px-3 sm:px-4 py-2 rounded-full">
                 <span className="text-purple-600 font-semibold">💬 {t.AI_CONCIERGE_PAGE.HERO.BADGES[2]}</span>
                           </div>
-              <div className="flex items-center bg-orange-50 px-4 py-2 rounded-full">
+              <div className="flex items-center bg-orange-50 px-3 sm:px-4 py-2 rounded-full">
                 <span className="text-orange-600 font-semibold">📢 {t.AI_CONCIERGE_PAGE.HERO.BADGES[3]}</span>
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <button 
-                onClick={() => setIsChatModalOpen(true)}
-                className="bg-white text-emerald-600 border-2 border-emerald-600 px-8 py-4 rounded-full hover:bg-emerald-50 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg flex items-center justify-center space-x-2"
+                onClick={() => setIsRestaurantInfoModalOpen(true)}
+                className="bg-white text-emerald-600 border-2 border-emerald-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-emerald-50 transition-all active:scale-95 sm:hover:scale-105 font-semibold text-base sm:text-lg shadow-lg flex items-center justify-center space-x-2"
               >
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
                   alt="WhatsApp" 
-                  className="w-6 h-6"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                 />
-                  <span>{t.AI_CONCIERGE_PAGE.HERO.TRY_CHAT}</span>
+                  <span>{locale === 'es' ? 'Probar Ahora' : 'Try Now'}</span>
                 </button>
                           </div>
                         </div>
@@ -686,13 +696,29 @@ const ChatCarousel = () => {
       {/* Try It Now Modals */}
       <TryItNowModal
         isOpen={isChatModalOpen}
-        onClose={() => setIsChatModalOpen(false)}
+        onClose={() => {
+          setIsChatModalOpen(false)
+          setRestaurantInfo(null)
+        }}
         locale={locale}
+        restaurantName={restaurantInfo?.restaurantName}
+        ownerName={restaurantInfo?.ownerName}
       />
       
       <PhoneCallModal
         isOpen={isPhoneModalOpen}
         onClose={() => setIsPhoneModalOpen(false)}
+        locale={locale}
+      />
+
+      <RestaurantInfoModal
+        isOpen={isRestaurantInfoModalOpen}
+        onClose={() => setIsRestaurantInfoModalOpen(false)}
+        onSuccess={(restaurantName, ownerName, email) => {
+          setRestaurantInfo({ restaurantName, ownerName, email })
+          setIsRestaurantInfoModalOpen(false)
+          setIsChatModalOpen(true)
+        }}
         locale={locale}
       />
     </>

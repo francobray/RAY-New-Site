@@ -6,7 +6,7 @@ export const COPY: Record<Locale, any> = {
     // CTA Labels
     CTA: {
       GRADE_RESTAURANT: 'Escanea tu restaurante',
-      GET_FREE_DEMO: 'Obtén una Demo Gratis',
+      GET_FREE_DEMO: 'Agenda una Demo',
       GET_STARTED: 'Comienza Hoy',
       VIEW_CASE_STUDIES: 'Ver Casos de Éxito',
       LEARN_MORE: 'Ver más'
@@ -57,13 +57,6 @@ export const COPY: Record<Locale, any> = {
         DESCRIPTION: 'Convierte más visitantes en clientes con un sitio web impulsado por IA que optimiza conversiones y domina Google.',
         METRIC: '+50%',
         METRIC_LABEL: 'más conversiones web'
-      },
-      AUTOMATED_MARKETING: {
-        NAME: 'Marketing Automatizado',
-        TAGLINE: 'Campañas que generan dinero',
-        DESCRIPTION: 'Impulsa ventas con campañas automatizadas comprobadas que se ejecutan en piloto automático.',
-        METRIC: '+40%',
-        METRIC_LABEL: 'retorno de inversión'
       },
       ZERO_COMMISSION_DELIVERY: {
         NAME: 'Delivery Sin Comisión',
@@ -145,7 +138,7 @@ export const COPY: Record<Locale, any> = {
         },
         {
           question: '¿Qué pasa con mi sitio web actual?',
-          answer: 'RAY reemplaza tu sitio web actual. Redirigimos tu dominio a tu nuevo sitio web con RAY.'
+          answer: 'Hacemos un backup de tu website actual. Luego RAY reemplaza tu sitio web actual. Redirigimos tu dominio a tu nuevo sitio web con RAY.'
         },
         {
           question: '¿Hacen marketing en redes sociales?',
@@ -184,7 +177,7 @@ export const COPY: Record<Locale, any> = {
       HERO_TITLE: 'Convierte Búsquedas de Google Maps en',
       HERO_TITLE_HIGHLIGHT: 'Visitas a tu restaurante',
       HERO_SUBTITLE: 'Domina Google Maps y búsquedas de Google Maps para atraer más clientes hambrientos a la puerta de tu restaurante.',
-      TALK_TO_EXPERT: 'Hablar con un Experto',
+      TALK_TO_EXPERT: 'Agenda una demo',
       SCAN_RESTAURANT: 'Escanea tu restaurante',
       AVG_INCREASE: '47% aumento promedio',
       RESULTS_TIME: 'Resultados en 60-90 días',
@@ -325,7 +318,7 @@ export const COPY: Record<Locale, any> = {
       HERO_TITLE_HIGHLIGHT: 'Cada Cliente',
       HERO_SUBTITLE: 'Gestiona reservas, walk-ins y listas de espera sin problemas mientras construyes relaciones duraderas con tus clientes que generan visitas repetidas.',
       CTA_PRIMARY: 'Escanea tu restaurante',
-      CTA_SECONDARY: 'Habla con un Experto',
+      CTA_SECONDARY: 'Agenda una demo',
       STATS: {
         TABLE_UTILIZATION: '+35% utilización de mesas',
         NO_SHOWS: '40% menos no-shows'
@@ -542,7 +535,7 @@ export const COPY: Record<Locale, any> = {
       },
       TESTIMONIAL: {
         QUOTE: 'RAY transformó nuestro negocio. Hemos visto un aumento del 47% en visitas y nuestros pedidos online han crecido constantemente cada mes.',
-        AUTHOR: 'Propietario de Restaurante, Miami FL'
+        AUTHOR: 'Juan Ignacio Chereminiano, CEO de Temple Craft Wynwood'
       },
       FORM: {
         ROLE_LABEL: 'Rol',
@@ -999,7 +992,7 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Ofrece un programa de recompensas',
         TITLE_HIGHLIGHT: 'como las cadenas nacionales.',
         SUBTITLE: 'Construye lealtad del cliente con un programa de recompensas. Mantén a los clientes regresando por más, como las grandes marcas.',
-        CTA_DEMO: 'Obtener demo gratis',
+        CTA_DEMO: 'Agenda una Demo',
         CTA_PRICING: 'Ver Precios'
       },
       FEATURES: {
@@ -1140,7 +1133,7 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Sitios web de restaurante construidos para',
         TITLE_HIGHLIGHT: 'ventas primero, estilo después.',
         SUBTITLE: 'Owner construye tu sitio web para impulsar ventas. Nuestro diseño comprobado genera tráfico de Google, optimiza aplicaciones de delivery y aloja tu competencia.',
-        CTA_DEMO: 'Obtén una demo gratis',
+        CTA_DEMO: 'Agenda una Demo',
         CTA_PRICING: 'Ver Precios',
         STAT_1: 'Listo en días, no meses',
         STAT_2: 'Optimizado para Google'
@@ -1200,7 +1193,7 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Delivery rentable y una',
         TITLE_HIGHLIGHT: 'gran experiencia para clientes.',
         SUBTITLE: 'Haz que tus clientes ordenen desde tu app, con drivers de alta calificación, a un precio justo.',
-        CTA_DEMO: 'Obtén una demo gratis',
+        CTA_DEMO: 'Agenda una Demo',
         CTA_PRICING: 'Ver Precios'
       },
       FEATURES: {
@@ -1252,62 +1245,33 @@ export const COPY: Record<Locale, any> = {
         ]
       }
     },
-    AUTOMATED_MARKETING_PAGE: {
-      HERO: {
-        BADGE: 'Marketing Impulsado por Datos',
-        TITLE: 'Marketing que genera dinero,',
-        TITLE_HIGHLIGHT: 'impulsado por datos de clientes',
-        SUBTITLE: 'Convierte cada pedido en datos valiosos. Usa esos datos para ejecutar campañas de marketing automatizadas que hacen crecer tus ventas.',
-        CTA_DEMO: 'Obtén una demo gratis',
-        CTA_PRICING: 'Ver Precios'
+
+    // Success Carousel
+    SUCCESS_CAROUSEL: {
+      TRUSTED_BY: 'Confiamos en miles de restaurantes',
+      VIEW_ALL_STORIES: 'Ver Todos los Casos de Éxito'
+    },
+
+    // Partners Page
+    PARTNERS_PAGE: {
+      META_TITLE: 'Partners - RAY',
+      META_DESCRIPTION: 'Únete a nuestro programa de Partners y ayuda a los restaurantes a crecer con RAY.',
+      MAIN_TITLE_PART1: 'Trabaja con',
+      MAIN_TITLE_PART2: 'RAY',
+      SUBTITLE: 'Elige la asociación que mejor se adapte a ti:',
+      GET_STARTED: 'Comenzar',
+      CLICK_HERE_TO_GET_STARTED: 'Haz clic aquí para comenzar.',
+      AFFILIATE_PROGRAM: {
+        TITLE: 'Programa de Afiliados',
+        SHORT_DESCRIPTION: 'Para editores, influencers, bloggers, sitios de reseñas y socios de medios que llegan a propietarios de restaurantes.',
+        DETAILED_DESCRIPTION_PART1: 'Los afiliados promocionan',
+        DETAILED_DESCRIPTION_PART2: 'a sus audiencias a través de contenido, publicidad y ubicaciones creativas. Tu rol es generar leads calificados conectando restaurantes con nuestra plataforma. Te proporcionaremos seguimiento, recursos y soporte continuo para que puedas maximizar resultados. La compensación se basa en leads, recompensándote por las nuevas oportunidades que creas. Juntos, ayudaremos a los restaurantes a descubrir'
       },
-      FEATURES: {
-        TITLE: 'Alcanza más clientes con marketing automatizado',
-        SUBTITLE: 'Usa datos de clientes para crear campañas que generan más ventas automáticamente.',
-        LIST: [
-          {
-            title: 'Haz crecer tus ventas con campañas comprobadas',
-            description: 'Ejecuta campañas de marketing automatizadas que hacen crecer pedidos.',
-            details: [
-              'Campañas probadas que generan resultados',
-              'Automatización completa para ahorrar tiempo'
-            ]
-          },
-          {
-            title: 'Haz crecer tu lista de clientes',
-            description: 'Cada cliente directo genera más datos, dándote más datos para impulsar más ventas.',
-            details: [
-              'Construcción automática de base de datos de clientes',
-              'Segmentación inteligente para mejores resultados'
-            ]
-          },
-          {
-            title: 'Escribe más rápido con IA',
-            description: 'Simplifica tus campañas de marketing. Usa nuestra IA asistente para escribir correos inteligentes en segundos.',
-            details: [
-              'Generación de contenido impulsada por IA',
-              'Plantillas optimizadas para restaurantes'
-            ]
-          }
-        ]
-      },
-      FAQ: {
-        TITLE: 'FAQs',
-        SUBTITLE: 'Respuestas a preguntas comunes sobre nuestro marketing automatizado.',
-        QUESTIONS: [
-          {
-            question: '¿Cuáles son algunos ejemplos de tus campañas comprobadas?',
-            answer: 'Nuestras campañas incluyen recordatorios de pedidos, ofertas de lealtad, promociones estacionales, seguimiento post-compra, y campañas de reactivación de clientes inactivos. Todas están optimizadas específicamente para restaurantes y han demostrado aumentar las ventas consistentemente.'
-          },
-          {
-            question: '¿Puedo ejecutar mis propias campañas de marketing?',
-            answer: 'Absolutamente. Puedes crear campañas personalizadas usando nuestro editor intuitivo y asistente de IA. También proporcionamos plantillas probadas que puedes personalizar según tu marca y necesidades específicas.'
-          },
-          {
-            question: '¿Debería dejar de usar apps de terceros?',
-            answer: 'No necesariamente. Nuestro marketing automatizado funciona mejor cuando tienes clientes directos, pero puede complementar tus esfuerzos en plataformas de terceros. Te ayudamos a migrar gradualmente más clientes a pedidos directos donde tienes mejor control y márgenes.'
-          }
-        ]
+      REFERRAL_PARTNERSHIPS: {
+        TITLE: 'Asociaciones de Referencia',
+        SHORT_DESCRIPTION: 'Para agencias, consultores, contadores y distribuidores que trabajan directamente con restaurantes.',
+        DETAILED_DESCRIPTION_PART1: 'Los Socios de Referencia van más allá de la promoción: presentas activamente',
+        DETAILED_DESCRIPTION_PART2: 'a los restaurantes que ya atiendes. Te equiparemos con capacitación, recursos y soporte continuo para que puedas integrar con confianza'
       }
     }
   },
@@ -1366,13 +1330,6 @@ export const COPY: Record<Locale, any> = {
         DESCRIPTION: 'Convert more visitors into customers with an AI-powered website that optimizes conversions and dominates Google.',
         METRIC: '+50%',
         METRIC_LABEL: 'more web conversions'
-      },
-      AUTOMATED_MARKETING: {
-        NAME: 'Automated Marketing',
-        TAGLINE: 'Money-making campaigns',
-        DESCRIPTION: 'Drive sales with proven, automated campaigns that run on autopilot.',
-        METRIC: '+40%',
-        METRIC_LABEL: 'return on investment'
       },
       ZERO_COMMISSION_DELIVERY: {
         NAME: 'Zero-Commission Delivery',
@@ -1465,6 +1422,35 @@ export const COPY: Record<Locale, any> = {
           answer: 'We help you educate your customers and set up reward programs so customers earn points when they order direct.'
         }
       ]
+    },
+
+    // Success Carousel
+    SUCCESS_CAROUSEL: {
+      TRUSTED_BY: 'Trusted by thousands of restaurants',
+      VIEW_ALL_STORIES: 'View All Success Stories'
+    },
+
+    // Partners Page
+    PARTNERS_PAGE: {
+      META_TITLE: 'Partners - RAY',
+      META_DESCRIPTION: 'Join our partner program and help restaurants grow with RAY.',
+      MAIN_TITLE_PART1: 'Partner with',
+      MAIN_TITLE_PART2: 'RAY',
+      SUBTITLE: 'Choose the partnership that\'s the best fit for you:',
+      GET_STARTED: 'Get Started',
+      CLICK_HERE_TO_GET_STARTED: 'Click here to get started.',
+      AFFILIATE_PROGRAM: {
+        TITLE: 'Affiliate Program',
+        SHORT_DESCRIPTION: 'For publishers, influencers, bloggers, review sites, and media partners who reach restaurant owners.',
+        DETAILED_DESCRIPTION_PART1: 'Affiliates promote',
+        DETAILED_DESCRIPTION_PART2: 'to their audiences through content, advertising, and creative placements. Your role is to generate qualified leads by connecting restaurants with our platform. We\'ll provide tracking, resources, and ongoing support so you can maximize results. Compensation is lead-based, rewarding you for the new opportunities you create. Together, we\'ll help restaurants discover'
+      },
+      REFERRAL_PARTNERSHIPS: {
+        TITLE: 'Referral Partnerships',
+        SHORT_DESCRIPTION: 'For agencies, consultants, accountants, and distributors who work directly with restaurants.',
+        DETAILED_DESCRIPTION_PART1: 'Referral Partners go beyond promotion—you actively introduce',
+        DETAILED_DESCRIPTION_PART2: 'to the restaurants you already serve. We\'ll equip you with training, resources, and ongoing support so you can confidently integrate'
+      }
     },
 
     // Testimonials Section
@@ -2557,64 +2543,6 @@ export const COPY: Record<Locale, any> = {
           {
             question: 'Why would third-party apps go for this?',
             answer: 'We work with a network of independent drivers and delivery services looking for more work. By offering fair rates and consistent volume, we create a win-win situation: you get better service, drivers earn more, and customers receive better experience.'
-          }
-        ]
-      }
-    },
-    AUTOMATED_MARKETING_PAGE: {
-      HERO: {
-        BADGE: 'Data-Powered Marketing',
-        TITLE: 'Money-making marketing,',
-        TITLE_HIGHLIGHT: 'powered by customer data',
-        SUBTITLE: 'Turn every order into valuable data. Use that data to run automated marketing campaigns that grow your sales.',
-        CTA_DEMO: 'Get a free demo',
-        CTA_PRICING: 'View Pricing'
-      },
-      FEATURES: {
-        TITLE: 'Reach more customers with automated marketing',
-        SUBTITLE: 'Use customer data to create campaigns that generate more sales automatically.',
-        LIST: [
-          {
-            title: 'Grow your sales with proven campaigns',
-            description: 'Run automated marketing campaigns that grow orders.',
-            details: [
-              'Proven campaigns that generate results',
-              'Full automation to save time'
-            ]
-          },
-          {
-            title: 'Grow your customer list',
-            description: 'Every direct order grows your list, giving you more data to drive more sales.',
-            details: [
-              'Automatic customer database building',
-              'Smart segmentation for better results'
-            ]
-          },
-          {
-            title: 'Write faster with AI',
-            description: 'Simplify your marketing campaigns. Use our AI assistant to write smart emails in seconds.',
-            details: [
-              'AI-powered content generation',
-              'Templates optimized for restaurants'
-            ]
-          }
-        ]
-      },
-      FAQ: {
-        TITLE: 'FAQs',
-        SUBTITLE: 'Answers to common questions about our automated marketing.',
-        QUESTIONS: [
-          {
-            question: 'What are some examples of your proven campaigns?',
-            answer: 'Our campaigns include order reminders, loyalty offers, seasonal promotions, post-purchase follow-ups, and inactive customer reactivation campaigns. All are specifically optimized for restaurants and have proven to increase sales consistently.'
-          },
-          {
-            question: 'Can I run my own marketing campaigns?',
-            answer: 'Absolutely. You can create custom campaigns using our intuitive editor and AI assistant. We also provide proven templates that you can customize to match your brand and specific needs.'
-          },
-          {
-            question: 'Should I stop using third-party apps?',
-            answer: 'Not necessarily. Our automated marketing works best when you have direct customers, but it can complement your third-party platform efforts. We help you gradually migrate more customers to direct orders where you have better control and margins.'
           }
         ]
       }

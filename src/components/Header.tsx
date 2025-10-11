@@ -7,12 +7,22 @@ import { usePathname, useRouter } from 'next/navigation'
 import Button from './shared/BaseButton'
 import { useTranslations } from '@/hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
+import { 
+  Monitor, 
+  MapPin, 
+  Truck, 
+  ShoppingCart, 
+  MessageCircle, 
+  Calendar, 
+  Smartphone, 
+  Heart 
+} from 'lucide-react'
 
 interface ProductItem {
   name: string
   path: string
   description: string
-  icon: string
+  icon: React.ComponentType<{ className?: string }>
 }
 
 interface MenuItem {
@@ -21,6 +31,7 @@ interface MenuItem {
   hasDropdown?: boolean
   dropdownItems?: { name: string; path: string }[]
   productItems?: ProductItem[]
+  id?: string // Add consistent identifier
 }
 
 interface HeaderProps {
@@ -30,6 +41,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ locale }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
   const menuRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
@@ -50,6 +62,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
 
   const menuItems: MenuItem[] = [
     { 
+      id: 'products',
       name: locale === 'es' ? 'Productos' : 'Product', 
       path: `/${locale}/products`,
       hasDropdown: true,
@@ -58,73 +71,83 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           name: locale === 'es' ? 'Constructor de Sitios Web' : 'Website Builder',
           path: `/${locale}/product/restaurant-website-ai`,
           description: locale === 'es' ? 'Convierte más visitantes en clientes con un sitio web impulsado por IA.' : 'Convert more visitors into customers with an AI-powered website.',
-          icon: '💻'
+          icon: Monitor
         },
         { 
-          name: locale === 'es' ? 'Marketing Automatizado' : 'Automated Marketing',
-          path: `/${locale}/product/automated-marketing`,
-          description: locale === 'es' ? 'Impulsa ventas de clientes con campañas automatizadas comprobadas.' : 'Drive sales from customers with proven, automated campaigns.',
-          icon: '📊'
+          name: locale === 'es' ? 'Walk-Ins' : 'Walk-Ins',
+          path: `/${locale}/product/walk-ins`,
+          description: locale === 'es' ? 'Convierte búsquedas en visitas con marketing local impulsado por IA.' : 'Turn searches into walk-ins with AI-powered local marketing.',
+          icon: MapPin
         },
         { 
           name: locale === 'es' ? 'Delivery Sin Comisión' : 'Zero-Commission Delivery',
           path: `/${locale}/product/zero-commission-delivery`,
           description: locale === 'es' ? 'Delivery rentable por conductores mejor calificados a precio justo.' : 'Profitable delivery by top-rated drivers at a fair price.',
-          icon: '🚚'
+          icon: Truck
         },
         { 
           name: locale === 'es' ? 'Pedidos Online' : 'Online Ordering',
           path: `/${locale}/product/online-orders`,
           description: locale === 'es' ? 'Obtén más pedidos con pedidos online que se sienten familiares y fáciles.' : 'Get more orders with online ordering that feels familiar and easy.',
-          icon: '📱'
+          icon: ShoppingCart
         },
         { 
           name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Delivery',
           path: `/${locale}/product/whatsapp-delivery`,
           description: locale === 'es' ? 'Convierte DMs de restaurante en pedidos automáticamente 24/7.' : 'Turn restaurant DMs into orders automatically 24/7.',
-          icon: 'whatsapp'
+          icon: MessageCircle
         },
         { 
           name: locale === 'es' ? 'Reservas Directas' : 'Direct Bookings',
           path: `/${locale}/product/direct-bookings`,
           description: locale === 'es' ? 'Maximiza la ocupación de mesas con gestión inteligente de reservas.' : 'Maximize table occupancy with intelligent booking management.',
-          icon: '📅'
+          icon: Calendar
         },
         { 
           name: locale === 'es' ? 'App Móvil Personalizada' : 'Custom Mobile App',
           path: `/${locale}/product/branded-apps`,
           description: locale === 'es' ? 'Haz crecer pedidos repetidos con una app móvil de 5 estrellas.' : 'Grow repeat orders with a 5-star mobile app.',
-          icon: '📲'
+          icon: Smartphone
         },
         { 
           name: locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program',
           path: `/${locale}/product/loyalty`,
           description: locale === 'es' ? 'Construye lealtad con un programa de recompensas inspirado en las grandes marcas.' : 'Build loyalty with a rewards program inspired by the big brands.',
-          icon: '⭐'
+          icon: Heart
         }
       ]
     },
     { 
+      id: 'case-studies',
       name: locale === 'es' ? 'Casos de Éxito' : 'Case Studies', 
       path: `/${locale}/case-studies`, 
       hasDropdown: true, 
       dropdownItems: [
         { name: locale === 'es' ? 'Todos los Casos' : 'All Case Studies', path: `/${locale}/case-studies` },
         { name: 'Temple Craft Wynwood', path: `/${locale}/case-studies/temple-craft-wynwood` },
-        { name: 'Chimba Miami', path: `/${locale}/case-studies/chimba-miami` }
+        { name: 'Chimba Miami', path: `/${locale}/case-studies/chimba-miami` },
+        { name: 'V&E Hospitality Group', path: `/${locale}/case-studies/ve-hospitality` },
+        { name: 'Green Eat', path: `/${locale}/case-studies/green-eat` },
+        { name: 'Havanna', path: `/${locale}/case-studies/havanna` },
+        { name: 'CRAFT', path: `/${locale}/case-studies/craft` },
+        { name: 'WingsFC', path: `/${locale}/case-studies/wingsfc` },
+        { name: 'Dolcezza', path: `/${locale}/case-studies/dolcezza` },
+        { name: 'La Birra Bar', path: `/${locale}/case-studies/la-birra-bar` }
       ] 
     },
-    { name: locale === 'es' ? 'Precios' : 'Pricing', path: `/${locale}/pricing` },
+    { id: 'pricing', name: locale === 'es' ? 'Precios' : 'Pricing', path: `/${locale}/pricing` },
     { 
-      name: locale === 'es' ? 'Nosotros' : 'About Us', 
+      id: 'company',
+      name: locale === 'es' ? 'Compañía' : 'Company', 
       path: `/${locale}/about`,
       hasDropdown: true,
       dropdownItems: [
         { name: locale === 'es' ? 'Nuestra Historia' : 'Our Story', path: `/${locale}/about` },
+        { name: locale === 'es' ? 'Partners' : 'Partners', path: `/${locale}/partners` },
         { name: locale === 'es' ? 'Contacto' : 'Contact', path: `/${locale}/contact` }
       ]
     },
-    { name: 'Blog', path: 'https://blog.rayapp.io/?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-blog' }
+    { id: 'blog', name: 'Blog', path: 'https://blog.rayapp.io/?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-blog' }
   ]
 
   const toggleMenu = () => {
@@ -214,7 +237,9 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
   const closeMenu = () => {
     setIsMenuOpen(false)
     setOpenDropdown(null)
+    setIsLanguageDropdownOpen(false)
   }
+
 
   const handleScanClick = () => {
     // Analytics tracking
@@ -236,6 +261,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
       
       if (!isInsideMenu) {
         setOpenDropdown(null)
+        setIsLanguageDropdownOpen(false)
       }
     }
 
@@ -287,7 +313,11 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                 {item.hasDropdown ? (
                   <div>
                     <button
-                      onClick={() => handleDropdownClick(item.name)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleDropdownClick(item.name);
+                      }}
                       onKeyDown={(e) => handleKeyDown(e, item.name, true)}
                       className={`text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md ${
                         pathname === item.path || 
@@ -328,16 +358,8 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                   role="menuitem"
                                   data-analytics="nav"
                                 >
-                                  <div className="flex-shrink-0 text-2xl">
-                                    {productItem.icon === 'whatsapp' ? (
-                                      <img 
-                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
-                                        alt="WhatsApp" 
-                                        className="w-7 h-7"
-                                      />
-                                    ) : (
-                                      productItem.icon
-                                    )}
+                                  <div className="flex-shrink-0 text-gray-600">
+                                    <productItem.icon className="w-6 h-6" />
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <div className="text-sm font-medium text-gray-900 group-hover:text-ray-blue">
@@ -403,27 +425,55 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
             {/* Language Switcher */}
-            <div className="flex items-center space-x-1 border border-gray-300 rounded-md">
+            <div className="relative">
               <button
-                onClick={() => switchLanguage('es')}
-                className={`px-2 py-1 text-xs font-medium rounded-l-md transition-colors ${
-                  locale === 'es' 
-                    ? 'bg-ray-blue text-white' 
-                    : 'text-gray-600 hover:text-ray-blue hover:bg-gray-50'
-                }`}
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2"
+                aria-expanded={isLanguageDropdownOpen}
+                aria-haspopup="true"
               >
-                ES
+{locale === 'es' ? '🇪🇸' : '🇺🇸'}
+                <span className="text-xs font-medium">{locale === 'es' ? 'ES' : 'EN'}</span>
+                <svg
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    isLanguageDropdownOpen ? 'rotate-180' : ''
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-              <button
-                onClick={() => switchLanguage('en')}
-                className={`px-2 py-1 text-xs font-medium rounded-r-md transition-colors ${
-                  locale === 'en' 
-                    ? 'bg-ray-blue text-white' 
-                    : 'text-gray-600 hover:text-ray-blue hover:bg-gray-50'
-                }`}
-              >
-                EN
-              </button>
+              
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
+                  <button
+                    onClick={() => {
+                      switchLanguage('es')
+                      setIsLanguageDropdownOpen(false)
+                    }}
+                    className={`w-full text-left px-4 py-2 text-sm flex items-center space-x-3 hover:bg-gray-50 transition-colors ${
+                      locale === 'es' ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
+                    }`}
+                  >
+                    <span className="text-lg">🇪🇸</span>
+                    <span>Español</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      switchLanguage('en')
+                      setIsLanguageDropdownOpen(false)
+                    }}
+                    className={`w-full text-left px-4 py-2 text-sm flex items-center space-x-3 hover:bg-gray-50 transition-colors ${
+                      locale === 'en' ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
+                    }`}
+                  >
+                    <span className="text-lg">🇺🇸</span>
+                    <span>English</span>
+                  </button>
+                </div>
+              )}
             </div>
             
             <Button
@@ -449,8 +499,60 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
+          {/* Mobile menu button and actions */}
+          <div className="lg:hidden flex items-center space-x-4">
+            {/* Language Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                className="flex items-center space-x-1 px-2 py-1.5 text-sm font-medium text-gray-700 hover:text-ray-blue rounded-md transition-colors duration-200"
+                aria-expanded={isLanguageDropdownOpen}
+                aria-haspopup="true"
+              >
+                <span className="text-base">{locale === 'es' ? '🇪🇸' : '🇺🇸'}</span>
+                <svg
+                  className={`w-3 h-3 transition-transform duration-200 ${
+                    isLanguageDropdownOpen ? 'rotate-180' : ''
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
+                  <button
+                    onClick={() => {
+                      switchLanguage('es')
+                      setIsLanguageDropdownOpen(false)
+                    }}
+                    className={`w-full text-left px-3 py-2 text-sm flex items-center space-x-2 hover:bg-gray-50 transition-colors ${
+                      locale === 'es' ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
+                    }`}
+                  >
+                    <span className="text-base">🇪🇸</span>
+                    <span>ES</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      switchLanguage('en')
+                      setIsLanguageDropdownOpen(false)
+                    }}
+                    className={`w-full text-left px-3 py-2 text-sm flex items-center space-x-2 hover:bg-gray-50 transition-colors ${
+                      locale === 'en' ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
+                    }`}
+                  >
+                    <span className="text-base">🇺🇸</span>
+                    <span>EN</span>
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile menu toggle */}
             <button
               onClick={toggleMenu}
               className="text-gray-700 hover:text-ray-blue focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md p-2"
@@ -472,86 +574,26 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div id="mobile-menu" className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-              {/* Actions Block */}
-              <div className="mb-4 pb-4 border-b border-gray-200">
-                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 px-3">
-                  {locale === 'es' ? 'Idioma' : 'Language'}
-                </div>
-                <div className="px-3 mb-4">
-                  <div className="flex items-center space-x-1 border border-gray-300 rounded-md">
-                    <button
-                      onClick={() => switchLanguage('es')}
-                      className={`px-3 py-2 text-sm font-medium rounded-l-md transition-colors flex-1 ${
-                        locale === 'es' 
-                          ? 'bg-ray-blue text-white' 
-                          : 'text-gray-600 hover:text-ray-blue hover:bg-gray-50'
-                      }`}
-                    >
-                      Español
-                    </button>
-                    <button
-                      onClick={() => switchLanguage('en')}
-                      className={`px-3 py-2 text-sm font-medium rounded-r-md transition-colors flex-1 ${
-                        locale === 'en' 
-                          ? 'bg-ray-blue text-white' 
-                          : 'text-gray-600 hover:text-ray-blue hover:bg-gray-50'
-                      }`}
-                    >
-                      English
-                    </button>
-                  </div>
-                </div>
-                
-                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 px-3">
-                  {locale === 'es' ? 'Acciones' : 'Actions'}
-                </div>
-                <div className="space-y-2">
-                  <Button
-                    variant="ghost"
-                    size="md"
-                    href={`/${locale}/demo?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile-demo`}
-                    className="w-full justify-start"
-                    data-analytics="nav"
-                    aria-label="Get a demo of RAY's restaurant marketing platform"
-                    onClick={closeMenu}
-                  >
-                    {t.CTA.GET_FREE_DEMO}
-                  </Button>
-                  <Button
-                    variant="primary"
-                    size="md"
-                    href="https://grader.rayapp.io/?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile"
-                    external={true}
-                    className="w-full"
-                    data-cta="grader"
-                    data-analytics="nav"
-                    aria-label="Scan your restaurant - run a free 60-second audit to see how RAY can help"
-                    onClick={() => {
-                      handleScanClick()
-                      closeMenu()
-                    }}
-                  >
-                    {t.CTA.GRADE_RESTAURANT}
-                  </Button>
-                </div>
-              </div>
-
+            <div className="px-4 pt-4 pb-3 space-y-1 bg-white border-t border-gray-200">
               {/* Navigation Items */}
               {menuItems.map((item) => (
-                <div key={item.name}>
+                <div key={item.id || item.name}>
                   {item.hasDropdown ? (
                     <div>
                       <button
-                        onClick={() => handleDropdownClick(item.name)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleDropdownClick(item.id || item.name);
+                        }}
                         className="w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 flex items-center justify-between min-h-[44px]"
-                        aria-expanded={openDropdown === item.name}
+                        aria-expanded={openDropdown === (item.id || item.name)}
                         data-analytics="nav"
                       >
                         {item.name}
                         <svg
                           className={`h-4 w-4 transition-transform duration-200 ${
-                            openDropdown === item.name ? 'rotate-180' : ''
+                            openDropdown === (item.id || item.name) ? 'rotate-180' : ''
                           }`}
                           fill="none"
                           stroke="currentColor"
@@ -560,7 +602,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </button>
-                      {openDropdown === item.name && (
+                      {openDropdown === (item.id || item.name) && (
                         <div className="pl-4 mt-1 space-y-1">
                           {item.productItems ? (
                             item.productItems.map((productItem) => (
@@ -568,11 +610,11 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                 key={productItem.name}
                                 href={productItem.path}
                                 className="flex items-start space-x-3 px-3 py-3 text-sm font-medium text-gray-600 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px]"
-                                onClick={closeMenu}
                                 data-analytics="nav"
+                                onClick={closeMenu}
                               >
-                                <div className="flex-shrink-0 text-lg">
-                                  {productItem.icon}
+                                <div className="flex-shrink-0 text-gray-600">
+                                  <productItem.icon className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                   <div className="text-sm font-medium text-gray-900">
@@ -590,8 +632,8 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                 key={dropdownItem.name}
                                 href={dropdownItem.path}
                                 className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
-                                onClick={closeMenu}
                                 data-analytics="nav"
+                                onClick={closeMenu}
                               >
                                 {dropdownItem.name}
                               </Link>
@@ -607,9 +649,9 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center"
-                        onClick={closeMenu}
                         data-analytics="nav"
-                       aria-label={`Visit ${item.name} - opens in new tab`}
+                        aria-label={`Visit ${item.name} - opens in new tab`}
+                        onClick={closeMenu}
                       >
                         {item.name}
                       </a>
@@ -619,8 +661,8 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                         className={`block px-3 py-2 text-base font-medium hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 min-h-[44px] flex items-center ${
                           pathname === item.path ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
                         }`}
-                        onClick={closeMenu}
                         data-analytics="nav"
+                        onClick={closeMenu}
                       >
                         {item.name}
                       </Link>
@@ -628,6 +670,37 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                   )}
                 </div>
               ))}
+
+              {/* Action Buttons at Bottom */}
+              <div className="pt-4 mt-4 border-t border-gray-200 space-y-2">
+                <Button
+                  variant="ghost"
+                  size="md"
+                  href={`/${locale}/demo?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile-demo`}
+                  className="w-full justify-center"
+                  data-analytics="nav"
+                  aria-label="Get a demo of RAY's restaurant marketing platform"
+                  onClick={closeMenu}
+                >
+                  {t.CTA.GET_FREE_DEMO}
+                </Button>
+                <Button
+                  variant="primary"
+                  size="md"
+                  href="https://grader.rayapp.io/?utm_source=header&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=nav-mobile"
+                  external={true}
+                  className="w-full justify-center"
+                  data-cta="grader"
+                  data-analytics="nav"
+                  aria-label="Scan your restaurant - run a free 60-second audit to see how RAY can help"
+                  onClick={() => {
+                    handleScanClick()
+                    closeMenu()
+                  }}
+                >
+                  {t.CTA.GRADE_RESTAURANT}
+                </Button>
+              </div>
             </div>
           </div>
         )}

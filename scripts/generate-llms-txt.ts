@@ -59,7 +59,6 @@ function getPageDescriptions(): PageInfo[] {
   const productPages = getProductPages()
   const productDescriptions: Record<string, string> = {
     'restaurant-website-ai': 'AI-powered restaurant website builder that creates SEO-optimized websites designed to rank on Google and convert visitors into customers.',
-    'automated-marketing': 'Automated restaurant marketing that drives more walk-ins through Google Maps optimization, review management, and local SEO.',
     'zero-commission-delivery': 'Zero-commission delivery platform with top-rated drivers at flat rates. Keep 100% of your delivery profits.',
     'online-orders': 'Commission-free online ordering system integrated with your POS. Accept orders directly from your website and mobile app.',
     'branded-apps': 'Custom-branded mobile apps for iOS and Android. Build customer loyalty with your own restaurant app.',

@@ -1,5 +1,5 @@
 import { COPY } from '@/constants/copy'
-import { type Locale } from '@/lib/i18n'
+import { type Locale, defaultLocale } from '@/lib/i18n'
 
 /**
  * Hook to get translations for the current locale
@@ -7,6 +7,10 @@ import { type Locale } from '@/lib/i18n'
  * @returns Translation object for the specified locale
  */
 export function useTranslations(locale: Locale) {
+  if (!locale || !COPY[locale]) {
+    console.error(`Invalid locale: ${locale}. Falling back to default locale.`)
+    return COPY[defaultLocale]
+  }
   return COPY[locale]
 }
 
@@ -16,5 +20,9 @@ export function useTranslations(locale: Locale) {
  * @returns Translation object for the specified locale
  */
 export function getTranslations(locale: Locale) {
+  if (!locale || !COPY[locale]) {
+    console.error(`Invalid locale: ${locale}. Falling back to default locale.`)
+    return COPY[defaultLocale]
+  }
   return COPY[locale]
 }

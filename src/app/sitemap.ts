@@ -45,7 +45,7 @@ function getProductPages(): string[] {
     console.warn('Product directory not found, using fallback routes')
     return [
       'restaurant-website-ai',
-      'automated-marketing', 
+      'walk-ins', 
       'zero-commission-delivery',
       'online-orders',
       'branded-apps',

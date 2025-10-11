@@ -79,7 +79,7 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
                   data-analytics="online_orders_hero"
                   aria-label="Get a free demo"
                 >
-                  {locale === 'es' ? 'Obtén una demo gratis' : 'Get a free demo'}
+                  {locale === 'es' ? 'Agenda una Demo' : 'Get a free demo'}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 
@@ -139,98 +139,121 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-              {locale === 'es' ? 'Todo lo que necesitas para pedidos online exitosos' : 'Everything you need for successful online orders'}
-            </h2>
-            <p className="text-xl text-ray-darkGray max-w-3xl mx-auto leading-relaxed">
-              {locale === 'es' ? 'Plataforma completa que convierte visitantes en clientes leales con experiencias de pedido optimizadas.' : 'Complete platform that converts visitors into loyal customers with optimized ordering experiences.'}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <Card className="text-center hover:shadow-xl transition-shadow duration-300 p-8">
-              <div className="w-16 h-16 bg-gradient-to-r from-ray-blue to-ray-green rounded-xl flex items-center justify-center mx-auto mb-6">
-                <Globe className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
-                {locale === 'es' ? 'Sitio Web Optimizado' : 'Optimized Website'}
-              </h3>
-              <p className="text-ray-darkGray mb-6 leading-relaxed">
-                {locale === 'es' ? 'Sitio web de pedidos rápido y móvil-optimizado que convierte visitantes en pedidos.' : 'Fast, mobile-optimized ordering website that converts visitors into orders.'}
+      <section className="py-20 relative overflow-hidden min-h-[600px] flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/online-ordering/fondo-online-ordering-03.jpg"
+            alt="Restaurant online ordering background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[65%_35%] gap-16 items-center">
+            {/* Left side - Title and description */}
+            <div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                {locale === 'es' ? 'Todo lo que necesitas para pedidos online exitosos' : 'Everything you need for successful online orders'}
+              </h2>
+              <p className="text-xl text-white/90 leading-relaxed">
+                {locale === 'es' ? 'Plataforma completa que convierte visitantes en clientes leales con experiencias de pedido optimizadas.' : 'Complete platform that converts visitors into loyal customers with optimized ordering experiences.'}
               </p>
-              <ul className="text-left space-y-3">
-                <li className="flex items-start text-sm text-ray-dark-700">
-                  <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
-                  {locale === 'es' ? 'Diseño responsive para móvil' : 'Mobile-responsive design'}
-                </li>
-                <li className="flex items-start text-sm text-ray-dark-700">
-                  <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
-                  {locale === 'es' ? 'Checkout optimizado' : 'Optimized checkout flow'}
-                </li>
-                <li className="flex items-start text-sm text-ray-dark-700">
-                  <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
-                  {locale === 'es' ? 'SEO y velocidad optimizada' : 'SEO and speed optimized'}
-                </li>
-              </ul>
-            </Card>
+            </div>
+            
+            {/* Right side - Features in column */}
+            <div className="space-y-8">
+              {/* Feature 1 */}
+              <div className="flex items-start space-x-4 group">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                  <Globe className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {locale === 'es' ? 'Sitio Web Optimizado' : 'Optimized Website'}
+                  </h3>
+                  <p className="text-white/90 mb-3 leading-relaxed text-sm">
+                    {locale === 'es' ? 'Sitio web de pedidos rápido y móvil-optimizado que convierte visitantes en pedidos.' : 'Fast, mobile-optimized ordering website that converts visitors into orders.'}
+                  </p>
+                  <ul className="space-y-1">
+                    <li className="flex items-start text-xs text-white/80">
+                      <CheckCircle className="w-3 h-3 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                      {locale === 'es' ? 'Diseño responsive para móvil' : 'Mobile-responsive design'}
+                    </li>
+                    <li className="flex items-start text-xs text-white/80">
+                      <CheckCircle className="w-3 h-3 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                      {locale === 'es' ? 'Checkout optimizado' : 'Optimized checkout flow'}
+                    </li>
+                    <li className="flex items-start text-xs text-white/80">
+                      <CheckCircle className="w-3 h-3 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                      {locale === 'es' ? 'SEO y velocidad optimizada' : 'SEO and speed optimized'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-            {/* Feature 2 */}
-            <Card className="text-center hover:shadow-xl transition-shadow duration-300 p-8">
-              <div className="w-16 h-16 bg-gradient-to-r from-ray-green to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <Smartphone className="w-8 h-8 text-white" />
+              {/* Feature 2 */}
+              <div className="flex items-start space-x-4 group">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                  <Smartphone className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {locale === 'es' ? 'App Móvil Personalizada' : 'Custom Mobile App'}
+                  </h3>
+                  <p className="text-white/90 mb-3 leading-relaxed text-sm">
+                    {locale === 'es' ? 'App móvil con tu marca que impulsa pedidos repetidos y lealtad de clientes.' : 'Branded mobile app that drives repeat orders and customer loyalty.'}
+                  </p>
+                  <ul className="space-y-1">
+                    <li className="flex items-start text-xs text-white/80">
+                      <CheckCircle className="w-3 h-3 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                      {locale === 'es' ? 'Notificaciones push' : 'Push notifications'}
+                    </li>
+                    <li className="flex items-start text-xs text-white/80">
+                      <CheckCircle className="w-3 h-3 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                      {locale === 'es' ? 'Programa de lealtad integrado' : 'Built-in loyalty program'}
+                    </li>
+                    <li className="flex items-start text-xs text-white/80">
+                      <CheckCircle className="w-3 h-3 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                      {locale === 'es' ? 'Pedidos offline' : 'Offline ordering'}
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
-                {locale === 'es' ? 'App Móvil Personalizada' : 'Custom Mobile App'}
-              </h3>
-              <p className="text-ray-darkGray mb-6 leading-relaxed">
-                {locale === 'es' ? 'App móvil con tu marca que impulsa pedidos repetidos y lealtad de clientes.' : 'Branded mobile app that drives repeat orders and customer loyalty.'}
-              </p>
-              <ul className="text-left space-y-3">
-                <li className="flex items-start text-sm text-ray-dark-700">
-                  <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
-                  {locale === 'es' ? 'Notificaciones push' : 'Push notifications'}
-                </li>
-                <li className="flex items-start text-sm text-ray-dark-700">
-                  <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
-                  {locale === 'es' ? 'Programa de lealtad integrado' : 'Built-in loyalty program'}
-                </li>
-                <li className="flex items-start text-sm text-ray-dark-700">
-                  <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
-                  {locale === 'es' ? 'Pedidos offline' : 'Offline ordering'}
-                </li>
-              </ul>
-            </Card>
 
-            {/* Feature 3 */}
-            <Card className="text-center hover:shadow-xl transition-shadow duration-300 p-8">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <BarChart3 className="w-8 h-8 text-white" />
+              {/* Feature 3 */}
+              <div className="flex items-start space-x-4 group">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                  <BarChart3 className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {locale === 'es' ? 'Análisis y Datos' : 'Analytics & Data'}
+                  </h3>
+                  <p className="text-white/90 mb-3 leading-relaxed text-sm">
+                    {locale === 'es' ? 'Insights detallados de clientes y ventas para optimizar tu negocio.' : 'Detailed customer and sales insights to optimize your business.'}
+                  </p>
+                  <ul className="space-y-1">
+                    <li className="flex items-start text-xs text-white/80">
+                      <CheckCircle className="w-3 h-3 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                      {locale === 'es' ? 'Dashboard en tiempo real' : 'Real-time dashboard'}
+                    </li>
+                    <li className="flex items-start text-xs text-white/80">
+                      <CheckCircle className="w-3 h-3 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                      {locale === 'es' ? 'Reportes de ventas' : 'Sales reporting'}
+                    </li>
+                    <li className="flex items-start text-xs text-white/80">
+                      <CheckCircle className="w-3 h-3 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
+                      {locale === 'es' ? 'Análisis de comportamiento' : 'Behavior analytics'}
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
-                {locale === 'es' ? 'Análisis y Datos' : 'Analytics & Data'}
-              </h3>
-              <p className="text-ray-darkGray mb-6 leading-relaxed">
-                {locale === 'es' ? 'Insights detallados de clientes y ventas para optimizar tu negocio.' : 'Detailed customer and sales insights to optimize your business.'}
-              </p>
-              <ul className="text-left space-y-3">
-                <li className="flex items-start text-sm text-ray-dark-700">
-                  <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
-                  {locale === 'es' ? 'Dashboard en tiempo real' : 'Real-time dashboard'}
-                </li>
-                <li className="flex items-start text-sm text-ray-dark-700">
-                  <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
-                  {locale === 'es' ? 'Reportes de ventas' : 'Sales reporting'}
-                </li>
-                <li className="flex items-start text-sm text-ray-dark-700">
-                  <CheckCircle className="w-4 h-4 text-ray-green mr-2 mt-0.5 flex-shrink-0" />
-                  {locale === 'es' ? 'Análisis de comportamiento' : 'Behavior analytics'}
-                </li>
-              </ul>
-            </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -309,70 +332,6 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
         </div>
       </section>
 
-      {/* Marketing Guides Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-              {locale === 'es' ? 'Impulsa más pedidos directos con nuestras mejores guías' : 'Drive more direct orders with our best guides'}
-            </h2>
-            <Button 
-              variant="primary"
-              href="https://blog.rayapp.io/?utm_source=online-orders-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=guides"
-              external={true}
-            >
-              {locale === 'es' ? 'Leer el blog' : 'Read the blog'}
-            </Button>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Guide 1 */}
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                      <div className="w-0 h-0 border-l-[12px] border-l-white border-y-[8px] border-y-transparent ml-1"></div>
-                    </div>
-                    <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium mb-2">
-                      {locale === 'es' ? 'DOORDASH' : 'DOORDASH'}
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-black/60 backdrop-blur-sm rounded-lg p-3">
-                    <p className="text-white text-sm font-medium">
-                      {locale === 'es' ? 'Evita Los 7 Errores Online Que Lastiman Las Ventas De Tu Restaurante' : 'Avoid The 7 Online Mistakes That Hurt Your Restaurant\'s Sales'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-            
-            {/* Guide 2 */}
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="aspect-video bg-gradient-to-br from-orange-500 to-red-600 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                      <div className="w-0 h-0 border-l-[12px] border-l-white border-y-[8px] border-y-transparent ml-1"></div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-black/60 backdrop-blur-sm rounded-lg p-3">
-                    <p className="text-white text-sm font-medium">
-                      {locale === 'es' ? 'Cómo Obtener Más Resultados De Tu Sistema De Pedidos Online' : 'How To Get More Results From Your Online Ordering System'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section className="py-24 bg-gray-50">
