@@ -63,6 +63,23 @@
     font-display: optional;
   }
 
+  /* Only apply overflow-x hidden on mobile to prevent horizontal scroll */
+  @media (max-width: 768px) {
+    html, body {
+      overflow-x: hidden;
+    }
+  }
+
+  /* Simple overflow prevention */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Apply max-width to media elements to prevent overflow */
+  img, video, iframe, object, embed, canvas {
+    max-width: 100%;
+  }
+
 
   *:focus-visible {
     outline: 2px solid #0D79E5;
@@ -276,5 +293,24 @@
   }
   #ray-widget .ray-widget-button-arrow {
     font-size: 18px !important;
+  }
+}
+
+/* Simple mobile overflow prevention */
+@media (max-width: 640px) {
+  /* Ensure RAY widget stays within bounds and is perfectly centered */
+  #ray-widget {
+    max-width: calc(100vw - 1.5rem) !important;
+  }
+  
+  /* Handle scaled image overflow */
+  .scale-\[1\.90\] {
+    transform: scale(1.6) !important;
+    transform-origin: center !important;
+  }
+  
+  /* Extra protection for Hero section */
+  .relative.flex.justify-center.lg\:justify-end {
+    overflow-x: visible !important;
   }
 }

@@ -431,7 +431,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                 aria-expanded={isLanguageDropdownOpen}
                 aria-haspopup="true"
               >
-{locale === 'es' ? '🇪🇸' : '🇺🇸'}
                 <span className="text-xs font-medium">{locale === 'es' ? 'ES' : 'EN'}</span>
                 <svg
                   className={`w-4 h-4 transition-transform duration-200 ${
