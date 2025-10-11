@@ -35,10 +35,11 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
             // Find elements containing "Compare" text and make them smaller
             const allElements = widgetContainer.querySelectorAll('*')
             allElements.forEach((element: Element) => {
-              const text = (element.textContent ?? '') as string
-              if (text.indexOf('Compare yourself with your local competition') !== -1) {
-                (element as HTMLElement).style.fontSize = '0.7rem'
-                (element as HTMLElement).style.lineHeight = '1.1'
+              const textContent = element.textContent
+              if (textContent && String(textContent).includes('Compare yourself with your local competition')) {
+                const htmlElement = element as HTMLElement
+                htmlElement.style.fontSize = '0.7rem'
+                htmlElement.style.lineHeight = '1.1'
               }
             })
           }
