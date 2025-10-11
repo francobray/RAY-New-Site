@@ -51,6 +51,7 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ locale }) => {
               width={621}
               height={414}
               className="rounded-2xl shadow-2xl mx-auto"
+              style={{ width: 'auto', height: 'auto' }}
               priority
             />
           </div>

@@ -69,7 +69,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
 
   return (
     <html lang={locale}>
-      <body>
+      <body className="antialiased">
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P"></script>
         <script
