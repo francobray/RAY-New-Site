@@ -159,15 +159,6 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
               </li>
               <li>
                 <Link
-                  href={`/${locale}/product/ai-concierge`}
-                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label={locale === 'es' ? 'Página de Conserje IA' : 'AI Concierge product page'}
-                >
-                  {locale === 'es' ? 'Conserje IA' : 'AI Concierge'}
-                </Link>
-              </li>
-              <li>
-                <Link
                   href={`/${locale}/product/walk-ins`}
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
                   aria-label={locale === 'es' ? 'Página de Walk-Ins' : 'Walk-Ins product page'}

@@ -292,7 +292,7 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
             {locale === 'es' ? 'Haz crecer los re-pedidos con una app móvil' : 'Grow re-orders with a mobile app'}
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            {locale === 'es' ? 'Tu propia app móvil. Owner hace crecer tus pedidos repetidos con tu app móvil con marca.' : 'Your own mobile app. Owner grows your repeat orders with your branded mobile app.'}
+            {locale === 'es' ? 'Tu propia app móvil. RAY hace crecer tus pedidos repetidos con tu app móvil con marca.' : 'Your own mobile app. RAY grows your repeat orders with your branded mobile app.'}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -52,7 +52,6 @@ function getProductPages(): string[] {
       'loyalty',
       'direct-bookings',
       'walk-ins',
-      'ai-concierge',
       'whatsapp-delivery'
     ]
   }

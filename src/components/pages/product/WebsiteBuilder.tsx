@@ -151,7 +151,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
               </h1>
               
               <p className="text-xl text-ray-dark-700 mb-8 leading-relaxed max-w-xl">
-                {locale === 'es' ? 'Owner construye tu sitio web para impulsar ventas. Nuestro diseño comprobado genera tráfico de Google, optimiza aplicaciones de delivery y aloja tu competencia.' : 'Owner builds your website to drive sales. Our proven design grows Google traffic, optimizes delivery apps, and hosts your competition.'}
+                {locale === 'es' ? 'RAY construye tu sitio web para impulsar ventas. Nuestro diseño comprobado genera tráfico de Google, optimiza aplicaciones de delivery y aloja tu competencia.' : 'RAY builds your website to drive sales. Our proven design grows Google traffic, optimizes delivery apps, and hosts your competition.'}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
@@ -294,6 +294,77 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
                 />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Search Visibility Section */}
+      <section className="py-24 bg-gray-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(13,121,229,0.05),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(111,191,115,0.05),transparent_50%)]"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 bg-white backdrop-blur-sm rounded-full border border-gray-200 shadow-sm mb-6">
+              <Search className="w-4 h-4 mr-2 text-ray-blue" />
+              <span className="text-sm font-medium text-ray-dark-900">
+                {locale === 'es' ? 'Visibilidad en IA' : 'AI Visibility'}
+              </span>
+            </div>
+            
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 mb-6">
+              {locale === 'es' 
+                ? 'Logra que los buscadores de AI recomienden tu restaurante' 
+                : 'Make sure your restaurant is recommended by AI search engines'}
+            </h2>
+            <p className="text-xl text-ray-darkGray max-w-3xl mx-auto leading-relaxed">
+              {locale === 'es' 
+                ? 'Cuando los consumidores hambrientos buscan restaurantes cercanos en ChatGPT, Gemini o cualquier IA, tu restaurante aparece con información precisa y actualizada.' 
+                : 'When hungry consumers search for nearby restaurants on ChatGPT, Gemini, or any AI, your restaurant appears with accurate, up-to-date information.'}
+            </p>
+          </div>
+          
+          {/* AI Search Engines Grid */}
+          <div className="mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+              {[
+                { src: '/images/product-website/chatgpt.png', alt: 'ChatGPT', name: 'ChatGPT' },
+                { src: '/images/product-website/google-gemini-icon.webp', alt: 'Gemini', name: 'Gemini' },
+                { src: '/images/product-website/perplexity-ai-icon.webp', alt: 'Perplexity', name: 'Perplexity' },
+                { src: '/images/product-website/Claude-ai-logo.webp', alt: 'Claude', name: 'Claude' },
+                { src: '/images/product-website/Meta AI.png', alt: 'Meta AI', name: 'Meta AI' },
+                { src: '/images/product-website/images.png', alt: 'Grok', name: 'Grok' }
+              ].map((ai, index) => (
+                <div key={index} className="flex flex-col items-center space-y-3 group">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white backdrop-blur-sm rounded-2xl p-3 md:p-4 flex items-center justify-center border border-gray-200 group-hover:shadow-lg group-hover:scale-110 transition-all duration-300 shadow">
+                    <Image 
+                      src={ai.src}
+                      alt={ai.alt}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-sm font-medium text-ray-dark-900">{ai.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Call to Action */}
+          <div className="text-center mt-12">
+            <Button 
+              variant="primary" 
+              size="lg"
+              className="shadow-xl hover:shadow-2xl transition-all duration-300 group"
+              href={`/${locale}/demo?utm_source=website-builder-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=ai-visibility`}
+              data-cta="demo"
+              data-analytics="website_builder_ai_visibility"
+            >
+              {locale === 'es' ? 'Ver cómo funciona' : 'See how it works'}
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
           </div>
         </div>
       </section>
