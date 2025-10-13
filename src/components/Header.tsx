@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
   const languageDropdownMobileRef = useRef<HTMLDivElement>(null)
   const t = useTranslations(locale)
 
-  // Enhanced language switcher function using Next.js router
+  // Enhanced language switcher function using direct navigation
   const switchLanguage = (newLocale: Locale) => {
     if (!pathname) return
     
@@ -67,8 +67,8 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
     const pathWithoutLocale = segments.length > 0 ? `/${segments.join('/')}` : ''
     const newPath = `/${newLocale}${pathWithoutLocale}`
     
-    // Use Next.js router for smooth transition (no page reload)
-    router.push(newPath)
+    // Use direct window navigation for reliability
+    window.location.href = newPath
   }
 
   const menuItems: MenuItem[] = [
