@@ -87,7 +87,7 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
                             {locale === 'es' ? 'Detalles' : 'Details'}
                           </th>
                           <th className="px-4 py-3 text-right text-sm font-semibold text-ray-dark-900">
-                            {locale === 'es' ? 'Precio' : 'Price'}
+                            {locale === 'es' ? 'Precio (en USD)' : 'Price (in USD)'}
                           </th>
                         </tr>
                       </thead>
