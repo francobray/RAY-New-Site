@@ -59,12 +59,12 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {t.PRICING_PAGE.TIERS.map((tier: any) => (
               <div
                 key={tier.id}
                 className={`relative bg-white rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-xl ${
-                  tier.isPopular ? 'border-ray-blue scale-105' : 'border-gray-200'
+                  tier.isPopular ? 'border-ray-blue' : 'border-gray-200'
                 }`}
               >
                 {tier.isPopular && (
@@ -81,28 +81,70 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
                       {tier.name}
                     </h3>
                     <p className="text-ray-darkGray mb-6">{tier.description}</p>
-                    <div className="mb-6">
-                      <span className="text-4xl font-bold text-ray-dark-900">
-                        ${tier.price}
-                      </span>
-                      <span className="text-ray-darkGray ml-2">/month</span>
-                    </div>
                   </div>
 
-                  <div className="space-y-4 mb-8">
-                    {tier.features.map((feature: string, featureIndex: number) => (
-                      <div key={featureIndex} className="flex items-center">
-                        <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0" />
-                        <span className="text-ray-dark-700">{feature}</span>
-                      </div>
-                    ))}
+                  {/* Pricing Table */}
+                  <div className="mb-8 border border-gray-200 rounded-lg overflow-hidden">
+                    <table className="w-full">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-ray-dark-900">
+                            {locale === 'es' ? 'Detalles' : 'Details'}
+                          </th>
+                          <th className="px-4 py-3 text-right text-sm font-semibold text-ray-dark-900">
+                            {locale === 'es' ? 'Precio' : 'Price'}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200">
+                        <tr>
+                          <td className="px-4 py-3 text-sm text-ray-dark-700">
+                            {locale === 'es' ? 'Precio mensual por ubicación' : 'Monthly price per Location'}
+                          </td>
+                          <td className="px-4 py-3 text-sm font-semibold text-right text-ray-dark-900">
+                            ${tier.price}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-4 py-3 text-sm text-ray-dark-700">
+                            {locale === 'es' ? '% sobre pedidos' : '% on top of order'}
+                          </td>
+                          <td className="px-4 py-3 text-sm font-semibold text-right text-ray-dark-900">
+                            {tier.orderPercentage}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-4 py-3 text-sm text-ray-dark-700">
+                            {locale === 'es' ? 'Configuración única' : 'One time Setup Fee'}
+                          </td>
+                          <td className="px-4 py-3 text-sm font-semibold text-right text-ray-dark-900">
+                            {tier.setupFee}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Core Features */}
+                  <div className="mb-8">
+                    <h4 className="text-sm font-semibold text-ray-dark-900 mb-4 uppercase tracking-wider">
+                      {locale === 'es' ? 'Características Principales' : 'Core Features'}
+                    </h4>
+                    <div className="space-y-3">
+                      {tier.features.map((feature: string, featureIndex: number) => (
+                        <div key={featureIndex} className="flex items-start">
+                          <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-ray-dark-700 text-sm">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   <Button
                     variant={tier.isPopular ? 'primary' : 'secondary'}
                     size="lg"
                     className="w-full"
-                    href={tier.ctaDestination === 'grader' ? 'https://grader.rayapp.io' : '/demo'}
+                    href={tier.ctaDestination === 'grader' ? 'https://grader.rayapp.io' : `/${locale}/demo`}
                     onClick={() => handleCtaClick(tier)}
                     data-analytics={`pricing_${tier.id}_cta`}
                   >
