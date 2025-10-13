@@ -137,17 +137,19 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
     setSubmitStatus('idle')
 
     try {
-      // Send to Zapier webhook (same as demo page but different source)
-      const encodedBody = new URLSearchParams()
-      encodedBody.append('source', 'whatsapp-delivery-modal')
-      encodedBody.append('restaurantName', formData.restaurantName)
-      encodedBody.append('ownerName', formData.ownerName)
-      encodedBody.append('email', formData.email)
-      encodedBody.append('locale', locale)
-
-      const response = await fetch('https://hooks.zapier.com/hooks/catch/21332246/u5dmyac/', {
+      // Send data to our API route which forwards to Zapier
+      const response = await fetch('/api/submit-form', {
         method: 'POST',
-        body: encodedBody
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          source: 'whatsapp-delivery-modal',
+          restaurantName: formData.restaurantName,
+          ownerName: formData.ownerName,
+          email: formData.email,
+          locale: locale
+        })
       })
 
       if (response.ok) {

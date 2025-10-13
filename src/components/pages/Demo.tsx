@@ -111,16 +111,21 @@ const Demo = ({ locale }: DemoProps) => {
     }
     
     try {
-      // Send data to Zapier webhook (URL-encoded to avoid CORS preflight)
-      const encodedBody = new URLSearchParams()
-      Object.entries(formData).forEach(([key, value]) => {
-        encodedBody.append(key, String(value))
+      // Send data to our API route which forwards to Zapier
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          source: 'demo-page'
+        })
       })
 
-      await fetch('https://hooks.zapier.com/hooks/catch/21332246/u5dmyac/', {
-        method: 'POST',
-        body: encodedBody
-      })
+      if (!response.ok) {
+        throw new Error('Form submission failed')
+      }
       
       setSubmitStatus('success')
       
