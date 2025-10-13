@@ -68,6 +68,8 @@ jobs:
       - name: Deploy frontend
         run: |-
           sed -i "s|FRONTEND_IMAGE|${{ env.IMAGE_FRONTEND }}|" deployment.yaml
+          sed -i "s|<ZAPIER_WA_MODAL_WEBHOOK_URL>|${{ env.ZAPIER_WA_MODAL_WEBHOOK_URL }}|" deployment.yaml
+          sed -i "s|<ZAPIER_WEBHOOK_URL>|${{ env.ZAPIER_WEBHOOK_URL }}|" deployment.yaml
           #sed -i "s|<VITE_GOOGLE_MAPS_API_KEY>|${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}|" secrets.yaml
           #sed -i "s|<GOOGLE_PLACES_API_KEY>|${{ secrets.GOOGLE_PLACES_API_KEY }}|" secrets.yaml
           #sed -i "s|<OPENAI_API_KEY>|${{ secrets.OPENAI_API_KEY }}|" secrets.yaml
