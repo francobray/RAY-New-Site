@@ -38,7 +38,8 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              {t.PRICING_PAGE.HERO.TITLE}
+              {t.PRICING_PAGE.HERO.TITLE}{' '}
+              <span className="text-white">{t.PRICING_PAGE.HERO.TITLE_HIGHLIGHT}</span>
             </h1>
             <p className="text-xl sm:text-2xl text-white/90 mb-8 leading-relaxed">
               {t.PRICING_PAGE.HERO.SUBTITLE}
