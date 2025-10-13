@@ -33,15 +33,17 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-ray-blue to-ray-green text-white relative overflow-hidden">
+      <section className="py-8 bg-gradient-to-br from-ray-blue to-ray-green text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              {t.PRICING_PAGE.HERO.TITLE}{' '}
-              <span className="text-white">{t.PRICING_PAGE.HERO.TITLE_HIGHLIGHT}</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3">
+              {t.PRICING_PAGE.HERO.TITLE}
+              {t.PRICING_PAGE.HERO.TITLE_HIGHLIGHT && (
+                <>{' '}<span className="text-white">{t.PRICING_PAGE.HERO.TITLE_HIGHLIGHT}</span></>
+              )}
             </h1>
-            <p className="text-xl sm:text-2xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-white/90 leading-relaxed">
               {t.PRICING_PAGE.HERO.SUBTITLE}
             </p>
           </div>
@@ -49,16 +51,8 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
       </section>
 
       {/* Pricing Tiers */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="pt-10 pb-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-4">
-              {locale === 'es' ? 'Elige el plan perfecto para tu restaurante' : 'Choose the perfect plan for your restaurant'}
-            </h2>
-            <p className="text-xl text-ray-darkGray max-w-3xl mx-auto">
-              {locale === 'es' ? 'Planes flexibles que crecen contigo' : 'Flexible plans that grow with you'}
-            </p>
-          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {t.PRICING_PAGE.TIERS.map((tier: any) => (
@@ -76,16 +70,16 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
                   </div>
                 )}
 
-                <div className="p-8">
-                  <div className="text-center mb-8">
+                <div className="p-6">
+                  <div className="text-center mb-5">
                     <h3 className="text-2xl font-bold text-ray-dark-900 mb-2">
                       {tier.name}
                     </h3>
-                    <p className="text-ray-darkGray mb-6">{tier.description}</p>
+                    <p className="text-ray-darkGray mb-4">{tier.description}</p>
                   </div>
 
                   {/* Pricing Table */}
-                  <div className="mb-8 border border-gray-200 rounded-lg overflow-hidden">
+                  <div className="mb-5 border border-gray-200 rounded-lg overflow-hidden">
                     <table className="w-full">
                       <thead className="bg-gray-50">
                         <tr>
@@ -127,14 +121,14 @@ const PricingPageClient = ({ locale }: PricingPageClientProps) => {
                   </div>
 
                   {/* Core Features */}
-                  <div className="mb-8">
+                  <div className="mb-5">
                     <h4 className="text-sm font-semibold text-ray-dark-900 mb-4 uppercase tracking-wider">
                       {locale === 'es' ? 'Características Principales' : 'Core Features'}
                     </h4>
-                    <div className="space-y-3">
+                    <div className="grid grid-cols-2 gap-3">
                       {tier.features.map((feature: string, featureIndex: number) => (
                         <div key={featureIndex} className="flex items-start">
-                          <Check className="w-5 h-5 text-ray-green mr-3 flex-shrink-0 mt-0.5" />
+                          <Check className="w-5 h-5 text-ray-green mr-2 flex-shrink-0 mt-0.5" />
                           <span className="text-ray-dark-700 text-sm">{feature}</span>
                         </div>
                       ))}

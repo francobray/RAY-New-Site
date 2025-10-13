@@ -708,9 +708,9 @@ export const COPY: Record<Locale, any> = {
     PRICING_PAGE: {
       HERO: {
         BADGE: 'Precios Simples y Transparentes',
-        TITLE: 'Planes que crecen con',
-        TITLE_HIGHLIGHT: 'tu restaurante',
-        SUBTITLE: 'Elige el plan que se adapte a tus necesidades. Todos los planes incluyen nuestra plataforma comprobada para impulsar más visitas, pedidos y reservas.'
+        TITLE: 'Elige el plan perfecto para tu restaurante',
+        TITLE_HIGHLIGHT: '',
+        SUBTITLE: 'Planes flexibles que crecen contigo'
       },
       TIERS: [
         {
@@ -735,7 +735,7 @@ export const COPY: Record<Locale, any> = {
         },
         {
           id: 'ordering-premium',
-          name: 'Ordering Premium',
+          name: 'Direct Ordering & Bookings',
           tagline: 'Todo lo que necesitas para crecer',
           price: '350',
           priceDetail: '/mes por ubicación',
@@ -749,6 +749,7 @@ export const COPY: Record<Locale, any> = {
             'Reservas',
             'Delivery por WhatsApp (IA)',
             'Programa de lealtad',
+            'Gift Cards',
             'App móvil personalizada'
           ],
           excludedFeatures: [],
@@ -1980,9 +1981,9 @@ export const COPY: Record<Locale, any> = {
     PRICING_PAGE: {
       HERO: {
         BADGE: 'Simple, Transparent Pricing',
-        TITLE: 'Plans that grow with',
-        TITLE_HIGHLIGHT: 'your restaurant',
-        SUBTITLE: 'Choose the plan that fits your needs. All plans include our proven platform to drive more walk-ins, orders, and bookings.'
+        TITLE: 'Choose the perfect plan for your restaurant',
+        TITLE_HIGHLIGHT: '',
+        SUBTITLE: 'Flexible plans that grow with you'
       },
       TIERS: [
         {
@@ -2007,7 +2008,7 @@ export const COPY: Record<Locale, any> = {
         },
         {
           id: 'ordering-premium',
-          name: 'Ordering Premium',
+          name: 'Direct Ordering & Bookings',
           tagline: 'Everything you need to grow',
           price: '350',
           priceDetail: '/month per location',
@@ -2021,6 +2022,7 @@ export const COPY: Record<Locale, any> = {
             'Bookings',
             'WhatsApp delivery (AI)',
             'Loyalty',
+            'Gift Cards',
             'Mobile App'
           ],
           excludedFeatures: [],
