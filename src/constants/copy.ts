@@ -1259,7 +1259,7 @@ export const COPY: Record<Locale, any> = {
     // Company Info
     COMPANY: {
       NAME: 'RAY',
-      TAGLINE: 'Increase Restaurant Revenue',
+      TAGLINE: 'All in one sales platform for restaurant',
       DESCRIPTION: 'RAY is the #1 sales platform helping restaurant owners and operators attract more customers, grow revenue from walk-ins, orders, and bookings, and protect their reputation.',
       EMAIL: 'hello@rayapp.io',
       SUPPORT_EMAIL: 'support@rayapp.io'

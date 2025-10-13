@@ -46,6 +46,8 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
   const router = useRouter()
   const menuRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const dropdownTimeouts = useRef<{ [key: string]: number }>({})
+  const languageDropdownDesktopRef = useRef<HTMLDivElement>(null)
+  const languageDropdownMobileRef = useRef<HTMLDivElement>(null)
   const t = useTranslations(locale)
 
   // Enhanced language switcher function using Next.js router
@@ -53,7 +55,16 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
     if (!pathname) return
     
     // Remove current locale from path
-    const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/'
+    // Handle both /locale and /locale/path patterns
+    const segments = pathname.split('/').filter(Boolean)
+    
+    // If first segment is the current locale, remove it
+    if (segments[0] === locale) {
+      segments.shift()
+    }
+    
+    // Build new path with new locale
+    const pathWithoutLocale = segments.length > 0 ? `/${segments.join('/')}` : ''
     const newPath = `/${newLocale}${pathWithoutLocale}`
     
     // Use Next.js router for smooth transition (no page reload)
@@ -259,7 +270,12 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
         ref && ref.contains(target)
       ) || (target instanceof HTMLElement && target.closest('#mobile-menu'))
       
-      if (!isInsideMenu) {
+      // Check if click is inside language dropdown (desktop or mobile)
+      const isInsideLanguageDropdown = 
+        (languageDropdownDesktopRef.current && languageDropdownDesktopRef.current.contains(target)) ||
+        (languageDropdownMobileRef.current && languageDropdownMobileRef.current.contains(target))
+      
+      if (!isInsideMenu && !isInsideLanguageDropdown) {
         setOpenDropdown(null)
         setIsLanguageDropdownOpen(false)
       }
@@ -423,7 +439,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
             {/* Language Switcher */}
-            <div className="relative">
+            <div className="relative" ref={languageDropdownDesktopRef}>
               <button
                 onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
                 className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-ray-blue hover:bg-gray-50 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2"
@@ -499,7 +515,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           {/* Mobile menu button and actions */}
           <div className="lg:hidden flex items-center space-x-4">
             {/* Language Dropdown */}
-            <div className="relative">
+            <div className="relative" ref={languageDropdownMobileRef}>
               <button
                 onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
                 className="flex items-center space-x-1 px-2 py-1.5 text-sm font-medium text-gray-700 hover:text-ray-blue rounded-md transition-colors duration-200"
