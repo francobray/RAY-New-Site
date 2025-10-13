@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import Button from './shared/BaseButton'
 import { useTranslations } from '@/hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
@@ -43,7 +43,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
   const pathname = usePathname()
-  const router = useRouter()
   const menuRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   const dropdownTimeouts = useRef<{ [key: string]: number }>({})
   const languageDropdownDesktopRef = useRef<HTMLDivElement>(null)
