@@ -2,21 +2,39 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
   try {
-    // Get the Zapier webhook URL from environment variable
-    const zapierWebhookUrl = process.env.ZAPIER_WEBHOOK_URL
-    
-    if (!zapierWebhookUrl) {
-      console.error('ZAPIER_WEBHOOK_URL environment variable is not set')
-      return NextResponse.json(
-        { error: 'Configuration error' },
-        { status: 500 }
-      )
-    }
-
     // Parse the incoming request body
     const body = await request.json()
     
-    // Forward the data to Zapier webhook
+    // Determine which webhook URL to use based on the source
+    let zapierWebhookUrl: string | undefined
+    
+    if (body.source === 'whatsapp-delivery-modal') {
+      zapierWebhookUrl = process.env.ZAPIER_WA_MODAL_WEBHOOK_URL
+      if (!zapierWebhookUrl) {
+        console.error('ZAPIER_WA_MODAL_WEBHOOK_URL environment variable is not set')
+        return NextResponse.json(
+          { error: 'WhatsApp webhook configuration error' },
+          { status: 500 }
+        )
+      }
+    } else if (body.source === 'demo-page') {
+      zapierWebhookUrl = process.env.ZAPIER_DEMO_WEBHOOK_URL
+      if (!zapierWebhookUrl) {
+        console.error('ZAPIER_DEMO_WEBHOOK_URL environment variable is not set')
+        return NextResponse.json(
+          { error: 'Demo webhook configuration error' },
+          { status: 500 }
+        )
+      }
+    } else {
+      console.error('Invalid or missing source in request:', body.source)
+      return NextResponse.json(
+        { error: 'Invalid request source' },
+        { status: 400 }
+      )
+    }
+    
+    // Forward the data to the appropriate Zapier webhook
     const zapierResponse = await fetch(zapierWebhookUrl, {
       method: 'POST',
       headers: {
