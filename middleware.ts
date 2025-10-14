@@ -15,7 +15,7 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // --- 1) Skip i18n for “bot files” & static assets ---
+  // --- 1) Skip i18n for "bot files" & static assets ---
   // Add any other files you want to keep path-stable (e.g., /humans.txt, /security.txt)
   const skipPaths = [
     '/robots.txt',
@@ -27,6 +27,7 @@ export function middleware(request: NextRequest) {
     skipPaths.includes(pathname) ||
     pathname.startsWith('/_next/') ||
     pathname.startsWith('/api/') ||
+    pathname.startsWith('/cdn-cgi/') ||
     pathname.match(/\.(?:svg|png|jpg|jpeg|gif|webp|ico|txt|xml|json|css|js|map)$/)
 
   if (isSkipped) {
@@ -57,6 +58,6 @@ export function middleware(request: NextRequest) {
 // Using a matcher keeps this fast at the edge.
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|api|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest|images|fonts|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|txt|xml|json|css|js|map)$).*)',
+    '/((?!_next/static|_next/image|api|cdn-cgi|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest|images|fonts|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|txt|xml|json|css|js|map)$).*)',
   ],
 }
