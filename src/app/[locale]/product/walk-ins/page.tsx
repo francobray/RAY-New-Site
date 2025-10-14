@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: WalkInsPageProps): Promise<Me
       description: locale === 'es' ? 'Convierte búsquedas en Google Maps en visitas con la plataforma de marketing local impulsada por IA de RAY. Domina Google Maps, construye confianza a través de reseñas y aumenta el tráfico peatonal en un 47%.' : 'Turn searches into walk-ins with RAY\'s AI-powered local marketing platform. Dominate Google Maps, build trust through reviews, and drive 47% more foot traffic.',
     },
     alternates: {
-      canonical: 'https://rayapp.io/product/walk-ins',
+      canonical: `https://rayapp.io/${locale}/product/walk-ins`,
     },
   }
 }

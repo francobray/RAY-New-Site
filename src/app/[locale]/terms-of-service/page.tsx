@@ -1,12 +1,21 @@
 import { Metadata } from 'next'
+import { type Locale } from '@/lib/i18n'
 
-export const metadata: Metadata = {
-  title: 'Terms of Service - RAY',
-  description: "RAY's Terms of Service - Learn about the terms and conditions for using our restaurant marketing platform.",
-  robots: 'noindex, nofollow',
-  alternates: {
-    canonical: 'https://rayapp.io/terms-of-service',
-  },
+interface TermsPageProps {
+  params: { locale: Locale }
+}
+
+export async function generateMetadata({ params }: TermsPageProps): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
+    title: 'Terms of Service - RAY',
+    description: "RAY's Terms of Service - Learn about the terms and conditions for using our restaurant marketing platform.",
+    robots: 'noindex, nofollow',
+    alternates: {
+      canonical: `https://rayapp.io/${locale}/terms-of-service`,
+    },
+  }
 }
 
 export default function TermsOfServicePage() {

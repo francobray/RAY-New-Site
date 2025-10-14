@@ -51,7 +51,13 @@ npm run validate:all
 ### **Adding New Product Pages**
 1. Create a new directory in `src/app/[locale]/product/your-new-product/`
 2. Add a `page.tsx` file
-3. The sitemap will automatically include it on the next generation
+3. The sitemap will automatically include it on the next generation (build, commit, or manual run)
+
+### **Adding New Case Studies**
+1. Add your case study component to `src/components/pages/`
+2. Update the `caseStudyData` object in `src/app/[locale]/case-studies/[slug]/page.tsx`
+3. Add the slug to the `generateStaticParams()` function in the same file
+4. The sitemap will automatically include it - **no manual sitemap updates needed!**
 
 ### **Modifying Sitemap Structure**
 Edit `src/app/sitemap.ts` to:
@@ -68,13 +74,15 @@ Edit `scripts/validate-sitemap.ts` to:
 ## 📊 Current Sitemap Structure
 
 ```
-📈 Sitemap Summary (45 URLs):
+📈 Sitemap Summary (89 URLs):
 ├── Main pages: 3 (/, /es, /en)
 ├── Product pages: 20 (10 products × 2 languages)
 ├── Core pages: 10 (pricing, about, contact, etc. × 2 languages)
-├── Case studies: 4 (2 studies × 2 languages)
+├── Case studies: 48 (24 studies × 2 languages)
 └── Legal pages: 6 (privacy, terms, cookies × 2 languages)
 ```
+
+**✨ All sections are now fully automated and self-updating!**
 
 ## 🌐 SEO Benefits
 
@@ -86,13 +94,17 @@ Edit `scripts/validate-sitemap.ts` to:
 
 ## 🔄 Automation Triggers
 
-The sitemap automatically updates when:
+The sitemap **automatically** updates when:
 
-1. **New product pages** are added to `src/app/[locale]/product/`
-2. **Route structure changes** in the app directory
-3. **Git commits** that modify route-related files
-4. **CI/CD deployments** to production
-5. **Manual regeneration** via npm scripts
+1. ✅ **Build Process**: Every time you run `npm run build` (production deployments)
+2. ✅ **Pre-commit Hook**: Before every git commit that modifies routes or components
+3. ✅ **GitHub Actions**: When pushing to main branch with changes to `src/app/`, `public/`, or `scripts/`
+4. ✅ **Manual Regeneration**: Via `npm run sitemap:generate` command
+
+### What's Auto-Discovered:
+- 🔍 **Product Pages**: Scans `src/app/[locale]/product/` directory
+- 🔍 **Case Studies**: Reads from `generateStaticParams()` in case study page
+- 🔍 **Deleted Pages**: Automatically removed if folders/params are deleted
 
 ## 🛠️ Troubleshooting
 

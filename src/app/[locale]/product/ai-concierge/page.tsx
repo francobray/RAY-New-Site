@@ -8,21 +8,25 @@ interface AIConciergePageProps {
   params: { locale: Locale }
 }
 
-export const metadata: Metadata = {
-  title: 'WhatsApp Orders for Restaurants | RAY',
-  description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
-  openGraph: {
+export async function generateMetadata({ params }: AIConciergePageProps): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
     title: 'WhatsApp Orders for Restaurants | RAY',
     description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
-    url: 'https://rayapp.io/product/ai-concierge',
-  },
-  twitter: {
-    title: 'WhatsApp Orders for Restaurants | RAY',
-    description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
-  },
-  alternates: {
-    canonical: 'https://rayapp.io/product/ai-concierge',
-  },
+    openGraph: {
+      title: 'WhatsApp Orders for Restaurants | RAY',
+      description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
+      url: `https://rayapp.io/${locale}/product/ai-concierge`,
+    },
+    twitter: {
+      title: 'WhatsApp Orders for Restaurants | RAY',
+      description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
+    },
+    alternates: {
+      canonical: `https://rayapp.io/${locale}/product/ai-concierge`,
+    },
+  }
 }
 
 export default function AIConciergePage({ params }: AIConciergePageProps) {

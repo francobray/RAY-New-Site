@@ -1,12 +1,21 @@
 import { Metadata } from 'next'
+import { type Locale } from '@/lib/i18n'
 
-export const metadata: Metadata = {
-  title: 'Cookie Policy - RAY',
-  description: "RAY's Cookie Policy - Learn about how we use cookies and similar technologies on our website.",
-  robots: 'noindex, nofollow',
-  alternates: {
-    canonical: 'https://rayapp.io/cookie-policy',
-  },
+interface CookiePageProps {
+  params: { locale: Locale }
+}
+
+export async function generateMetadata({ params }: CookiePageProps): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
+    title: 'Cookie Policy - RAY',
+    description: "RAY's Cookie Policy - Learn about how we use cookies and similar technologies on our website.",
+    robots: 'noindex, nofollow',
+    alternates: {
+      canonical: `https://rayapp.io/${locale}/cookie-policy`,
+    },
+  }
 }
 
 export default function CookiePolicyPage() {

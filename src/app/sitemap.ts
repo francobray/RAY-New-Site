@@ -4,7 +4,7 @@ import path from 'path'
 import { type Locale } from '../lib/i18n'
 
 // Configuration
-const BASE_URL = 'https://www.rayapp.io'
+const BASE_URL = 'https://rayapp.io'
 const LOCALES: Locale[] = ['es', 'en']
 
 // Static routes that don't follow the [locale] pattern
@@ -27,34 +27,6 @@ const LEGAL_ROUTES = [
   { path: '/privacy-policy', priority: 0.3, changefreq: 'yearly' },
   { path: '/terms-of-service', priority: 0.3, changefreq: 'yearly' },
   { path: '/cookie-policy', priority: 0.3, changefreq: 'yearly' },
-]
-
-// Case studies (static data)
-const CASE_STUDIES = [
-  'chimba-miami',
-  'temple-craft-wynwood',
-  've-hospitality',
-  'green-eat',
-  'havanna',
-  'craft',
-  'wingsfc',
-  'dolcezza',
-  'la-birra-bar',
-  'almacen-de-pizzas',
-  'efes-mg-group',
-  'la-parolaccia',
-  'libertino-cafe',
-  'cerveza-patagonia',
-  'karne-garibaldi',
-  'la-guitarrita',
-  'le-pain-quotidien',
-  'la-panera-rosa',
-  'ninina',
-  'pasta-rossa',
-  'rapanui',
-  'tea-connection',
-  'tostado',
-  'ypf-full'
 ]
 
 /**
@@ -88,6 +60,52 @@ function getProductPages(): string[] {
   } catch (error) {
     console.warn('Error reading product directory:', error)
     return []
+  }
+}
+
+/**
+ * Dynamically discover case study pages from the case study page data
+ * This reads the generateStaticParams export to get all case study slugs
+ */
+async function getCaseStudies(): Promise<string[]> {
+  try {
+    // Import the case study page module
+    const caseStudyModule = await import('./[locale]/case-studies/[slug]/page')
+    
+    // Get the static params (which contain all slugs)
+    const params = await caseStudyModule.generateStaticParams()
+    
+    // Extract slugs from the params
+    return params.map((param: { slug: string }) => param.slug).sort()
+  } catch (error) {
+    console.warn('Error reading case studies from page module:', error)
+    // Fallback to hardcoded list if import fails
+    return [
+      'chimba-miami',
+      'temple-craft-wynwood',
+      've-hospitality',
+      'green-eat',
+      'havanna',
+      'craft',
+      'wingsfc',
+      'dolcezza',
+      'la-birra-bar',
+      'almacen-de-pizzas',
+      'efes-mg-group',
+      'la-parolaccia',
+      'libertino-cafe',
+      'cerveza-patagonia',
+      'karne-garibaldi',
+      'la-guitarrita',
+      'le-pain-quotidien',
+      'la-panera-rosa',
+      'ninina',
+      'pasta-rossa',
+      'rapanui',
+      'tea-connection',
+      'tostado',
+      'ypf-full'
+    ].sort()
   }
 }
 
@@ -131,7 +149,7 @@ function createLocalizedSitemapEntry(
 /**
  * Main sitemap generator
  */
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemap: MetadataRoute.Sitemap = []
   
   // Add static routes (root)
@@ -169,8 +187,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // Add case studies for each locale
-  CASE_STUDIES.forEach(study => {
+  // Add case studies for each locale (dynamically discovered)
+  const caseStudies = await getCaseStudies()
+  caseStudies.forEach(study => {
     LOCALES.forEach(locale => {
       sitemap.push(createLocalizedSitemapEntry(
         locale, 

@@ -158,7 +158,7 @@ const caseStudyData = {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = params
+  const { slug, locale } = params
   const caseStudy = caseStudyData[slug as keyof typeof caseStudyData]
   
   if (!caseStudy) {
@@ -174,14 +174,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: caseStudy.title,
       description: caseStudy.description,
-      url: `https://rayapp.io/case-studies/${slug}`,
+      url: `https://rayapp.io/${locale}/case-studies/${slug}`,
     },
     twitter: {
       title: caseStudy.title,
       description: caseStudy.description,
     },
     alternates: {
-      canonical: `https://rayapp.io/case-studies/${slug}`,
+      canonical: `https://rayapp.io/${locale}/case-studies/${slug}`,
     },
   }
 }

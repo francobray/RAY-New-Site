@@ -15,8 +15,8 @@ async function generateStaticSitemap() {
     // Import the sitemap function
     const { default: sitemapFunction } = await import('../src/app/sitemap')
     
-    // Generate sitemap data
-    const sitemapData = sitemapFunction()
+    // Generate sitemap data (await since it's now async)
+    const sitemapData = await sitemapFunction()
     
     // Convert to XML format
     const xmlContent = generateXMLSitemap(sitemapData)

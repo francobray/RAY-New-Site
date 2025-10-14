@@ -1,12 +1,21 @@
 import { Metadata } from 'next'
+import { type Locale } from '@/lib/i18n'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy - RAY',
-  description: "RAY's Privacy Policy - Learn how we collect, use, and protect your personal information.",
-  robots: 'noindex, nofollow',
-  alternates: {
-    canonical: 'https://rayapp.io/privacy-policy',
-  },
+interface PrivacyPageProps {
+  params: { locale: Locale }
+}
+
+export async function generateMetadata({ params }: PrivacyPageProps): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
+    title: 'Privacy Policy - RAY',
+    description: "RAY's Privacy Policy - Learn how we collect, use, and protect your personal information.",
+    robots: 'noindex, nofollow',
+    alternates: {
+      canonical: `https://rayapp.io/${locale}/privacy-policy`,
+    },
+  }
 }
 
 export default function PrivacyPolicyPage() {

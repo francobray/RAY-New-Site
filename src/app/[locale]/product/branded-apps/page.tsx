@@ -8,21 +8,25 @@ interface MobileAppPageProps {
   params: { locale: Locale }
 }
 
-export const metadata: Metadata = {
-  title: 'Mobile App for Restaurants | RAY',
-  description: 'Imagine having your own restaurant mobile app. With a mobile app, send customers order directly — instead of going to third parties.',
-  openGraph: {
+export async function generateMetadata({ params }: MobileAppPageProps): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
     title: 'Mobile App for Restaurants | RAY',
     description: 'Imagine having your own restaurant mobile app. With a mobile app, send customers order directly — instead of going to third parties.',
-    url: 'https://rayapp.io/product/branded-apps',
-  },
-  twitter: {
-    title: 'Mobile App for Restaurants | RAY',
-    description: 'Imagine having your own restaurant mobile app. With a mobile app, send customers order directly — instead of going to third parties.',
-  },
-  alternates: {
-    canonical: 'https://rayapp.io/product/branded-apps',
-  },
+    openGraph: {
+      title: 'Mobile App for Restaurants | RAY',
+      description: 'Imagine having your own restaurant mobile app. With a mobile app, send customers order directly — instead of going to third parties.',
+      url: `https://rayapp.io/${locale}/product/branded-apps`,
+    },
+    twitter: {
+      title: 'Mobile App for Restaurants | RAY',
+      description: 'Imagine having your own restaurant mobile app. With a mobile app, send customers order directly — instead of going to third parties.',
+    },
+    alternates: {
+      canonical: `https://rayapp.io/${locale}/product/branded-apps`,
+    },
+  }
 }
 
 export default function MobileAppPage({ params }: MobileAppPageProps) {

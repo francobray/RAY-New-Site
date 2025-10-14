@@ -6,21 +6,25 @@ interface WhatsAppDeliveryPageProps {
   params: { locale: Locale }
 }
 
-export const metadata: Metadata = {
-  title: 'WhatsApp Delivery for Restaurants | RAY',
-  description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
-  openGraph: {
+export async function generateMetadata({ params }: WhatsAppDeliveryPageProps): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
     title: 'WhatsApp Delivery for Restaurants | RAY',
     description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
-    url: 'https://rayapp.io/product/whatsapp-delivery',
-  },
-  twitter: {
-    title: 'WhatsApp Delivery for Restaurants | RAY',
-    description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
-  },
-  alternates: {
-    canonical: 'https://rayapp.io/product/whatsapp-delivery',
-  },
+    openGraph: {
+      title: 'WhatsApp Delivery for Restaurants | RAY',
+      description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
+      url: `https://rayapp.io/${locale}/product/whatsapp-delivery`,
+    },
+    twitter: {
+      title: 'WhatsApp Delivery for Restaurants | RAY',
+      description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
+    },
+    alternates: {
+      canonical: `https://rayapp.io/${locale}/product/whatsapp-delivery`,
+    },
+  }
 }
 
 export default function WhatsAppDeliveryPage({ params }: WhatsAppDeliveryPageProps) {

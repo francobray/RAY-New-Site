@@ -8,21 +8,25 @@ interface FeaturesPageProps {
   params: { locale: string }
 }
 
-export const metadata: Metadata = {
-  title: 'Features - Complete Restaurant Marketing Platform | RAY',
-  description: 'Discover all RAY features: Local SEO, review management, customer engagement, analytics, email marketing, and mobile optimization. Everything you need to grow your restaurant.',
-  openGraph: {
+export async function generateMetadata({ params }: FeaturesPageProps): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
     title: 'Features - Complete Restaurant Marketing Platform | RAY',
     description: 'Discover all RAY features: Local SEO, review management, customer engagement, analytics, email marketing, and mobile optimization. Everything you need to grow your restaurant.',
-    url: 'https://rayapp.io/features',
-  },
-  twitter: {
-    title: 'Features - Complete Restaurant Marketing Platform | RAY',
-    description: 'Discover all RAY features: Local SEO, review management, customer engagement, analytics, email marketing, and mobile optimization. Everything you need to grow your restaurant.',
-  },
-  alternates: {
-    canonical: 'https://rayapp.io/features',
-  },
+    openGraph: {
+      title: 'Features - Complete Restaurant Marketing Platform | RAY',
+      description: 'Discover all RAY features: Local SEO, review management, customer engagement, analytics, email marketing, and mobile optimization. Everything you need to grow your restaurant.',
+      url: `https://rayapp.io/${locale}/features`,
+    },
+    twitter: {
+      title: 'Features - Complete Restaurant Marketing Platform | RAY',
+      description: 'Discover all RAY features: Local SEO, review management, customer engagement, analytics, email marketing, and mobile optimization. Everything you need to grow your restaurant.',
+    },
+    alternates: {
+      canonical: `https://rayapp.io/${locale}/features`,
+    },
+  }
 }
 
 const features = [

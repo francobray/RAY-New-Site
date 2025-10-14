@@ -7,21 +7,25 @@ interface LoyaltyPageProps {
   params: { locale: Locale }
 }
 
-export const metadata: Metadata = {
-  title: 'Customer Loyalty Program for Restaurants | RAY',
-  description: 'Build customer loyalty with a rewards program like the national chains. Keep guests coming back for more with points, rewards, and personalized offers.',
-  openGraph: {
+export async function generateMetadata({ params }: LoyaltyPageProps): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
     title: 'Customer Loyalty Program for Restaurants | RAY',
     description: 'Build customer loyalty with a rewards program like the national chains. Keep guests coming back for more with points, rewards, and personalized offers.',
-    url: 'https://rayapp.io/product/loyalty',
-  },
-  twitter: {
-    title: 'Customer Loyalty Program for Restaurants | RAY',
-    description: 'Build customer loyalty with a rewards program like the national chains. Keep guests coming back for more with points, rewards, and personalized offers.',
-  },
-  alternates: {
-    canonical: 'https://rayapp.io/product/loyalty',
-  },
+    openGraph: {
+      title: 'Customer Loyalty Program for Restaurants | RAY',
+      description: 'Build customer loyalty with a rewards program like the national chains. Keep guests coming back for more with points, rewards, and personalized offers.',
+      url: `https://rayapp.io/${locale}/product/loyalty`,
+    },
+    twitter: {
+      title: 'Customer Loyalty Program for Restaurants | RAY',
+      description: 'Build customer loyalty with a rewards program like the national chains. Keep guests coming back for more with points, rewards, and personalized offers.',
+    },
+    alternates: {
+      canonical: `https://rayapp.io/${locale}/product/loyalty`,
+    },
+  }
 }
 
 export default function LoyaltyPage({ params }: LoyaltyPageProps) {

@@ -6,21 +6,25 @@ interface DemoPageProps {
   params: { locale: Locale }
 }
 
-export const metadata: Metadata = {
-  title: 'Free Demo - See RAY Restaurant Marketing Platform in Action | RAY',
-  description: 'Book a free demo of RAY\'s restaurant marketing platform. See how we help restaurants increase revenue by 30%+ through local SEO, reviews, and customer engagement.',
-  openGraph: {
+export async function generateMetadata({ params }: DemoPageProps): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
     title: 'Free Demo - See RAY Restaurant Marketing Platform in Action | RAY',
     description: 'Book a free demo of RAY\'s restaurant marketing platform. See how we help restaurants increase revenue by 30%+ through local SEO, reviews, and customer engagement.',
-    url: 'https://rayapp.io/demo',
-  },
-  twitter: {
-    title: 'Free Demo - See RAY Restaurant Marketing Platform in Action | RAY',
-    description: 'Book a free demo of RAY\'s restaurant marketing platform. See how we help restaurants increase revenue by 30%+ through local SEO, reviews, and customer engagement.',
-  },
-  alternates: {
-    canonical: 'https://rayapp.io/demo',
-  },
+    openGraph: {
+      title: 'Free Demo - See RAY Restaurant Marketing Platform in Action | RAY',
+      description: 'Book a free demo of RAY\'s restaurant marketing platform. See how we help restaurants increase revenue by 30%+ through local SEO, reviews, and customer engagement.',
+      url: `https://rayapp.io/${locale}/demo`,
+    },
+    twitter: {
+      title: 'Free Demo - See RAY Restaurant Marketing Platform in Action | RAY',
+      description: 'Book a free demo of RAY\'s restaurant marketing platform. See how we help restaurants increase revenue by 30%+ through local SEO, reviews, and customer engagement.',
+    },
+    alternates: {
+      canonical: `https://rayapp.io/${locale}/demo`,
+    },
+  }
 }
 
 export default function DemoPage({ params }: DemoPageProps) {

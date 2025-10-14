@@ -1,10 +1,10 @@
 {
   "name": "ray-restaurant-website",
-  "version": "2.6.8",
+  "version": "2.7.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run sitemap:generate && next build",
     "start": "next start",
     "lint": "next lint",
     "validate:fonts": "tsx scripts/font-validation.ts",
