@@ -112,7 +112,7 @@ const testimonials = [
     quote: 'Our Google Maps directions increased by 215%, and foot traffic grew by 46%. We\'ve never had so many new customers discovering us.',
     metric: '+215%',
     metricLabel: 'Google Maps visits',
-    image: '/images/Chimba_Miami_Celebrating.jpeg'
+    image: '/images/success-stories/Chimba_Miami_Celebrating.jpeg'
   }
 ]
 

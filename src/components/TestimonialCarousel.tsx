@@ -20,7 +20,7 @@ const customers = [
     title: 'CEO & Founder & CEO, Chef Burger',
     metric: '+$8,000/m',
     category: 'Online Sales',
-    image: '/images/Chef_burguer.jpeg',
+    image: '/images/success-stories/Chef_burguer.jpeg',
     bgColor: 'from-gray-800 to-gray-900'
   },
   {
@@ -30,7 +30,7 @@ const customers = [
     title: 'CEO - MKT Director, Green Eat Pro Connection',
     metric: 'x3 visits google',
     category: 'Online Sales',
-    image: '/images/Chimba_Miami_Celebrating.jpeg',
+    image: '/images/success-stories/Chimba_Miami_Celebrating.jpeg',
     bgColor: 'from-orange-600 to-orange-700'
   },
   {
@@ -40,7 +40,7 @@ const customers = [
     title: 'CEO - Temple Craft Wynwood',
     metric: '+$12,000/m',
     category: 'Online Sales',
-    image: '/images/Temple_Team.jpeg',
+    image: '/images/success-stories/Temple_Team.jpeg',
     bgColor: 'from-blue-600 to-blue-700'
   },
   {
@@ -50,7 +50,7 @@ const customers = [
     title: 'CEO - Chimba Miami',
     metric: '+$14,000/m',
     category: 'Online Sales',
-    image: '/images/Chimba_Miami_Celebrating.jpeg',
+    image: '/images/success-stories/Chimba_Miami_Celebrating.jpeg',
     bgColor: 'from-red-600 to-red-700'
   },
   {
@@ -60,7 +60,7 @@ const customers = [
     title: 'Co-Founder and co-CEO - Dolcezza',
     metric: '+$8,000/m',
     category: 'Online Sales',
-    image: '/images/Dolcezza.png',
+    image: '/images/success-stories/Dolcezza.png',
     bgColor: 'from-gray-700 to-gray-800'
   },
   {
@@ -70,7 +70,7 @@ const customers = [
     title: 'CMO - Juan Valdez',
     metric: '+$8,000/m',
     category: 'Online Sales',
-    image: '/images/Juan_valdez.jpg',
+    image: '/images/success-stories/Juan_valdez.jpg',
     bgColor: 'from-amber-600 to-amber-700'
   }
 ]

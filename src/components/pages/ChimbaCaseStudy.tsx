@@ -132,7 +132,7 @@ const ChimbaCaseStudy: React.FC<ChimbaCaseStudyProps> = ({ locale }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/Chimba_Miami_Celebrating.jpeg"
+              src="/images/success-stories/Chimba_Miami_Celebrating.jpeg"
               alt="Chimba Miami team celebrating explosive local growth"
               width={1200}
               height={600}
