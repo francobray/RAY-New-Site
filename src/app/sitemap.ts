@@ -4,7 +4,7 @@ import path from 'path'
 import { type Locale } from '../lib/i18n'
 
 // Configuration
-const BASE_URL = 'https://rayapp.io'
+const BASE_URL = 'https://www.rayapp.io'
 const LOCALES: Locale[] = ['es', 'en']
 
 // Static routes that don't follow the [locale] pattern
@@ -31,8 +31,30 @@ const LEGAL_ROUTES = [
 
 // Case studies (static data)
 const CASE_STUDIES = [
+  'chimba-miami',
   'temple-craft-wynwood',
-  'chimba-miami'
+  've-hospitality',
+  'green-eat',
+  'havanna',
+  'craft',
+  'wingsfc',
+  'dolcezza',
+  'la-birra-bar',
+  'almacen-de-pizzas',
+  'efes-mg-group',
+  'la-parolaccia',
+  'libertino-cafe',
+  'cerveza-patagonia',
+  'karne-garibaldi',
+  'la-guitarrita',
+  'le-pain-quotidien',
+  'la-panera-rosa',
+  'ninina',
+  'pasta-rossa',
+  'rapanui',
+  'tea-connection',
+  'tostado',
+  'ypf-full'
 ]
 
 /**
