@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ArrowRight, ChevronDown, ChevronUp, Play, Users, Gift, Smartphone, CheckCircle } from 'lucide-react'
+import { ArrowRight, ChevronDown, ChevronUp, Users, Gift, Smartphone, CheckCircle } from 'lucide-react'
 import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
