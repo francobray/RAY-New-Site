@@ -796,8 +796,8 @@ export const COPY: Record<Locale, any> = {
 
     AI_CONCIERGE_PAGE: {
       HERO: {
-        TITLE: 'Convierte los DMs de Restaurante',
-        TITLE_HIGHLIGHT: 'en Pedidos.',
+        TITLE: 'Convierte WhatsApp',
+        TITLE_HIGHLIGHT: 'en Pedidos y Reservas',
         SUBTITLE: '¡Deja de perder clientes hambrientos por respuestas lentas! Nuestro empleado toma pedidos, reserva mesas y responde preguntas del menú en WhatsApp — 24/7, incluso cuando tu restaurante está cerrado. 🚀',
         BADGES: [
           'Tomar pedidos mientras duermes',
