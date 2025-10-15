@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { ArrowRight, CircleCheck as CheckCircle, Users, Star, ChevronDown, ChevronUp, Zap, MessageCircle, ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
 import TryItNowModal from '../../TryItNowModal'
 import PhoneCallModal from '../../PhoneCallModal'
@@ -552,9 +553,11 @@ const ChatCarousel = () => {
             </div>
             
             <div className="relative">
-              <img 
-                src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600" 
+              <Image 
+                src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200" 
                 alt="Happy restaurant owner with pastry" 
+                width={1200}
+                height={800}
                 className="rounded-2xl shadow-lg w-full h-96 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { getShimmerDataURL } from '@/utils/shimmer'
 import { type Locale } from '@/lib/i18n'
 
 interface ProductShowcaseProps {
@@ -43,15 +44,18 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ locale }) => {
         <div className="flex justify-center items-center">
           <div className="relative w-full max-w-4xl mx-auto">
             <Image
-              src="/images/homepage-product.png"
+              src="/images/home/homepage-product.png"
               alt={locale === 'es' 
                 ? 'Plataforma de tecnología para restaurantes - App móvil, sitio web con IA y sistema de pedidos online' 
                 : 'Restaurant technology platform - Mobile app, AI website and online ordering system'
               }
-              width={621}
-              height={414}
+              width={1242}
+              height={828}
               className="rounded-2xl shadow-2xl mx-auto"
               style={{ width: 'auto', height: 'auto' }}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1024px"
+              placeholder="blur"
+              blurDataURL={getShimmerDataURL(1242, 828)}
               priority
             />
           </div>
