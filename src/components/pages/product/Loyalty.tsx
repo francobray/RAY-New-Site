@@ -6,6 +6,7 @@ import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
 import Image from 'next/image'
+import { getShimmerDataURL } from '@/utils/shimmer'
 
 interface LoyaltyProps {
   locale: Locale
@@ -109,20 +110,16 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
             <div className="relative">
               <div className="relative bg-white rounded-2xl shadow-2xl p-8">
                 <Image
-                  src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  src="/images/loyalty/Loyalty-3.png?v=1"
                   alt="Restaurant owners discussing loyalty program"
-                  width={500}
-                  height={300}
-                  className="rounded-xl w-full h-64 object-cover"
+                  width={960}
+                  height={540}
+                  className="rounded-xl w-full h-auto object-contain"
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  placeholder="blur"
+                  blurDataURL={getShimmerDataURL(960, 540)}
                 />
-                <div className="absolute inset-0 bg-black/20 rounded-xl flex items-center justify-center">
-                  <button className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
-                    <Play className="w-6 h-6 text-purple-600 ml-1" />
-                  </button>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3">
-                  <p className="text-sm font-medium text-gray-900">See why John and Sam from Metro Pizza got more business from their rewards program</p>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -139,30 +136,18 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Phone mockup */}
+            {/* Left side - Visual */}
             <div className="relative">
-              <div className="bg-black rounded-[2.5rem] p-2 mx-auto w-80">
-                <div className="bg-white rounded-[2rem] h-[600px] overflow-hidden">
-                  <div className="p-6">
-                    <div className="text-center mb-8">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Tomato Pasta</h3>
-                      <p className="text-gray-600">Chicken Parmigiana</p>
-                      <p className="text-gray-600">Creamy mushroom sauce and fresh basil</p>
-                      <p className="text-gray-600">with a side of garlic bread</p>
-                      <div className="text-3xl font-bold text-gray-900 mt-4">$13.00</div>
-                      <div className="flex items-center justify-center mt-2">
-                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">400 Points</span>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold">
-                        Add to cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Image
+                src="/images/loyalty/Loyalty-6.png"
+                alt="Loyalty program preview"
+                width={600}
+                height={450}
+                className="rounded-2xl w-3/4 h-auto mx-auto"
+                sizes="(max-width: 1024px) 75vw, 420px"
+                placeholder="blur"
+                blurDataURL={getShimmerDataURL(600, 450)}
+              />
             </div>
             
             {/* Right side - Features */}
@@ -193,42 +178,29 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              Boost your repeat orders
+              {t.LOYALTY_PAGE.BOOST_ORDERS.TITLE}
             </h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Phone mockup with points */}
+            {/* Left side - Visual */}
             <div className="relative">
-              <div className="bg-black rounded-[2.5rem] p-2 mx-auto w-80">
-                <div className="bg-white rounded-[2rem] h-[600px] overflow-hidden p-6">
-                  <div className="text-center mb-8">
-                    <div className="text-6xl font-bold text-blue-600 mb-2">400</div>
-                    <div className="text-xl font-semibold text-gray-900 mb-2">Points</div>
-                    <p className="text-gray-600 text-sm mb-6">You're 100 points away from your next reward!</p>
-                    
-                    <div className="bg-gray-200 rounded-full h-2 mb-4">
-                      <div className="bg-blue-600 h-2 rounded-full" style={{ width: '80%' }}></div>
-                    </div>
-                    
-                    <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold mb-6">
-                      Redeem
-                    </button>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="text-center text-sm text-gray-600">
-                      Rewards program
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Image
+                src="/images/loyalty/Loyalty-5.png"
+                alt="Loyalty points preview"
+                width={600}
+                height={1100}
+                className="rounded-2xl w-3/4 h-auto mx-auto"
+                sizes="(max-width: 1024px) 75vw, 420px"
+                placeholder="blur"
+                blurDataURL={getShimmerDataURL(600, 1100)}
+              />
             </div>
             
             {/* Right side - Benefits */}
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Encourage casual customers to come back.
+                {t.LOYALTY_PAGE.BOOST_ORDERS.SUBTITLE}
               </h3>
               
               <div className="space-y-6">
@@ -242,128 +214,7 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
         </div>
       </section>
 
-      {/* Quick Signup Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Dark signup mockup */}
-            <div className="relative">
-              <div className="bg-gray-900 rounded-2xl p-8 text-white">
-                <h3 className="text-xl font-bold mb-6">Quick rewards signup gets more loyal fans.</h3>
-                <div className="bg-blue-600 text-white px-6 py-3 rounded-lg text-center font-semibold">
-                  You're now signed up for Ottavio's rewards program!
-                </div>
-              </div>
-            </div>
-            
-            {/* Right side - Food images with points */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative">
-                <Image
-                  src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400"
-                  alt="Pasta dish"
-                  width={200}
-                  height={200}
-                  className="rounded-xl w-full h-32 object-cover"
-                />
-                <div className="absolute top-2 right-2 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">
-                  450
-                </div>
-              </div>
-              <div className="relative">
-                <Image
-                  src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400"
-                  alt="Pizza slice"
-                  width={200}
-                  height={200}
-                  className="rounded-xl w-full h-32 object-cover"
-                />
-                <div className="absolute top-2 right-2 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">
-                  120
-                </div>
-              </div>
-              <div className="relative">
-                <Image
-                  src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400"
-                  alt="Salad"
-                  width={200}
-                  height={200}
-                  className="rounded-xl w-full h-32 object-cover"
-                />
-                <div className="absolute top-2 right-2 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">
-                  100
-                </div>
-              </div>
-              <div className="relative">
-                <Image
-                  src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400"
-                  alt="Dessert"
-                  width={200}
-                  height={200}
-                  className="rounded-xl w-full h-32 object-cover"
-                />
-                <div className="absolute top-2 right-2 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">
-                  80
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-gray-50 to-purple-50 rounded-2xl p-8 lg:p-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              {/* Left side - Image */}
-              <div className="relative">
-                <Image
-                  src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Restaurant owner testimonial"
-                  width={400}
-                  height={300}
-                  className="rounded-xl w-full h-64 object-cover"
-                />
-                <button className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
-                    <Play className="w-6 h-6 text-purple-600 ml-1" />
-                  </div>
-                </button>
-              </div>
-              
-              {/* Right side - Testimonial */}
-              <div>
-                <blockquote className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                  "The platform has been like a superpower for restaurants that increases sales and drives new customers consistently."
-                </blockquote>
-                
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="text-3xl font-bold text-green-600">+$4,500,000</div>
-                  <div className="text-3xl font-bold text-purple-600">+4</div>
-                </div>
-                
-                <div className="text-sm text-gray-600 mb-4">
-                  <span className="font-medium">in sales</span>
-                  <span className="mx-4">•</span>
-                  <span className="font-medium">locations</span>
-                </div>
-                
-                <div className="flex items-center space-x-3">
-                  <div>
-                    <div className="font-semibold text-gray-900">Rahul Bhalla</div>
-                    <div className="text-sm text-gray-600">Owner of Satyam Indian Kitchen</div>
-                  </div>
-                </div>
-                
-                <button className="mt-4 text-purple-600 font-medium hover:text-purple-700 transition-colors">
-                  See Rahul's story →
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Final CTA Section */}
       <section className="py-20 bg-gradient-to-r from-purple-600 to-indigo-600">

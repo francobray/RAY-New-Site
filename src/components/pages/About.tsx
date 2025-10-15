@@ -118,7 +118,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
             <div className="text-center lg:text-left">
               <div className="relative inline-block">
                 <Image
-                  src="/images/Franco.jpg"
+                  src="/images/company/Franco.jpg"
                   alt="Franco, CEO & Co-Founder of RAY"
                   width={400}
                   height={500}

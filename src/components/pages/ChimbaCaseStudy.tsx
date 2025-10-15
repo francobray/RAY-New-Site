@@ -138,11 +138,6 @@ const ChimbaCaseStudy: React.FC<ChimbaCaseStudyProps> = ({ locale }) => {
               height={600}
               className="w-full h-[400px] md:h-[500px] object-cover"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-pink-900/80 via-red-900/40 to-transparent p-8">
-              <p className="text-white text-lg font-medium">
-                Chimba Miami team – celebrating explosive local growth
-              </p>
-            </div>
           </div>
         </div>
       </section>
