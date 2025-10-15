@@ -45,13 +45,13 @@ export default function LoyaltyPage({ params }: LoyaltyPageProps) {
       question: locale === 'es' ? '¿Cómo promociono el programa de lealtad?' : 'How do I promote the loyalty program?',
       answer: locale === 'es' ? 'Incluimos herramientas de marketing para promocionar tu programa de lealtad a través de email, SMS, redes sociales y en el punto de venta.' : 'We include marketing tools to promote your loyalty program through email, SMS, social media, and at the point of sale.'
     }
-  ], 'https://rayapp.io/product/loyalty')
+  ], `https://rayapp.io/${locale}/product/loyalty`)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
     { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
-    { name: locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program', url: 'https://rayapp.io/product/loyalty' }
+    { name: locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program', url: `https://rayapp.io/${locale}/product/loyalty` }
   ])
 
   const combinedSchema = [faqSchema, breadcrumbSchema]

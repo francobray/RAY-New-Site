@@ -34,13 +34,13 @@ export default function MobileAppPage({ params }: MobileAppPageProps) {
   const t = getTranslations(locale)
   
   // FAQ schema - using the same FAQs from the component
-  const faqSchema = generateFAQSchema(t.MOBILE_APP_PAGE.FAQ.QUESTIONS, 'https://rayapp.io/product/branded-apps')
+  const faqSchema = generateFAQSchema(t.MOBILE_APP_PAGE.FAQ.QUESTIONS, `https://rayapp.io/${locale}/product/branded-apps`)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
     { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
-    { name: locale === 'es' ? 'App Personalizada' : 'Branded Apps', url: 'https://rayapp.io/product/branded-apps' }
+    { name: locale === 'es' ? 'App Personalizada' : 'Branded Apps', url: `https://rayapp.io/${locale}/product/branded-apps` }
   ])
 
   const combinedSchema = [faqSchema, breadcrumbSchema]

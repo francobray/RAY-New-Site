@@ -25,9 +25,17 @@ export const generatePageMeta = (config: {
   path: string
   image?: string
   type?: 'website' | 'article'
+  locale?: string
 }) => {
-  const { title, description, path, image = SEO_CONFIG.DEFAULT_IMAGE, type = 'website' } = config
-  const fullUrl = `${SEO_CONFIG.SITE_URL}${path}`
+  const { title, description, path, image = SEO_CONFIG.DEFAULT_IMAGE, type = 'website', locale } = config
+  
+  // Ensure canonical URL matches sitemap structure (with locale prefix if provided)
+  let canonicalPath = path
+  if (locale && !path.startsWith(`/${locale}`) && path !== '/') {
+    canonicalPath = `/${locale}${path}`
+  }
+  
+  const fullUrl = `${SEO_CONFIG.SITE_URL}${canonicalPath}`
   const fullTitle = SEO_CONFIG.TITLE_TEMPLATE(title)
   
   return {

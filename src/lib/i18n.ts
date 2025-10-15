@@ -27,12 +27,21 @@ export function generateHreflangMetadata(path: string, currentLocale: Locale) {
   const baseUrl = 'https://rayapp.io'
   const cleanPath = path.startsWith('/') ? path : `/${path}`
   
+  // Ensure canonical URL matches sitemap structure
+  // For root path, use locale prefix; for other paths, ensure locale is included
+  let canonicalPath = cleanPath
+  if (cleanPath === '/' || cleanPath === '') {
+    canonicalPath = `/${currentLocale}`
+  } else if (!cleanPath.startsWith(`/${currentLocale}`)) {
+    canonicalPath = `/${currentLocale}${cleanPath}`
+  }
+  
   return {
-    canonical: `${baseUrl}/${currentLocale}${cleanPath}`,
+    canonical: `${baseUrl}${canonicalPath}`,
     languages: {
-      'es': `${baseUrl}/es${cleanPath}`,
-      'en': `${baseUrl}/en${cleanPath}`,
-      'x-default': `${baseUrl}/en${cleanPath}`, // English as international default
+      'es': `${baseUrl}/es${cleanPath === '/' ? '' : cleanPath}`,
+      'en': `${baseUrl}/en${cleanPath === '/' ? '' : cleanPath}`,
+      'x-default': `${baseUrl}/en${cleanPath === '/' ? '' : cleanPath}`, // English as international default
     },
   }
 }

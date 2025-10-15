@@ -34,13 +34,13 @@ export default function AIConciergePage({ params }: AIConciergePageProps) {
   const t = getTranslations(locale)
   
   // FAQ schema - using the same FAQs from the component
-  const faqSchema = generateFAQSchema(t.AI_CONCIERGE_PAGE.FAQ.QUESTIONS, 'https://rayapp.io/product/ai-concierge')
+  const faqSchema = generateFAQSchema(t.AI_CONCIERGE_PAGE.FAQ.QUESTIONS, `https://rayapp.io/${locale}/product/ai-concierge`)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
     { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
-    { name: locale === 'es' ? 'Asistente IA' : 'AI Concierge', url: 'https://rayapp.io/product/ai-concierge' }
+    { name: locale === 'es' ? 'Asistente IA' : 'AI Concierge', url: `https://rayapp.io/${locale}/product/ai-concierge` }
   ])
 
   const combinedSchema = [faqSchema, breadcrumbSchema]

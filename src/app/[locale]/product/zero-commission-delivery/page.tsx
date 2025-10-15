@@ -23,9 +23,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
+    alternates: {
+      canonical: `https://rayapp.io/${locale}/product/zero-commission-delivery`,
+    },
     openGraph: {
       title,
       description,
+      url: `https://rayapp.io/${locale}/product/zero-commission-delivery`,
       type: 'website'
     },
     twitter: {
@@ -53,13 +57,13 @@ export default function ZeroCommissionDeliveryPage({ params }: PageProps) {
       question: locale === 'es' ? '¿Qué tan rápido puedo implementar el sistema?' : 'How quickly can I implement the system?',
       answer: locale === 'es' ? 'La implementación completa toma entre 2-4 semanas, incluyendo configuración del sistema, capacitación del personal, y lanzamiento de la campaña de marketing.' : 'Complete implementation takes 2-4 weeks, including system setup, staff training, and marketing campaign launch.'
     }
-  ], 'https://rayapp.io/product/zero-commission-delivery')
+  ], `https://rayapp.io/${locale}/product/zero-commission-delivery`)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
     { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
-    { name: locale === 'es' ? 'Delivery Sin Comisión' : 'Zero Commission Delivery', url: 'https://rayapp.io/product/zero-commission-delivery' }
+    { name: locale === 'es' ? 'Delivery Sin Comisión' : 'Zero Commission Delivery', url: `https://rayapp.io/${locale}/product/zero-commission-delivery` }
   ])
 
   const combinedSchema = [faqSchema, breadcrumbSchema]
