@@ -368,6 +368,8 @@ const ChatCarousel = () => {
                   src={currentExample.platformLogo} 
                   alt={currentExample.platform} 
                   className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full p-1"
+                  width={40}
+                  height={40}
                 />
                 <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-sm sm:text-base truncate">{currentExample.businessName}</h3>
@@ -478,6 +480,8 @@ const ChatCarousel = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
                   alt="WhatsApp" 
                   className="w-5 h-5 sm:w-6 sm:h-6"
+                  width={24}
+                  height={24}
                 />
                   <span>{locale === 'es' ? 'Probar Ahora' : 'Try Now'}</span>
                 </button>

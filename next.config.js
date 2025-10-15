@@ -29,10 +29,17 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react'],
     scrollRestoration: true,
   },
-  // Additional optimizations
+  // Modern browser support - reduce legacy JS polyfills
+  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  // Target modern browsers to reduce polyfills
+  env: {
+    BROWSERSLIST_ENV: 'modern',
+  },
+  // Font optimization
+  optimizeFonts: true,
   // Bundle analyzer for debugging
   webpack: (config, { dev, isServer }) => {
     // Reduce bundle size - only in production

@@ -575,6 +575,8 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ locale }) => {
                       alt={`${study.name} restaurant interior`}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
+                      width={400}
+                      height={320}
                     />
                     
                     {/* Uniform Gradient Overlay */}

@@ -78,6 +78,12 @@
   /* Apply max-width to media elements to prevent overflow */
   img, video, iframe, object, embed, canvas {
     max-width: 100%;
+    height: auto;
+  }
+  
+  /* Prevent layout shifts for images */
+  img {
+    aspect-ratio: attr(width) / attr(height);
   }
 
 

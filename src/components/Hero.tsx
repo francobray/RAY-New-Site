@@ -134,6 +134,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
                   placeholder="blur"
                   blurDataURL={getShimmerDataURL(1120, 630)}
                   priority
+                  fetchPriority="high"
                 />
                 
                   {/* RAY Lead-Magnet Widget - Positioned above the image */}

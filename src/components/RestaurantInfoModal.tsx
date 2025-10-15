@@ -190,6 +190,8 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
                   alt="WhatsApp" 
                   className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
+                  width={20}
+                  height={20}
                 />
               </div>
               <div className="flex-1 min-w-0">

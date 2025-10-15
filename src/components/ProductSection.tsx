@@ -126,6 +126,8 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
                           src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
                           alt="WhatsApp" 
                           className="w-8 h-8"
+                          width={32}
+                          height={32}
                         />
                       ) : (
                         <IconComponent className="w-6 h-6 text-white" />
