@@ -300,7 +300,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link
-              href="/"
+              href={`/${locale}`}
               className="flex items-center hover:opacity-80 transition-opacity duration-200"
               data-analytics="nav"
             >

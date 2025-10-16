@@ -4,7 +4,7 @@ import path from 'path'
 import { type Locale } from '../lib/i18n'
 
 // Configuration
-const BASE_URL = 'https://www.rayapp.io'
+const BASE_URL = 'https://rayapp.io'
 const LOCALES: Locale[] = ['es', 'en']
 
 // Static routes that don't follow the [locale] pattern
@@ -22,12 +22,13 @@ const CORE_ROUTES = [
   { path: '/demo', priority: 0.7, changefreq: 'monthly' },
 ]
 
-// Legal pages
+// Legal pages (noindex by design). Excluded from sitemap by default to avoid warnings.
 const LEGAL_ROUTES = [
   { path: '/privacy-policy', priority: 0.3, changefreq: 'yearly' },
   { path: '/terms-of-service', priority: 0.3, changefreq: 'yearly' },
   { path: '/cookie-policy', priority: 0.3, changefreq: 'yearly' },
 ]
+const INCLUDE_LEGAL_IN_SITEMAP = process.env.INCLUDE_LEGAL_IN_SITEMAP === 'true'
 
 /**
  * Dynamically discover product pages from the filesystem
@@ -200,17 +201,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   })
 
-  // Add legal pages for each locale
-  LEGAL_ROUTES.forEach(route => {
-    LOCALES.forEach(locale => {
-      sitemap.push(createLocalizedSitemapEntry(
-        locale, 
-        route.path, 
-        route.priority, 
-        route.changefreq
-      ))
+  // Add legal pages for each locale (opt-in only)
+  if (INCLUDE_LEGAL_IN_SITEMAP) {
+    LEGAL_ROUTES.forEach(route => {
+      LOCALES.forEach(locale => {
+        sitemap.push(createLocalizedSitemapEntry(
+          locale, 
+          route.path, 
+          route.priority, 
+          route.changefreq
+        ))
+      })
     })
-  })
+  }
 
   // Sort by priority (highest first) then by URL
   return sitemap.sort((a, b) => {

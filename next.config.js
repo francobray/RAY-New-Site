@@ -184,10 +184,10 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'rayapp.io',
+            value: 'www.rayapp.io',
           },
         ],
-        destination: 'https://www.rayapp.io/:path*',
+        destination: 'https://rayapp.io/:path*',
         permanent: true,
       },
     ]

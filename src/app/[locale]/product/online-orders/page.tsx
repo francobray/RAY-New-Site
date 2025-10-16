@@ -25,13 +25,25 @@ export async function generateMetadata({ params }: OnlineOrdersPageProps): Promi
         ? 'Aumenta ingresos desde pedidos online, reservas y delivery con integraciones perfectas y sistemas de pedidos directos.'
         : 'Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins.',
       url: `https://www.rayapp.io/${locale}${path}`,
+      type: 'website',
+      siteName: 'RAY',
+      images: [
+        {
+          url: `https://www.rayapp.io/images/online-ordering/online-ordering-01.webp`,
+          width: 1200,
+          height: 630,
+          alt: locale === 'es' ? 'Pedidos online para restaurantes - RAY' : 'Online orders for restaurants - RAY'
+        }
+      ],
       ...ogLocale,
     },
     twitter: {
+      card: 'summary_large_image',
       title: locale === 'es' ? 'Pedidos Online - RAY' : 'Online Orders - RAY',
       description: locale === 'es' 
         ? 'Aumenta ingresos desde pedidos online, reservas y delivery con integraciones perfectas.'
         : 'Grow revenue from online orders, reservations, and deliveries with seamless integrations.',
+      images: [`https://www.rayapp.io/images/online-ordering/online-ordering-01.webp`],
     },
   }
 }

@@ -18,10 +18,22 @@ export async function generateMetadata({ params }: MobileAppPageProps): Promise<
       title: 'Mobile App for Restaurants | RAY',
       description: 'Imagine having your own restaurant mobile app. With a mobile app, send customers order directly — instead of going to third parties.',
       url: `https://www.rayapp.io/${locale}/product/branded-apps`,
+      type: 'website',
+      siteName: 'RAY',
+      images: [
+        {
+          url: `https://www.rayapp.io/images/branded-apps/Temple-mobile-app.webp`,
+          width: 1200,
+          height: 630,
+          alt: 'Restaurant branded mobile app - RAY'
+        }
+      ],
     },
     twitter: {
+      card: 'summary_large_image',
       title: 'Mobile App for Restaurants | RAY',
       description: 'Imagine having your own restaurant mobile app. With a mobile app, send customers order directly — instead of going to third parties.',
+      images: [`https://www.rayapp.io/images/branded-apps/Temple-mobile-app.webp`],
     },
     alternates: {
       canonical: `https://www.rayapp.io/${locale}/product/branded-apps`,

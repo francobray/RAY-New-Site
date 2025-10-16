@@ -24,7 +24,7 @@ export function removeLocaleFromPath(path: string): string {
 
 // SEO Metadata helpers
 export function generateHreflangMetadata(path: string, currentLocale: Locale) {
-  const baseUrl = 'https://www.rayapp.io'
+  const baseUrl = 'https://rayapp.io'
   const cleanPath = path.startsWith('/') ? path : `/${path}`
   
   // Ensure canonical URL matches sitemap structure
