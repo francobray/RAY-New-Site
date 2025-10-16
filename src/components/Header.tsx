@@ -12,7 +12,6 @@ import {
   MapPin, 
   Truck, 
   ShoppingCart, 
-  MessageCircle, 
   Calendar, 
   Smartphone, 
   Heart 
@@ -22,7 +21,7 @@ interface ProductItem {
   name: string
   path: string
   description: string
-  icon: React.ComponentType<{ className?: string }>
+  icon: React.ComponentType<{ className?: string }> | string
 }
 
 interface MenuItem {
@@ -78,6 +77,12 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
       hasDropdown: true,
       productItems: [
         { 
+          name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Delivery',
+          path: `/${locale}/product/whatsapp-delivery`,
+          description: locale === 'es' ? 'Convierte DMs de restaurante en pedidos automáticamente 24/7.' : 'Turn restaurant DMs into orders automatically 24/7.',
+          icon: 'whatsapp'
+        },
+        { 
           name: locale === 'es' ? 'Constructor de Sitios Web' : 'Website Builder',
           path: `/${locale}/product/restaurant-website-ai`,
           description: locale === 'es' ? 'Convierte más visitantes en clientes con un sitio web impulsado por IA.' : 'Convert more visitors into customers with an AI-powered website.',
@@ -100,12 +105,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           path: `/${locale}/product/online-orders`,
           description: locale === 'es' ? 'Obtén más pedidos con pedidos online que se sienten familiares y fáciles.' : 'Get more orders with online ordering that feels familiar and easy.',
           icon: ShoppingCart
-        },
-        { 
-          name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Delivery',
-          path: `/${locale}/product/whatsapp-delivery`,
-          description: locale === 'es' ? 'Convierte DMs de restaurante en pedidos automáticamente 24/7.' : 'Turn restaurant DMs into orders automatically 24/7.',
-          icon: MessageCircle
         },
         { 
           name: locale === 'es' ? 'Reservas Directas' : 'Direct Bookings',
@@ -373,7 +372,18 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                   data-analytics="nav"
                                 >
                                   <div className="flex-shrink-0 text-gray-600">
-                                    <productItem.icon className="w-6 h-6" />
+                                    {productItem.icon === 'whatsapp' ? (
+                                      <img 
+                                        src="/images/WhatsApp.svg.webp" 
+                                        alt="WhatsApp" 
+                                        className="w-6 h-6"
+                                        width={24}
+                                        height={24}
+                                        style={{ aspectRatio: '1/1' }}
+                                      />
+                                    ) : (
+                                      React.createElement(productItem.icon as React.ComponentType<{ className?: string }>, { className: "w-6 h-6" })
+                                    )}
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <div className="text-sm font-medium text-gray-900 group-hover:text-ray-blue">
@@ -625,7 +635,18 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                 data-analytics="nav"
                               >
                                 <div className="flex-shrink-0 text-gray-600">
-                                  <productItem.icon className="w-5 h-5" />
+                                  {productItem.icon === 'whatsapp' ? (
+                                    <img 
+                                      src="/images/WhatsApp.svg.webp" 
+                                      alt="WhatsApp" 
+                                      className="w-5 h-5"
+                                      width={20}
+                                      height={20}
+                                      style={{ aspectRatio: '1/1' }}
+                                    />
+                                  ) : (
+                                    React.createElement(productItem.icon as React.ComponentType<{ className?: string }>, { className: "w-5 h-5" })
+                                  )}
                                 </div>
                                 <div className="flex-1 min-w-0">
                                   <div className="text-sm font-medium text-gray-900">

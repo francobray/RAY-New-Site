@@ -14,6 +14,15 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
   
   const products = [
     {
+      icon: 'whatsapp',
+      name: t.PRODUCTS.WHATSAPP_ORDERS.NAME,
+      description: t.PRODUCTS.WHATSAPP_ORDERS.DESCRIPTION,
+      metric: t.PRODUCTS.WHATSAPP_ORDERS.METRIC,
+      metricLabel: t.PRODUCTS.WHATSAPP_ORDERS.METRIC_LABEL,
+      href: '/product/whatsapp-delivery',
+      gradient: 'from-green-500 to-green-600'
+    },
+    {
       icon: Globe,
       name: t.PRODUCTS.WEBSITE_BUILDER.NAME,
       description: t.PRODUCTS.WEBSITE_BUILDER.DESCRIPTION,
@@ -48,15 +57,6 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
       metricLabel: t.PRODUCTS.ONLINE_ORDERS.METRIC_LABEL,
       href: '/product/online-orders',
       gradient: 'from-purple-500 to-purple-600'
-    },
-    {
-      icon: 'whatsapp',
-      name: t.PRODUCTS.WHATSAPP_ORDERS.NAME,
-      description: t.PRODUCTS.WHATSAPP_ORDERS.DESCRIPTION,
-      metric: t.PRODUCTS.WHATSAPP_ORDERS.METRIC,
-      metricLabel: t.PRODUCTS.WHATSAPP_ORDERS.METRIC_LABEL,
-      href: '/product/whatsapp-delivery',
-      gradient: 'from-green-500 to-green-600'
     },
     {
       icon: Calendar,
