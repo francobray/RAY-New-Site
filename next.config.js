@@ -178,18 +178,7 @@ const nextConfig = {
         destination: '/es',
         permanent: true,
       },
-      // Redirect non-www to www for consistency
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.rayapp.io',
-          },
-        ],
-        destination: 'https://rayapp.io/:path*',
-        permanent: true,
-      },
+      // Note: Host-level redirects (www <-> apex) handled at CDN/edge to avoid loops
     ]
   },
 }
