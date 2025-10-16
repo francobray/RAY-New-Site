@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Mail, CheckCircle } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 import { useTranslations } from '../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
 
