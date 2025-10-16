@@ -127,7 +127,7 @@ const CervezaPatagoniaCaseStudy: React.FC<CervezaPatagoniaCaseStudyProps> = ({ l
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/success-stories/Temple_Bar.jpg"
+              src="/images/success-stories/patagonia.webp"
               alt="Cerveza Patagonia taproom hosting successful events"
               width={1200}
               height={600}
