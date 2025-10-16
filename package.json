@@ -20,7 +20,10 @@
     "analyze:bundle": "tsx scripts/analyze-bundle.ts",
     "analyze:next": "ANALYZE=true npm run build",
     "optimize:advanced": "tsx scripts/advanced-performance.ts",
-    "optimize:all": "npm run optimize:advanced && npm run build"
+    "optimize:all": "npm run optimize:advanced && npm run build",
+    "release:patch": "git pull --rebase && npm run generate:all && git add -A && npm version patch -m 'chore(release): %s' && git push && git push origin --tags",
+    "release:minor": "git pull --rebase && npm run generate:all && git add -A && npm version minor -m 'chore(release): %s' && git push && git push origin --tags",
+    "release:major": "git pull --rebase && npm run generate:all && git add -A && npm version major -m 'chore(release): %s' && git push && git push origin --tags"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.2",
