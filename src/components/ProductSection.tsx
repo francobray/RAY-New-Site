@@ -108,7 +108,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
         />
 
         {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto" style={{ minHeight: '600px' }}>
           {products.map((product, index) => {
             const IconComponent = product.icon
             const isWhatsApp = product.icon === 'whatsapp'
@@ -123,11 +123,12 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
                     <div className={`w-12 h-12 ${isWhatsApp ? 'bg-gray-50' : `bg-gradient-to-r ${product.gradient}`} rounded-xl flex items-center justify-center shadow-md`}>
                       {isWhatsApp ? (
                         <img 
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" 
+                          src="/images/whatsapp-icon.svg" 
                           alt="WhatsApp" 
                           className="w-8 h-8"
                           width={32}
                           height={32}
+                          style={{ aspectRatio: '1/1' }}
                         />
                       ) : (
                         <IconComponent className="w-6 h-6 text-white" />
