@@ -93,7 +93,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   return (
     <div>
       {/* Centered Hero Layout */}
-      <section className="relative bg-ray-promise pt-4 pb-40 sm:pb-4 mt-0 md:pt-0 md:-mt-10 overflow-hidden">
+      <section className="relative bg-ray-promise pt-4 pb-40 sm:pb-4 mt-0 md:pt-0 md:-mt-10 overflow-x-hidden">
         {/* Sophisticated Background Elements */}
         <div className="absolute inset-0">
           {/* Background decoration */}
@@ -147,7 +147,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
                 />
                 
                   {/* RAY Lead-Magnet Widget - Positioned above the image */}
-                  <div className="absolute bottom-24 md:bottom-28 lg:bottom-32 left-1/2 -translate-x-1/2 w-[min(90vw,28rem)] md:w-[30rem] lg:w-[34rem] max-w-lg z-10 flex justify-center">
+                  <div className="absolute bottom-24 md:bottom-28 lg:bottom-32 left-1/2 -translate-x-1/2 w-[min(90vw,34rem)] md:w-[34rem] lg:w-[38rem] max-w-xl z-10 flex justify-center">
                     <div id="ray-widget" className="min-h-[165px]"></div>
                   </div>
               </div>

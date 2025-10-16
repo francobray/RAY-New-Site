@@ -187,14 +187,14 @@
    -------------------------------------------------- */
 #ray-widget {
   /* Allow the widget container to grow */
-  min-height: 165px !important; /* compact widget height */
-  height: 165px !important;
+  min-height: 120px !important; /* further reduce overall height */
+  height: 120px !important;
   /* Subtle light-gray border around the widget */
   border: 1px solid rgba(229, 231, 235, 0.6) !important; /* lighter gray, ~40% transparent */
   /* Slightly darker shadow for more depth */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10), 14px 18px 34px rgba(0, 0, 0, 0.18) !important;
   /* Prevent layout shift by reserving space */
-  contain: layout style paint;
+  contain: layout style; /* Remove paint to allow dropdown to overflow */
 }
 
 #ray-widget * {
