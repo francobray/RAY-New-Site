@@ -434,7 +434,7 @@ const caseStudies = [
     name: 'Rapanui',
     location: 'Ice Cream Market',
     industry: 'Sustainable Ice Cream',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/rapanui.jpg',
     keyMetrics: [
       { label: 'Online Orders', value: '+305%', icon: TrendingUp },
       { label: 'App Downloads', value: '+245%', icon: Users },
