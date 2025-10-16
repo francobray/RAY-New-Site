@@ -123,7 +123,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
                     <div className={`w-12 h-12 ${isWhatsApp ? 'bg-gray-50' : `bg-gradient-to-r ${product.gradient}`} rounded-xl flex items-center justify-center shadow-md`}>
                       {isWhatsApp ? (
                         <img 
-                          src="/images/whatsapp-icon.svg" 
+                          src="/images/WhatsApp.svg.webp" 
                           alt="WhatsApp" 
                           className="w-8 h-8"
                           width={32}

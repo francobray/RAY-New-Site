@@ -43,7 +43,7 @@ const ChatCarousel = () => {
     {
       id: 1,
       platform: 'WhatsApp',
-      platformLogo: '/images/WhatsApp.svg',
+      platformLogo: '/images/WhatsApp.svg.webp',
       businessName: locale === 'es' ? 'Pizza de Mario' : 'Mario\'s Pizza',
       status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
@@ -95,7 +95,7 @@ const ChatCarousel = () => {
     {
       id: 2,
       platform: 'WhatsApp',
-      platformLogo: '/images/WhatsApp.svg',
+      platformLogo: '/images/WhatsApp.svg.webp',
       businessName: locale === 'es' ? 'Sushi Bar Tokyo' : 'Tokyo Sushi Bar',
       status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
@@ -147,7 +147,7 @@ const ChatCarousel = () => {
     {
       id: 3,
       platform: 'WhatsApp',
-      platformLogo: '/images/WhatsApp.svg',
+      platformLogo: '/images/WhatsApp.svg.webp',
       businessName: locale === 'es' ? 'Café Amanecer' : 'Sunrise Café',
       status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
@@ -199,7 +199,7 @@ const ChatCarousel = () => {
     {
       id: 4,
       platform: 'WhatsApp',
-      platformLogo: '/images/WhatsApp.svg',
+      platformLogo: '/images/WhatsApp.svg.webp',
       businessName: 'La Cocina Mexicana',
       status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
@@ -251,7 +251,7 @@ const ChatCarousel = () => {
     {
       id: 5,
       platform: 'WhatsApp',
-      platformLogo: '/images/WhatsApp.svg',
+      platformLogo: '/images/WhatsApp.svg.webp',
       businessName: locale === 'es' ? 'Pastelería Dulces Sueños' : 'Sweet Dreams Bakery',
       status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
@@ -477,7 +477,7 @@ const ChatCarousel = () => {
                 className="bg-white text-emerald-600 border-2 border-emerald-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-emerald-50 transition-all active:scale-95 sm:hover:scale-105 font-semibold text-base sm:text-lg shadow-lg flex items-center justify-center space-x-2"
               >
                 <img 
-                  src="/images/WhatsApp.svg" 
+                  src="/images/WhatsApp.svg.webp" 
                   alt="WhatsApp" 
                   className="w-5 h-5 sm:w-6 sm:h-6"
                   width={24}

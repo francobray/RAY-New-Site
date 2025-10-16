@@ -187,7 +187,7 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
             <div className="flex items-start space-x-2 sm:space-x-3 flex-1 min-w-0">
               <div className="bg-white bg-opacity-20 rounded-full p-1.5 sm:p-2 flex items-center justify-center flex-shrink-0">
                 <img 
-                  src="/images/WhatsApp.svg" 
+                  src="/images/WhatsApp.svg.webp" 
                   alt="WhatsApp" 
                   className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
                   width={20}
