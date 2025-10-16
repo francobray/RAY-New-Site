@@ -287,7 +287,7 @@ const caseStudies = [
     name: 'Cerveza Patagonia',
     location: 'Craft Beer Scene',
     industry: 'Craft Brewery',
-    image: '/images/success-stories/Temple_Bar.jpg',
+    image: '/images/success-stories/patagonia.webp',
     keyMetrics: [
       { label: 'Event Bookings', value: '+334%', icon: Users },
       { label: 'Taproom Visits', value: '+218%', icon: TrendingUp },
