@@ -240,15 +240,6 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                   {locale === 'es' ? 'Ponte en Contacto' : 'Get in Touch'}
                 </Link>
               </li>
-              <li>
-                <a 
-                  href="mailto:hello@rayapp.io" 
-                  className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label="Email hello@rayapp.io"
-                >
-                  hello@rayapp.io
-                </a>
-              </li>
             </ul>
           </div>
 

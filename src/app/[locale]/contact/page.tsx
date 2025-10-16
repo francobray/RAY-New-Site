@@ -15,14 +15,14 @@ export async function generateMetadata({ params }: ContactPageProps): Promise<Me
     openGraph: {
       title: 'Contact Us - Get Started with RAY Restaurant Marketing | RAY',
       description: 'Ready to increase your restaurant revenue by 30%+? Contact RAY today for a free consultation and see how our marketing platform can help your business grow.',
-      url: `https://www.rayapp.io/${locale}/contact`,
+      url: `https://rayapp.io/${locale}/contact`,
     },
     twitter: {
       title: 'Contact Us - Get Started with RAY Restaurant Marketing | RAY',
       description: 'Ready to increase your restaurant revenue by 30%+? Contact RAY today for a free consultation and see how our marketing platform can help your business grow.',
     },
     alternates: {
-      canonical: `https://www.rayapp.io/${locale}/contact`,
+      canonical: `https://rayapp.io/${locale}/contact`,
     },
   }
 }

@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PrivacyPageProps): Promise<Me
     description: "RAY's Privacy Policy - Learn how we collect, use, and protect your personal information.",
     robots: 'noindex, nofollow',
     alternates: {
-      canonical: `https://www.rayapp.io/${locale}/privacy-policy`,
+      canonical: `https://rayapp.io/${locale}/privacy-policy`,
     },
   }
 }

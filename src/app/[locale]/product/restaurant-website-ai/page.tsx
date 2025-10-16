@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title,
       description,
       type: 'website',
-      url: `https://www.rayapp.io/${locale}${path}`,
+      url: `https://rayapp.io/${locale}${path}`,
       ...ogLocale,
     },
     twitter: {
@@ -59,13 +59,13 @@ export default function WebsiteBuilderPage({ params }: PageProps) {
       question: locale === 'es' ? '¿Puedo hacer cambios después del lanzamiento?' : 'Can I make changes after launch?',
       answer: locale === 'es' ? 'Sí, incluye un panel de administración fácil de usar para que puedas actualizar contenido, menús, y promociones por ti mismo.' : 'Yes, it includes an easy-to-use admin panel so you can update content, menus, and promotions yourself.'
     }
-  ], `https://www.rayapp.io/${locale}/product/restaurant-website-ai`, locale)
+  ], `https://rayapp.io/${locale}/product/restaurant-website-ai`, locale)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://www.rayapp.io/${locale}` },
-    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://www.rayapp.io/${locale}/products` },
-    { name: locale === 'es' ? 'Sitio Web IA' : 'AI Website Builder', url: `https://www.rayapp.io/${locale}/product/restaurant-website-ai` }
+    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
+    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
+    { name: locale === 'es' ? 'Sitio Web IA' : 'AI Website Builder', url: `https://rayapp.io/${locale}/product/restaurant-website-ai` }
   ])
 
   const combinedSchema = [faqSchema, breadcrumbSchema]

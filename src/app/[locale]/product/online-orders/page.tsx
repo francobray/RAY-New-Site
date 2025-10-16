@@ -24,12 +24,12 @@ export async function generateMetadata({ params }: OnlineOrdersPageProps): Promi
       description: locale === 'es' 
         ? 'Aumenta ingresos desde pedidos online, reservas y delivery con integraciones perfectas y sistemas de pedidos directos.'
         : 'Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins.',
-      url: `https://www.rayapp.io/${locale}${path}`,
+      url: `https://rayapp.io/${locale}${path}`,
       type: 'website',
       siteName: 'RAY',
       images: [
         {
-          url: `https://www.rayapp.io/images/online-ordering/online-ordering-01.webp`,
+          url: `https://rayapp.io/images/online-ordering/online-ordering-01.webp`,
           width: 1200,
           height: 630,
           alt: locale === 'es' ? 'Pedidos online para restaurantes - RAY' : 'Online orders for restaurants - RAY'
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: OnlineOrdersPageProps): Promi
       description: locale === 'es' 
         ? 'Aumenta ingresos desde pedidos online, reservas y delivery con integraciones perfectas.'
         : 'Grow revenue from online orders, reservations, and deliveries with seamless integrations.',
-      images: [`https://www.rayapp.io/images/online-ordering/online-ordering-01.webp`],
+      images: [`https://rayapp.io/images/online-ordering/online-ordering-01.webp`],
     },
   }
 }
@@ -55,7 +55,7 @@ export default function OnlineOrdersPage({ params }: OnlineOrdersPageProps) {
   const productSchema = generateProductWithReviewsSchema({
     name: 'Online Orders Platform',
     description: 'Grow revenue from online orders, reservations, and deliveries with seamless integrations, direct ordering systems, and data-driven insights that increase profit margins.',
-    url: `https://www.rayapp.io/${locale}/product/online-orders`,
+    url: `https://rayapp.io/${locale}/product/online-orders`,
     price: '270',
     features: [
       'Direct ordering system',
@@ -104,13 +104,13 @@ export default function OnlineOrdersPage({ params }: OnlineOrdersPageProps) {
       question: locale === 'es' ? '¿Funciona con mi sistema POS actual?' : 'Does it work with my current POS system?',
       answer: locale === 'es' ? 'Sí, nos integramos con más de 50 sistemas POS populares para sincronizar pedidos, menús y datos de clientes automáticamente.' : 'Yes, we integrate with over 50 popular POS systems to automatically sync orders, menus, and customer data.'
     }
-  ], `https://www.rayapp.io/${locale}/product/online-orders`, locale)
+  ], `https://rayapp.io/${locale}/product/online-orders`, locale)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://www.rayapp.io/${locale}` },
-    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://www.rayapp.io/${locale}/products` },
-    { name: locale === 'es' ? 'Pedidos Online' : 'Online Orders', url: `https://www.rayapp.io/${locale}/product/online-orders` }
+    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
+    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
+    { name: locale === 'es' ? 'Pedidos Online' : 'Online Orders', url: `https://rayapp.io/${locale}/product/online-orders` }
   ])
 
   const combinedSchema = [productSchema, faqSchema, breadcrumbSchema]

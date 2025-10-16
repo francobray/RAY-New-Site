@@ -15,9 +15,8 @@ export const COPY: Record<Locale, any> = {
     // Company Info
     COMPANY: {
       NAME: 'RAY',
-      TAGLINE: 'Vende mas delivery por WhatsApp y aumenta los ingresos de tu Restaurante',
+      TAGLINE: 'Aumenta delivery, reservas y tráfico de tu restaurante',
       DESCRIPTION: 'RAY ayuda a restaurantes a generar más delivery directo, reservas y tráfico en tu restaurante',
-      EMAIL: 'hello@rayapp.io',
       SUPPORT_EMAIL: 'support@rayapp.io'
     },
     
@@ -1261,7 +1260,6 @@ export const COPY: Record<Locale, any> = {
       NAME: 'RAY',
       TAGLINE: 'All in one sales platform for restaurant',
       DESCRIPTION: 'RAY is the #1 sales platform helping restaurant owners and operators attract more customers, grow revenue from walk-ins, orders, and bookings, and protect their reputation.',
-      EMAIL: 'hello@rayapp.io',
       SUPPORT_EMAIL: 'support@rayapp.io'
     },
     

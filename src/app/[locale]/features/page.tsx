@@ -17,14 +17,14 @@ export async function generateMetadata({ params }: FeaturesPageProps): Promise<M
     openGraph: {
       title: 'Features - Complete Restaurant Marketing Platform | RAY',
       description: 'Discover all RAY features: Local SEO, review management, customer engagement, analytics, email marketing, and mobile optimization. Everything you need to grow your restaurant.',
-      url: `https://www.rayapp.io/${locale}/features`,
+      url: `https://rayapp.io/${locale}/features`,
     },
     twitter: {
       title: 'Features - Complete Restaurant Marketing Platform | RAY',
       description: 'Discover all RAY features: Local SEO, review management, customer engagement, analytics, email marketing, and mobile optimization. Everything you need to grow your restaurant.',
     },
     alternates: {
-      canonical: `https://www.rayapp.io/${locale}/features`,
+      canonical: `https://rayapp.io/${locale}/features`,
     },
   }
 }

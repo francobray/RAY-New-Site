@@ -36,22 +36,22 @@ interface Props {
 // Case study data for metadata
 const caseStudyData = {
   'chimba-miami': {
-    title: 'Chimba Miami Case Study - 215% Increase in Google Maps Directions | RAY',
+    title: 'Chimba Miami - 215% Increase in Directions | RAY',
     description: 'See how Chimba Miami increased Google Maps directions by 215% and foot traffic by 46% using RAY\'s restaurant marketing platform. Real results from Miami\'s top nightlife destination.',
     component: ChimbaCaseStudy
   },
   'temple-craft-wynwood': {
-    title: 'Temple Craft Wynwood Case Study - 259% Growth in Local Visibility | RAY',
+    title: 'Temple Craft Wynwood - 259% Growth in Visibility | RAY',
     description: 'Discover how Temple Craft Wynwood achieved 259% increase in Google Maps visits and 66% more walk-ins with RAY\'s local marketing strategies. Craft beer success story.',
     component: TempleCraftCaseStudy
   },
   've-hospitality': {
-    title: 'V&E Hospitality Case Study - Restaurant Group Success with RAY Platform',
+    title: 'V&E Hospitality - Restaurant Group Success | RAY',
     description: 'See how V&E Hospitality Group increased revenue across multiple restaurant locations using RAY\'s comprehensive marketing platform.',
     component: VEHospitalityCaseStudy
   },
   'green-eat': {
-    title: 'Green Eat Case Study - Sustainable Restaurant Success with RAY Platform',
+    title: 'Green Eat - Sustainable Restaurant Success | RAY',
     description: 'See how Green Eat increased their eco-friendly restaurant\'s visibility and revenue using RAY\'s sustainable marketing platform.',
     component: GreenEatCaseStudy
   },
@@ -76,22 +76,22 @@ const caseStudyData = {
     component: DolcezzaCaseStudy
   },
   'la-birra-bar': {
-    title: 'La Birra Bar Case Study - Craft Beer Bar Success with RAY Platform',
+    title: 'La Birra Bar - Craft Beer Bar Success | RAY',
     description: 'See how La Birra Bar increased their craft beer bar\'s local visibility and customer engagement using RAY\'s comprehensive marketing platform.',
     component: LaBirraBarCaseStudy
   },
   'almacen-de-pizzas': {
-    title: 'Almacen de Pizzas Case Study - 247% Growth in Delivery Orders | RAY',
+    title: 'Almacen de Pizzas - 247% Growth in Delivery | RAY',
     description: 'See how Almacen de Pizzas achieved 247% increase in delivery orders and cut third-party commissions using RAY\'s zero-commission platform.',
     component: AlmacenDePizzasCaseStudy
   },
   'efes-mg-group': {
-    title: 'Efes MG Group Case Study - 312% Growth in Multi-Location Bookings | RAY',
+    title: 'Efes MG Group - 312% Growth in Bookings | RAY',
     description: 'Discover how Efes MG Group achieved 312% increase in online bookings across 8 locations with RAY\'s unified platform.',
     component: EfesMGGroupCaseStudy
   },
   'la-parolaccia': {
-    title: 'La Parolaccia Case Study - 198% Growth in Google Maps Visibility | RAY',
+    title: 'La Parolaccia - 198% Growth in Visibility | RAY',
     description: 'See how La Parolaccia achieved 198% increase in Google Maps visibility and became the top Italian restaurant locally.',
     component: LaParolacciaCaseStudy
   },
@@ -101,7 +101,7 @@ const caseStudyData = {
     component: LibertinoCafeCaseStudy
   },
   'cerveza-patagonia': {
-    title: 'Cerveza Patagonia Case Study - 334% Growth in Event Bookings | RAY',
+    title: 'Cerveza Patagonia - 334% Growth in Events | RAY',
     description: 'See how Cerveza Patagonia achieved 334% increase in event bookings and became the premier craft beer venue.',
     component: CervezaPatagoniaCaseStudy
   },
@@ -116,12 +116,12 @@ const caseStudyData = {
     component: LaGuitarritaCaseStudy
   },
   'le-pain-quotidien': {
-    title: 'Le Pain Quotidien Case Study - 223% Growth in Multi-Location Bookings | RAY',
+    title: 'Le Pain Quotidien - 223% Growth in Bookings | RAY',
     description: 'Learn how Le Pain Quotidien achieved 223% increase in bookings with unified multi-location platform.',
     component: LePainQuotidienCaseStudy
   },
   'la-panera-rosa': {
-    title: 'La Panera Rosa Case Study - 256% Growth in Breakfast Orders | RAY',
+    title: 'La Panera Rosa - 256% Growth in Breakfast | RAY',
     description: 'See how La Panera Rosa achieved 256% increase in breakfast orders with branded mobile app.',
     component: LaPaneraRosaCaseStudy
   },
@@ -141,7 +141,7 @@ const caseStudyData = {
     component: RapanuiCaseStudy
   },
   'tea-connection': {
-    title: 'Tea Connection Case Study - 234% Growth in Afternoon Tea Bookings | RAY',
+    title: 'Tea Connection - 234% Growth in Tea Bookings | RAY',
     description: 'See how Tea Connection achieved 234% increase in afternoon tea bookings with experience platform.',
     component: TeaConnectionCaseStudy
   },
@@ -174,14 +174,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: caseStudy.title,
       description: caseStudy.description,
-      url: `https://www.rayapp.io/${locale}/case-studies/${slug}`,
+      url: `https://rayapp.io/${locale}/case-studies/${slug}`,
     },
     twitter: {
       title: caseStudy.title,
       description: caseStudy.description,
     },
     alternates: {
-      canonical: `https://www.rayapp.io/${locale}/case-studies/${slug}`,
+      canonical: `https://rayapp.io/${locale}/case-studies/${slug}`,
     },
   }
 }

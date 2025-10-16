@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
     title: `RAY - ${t.COMPANY.TAGLINE}`,
     description: t.COMPANY.DESCRIPTION,
     alternates: {
-      canonical: `https://www.rayapp.io/${locale}`
+      canonical: `https://rayapp.io/${locale}`
     },
     openGraph: {
       title: `RAY - ${t.COMPANY.TAGLINE}`,
       description: t.COMPANY.DESCRIPTION,
-      url: `https://www.rayapp.io/${locale}`,
+      url: `https://rayapp.io/${locale}`,
       type: 'website',
     },
   }
@@ -50,7 +50,7 @@ export default function HomePage({ params }: HomePageProps) {
     generateWebsiteSchema(locale),
     generateLocalBusinessSchema(locale),
     generateBreadcrumbSchema([
-      { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://www.rayapp.io/${locale}` }
+      { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` }
     ])
   ]
 

@@ -262,7 +262,6 @@ These results are from real client case studies available on our website.
 ## Contact Information
 
 **Website:** https://www.rayapp.io
-**Email:** hello@rayapp.io
 **Support:** support@rayapp.io
 
 For partnership inquiries, media requests, or technical questions about AI 

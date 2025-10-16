@@ -47,7 +47,6 @@ export const generateOrganizationSchema = (locale?: Locale) => ({
       "@type": "ContactPoint",
       "telephone": "+1-555-RAY-HELP",
       "contactType": "customer service",
-      "email": "hello@rayapp.io",
       "availableLanguage": ["English", "Spanish"],
       "areaServed": "US",
       "hoursAvailable": {
@@ -68,7 +67,6 @@ export const generateOrganizationSchema = (locale?: Locale) => ({
     {
       "@type": "ContactPoint",
       "contactType": "sales",
-      "email": "hello@rayapp.io",
       "availableLanguage": ["English", "Spanish"],
       "areaServed": "US"
     }
@@ -457,7 +455,6 @@ export const generateLocalBusinessSchema = (locale?: Locale) => ({
   "url": SEO_CONFIG.SITE_URL,
   "inLanguage": locale === 'es' ? "es-ES" : "en-US",
   "telephone": "+1-555-RAY-HELP",
-  "email": "hello@rayapp.io",
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "US"

@@ -15,19 +15,19 @@ export async function generateMetadata({ params }: WalkInsPageProps): Promise<Me
   }
 
   return {
-    title: locale === 'es' ? 'Más tráfico en sucursales - Convierte búsquedas en Google Maps en visitas | RAY' : 'Walk-Ins - Turn Searches Into Restaurant Visits | RAY',
+    title: locale === 'es' ? 'Más Tráfico en Sucursal - Google Maps a Visitas | RAY' : 'Walk-Ins - Turn Searches Into Restaurant Visits | RAY',
     description: locale === 'es' ? 'Convierte búsquedas en Google Maps en visitas con la plataforma de marketing local impulsada por IA de RAY. Domina Google Maps, construye confianza a través de reseñas y aumenta el tráfico peatonal en un 47%.' : 'Turn searches into walk-ins with RAY\'s AI-powered local marketing platform. Dominate Google Maps, build trust through reviews, and drive 47% more foot traffic.',
     openGraph: {
-      title: locale === 'es' ? 'Más tráfico en sucursales - Convierte búsquedas en Google Maps en visitas | RAY' : 'Walk-Ins - Turn Searches Into Restaurant Visits | RAY',
+      title: locale === 'es' ? 'Más Tráfico en Sucursal - Google Maps a Visitas | RAY' : 'Walk-Ins - Turn Searches Into Restaurant Visits | RAY',
       description: locale === 'es' ? 'Convierte búsquedas en Google Maps en visitas con la plataforma de marketing local impulsada por IA de RAY. Domina Google Maps, construye confianza a través de reseñas y aumenta el tráfico peatonal en un 47%.' : 'Turn searches into walk-ins with RAY\'s AI-powered local marketing platform. Dominate Google Maps, build trust through reviews, and drive 47% more foot traffic.',
-      url: `https://www.rayapp.io/${locale}/product/walk-ins`,
+      url: `https://rayapp.io/${locale}/product/walk-ins`,
     },
     twitter: {
-      title: locale === 'es' ? 'Más tráfico en sucursales - Convierte búsquedas en Google Maps en visitas | RAY' : 'Walk-Ins - Turn Searches Into Restaurant Visits | RAY',
+      title: locale === 'es' ? 'Más Tráfico en Sucursal - Google Maps a Visitas | RAY' : 'Walk-Ins - Turn Searches Into Restaurant Visits | RAY',
       description: locale === 'es' ? 'Convierte búsquedas en Google Maps en visitas con la plataforma de marketing local impulsada por IA de RAY. Domina Google Maps, construye confianza a través de reseñas y aumenta el tráfico peatonal en un 47%.' : 'Turn searches into walk-ins with RAY\'s AI-powered local marketing platform. Dominate Google Maps, build trust through reviews, and drive 47% more foot traffic.',
     },
     alternates: {
-      canonical: `https://www.rayapp.io/${locale}/product/walk-ins`,
+      canonical: `https://rayapp.io/${locale}/product/walk-ins`,
     },
   }
 }
@@ -49,13 +49,13 @@ export default function WalkInsPage({ params }: WalkInsPageProps) {
       question: locale === 'es' ? '¿Cuánto tiempo toma ver resultados?' : 'How long does it take to see results?',
       answer: locale === 'es' ? 'La mayoría de nuestros clientes ven un aumento del 30-50% en direcciones de Google Maps dentro de los primeros 60 días.' : 'Most of our clients see a 30-50% increase in Google Maps directions within the first 60 days.'
     }
-  ], `https://www.rayapp.io/${locale}/product/walk-ins`)
+  ], `https://rayapp.io/${locale}/product/walk-ins`)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://www.rayapp.io/${locale}` },
-    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://www.rayapp.io/${locale}/products` },
-    { name: locale === 'es' ? 'Más Caminantes' : 'Walk-ins', url: `https://www.rayapp.io/${locale}/product/walk-ins` }
+    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
+    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
+    { name: locale === 'es' ? 'Más Caminantes' : 'Walk-ins', url: `https://rayapp.io/${locale}/product/walk-ins` }
   ])
 
   const combinedSchema = [faqSchema, breadcrumbSchema]
