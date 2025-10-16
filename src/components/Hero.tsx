@@ -19,6 +19,11 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
     const script = document.createElement('script')
     script.src = 'https://grader.rayapp.io/ray-widget.js'
     script.setAttribute('data-cfasync', 'false')
+    
+    script.onerror = (error) => {
+      console.error('Failed to load RAY widget script:', error)
+    }
+    
     document.head.appendChild(script)
 
     script.onload = () => {
@@ -52,7 +57,11 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
           })
         }
 
-        new (window as any).RAYWidget(widgetConfig)
+        try {
+          new (window as any).RAYWidget(widgetConfig)
+        } catch (error) {
+          console.error('RAY Widget initialization error:', error)
+        }
         
         // Wait a bit for the widget content to load, then style the specific text
         setTimeout(() => {

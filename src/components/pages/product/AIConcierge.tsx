@@ -43,7 +43,7 @@ const ChatCarousel = () => {
     {
       id: 1,
       platform: 'WhatsApp',
-      platformLogo: '/WhatsApp.svg.webp',
+      platformLogo: '/images/WhatsApp.svg.webp',
       businessName: locale === 'es' ? 'Pizza de Mario' : 'Mario\'s Pizza',
       status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
@@ -95,7 +95,7 @@ const ChatCarousel = () => {
     {
       id: 2,
       platform: 'WhatsApp',
-      platformLogo: '/WhatsApp.svg.webp',
+      platformLogo: '/images/WhatsApp.svg.webp',
       businessName: locale === 'es' ? 'Sushi Bar Tokyo' : 'Tokyo Sushi Bar',
       status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
@@ -147,7 +147,7 @@ const ChatCarousel = () => {
     {
       id: 3,
       platform: 'WhatsApp',
-      platformLogo: '/WhatsApp.svg.webp',
+      platformLogo: '/images/WhatsApp.svg.webp',
       businessName: locale === 'es' ? 'Café Amanecer' : 'Sunrise Café',
       status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
@@ -199,7 +199,7 @@ const ChatCarousel = () => {
     {
       id: 4,
       platform: 'WhatsApp',
-      platformLogo: '/WhatsApp.svg.webp',
+      platformLogo: '/images/WhatsApp.svg.webp',
       businessName: 'La Cocina Mexicana',
       status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
@@ -251,7 +251,7 @@ const ChatCarousel = () => {
     {
       id: 5,
       platform: 'WhatsApp',
-      platformLogo: '/WhatsApp.svg.webp',
+      platformLogo: '/images/WhatsApp.svg.webp',
       businessName: locale === 'es' ? 'Pastelería Dulces Sueños' : 'Sweet Dreams Bakery',
       status: locale === 'es' ? 'En línea' : 'Online',
       headerColor: 'bg-green-600',
