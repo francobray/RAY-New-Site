@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: CookiePageProps): Promise<Met
     description: "RAY's Cookie Policy - Learn about how we use cookies and similar technologies on our website.",
     robots: 'noindex, nofollow',
     alternates: {
-      canonical: `https://rayapp.io/${locale}/cookie-policy`,
+      canonical: `https://www.rayapp.io/${locale}/cookie-policy`,
     },
   }
 }

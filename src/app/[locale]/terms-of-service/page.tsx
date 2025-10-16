@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: TermsPageProps): Promise<Meta
     description: "RAY's Terms of Service - Learn about the terms and conditions for using our restaurant marketing platform.",
     robots: 'noindex, nofollow',
     alternates: {
-      canonical: `https://rayapp.io/${locale}/terms-of-service`,
+      canonical: `https://www.rayapp.io/${locale}/terms-of-service`,
     },
   }
 }

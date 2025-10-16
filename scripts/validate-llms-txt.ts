@@ -105,7 +105,7 @@ function validateLLMsTxt(): ValidationResult {
   }
 
   // Check for required contact information
-  const requiredInfo = ['hello@rayapp.io', 'support@rayapp.io', 'https://rayapp.io']
+  const requiredInfo = ['hello@rayapp.io', 'support@rayapp.io', 'https://www.rayapp.io']
   requiredInfo.forEach(info => {
     if (!content.includes(info)) {
       result.errors.push(`Missing required contact information: ${info}`)

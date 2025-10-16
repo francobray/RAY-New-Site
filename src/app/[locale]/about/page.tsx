@@ -15,14 +15,14 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
     openGraph: {
       title: 'About Us - Restaurant Marketing Experts | RAY',
       description: 'Learn about RAY\'s mission to help restaurants increase revenue through proven marketing strategies. Meet our team of restaurant industry experts.',
-      url: `https://rayapp.io/${locale}/about`,
+      url: `https://www.rayapp.io/${locale}/about`,
     },
     twitter: {
       title: 'About Us - Restaurant Marketing Experts | RAY',
       description: 'Learn about RAY\'s mission to help restaurants increase revenue through proven marketing strategies. Meet our team of restaurant industry experts.',
     },
     alternates: {
-      canonical: `https://rayapp.io/${locale}/about`,
+      canonical: `https://www.rayapp.io/${locale}/about`,
     },
   }
 }

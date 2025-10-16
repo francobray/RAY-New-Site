@@ -52,4 +52,4 @@ Allow: /images/
 Allow: /fonts/
 Allow: /_next/static/
 
-Sitemap: https://rayapp.io/sitemap.xml
+Sitemap: https://www.rayapp.io/sitemap.xml

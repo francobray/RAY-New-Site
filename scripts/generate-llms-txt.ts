@@ -9,7 +9,7 @@ import { type Locale } from '../src/lib/i18n'
  * This describes the entire website structure and content for AI systems
  */
 
-const BASE_URL = 'https://rayapp.io'
+const BASE_URL = 'https://www.rayapp.io'
 const LOCALES: Locale[] = ['es', 'en']
 
 interface PageInfo {
@@ -349,7 +349,7 @@ These results are from real client case studies available on our website.
 
 ## Contact Information
 
-**Website:** https://rayapp.io
+**Website:** https://www.rayapp.io
 **Email:** hello@rayapp.io
 **Support:** support@rayapp.io
 
@@ -368,7 +368,7 @@ website organization.
 **Generation:** Automated via CI/CD pipeline
 **Validation:** Pre-commit hooks ensure data freshness
 
-For the most current information, please visit https://rayapp.io
+For the most current information, please visit https://www.rayapp.io
 
 ---
 

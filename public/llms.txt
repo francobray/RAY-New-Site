@@ -29,141 +29,141 @@ All pages are available in both languages at /{locale}/path
 
 ### Main Pages
 
-**https://rayapp.io/**
+**https://www.rayapp.io/**
 AI-powered restaurant marketing platform helping restaurants increase revenue through local SEO, direct bookings, online orders, and customer engagement. 30%+ Google Maps directions guarantee.
 
 ### Product Pages
 
 Our suite of restaurant marketing and operations tools:
 
-**https://rayapp.io/es/product/ai-concierge**
+**https://www.rayapp.io/es/product/ai-concierge**
 AI-powered WhatsApp concierge that takes orders, books reservations, and answers menu questions 24/7 in multiple languages.
 
-**https://rayapp.io/en/product/ai-concierge**
+**https://www.rayapp.io/en/product/ai-concierge**
 AI-powered WhatsApp concierge that takes orders, books reservations, and answers menu questions 24/7 in multiple languages.
 
-**https://rayapp.io/es/product/automated-marketing**
+**https://www.rayapp.io/es/product/automated-marketing**
 Automated Marketing for restaurants.
 
-**https://rayapp.io/en/product/automated-marketing**
+**https://www.rayapp.io/en/product/automated-marketing**
 Automated Marketing for restaurants.
 
-**https://rayapp.io/es/product/branded-apps**
+**https://www.rayapp.io/es/product/branded-apps**
 Custom-branded mobile apps for iOS and Android. Build customer loyalty with your own restaurant app.
 
-**https://rayapp.io/en/product/branded-apps**
+**https://www.rayapp.io/en/product/branded-apps**
 Custom-branded mobile apps for iOS and Android. Build customer loyalty with your own restaurant app.
 
-**https://rayapp.io/es/product/direct-bookings**
+**https://www.rayapp.io/es/product/direct-bookings**
 Table reservation management system with waitlists, guest relationship tools, and automated confirmations.
 
-**https://rayapp.io/en/product/direct-bookings**
+**https://www.rayapp.io/en/product/direct-bookings**
 Table reservation management system with waitlists, guest relationship tools, and automated confirmations.
 
-**https://rayapp.io/es/product/loyalty**
+**https://www.rayapp.io/es/product/loyalty**
 Restaurant loyalty program with points, rewards, and personalized offers to increase customer retention and repeat visits.
 
-**https://rayapp.io/en/product/loyalty**
+**https://www.rayapp.io/en/product/loyalty**
 Restaurant loyalty program with points, rewards, and personalized offers to increase customer retention and repeat visits.
 
-**https://rayapp.io/es/product/online-orders**
+**https://www.rayapp.io/es/product/online-orders**
 Commission-free online ordering system integrated with your POS. Accept orders directly from your website and mobile app.
 
-**https://rayapp.io/en/product/online-orders**
+**https://www.rayapp.io/en/product/online-orders**
 Commission-free online ordering system integrated with your POS. Accept orders directly from your website and mobile app.
 
-**https://rayapp.io/es/product/restaurant-website-ai**
+**https://www.rayapp.io/es/product/restaurant-website-ai**
 AI-powered restaurant website builder that creates SEO-optimized websites designed to rank on Google and convert visitors into customers.
 
-**https://rayapp.io/en/product/restaurant-website-ai**
+**https://www.rayapp.io/en/product/restaurant-website-ai**
 AI-powered restaurant website builder that creates SEO-optimized websites designed to rank on Google and convert visitors into customers.
 
-**https://rayapp.io/es/product/walk-ins**
+**https://www.rayapp.io/es/product/walk-ins**
 Increase walk-in traffic through Google Maps optimization, local SEO, and review management. Convert Google searches into restaurant visits.
 
-**https://rayapp.io/en/product/walk-ins**
+**https://www.rayapp.io/en/product/walk-ins**
 Increase walk-in traffic through Google Maps optimization, local SEO, and review management. Convert Google searches into restaurant visits.
 
-**https://rayapp.io/es/product/whatsapp-delivery**
+**https://www.rayapp.io/es/product/whatsapp-delivery**
 WhatsApp-based ordering system with AI concierge for instant responses. Take orders via WhatsApp 24/7.
 
-**https://rayapp.io/en/product/whatsapp-delivery**
+**https://www.rayapp.io/en/product/whatsapp-delivery**
 WhatsApp-based ordering system with AI concierge for instant responses. Take orders via WhatsApp 24/7.
 
-**https://rayapp.io/es/product/zero-commission-delivery**
+**https://www.rayapp.io/es/product/zero-commission-delivery**
 Zero-commission delivery platform with top-rated drivers at flat rates. Keep 100% of your delivery profits.
 
-**https://rayapp.io/en/product/zero-commission-delivery**
+**https://www.rayapp.io/en/product/zero-commission-delivery**
 Zero-commission delivery platform with top-rated drivers at flat rates. Keep 100% of your delivery profits.
 
 ### Core Pages
 
 Essential information and resources:
 
-**https://rayapp.io/es/pricing**
+**https://www.rayapp.io/es/pricing**
 Transparent pricing for restaurant marketing services. Choose from Starter, Growth, or Enterprise plans with no hidden fees. 30-day money-back guarantee.
 
-**https://rayapp.io/en/pricing**
+**https://www.rayapp.io/en/pricing**
 Transparent pricing for restaurant marketing services. Choose from Starter, Growth, or Enterprise plans with no hidden fees. 30-day money-back guarantee.
 
-**https://rayapp.io/es/case-studies**
+**https://www.rayapp.io/es/case-studies**
 Real results from restaurants using RAY. See how we helped restaurants increase Google Maps directions, online orders, and reservations.
 
-**https://rayapp.io/en/case-studies**
+**https://www.rayapp.io/en/case-studies**
 Real results from restaurants using RAY. See how we helped restaurants increase Google Maps directions, online orders, and reservations.
 
-**https://rayapp.io/es/about**
+**https://www.rayapp.io/es/about**
 Learn about RAY's mission to help independent restaurants compete with national chains through AI-powered marketing and technology.
 
-**https://rayapp.io/en/about**
+**https://www.rayapp.io/en/about**
 Learn about RAY's mission to help independent restaurants compete with national chains through AI-powered marketing and technology.
 
-**https://rayapp.io/es/contact**
+**https://www.rayapp.io/es/contact**
 Get in touch with RAY for restaurant marketing solutions. Request a demo or speak with our team about growing your restaurant.
 
-**https://rayapp.io/en/contact**
+**https://www.rayapp.io/en/contact**
 Get in touch with RAY for restaurant marketing solutions. Request a demo or speak with our team about growing your restaurant.
 
-**https://rayapp.io/es/demo**
+**https://www.rayapp.io/es/demo**
 Schedule a free demo to see how RAY can increase your restaurant revenue. No commitment required.
 
-**https://rayapp.io/en/demo**
+**https://www.rayapp.io/en/demo**
 Schedule a free demo to see how RAY can increase your restaurant revenue. No commitment required.
 
 ### Case Studies
 
 Real results from restaurant clients:
 
-**https://rayapp.io/es/case-studies/temple-craft-wynwood**
+**https://www.rayapp.io/es/case-studies/temple-craft-wynwood**
 How Temple Craft increased Google Maps directions by 47% and improved their local search rankings using RAY's automated marketing platform.
 
-**https://rayapp.io/en/case-studies/temple-craft-wynwood**
+**https://www.rayapp.io/en/case-studies/temple-craft-wynwood**
 How Temple Craft increased Google Maps directions by 47% and improved their local search rankings using RAY's automated marketing platform.
 
-**https://rayapp.io/es/case-studies/chimba-miami**
+**https://www.rayapp.io/es/case-studies/chimba-miami**
 How Chimba Miami improved their online presence and customer engagement using RAY's restaurant marketing platform.
 
-**https://rayapp.io/en/case-studies/chimba-miami**
+**https://www.rayapp.io/en/case-studies/chimba-miami**
 How Chimba Miami improved their online presence and customer engagement using RAY's restaurant marketing platform.
 
 ### Legal Pages
 
-**https://rayapp.io/es/privacy-policy**
+**https://www.rayapp.io/es/privacy-policy**
 RAY privacy policy outlining how we collect, use, and protect restaurant and customer data.
 
-**https://rayapp.io/en/privacy-policy**
+**https://www.rayapp.io/en/privacy-policy**
 RAY privacy policy outlining how we collect, use, and protect restaurant and customer data.
 
-**https://rayapp.io/es/terms-of-service**
+**https://www.rayapp.io/es/terms-of-service**
 Terms and conditions for using RAY restaurant marketing platform and services.
 
-**https://rayapp.io/en/terms-of-service**
+**https://www.rayapp.io/en/terms-of-service**
 Terms and conditions for using RAY restaurant marketing platform and services.
 
-**https://rayapp.io/es/cookie-policy**
+**https://www.rayapp.io/es/cookie-policy**
 Information about how RAY uses cookies to improve user experience and analytics.
 
-**https://rayapp.io/en/cookie-policy**
+**https://www.rayapp.io/en/cookie-policy**
 Information about how RAY uses cookies to improve user experience and analytics.
 
 ---
@@ -228,7 +228,7 @@ Information about how RAY uses cookies to improve user experience and analytics.
 When citing our content, please reference:
 - Company: RAY (rayapp.io)
 - Source URL when available
-- Date of information: 2025-10-15
+- Date of information: 2025-10-16
 
 ### ❌ Not Permitted
 - Claiming our proprietary technology or methods as your own
@@ -261,7 +261,7 @@ These results are from real client case studies available on our website.
 
 ## Contact Information
 
-**Website:** https://rayapp.io
+**Website:** https://www.rayapp.io
 **Email:** hello@rayapp.io
 **Support:** support@rayapp.io
 
@@ -276,11 +276,11 @@ This file is automatically generated from our codebase structure to ensure
 accuracy and completeness. It reflects our current product offerings and 
 website organization.
 
-**Last Updated:** 2025-10-15
+**Last Updated:** 2025-10-16
 **Generation:** Automated via CI/CD pipeline
 **Validation:** Pre-commit hooks ensure data freshness
 
-For the most current information, please visit https://rayapp.io
+For the most current information, please visit https://www.rayapp.io
 
 ---
 

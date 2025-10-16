@@ -44,7 +44,8 @@ export function middleware(request: NextRequest) {
     const url = request.nextUrl.clone()
     // Keep path intact; avoid double slashes
     url.pathname = `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`
-    return NextResponse.redirect(url)
+    // Use permanent redirect (301) for SEO
+    return NextResponse.redirect(url, 301)
   }
 
   // --- 3) Optional headers only for HTML pages ---

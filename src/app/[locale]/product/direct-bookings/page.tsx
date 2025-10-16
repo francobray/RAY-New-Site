@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: BookingsPageProps): Promise<M
       description: locale === 'es' 
         ? 'Maximiza la ocupación de mesas con gestión inteligente de reservas, listas de espera y herramientas de relación con clientes.'
         : 'Maximize table occupancy with smart booking management. Handle reservations, walk-ins, and waitlists while building guest relationships that drive repeat visits.',
-      url: `https://rayapp.io/${locale}${path}`,
+      url: `https://www.rayapp.io/${locale}${path}`,
       ...ogLocale,
     },
     twitter: {

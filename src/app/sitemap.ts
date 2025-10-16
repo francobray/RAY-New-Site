@@ -4,7 +4,7 @@ import path from 'path'
 import { type Locale } from '../lib/i18n'
 
 // Configuration
-const BASE_URL = 'https://rayapp.io'
+const BASE_URL = 'https://www.rayapp.io'
 const LOCALES: Locale[] = ['es', 'en']
 
 // Static routes that don't follow the [locale] pattern

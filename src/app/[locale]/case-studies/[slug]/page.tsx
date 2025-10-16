@@ -174,14 +174,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: caseStudy.title,
       description: caseStudy.description,
-      url: `https://rayapp.io/${locale}/case-studies/${slug}`,
+      url: `https://www.rayapp.io/${locale}/case-studies/${slug}`,
     },
     twitter: {
       title: caseStudy.title,
       description: caseStudy.description,
     },
     alternates: {
-      canonical: `https://rayapp.io/${locale}/case-studies/${slug}`,
+      canonical: `https://www.rayapp.io/${locale}/case-studies/${slug}`,
     },
   }
 }

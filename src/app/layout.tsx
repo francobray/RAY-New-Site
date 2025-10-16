@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rayapp.io'),
+  metadataBase: new URL('https://www.rayapp.io'),
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },

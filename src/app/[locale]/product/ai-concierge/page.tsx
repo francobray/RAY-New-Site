@@ -17,14 +17,14 @@ export async function generateMetadata({ params }: AIConciergePageProps): Promis
     openGraph: {
       title: 'WhatsApp Orders for Restaurants | RAY',
       description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
-      url: `https://rayapp.io/${locale}/product/ai-concierge`,
+      url: `https://www.rayapp.io/${locale}/product/ai-concierge`,
     },
     twitter: {
       title: 'WhatsApp Orders for Restaurants | RAY',
       description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
     },
     alternates: {
-      canonical: `https://rayapp.io/${locale}/product/ai-concierge`,
+      canonical: `https://www.rayapp.io/${locale}/product/ai-concierge`,
     },
   }
 }
@@ -34,13 +34,13 @@ export default function AIConciergePage({ params }: AIConciergePageProps) {
   const t = getTranslations(locale)
   
   // FAQ schema - using the same FAQs from the component
-  const faqSchema = generateFAQSchema(t.AI_CONCIERGE_PAGE.FAQ.QUESTIONS, `https://rayapp.io/${locale}/product/ai-concierge`)
+  const faqSchema = generateFAQSchema(t.AI_CONCIERGE_PAGE.FAQ.QUESTIONS, `https://www.rayapp.io/${locale}/product/ai-concierge`)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
-    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
-    { name: locale === 'es' ? 'Asistente IA' : 'AI Concierge', url: `https://rayapp.io/${locale}/product/ai-concierge` }
+    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://www.rayapp.io/${locale}` },
+    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://www.rayapp.io/${locale}/products` },
+    { name: locale === 'es' ? 'Asistente IA' : 'AI Concierge', url: `https://www.rayapp.io/${locale}/product/ai-concierge` }
   ])
 
   const combinedSchema = [faqSchema, breadcrumbSchema]

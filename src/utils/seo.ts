@@ -1,7 +1,7 @@
 // SEO utilities and constants
 export const SEO_CONFIG = {
   SITE_NAME: 'RAY',
-  SITE_URL: 'https://rayapp.io',
+  SITE_URL: 'https://www.rayapp.io',
   DEFAULT_IMAGE: '/images/logo-rayapp-azulwebp-300x150.webp',
   TWITTER_HANDLE: '@rayrestaurant',
   

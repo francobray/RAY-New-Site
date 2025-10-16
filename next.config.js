@@ -171,7 +171,26 @@ const nextConfig = {
     ]
   },
   async redirects() {
-    return []
+    return [
+      // Redirect root to Spanish locale (permanent)
+      {
+        source: '/',
+        destination: '/es',
+        permanent: true,
+      },
+      // Redirect non-www to www for consistency
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'rayapp.io',
+          },
+        ],
+        destination: 'https://www.rayapp.io/:path*',
+        permanent: true,
+      },
+    ]
   },
 }
 

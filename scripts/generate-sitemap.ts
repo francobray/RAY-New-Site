@@ -90,7 +90,7 @@ function getSitemapSummary(sitemapData: any[]) {
       summary.legalPages++
     } else if (url.includes('/pricing') || url.includes('/about') || url.includes('/contact') || url.includes('/demo') || url.includes('/features')) {
       summary.corePages++
-    } else if (url.endsWith('/es') || url.endsWith('/en') || url === 'https://rayapp.io/') {
+    } else if (url.endsWith('/es') || url.endsWith('/en') || url === 'https://www.rayapp.io/') {
       summary.mainPages++
     }
   })

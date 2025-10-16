@@ -15,14 +15,14 @@ export async function generateMetadata({ params }: DemoPageProps): Promise<Metad
     openGraph: {
       title: 'Free Demo - See RAY Restaurant Marketing Platform in Action | RAY',
       description: 'Book a free demo of RAY\'s restaurant marketing platform. See how we help restaurants increase revenue by 30%+ through local SEO, reviews, and customer engagement.',
-      url: `https://rayapp.io/${locale}/demo`,
+      url: `https://www.rayapp.io/${locale}/demo`,
     },
     twitter: {
       title: 'Free Demo - See RAY Restaurant Marketing Platform in Action | RAY',
       description: 'Book a free demo of RAY\'s restaurant marketing platform. See how we help restaurants increase revenue by 30%+ through local SEO, reviews, and customer engagement.',
     },
     alternates: {
-      canonical: `https://rayapp.io/${locale}/demo`,
+      canonical: `https://www.rayapp.io/${locale}/demo`,
     },
   }
 }
