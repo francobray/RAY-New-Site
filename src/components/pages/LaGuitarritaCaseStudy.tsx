@@ -126,7 +126,7 @@ const LaGuitarritaCaseStudy: React.FC<LaGuitarritaCaseStudyProps> = ({ locale })
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/success-stories/Chef_burguer.jpeg"
+              src="/images/success-stories/la-guitarrita.webp"
               alt="La Guitarrita preparing authentic Mexican cuisine for delivery"
               width={1200}
               height={600}

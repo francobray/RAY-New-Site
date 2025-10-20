@@ -7,24 +7,25 @@ import CTASection from '../CTASection'
 import { useTranslations } from '../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
 
-const caseStudies = [
+// Function to get localized case studies data
+const getCaseStudiesData = (locale: Locale, t: any) => [
   {
     id: 'temple-craft',
     slug: 'temple-craft-wynwood',
     name: 'Temple Craft Wynwood',
-    location: 'Wynwood, Miami',
-    industry: 'Craft Beer & Nightlife',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.WYNWOOD_MIAMI,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.CRAFT_BEER_NIGHTLIFE,
     image: '/images/success-stories/Temple_Team.jpeg',
     keyMetrics: [
-      { label: 'Google Maps Views', value: '+259%', icon: Eye },
-      { label: 'Walk-ins', value: '+66%', icon: Users },
-      { label: 'Google Rating', value: '4.8★', icon: Star }
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.GOOGLE_MAPS_VIEWS, value: '+259%', icon: Eye },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.WALK_INS, value: '+66%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.GOOGLE_RATING, value: '4.8★', icon: Star }
     ],
-    headline: 'From #15 to #1 on Google Maps',
-    description: 'Temple Craft climbed from ranking #15 to #1 on Google Maps while dramatically increasing foot traffic and discovery.',
-    tags: ['Local SEO', 'Listings', 'Reviews'],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.TEMPLE_CRAFT,
+    description: locale === 'es' ? 'Temple Craft escaló del puesto #15 al #1 en Google Maps mientras aumentaba dramáticamente el tráfico peatonal y la visibilidad.' : 'Temple Craft climbed from ranking #15 to #1 on Google Maps while dramatically increasing foot traffic and discovery.',
+    tags: locale === 'es' ? ['SEO Local', 'Listados', 'Reseñas'] : ['Local SEO', 'Listings', 'Reviews'],
     testimonial: {
-      text: 'Our Google Maps visits skyrocketed by 259%, and foot traffic increased by 66%.',
+      text: locale === 'es' ? 'Nuestras visitas en Google Maps se dispararon 259%, y el tráfico peatonal aumentó 66%.' : 'Our Google Maps visits skyrocketed by 259%, and foot traffic increased by 66%.',
       author: 'Juan Ignacio Chereminiano',
       title: 'CEO'
     }
@@ -33,19 +34,19 @@ const caseStudies = [
     id: 'chimba-miami',
     slug: 'chimba-miami',
     name: 'Chimba Miami',
-    location: 'Miami, FL',
-    industry: 'Nightlife & Dining',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.MIAMI_FL,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.NIGHTLIFE_DINING,
     image: '/images/success-stories/Chimba_Miami_Celebrating.jpeg',
     keyMetrics: [
-      { label: 'Google Maps Directions', value: '+215%', icon: Eye },
-      { label: 'Walk-ins', value: '+46%', icon: Users },
-      { label: 'Google Rating', value: '4.7★', icon: Star }
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.GOOGLE_MAPS_DIRECTIONS, value: '+215%', icon: Eye },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.WALK_INS, value: '+46%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.GOOGLE_RATING, value: '4.7★', icon: Star }
     ],
-    headline: 'Explosive Growth in Local Visibility',
-    description: 'Chimba climbed from low search ranking to top visibility on Google Maps, bringing in more foot traffic and local engagement.',
-    tags: ['Local SEO', 'Listings', 'Reviews'],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.CHIMBA_MIAMI,
+    description: locale === 'es' ? 'Chimba escaló de un ranking bajo a máxima visibilidad en Google Maps, atrayendo más tráfico peatonal y engagement local.' : 'Chimba climbed from low search ranking to top visibility on Google Maps, bringing in more foot traffic and local engagement.',
+    tags: locale === 'es' ? ['SEO Local', 'Listados', 'Reseñas'] : ['Local SEO', 'Listings', 'Reviews'],
     testimonial: {
-      text: 'Our Google Maps visits skyrocketed by 215%, and foot traffic increased by 46%.',
+      text: locale === 'es' ? 'Nuestras visitas en Google Maps se dispararon 215%, y el tráfico peatonal aumentó 46%.' : 'Our Google Maps visits skyrocketed by 215%, and foot traffic increased by 46%.',
       author: 'Franco Yametti',
       title: 'CEO'
     }
@@ -54,21 +55,21 @@ const caseStudies = [
     id: 've-hospitality',
     slug: 've-hospitality',
     name: 'V&E Hospitality Group',
-    location: 'Multiple Locations',
-    industry: 'Restaurant Group',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.MULTIPLE_LOCATIONS,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.RESTAURANT_GROUP,
     image: '/images/success-stories/Restaurant-photo-ray.jpeg',
     keyMetrics: [
-      { label: 'Monthly Revenue', value: '+$45K', icon: TrendingUp },
-      { label: 'Bookings Growth', value: '+180%', icon: Users },
-      { label: 'Local Visibility', value: '+95%', icon: Eye }
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.MONTHLY_REVENUE, value: '+$45K', icon: TrendingUp },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.BOOKINGS_GROWTH, value: '+180%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.LOCAL_VISIBILITY, value: '+95%', icon: Eye }
     ],
-    headline: 'Unified Marketing Across Multiple Locations',
-    description: 'V&E Hospitality Group unified their marketing strategy across multiple restaurant concepts, achieving consistent growth and brand recognition.',
-    tags: ['Multi-location', 'Unified Marketing', 'Brand Management'],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.VE_HOSPITALITY,
+    description: locale === 'es' ? 'V&E Hospitality Group unificó su estrategia de marketing a través de múltiples conceptos de restaurantes, logrando crecimiento consistente y reconocimiento de marca.' : 'V&E Hospitality Group unified their marketing strategy across multiple restaurant concepts, achieving consistent growth and brand recognition.',
+    tags: locale === 'es' ? ['Multi-ubicación', 'Marketing Unificado', 'Gestión de Marca'] : ['Multi-location', 'Unified Marketing', 'Brand Management'],
     testimonial: {
-      text: 'RAY allowed us to unify our marketing and achieve consistent results across all our locations.',
+      text: locale === 'es' ? 'RAY nos permitió unificar nuestro marketing y lograr resultados consistentes en todas nuestras ubicaciones.' : 'RAY allowed us to unify our marketing and achieve consistent results across all our locations.',
       author: 'V&E Hospitality Group',
-      title: 'Restaurant Group'
+      title: locale === 'es' ? 'Grupo Restaurantero' : 'Restaurant Group'
     }
   },
   {
@@ -203,7 +204,7 @@ const caseStudies = [
     name: 'Almacen de Pizzas',
     location: 'Pizza Market',
     industry: 'Pizzeria',
-    image: '/images/success-stories/Chef_burguer.jpeg',
+    image: '/images/success-stories/Almacen-de-pizzas.webp',
     keyMetrics: [
       { label: 'Delivery Orders', value: '+247%', icon: TrendingUp },
       { label: 'Online Visibility', value: '+89%', icon: Eye },
@@ -245,7 +246,7 @@ const caseStudies = [
     name: 'La Parolaccia',
     location: 'Italian Cuisine Market',
     industry: 'Italian Restaurant',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/parolaccia.webp',
     keyMetrics: [
       { label: 'Google Maps Visibility', value: '+198%', icon: Eye },
       { label: 'Reservations', value: '+127%', icon: Users },
@@ -329,7 +330,7 @@ const caseStudies = [
     name: 'La Guitarrita',
     location: 'Mexican Cuisine Market',
     industry: 'Mexican Restaurant',
-    image: '/images/success-stories/Chef_burguer.jpeg',
+    image: '/images/success-stories/la-guitarrita.webp',
     keyMetrics: [
       { label: 'Delivery Orders', value: '+267%', icon: TrendingUp },
       { label: 'Catering Bookings', value: '+178%', icon: Users },
@@ -512,7 +513,7 @@ const caseStudies = [
       title: 'YPF Full'
     }
   }
-]
+] // End of getCaseStudiesData function
 
 
 interface CaseStudiesProps {
@@ -521,15 +522,16 @@ interface CaseStudiesProps {
 
 const CaseStudies: React.FC<CaseStudiesProps> = ({ locale }) => {
   const t = useTranslations(locale)
+  const caseStudies = getCaseStudiesData(locale, t)
   
   return (
     <>
       
       {/* AI-friendly page summary */}
       <div className="sr-only">
-        <h1>RAY Restaurant Marketing Success Stories and Case Studies</h1>
-        <p>Real case studies from restaurants that increased revenue using RAY's marketing platform. Featured success stories include Temple Craft Wynwood (259% increase in Google Maps visits, 66% increase in walk-ins) and Chimba Miami (215% increase in Google Maps directions, 46% increase in walk-ins). These results demonstrate RAY's proven ability to help restaurants dominate local search and drive more foot traffic through AI-powered local marketing, review management, and Google Business Profile optimization.</p>
-        <p>All case studies include verified metrics, implementation timelines, and specific strategies used. Results typically achieved within 60-90 days of implementation.</p>
+        <h1>{locale === 'es' ? 'Historias de Éxito y Casos de Estudio de Marketing para Restaurantes RAY' : 'RAY Restaurant Marketing Success Stories and Case Studies'}</h1>
+        <p>{locale === 'es' ? 'Casos de estudio reales de restaurantes que aumentaron sus ingresos usando la plataforma de marketing de RAY. Las historias de éxito destacadas incluyen Temple Craft Wynwood (259% de aumento en visitas de Google Maps, 66% de aumento en walk-ins) y Chimba Miami (215% de aumento en direcciones de Google Maps, 46% de aumento en walk-ins). Estos resultados demuestran la capacidad comprobada de RAY para ayudar a restaurantes a dominar la búsqueda local y aumentar el tráfico peatonal a través de marketing local potenciado por IA, gestión de reseñas y optimización del perfil de Google Business.' : 'Real case studies from restaurants that increased revenue using RAY\'s marketing platform. Featured success stories include Temple Craft Wynwood (259% increase in Google Maps visits, 66% increase in walk-ins) and Chimba Miami (215% increase in Google Maps directions, 46% increase in walk-ins). These results demonstrate RAY\'s proven ability to help restaurants dominate local search and drive more foot traffic through AI-powered local marketing, review management, and Google Business Profile optimization.'}</p>
+        <p>{locale === 'es' ? 'Todos los casos de estudio incluyen métricas verificadas, cronogramas de implementación y estrategias específicas utilizadas. Resultados típicamente logrados dentro de 60-90 días de implementación.' : 'All case studies include verified metrics, implementation timelines, and specific strategies used. Results typically achieved within 60-90 days of implementation.'}</p>
       </div>
       
       {/* Hero Section */}
@@ -637,7 +639,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ locale }) => {
                             "{study.testimonial.text.slice(0, 50)}..."
                           </div>
                           <div className="flex items-center text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">
-                            Read Story
+                            {t.CASE_STUDIES_PAGE.READ_STORY}
                             <ArrowRight className="w-4 h-4 ml-1" />
                           </div>
                         </div>

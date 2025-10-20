@@ -592,7 +592,111 @@ export const COPY: Record<Locale, any> = {
       BADGE: 'Historias de Éxito Comprobadas',
       HERO_TITLE: 'Resultados Reales de',
       HERO_TITLE_HIGHLIGHT: 'Restaurantes Reales',
-      HERO_SUBTITLE: 'Descubre cómo los restaurantes han logrado un crecimiento notable con la plataforma de RAY.'
+      HERO_SUBTITLE: 'Descubre cómo los restaurantes han logrado un crecimiento notable con la plataforma de RAY.',
+      READ_STORY: 'Leer Historia'
+    },
+
+    CASE_STUDIES_DATA: {
+      METRIC_LABELS: {
+        GOOGLE_MAPS_VIEWS: 'Vistas de Google Maps',
+        WALK_INS: 'Walk-ins',
+        GOOGLE_RATING: 'Calificación Google',
+        GOOGLE_MAPS_DIRECTIONS: 'Direcciones Google Maps',
+        MONTHLY_REVENUE: 'Ingresos Mensuales',
+        BOOKINGS_GROWTH: 'Crecimiento Reservas',
+        LOCAL_VISIBILITY: 'Visibilidad Local',
+        CONSCIOUS_CUSTOMERS: 'Clientes Conscientes',
+        GREEN_VISIBILITY: 'Visibilidad Verde',
+        FOOT_TRAFFIC: 'Tráfico Peatonal',
+        BRAND_VISIBILITY: 'Visibilidad de Marca',
+        SALES_GROWTH: 'Crecimiento Ventas',
+        CRAFT_BEER_SALES: 'Ventas Cerveza Artesanal',
+        DELIVERY_ORDERS: 'Pedidos Delivery',
+        ONLINE_BOOKINGS: 'Reservas Online',
+        MORNING_TRAFFIC: 'Tráfico Matutino',
+        EVENT_BOOKINGS: 'Reservas de Eventos',
+        TABLE_TURNOVER: 'Rotación de Mesas',
+        CATERING_BOOKINGS: 'Reservas Catering',
+        BREAKFAST_ORDERS: 'Pedidos Desayuno',
+        LUNCH_ORDERS: 'Pedidos Almuerzo',
+        RESERVATION_INCREASE: 'Aumento Reservas',
+        AFTERNOON_TRAFFIC: 'Tráfico Vespertino',
+        QUICK_SERVICE_ORDERS: 'Pedidos Servicio Rápido',
+        MOBILE_PRE_ORDERS: 'Pre-pedidos Móviles',
+        AVERAGE_RATING: 'Calificación Promedio'
+      },
+      LOCATIONS: {
+        WYNWOOD_MIAMI: 'Wynwood, Miami',
+        MIAMI_FL: 'Miami, FL',
+        MULTIPLE_LOCATIONS: 'Múltiples Ubicaciones',
+        ECO_CONSCIOUS_MARKET: 'Mercado Eco-Consciente',
+        COFFEE_MARKET: 'Mercado Cafetero',
+        CRAFT_BREWERY_MARKET: 'Mercado Cervecero Artesanal',
+        SPORTS_BAR_MARKET: 'Mercado Sports Bar',
+        DESSERT_MARKET: 'Mercado Postres',
+        CRAFT_BEER_BAR: 'Bar Cerveza Artesanal',
+        PIZZA_DELIVERY: 'Pizza Delivery',
+        RESTAURANT_GROUP: 'Grupo Restaurantero',
+        ITALIAN_DINING: 'Gastronomía Italiana',
+        CAFE_CULTURE: 'Cultura Café',
+        BEER_TAPROOM: 'Taproom Cervecero',
+        FAST_CASUAL: 'Fast Casual',
+        MEXICAN_CUISINE: 'Cocina Mexicana',
+        FRENCH_BAKERY: 'Panadería Francesa',
+        BAKERY_CAFE: 'Café Panadería',
+        CORPORATE_LUNCH: 'Almuerzo Corporativo',
+        ITALIAN_PASTA: 'Pasta Italiana',
+        TEA_WELLNESS: 'Té y Bienestar',
+        CONVENIENCE_STORE: 'Tienda Conveniencia'
+      },
+      INDUSTRIES: {
+        CRAFT_BEER_NIGHTLIFE: 'Cerveza Artesanal y Vida Nocturna',
+        NIGHTLIFE_DINING: 'Vida Nocturna y Gastronomía',
+        RESTAURANT_GROUP: 'Grupo Restaurantero',
+        SUSTAINABLE_RESTAURANT: 'Restaurante Sustentable',
+        COFFEE_CHAIN: 'Cadena Cafés',
+        CRAFT_BREWERY: 'Cervecería Artesanal',
+        SPORTS_BAR: 'Sports Bar',
+        DESSERT_SHOP: 'Tienda Postres',
+        CRAFT_BEER_BAR: 'Bar Cerveza Artesanal',
+        PIZZA_RESTAURANT: 'Pizzería',
+        HOSPITALITY_GROUP: 'Grupo Hospitalario',
+        ITALIAN_RESTAURANT: 'Restaurante Italiano',
+        CAFE_CHAIN: 'Cadena Cafés',
+        BREWERY_TAPROOM: 'Taproom Cervecería',
+        FAST_SERVICE: 'Servicio Rápido',
+        MEXICAN_RESTAURANT: 'Restaurante Mexicano',
+        FRENCH_CAFE: 'Café Francés',
+        BAKERY: 'Panadería',
+        CORPORATE_CATERING: 'Catering Corporativo',
+        PASTA_HOUSE: 'Casa de Pastas',
+        TEA_HOUSE: 'Casa de Té',
+        CONVENIENCE_CHAIN: 'Cadena Conveniencia'
+      },
+      HEADLINES: {
+        TEMPLE_CRAFT: 'Del #15 al #1 en Google Maps',
+        CHIMBA_MIAMI: 'Crecimiento Explosivo en Visibilidad Local',
+        VE_HOSPITALITY: 'Marketing Unificado en Múltiples Ubicaciones',
+        GREEN_EAT: 'Conectando con Clientes Eco-Conscientes',
+        HAVANNA: 'Modernización Digital Manteniendo Tradición',
+        CRAFT: 'Construyendo Comunidad Cervecera Artesanal',
+        WINGSFC: 'Maximizando Ingresos en Días de Juego',
+        DOLCEZZA: 'Crecimiento Constante Mes tras Mes',
+        LA_BIRRA_BAR: 'Creando Comunidad de Amantes de la Cerveza',
+        ALMACEN_PIZZAS: 'Transformación Completa del Delivery',
+        EFES_MG: 'Imperio Unificado de Reservas',
+        LA_PAROLACCIA: 'El Favorito del Barrio Italiano',
+        LIBERTINO_CAFE: 'El Lugar Matutino Favorito del Barrio',
+        CERVEZA_PATAGONIA: 'Destino Premier para Eventos',
+        KARNE_GARIBALDI: 'Optimización del Modelo de Servicio Rápido',
+        LA_GUITARRITA: 'Expansión con WhatsApp y Catering',
+        LE_PAIN_QUOTIDIEN: 'Red Unificada con Lealtad Cruzada',
+        LA_PANERA_ROSA: 'Negocio Matutino Próspero con App Móvil',
+        NININA: 'Conquistando el Mercado de Almuerzo Corporativo',
+        PASTA_ROSSA: 'Destino de Pasta Italiana Número Uno',
+        TEA_CONNECTION: 'Destino Premier de Té y Bienestar',
+        YPF_FULL: 'Red Digital de Tiendas de Conveniencia'
+      }
     },
 
     CHIMBA_CASE_STUDY: {
@@ -644,63 +748,34 @@ export const COPY: Record<Locale, any> = {
 
     ABOUT_PAGE: {
       HERO: {
-        TITLE: 'Los Restaurantes Impulsan América.',
-        TITLE_HIGHLIGHT: 'Nosotros Impulsamos Restaurantes.',
-        SUBTITLE: 'La industria de restaurantes es la columna vertebral de las comunidades americanas, empleando millones de personas y uniendo a la gente todos los días. En RAY, nos dedicamos a empoderar a propietarios de restaurantes con estrategias comprobadas que garantizan un aumento del 30%+ en direcciones de Google Business Profile Google Maps.'
+        TITLE: 'Ayudando a propietarios de negocios locales a',
+        TITLE_HIGHLIGHT: 'sobrevivir y prosperar',
+        SUBTITLE: 'Aprende cómo llegamos aquí, qué nos motiva, y por qué nuestros clientes aman RAY. Esto es personal para nosotros.',
+        IMAGE_CAPTION: 'Conoce a Franco y Sebastián',
+        CTA_TEXT: 'Ver nuestra historia'
       },
-      INDUSTRY_STATS: [
-        {
-          number: '1M+',
-          label: 'Ubicaciones de Restaurantes',
-          description: 'en todo Estados Unidos'
-        },
-        {
-          number: '15M+',
-          label: 'Empleados',
-          description: 'segundo mayor empleador del sector privado'
-        },
-        {
-          number: '1 de cada 2',
-          label: 'Adultos',
-          description: 'tuvieron su primer trabajo en un restaurante'
-        }
-      ],
-      VALUES: {
-        TITLE: 'Nuestros Valores',
-        SUBTITLE: 'Estos principios fundamentales guían todo lo que hacemos y dan forma a cómo servimos a nuestros socios restauranteros cada día.',
-        LIST: [
-          {
-            title: 'Líderes Sin Título',
-            description: 'Cada miembro del equipo toma iniciativa, lidera con el ejemplo y da un paso adelante, sin importar el título del trabajo.'
-          },
-          {
-            title: 'Hablamos la Verdad',
-            description: 'Nos comunicamos con claridad y honestidad: sin florituras, sin ambigüedades.'
-          },
-          {
-            title: 'Construimos Relaciones Positivas',
-            description: 'Una mentalidad positiva nos ayuda a construir conexiones fuertes y auténticas que resisten las pruebas del desafío.'
-          },
-          {
-            title: 'Fluimos Como el Agua',
-            description: 'Nos mantenemos flexibles, nos adaptamos rápidamente y seguimos avanzando, sin importar los obstáculos.'
-          },
-          {
-            title: 'La Mejor Idea Gana',
-            description: 'Abrazamos la retroalimentación constante y respetuosa. El ego no se interpone en el camino del progreso.'
-          }
+      LOCAL_HEROES: {
+        TITLE: 'Los propietarios de negocios locales son héroes para nosotros.',
+        PARAGRAPHS: [
+          'Lo arriesgan todo - años de sus vidas, sus familias, sus ahorros - para perseguir sus sueños.',
+          'Son el corazón de nuestra economía, creando la mayoría de nuevos empleos. Nos recuerdan que es posible ascender de ser un trabajador de nivel básico a convertirse en propietario de negocio un día, como lo hace el 70% de los propietarios de negocios.',
+          'Pero los propietarios de negocios locales están en camino a la extinción.',
+          'Hace solo 20 años, el 60% de los restaurantes eran propiedad de mamás y papás independientes. Hoy, ese número es del 40%, y sigue bajando. Las grandes cadenas siguen tomando el control. Las mamás y papás siguen cerrando.'
         ]
       },
-      CEO_LETTER: {
-        TITLE: 'Una Carta de Nuestro CEO',
-        GREETING: 'Querida Comunidad Restaurantera,',
+      TECH_REVOLUTION: {
+        TITLE: 'Una revolución tecnológica está ocurriendo.',
         PARAGRAPHS: [
-          'Cuando comencé mi primer restaurante, rápidamente aprendí que la buena comida y el servicio excepcional no eran suficientes. En el mundo digital de hoy, los restaurantes necesitan ser encontrados en línea, generar confianza a través de reseñas y crear relaciones duraderas con sus clientes.',
-          'Por eso construimos RAY. Vimos demasiados restaurantes increíbles luchando por atraer clientes a pesar de servir comida increíble. Sabíamos que tenía que haber una mejor manera de ayudar a los propietarios de restaurantes a enfocarse en lo que mejor saben hacer: crear experiencias gastronómicas memorables, mientras nosotros manejamos el marketing que atrae clientes a sus puertas.',
-          'Nuestra misión es simple: empoderar a cada restaurante con las herramientas y estrategias que necesitan para prosperar. Creemos que cuando los restaurantes tienen éxito, comunidades enteras florecen. Ese es el futuro que estamos construyendo juntos.'
-        ],
-        SIGNATURE: 'Franco',
-        POSITION: 'CEO y Co-Fundador, RAY'
+          'Los restaurantes locales están siendo destruidos por grandes corporaciones. Compañías tecnológicas como Grubhub cobran tarifas depredadoras y se llevan todas sus relaciones con clientes. Ni siquiera comparten los nombres de los clientes, mucho menos los detalles de contacto.',
+          'Además, corporaciones masivas como Domino\'s Pizza están gastando miles de millones en marketing y tecnología — con el objetivo de reemplazar a sus pequeñas contrapartes locales.',
+          'Pero RAY está cambiando las probabilidades.',
+          'RAY es un sistema probado para restaurantes independientes para generar ventas de manera rentable — para crecer independientemente, a pesar de los Goliats.'
+        ]
+      },
+      FINAL_CTA: {
+        TITLE: 'Los propietarios de negocios locales necesitan tecnología que los ayude, no que los lastime.',
+        CTA_TITLE: 'La manera más fácil de hacer crecer tu restaurante en línea.',
+        CTA_BUTTON: 'Agenda una Demo'
       }
     },
 
@@ -1864,7 +1939,111 @@ export const COPY: Record<Locale, any> = {
       BADGE: 'Proven Success Stories',
       HERO_TITLE: 'Real Results from',
       HERO_TITLE_HIGHLIGHT: 'Real Restaurants',
-      HERO_SUBTITLE: 'Discover how restaurants have achieved remarkable growth with RAY\'s platform.'
+      HERO_SUBTITLE: 'Discover how restaurants have achieved remarkable growth with RAY\'s platform.',
+      READ_STORY: 'Read Story'
+    },
+
+    CASE_STUDIES_DATA: {
+      METRIC_LABELS: {
+        GOOGLE_MAPS_VIEWS: 'Google Maps Views',
+        WALK_INS: 'Walk-ins',
+        GOOGLE_RATING: 'Google Rating',
+        GOOGLE_MAPS_DIRECTIONS: 'Google Maps Directions',
+        MONTHLY_REVENUE: 'Monthly Revenue',
+        BOOKINGS_GROWTH: 'Bookings Growth',
+        LOCAL_VISIBILITY: 'Local Visibility',
+        CONSCIOUS_CUSTOMERS: 'Conscious Customers',
+        GREEN_VISIBILITY: 'Green Visibility',
+        FOOT_TRAFFIC: 'Foot Traffic',
+        BRAND_VISIBILITY: 'Brand Visibility',
+        SALES_GROWTH: 'Sales Growth',
+        CRAFT_BEER_SALES: 'Craft Beer Sales',
+        DELIVERY_ORDERS: 'Delivery Orders',
+        ONLINE_BOOKINGS: 'Online Bookings',
+        MORNING_TRAFFIC: 'Morning Traffic',
+        EVENT_BOOKINGS: 'Event Bookings',
+        TABLE_TURNOVER: 'Table Turnover',
+        CATERING_BOOKINGS: 'Catering Bookings',
+        BREAKFAST_ORDERS: 'Breakfast Orders',
+        LUNCH_ORDERS: 'Lunch Orders',
+        RESERVATION_INCREASE: 'Reservation Increase',
+        AFTERNOON_TRAFFIC: 'Afternoon Traffic',
+        QUICK_SERVICE_ORDERS: 'Quick Service Orders',
+        MOBILE_PRE_ORDERS: 'Mobile Pre-Orders',
+        AVERAGE_RATING: 'Average Rating'
+      },
+      LOCATIONS: {
+        WYNWOOD_MIAMI: 'Wynwood, Miami',
+        MIAMI_FL: 'Miami, FL',
+        MULTIPLE_LOCATIONS: 'Multiple Locations',
+        ECO_CONSCIOUS_MARKET: 'Eco-Conscious Market',
+        COFFEE_MARKET: 'Coffee Market',
+        CRAFT_BREWERY_MARKET: 'Craft Brewery Market',
+        SPORTS_BAR_MARKET: 'Sports Bar Market',
+        DESSERT_MARKET: 'Dessert Market',
+        CRAFT_BEER_BAR: 'Craft Beer Bar',
+        PIZZA_DELIVERY: 'Pizza Delivery',
+        RESTAURANT_GROUP: 'Restaurant Group',
+        ITALIAN_DINING: 'Italian Dining',
+        CAFE_CULTURE: 'Cafe Culture',
+        BEER_TAPROOM: 'Beer Taproom',
+        FAST_CASUAL: 'Fast Casual',
+        MEXICAN_CUISINE: 'Mexican Cuisine Market',
+        FRENCH_BAKERY: 'French Bakery',
+        BAKERY_CAFE: 'Bakery Cafe',
+        CORPORATE_LUNCH: 'Corporate Lunch',
+        ITALIAN_PASTA: 'Italian Pasta',
+        TEA_WELLNESS: 'Tea & Wellness',
+        CONVENIENCE_STORE: 'Convenience Store'
+      },
+      INDUSTRIES: {
+        CRAFT_BEER_NIGHTLIFE: 'Craft Beer & Nightlife',
+        NIGHTLIFE_DINING: 'Nightlife & Dining',
+        RESTAURANT_GROUP: 'Restaurant Group',
+        SUSTAINABLE_RESTAURANT: 'Sustainable Restaurant',
+        COFFEE_CHAIN: 'Coffee Chain',
+        CRAFT_BREWERY: 'Craft Brewery',
+        SPORTS_BAR: 'Sports Bar',
+        DESSERT_SHOP: 'Dessert Shop',
+        CRAFT_BEER_BAR: 'Craft Beer Bar',
+        PIZZA_RESTAURANT: 'Pizza Restaurant',
+        HOSPITALITY_GROUP: 'Hospitality Group',
+        ITALIAN_RESTAURANT: 'Italian Restaurant',
+        CAFE_CHAIN: 'Cafe Chain',
+        BREWERY_TAPROOM: 'Brewery & Taproom',
+        FAST_SERVICE: 'Fast Service',
+        MEXICAN_RESTAURANT: 'Mexican Restaurant',
+        FRENCH_CAFE: 'French Cafe',
+        BAKERY: 'Bakery',
+        CORPORATE_CATERING: 'Corporate Catering',
+        PASTA_HOUSE: 'Pasta House',
+        TEA_HOUSE: 'Tea House',
+        CONVENIENCE_CHAIN: 'Convenience Chain'
+      },
+      HEADLINES: {
+        TEMPLE_CRAFT: 'From #15 to #1 on Google Maps',
+        CHIMBA_MIAMI: 'Explosive Growth in Local Visibility',
+        VE_HOSPITALITY: 'Unified Marketing Across Multiple Locations',
+        GREEN_EAT: 'Connecting with Eco-Conscious Customers',
+        HAVANNA: 'Digital Modernization While Maintaining Tradition',
+        CRAFT: 'Building Artisanal Beer Community',
+        WINGSFC: 'Maximizing Game Day Revenue',
+        DOLCEZZA: 'Consistent Growth Month After Month',
+        LA_BIRRA_BAR: 'Creating Community of Craft Beer Lovers',
+        ALMACEN_PIZZAS: 'Complete Delivery Business Transformation',
+        EFES_MG: 'Unified Restaurant Empire Bookings',
+        LA_PAROLACCIA: 'The Neighborhood\'s Favorite Italian Restaurant',
+        LIBERTINO_CAFE: 'The Neighborhood\'s Favorite Morning Spot',
+        CERVEZA_PATAGONIA: 'Premier Event Destination Taproom',
+        KARNE_GARIBALDI: 'Optimizing Legendary Fast-Service Model',
+        LA_GUITARRITA: 'Expansion with WhatsApp Ordering and Catering',
+        LE_PAIN_QUOTIDIEN: 'Unified Cafe Network with Cross-Location Loyalty',
+        LA_PANERA_ROSA: 'Thriving Morning Business with Branded Mobile App',
+        NININA: 'Tapping into Lucrative Corporate Lunch Market',
+        PASTA_ROSSA: 'The Go-To Italian Pasta Destination',
+        TEA_CONNECTION: 'Premier Destination for Tea and Wellness',
+        YPF_FULL: 'Digital Convenience Store Network'
+      }
     },
 
     CHIMBA_CASE_STUDY: {
@@ -1916,63 +2095,34 @@ export const COPY: Record<Locale, any> = {
 
     ABOUT_PAGE: {
       HERO: {
-        TITLE: 'Restaurants Power America.',
-        TITLE_HIGHLIGHT: 'We Power Restaurants.',
-        SUBTITLE: 'The restaurant industry is the backbone of American communities, employing millions and bringing people together every day. At RAY, we\'re dedicated to empowering restaurant owners with proven strategies that guarantee a 30%+ increase in Google Business Profile Google Maps directions.'
+        TITLE: 'Helping local business owners',
+        TITLE_HIGHLIGHT: 'survive & thrive',
+        SUBTITLE: 'Learn how we got here, what keeps us going, and why our customers love RAY. This is personal for us.',
+        IMAGE_CAPTION: 'Meet Adam and Dean',
+        CTA_TEXT: 'See our story'
       },
-      INDUSTRY_STATS: [
-        {
-          number: '1M+',
-          label: 'Restaurant Locations',
-          description: 'across the U.S.'
-        },
-        {
-          number: '15M+',
-          label: 'Employees',
-          description: 'second-largest private sector employer'
-        },
-        {
-          number: '1 in 2',
-          label: 'Adults',
-          description: 'had their first job in a restaurant'
-        }
-      ],
-      VALUES: {
-        TITLE: 'Our Values',
-        SUBTITLE: 'These core principles guide everything we do and shape how we serve our restaurant partners every day.',
-        LIST: [
-          {
-            title: 'Leaders Without a Title',
-            description: 'Every team member takes initiative, leads by example, and steps up—regardless of job title.'
-          },
-          {
-            title: 'We Speak the Truth',
-            description: 'We communicate with clarity and honesty—no fluff, no ambiguity.'
-          },
-          {
-            title: 'We Build Positive Relationships',
-            description: 'A positive mindset helps us build strong, authentic connections that stand the test of challenge.'
-          },
-          {
-            title: 'We Flow Like Water',
-            description: 'We stay flexible, adapt quickly, and keep moving forward—no matter the obstacles.'
-          },
-          {
-            title: 'The Best Idea Wins',
-            description: 'We embrace constant, respectful feedback. Ego doesn\'t stand in the way of progress.'
-          }
+      LOCAL_HEROES: {
+        TITLE: 'Local business owners are heroes to us.',
+        PARAGRAPHS: [
+          'They risk everything - years of their lives, their families, their savings - to pursue their dreams.',
+          'They\'re the heart of our economy, creating the majority of new jobs. They remind us that it\'s possible to rise from being an entry-level worker to becoming a business owner one day, as 70% of business owners do.',
+          'But local business owners are on a path to extinction.',
+          'Just 20 years ago, 60% of restaurants were owned by independent mom and pops. Today, that number is 40%, and dropping. Big chains keep taking over. Mom-and-pops keep shutting down.'
         ]
       },
-      CEO_LETTER: {
-        TITLE: 'A Letter from Our CEO',
-        GREETING: 'Dear Restaurant Community,',
+      TECH_REVOLUTION: {
+        TITLE: 'A technological revolution is going on.',
         PARAGRAPHS: [
-          'When I started my first restaurant, I quickly learned that great food and exceptional service weren\'t enough. In today\'s digital world, restaurants need to be found online, build trust through reviews, and create lasting relationships with their customers.',
-          'That\'s why we built RAY. We saw too many incredible restaurants struggling to attract customers despite serving amazing food. We knew there had to be a better way to help restaurant owners focus on what they do best—creating memorable dining experiences—while we handle the marketing that drives customers through their doors.',
-          'Our mission is simple: to empower every restaurant with the tools and strategies they need to thrive. We believe that when restaurants succeed, entire communities flourish. That\'s the future we\'re building together.'
-        ],
-        SIGNATURE: 'Franco',
-        POSITION: 'CEO & Co-Founder, RAY'
+          'Local restaurants are being destroyed by large corporations. Tech companies like Grubhub charge predatory fees and take away all of their customer relationships. They don\'t even share customers\' names, let alone contact details.',
+          'Plus, massive corporations like Domino\'s Pizza are spending billions on marketing and technology — aiming to replace their small local counterparts.',
+          'But RAY is changing the odds.',
+          'RAY is a proven system for independent restaurants to drive sales profitably — to grow independently, in spite of the Goliaths.'
+        ]
+      },
+      FINAL_CTA: {
+        TITLE: 'Local business owners need tech that helps them, not hurts them.',
+        CTA_TITLE: 'The easiest way to grow your restaurant online.',
+        CTA_BUTTON: 'Get a free demo'
       }
     },
 

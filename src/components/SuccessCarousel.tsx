@@ -11,6 +11,7 @@ interface SuccessCarouselProps {
   locale: Locale
 }
 
+// Only include success stories that have dedicated case study pages (with slugs)
 const successStories = [
   {
     id: 1,
@@ -38,42 +39,6 @@ const successStories = [
   },
   {
     id: 3,
-    ownerName: 'Ivan Castaño',
-    title: 'CEO & Founder - Chef Burger', 
-    restaurantName: 'Chef Burger',
-    metric: '+$8,000',
-    period: 'monthly revenue increase',
-    description: 'How Chef Burger increased monthly revenue through RAY\'s marketing platform',
-    image: '/images/success-stories/Chef_burguer.jpeg',
-    bgGradient: 'from-emerald-500 to-emerald-700',
-    slug: null
-  },
-  {
-    id: 13,
-    ownerName: 'WingsFC Team',
-    title: 'Owners - WingsFC Sports Bar',
-    restaurantName: 'WingsFC',
-    metric: '+$35,000',
-    period: 'monthly revenue increase',
-    description: 'How WingsFC maximized game day revenue and created the ultimate sports fan destination',
-    image: '/images/success-stories/WingsFC.png',
-    bgGradient: 'from-blue-500 to-red-700',
-    slug: 'wingsfc'
-  },
-  {
-    id: 4,
-    ownerName: 'Violeta Edelman',
-    title: 'Co-Founder - Dolcezza',
-    restaurantName: 'Dolcezza',
-    metric: '+$8,000',
-    period: 'monthly growth',
-    description: 'How Dolcezza increased monthly revenue through targeted marketing strategies',
-    image: '/images/success-stories/Dolcezza.png',
-    bgGradient: 'from-purple-500 to-purple-700',
-    slug: 'dolcezza'
-  },
-  {
-    id: 14,
     ownerName: 'V&E Hospitality Group',
     title: 'Restaurant Group Management',
     restaurantName: 'V&E Hospitality',
@@ -85,7 +50,7 @@ const successStories = [
     slug: 've-hospitality'
   },
   {
-    id: 15,
+    id: 4,
     ownerName: 'Green Eat Team',
     title: 'Sustainable Restaurant Owners',
     restaurantName: 'Green Eat',
@@ -97,7 +62,7 @@ const successStories = [
     slug: 'green-eat'
   },
   {
-    id: 16,
+    id: 5,
     ownerName: 'Havanna',
     title: 'Coffee Chain Leadership',
     restaurantName: 'Havanna',
@@ -109,7 +74,7 @@ const successStories = [
     slug: 'havanna'
   },
   {
-    id: 17,
+    id: 6,
     ownerName: 'CRAFT Brewery Team',
     title: 'Craft Brewery Owners',
     restaurantName: 'CRAFT',
@@ -121,7 +86,31 @@ const successStories = [
     slug: 'craft'
   },
   {
-    id: 18,
+    id: 7,
+    ownerName: 'WingsFC Team',
+    title: 'Owners - WingsFC Sports Bar',
+    restaurantName: 'WingsFC',
+    metric: '+$35,000',
+    period: 'monthly revenue increase',
+    description: 'How WingsFC maximized game day revenue and created the ultimate sports fan destination',
+    image: '/images/success-stories/WingsFC.png',
+    bgGradient: 'from-blue-500 to-red-700',
+    slug: 'wingsfc'
+  },
+  {
+    id: 8,
+    ownerName: 'Violeta Edelman',
+    title: 'Co-Founder - Dolcezza',
+    restaurantName: 'Dolcezza',
+    metric: '+$8,000',
+    period: 'monthly growth',
+    description: 'How Dolcezza increased monthly revenue through targeted marketing strategies',
+    image: '/images/success-stories/Dolcezza.png',
+    bgGradient: 'from-purple-500 to-purple-700',
+    slug: 'dolcezza'
+  },
+  {
+    id: 9,
     ownerName: 'La Birra Bar Team',
     title: 'Craft Beer Bar Owners',
     restaurantName: 'La Birra Bar',
@@ -133,102 +122,150 @@ const successStories = [
     slug: 'la-birra-bar'
   },
   {
-    id: 5,
-    ownerName: 'Belen Garcia',
-    title: 'CMO - Juan Valdez',
-    restaurantName: 'Juan Valdez',
-    metric: '+$8,000',
-    period: 'monthly increase',
-    description: 'How Juan Valdez Coffee improved customer engagement and sales',
-    image: '/images/success-stories/Juan_valdez.jpg',
-    bgGradient: 'from-amber-600 to-amber-700',
-    slug: null
-  },
-  {
-    id: 6,
-    ownerName: 'Restaurant Owner',
-    title: 'Local Restaurant Success',
-    restaurantName: 'Featured Restaurant',
-    metric: '+$10,000',
-    period: 'monthly growth',
-    description: 'How this restaurant transformed their business with RAY\'s platform',
-    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
-    bgGradient: 'from-teal-500 to-teal-700',
-    slug: null
-  },
-  {
-    id: 7,
-    ownerName: 'Maria Rodriguez',
-    title: 'Owner of Bella Vista Italian',
-    restaurantName: 'Bella Vista Italian',
-    metric: '+$25,000',
-    period: 'monthly',
-    description: 'Increased monthly revenue by $25,000 through RAY\'s automated marketing system',
-    image: '/images/success-stories/Temple_Team.jpeg',
-    bgGradient: 'from-indigo-500 to-indigo-700',
-    slug: null
-  },
-  {
-    id: 8,
-    ownerName: 'David Chen',
-    title: 'Co-founder of Golden Dragon',
-    restaurantName: 'Golden Dragon',
-    metric: '5X increase',
-    period: 'in bookings',
-    description: 'How Golden Dragon achieved 5X increase in direct bookings using RAY\'s platform',
-    image: '/images/success-stories/Temple_Bar.jpg',
-    bgGradient: 'from-amber-500 to-amber-700',
-    slug: null
-  },
-  {
-    id: 9,
-    ownerName: 'Sarah Thompson',
-    title: 'Owner of Coastal Seafood',
-    restaurantName: 'Coastal Seafood',
-    metric: '+$35,000',
-    period: 'in 45 days',
-    description: 'Drove $35,000 in additional revenue within 45 days of implementing RAY',
-    image: '/images/success-stories/Chef_burguer.jpeg',
-    bgGradient: 'from-cyan-500 to-cyan-700',
-    slug: null
-  },
-  {
     id: 10,
-    ownerName: 'Michael Johnson',
-    title: 'Founder of Urban Grill',
-    restaurantName: 'Urban Grill',
-    metric: '3X growth',
-    period: 'in walk-ins',
-    description: 'Achieved 3X growth in walk-in customers through RAY\'s local marketing tools',
-    image: '/images/success-stories/Dolcezza.png',
-    bgGradient: 'from-rose-500 to-rose-700',
-    slug: null
+    ownerName: 'Management Team',
+    title: 'Almacen de Pizzas',
+    restaurantName: 'Almacen de Pizzas',
+    metric: '247%',
+    period: 'delivery orders increase',
+    description: 'How Almacen de Pizzas transformed their delivery business cutting third-party commissions',
+    image: '/images/success-stories/Almacen-de-pizzas.webp',
+    bgGradient: 'from-red-500 to-orange-700',
+    slug: 'almacen-de-pizzas'
   },
   {
     id: 11,
-    ownerName: 'Lisa Park',
-    title: 'Co-owner of Sakura Sushi',
-    restaurantName: 'Sakura Sushi',
-    metric: '+$60,000',
-    period: 'annually',
-    description: 'Increased annual revenue by $60,000 with RAY\'s comprehensive marketing suite',
-    image: '/images/success-stories/Juan_valdez.jpg',
-    bgGradient: 'from-violet-500 to-violet-700',
-    slug: null
+    ownerName: 'Management Team',
+    title: 'Efes MG Group',
+    restaurantName: 'Efes MG Group',
+    metric: '312%',
+    period: 'online bookings increase',
+    description: 'How Efes MG Group unified their restaurant empire with centralized booking management',
+    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
+    bgGradient: 'from-indigo-500 to-blue-700',
+    slug: 'efes-mg-group'
   },
   {
     id: 12,
-    ownerName: 'Robert Martinez',
-    title: 'Owner of Fiesta Mexicana',
-    restaurantName: 'Fiesta Mexicana',
-    metric: '4X increase',
-    period: 'in online orders',
-    description: 'Quadrupled online orders within 60 days using RAY\'s ordering platform',
-    image: '/images/success-stories/Chimba_Miami_Celebrating.jpeg',
-    bgGradient: 'from-lime-500 to-lime-700',
-    slug: null
+    ownerName: 'Restaurant Management',
+    title: 'La Parolaccia',
+    restaurantName: 'La Parolaccia',
+    metric: '198%',
+    period: 'Google Maps visibility increase',
+    description: 'How La Parolaccia became the neighborhood\'s favorite Italian restaurant',
+    image: '/images/success-stories/parolaccia.webp',
+    bgGradient: 'from-green-500 to-emerald-700',
+    slug: 'la-parolaccia'
+  },
+  {
+    id: 13,
+    ownerName: 'Management Team',
+    title: 'Libertino Cafe',
+    restaurantName: 'Libertino Cafe',
+    metric: '276%',
+    period: 'morning traffic increase',
+    description: 'How Libertino Cafe became the neighborhood\'s favorite morning spot',
+    image: '/images/success-stories/Juan_valdez.jpg',
+    bgGradient: 'from-amber-500 to-yellow-700',
+    slug: 'libertino-cafe'
+  },
+  {
+    id: 14,
+    ownerName: 'Management Team',
+    title: 'Cerveza Patagonia',
+    restaurantName: 'Cerveza Patagonia',
+    metric: '334%',
+    period: 'event bookings increase',
+    description: 'How Cerveza Patagonia transformed their taproom into the premier event destination',
+    image: '/images/success-stories/patagonia.webp',
+    bgGradient: 'from-blue-500 to-cyan-700',
+    slug: 'cerveza-patagonia'
+  },
+  {
+    id: 15,
+    ownerName: 'Management Team',
+    title: 'Karne Garibaldi',
+    restaurantName: 'Karne Garibaldi',
+    metric: '289%',
+    period: 'table turnover increase',
+    description: 'How Karne Garibaldi optimized their legendary fast-service model',
+    image: '/images/success-stories/Chef_burguer.jpeg',
+    bgGradient: 'from-red-500 to-red-700',
+    slug: 'karne-garibaldi'
+  },
+  {
+    id: 16,
+    ownerName: 'Management Team',
+    title: 'La Guitarrita',
+    restaurantName: 'La Guitarrita',
+    metric: '267%',
+    period: 'delivery orders increase',
+    description: 'How La Guitarrita expanded their reach with WhatsApp ordering and catering',
+    image: '/images/success-stories/la-guitarrita.webp',
+    bgGradient: 'from-yellow-500 to-orange-700',
+    slug: 'la-guitarrita'
+  },
+  {
+    id: 17,
+    ownerName: 'Management Team',
+    title: 'Le Pain Quotidien',
+    restaurantName: 'Le Pain Quotidien',
+    metric: '223%',
+    period: 'online bookings increase',
+    description: 'How Le Pain Quotidien unified their cafe network with cross-location loyalty',
+    image: '/images/success-stories/Dolcezza.png',
+    bgGradient: 'from-amber-500 to-brown-700',
+    slug: 'le-pain-quotidien'
+  },
+  {
+    id: 18,
+    ownerName: 'Management Team',
+    title: 'La Panera Rosa',
+    restaurantName: 'La Panera Rosa',
+    metric: '256%',
+    period: 'breakfast orders increase',
+    description: 'How La Panera Rosa built a thriving morning business with branded mobile app',
+    image: '/images/success-stories/Dolcezza.png',
+    bgGradient: 'from-pink-500 to-rose-700',
+    slug: 'la-panera-rosa'
+  },
+  {
+    id: 19,
+    ownerName: 'Management Team',
+    title: 'Ninina',
+    restaurantName: 'Ninina',
+    metric: '294%',
+    period: 'lunch orders increase',
+    description: 'How Ninina tapped into the lucrative corporate lunch market',
+    image: '/images/success-stories/Dolcezza.png',
+    bgGradient: 'from-purple-500 to-indigo-700',
+    slug: 'ninina'
+  },
+  {
+    id: 20,
+    ownerName: 'Management Team',
+    title: 'Pasta Rossa',
+    restaurantName: 'Pasta Rossa',
+    metric: '185%',
+    period: 'reservation increase',
+    description: 'How Pasta Rossa became the go-to Italian pasta destination',
+    image: '/images/success-stories/Chef_burguer.jpeg',
+    bgGradient: 'from-red-500 to-green-700',
+    slug: 'pasta-rossa'
+  },
+  {
+    id: 21,
+    ownerName: 'Management Team',
+    title: 'Tea Connection',
+    restaurantName: 'Tea Connection',
+    metric: '167%',
+    period: 'afternoon traffic increase',
+    description: 'How Tea Connection became the premier destination for tea and wellness',
+    image: '/images/success-stories/tea-connection.jpg',
+    bgGradient: 'from-green-500 to-teal-700',
+    slug: 'tea-connection'
   }
-]
+].filter(story => story.slug !== null) // Only include stories with dedicated pages
 
 const SuccessCarousel: React.FC<SuccessCarouselProps> = ({ locale }) => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
@@ -320,14 +357,11 @@ const SuccessCarousel: React.FC<SuccessCarouselProps> = ({ locale }) => {
                     
                     {/* Content */}
                     <div className="absolute inset-0 p-4 flex flex-col justify-between text-white" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
-                      {/* Top - Owner Info */}
+                      {/* Top - Restaurant Name */}
                       <div>
                         <h3 className="font-semibold text-sm mb-1 leading-tight">
-                          {story.ownerName}
+                          {story.restaurantName}
                         </h3>
-                        <p className="text-xs opacity-90 leading-tight">
-                          {story.title}
-                        </p>
                       </div>
                       
                       {/* Bottom - Results */}

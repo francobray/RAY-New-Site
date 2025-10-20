@@ -1,15 +1,16 @@
 'use client'
 
 import React, { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { type Locale } from '@/lib/i18n'
 
 interface SuccessStoriesSectionProps {
   locale: Locale
 }
 
+// Only include success stories that have dedicated case study pages
 const successStories = [
   {
     id: 1,
@@ -35,127 +36,6 @@ const successStories = [
   },
   {
     id: 3,
-    ownerName: 'Ivan Castaño',
-    title: 'CEO & Founder - Chef Burger', 
-    restaurantName: 'Chef Burger',
-    metric: '+$8,000',
-    period: 'monthly revenue increase',
-    description: 'How Chef Burger increased monthly revenue through RAY\'s marketing platform',
-    image: '/images/success-stories/Chef_burguer.jpeg',
-    slug: null
-  },
-  {
-    id: 4,
-    ownerName: 'Violeta Edelman',
-    title: 'Co-Founder - Dolcezza',
-    restaurantName: 'Dolcezza',
-    metric: '+$8,000',
-    period: 'monthly growth',
-    description: 'How Dolcezza increased monthly revenue through targeted marketing strategies',
-    image: '/images/success-stories/Dolcezza.png',
-    slug: 'dolcezza'
-  },
-  {
-    id: 5,
-    ownerName: 'Belen Garcia',
-    title: 'CMO - Juan Valdez',
-    restaurantName: 'Juan Valdez',
-    metric: '+$8,000',
-    period: 'monthly increase',
-    description: 'How Juan Valdez Coffee improved customer engagement and sales',
-    image: '/images/success-stories/Juan_valdez.jpg',
-    slug: null
-  },
-  {
-    id: 6,
-    ownerName: 'Restaurant Owner',
-    title: 'Local Restaurant Success',
-    restaurantName: 'Featured Restaurant',
-    metric: '+$10,000',
-    period: 'monthly growth',
-    description: 'How this restaurant transformed their business with RAY\'s platform',
-    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
-    slug: null
-  },
-  {
-    id: 7,
-    ownerName: 'Maria Rodriguez',
-    title: 'Owner of Bella Vista Italian',
-    restaurantName: 'Bella Vista Italian',
-    metric: '+$25,000',
-    period: 'monthly',
-    description: 'Increased monthly revenue by $25,000 through RAY\'s automated marketing system',
-    image: '/images/success-stories/Temple_Team.jpeg',
-    slug: null
-  },
-  {
-    id: 8,
-    ownerName: 'David Chen',
-    title: 'Co-founder of Golden Dragon',
-    restaurantName: 'Golden Dragon',
-    metric: '5X increase',
-    period: 'in bookings',
-    description: 'How Golden Dragon achieved 5X increase in direct bookings using RAY\'s platform',
-    image: '/images/success-stories/Temple_Bar.jpg',
-    slug: null
-  },
-  {
-    id: 9,
-    ownerName: 'Sarah Thompson',
-    title: 'Owner of Coastal Seafood',
-    restaurantName: 'Coastal Seafood',
-    metric: '+$35,000',
-    period: 'in 45 days',
-    description: 'Drove $35,000 in additional revenue within 45 days of implementing RAY',
-    image: '/images/success-stories/Chef_burguer.jpeg',
-    slug: null
-  },
-  {
-    id: 10,
-    ownerName: 'Michael Johnson',
-    title: 'Founder of Urban Grill',
-    restaurantName: 'Urban Grill',
-    metric: '3X growth',
-    period: 'in walk-ins',
-    description: 'Achieved 3X growth in walk-in customers through RAY\'s local marketing tools',
-    image: '/images/success-stories/Dolcezza.png',
-    slug: null
-  },
-  {
-    id: 11,
-    ownerName: 'Lisa Park',
-    title: 'Co-owner of Sakura Sushi',
-    restaurantName: 'Sakura Sushi',
-    metric: '+$60,000',
-    period: 'annually',
-    description: 'Increased annual revenue by $60,000 with RAY\'s comprehensive marketing suite',
-    image: '/images/success-stories/Juan_valdez.jpg',
-    slug: null
-  },
-  {
-    id: 12,
-    ownerName: 'Robert Martinez',
-    title: 'Owner of Fiesta Mexicana',
-    restaurantName: 'Fiesta Mexicana',
-    metric: '4X increase',
-    period: 'in online orders',
-    description: 'Quadrupled online orders within 60 days using RAY\'s ordering platform',
-    image: '/images/success-stories/Chimba_Miami_Celebrating.jpeg',
-    slug: null
-  },
-  {
-    id: 13,
-    ownerName: 'WingsFC Team',
-    title: 'Owners - WingsFC Sports Bar',
-    restaurantName: 'WingsFC',
-    metric: '+$35,000',
-    period: 'monthly revenue increase',
-    description: 'How WingsFC maximized game day revenue and created the ultimate sports fan destination',
-    image: '/images/success-stories/Chef_burguer.jpeg',
-    slug: 'wingsfc'
-  },
-  {
-    id: 14,
     ownerName: 'V&E Hospitality Group',
     title: 'Restaurant Group Management',
     restaurantName: 'V&E Hospitality',
@@ -166,48 +46,202 @@ const successStories = [
     slug: 've-hospitality'
   },
   {
-    id: 15,
+    id: 4,
     ownerName: 'Green Eat Team',
     title: 'Sustainable Restaurant Owners',
     restaurantName: 'Green Eat',
     metric: '+$18,000',
     period: 'monthly revenue increase',
     description: 'How Green Eat connected with environmentally conscious customers',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Green-Eat.jpg',
     slug: 'green-eat'
   },
   {
-    id: 16,
+    id: 5,
     ownerName: 'Havanna',
     title: 'Coffee Chain Leadership',
     restaurantName: 'Havanna',
     metric: '+$32,000',
     period: 'monthly revenue increase',
     description: 'How Havanna modernized their digital presence while maintaining tradition',
-    image: '/images/success-stories/Juan_valdez.jpg',
+    image: '/images/success-stories/Havanna.png',
     slug: 'havanna'
   },
   {
-    id: 17,
+    id: 6,
     ownerName: 'CRAFT Brewery Team',
     title: 'Craft Brewery Owners',
     restaurantName: 'CRAFT',
     metric: '+$28,000',
     period: 'monthly revenue increase',
     description: 'How CRAFT built a community around their artisanal beer',
-    image: '/images/success-stories/Temple_Bar.jpg',
+    image: '/images/success-stories/CRAFT.webp',
     slug: 'craft'
   },
   {
-    id: 18,
+    id: 7,
+    ownerName: 'WingsFC Team',
+    title: 'Owners - WingsFC Sports Bar',
+    restaurantName: 'WingsFC',
+    metric: '+$35,000',
+    period: 'monthly revenue increase',
+    description: 'How WingsFC maximized game day revenue and created the ultimate sports fan destination',
+    image: '/images/success-stories/WingsFC.png',
+    slug: 'wingsfc'
+  },
+  {
+    id: 8,
+    ownerName: 'Violeta Edelman',
+    title: 'Co-Founder - Dolcezza',
+    restaurantName: 'Dolcezza',
+    metric: '+$8,000',
+    period: 'monthly growth',
+    description: 'How Dolcezza increased monthly revenue through targeted marketing strategies',
+    image: '/images/success-stories/Dolcezza.png',
+    slug: 'dolcezza'
+  },
+  {
+    id: 9,
     ownerName: 'La Birra Bar Team',
     title: 'Craft Beer Bar Owners',
     restaurantName: 'La Birra Bar',
     metric: '+$22,000',
     period: 'monthly revenue increase',
     description: 'How La Birra Bar created a community of craft beer lovers',
-    image: '/images/success-stories/Temple_Bar.jpg',
+    image: '/images/success-stories/La-Birra-Bar.jpg',
     slug: 'la-birra-bar'
+  },
+  {
+    id: 10,
+    ownerName: 'Management Team',
+    title: 'Almacen de Pizzas',
+    restaurantName: 'Almacen de Pizzas',
+    metric: '247%',
+    period: 'delivery orders increase',
+    description: 'How Almacen de Pizzas transformed their delivery business cutting third-party commissions',
+    image: '/images/success-stories/Almacen-de-pizzas.webp',
+    slug: 'almacen-de-pizzas'
+  },
+  {
+    id: 11,
+    ownerName: 'Management Team',
+    title: 'Efes MG Group',
+    restaurantName: 'Efes MG Group',
+    metric: '312%',
+    period: 'online bookings increase',
+    description: 'How Efes MG Group unified their restaurant empire with centralized booking management',
+    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
+    slug: 'efes-mg-group'
+  },
+  {
+    id: 12,
+    ownerName: 'Restaurant Management',
+    title: 'La Parolaccia',
+    restaurantName: 'La Parolaccia',
+    metric: '198%',
+    period: 'Google Maps visibility increase',
+    description: 'How La Parolaccia became the neighborhood\'s favorite Italian restaurant',
+    image: '/images/success-stories/parolaccia.webp',
+    slug: 'la-parolaccia'
+  },
+  {
+    id: 13,
+    ownerName: 'Management Team',
+    title: 'Libertino Cafe',
+    restaurantName: 'Libertino Cafe',
+    metric: '276%',
+    period: 'morning traffic increase',
+    description: 'How Libertino Cafe became the neighborhood\'s favorite morning spot',
+    image: '/images/success-stories/Juan_valdez.jpg',
+    slug: 'libertino-cafe'
+  },
+  {
+    id: 14,
+    ownerName: 'Management Team',
+    title: 'Cerveza Patagonia',
+    restaurantName: 'Cerveza Patagonia',
+    metric: '334%',
+    period: 'event bookings increase',
+    description: 'How Cerveza Patagonia transformed their taproom into the premier event destination',
+    image: '/images/success-stories/patagonia.webp',
+    slug: 'cerveza-patagonia'
+  },
+  {
+    id: 15,
+    ownerName: 'Management Team',
+    title: 'Karne Garibaldi',
+    restaurantName: 'Karne Garibaldi',
+    metric: '289%',
+    period: 'table turnover increase',
+    description: 'How Karne Garibaldi optimized their legendary fast-service model',
+    image: '/images/success-stories/Chef_burguer.jpeg',
+    slug: 'karne-garibaldi'
+  },
+  {
+    id: 16,
+    ownerName: 'Management Team',
+    title: 'La Guitarrita',
+    restaurantName: 'La Guitarrita',
+    metric: '267%',
+    period: 'delivery orders increase',
+    description: 'How La Guitarrita expanded their reach with WhatsApp ordering and catering',
+    image: '/images/success-stories/la-guitarrita.webp',
+    slug: 'la-guitarrita'
+  },
+  {
+    id: 17,
+    ownerName: 'Management Team',
+    title: 'Le Pain Quotidien',
+    restaurantName: 'Le Pain Quotidien',
+    metric: '223%',
+    period: 'online bookings increase',
+    description: 'How Le Pain Quotidien unified their cafe network with cross-location loyalty',
+    image: '/images/success-stories/Dolcezza.png',
+    slug: 'le-pain-quotidien'
+  },
+  {
+    id: 18,
+    ownerName: 'Management Team',
+    title: 'La Panera Rosa',
+    restaurantName: 'La Panera Rosa',
+    metric: '256%',
+    period: 'breakfast orders increase',
+    description: 'How La Panera Rosa built a thriving morning business with branded mobile app',
+    image: '/images/success-stories/Dolcezza.png',
+    slug: 'la-panera-rosa'
+  },
+  {
+    id: 19,
+    ownerName: 'Management Team',
+    title: 'Ninina',
+    restaurantName: 'Ninina',
+    metric: '294%',
+    period: 'lunch orders increase',
+    description: 'How Ninina tapped into the lucrative corporate lunch market',
+    image: '/images/success-stories/Dolcezza.png',
+    slug: 'ninina'
+  },
+  {
+    id: 20,
+    ownerName: 'Management Team',
+    title: 'Pasta Rossa',
+    restaurantName: 'Pasta Rossa',
+    metric: '185%',
+    period: 'reservation increase',
+    description: 'How Pasta Rossa became the go-to Italian pasta destination',
+    image: '/images/success-stories/Chef_burguer.jpeg',
+    slug: 'pasta-rossa'
+  },
+  {
+    id: 21,
+    ownerName: 'Management Team',
+    title: 'Tea Connection',
+    restaurantName: 'Tea Connection',
+    metric: '167%',
+    period: 'afternoon traffic increase',
+    description: 'How Tea Connection became the premier destination for tea and wellness',
+    image: '/images/success-stories/tea-connection.jpg',
+    slug: 'tea-connection'
   }
 ]
 
@@ -233,127 +267,99 @@ const SuccessStoriesSection: React.FC<SuccessStoriesSectionProps> = ({ locale })
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
             {/* Left side - Content */}
-            <div className="flex flex-col justify-between">
-              <div>
-                {/* Header */}
-                <div className="flex justify-between items-start mb-6">
-                  <div>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
-                      {currentData.ownerName}
-                    </h2>
-                    <p className="text-lg text-gray-600">
-                      {currentData.title}
-                    </p>
+            <div className="flex flex-col justify-center">
+              <div className="mb-6">
+                <div className="text-sm text-ray-blue font-semibold mb-2 uppercase tracking-wider">
+                  {locale === 'es' ? 'Historia de Éxito' : 'Success Story'}
+                </div>
+                <h2 className="text-3xl font-bold text-ray-dark-900 mb-4">
+                  {currentData.restaurantName}
+                </h2>
+                <p className="text-ray-darkGray text-lg leading-relaxed mb-6">
+                  {currentData.description}
+                </p>
+              </div>
+
+              {/* Metrics */}
+              <div className="bg-gray-50 rounded-xl p-6 mb-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-ray-blue mb-2">
+                    {currentData.metric}
                   </div>
-                  <Link
-                    href={linkHref}
-                    className="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors duration-200 text-sm font-medium"
+                  <div className="text-ray-darkGray font-medium">
+                    {currentData.period}
+                  </div>
+                </div>
+              </div>
+
+              {/* Owner info */}
+              <div className="mb-6">
+                <div className="font-semibold text-ray-dark-900">
+                  {currentData.ownerName}
+                </div>
+                <div className="text-ray-darkGray text-sm">
+                  {currentData.title}
+                </div>
+              </div>
+
+              {/* Navigation */}
+              <div className="flex items-center justify-between">
+                <div className="flex space-x-4">
+                  <button
+                    onClick={prevStory}
+                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
+                    aria-label="Previous story"
                   >
-                    {locale === 'es' ? 'Ver historia completa >' : 'See full story >'}
-                  </Link>
+                    <ArrowLeft className="w-5 h-5 text-ray-dark-900" />
+                  </button>
+                  <button
+                    onClick={nextStory}
+                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
+                    aria-label="Next story"
+                  >
+                    <ArrowRight className="w-5 h-5 text-ray-dark-900" />
+                  </button>
                 </div>
 
-                {/* Quote */}
-                <blockquote className="text-lg text-gray-600 mb-8 italic">
-                  "{locale === 'es' ? 'RAY es esencial para tener éxito online como restaurante independiente hoy en día.' : 'RAY is a must-have for succeeding online as an independent restaurant today.'}"
-                </blockquote>
-
-                {/* Statistics */}
-                <div className="space-y-6">
-                  <div>
-                    <div className="text-3xl font-bold text-gray-900 mb-1">
-                      {currentData.metric}
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      {locale === 'es' ? 'Crecimiento de ventas después de cambiar a RAY' : 'Sales growth after switching to RAY'}
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <div className="text-3xl font-bold text-gray-900 mb-1">
-                      {currentData.period}
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      {locale === 'es' ? 'Mejora en visibilidad local' : 'Improvement in local visibility'}
-                    </div>
-                  </div>
-                </div>
+                <Link
+                  href={linkHref}
+                  className="inline-flex items-center px-6 py-3 bg-ray-blue text-white font-semibold rounded-lg hover:bg-ray-blue/90 transition-colors duration-200"
+                >
+                  {locale === 'es' ? 'Ver Historia Completa' : 'View Full Story'}
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
               </div>
             </div>
 
             {/* Right side - Image */}
             <div className="relative">
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-                <Image
-                  src={currentData.image}
-                  alt={`${currentData.ownerName} - ${currentData.restaurantName}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                
-                {/* Image Overlay */}
-                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-                
-                {/* Bottom overlay with story link */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <Link
-                    href={linkHref}
-                    className="block bg-black bg-opacity-60 text-white px-4 py-2 rounded-lg hover:bg-opacity-80 transition-all duration-200"
-                  >
-                    <span className="text-sm font-medium">
-                      {locale === 'es' ? 'Ver la historia' : 'See the story'} {currentData.restaurantName}
-                    </span>
-                  </Link>
-                </div>
-
-                {/* Play button (optional - for video stories) */}
-                <div className="absolute bottom-4 right-4">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-200">
-                    <ChevronRight className="w-6 h-6 text-gray-900 ml-1" />
-                  </div>
-                </div>
+              <div className="aspect-[4/3] rounded-xl overflow-hidden">
+                <Link href={linkHref}>
+                  <Image
+                    src={currentData.image}
+                    alt={`${currentData.restaurantName} success story`}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="border-t border-gray-200 px-8 py-4">
-            <div className="flex justify-between items-center">
-              <button
-                onClick={prevStory}
-                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
-                type="button"
-              >
-                <ChevronLeft className="w-5 h-5" />
-                <span className="text-sm">
-                  {locale === 'es' ? 'Anterior' : 'Previous'} {successStories[(currentStory - 1 + successStories.length) % successStories.length].restaurantName}
-                </span>
-              </button>
-
-              <div className="flex space-x-2">
-                {successStories.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentStory(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 ${
-                      index === currentStory ? 'bg-gray-900' : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                    type="button"
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={nextStory}
-                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
-                type="button"
-              >
-                <span className="text-sm">
-                  {locale === 'es' ? 'Siguiente' : 'Next'} {successStories[(currentStory + 1) % successStories.length].restaurantName}
-                </span>
-                <ChevronRight className="w-5 h-5" />
-              </button>
+          {/* Progress indicators */}
+          <div className="px-8 pb-8">
+            <div className="flex space-x-2 justify-center">
+              {successStories.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentStory(index)}
+                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                    index === currentStory ? 'bg-ray-blue' : 'bg-gray-300'
+                  }`}
+                  aria-label={`Go to story ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
