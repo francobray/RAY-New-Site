@@ -748,7 +748,7 @@ export const COPY: Record<Locale, any> = {
 
     ABOUT_PAGE: {
       HERO: {
-        TITLE: 'Ayudando a propietarios de negocios locales a',
+        TITLE: 'Ayudando a propietarios de restaurantes a',
         TITLE_HIGHLIGHT: 'sobrevivir y prosperar',
         SUBTITLE: 'Aprende cómo llegamos aquí, qué nos motiva, y por qué nuestros clientes aman RAY. Esto es personal para nosotros.',
         IMAGE_CAPTION: 'Conoce a Franco y Sebastián',
