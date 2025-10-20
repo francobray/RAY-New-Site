@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { ArrowRight, Play } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from '../../hooks/useTranslations'
@@ -174,10 +175,10 @@ const About: React.FC<AboutProps> = ({ locale }) => {
           
           {/* Centered CTA Button at bottom */}
           <div className="text-center mt-8">
-            <button className="bg-ray-blue text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-ray-blue/90 transition-colors duration-200 flex items-center gap-2 mx-auto shadow-lg">
+            <Link href={`/${locale}/demo`} className="bg-ray-blue text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-ray-blue/90 transition-colors duration-200 flex items-center gap-2 mx-auto shadow-lg inline-flex">
               {t.ABOUT_PAGE.FINAL_CTA.CTA_BUTTON}
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
