@@ -754,6 +754,19 @@ export const COPY: Record<Locale, any> = {
         IMAGE_CAPTION: 'Conoce a Franco y Sebastián',
         CTA_TEXT: 'Ver nuestra historia'
       },
+      FOUNDERS: {
+        TITLE: 'Conoce a nuestros fundadores',
+        FRANCO: {
+          NAME: 'Franco Breciano',
+          TITLE: 'Co-Fundador y CEO',
+          BIO: 'Franco fundó RAY después de ayudar a salvar el negocio de su madre de la quiebra. Con experiencia en tecnología y una pasión por ayudar a los negocios locales, Franco lidera la visión de RAY de empoderar a restaurantes independientes con herramientas de marketing que realmente funcionan.'
+        },
+        SEBASTIAN: {
+          NAME: 'Sebastian Cadenas',
+          TITLE: 'Co-Fundador y CTO',
+          BIO: 'Sebastian aporta experiencia técnica profunda y una comprensión única de las necesidades de los restaurantes. Su enfoque en crear soluciones simples pero poderosas ha sido fundamental para hacer que la tecnología de RAY sea accesible para propietarios de restaurantes de todos los tamaños.'
+        }
+      },
       LOCAL_HEROES: {
         TITLE: 'Los propietarios de negocios locales son héroes para nosotros.',
         PARAGRAPHS: [
@@ -2098,8 +2111,21 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Helping local business owners',
         TITLE_HIGHLIGHT: 'survive & thrive',
         SUBTITLE: 'Learn how we got here, what keeps us going, and why our customers love RAY. This is personal for us.',
-        IMAGE_CAPTION: 'Meet Adam and Dean',
+        IMAGE_CAPTION: 'Meet Franco and Sebastian',
         CTA_TEXT: 'See our story'
+      },
+      FOUNDERS: {
+        TITLE: 'Meet our founders',
+        FRANCO: {
+          NAME: 'Franco Breciano',
+          TITLE: 'Co-Founder & CEO',
+          BIO: 'Franco founded RAY after helping save his mother\'s business from bankruptcy. With a background in technology and a passion for helping local businesses, Franco leads RAY\'s vision of empowering independent restaurants with marketing tools that actually work.'
+        },
+        SEBASTIAN: {
+          NAME: 'Sebastian Cadenas',
+          TITLE: 'Co-Founder & CTO',
+          BIO: 'Sebastian brings deep technical expertise and a unique understanding of restaurant needs. His focus on creating simple yet powerful solutions has been instrumental in making RAY\'s technology accessible to restaurant owners of all sizes.'
+        }
       },
       LOCAL_HEROES: {
         TITLE: 'Local business owners are heroes to us.',

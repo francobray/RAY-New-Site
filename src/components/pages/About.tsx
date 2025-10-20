@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { ArrowRight, Play } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from '../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
@@ -20,8 +20,8 @@ const About: React.FC<AboutProps> = ({ locale }) => {
       {/* AI-friendly page summary */}
       <div className="sr-only">
         <h1>About RAY - Helping Local Business Owners Survive & Thrive</h1>
-        <p>RAY helps local business owners, especially restaurants, survive and thrive in an increasingly competitive market dominated by large corporations. Founded by Franco Breciano after helping save his mother's business, RAY provides technology solutions that help independent restaurants grow profitably without relying on predatory third-party platforms.</p>
-        <p>Our mission is to support local business owners who are the heart of our economy, creating jobs and pursuing their dreams despite facing extinction from big chains and tech corporations. We serve thousands of restaurants with a vision to expand globally and support all types of local businesses.</p>
+        <p>RAY helps local business owners, especially restaurants, survive and thrive in an increasingly competitive market dominated by large corporations. Founded by Franco Breciano and Sebastian Cadenas after helping save Franco's mother's business, RAY provides technology solutions that help independent restaurants grow profitably without relying on predatory third-party platforms.</p>
+        <p>Our mission is to support local business owners who are the heart of our economy, creating jobs and pursuing their dreams despite facing extinction from big chains and tech corporations. Meet our founders Franco Breciano (CEO) and Sebastian Cadenas (CTO) who lead RAY's vision of empowering independent restaurants.</p>
       </div>
       
       {/* Hero Section */}
@@ -38,25 +38,59 @@ const About: React.FC<AboutProps> = ({ locale }) => {
             </p>
           </div>
           
-          {/* Adam and Dean Hero Image */}
-          <div className="relative max-w-4xl mx-auto">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-100 aspect-[16/10]">
-              {/* Placeholder for Adam and Dean image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-ray-blue/10 to-ray-green/10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 bg-ray-blue/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-4xl">👥</span>
-                  </div>
-                  <p className="text-ray-dark-600 font-medium">{t.ABOUT_PAGE.HERO.IMAGE_CAPTION}</p>
+          {/* Founders Section */}
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-2xl font-bold text-ray-dark-900 text-center mb-12">
+              {t.ABOUT_PAGE.FOUNDERS.TITLE}
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Franco Breciano Card */}
+              <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                <div className="relative h-96 max-h-96 bg-gray-100">
+                  <Image
+                    src="/images/company/Franco.webp"
+                    alt="Franco Breciano - Co-Founder & CEO"
+                    fill
+                    className="object-cover object-[center_20%]"
+                    priority
+                  />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-2">
+                    {t.ABOUT_PAGE.FOUNDERS.FRANCO.NAME}
+                  </h3>
+                  <p className="text-ray-blue font-semibold mb-4">
+                    {t.ABOUT_PAGE.FOUNDERS.FRANCO.TITLE}
+                  </p>
+                  <p className="text-ray-dark-700 leading-relaxed">
+                    {t.ABOUT_PAGE.FOUNDERS.FRANCO.BIO}
+                  </p>
                 </div>
               </div>
-              
-              {/* See our story overlay */}
-              <div className="absolute bottom-6 left-6">
-                <button className="bg-white/90 backdrop-blur-sm rounded-xl px-6 py-3 flex items-center gap-2 font-semibold text-ray-dark-900 hover:bg-white transition-colors duration-200 shadow-lg">
-                  <Play className="w-5 h-5" />
-                  {t.ABOUT_PAGE.HERO.CTA_TEXT}
-                </button>
+
+              {/* Sebastian Cadenas Card */}
+              <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                <div className="relative h-96 max-h-96 bg-gray-100">
+                  <Image
+                    src="/images/company/Sebastian-Cadenas.webp"
+                    alt="Sebastian Cadenas - Co-Founder & CTO"
+                    fill
+                    className="object-cover object-[center_30%]"
+                    priority
+                  />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-2">
+                    {t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.NAME}
+                  </h3>
+                  <p className="text-ray-blue font-semibold mb-4">
+                    {t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.TITLE}
+                  </p>
+                  <p className="text-ray-dark-700 leading-relaxed">
+                    {t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.BIO}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
