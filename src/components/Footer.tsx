@@ -152,9 +152,9 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                 <Link
                   href={`/${locale}/product/loyalty`}
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label={locale === 'es' ? 'Página de Programa de Lealtad' : 'Loyalty Program product page'}
+                  aria-label={locale === 'es' ? 'Página de Programa de Loyalty' : 'Loyalty Program product page'}
                 >
-                  {locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program'}
+                  {locale === 'es' ? 'Programa de Loyalty' : 'Loyalty Program'}
                 </Link>
               </li>
               <li>

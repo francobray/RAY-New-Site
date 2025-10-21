@@ -7,14 +7,14 @@ import { usePathname } from 'next/navigation'
 import Button from './shared/BaseButton'
 import { useTranslations } from '@/hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
-import { 
-  Monitor, 
-  MapPin, 
-  Truck, 
-  ShoppingCart, 
-  Calendar, 
-  Smartphone, 
-  Heart 
+import {
+  Monitor,
+  MapPin,
+  Truck,
+  ShoppingCart,
+  Calendar,
+  Smartphone,
+  Heart
 } from 'lucide-react'
 
 interface ProductItem {
@@ -76,12 +76,12 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
       path: `/${locale}/products`,
       hasDropdown: true,
       productItems: [
-        { 
-          name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Delivery',
-          path: `/${locale}/product/whatsapp-delivery`,
-          description: locale === 'es' ? 'Convierte DMs de restaurante en pedidos automáticamente 24/7.' : 'Turn restaurant DMs into orders automatically 24/7.',
-          icon: 'whatsapp'
-        },
+          {
+            name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Delivery',
+            path: `/${locale}/product/whatsapp-delivery`,
+            description: locale === 'es' ? 'Convierte DMs de restaurante en pedidos automáticamente 24/7.' : 'Turn restaurant DMs into orders automatically 24/7.',
+            icon: 'whatsapp'
+          },
         { 
           name: locale === 'es' ? 'Constructor de Sitios Web' : 'Website Builder',
           path: `/${locale}/product/restaurant-website-ai`,
@@ -119,7 +119,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           icon: Smartphone
         },
         { 
-          name: locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program',
+          name: locale === 'es' ? 'Programa de Loyalty' : 'Loyalty Program',
           path: `/${locale}/product/loyalty`,
           description: locale === 'es' ? 'Construye lealtad con un programa de recompensas inspirado en las grandes marcas.' : 'Build loyalty with a rewards program inspired by the big brands.',
           icon: Heart

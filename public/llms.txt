@@ -78,6 +78,12 @@ AI-powered restaurant website builder that creates SEO-optimized websites design
 **https://www.rayapp.io/en/product/restaurant-website-ai**
 AI-powered restaurant website builder that creates SEO-optimized websites designed to rank on Google and convert visitors into customers.
 
+**https://www.rayapp.io/es/product/voice-agent**
+Voice Agent for restaurants.
+
+**https://www.rayapp.io/en/product/voice-agent**
+Voice Agent for restaurants.
+
 **https://www.rayapp.io/es/product/walk-ins**
 Increase walk-in traffic through Google Maps optimization, local SEO, and review management. Convert Google searches into restaurant visits.
 

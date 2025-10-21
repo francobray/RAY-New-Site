@@ -207,7 +207,7 @@ const LibertinoCafeCaseStudy: React.FC<LibertinoCafeCaseStudyProps> = ({ locale 
                     <div className="text-sm text-gray-400">{locale === 'es' ? 'Tráfico inconsistente' : 'Inconsistent traffic'}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm text-red-400 font-medium mb-1">{locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program'}</div>
+                    <div className="text-sm text-red-400 font-medium mb-1">{locale === 'es' ? 'Programa de Loyalty' : 'Loyalty Program'}</div>
                     <div className="text-4xl font-black text-red-400">{locale === 'es' ? 'Ninguno' : 'None'}</div>
                     <div className="text-sm text-gray-400">{locale === 'es' ? 'Sin incentivos de repetición' : 'No repeat incentives'}</div>
                   </div>
@@ -234,7 +234,7 @@ const LibertinoCafeCaseStudy: React.FC<LibertinoCafeCaseStudyProps> = ({ locale 
                   <TrendingUp className="w-8 h-8 text-black font-bold" />
                 </div>
                 <h3 className="text-xl font-black text-white mb-4">
-                  {locale === 'es' ? 'Programa de Lealtad Inteligente' : 'Smart Loyalty Program'}
+                  {locale === 'es' ? 'Programa de Loyalty Inteligente' : 'Smart Loyalty Program'}
                 </h3>
                 <p className="text-gray-300">
                   {locale === 'es' ? 'Implementamos sistema de recompensas basado en puntos para impulsar visitas repetidas' : 'Implemented points-based rewards system to drive repeat visits'}

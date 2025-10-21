@@ -51,7 +51,7 @@ export default function LoyaltyPage({ params }: LoyaltyPageProps) {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
     { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
-    { name: locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program', url: `https://rayapp.io/${locale}/product/loyalty` }
+    { name: locale === 'es' ? 'Programa de Loyalty' : 'Loyalty Program', url: `https://rayapp.io/${locale}/product/loyalty` }
   ])
 
   const combinedSchema = [faqSchema, breadcrumbSchema]

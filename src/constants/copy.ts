@@ -50,6 +50,13 @@ export const COPY: Record<Locale, any> = {
         METRIC: '+28%',
         METRIC_LABEL: 'más pedidos'
       },
+      VOICE_AGENT: {
+        NAME: 'Asistente de Voz IA',
+        TAGLINE: 'Convierte llamadas en pedidos y reservas',
+        DESCRIPTION: 'Nunca pierdas otra llamada. Nuestro asistente de IA responde llamadas, toma pedidos, hace reservas y responde preguntas del menú 24/7.',
+        METRIC: '+35%',
+        METRIC_LABEL: 'llamadas convertidas'
+      },
       WEBSITE_BUILDER: {
         NAME: 'Constructor de Sitios Web',
         TAGLINE: 'Sitios web construidos para ventas primero',
@@ -72,7 +79,7 @@ export const COPY: Record<Locale, any> = {
         METRIC_LABEL: 'más pedidos repetidos'
       },
       LOYALTY: {
-        NAME: 'Programa de Lealtad',
+        NAME: 'Programa de Loyalty',
         TAGLINE: 'Recompensas como las grandes cadenas',
         DESCRIPTION: 'Construye lealtad con un programa de recompensas inspirado en las grandes marcas que funciona automáticamente.',
         METRIC: '+60%',
@@ -1045,6 +1052,122 @@ export const COPY: Record<Locale, any> = {
         DISCLAIMER: 'No se requiere tarjeta de crédito • Prueba gratuita de 14 días • Configuración en menos de 5 minutos'
       }
     },
+    VOICE_AGENT_PAGE: {
+      HERO: {
+        TITLE: 'Convierte llamadas telefónicas',
+        TITLE_HIGHLIGHT: 'en Pedidos y Reservas automáticamente.',
+        SUBTITLE: '¡Nunca pierdas otra llamada! Nuestro asistente de IA responde llamadas, toma pedidos, hace reservas y responde preguntas del menú — 24/7, incluso cuando tu restaurante está cerrado. 📞',
+        BADGES: [
+          'Responder llamadas 24/7',
+          'Tomar pedidos por teléfono',
+          'Información del menú',
+          'Reservar mesas automáticamente'
+        ]
+      },
+      PROBLEM: {
+        TITLE: 'Demasiadas llamadas. Personal insuficiente. 📞',
+        ISSUES: [
+          'Los clientes llaman día y noche para pedidos y reservas',
+          'Tu personal no puede responder todas las llamadas',
+          'Llamadas perdidas = pedidos perdidos y clientes frustrados'
+        ],
+        SOLUTION: {
+          TITLE: 'Nuestro asistente de voz nunca duerme. 🤖',
+          SUBTITLE: 'Responde todas las llamadas en segundos, así nunca pierdes un cliente otra vez.'
+        }
+      },
+      POS_INTEGRATION: {
+        TITLE: 'Integrado con tu POS existente. 🔗',
+        SUBTITLE: 'Sin interrupciones en tu flujo de trabajo. Nuestro asistente de voz se sincroniza con tu sistema de punto de venta existente para que los pedidos fluyan directamente a tu cocina.',
+        FEATURES: [
+          {
+            title: 'Toma pedidos completos por teléfono',
+            description: 'Maneja pedidos de delivery, recogida y reservas automáticamente'
+          },
+          {
+            title: 'Responde preguntas del menú al instante',
+            description: 'Información sobre ingredientes, precios y disponibilidad'
+          },
+          {
+            title: 'Gestiona reservas automáticamente',
+            description: 'Revisa disponibilidad y confirma reservas en tiempo real'
+          },
+          {
+            title: 'Información de ubicaciones',
+            description: 'Proporciona direcciones, horarios y información de contacto'
+          },
+          {
+            title: 'Maneja múltiples llamadas simultáneamente',
+            description: 'Nunca más líneas ocupadas o clientes en espera'
+          }
+        ]
+      },
+      BENEFITS: {
+        TITLE: 'Por qué los restaurantes lo aman ❤️',
+        DASHBOARD_TITLE: 'Es como tener una recepcionista de tiempo completo... que nunca se enferma. 📞',
+        DASHBOARD_HEADER: 'Panel Asistente de Voz',
+        DASHBOARD_LABELS: {
+          CALLS_TODAY: 'Llamadas hoy',
+          ORDERS_TAKEN: 'Pedidos tomados',
+          RESERVATIONS_BOOKED: 'Reservas confirmadas',
+          AVG_CALL_TIME: 'Tiempo promedio de llamada'
+        },
+        FEATURES: [
+          {
+            title: '📞 Responde todas las llamadas 24/7',
+            description: 'Nunca pierdas una llamada, incluso cuando estés cerrado o ocupado'
+          },
+          {
+            title: '🍕 Más pedidos automáticamente',
+            description: 'Convierte cada llamada en una venta potencial'
+          },
+          {
+            title: '📅 Reservas automáticas',
+            description: 'Permite que los clientes reserven mesas sin esperar'
+          },
+          {
+            title: '⭐ Experiencia consistente',
+            description: 'Servicio profesional y cortés en cada llamada'
+          },
+          {
+            title: '🛠️ No se necesita personal adicional',
+            description: 'Ahorra en costos laborales mientras mejoras el servicio'
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'Preguntas Frecuentes',
+        SUBTITLE: 'Todo lo que necesitas saber sobre el Asistente de Voz.',
+        QUESTIONS: [
+          {
+            question: '¿Suena natural o como un robot?',
+            answer: 'Nuestro asistente de voz usa IA avanzada para sonar natural y conversacional. Los clientes no notarán la diferencia.'
+          },
+          {
+            question: '¿Puede manejar pedidos complejos?',
+            answer: 'Sí, puede tomar pedidos completos con modificaciones, calcular totales y confirmar detalles de delivery.'
+          },
+          {
+            question: '¿Qué pasa si el cliente tiene una queja?',
+            answer: 'El asistente puede manejar quejas básicas y transferir llamadas complejas a tu personal cuando sea necesario.'
+          },
+          {
+            question: '¿Funciona con múltiples ubicaciones?',
+            answer: 'Sí, cada ubicación puede tener su propio asistente con menús y horarios específicos.'
+          },
+          {
+            question: '¿Qué idiomas soporta?',
+            answer: 'Actualmente soporta español e inglés, con más idiomas próximamente.'
+          }
+        ]
+      },
+      FINAL_CTA: {
+        TITLE: 'Nunca pierdas otra llamada. 📞',
+        SUBTITLE: 'Únete a restaurantes que ya usan IA para responder llamadas y aumentar ventas. Prueba gratuita sin compromiso.',
+        CTA: 'Reservar Demo Ahora',
+        DISCLAIMER: 'No se requiere tarjeta de crédito • Prueba gratuita de 14 días • Configuración en menos de 5 minutos'
+      }
+    },
     LOYALTY_PAGE: {
       HERO: {
         TITLE: 'Ofrece un programa de recompensas',
@@ -1110,8 +1233,8 @@ export const COPY: Record<Locale, any> = {
       GUIDES: {
         TITLE: 'Ve nuestras guías para programas de lealtad y recompensas',
         CTA: 'Leer el blog',
-        GUIDE_1: 'Así es Como Construir un Programa de Lealtad Rentable',
-        GUIDE_2: 'Cómo un Programa de Lealtad Aumentó Dramáticamente las Ventas Online de Ottavio'
+        GUIDE_1: 'Así es Como Construir un Programa de Loyalty Rentable',
+        GUIDE_2: 'Cómo un Programa de Loyalty Aumentó Dramáticamente las Ventas Online de Ottavio'
       },
       FINAL_CTA: {
         TITLE: 'Automatiza el marketing a tus clientes',
@@ -1380,6 +1503,13 @@ export const COPY: Record<Locale, any> = {
         DESCRIPTION: 'Stop losing hungry customers to slow replies! Our AI takes orders, books tables, and answers menu questions 24/7.',
         METRIC: '+28%',
         METRIC_LABEL: 'more orders'
+      },
+      VOICE_AGENT: {
+        NAME: 'AI Voice Assistant',
+        TAGLINE: 'Turn Phone Calls Into Orders & Reservations',
+        DESCRIPTION: 'Never miss another call. Our AI assistant answers calls, takes orders, makes reservations, and answers menu questions 24/7.',
+        METRIC: '+35%',
+        METRIC_LABEL: 'calls converted'
       },
       WEBSITE_BUILDER: {
         NAME: 'Website Builder',
@@ -2401,6 +2531,122 @@ export const COPY: Record<Locale, any> = {
       FINAL_CTA: {
         TITLE: 'Be everywhere your guests are — without lifting a finger. 🙌',
         SUBTITLE: 'Join hundreds of restaurants already using AI to boost their sales. Start your free trial today and see the difference in 24 hours.',
+        CTA: 'Book a Demo Now',
+        DISCLAIMER: 'No credit card required • 14-day free trial • Setup in under 5 minutes'
+      }
+    },
+    VOICE_AGENT_PAGE: {
+      HERO: {
+        TITLE: 'Turn Phone Calls',
+        TITLE_HIGHLIGHT: 'Into Orders & Reservations automatically.',
+        SUBTITLE: 'Never miss another call! Our AI assistant answers calls, takes orders, makes reservations, and answers menu questions — 24/7, even when your restaurant is closed. 📞',
+        BADGES: [
+          'Answer calls 24/7',
+          'Take phone orders',
+          'Menu information',
+          'Book tables automatically'
+        ]
+      },
+      PROBLEM: {
+        TITLE: 'Too many calls. Not enough staff. 📞',
+        ISSUES: [
+          'Customers call day and night for orders and reservations',
+          'Your staff can\'t answer all the calls',
+          'Missed calls = lost orders and frustrated customers'
+        ],
+        SOLUTION: {
+          TITLE: 'Our voice assistant never sleeps. 🤖',
+          SUBTITLE: 'Answers all calls in seconds, so you never lose a customer again.'
+        }
+      },
+      POS_INTEGRATION: {
+        TITLE: 'Integrated with your existing POS. 🔗',
+        SUBTITLE: 'No disruption to your workflow. Our voice assistant syncs with your existing point of sale system so orders flow directly to your kitchen.',
+        FEATURES: [
+          {
+            title: 'Takes complete phone orders',
+            description: 'Handles delivery, pickup, and reservation orders automatically'
+          },
+          {
+            title: 'Answers menu questions instantly',
+            description: 'Information about ingredients, prices, and availability'
+          },
+          {
+            title: 'Manages reservations automatically',
+            description: 'Checks availability and confirms bookings in real-time'
+          },
+          {
+            title: 'Provides location information',
+            description: 'Gives directions, hours, and contact information'
+          },
+          {
+            title: 'Handles multiple calls simultaneously',
+            description: 'No more busy signals or customers on hold'
+          }
+        ]
+      },
+      BENEFITS: {
+        TITLE: 'Why restaurants love it ❤️',
+        DASHBOARD_TITLE: 'It\'s like having a full-time receptionist... who never gets sick. 📞',
+        DASHBOARD_HEADER: 'Voice Assistant Dashboard',
+        DASHBOARD_LABELS: {
+          CALLS_TODAY: 'Calls today',
+          ORDERS_TAKEN: 'Orders taken',
+          RESERVATIONS_BOOKED: 'Reservations booked',
+          AVG_CALL_TIME: 'Avg call time'
+        },
+        FEATURES: [
+          {
+            title: '📞 Answers all calls 24/7',
+            description: 'Never miss a call, even when closed or busy'
+          },
+          {
+            title: '🍕 More orders automatically',
+            description: 'Turn every call into a potential sale'
+          },
+          {
+            title: '📅 Automatic reservations',
+            description: 'Let customers book tables without waiting'
+          },
+          {
+            title: '⭐ Consistent experience',
+            description: 'Professional and courteous service on every call'
+          },
+          {
+            title: '🛠️ No additional staff needed',
+            description: 'Save on labor costs while improving service'
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'Frequently Asked Questions',
+        SUBTITLE: 'Everything you need to know about the Voice Assistant.',
+        QUESTIONS: [
+          {
+            question: 'Does it sound natural or robotic?',
+            answer: 'Our voice assistant uses advanced AI to sound natural and conversational. Customers won\'t notice the difference.'
+          },
+          {
+            question: 'Can it handle complex orders?',
+            answer: 'Yes, it can take complete orders with modifications, calculate totals, and confirm delivery details.'
+          },
+          {
+            question: 'What if a customer has a complaint?',
+            answer: 'The assistant can handle basic complaints and transfer complex calls to your staff when needed.'
+          },
+          {
+            question: 'Does it work with multiple locations?',
+            answer: 'Yes, each location can have its own assistant with specific menus and hours.'
+          },
+          {
+            question: 'What languages does it support?',
+            answer: 'Currently supports English and Spanish, with more languages coming soon.'
+          }
+        ]
+      },
+      FINAL_CTA: {
+        TITLE: 'Never miss another call. 📞',
+        SUBTITLE: 'Join restaurants already using AI to answer calls and boost sales. Free trial with no commitment.',
         CTA: 'Book a Demo Now',
         DISCLAIMER: 'No credit card required • 14-day free trial • Setup in under 5 minutes'
       }

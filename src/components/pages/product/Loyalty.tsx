@@ -54,7 +54,7 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm mb-6">
                 <Gift className="w-4 h-4 mr-2 text-purple-600" />
-                <span className="text-sm font-medium text-ray-dark-900">{locale === 'es' ? 'Programa de Lealtad' : 'Loyalty Program'}</span>
+                <span className="text-sm font-medium text-ray-dark-900">{locale === 'es' ? 'Programa de Loyalty' : 'Loyalty Program'}</span>
               </div>
               
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ray-dark-900 leading-[0.9] mb-6">
