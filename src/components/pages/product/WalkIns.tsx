@@ -192,7 +192,7 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-                  {locale === 'es' ? 'Consigue 30% más de tráfico en tu restaurante' : 'Get up to 30% more WalkIns in your resstaurant'}
+                  {locale === 'es' ? 'Consigue 30% más de tráfico en tu restaurante' : 'Get up to 30% more WalkIns in your restaurant'}
                 </h2>
                 <p className="text-xl text-ray-darkGray leading-relaxed">
                   {locale === 'es' ? 'Nuestra solución utiliza inteligencia artificial para analizar tu Perfil de Negocio de Google y identificar oportunidades específicas de optimización que impulsan más visitas locales.' : 'Our solution uses artificial intelligence to analyze your Google Business Profile and identify specific optimization opportunities that drive more local visits.'}
@@ -252,7 +252,7 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image 
-                  src="/images/walkIns/WalkIns-5.webp"
+                  src={`/images/walkIns/WalkIns-5-${locale}.webp`}
                   alt={locale === 'es' ? 'Interfaz de búsqueda local mostrando optimizaciones de IA' : 'Local search interface showing AI optimizations'}
                   width={800}
                   height={600}

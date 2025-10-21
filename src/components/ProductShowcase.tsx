@@ -15,7 +15,10 @@ interface CarouselTab {
     es: string
     en: string
   }
-  image: string
+  image: {
+    es: string
+    en: string
+  }
   alt: {
     es: string
     en: string
@@ -29,7 +32,10 @@ const carouselTabs: CarouselTab[] = [
       es: 'Más Tráfico de Google',
       en: 'More Google Traffic'
     },
-    image: '/images/home/Carrousel_1.webp',
+    image: {
+      es: '/images/home/es/Carrousel_1.webp',
+      en: '/images/home/en/Carrousel_1.webp'
+    },
     alt: {
       es: 'Sitio web optimizado para SEO con mejor posicionamiento en Google',
       en: 'SEO optimized website with better Google rankings'
@@ -41,7 +47,10 @@ const carouselTabs: CarouselTab[] = [
       es: 'Más Delivery directo',
       en: 'More Online Sales'
     },
-    image: '/images/home/Carrousel_2.webp',
+    image: {
+      es: '/images/home/es/Carrousel_2.webp',
+      en: '/images/home/en/Carrousel_2.webp'
+    },
     alt: {
       es: 'Sistema de pedidos online para restaurantes',
       en: 'Online ordering system for restaurants'
@@ -53,7 +62,10 @@ const carouselTabs: CarouselTab[] = [
       es: 'Más Pedidos Repetidos',
       en: 'More Repeat Orders'
     },
-    image: '/images/home/Carrousel_3.webp',
+    image: {
+      es: '/images/home/es/Carrousel_3.webp',
+      en: '/images/home/en/Carrousel_3.webp'
+    },
     alt: {
       es: 'Sistema de fidelización y seguimiento de clientes',
       en: 'Customer loyalty and follow-up system'
@@ -65,7 +77,10 @@ const carouselTabs: CarouselTab[] = [
       es: 'Más reservas directas',
       en: 'More direct bookings'
     },
-    image: '/images/home/Carrousel_4.webp',
+    image: {
+      es: '/images/home/es/Carrousel_4.webp',
+      en: '/images/home/en/Carrousel_4.webp'
+    },
     alt: {
       es: 'Consigue más reservas direcetas con nuestro website optimizado y empleado ai',
       en: 'Get more direct bookings with our optimized website and ai employee'
@@ -77,7 +92,10 @@ const carouselTabs: CarouselTab[] = [
       es: 'Tu App mobile',
       en: 'Your mobile App'
     },
-    image: '/images/home/Carrousel_5.webp',
+    image: {
+      es: '/images/home/es/Carrousel_5.webp',
+      en: '/images/home/en/Carrousel_5.webp'
+    },
     alt: {
       es: 'App móvil personalizada para restaurantes con programa de puntos',
       en: 'Branded mobile app for restaurants with points program'
@@ -190,7 +208,7 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ locale }) => {
           <div className="rounded-3xl overflow-hidden transition-all duration-700 max-w-5xl w-full">
             <div className="relative w-full h-[450px] md:h-[520px] bg-gray-50">
               <Image
-                src={currentTab.image}
+                src={currentTab.image[locale]}
                 alt={currentTab.alt[locale]}
                 fill
                 className="object-contain transition-all duration-700"
