@@ -225,7 +225,7 @@ const successStories = [
     metric: '256%',
     period: 'breakfast orders increase',
     description: 'How La Panera Rosa built a thriving morning business with branded mobile app',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Panera_Rosa.jpeg',
     bgGradient: 'from-pink-500 to-rose-700',
     slug: 'la-panera-rosa'
   },

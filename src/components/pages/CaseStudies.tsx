@@ -372,7 +372,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     name: 'La Panera Rosa',
     location: 'Bakery Market',
     industry: 'Bakery',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Panera_Rosa.jpeg',
     keyMetrics: [
       { label: 'Breakfast Orders', value: '+256%', icon: TrendingUp },
       { label: 'App Usage', value: '+189%', icon: Users },

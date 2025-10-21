@@ -252,7 +252,7 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image 
-                  src="/images/walkIns/Walkins-3.png"
+                  src="/images/walkIns/WalkIns-5.webp"
                   alt={locale === 'es' ? 'Interfaz de búsqueda local mostrando optimizaciones de IA' : 'Local search interface showing AI optimizations'}
                   width={800}
                   height={600}
