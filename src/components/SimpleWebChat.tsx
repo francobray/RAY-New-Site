@@ -30,7 +30,7 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
       const welcomeMessage = {
         id: 'welcome',
         text: locale === 'es' 
-          ? '¡Hola! Soy RAY agent 🚀 ¿En qué te puedo ayudar? Pregúntame sobre nuestros productos, precios, demos o cualquier cosa sobre RAY.'
+          ? 'Hola! Te puedo ayudar con preguntas sobre nuestras soluciones, preguntas sobre nuestro servicio, como escanear tu restaurante y agendando una demo con nuestro equipo para saber más'
           : 'Hi! I\'m RAY agent 🚀 How can I help you today? Ask me about our products, pricing, demos, or anything about RAY.',
         isUser: false
       }
@@ -132,12 +132,12 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
               <div key={msg.id} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
                 <div className="flex items-start space-x-2 max-w-[85%]">
                   {!msg.isUser && (
-                    <div className="w-7 h-7 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-1 p-1">
+                    <div className="w-9 h-9 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-1 p-1">
                       <Image
                         src="/images/RAY-small-logo-white.png"
                         alt="RAY"
-                        width={24}
-                        height={24}
+                        width={36}
+                        height={36}
                         className="w-full h-full object-contain filter invert"
                       />
                     </div>
@@ -147,7 +147,15 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
                       ? 'bg-teal-500 text-white rounded-br-md' 
                       : 'bg-blue-500 text-white rounded-bl-md'
                   }`}>
-                    {msg.text}
+                    <span 
+                      className="whitespace-pre-line" 
+                      dangerouslySetInnerHTML={{
+                        __html: msg.text
+                          .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>') // **texto** -> <strong>texto</strong>
+                          .replace(/\*\*/g, '<br>') // ** solos -> <br>
+                          .replace(/(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-200 transition-colors">$1</a>') // URLs -> links
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -156,12 +164,12 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
             {isLoading && (
               <div className="flex justify-start">
                 <div className="flex items-start space-x-2">
-                  <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-1 p-1">
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-1 p-1">
                     <Image
                       src="/images/RAY-small-logo-white.png"
                       alt="RAY"
-                      width={20}
-                      height={20}
+                      width={32}
+                      height={32}
                       className="w-full h-full object-contain filter invert"
                     />
                   </div>
