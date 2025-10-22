@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Script from 'next/script'
 import { ArrowRight, CircleCheck as CheckCircle, Users, Star, ChevronDown, ChevronUp, Zap, Phone, ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
@@ -24,83 +23,85 @@ interface FAQ {
 
 const VoiceAgent: React.FC<VoiceAgentProps> = ({ locale }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const [isScriptLoaded, setIsScriptLoaded] = useState(false)
   
   const t = useTranslations(locale)
   
-  // Component mounted - initialize widget immediately
+  // Component mounted - inject Vapi widget using official method
   useEffect(() => {
-    console.log('VoiceAgent component mounted - initializing Vapi widget')
+    // Check if widget already exists and is working
+    const existingWidget = document.querySelector('vapi-widget')
+    if (existingWidget && existingWidget.children.length > 0) {
+      return
+    }
     
-    // Enable script loaded state immediately to render widget
-    setIsScriptLoaded(true)
+    // Remove any existing but uninitialized widget or script
+    const existingScript = document.querySelector('script[src*="vapi-ai"]')
+    if (existingWidget) existingWidget.remove()
+    if (existingScript) existingScript.remove()
     
-    // Also add the widget HTML directly to page on load as backup
-    setTimeout(() => {
-      if (!document.querySelector('vapi-widget')) {
-        console.log('Adding Vapi widget directly to DOM')
-        const widgetContainer = document.createElement('div')
-        widgetContainer.innerHTML = `<vapi-widget
-          public-key="90d98cb0-7906-47c3-a16c-6875ff013730"
-          assistant-id="6974c1fa-e3d1-460b-a6da-32c4522a761f"
-          mode="voice"
-          theme="dark"
-          base-bg-color="#000000"
-          accent-color="#14B8A6"
-          cta-button-color="#000000"
-          cta-button-text-color="#ffffff"
-          border-radius="large"
-          size="full"
-          position="bottom-right"
-          title="Probarlo ahora"
-          start-button-text="Start"
-          end-button-text="End Call"
-          chat-first-message="Hey, How can I help you today?"
-          chat-placeholder="Type your message..."
-          voice-show-transcript="true"
-          consent-required="true"
-          consent-title="Terms and conditions"
-          consent-content="By clicking "Agree," and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as otherwise described in our Terms of Service."
-          consent-storage-key="vapi_widget_consent"
-        ></vapi-widget>`
-        document.body.appendChild(widgetContainer)
-        console.log('✅ Vapi widget added directly to DOM')
-      }
-    }, 2000) // Wait 2 seconds to ensure script has time to load
+    // REVERSED APPROACH: Add widget element FIRST, then load script
+    // This way the MutationObserver in the Vapi script can detect it
+    
+    const widgetHTML = `<vapi-widget
+      public-key="90d98cb0-7906-47c3-a16c-6875ff013730"
+      assistant-id="6974c1fa-e3d1-460b-a6da-32c4522a761f"
+      mode="voice"
+      theme="dark"
+      size="full"
+      radius="large"
+      position="bottom-left"
+      base-color="#000000"
+      accent-color="#216eab"
+      button-base-color="#000000"
+      button-accent-color="#ffffff"
+      main-label="Probarlo ahora 📞"
+      start-button-text="Start"
+      end-button-text="End Call"
+      empty-chat-message="Hey, How can I help you today?"
+      show-transcript="true"
+      require-consent="true"
+      terms-content="By using this chat widget, you agree to our privacy policy and terms of service. Your conversations may be recorded for quality assurance."
+      local-storage-key="vapi_widget_consent"
+    ></vapi-widget>`
+    
+    const container = document.createElement('div')
+    container.innerHTML = widgetHTML
+    const widget = container.firstElementChild
+    
+    if (widget) {
+      document.body.appendChild(widget)
+    }
+    
+    // Load the script after widget element exists in the DOM
+    const script = document.createElement('script')
+    script.src = 'https://unpkg.com/@vapi-ai/client-sdk-react@0.0.15/dist/embed/widget.umd.js'
+    script.async = true
+    script.type = 'text/javascript'
+    script.crossOrigin = 'anonymous'
+    
+    // Append script to body
+    document.body.appendChild(script)
+    
+    return () => {
+      // Cleanup on unmount
+      const widget = document.querySelector('vapi-widget')
+      const scriptTag = document.querySelector('script[src*="vapi-ai"]')
+      if (widget) widget.remove()
+      if (scriptTag) scriptTag.remove()
+    }
   }, [])
 
-  // Handle script load completion
-  const handleScriptLoad = () => {
-    console.log('Vapi widget script loaded successfully')
-    setIsScriptLoaded(true)
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index)
   }
-  
-  // Fallback: Enable button after timeout even if script doesn't load
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!isScriptLoaded) {
-        console.warn('Vapi script loading timeout after 5 seconds, enabling button anyway')
-        setIsScriptLoaded(true)
-      }
-    }, 5000) // 5 second timeout to give widget time to load
 
-    return () => clearTimeout(timeout)
-  }, [])
-  
-  // Debug: Check what's happening with the button state
-  useEffect(() => {
-    console.log('isScriptLoaded state changed:', isScriptLoaded)
-  }, [isScriptLoaded])
-
-
-
-
-// PhoneCarousel Component
-const PhoneCarousel = () => {
-  const phoneExamples = [
-    {
-      id: 1,
-      businessName: locale === 'es' ? 'Pizza de Mario' : 'Mario\'s Pizza',
+  // PhoneCarousel Component
+  const PhoneCarousel = () => {
+    const phoneExamples = [
+      {
+        id: 1,
+        businessName: locale === 'es' ? 'Pizza de Mario' : 'Mario\'s Pizza',
       status: locale === 'es' ? 'Llamando...' : 'Calling...',
       conversation: locale === 'es' ? [
         {
@@ -398,56 +399,11 @@ const PhoneCarousel = () => {
       </div>
     </div>
   );
-}
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index)
   }
 
   return (
     <>
-      {/* Load Vapi widget script */}
-      <Script
-        src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js"
-        onLoad={handleScriptLoad}
-        onError={(e) => {
-          console.error('Failed to load Vapi widget script:', e)
-          setIsScriptLoaded(true) // Enable anyway for testing
-        }}
-        strategy="afterInteractive"
-        async
-      />
-      
-      {/* Render the complete Vapi widget with all configurations */}
-      {isScriptLoaded && (
-        <div 
-          dangerouslySetInnerHTML={{
-            __html: `<vapi-widget
-              public-key="90d98cb0-7906-47c3-a16c-6875ff013730"
-              assistant-id="6974c1fa-e3d1-460b-a6da-32c4522a761f"
-              mode="voice"
-              theme="dark"
-              base-bg-color="#000000"
-              accent-color="#14B8A6"
-              cta-button-color="#000000"
-              cta-button-text-color="#ffffff"
-              border-radius="large"
-              size="full"
-              position="bottom-right"
-              title="Probarlo ahora"
-              start-button-text="Start"
-              end-button-text="End Call"
-              chat-first-message="Hey, How can I help you today?"
-              chat-placeholder="Type your message..."
-              voice-show-transcript="true"
-              consent-required="true"
-              consent-title="Terms and conditions"
-              consent-content="By clicking "Agree," and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as otherwise described in our Terms of Service."
-              consent-storage-key="vapi_widget_consent"
-            ></vapi-widget>`
-          }}
-        />
-      )}
+      {/* Vapi widget script and element are injected via useEffect */}
       
       {/* AI-friendly page summary */}
       <div className="sr-only">
