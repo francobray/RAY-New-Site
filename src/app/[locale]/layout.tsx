@@ -4,6 +4,7 @@ import { isValidLocale, type Locale, generateHreflangMetadata, generateOpenGraph
 import { getTranslations } from '@/hooks/useTranslations'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import SimpleWebChat from '@/components/SimpleWebChat'
 import '@/styles/critical.css'
 
 interface LocaleLayoutProps {
@@ -87,6 +88,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
           {children}
         </main>
         <Footer locale={locale} />
+        <SimpleWebChat locale={locale} />
       </body>
     </html>
   )

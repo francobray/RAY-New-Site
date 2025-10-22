@@ -20,10 +20,23 @@ export const COPY: Record<Locale, any> = {
       SUPPORT_EMAIL: 'support@rayapp.io'
     },
     
+    // WebChat
+    WEBCHAT: {
+      TITLE: 'RAY GPT',
+      SUBTITLE: '¿En qué te puedo ayudar?',
+      WELCOME_MESSAGE: '¡Hola! Soy RAY GPT 🤖 ¿En qué te puedo ayudar? Pregúntame sobre nuestros productos, precios, demos o cualquier cosa sobre RAY.',
+      PLACEHOLDER: 'Pregúntame algo sobre RAY...',
+      ERROR_MESSAGE: 'Lo siento, hubo un error de conexión. Por favor intenta de nuevo en un momento.',
+      CHAT_WITH_RAY: 'Chatea con RAY',
+      OPEN_CHAT: 'Abrir chat',
+      CLOSE_CHAT: 'Cerrar chat',
+      SEND: 'Enviar'
+    },
+    
     // Products
     PRODUCTS: {
       BOOKINGS: {
-        NAME: 'Reservas',
+        NAME: 'Reservas sin comisión',
         TAGLINE: 'Maximiza la ocupación de mesas con gestión inteligente de reservas',
         DESCRIPTION: 'Maximiza la ocupación de mesas con gestión inteligente de reservas, listas de espera y herramientas de relación con clientes.',
         METRIC: '+35%',
@@ -1472,6 +1485,19 @@ export const COPY: Record<Locale, any> = {
       TAGLINE: 'All in one sales platform for restaurant',
       DESCRIPTION: 'RAY is the #1 sales platform helping restaurant owners and operators attract more customers, grow revenue from walk-ins, orders, and bookings, and protect their reputation.',
       SUPPORT_EMAIL: 'support@rayapp.io'
+    },
+    
+    // WebChat
+    WEBCHAT: {
+      TITLE: 'RAY GPT',
+      SUBTITLE: 'How can I help you?',
+      WELCOME_MESSAGE: 'Hi! I\'m RAY GPT 🤖 How can I help you today? Ask me about our products, pricing, demos, or anything about RAY.',
+      PLACEHOLDER: 'Ask me something about RAY...',
+      ERROR_MESSAGE: 'Sorry, there was a connection error. Please try again in a moment.',
+      CHAT_WITH_RAY: 'Chat with RAY',
+      OPEN_CHAT: 'Open chat',
+      CLOSE_CHAT: 'Close chat',
+      SEND: 'Send'
     },
     
     // Products
