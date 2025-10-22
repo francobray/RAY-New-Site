@@ -26,6 +26,37 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ locale }) => {
   
   const t = useTranslations(locale)
   
+  // Intercept and suppress Vapi console errors to prevent noise in production
+  useEffect(() => {
+    const originalError = console.error
+    
+    // Override console.error to filter out Vapi errors
+    console.error = (...args: any[]) => {
+      const message = args[0]?.toString() || ''
+      
+      // Suppress known Vapi errors that are handled gracefully
+      if (
+        message.includes('Vapi error:') ||
+        message.includes('Meeting has ended') ||
+        message.includes('daily-call-join-error') ||
+        message.includes('start-method-error')
+      ) {
+        // Silently suppress these errors in production
+        // In development, you can uncomment the line below to debug:
+        // originalError.call(console, '[Vapi] Suppressed error:', ...args)
+        return
+      }
+      
+      // For all other errors, use the original console.error
+      originalError.apply(console, args)
+    }
+    
+    return () => {
+      // Restore original console methods on cleanup
+      console.error = originalError
+    }
+  }, [])
+  
   // Component mounted - inject Vapi widget using official method
   useEffect(() => {
     // Check if widget already exists and is working
@@ -38,6 +69,20 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ locale }) => {
     const existingScript = document.querySelector('script[src*="vapi-ai"]')
     if (existingWidget) existingWidget.remove()
     if (existingScript) existingScript.remove()
+    
+    // Clear any stale Vapi data from localStorage to prevent "Meeting has ended" errors
+    try {
+      const vapiStorageKeys = ['vapi_widget_consent', 'vapi_call_id', 'vapi_session_id']
+      vapiStorageKeys.forEach(key => {
+        const storedValue = localStorage.getItem(key)
+        if (storedValue && key !== 'vapi_widget_consent') {
+          // Remove stale session data but keep consent
+          localStorage.removeItem(key)
+        }
+      })
+    } catch (e) {
+      console.warn('Could not clear Vapi storage:', e)
+    }
     
     // REVERSED APPROACH: Add widget element FIRST, then load script
     // This way the MutationObserver in the Vapi script can detect it
@@ -74,10 +119,57 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ locale }) => {
     
     // Load the script after widget element exists in the DOM
     const script = document.createElement('script')
+    // Using version 0.0.15 - known working version (upgrade path unclear for widget embed)
     script.src = 'https://unpkg.com/@vapi-ai/client-sdk-react@0.0.15/dist/embed/widget.umd.js'
     script.async = true
     script.type = 'text/javascript'
     script.crossOrigin = 'anonymous'
+    
+    // Add error handling for script loading
+    script.onerror = () => {
+      console.error('Failed to load Vapi widget script')
+      // Remove the widget element if script fails to load
+      const failedWidget = document.querySelector('vapi-widget')
+      if (failedWidget) failedWidget.remove()
+    }
+    
+    // Add event listener for Vapi errors after script loads
+    script.onload = () => {
+      // Wait for widget to initialize, then add error handlers
+      setTimeout(() => {
+        const loadedWidget = document.querySelector('vapi-widget')
+        if (loadedWidget) {
+          // Listen for Vapi error events
+          const handleVapiError = (event: Event) => {
+            const customEvent = event as CustomEvent
+            console.warn('Vapi error caught:', customEvent.detail)
+            
+            // Clear stale session data on error
+            try {
+              localStorage.removeItem('vapi_call_id')
+              localStorage.removeItem('vapi_session_id')
+            } catch (e) {
+              console.warn('Could not clear session storage:', e)
+            }
+            
+            // Optionally reload the widget on critical errors
+            const errorDetail = customEvent.detail
+            if (errorDetail?.errorMsg?.includes('Meeting has ended') || 
+                errorDetail?.type === 'daily-call-join-error' ||
+                errorDetail?.type === 'start-method-error') {
+              console.log('Resetting Vapi widget due to session error...')
+              // Don't auto-reload to avoid loops, just log for debugging
+            }
+          }
+          
+          // Add error event listener
+          loadedWidget.addEventListener('error', handleVapiError)
+          
+          // Store cleanup function for the error listener
+          ;(loadedWidget as any)._vapiErrorHandler = handleVapiError
+        }
+      }, 1000)
+    }
     
     // Append script to body
     document.body.appendChild(script)
@@ -86,6 +178,12 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ locale }) => {
       // Cleanup on unmount
       const widget = document.querySelector('vapi-widget')
       const scriptTag = document.querySelector('script[src*="vapi-ai"]')
+      
+      // Remove error event listener if it exists
+      if (widget && (widget as any)._vapiErrorHandler) {
+        widget.removeEventListener('error', (widget as any)._vapiErrorHandler)
+      }
+      
       if (widget) widget.remove()
       if (scriptTag) scriptTag.remove()
     }

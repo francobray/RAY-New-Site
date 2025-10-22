@@ -253,10 +253,10 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
             {/* Left side - Zero commission drivers image */}
             <div className="relative">
               <Image
-                src="/images/zero-commission/zero-commission-drivers.png"
+                src={`/images/zero-commission/zero-commission-drivers-${locale}.png`}
                 alt={locale === 'es' ? 'Drivers de terceros sin comisión' : 'Third-party drivers without commission'}
-                width={480}
-                height={720}
+                width={382}
+                height={586}
                 className="w-full h-auto max-w-sm mx-auto"
               />
             </div>
