@@ -15,6 +15,10 @@ export default function CodigosTrivia() {
   const [codes, setCodes] = useState<TriviaCode[]>([])
   const [loading, setLoading] = useState(true)
   const [dataSource, setDataSource] = useState<string>('')
+  const [error, setError] = useState<{
+    message: string
+    details: string
+  } | null>(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [redeemCode, setRedeemCode] = useState('')
   const [redeemStatus, setRedeemStatus] = useState<{
@@ -32,6 +36,7 @@ export default function CodigosTrivia() {
   const fetchCodes = async () => {
     try {
       setLoading(true)
+      setError(null)
       // Add cache busting to ensure fresh data
       const response = await fetch(`/api/trivia-codes?t=${Date.now()}`, {
         cache: 'no-store',
@@ -40,14 +45,27 @@ export default function CodigosTrivia() {
         },
       })
       const data = await response.json()
-      setCodes(data.codes || [])
-      setDataSource(data.source || 'unknown')
+      
+      // Check if there's an error from the API
+      if (data.error || data.source === 'error') {
+        setError({
+          message: data.message || 'Error al cargar los códigos',
+          details: data.details || 'Verifica la configuración del servidor',
+        })
+        setCodes([])
+        setDataSource('error')
+      } else {
+        setCodes(data.codes || [])
+        setDataSource(data.source || 'unknown')
+        setError(null)
+      }
     } catch (error) {
       console.error('Error fetching codes:', error)
-      setRedeemStatus({
-        type: 'error',
-        message: 'Error al cargar los códigos. Intenta recargar la página.',
+      setError({
+        message: 'Error de conexión',
+        details: 'No se pudo conectar con el servidor. Intenta recargar la página.',
       })
+      setDataSource('error')
     } finally {
       setLoading(false)
     }
@@ -245,13 +263,13 @@ export default function CodigosTrivia() {
                 <p className="text-xs text-gray-500">
                   {codes.length} totales
                   {dataSource === 'n8n' && (
-                    <span className="ml-1" title="Datos de n8n">
-                      🔄
+                    <span className="ml-1 text-green-600" title="Conectado a n8n">
+                      ✓ n8n
                     </span>
                   )}
-                  {dataSource === 'mock' && (
-                    <span className="ml-1" title="Datos de ejemplo">
-                      🧪
+                  {dataSource === 'error' && (
+                    <span className="ml-1 text-red-600 font-semibold" title="Error de configuración">
+                      ⚠️ Error
                     </span>
                   )}
                 </p>
@@ -263,6 +281,43 @@ export default function CodigosTrivia() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Error Banner */}
+        {error && (
+          <div className="bg-red-50 border-2 border-red-500 rounded-2xl p-6 mb-8">
+            <div className="flex items-start gap-4">
+              <svg
+                className="w-8 h-8 text-red-500 flex-shrink-0 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-red-900 mb-2">
+                  ⚠️ Error de Configuración
+                </h3>
+                <p className="text-red-800 font-semibold mb-2">{error.message}</p>
+                <p className="text-red-700 text-sm mb-4">{error.details}</p>
+                <div className="bg-red-100 rounded-lg p-4 text-sm text-red-900">
+                  <p className="font-semibold mb-2">🔧 Pasos para solucionar:</p>
+                  <ol className="list-decimal list-inside space-y-1">
+                    <li>Verifica que N8N_WEBHOOK_URL esté configurada en las variables de entorno</li>
+                    <li>Asegúrate de que tu workflow de n8n esté activo</li>
+                    <li>Verifica que la URL del webhook sea correcta</li>
+                    <li>Revisa los logs de tu plataforma de hosting</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Redeem Code Section */}
         <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 mb-8 text-white">
           <h2 className="text-2xl font-bold mb-2">Canjear Código</h2>

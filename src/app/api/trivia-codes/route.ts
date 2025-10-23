@@ -6,13 +6,21 @@ export async function GET() {
 
     // Check if n8n webhook is configured
     if (!n8nWebhookUrl) {
-      console.log('n8n webhook not configured, using mock data')
-      return NextResponse.json({
-        codes: getMockCodes(),
-        source: 'mock',
-      })
+      console.error('❌ N8N_WEBHOOK_URL environment variable is not set')
+      return NextResponse.json(
+        {
+          error: 'Configuration Error',
+          message: 'N8N_WEBHOOK_URL environment variable is not configured',
+          details: 'Please set N8N_WEBHOOK_URL in your production environment variables and redeploy.',
+          codes: [],
+          source: 'error',
+        },
+        { status: 503 }
+      )
     }
 
+    console.log('🔄 Fetching codes from n8n webhook...')
+    
     // Fetch data from n8n webhook
     const response = await fetch(n8nWebhookUrl, {
       method: 'GET',
@@ -22,7 +30,19 @@ export async function GET() {
     })
 
     if (!response.ok) {
-      throw new Error(`n8n webhook returned ${response.status}`)
+      const errorText = await response.text()
+      console.error(`❌ n8n webhook returned ${response.status}: ${errorText}`)
+      
+      return NextResponse.json(
+        {
+          error: 'Webhook Error',
+          message: `n8n webhook returned ${response.status}`,
+          details: `Check your n8n workflow is active and the webhook URL is correct. Response: ${errorText.substring(0, 100)}`,
+          codes: [],
+          source: 'error',
+        },
+        { status: response.status }
+      )
     }
 
     const data = await response.json()
@@ -33,6 +53,10 @@ export async function GET() {
     //   { row_number: 3, Code: "1Zx8Lj4E", "Redemption Date": "2024-10-23" }
     // ]
     const sheetRows = Array.isArray(data) ? data : []
+
+    if (sheetRows.length === 0) {
+      console.warn('⚠️ n8n returned empty data array')
+    }
 
     // Transform sheet data to our format
     const codes = sheetRows
@@ -51,50 +75,26 @@ export async function GET() {
         }
       })
 
+    console.log(`✅ Successfully fetched ${codes.length} codes from n8n`)
+
     return NextResponse.json({
       codes,
       source: 'n8n',
       lastUpdated: new Date().toISOString(),
     })
   } catch (error) {
-    console.error('Error fetching from n8n:', error)
+    console.error('❌ Error fetching from n8n:', error)
     
-    // Fallback to mock data on error
-    return NextResponse.json({
-      codes: getMockCodes(),
-      source: 'mock-fallback',
-      error: error instanceof Error ? error.message : 'Unknown error',
-    })
+    return NextResponse.json(
+      {
+        error: 'Connection Error',
+        message: error instanceof Error ? error.message : 'Unknown error connecting to n8n',
+        details: 'Check that your n8n instance is accessible and the workflow is active.',
+        codes: [],
+        source: 'error',
+      },
+      { status: 500 }
+    )
   }
-}
-
-// Mock data fallback (only used if n8n is not configured)
-function getMockCodes() {
-  return [
-    {
-      id: '1',
-      code: 'DEMO1',
-      description: 'Código de demo 1',
-      value: 'Premio',
-      status: 'active',
-      redemptionDate: null,
-    },
-    {
-      id: '2',
-      code: 'DEMO2',
-      description: 'Código de demo 2',
-      value: 'Premio',
-      status: 'active',
-      redemptionDate: null,
-    },
-    {
-      id: '3',
-      code: 'DEMO3',
-      description: 'Código de demo 3 (canjeado)',
-      value: 'Premio',
-      status: 'redeemed',
-      redemptionDate: '2024-10-15',
-    },
-  ]
 }
 
