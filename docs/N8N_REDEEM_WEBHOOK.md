@@ -209,7 +209,7 @@ Copia la URL del webhook de n8n y agrégala a tu `.env`:
 
 ```bash
 # n8n Redeem Webhook
-N8N_REDEEM_WEBHOOK_URL=https://franbreciano.app.n8n.cloud/webhook/redeem-trivia-code
+N8N_REDEEM_WEBHOOK_URL=https://your-n8n.com/webhook/redeem-trivia-code
 ```
 
 ---

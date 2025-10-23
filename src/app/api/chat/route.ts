@@ -12,8 +12,24 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Get n8n chat webhook from environment
+    const n8nChatWebhookUrl = process.env.N8N_CHAT_WEBHOOK_URL
+
+    if (!n8nChatWebhookUrl) {
+      console.error('N8N_CHAT_WEBHOOK_URL not configured')
+      return NextResponse.json(
+        { 
+          error: 'Chat service not configured',
+          response: body.locale === 'es'
+            ? 'Lo siento, el servicio de chat no está disponible en este momento.'
+            : 'Sorry, the chat service is not available at the moment.'
+        },
+        { status: 503 }
+      )
+    }
+
     // Forward the request to n8n webhook
-    const response = await fetch('https://franbreciano.app.n8n.cloud/webhook/fffeb27b-2d7b-4808-b2d5-cc95a551aadc', {
+    const response = await fetch(n8nChatWebhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
