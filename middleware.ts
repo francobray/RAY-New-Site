@@ -58,15 +58,24 @@ export function middleware(request: NextRequest) {
   }
 
   // --- 1.5) Basic Auth for protected routes ---
-  const protectedPaths = ['/internal']
+  const protectedPaths = ['/internal', '/es/internal', '/en/internal']
   const isProtectedPath = protectedPaths.some(
-    (path) => pathname.includes(path)
+    (path) => pathname === path || pathname.startsWith(path + '/')
   )
 
   if (isProtectedPath) {
+    console.log(`🔐 Auth check for protected path: ${pathname}`)
+    
+    const validUser = process.env.INTERNAL_AUTH_USER
+    const validPassword = process.env.INTERNAL_AUTH_PASSWORD
+    
+    // Log environment status (without exposing values)
+    console.log(`🔑 Auth env vars set: USER=${!!validUser}, PASS=${!!validPassword}`)
+    
     const isAuthenticated = checkBasicAuth(request)
     
     if (!isAuthenticated) {
+      console.log(`❌ Auth failed for ${pathname}`)
       return new NextResponse('Authentication required', {
         status: 401,
         headers: {
@@ -74,6 +83,8 @@ export function middleware(request: NextRequest) {
         },
       })
     }
+    
+    console.log(`✅ Auth successful for ${pathname}`)
   }
 
   // --- 2) Locale redirect only for “real pages” ---
