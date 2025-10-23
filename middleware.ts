@@ -87,12 +87,15 @@ export function middleware(request: NextRequest) {
     console.log(`✅ Auth successful for ${pathname}`)
   }
 
-  // --- 2) Locale redirect only for “real pages” ---
+  // --- 2) Locale redirect only for "real pages" ---
+  // Skip locale redirect for /internal (it has its own root-level page)
+  const skipLocaleRedirect = pathname === '/internal' || pathname.startsWith('/internal/')
+  
   const hasLocalePrefix = locales.some(
     (loc) => pathname === `/${loc}` || pathname.startsWith(`/${loc}/`)
   )
 
-  if (!hasLocalePrefix) {
+  if (!hasLocalePrefix && !skipLocaleRedirect) {
     const locale = getLocale(request)
     const url = request.nextUrl.clone()
     // Keep path intact; avoid double slashes
