@@ -10,7 +10,7 @@ import WingsFCCaseStudy from '@/components/pages/WingsFCCaseStudy'
 import DolcezzaCaseStudy from '@/components/pages/DolcezzaCaseStudy'
 import LaBirraBarCaseStudy from '@/components/pages/LaBirraBarCaseStudy'
 import AlmacenDePizzasCaseStudy from '@/components/pages/AlmacenDePizzasCaseStudy'
-import EfesMGGroupCaseStudy from '@/components/pages/EfesMGGroupCaseStudy'
+import IslaBarCaseStudy from '@/components/pages/IslaBarCaseStudy'
 import LaParolacciaCaseStudy from '@/components/pages/LaParolacciaCaseStudy'
 import LibertinoCafeCaseStudy from '@/components/pages/LibertinoCafeCaseStudy'
 import CervezaPatagoniaCaseStudy from '@/components/pages/CervezaPatagoniaCaseStudy'
@@ -85,10 +85,10 @@ const caseStudyData = {
     description: 'See how Almacen de Pizzas achieved 247% increase in delivery orders and cut third-party commissions using RAY\'s zero-commission platform.',
     component: AlmacenDePizzasCaseStudy
   },
-  'efes-mg-group': {
-    title: 'Efes MG Group - 312% Growth in Bookings | RAY',
-    description: 'Discover how Efes MG Group achieved 312% increase in online bookings across 8 locations with RAY\'s unified platform.',
-    component: EfesMGGroupCaseStudy
+  'isla-bar': {
+    title: 'Isla Bar - 312% Growth in Bookings | RAY',
+    description: 'Discover how Isla Bar achieved 312% increase in online bookings across 8 locations with RAY\'s unified platform.',
+    component: IslaBarCaseStudy
   },
   'la-parolaccia': {
     title: 'La Parolaccia - 198% Growth in Visibility | RAY',

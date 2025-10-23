@@ -125,13 +125,13 @@ const successStories = [
   {
     id: 11,
     ownerName: 'Management Team',
-    title: 'Efes MG Group',
-    restaurantName: 'Efes MG Group',
+    title: 'Isla Bar',
+    restaurantName: 'Isla Bar',
     metric: '312%',
     period: 'online bookings increase',
-    description: 'How Efes MG Group unified their restaurant empire with centralized booking management',
-    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
-    slug: 'efes-mg-group'
+    description: 'How Isla Bar unified their restaurant empire with centralized booking management',
+    image: '/images/success-stories/Isla-Bar.webp',
+    slug: 'isla-bar'
   },
   {
     id: 12,
@@ -152,7 +152,7 @@ const successStories = [
     metric: '276%',
     period: 'morning traffic increase',
     description: 'How Libertino Cafe became the neighborhood\'s favorite morning spot',
-    image: '/images/success-stories/Juan_valdez.jpg',
+    image: '/images/success-stories/Libertino_Cafe.webp',
     slug: 'libertino-cafe'
   },
   {
@@ -174,7 +174,7 @@ const successStories = [
     metric: '289%',
     period: 'table turnover increase',
     description: 'How Karne Garibaldi optimized their legendary fast-service model',
-    image: '/images/success-stories/Chef_burguer.jpeg',
+    image: '/images/success-stories/Karne-Garibaldi.webp',
     slug: 'karne-garibaldi'
   },
   {
@@ -196,7 +196,7 @@ const successStories = [
     metric: '223%',
     period: 'online bookings increase',
     description: 'How Le Pain Quotidien unified their cafe network with cross-location loyalty',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Lepain.webp',
     slug: 'le-pain-quotidien'
   },
   {
@@ -218,7 +218,7 @@ const successStories = [
     metric: '294%',
     period: 'lunch orders increase',
     description: 'How Ninina tapped into the lucrative corporate lunch market',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Ninina.webp',
     slug: 'ninina'
   },
   {
@@ -229,7 +229,7 @@ const successStories = [
     metric: '185%',
     period: 'reservation increase',
     description: 'How Pasta Rossa became the go-to Italian pasta destination',
-    image: '/images/success-stories/Chef_burguer.jpeg',
+    image: '/images/success-stories/Pasta-Rossa.webp',
     slug: 'pasta-rossa'
   },
   {
@@ -240,7 +240,7 @@ const successStories = [
     metric: '167%',
     period: 'afternoon traffic increase',
     description: 'How Tea Connection became the premier destination for tea and wellness',
-    image: '/images/success-stories/tea-connection.jpg',
+    image: '/images/success-stories/tea-connection.webp',
     slug: 'tea-connection'
   }
 ]

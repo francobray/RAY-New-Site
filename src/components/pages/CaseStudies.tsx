@@ -220,24 +220,24 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     }
   },
   {
-    id: 'efes-mg-group',
-    slug: 'efes-mg-group',
-    name: 'Efes MG Group',
+    id: 'isla-bar',
+    slug: 'isla-bar',
+    name: 'Isla Bar',
     location: 'Multiple Locations',
     industry: 'Restaurant Group',
-    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
+    image: '/images/success-stories/Isla-Bar.webp',
     keyMetrics: [
       { label: 'Online Bookings', value: '+312%', icon: Users },
       { label: 'Walk-ins', value: '+156%', icon: TrendingUp },
       { label: 'Average Rating', value: '4.8★', icon: Star }
     ],
     headline: 'Multi-Location Booking Excellence',
-    description: 'Efes MG Group unified their restaurant empire with centralized booking management across 8 locations.',
+    description: 'Isla Bar unified their restaurant empire with centralized booking management across 8 locations.',
     tags: ['Multi-Location', 'Unified Booking', 'Restaurant Group'],
     testimonial: {
       text: 'Online bookings increased by 312% across all locations. Having everything unified has been a game-changer.',
       author: 'Management Team',
-      title: 'Efes MG Group'
+      title: 'Isla Bar'
     }
   },
   {
@@ -267,7 +267,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     name: 'Libertino Cafe',
     location: 'Coffee Market',
     industry: 'Cafe',
-    image: '/images/success-stories/Juan_valdez.jpg',
+    image: '/images/success-stories/Libertino_Cafe.webp',
     keyMetrics: [
       { label: 'Morning Traffic', value: '+276%', icon: Users },
       { label: 'Loyalty Members', value: '+145%', icon: TrendingUp },
@@ -309,7 +309,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     name: 'Karne Garibaldi',
     location: 'Fast Service Market',
     industry: 'Fast Service Restaurant',
-    image: '/images/success-stories/Chef_burguer.jpeg',
+    image: '/images/success-stories/Karne-Garibaldi.webp',
     keyMetrics: [
       { label: 'Table Turnover', value: '+289%', icon: TrendingUp },
       { label: 'Reservations', value: '+195%', icon: Users },
@@ -351,7 +351,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     name: 'Le Pain Quotidien',
     location: 'Multiple Locations',
     industry: 'Bakery-Cafe Chain',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Lepain.webp',
     keyMetrics: [
       { label: 'Online Bookings', value: '+223%', icon: Users },
       { label: 'Loyalty Enrollment', value: '+168%', icon: TrendingUp },
@@ -393,7 +393,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     name: 'Ninina',
     location: 'Business Lunch Market',
     industry: 'Corporate Catering',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Ninina.webp',
     keyMetrics: [
       { label: 'Lunch Orders', value: '+294%', icon: TrendingUp },
       { label: 'Corporate Catering', value: '+172%', icon: Users },
@@ -414,7 +414,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     name: 'Pasta Rossa',
     location: 'Italian Dining Market',
     industry: 'Italian Restaurant',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Pasta-Rossa.webp',
     keyMetrics: [
       { label: 'Reservations', value: '+278%', icon: Users },
       { label: 'Online Visibility', value: '+193%', icon: Eye },
@@ -456,7 +456,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     name: 'Tea Connection',
     location: 'Tea House Market',
     industry: 'Tea House',
-    image: '/images/success-stories/Juan_valdez.jpg',
+    image: '/images/success-stories/tea-connection.webp',
     keyMetrics: [
       { label: 'Afternoon Tea Bookings', value: '+234%', icon: Users },
       { label: 'Retail Sales', value: '+187%', icon: TrendingUp },
@@ -477,7 +477,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     name: 'Tostado',
     location: 'Breakfast Market',
     industry: 'Breakfast Restaurant',
-    image: '/images/success-stories/Chef_burguer.jpeg',
+    image: '/images/success-stories/Tostado-Cafe.webp',
     keyMetrics: [
       { label: 'Breakfast Delivery', value: '+318%', icon: TrendingUp },
       { label: 'Mobile Orders', value: '+226%', icon: Users },
@@ -498,7 +498,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     name: 'YPF Full',
     location: 'Multiple Locations',
     industry: 'Convenience Store Chain',
-    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
+    image: '/images/success-stories/Ypf-Full.webp',
     keyMetrics: [
       { label: 'Quick Service Orders', value: '+342%', icon: TrendingUp },
       { label: 'Mobile Pre-Orders', value: '+287%', icon: Users },

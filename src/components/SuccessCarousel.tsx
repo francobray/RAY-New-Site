@@ -136,14 +136,14 @@ const successStories = [
   {
     id: 11,
     ownerName: 'Management Team',
-    title: 'Efes MG Group',
-    restaurantName: 'Efes MG Group',
+    title: 'Isla Bar',
+    restaurantName: 'Isla Bar',
     metric: '312%',
     period: 'online bookings increase',
-    description: 'How Efes MG Group unified their restaurant empire with centralized booking management',
-    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
+    description: 'How Isla Bar unified their restaurant empire with centralized booking management',
+    image: '/images/success-stories/Isla-Bar.webp',
     bgGradient: 'from-indigo-500 to-blue-700',
-    slug: 'efes-mg-group'
+    slug: 'isla-bar'
   },
   {
     id: 12,
@@ -165,7 +165,7 @@ const successStories = [
     metric: '276%',
     period: 'morning traffic increase',
     description: 'How Libertino Cafe became the neighborhood\'s favorite morning spot',
-    image: '/images/success-stories/Juan_valdez.jpg',
+    image: '/images/success-stories/Libertino_Cafe.webp',
     bgGradient: 'from-amber-500 to-yellow-700',
     slug: 'libertino-cafe'
   },
@@ -189,7 +189,7 @@ const successStories = [
     metric: '289%',
     period: 'table turnover increase',
     description: 'How Karne Garibaldi optimized their legendary fast-service model',
-    image: '/images/success-stories/Chef_burguer.jpeg',
+    image: '/images/success-stories/Karne-Garibaldi.webp',
     bgGradient: 'from-red-500 to-red-700',
     slug: 'karne-garibaldi'
   },
@@ -213,7 +213,7 @@ const successStories = [
     metric: '223%',
     period: 'online bookings increase',
     description: 'How Le Pain Quotidien unified their cafe network with cross-location loyalty',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Lepain.webp',
     bgGradient: 'from-amber-500 to-brown-700',
     slug: 'le-pain-quotidien'
   },
@@ -237,7 +237,7 @@ const successStories = [
     metric: '294%',
     period: 'lunch orders increase',
     description: 'How Ninina tapped into the lucrative corporate lunch market',
-    image: '/images/success-stories/Dolcezza.png',
+    image: '/images/success-stories/Ninina.webp',
     bgGradient: 'from-purple-500 to-indigo-700',
     slug: 'ninina'
   },
@@ -249,7 +249,7 @@ const successStories = [
     metric: '185%',
     period: 'reservation increase',
     description: 'How Pasta Rossa became the go-to Italian pasta destination',
-    image: '/images/success-stories/Chef_burguer.jpeg',
+    image: '/images/success-stories/Pasta-Rossa.webp',
     bgGradient: 'from-red-500 to-green-700',
     slug: 'pasta-rossa'
   },
@@ -261,7 +261,7 @@ const successStories = [
     metric: '167%',
     period: 'afternoon traffic increase',
     description: 'How Tea Connection became the premier destination for tea and wellness',
-    image: '/images/success-stories/tea-connection.jpg',
+    image: '/images/success-stories/tea-connection.webp',
     bgGradient: 'from-green-500 to-teal-700',
     slug: 'tea-connection'
   }

@@ -1442,7 +1442,7 @@ export const COPY: Record<Locale, any> = {
 
     // Success Carousel
     SUCCESS_CAROUSEL: {
-      TRUSTED_BY: 'Confiamos en miles de restaurantes',
+      TRUSTED_BY: 'Confian en RAY miles de restaurantes',
       VIEW_ALL_STORIES: 'Ver Todos los Casos de Éxito'
     },
 

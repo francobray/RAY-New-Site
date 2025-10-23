@@ -126,7 +126,7 @@ const KarneGaribaldiCaseStudy: React.FC<KarneGaribaldiCaseStudyProps> = ({ local
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/success-stories/Chef_burguer.jpeg"
+              src="/images/success-stories/Karne-Garibaldi.webp"
               alt="Karne Garibaldi bustling restaurant at peak capacity"
               width={1200}
               height={600}

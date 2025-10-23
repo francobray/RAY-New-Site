@@ -143,7 +143,7 @@ const LibertinoCafeCaseStudy: React.FC<LibertinoCafeCaseStudyProps> = ({ locale 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/success-stories/Juan_valdez.jpg"
+              src="/images/success-stories/Libertino_Cafe.webp"
               alt="Libertino Cafe team serving morning customers"
               width={1200}
               height={600}

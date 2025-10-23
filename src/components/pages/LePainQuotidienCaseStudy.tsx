@@ -126,7 +126,7 @@ const LePainQuotidienCaseStudy: React.FC<LePainQuotidienCaseStudyProps> = ({ loc
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/success-stories/Dolcezza.png"
+              src="/images/success-stories/Lepain.webp"
               alt="Le Pain Quotidien artisanal bakery serving customers"
               width={1200}
               height={600}

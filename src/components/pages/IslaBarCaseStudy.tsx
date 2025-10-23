@@ -7,22 +7,22 @@ import Image from 'next/image'
 import CTASection from '../CTASection'
 import { type Locale } from '@/lib/i18n'
 
-interface EfesMGGroupCaseStudyProps {
+interface IslaBarCaseStudyProps {
   locale: Locale
 }
 
-const EfesMGGroupCaseStudy: React.FC<EfesMGGroupCaseStudyProps> = ({ locale }) => {
+const IslaBarCaseStudy: React.FC<IslaBarCaseStudyProps> = ({ locale }) => {
   
   return (
     <>
 
       {/* AI-friendly page summary and metrics box */}
       <div className="sr-only">
-        <h1>{locale === 'es' ? 'Caso de Estudio Efes MG Group - 312% de Crecimiento en Reservas Multi-Ubicación' : 'Efes MG Group Case Study - 312% Growth in Multi-Location Bookings'}</h1>
-        <p>{locale === 'es' ? 'Ve cómo Efes MG Group logró un aumento del 312% en reservas online y 156% de crecimiento en walk-ins en múltiples ubicaciones con la plataforma de RAY.' : 'See how Efes MG Group achieved 312% increase in online bookings and 156% growth in walk-ins across multiple locations with RAY\'s platform.'}</p>
+        <h1>{locale === 'es' ? 'Caso de Estudio Isla Bar - 312% de Crecimiento en Reservas Multi-Ubicación' : 'Isla Bar Case Study - 312% Growth in Multi-Location Bookings'}</h1>
+        <p>{locale === 'es' ? 'Ve cómo Isla Bar logró un aumento del 312% en reservas online y 156% de crecimiento en walk-ins en múltiples ubicaciones con la plataforma de RAY.' : 'See how Isla Bar achieved 312% increase in online bookings and 156% growth in walk-ins across multiple locations with RAY\'s platform.'}</p>
       </div>
 
-      {/* Hero Section - Efes MG Brand Style */}
+      {/* Hero Section - Isla Bar Brand Style */}
       <section className="relative min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-900 text-white overflow-hidden">
         {/* Background Elements - Premium, Mediterranean, Upscale */}
         <div className="absolute inset-0">
@@ -143,15 +143,15 @@ const EfesMGGroupCaseStudy: React.FC<EfesMGGroupCaseStudyProps> = ({ locale }) =
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/success-stories/Restaurant-photo-ray.jpeg"
-              alt="Efes MG Group locations celebrating record bookings"
+              src="/images/success-stories/Isla-Bar.webp"
+              alt="Isla Bar locations celebrating record bookings"
               width={1200}
               height={600}
               className="w-full h-[400px] md:h-[500px] object-cover"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
               <p className="text-white text-lg font-medium">
-                {locale === 'es' ? 'Efes MG Group – celebrando éxito unificado en múltiples ubicaciones' : 'Efes MG Group – celebrating unified success across multiple locations'}
+                {locale === 'es' ? 'Isla Bar – celebrando éxito unificado en múltiples ubicaciones' : 'Isla Bar – celebrating unified success across multiple locations'}
               </p>
             </div>
           </div>
@@ -374,5 +374,5 @@ const EfesMGGroupCaseStudy: React.FC<EfesMGGroupCaseStudyProps> = ({ locale }) =
   )
 }
 
-export default EfesMGGroupCaseStudy
+export default IslaBarCaseStudy
 
