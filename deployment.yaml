@@ -32,6 +32,16 @@ spec:
           value: <ZAPIER_WA_MODAL_WEBHOOK_URL>
         - name: ZAPIER_WEBHOOK_URL
           value: <ZAPIER_WEBHOOK_URL>
+        - name: INTERNAL_AUTH_PASSWORD
+          value: <INTERNAL_AUTH_PASSWORD>
+        - name: INTERNAL_AUTH_USER
+          value: <INTERNAL_AUTH_USER>
+        - name: N8N_REDEEM_WEBHOOK_URL
+          value: <N8N_REDEEM_WEBHOOK_URL>
+        - name: N8N_REDEEM_WEBHOOK_URL
+          value: <N8N_REDEEM_WEBHOOK_URL>
+        - name: N8N_WEBHOOK_URL
+          value: <N8N_WEBHOOK_URL>
 
         resources:
           requests:
