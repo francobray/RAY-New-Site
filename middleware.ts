@@ -12,6 +12,24 @@ function getLocale(request: NextRequest): string {
   return matchLocale(languages, locales as unknown as string[], defaultLocale)
 }
 
+// Basic Authentication Check
+function checkBasicAuth(request: NextRequest): boolean {
+  const authHeader = request.headers.get('authorization')
+  
+  if (!authHeader) {
+    return false
+  }
+
+  const auth = authHeader.split(' ')[1]
+  const [user, password] = Buffer.from(auth, 'base64').toString().split(':')
+
+  // Check against environment variables
+  const validUser = process.env.INTERNAL_AUTH_USER || 'admin'
+  const validPassword = process.env.INTERNAL_AUTH_PASSWORD || 'password'
+
+  return user === validUser && password === validPassword
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
@@ -32,6 +50,25 @@ export function middleware(request: NextRequest) {
 
   if (isSkipped) {
     return NextResponse.next()
+  }
+
+  // --- 1.5) Basic Auth for protected routes ---
+  const protectedPaths = ['/internal']
+  const isProtectedPath = protectedPaths.some(
+    (path) => pathname.includes(path)
+  )
+
+  if (isProtectedPath) {
+    const isAuthenticated = checkBasicAuth(request)
+    
+    if (!isAuthenticated) {
+      return new NextResponse('Authentication required', {
+        status: 401,
+        headers: {
+          'WWW-Authenticate': 'Basic realm="Internal Access", charset="UTF-8"',
+        },
+      })
+    }
   }
 
   // --- 2) Locale redirect only for “real pages” ---
