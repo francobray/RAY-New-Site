@@ -16,16 +16,21 @@ function getLocale(request: NextRequest): string {
 function checkBasicAuth(request: NextRequest): boolean {
   const authHeader = request.headers.get('authorization')
   
+  // Require environment variables to be set - no defaults
+  const validUser = process.env.INTERNAL_AUTH_USER
+  const validPassword = process.env.INTERNAL_AUTH_PASSWORD
+
+  if (!validUser || !validPassword) {
+    console.error('INTERNAL_AUTH_USER and INTERNAL_AUTH_PASSWORD must be set in environment variables')
+    return false
+  }
+  
   if (!authHeader) {
     return false
   }
 
   const auth = authHeader.split(' ')[1]
   const [user, password] = Buffer.from(auth, 'base64').toString().split(':')
-
-  // Check against environment variables
-  const validUser = process.env.INTERNAL_AUTH_USER || 'admin'
-  const validPassword = process.env.INTERNAL_AUTH_PASSWORD || 'password'
 
   return user === validUser && password === validPassword
 }
