@@ -68,6 +68,9 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
     notFound()
   }
 
+  // Check if chat webhook is configured
+  const isChatEnabled = !!process.env.N8N_CHAT_WEBHOOK_URL
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className="antialiased">
@@ -88,7 +91,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
           {children}
         </main>
         <Footer locale={locale} />
-        <SimpleWebChat locale={locale} />
+        {isChatEnabled && <SimpleWebChat locale={locale} />}
       </body>
     </html>
   )
