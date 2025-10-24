@@ -5,6 +5,46 @@ export async function POST(request: NextRequest) {
     // Parse the incoming request body
     const body = await request.json()
     
+    // Validate required fields based on the submission source BEFORE choosing the webhook
+    const isEmpty = (val: any) => typeof val !== 'string' || val.trim().length === 0
+
+    const validateBody = (): { valid: boolean; message?: string } => {
+      switch (body.source) {
+        case 'whatsapp-delivery-modal': {
+          const { restaurantName, ownerName, email } = body
+          if (isEmpty(restaurantName) || isEmpty(ownerName) || isEmpty(email)) {
+            return { valid: false, message: 'Missing required fields for WhatsApp modal' }
+          }
+          // Basic email format check
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return { valid: false, message: 'Invalid email format' }
+          }
+          return { valid: true }
+        }
+        case 'demo-page': {
+          const { firstName, lastName, email } = body
+          if (isEmpty(firstName) || isEmpty(lastName) || isEmpty(email)) {
+            return { valid: false, message: 'Missing required fields for demo page' }
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return { valid: false, message: 'Invalid email format' }
+          }
+          return { valid: true }
+        }
+        default:
+          return { valid: false, message: 'Unknown submission source' }
+      }
+    }
+
+    const validation = validateBody()
+    if (!validation.valid) {
+      console.warn('Blocked invalid submission:', validation.message, body)
+      return NextResponse.json(
+        { error: validation.message ?? 'Invalid submission' },
+        { status: 400 }
+      )
+    }
+
     // Determine which webhook URL to use based on the source
     let zapierWebhookUrl: string | undefined
     
