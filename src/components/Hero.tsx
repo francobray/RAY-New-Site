@@ -113,7 +113,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-5xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium sm:font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-8 sm:mb-6 mt-6 sm:mt-0">
+              <h1 className="text-[45px] sm:text-[33px] lg:text-[45px] xl:text-[57px] font-medium sm:font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-8 sm:mb-6 mt-6 sm:mt-0">
                 {t.HOMEPAGE.HERO.TITLE}{' '}
                 <span className="relative inline-block">
                   <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">

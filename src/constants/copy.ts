@@ -1588,7 +1588,7 @@ export const COPY: Record<Locale, any> = {
     HOMEPAGE: {
       HERO: {
         TITLE: 'Boost revenue by driving more',
-        TITLE_HIGHLIGHT: 'walk-ins, bookings & orders',
+        TITLE_HIGHLIGHT: 'orders, bookings & walk-ins',
         SUBTITLE: 'Free • 60 seconds • No credit card required'
       },
       TRUST_METRICS: {

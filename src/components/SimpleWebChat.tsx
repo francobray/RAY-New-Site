@@ -147,7 +147,7 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
       )}
 
       {isOpen && (
-        <div className="bg-white rounded-2xl shadow-2xl w-[405px] max-w-[calc(100vw-2rem)] h-[625px] flex flex-col overflow-hidden border border-gray-200">
+        <div className="bg-white rounded-2xl shadow-2xl w-[405px] max-w-[calc(100vw-2rem)] h-[750px] flex flex-col overflow-hidden border border-gray-200">
           {/* Header - Blue theme */}
           <div className="bg-blue-500 text-white py-3 px-4 flex items-center justify-between">
             <div className="flex items-center space-x-3">
