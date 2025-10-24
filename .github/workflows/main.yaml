@@ -74,6 +74,7 @@ jobs:
           sed -i "s|<INTERNAL_AUTH_USER>|${{ secrets.INTERAL_AUTH_USER }}|" deployment.yaml
           sed -i "s|<N8N_REDEEM_WEBHOOK_URL>|${{ secrets.N8N_REDEEM_WEBHOOK_URL }}|" deployment.yaml
           sed -i "s|<N8N_WEBHOOK_URL>|${{ secrets.N8N_WEBHOOK_URL }}|" deployment.yaml
+          sed -i "s|<N8N_CHAT_WEBHOOK_URL>|${{ secrets.N8N_CHAT_WEBHOOK_URL }}|" deployment.yaml
           #sed -i "s|<OPENAI_API_KEY>|${{ secrets.OPENAI_API_KEY }}|" secrets.yaml
           #sed -i "s|<ASSISTANT_ID>|${{ secrets.ASSISTANT_ID }}|" secrets.yaml         
           kubectl apply -f deployment.yaml -n prod-rayapp --validate=false
