@@ -70,6 +70,10 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
 
   // Check if chat webhook is configured
   const isChatEnabled = !!process.env.N8N_CHAT_WEBHOOK_URL
+  
+  if (!isChatEnabled) {
+    console.log('💬 Chat widget disabled: N8N_CHAT_WEBHOOK_URL environment variable not configured')
+  }
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -86,6 +90,13 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
             `,
           }}
         />
+        {!isChatEnabled && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `console.log('💬 Chat widget disabled: N8N_CHAT_WEBHOOK_URL environment variable not configured');`,
+            }}
+          />
+        )}
         <Header locale={locale} />
         <main>
           {children}
