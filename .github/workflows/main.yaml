@@ -47,6 +47,13 @@ jobs:
       - name: Build frontend image
         run: |-
           #sed -i "s|<ASSISTANT_ID>|${{ secrets.ASSISTANT_ID }}|" .env
+          sed -i "s|<ZAPIER_WA_MODAL_WEBHOOK_URL>|https://hooks.zapier.com/hooks/catch/16334821/u5dmyac/|" Dockerfile
+          sed -i "s|<ZAPIER_WEBHOOK_URL>|https://hooks.zapier.com/hooks/catch/16334821/u9rougj/|" Dockerfile
+          sed -i "s|<INTERNAL_AUTH_PASSWORD>|${{ secrets.INTERNAL_AUTH_PASSWORD }}|" Dockerfile
+          sed -i "s|<INTERNAL_AUTH_USER>|${{ secrets.INTERAL_AUTH_USER }}|" Dockerfile
+          sed -i "s|<N8N_REDEEM_WEBHOOK_URL>|${{ secrets.N8N_REDEEM_WEBHOOK_URL }}|" Dockerfile
+          sed -i "s|<N8N_WEBHOOK_URL>|${{ secrets.N8N_WEBHOOK_URL }}|" Dockerfile
+          sed -i "s|<N8N_CHAT_WEBHOOK_URL>|${{ secrets.N8N_CHAT_WEBHOOK_URL }}|" Dockerfile
           docker build . --file Dockerfile --tag ${{ env.ARTIFACT_REGISTRY }}/${{ env.IMAGE_FRONTEND }}
         working-directory: .
 
