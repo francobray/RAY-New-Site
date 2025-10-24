@@ -10,8 +10,8 @@ ENV INTERNAL_AUTH_USER=<INTERNAL_AUTH_USER>
 ENV INTERNAL_AUTH_PASSWORD=<INTERNAL_AUTH_PASSWORD>
 ENV N8N_CHAT_WEBHOOK_URL=<N8N_CHAT_WEBHOOK_URL>
 ENV N8N_WEBHOOK_URL=<N8N_WEBHOOK_URL>
-
 ENV N8N_REDEEM_WEBHOOK_URL=https://franbreciano.app.n8n.cloud/webhook/1dad3f6b-717d-4ee9-b2e8-48b84a7a258b
+
 # Copy package.json and package-lock.json to leverage Docker cache
 COPY package.json package-lock.json ./
 

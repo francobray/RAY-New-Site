@@ -38,10 +38,10 @@ spec:
           value: <INTERNAL_AUTH_USER>
         - name: N8N_REDEEM_WEBHOOK_URL
           value: <N8N_REDEEM_WEBHOOK_URL>
-        - name: N8N_REDEEM_WEBHOOK_URL
-          value: <N8N_REDEEM_WEBHOOK_URL>
         - name: N8N_WEBHOOK_URL
           value: <N8N_WEBHOOK_URL>
+        - name: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+          value: <NEXT_PUBLIC_GOOGLE_MAPS_API_KEY>
         - name: N8N_CHAT_WEBHOOK_URL
           value: <N8N_CHAT_WEBHOOK_URL>
 

@@ -54,6 +54,7 @@ jobs:
           sed -i "s|<N8N_REDEEM_WEBHOOK_URL>|${{ secrets.N8N_REDEEM_WEBHOOK_URL }}|" Dockerfile
           sed -i "s|<N8N_WEBHOOK_URL>|${{ secrets.N8N_WEBHOOK_URL }}|" Dockerfile
           sed -i "s|<N8N_CHAT_WEBHOOK_URL>|${{ secrets.N8N_CHAT_WEBHOOK_URL }}|" Dockerfile
+          sed -i "s|<NEXT_PUBLIC_GOOGLE_MAPS_API_KEY>|${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}|" Dockerfile
           docker build . --file Dockerfile --tag ${{ env.ARTIFACT_REGISTRY }}/${{ env.IMAGE_FRONTEND }}
         working-directory: .
 
@@ -82,6 +83,7 @@ jobs:
           sed -i "s|<N8N_REDEEM_WEBHOOK_URL>|${{ secrets.N8N_REDEEM_WEBHOOK_URL }}|" deployment.yaml
           sed -i "s|<N8N_WEBHOOK_URL>|${{ secrets.N8N_WEBHOOK_URL }}|" deployment.yaml
           sed -i "s|<N8N_CHAT_WEBHOOK_URL>|${{ secrets.N8N_CHAT_WEBHOOK_URL }}|" deployment.yaml
+          sed -i "s|<NEXT_PUBLIC_GOOGLE_MAPS_API_KEY>|${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}|" deployment.yaml
           #sed -i "s|<OPENAI_API_KEY>|${{ secrets.OPENAI_API_KEY }}|" secrets.yaml
           #sed -i "s|<ASSISTANT_ID>|${{ secrets.ASSISTANT_ID }}|" secrets.yaml         
           kubectl apply -f deployment.yaml -n prod-rayapp --validate=false
