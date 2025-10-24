@@ -46,6 +46,7 @@ const config: Config = {
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
         'gradient-x': 'gradientX 3s ease infinite',
         'expand': 'expand 0.6s ease-out 0.3s forwards',
+        'bounce-slow': 'bounce-slow 2s ease-in-out infinite',
       },
       keyframes: {
         fadeInUp: {
@@ -65,6 +66,16 @@ const config: Config = {
         expand: {
           '0%': { transform: 'scaleX(0)', opacity: '0' },
           '100%': { transform: 'scaleX(1)', opacity: '0.3' },
+        },
+        'bounce-slow': {
+          '0%, 100%': { 
+            transform: 'translateY(0)',
+            animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)',
+          },
+          '50%': { 
+            transform: 'translateY(-10px)',
+            animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
+          },
         },
       },
     },

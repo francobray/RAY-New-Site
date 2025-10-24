@@ -13,6 +13,7 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
   const [message, setMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [chatMessages, setChatMessages] = useState<Array<{id: string, text: string, isUser: boolean}>>([])
+  const [showNotification, setShowNotification] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   // Auto-scroll to bottom when new messages arrive
@@ -37,6 +38,24 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
       setChatMessages([welcomeMessage])
     }
   }, [isOpen, locale])
+
+  // Show notification after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isOpen) {
+        setShowNotification(true)
+      }
+    }, 5000)
+
+    return () => clearTimeout(timer)
+  }, [isOpen])
+
+  // Hide notification when chat opens
+  useEffect(() => {
+    if (isOpen) {
+      setShowNotification(false)
+    }
+  }, [isOpen])
 
   const sendMessage = async () => {
     if (!message.trim() || isLoading) return
@@ -86,17 +105,40 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
 
 
   return (
-    <div className="fixed bottom-4 right-0 z-50 mr-4">
+    <div className="fixed bottom-4 right-4 z-50">
       {!isOpen && (
-        <div className="relative">
+        <div className="relative flex items-center">
+          {/* Notification bubble - appears after 5 seconds */}
+          {showNotification && (
+            <div className="mr-3 animate-bounce-slow">
+              <div className="relative bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-3 rounded-2xl shadow-xl" style={{ minWidth: '250px' }}>
+                <button
+                  onClick={() => setShowNotification(false)}
+                  className="absolute -top-2 -right-2 bg-white text-gray-600 hover:text-gray-800 w-6 h-6 rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all z-10"
+                  aria-label="Close notification"
+                >
+                  <X size={14} />
+                </button>
+                <p className="text-sm font-medium pr-2 leading-relaxed">
+                  {locale === 'es' 
+                    ? '👋 ¿Tienes alguna pregunta? ¡Chatea conmigo!'
+                    : '👋 Have a question? Chat with me!'}
+                </p>
+                {/* Arrow pointing right towards the chat button */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-[10px] border-b-[10px] border-l-[10px] border-transparent border-l-teal-600"></div>
+              </div>
+            </div>
+          )}
+          
           <button
             onClick={() => setIsOpen(true)}
-            className="bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+            className="bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group flex-shrink-0"
             aria-label={locale === 'es' ? 'Abrir chat con RAY agent' : 'Open chat with RAY agent'}
           >
             <MessageCircle size={24} />
           </button>
-          {/* Chat tooltip */}
+
+          {/* Chat tooltip - on hover */}
           <div className="absolute bottom-full right-0 mb-3 px-4 py-2 bg-blue-500 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
 {locale === 'es' ? 'Chatea con RAY agent' : 'Chat with RAY agent'}
             <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-blue-500"></div>

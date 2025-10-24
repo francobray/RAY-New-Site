@@ -47,7 +47,8 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
         restaurantRequired: 'El nombre del restaurante es requerido',
         nameRequired: 'Tu nombre es requerido',
         emailRequired: 'El correo electrónico es requerido',
-        emailInvalid: 'Por favor ingresa un correo electrónico válido'
+        emailInvalid: 'Por favor ingresa un correo electrónico válido',
+        emailGeneric: 'Por favor usa tu correo corporativo personal, no emails genéricos como info@, contact@, etc.'
       }
     },
     en: {
@@ -67,12 +68,26 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
         restaurantRequired: 'Restaurant name is required',
         nameRequired: 'Your name is required',
         emailRequired: 'Email address is required',
-        emailInvalid: 'Please enter a valid email address'
+        emailInvalid: 'Please enter a valid email address',
+        emailGeneric: 'Please use your personal corporate email, not generic emails like info@, contact@, etc.'
       }
     }
   }
 
   const t = content[locale]
+
+  // List of generic email prefixes to block
+  const genericEmailPrefixes = [
+    'info', 'contact', 'admin', 'support', 'hello', 'hi',
+    'test', 'demo', 'noreply', 'no-reply', 'sales', 'marketing',
+    'help', 'service', 'office', 'general', 'mail', 'webmaster',
+    'postmaster', 'hostmaster', 'abuse', 'spam', 'team'
+  ]
+
+  const isGenericEmail = (email: string): boolean => {
+    const emailPrefix = email.split('@')[0].toLowerCase()
+    return genericEmailPrefixes.includes(emailPrefix)
+  }
 
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {}
@@ -89,6 +104,8 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
       newErrors.email = t.validation.emailRequired
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = t.validation.emailInvalid
+    } else if (isGenericEmail(formData.email)) {
+      newErrors.email = t.validation.emailGeneric
     }
 
     setErrors(newErrors)
