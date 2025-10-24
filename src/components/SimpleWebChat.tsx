@@ -121,8 +121,8 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
                 </button>
                 <p className="text-sm font-medium pr-2 leading-relaxed">
                   {locale === 'es' 
-                    ? '👋 ¿Tienes alguna pregunta? ¡Chatea conmigo!'
-                    : '👋 Have a question? Chat with me!'}
+                    ? '👋 ¿Tienes alguna pregunta?'
+                    : '👋 Do you have questions?'}
                 </p>
                 {/* Arrow pointing right towards the chat button */}
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-[10px] border-b-[10px] border-l-[10px] border-transparent border-l-teal-600"></div>
