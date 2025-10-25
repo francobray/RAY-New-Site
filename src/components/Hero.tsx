@@ -147,7 +147,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
                 />
                 
                   {/* RAY Lead-Magnet Widget - Positioned above the image */}
-                  <div className="absolute bottom-24 md:bottom-28 lg:bottom-32 left-1/2 -translate-x-1/2 w-[min(90vw,34rem)] md:w-[34rem] lg:w-[38rem] max-w-xl z-10 flex justify-center">
+                  <div className="absolute bottom-24 md:bottom-28 lg:bottom-32 left-1/2 -translate-x-1/2 w-[min(96vw,40rem)] md:w-[34rem] md:max-w-xl lg:w-[38rem] lg:max-w-xl z-10 flex justify-center">
                     <div id="ray-widget" className="min-h-[165px]"></div>
                   </div>
               </div>

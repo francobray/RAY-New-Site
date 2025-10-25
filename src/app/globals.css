@@ -208,6 +208,26 @@
   contain: layout style; /* Remove paint to allow dropdown to overflow */
 }
 
+/* Override height for mobile specifically */
+@media (max-width: 640px) {
+  #ray-widget {
+    min-height: 68px !important;
+    height: 68px !important;
+  }
+  
+  /* Also reduce internal elements height for mobile */
+  #ray-widget * {
+    min-height: 1.5rem !important; /* Reduce from 2rem to 1.5rem (24px) */
+  }
+}
+
+/* Restore original border-radius for desktop */
+@media (min-width: 641px) {
+  #ray-widget {
+    border-radius: 1.25rem !important; /* 20px - original desktop value */
+  }
+}
+
 #ray-widget * {
   /* Ensure enough vertical space for two-line placeholder text */
   min-height: 2rem !important; /* 32px */
@@ -285,19 +305,19 @@
    Mobile-only fixes for the Hero RAY widget
    -------------------------------------------------- */
 @media (max-width: 640px) {
-  /* Shrink the widget container on small screens */
+  /* Expand the widget container on small screens */
   #ray-widget {
-    width: min(96vw, 26rem) !important; /* 90% of viewport, capped */
-    max-width: 26rem !important;        /* ≈416 px */
+    width: min(98vw, 32rem) !important; /* 98% of viewport, higher cap */
+    max-width: 32rem !important;        /* ≈512 px, more horizontal space */
   }
 
   /* Core container tweaks */
   #ray-widget {
-    min-height: 64px !important;
-    padding: 0.5rem 0.75rem 0.5rem 0.75rem !important;
+    min-height: 68px !important;
+    padding: 1rem 0.75rem 1rem 0.75rem !important;
     border: none !important;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08), 12px 16px 32px rgba(0, 0, 0, 0.12) !important;
-    border-radius: 1.25rem !important; /* 20 px */
+    border-radius: 0.75rem !important; /* 12 px - reduced for mobile */
   }
 
   /* Hide the animated header to keep things compact */
@@ -343,7 +363,7 @@
 @media (max-width: 640px) {
   /* Ensure RAY widget stays within bounds and is perfectly centered */
   #ray-widget {
-    max-width: calc(100vw - 1.5rem) !important;
+    max-width: calc(100vw - 0.75rem) !important; /* Reduce margins for more width */
   }
   
   /* Handle scaled image overflow */
