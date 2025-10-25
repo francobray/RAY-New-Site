@@ -305,10 +305,16 @@
    Mobile-only fixes for the Hero RAY widget
    -------------------------------------------------- */
 @media (max-width: 640px) {
-  /* Expand the widget container on small screens */
-  #ray-widget {
+  /* Default state: widget container at bottom of viewport */
+  #widget-container {
+    position: fixed !important;
+    bottom: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 50 !important;
     width: min(98vw, 32rem) !important; /* 98% of viewport, higher cap */
     max-width: 32rem !important;        /* ≈512 px, more horizontal space */
+    transition: all 0.3s ease-in-out !important;
   }
 
   /* Core container tweaks */
@@ -375,5 +381,31 @@
   /* Extra protection for Hero section */
   .relative.flex.justify-center.lg\:justify-end {
     overflow-x: visible !important;
+  }
+
+  /* --------------------------------------------------
+     Mobile Sticky Widget Behavior
+     -------------------------------------------------- */
+  
+  /* Override: Widget container fixed within hero bounds when scrolled */
+  #widget-container.widget-absolute-hero {
+    position: absolute !important;
+    bottom: -4rem !important; /* Compensate for hero pb-4 + get to actual base */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 10 !important;
+    width: min(96vw, 40rem) !important;
+    max-width: 40rem !important;
+    transition: all 0.3s ease-in-out !important;
+    
+    /* Override any conflicting styles */
+    top: auto !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Ensure hero-container is positioned relative for absolute positioning context */
+  .hero-container {
+    position: relative !important;
   }
 }

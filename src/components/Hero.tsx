@@ -90,10 +90,51 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
     }
   }, [])
 
+  // Mobile sticky widget behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.querySelector('.hero-container') as HTMLElement
+      const widgetContainer = document.querySelector('#widget-container') as HTMLElement
+      
+      // Only apply on mobile devices
+      if (!heroSection || !widgetContainer || window.innerWidth > 640) return
+      
+      const heroRect = heroSection.getBoundingClientRect()
+      const heroBottom = heroRect.bottom
+      const viewportHeight = window.innerHeight
+      
+      // Calculate exact transition point with fine-tuning for perfect alignment
+      // Fixed position: viewport height - 1rem (bottom)
+      // Absolute position: hero bottom - 4rem  
+      // Fine-tune: add small offset to eliminate micro-jump
+      const threshold = viewportHeight + (3 * 16) + 8 // 3rem + 8px fine-tuning
+      
+      if (heroBottom <= threshold) {
+        // Transition point reached - widget positions now match perfectly
+        widgetContainer.classList.add('widget-absolute-hero')
+      } else {
+        // Widget stays fixed at bottom of viewport
+        widgetContainer.classList.remove('widget-absolute-hero')
+      }
+    }
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleScroll)
+    
+    // Initial check
+    setTimeout(handleScroll, 100) // Small delay to ensure elements are rendered
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }, [])
+
   return (
     <div>
       {/* Centered Hero Layout */}
-      <section className="relative bg-ray-promise pt-4 pb-40 sm:pb-4 mt-0 md:pt-0 md:-mt-10 overflow-x-hidden">
+      <section className="hero-container relative bg-ray-promise pt-4 pb-40 sm:pb-4 mt-0 md:pt-0 md:-mt-10 overflow-x-hidden">
         {/* Sophisticated Background Elements */}
         <div className="absolute inset-0">
           {/* Background decoration */}
@@ -147,7 +188,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
                 />
                 
                   {/* RAY Lead-Magnet Widget - Positioned above the image */}
-                  <div className="absolute bottom-24 md:bottom-28 lg:bottom-32 left-1/2 -translate-x-1/2 w-[min(96vw,40rem)] md:w-[34rem] md:max-w-xl lg:w-[38rem] lg:max-w-xl z-10 flex justify-center">
+                  <div id="widget-container" className="absolute bottom-24 md:bottom-28 lg:bottom-32 left-1/2 -translate-x-1/2 w-[min(96vw,40rem)] md:w-[34rem] md:max-w-xl lg:w-[38rem] lg:max-w-xl z-10 flex justify-center">
                     <div id="ray-widget" className="min-h-[165px]"></div>
                   </div>
               </div>
