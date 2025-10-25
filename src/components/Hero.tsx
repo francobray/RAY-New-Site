@@ -2,7 +2,6 @@
 
 import React, { useEffect } from 'react'
 import Image from 'next/image'
-import { getShimmerDataURL } from '@/utils/shimmer'
 import { Star } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
@@ -175,14 +174,14 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
               {/* Hero Banner Image */}
               <div className="relative w-full max-w-[600px] sm:max-w-[460px] md:max-w-[520px] lg:max-w-[560px]">
                 <Image
-                  src="/images/home/hero-bannerpng.webp"
+                  src="/images/home/hero-bannerpng.png"
                   alt="RAY Score Dashboard"
                   width={1120}
                   height={630}
+                  quality={70}
                   className="w-full h-auto rounded-xl scale-[1.90] sm:scale-100"
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 560px"
-                  placeholder="blur"
-                  blurDataURL={getShimmerDataURL(1120, 630)}
+                  placeholder="empty"
                   priority
                   fetchPriority="high"
                 />
