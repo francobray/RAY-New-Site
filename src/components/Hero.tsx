@@ -175,7 +175,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
               {/* Hero Banner Image */}
               <div className="relative w-full max-w-[600px] sm:max-w-[460px] md:max-w-[520px] lg:max-w-[560px]">
                 <Image
-                  src="/images/home/hero-bannerpng.png"
+                  src="/images/home/hero-bannerpng.webp"
                   alt="RAY Score Dashboard"
                   width={1120}
                   height={630}
