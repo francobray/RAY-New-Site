@@ -77,6 +77,12 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <meta 
+          name="viewport" 
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        />
+      </head>
       <body className="antialiased">
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P"></script>

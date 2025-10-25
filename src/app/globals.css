@@ -342,14 +342,14 @@
   /* Input text tweaks */
   #ray-widget input[type="text"],
   #ray-widget input[type="search"] {
-    font-size: 0.875rem !important;        /* 14 px */
+    font-size: 1rem !important;            /* 16 px - prevents mobile zoom */
     padding: 0.5rem 0.75rem 0.5rem 0.25rem !important;
     line-height: 1rem !important;
     height: 40px !important;
   }
 
   #ray-widget input::placeholder {
-    font-size: 0.938rem !important;        /* ≈15 px so it matches design */
+    font-size: 1rem !important;            /* 16 px - matches input font-size */
   }
 
   /* Circle arrow button */
