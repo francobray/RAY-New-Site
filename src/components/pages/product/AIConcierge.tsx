@@ -338,27 +338,27 @@ const ChatCarousel = () => {
   const currentExample = chatExamples[currentChat];
 
   return (
-    <div className="relative mx-auto w-full max-w-[260px] sm:max-w-[310px] px-8 sm:px-0">
+    <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[310px] px-0">
       {/* Navigation Arrows */}
       <button
         onClick={prevChat}
-        className="absolute left-0 sm:-left-12 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-1.5 sm:p-2 shadow-lg transition-all"
+        className="absolute -left-2 sm:-left-12 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
         aria-label="Previous chat example"
       >
-        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+        <ChevronLeft className="w-5 h-5 text-gray-600" />
       </button>
       
       <button
         onClick={nextChat}
-        className="absolute right-0 sm:-right-12 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-1.5 sm:p-2 shadow-lg transition-all"
+        className="absolute -right-2 sm:-right-12 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
         aria-label="Next chat example"
       >
-        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+        <ChevronRight className="w-5 h-5 text-gray-600" />
       </button>
 
       {/* Phone Mockup */}
-      <div className="bg-black rounded-[2rem] sm:rounded-[2.5rem] p-1.5 sm:p-2">
-        <div className="bg-white rounded-[1.75rem] sm:rounded-[2rem] h-[500px] sm:h-[600px] overflow-hidden">
+      <div className="bg-black rounded-[2rem] sm:rounded-[2.5rem] p-2 shadow-2xl">
+        <div className="bg-white rounded-[1.75rem] sm:rounded-[2rem] h-[520px] sm:h-[600px] overflow-hidden">
           {/* WhatsApp Chat Interface */}
           <>
             {/* Chat Header */}
@@ -379,16 +379,16 @@ const ChatCarousel = () => {
             </div>
 
             {/* Chat Messages */}
-            <div className="p-3 sm:p-4 space-y-3 sm:space-y-4 h-[400px] sm:h-[480px] overflow-y-auto">
+            <div className="p-4 space-y-3 h-[420px] sm:h-[480px] overflow-y-auto">
               {currentExample.messages?.map((message, index) => (
                 <div key={index} className={`flex ${message.type === 'customer' ? 'justify-start' : 'justify-end'}`}>
-                  <div className={`rounded-2xl p-2 sm:p-3 max-w-[75%] sm:max-w-xs ${
+                  <div className={`rounded-2xl p-3 max-w-[80%] sm:max-w-xs ${
                     message.type === 'customer' 
                       ? 'bg-gray-200 rounded-bl-md' 
                       : 'bg-green-500 text-white rounded-br-md'
                   }`}>
-                    <p className="text-xs sm:text-sm leading-relaxed">{message.text}</p>
-                    <p className={`text-[10px] sm:text-xs mt-1 ${
+                    <p className="text-sm leading-relaxed">{message.text}</p>
+                    <p className={`text-[10px] mt-1 ${
                       message.type === 'customer' ? 'text-gray-500' : 'text-green-100'
                     }`}>
                       {message.time}
@@ -398,9 +398,9 @@ const ChatCarousel = () => {
               ))}
               
               {/* Success Badge */}
-              <div className="text-center pt-3 sm:pt-4">
-                <div className="inline-flex items-center bg-green-100 text-green-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold">
-                  <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 flex-shrink-0" />
+              <div className="text-center pt-4">
+                <div className="inline-flex items-center bg-green-100 text-green-800 px-3 py-2 rounded-full text-[11px] sm:text-xs font-semibold">
+                  <CheckCircle className="w-3.5 h-3.5 mr-1.5 flex-shrink-0" />
                   <span className="leading-tight">{currentExample.badge}</span>
                 </div>
               </div>
@@ -410,7 +410,7 @@ const ChatCarousel = () => {
       </div>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center space-x-1.5 sm:space-x-2 mt-4 sm:mt-6">
+      <div className="flex justify-center space-x-2 mt-6">
         {chatExamples.map((_, index) => (
           <button
             key={index}
@@ -418,7 +418,7 @@ const ChatCarousel = () => {
               setCurrentChat(index);
               setIsAutoPlaying(false);
             }}
-            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${
+            className={`w-2 h-2 rounded-full transition-colors ${
               index === currentChat ? 'bg-emerald-600' : 'bg-gray-300'
             }`}
             aria-label={`Go to chat example ${index + 1}`}
@@ -443,7 +443,7 @@ const ChatCarousel = () => {
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-emerald-50 to-blue-50 py-12 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="space-y-6">
             <h1 className="text-[1.71rem] md:text-[2.83rem] font-bold text-gray-900 leading-tight">
               {t.AI_CONCIERGE_PAGE.HERO.TITLE}{' '}
@@ -452,177 +452,176 @@ const ChatCarousel = () => {
                 </span>
               </h1>
               
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            <p className="text-base md:text-xl text-gray-600 leading-relaxed">
               {t.AI_CONCIERGE_PAGE.HERO.SUBTITLE}
             </p>
             
-            <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm">
-              <div className="flex items-center bg-emerald-50 px-3 sm:px-4 py-2 rounded-full">
-                <span className="text-emerald-600 font-semibold">✅ {t.AI_CONCIERGE_PAGE.HERO.BADGES[0]}</span>
+            <div className="flex flex-wrap gap-2 sm:gap-3 text-[11px] sm:text-sm">
+              <div className="flex items-center bg-emerald-50 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                <span className="text-emerald-600 font-semibold whitespace-nowrap">✅ {t.AI_CONCIERGE_PAGE.HERO.BADGES[0]}</span>
               </div>
-              <div className="flex items-center bg-blue-50 px-3 sm:px-4 py-2 rounded-full">
-                <span className="text-blue-600 font-semibold">📅 {t.AI_CONCIERGE_PAGE.HERO.BADGES[1]}</span>
-                            </div>
-              <div className="flex items-center bg-purple-50 px-3 sm:px-4 py-2 rounded-full">
-                <span className="text-purple-600 font-semibold">💬 {t.AI_CONCIERGE_PAGE.HERO.BADGES[2]}</span>
-                          </div>
-              <div className="flex items-center bg-orange-50 px-3 sm:px-4 py-2 rounded-full">
-                <span className="text-orange-600 font-semibold">📢 {t.AI_CONCIERGE_PAGE.HERO.BADGES[3]}</span>
+              <div className="flex items-center bg-blue-50 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                <span className="text-blue-600 font-semibold whitespace-nowrap">📅 {t.AI_CONCIERGE_PAGE.HERO.BADGES[1]}</span>
+              </div>
+              <div className="flex items-center bg-purple-50 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                <span className="text-purple-600 font-semibold whitespace-nowrap">💬 {t.AI_CONCIERGE_PAGE.HERO.BADGES[2]}</span>
+              </div>
+              <div className="flex items-center bg-orange-50 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                <span className="text-orange-600 font-semibold whitespace-nowrap">📢 {t.AI_CONCIERGE_PAGE.HERO.BADGES[3]}</span>
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="pt-2">
               <button 
                 onClick={() => setIsRestaurantInfoModalOpen(true)}
-                className="bg-white text-emerald-600 border-2 border-emerald-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-emerald-50 transition-all active:scale-95 sm:hover:scale-105 font-semibold text-base sm:text-lg shadow-lg flex items-center justify-center space-x-2"
+                className="w-full sm:w-auto bg-white text-emerald-600 border-2 border-emerald-600 px-8 py-3.5 rounded-full hover:bg-emerald-50 transition-all active:scale-95 sm:hover:scale-105 font-semibold text-base shadow-lg flex items-center justify-center space-x-2"
               >
                 <img 
                   src="/images/WhatsApp.svg.webp" 
                   alt="WhatsApp" 
-                  className="w-5 h-5 sm:w-6 sm:h-6"
-                  width={24}
-                  height={24}
+                  className="w-5 h-5"
+                  width={20}
+                  height={20}
                 />
-                  <span>{locale === 'es' ? 'Probar Ahora' : 'Try Now'}</span>
-                </button>
-                          </div>
-                        </div>
+                <span>{locale === 'es' ? 'Probar Ahora' : 'Try Now'}</span>
+              </button>
+            </div>
+          </div>
                         
           {/* Chat Examples Carousel */}
-          <div className="relative">
+          <div className="relative mt-8 md:mt-0">
             <ChatCarousel />
-                          </div>
-                        </div>
+          </div>
+        </div>
       </section>
 
       {/* Problem Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-8 md:mb-12">
             {t.AI_CONCIERGE_PAGE.PROBLEM.TITLE}
           </h2>
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
-                <MessageCircle className="w-8 h-8 text-red-600" />
+          <div className="grid sm:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
+            <div className="space-y-3">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+                <MessageCircle className="w-7 h-7 md:w-8 md:h-8 text-red-600" />
               </div>
-              <p className="text-gray-600">{t.AI_CONCIERGE_PAGE.PROBLEM.ISSUES[0]}</p>
+              <p className="text-sm md:text-base text-gray-600">{t.AI_CONCIERGE_PAGE.PROBLEM.ISSUES[0]}</p>
             </div>
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
-                <Users className="w-8 h-8 text-orange-600" />
+            <div className="space-y-3">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
+                <Users className="w-7 h-7 md:w-8 md:h-8 text-orange-600" />
               </div>
-              <p className="text-gray-600">{t.AI_CONCIERGE_PAGE.PROBLEM.ISSUES[1]}</p>
+              <p className="text-sm md:text-base text-gray-600">{t.AI_CONCIERGE_PAGE.PROBLEM.ISSUES[1]}</p>
             </div>
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
-                <ArrowRight className="w-8 h-8 text-red-600" />
+            <div className="space-y-3">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+                <ArrowRight className="w-7 h-7 md:w-8 md:h-8 text-red-600" />
               </div>
-              <p className="text-gray-600">{t.AI_CONCIERGE_PAGE.PROBLEM.ISSUES[2]}</p>
+              <p className="text-sm md:text-base text-gray-600">{t.AI_CONCIERGE_PAGE.PROBLEM.ISSUES[2]}</p>
             </div>
           </div>
-          <div className="bg-emerald-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="bg-emerald-50 rounded-2xl p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">
               {t.AI_CONCIERGE_PAGE.PROBLEM.SOLUTION.TITLE}
             </h3>
-            <p className="text-lg text-gray-700">
+            <p className="text-base md:text-lg text-gray-700">
               {t.AI_CONCIERGE_PAGE.PROBLEM.SOLUTION.SUBTITLE}
             </p>
           </div>
-                  </div>
+        </div>
       </section>
       {/* POS Integration Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-900 mb-3 md:mb-4">
             {t.AI_CONCIERGE_PAGE.POS_INTEGRATION.TITLE}
-            </h2>
-          <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+          </h2>
+          <p className="text-base md:text-lg text-gray-600 text-center mb-8 md:mb-12 max-w-3xl mx-auto">
             {t.AI_CONCIERGE_PAGE.POS_INTEGRATION.SUBTITLE}
           </p>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-4 md:space-y-6">
               {t.AI_CONCIERGE_PAGE.POS_INTEGRATION.FEATURES.map((feature: Feature, index: number) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="bg-emerald-100 rounded-full p-1 flex-shrink-0 mt-1">
-                    <CheckCircle className="w-5 h-5 text-emerald-600" />
+                <div key={index} className="flex items-start space-x-3 md:space-x-4">
+                  <div className="bg-emerald-100 rounded-full p-1 flex-shrink-0 mt-0.5">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-emerald-600" />
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold text-gray-900 mb-1">{feature.title}</h3>
-                    <p className="text-gray-600 text-sm">{feature.description}</p>
+                    <h3 className="text-sm md:text-base font-semibold text-gray-900 mb-1">{feature.title}</h3>
+                    <p className="text-gray-600 text-xs md:text-sm">{feature.description}</p>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div className="relative">
+            <div className="relative order-first md:order-last">
               <Image 
                 src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200" 
                 alt="Happy restaurant owner with pastry" 
                 width={1200}
                 height={800}
-                className="rounded-2xl shadow-lg w-full h-96 object-cover"
+                className="rounded-2xl shadow-lg w-full h-64 md:h-96 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
             </div>
           </div>
-          
         </div>
       </section>
       
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-900 mb-8 md:mb-12">
             {t.AI_CONCIERGE_PAGE.BENEFITS.TITLE}
-            </h2>
+          </h2>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-4 md:space-y-6">
               {t.AI_CONCIERGE_PAGE.BENEFITS.FEATURES.map((feature: Feature, index: number) => {
                 const icons = [Zap, MessageCircle, Calendar, Star, Users]
                 const IconComponent = icons[index] || Zap
                 
                 return (
-                  <div key={index} className="flex items-start space-x-4">
+                  <div key={index} className="flex items-start space-x-3 md:space-x-4">
                     <div className="bg-emerald-100 rounded-full p-2 flex-shrink-0">
-                      <IconComponent className="w-6 h-6 text-emerald-600" />
+                      <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-emerald-600" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                      <p className="text-gray-600 text-sm">{feature.description}</p>
+                      <h3 className="text-sm md:text-base font-semibold text-gray-900 mb-1 md:mb-2">{feature.title}</h3>
+                      <p className="text-gray-600 text-xs md:text-sm">{feature.description}</p>
                     </div>
                   </div>
                 )
               })}
             </div>
             
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
+            <div className="bg-gray-50 rounded-2xl p-6 md:p-8">
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4 md:mb-6 text-center">
                 {t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_TITLE}
               </h3>
-              <div className="bg-white rounded-xl p-6 shadow-sm">
+              <div className="bg-white rounded-xl p-5 md:p-6 shadow-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-medium text-gray-500">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_HEADER}</span>
+                  <span className="text-xs md:text-sm font-medium text-gray-500">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_HEADER}</span>
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.MESSAGES_TODAY}</span>
-                    <span className="text-sm font-semibold text-gray-900">247</span>
+                    <span className="text-xs md:text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.MESSAGES_TODAY}</span>
+                    <span className="text-xs md:text-sm font-semibold text-gray-900">247</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.ORDERS_TAKEN}</span>
-                    <span className="text-sm font-semibold text-emerald-600">89</span>
+                    <span className="text-xs md:text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.ORDERS_TAKEN}</span>
+                    <span className="text-xs md:text-sm font-semibold text-emerald-600">89</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.TABLES_BOOKED}</span>
-                    <span className="text-sm font-semibold text-blue-600">23</span>
+                    <span className="text-xs md:text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.TABLES_BOOKED}</span>
+                    <span className="text-xs md:text-sm font-semibold text-blue-600">23</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.RESPONSE_TIME}</span>
-                    <span className="text-sm font-semibold text-purple-600">1.2s</span>
+                    <span className="text-xs md:text-sm text-gray-600">{t.AI_CONCIERGE_PAGE.BENEFITS.DASHBOARD_LABELS.RESPONSE_TIME}</span>
+                    <span className="text-xs md:text-sm font-semibold text-purple-600">1.2s</span>
                   </div>
                 </div>
               </div>
@@ -632,18 +631,18 @@ const ChatCarousel = () => {
       </section>
       
       {/* Final CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-emerald-600 to-blue-600">
-        <div className="max-w-4xl mx-auto px-4 text-center text-white">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-emerald-600 to-blue-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center text-white">
+          <h2 className="text-2xl md:text-5xl font-bold mb-4 md:mb-6">
             {t.AI_CONCIERGE_PAGE.FINAL_CTA.TITLE}
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-base md:text-xl mb-6 md:mb-8 opacity-90">
             {t.AI_CONCIERGE_PAGE.FINAL_CTA.SUBTITLE}
           </p>
           <Button 
             variant="secondary"
             size="lg"
-            className="bg-white text-emerald-600 px-12 py-4 rounded-full hover:bg-emerald-50 hover:text-emerald-700 transition-all transform hover:scale-105 font-bold text-xl shadow-2xl border-2 border-emerald-600"
+            className="w-full sm:w-auto bg-white text-emerald-600 px-8 sm:px-12 py-3.5 sm:py-4 rounded-full hover:bg-emerald-50 hover:text-emerald-700 transition-all transform hover:scale-105 font-bold text-base sm:text-xl shadow-2xl border-2 border-emerald-600"
             href={`/${locale}/demo`}
             data-cta="demo-free"
             data-analytics="ai_concierge_final_cta"
@@ -651,45 +650,45 @@ const ChatCarousel = () => {
           >
             {t.AI_CONCIERGE_PAGE.FINAL_CTA.CTA}
           </Button>
-          <p className="mt-4 text-sm opacity-75">
+          <p className="mt-4 text-xs md:text-sm opacity-75">
             {t.AI_CONCIERGE_PAGE.FINAL_CTA.DISCLAIMER}
           </p>
         </div>
       </section>
       
       {/* FAQ Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-6">
               {t.AI_CONCIERGE_PAGE.FAQ.TITLE}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-xl text-gray-600">
               {t.AI_CONCIERGE_PAGE.FAQ.SUBTITLE}
             </p>
           </div>
           
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             {t.AI_CONCIERGE_PAGE.FAQ.QUESTIONS.map((faq: FAQ, index: number) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+              <div key={index} className="bg-white border border-gray-200 rounded-xl p-4 md:p-6 hover:shadow-lg transition-shadow duration-300">
                 <button
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-lg"
                   aria-expanded={openFaq === index}
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 pr-3 md:pr-4">
                     {faq.question}
                   </h3>
                   {openFaq === index ? (
-                    <ChevronUp className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                    <ChevronUp className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                    <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 flex-shrink-0" />
                   )}
                 </button>
                 
                 {openFaq === index && (
-                  <div className="mt-4 pt-4 border-t border-gray-200 animate-in fade-in slide-in-from-top duration-200">
-                    <p className="text-gray-700 leading-relaxed">
+                  <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-gray-200 animate-in fade-in slide-in-from-top duration-200">
+                    <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
