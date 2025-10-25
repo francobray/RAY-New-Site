@@ -30,6 +30,8 @@ spec:
         env:
         - name: ZAPIER_WA_MODAL_WEBHOOK_URL
           value: <ZAPIER_WA_MODAL_WEBHOOK_URL>
+        - name: ZAPIER_DEMO_WEBHOOK_URL
+          value: <ZAPIER_DEMO_WEBHOOK_URL>
         - name: ZAPIER_WEBHOOK_URL
           value: <ZAPIER_WEBHOOK_URL>
         - name: INTERNAL_AUTH_PASSWORD
