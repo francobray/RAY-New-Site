@@ -76,8 +76,8 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
       const heroBottom = heroRect.bottom
       const viewportHeight = window.innerHeight
 
-      // When the hero section is mostly out of view, show the chat widget
-      if (heroBottom <= viewportHeight * 0.9) {
+      // Now require the hero to be almost entirely scrolled off-screen (bottom < 10% of viewport)
+      if (heroBottom <= viewportHeight * 0.1) {
         setVisible(true)
       } else {
         setVisible(false)
