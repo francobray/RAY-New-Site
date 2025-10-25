@@ -15,6 +15,7 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
   const [chatMessages, setChatMessages] = useState<Array<{id: string, text: string, isUser: boolean}>>([])
   const [showNotification, setShowNotification] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
 
   // Auto-scroll to bottom when new messages arrive
   const scrollToBottom = () => {
@@ -56,6 +57,42 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
       setShowNotification(false)
     }
   }, [isOpen])
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      // Always visible on tablets/desktops
+      if (window.innerWidth > 640) {
+        setVisible(true)
+        return
+      }
+
+      const heroSection = document.querySelector('.hero-container') as HTMLElement | null
+      if (!heroSection) {
+        setVisible(true)
+        return
+      }
+
+      const heroRect = heroSection.getBoundingClientRect()
+      const heroBottom = heroRect.bottom
+      const viewportHeight = window.innerHeight
+
+      // When the hero section is mostly out of view, show the chat widget
+      if (heroBottom <= viewportHeight * 0.9) {
+        setVisible(true)
+      } else {
+        setVisible(false)
+      }
+    }
+
+    updateVisibility()
+    window.addEventListener('scroll', updateVisibility)
+    window.addEventListener('resize', updateVisibility)
+
+    return () => {
+      window.removeEventListener('scroll', updateVisibility)
+      window.removeEventListener('resize', updateVisibility)
+    }
+  }, [])
 
   const sendMessage = async () => {
     if (!message.trim() || isLoading) return
@@ -103,6 +140,9 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
     sendMessage()
   }
 
+  if (!visible && !isOpen) {
+    return null
+  }
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
