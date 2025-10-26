@@ -373,7 +373,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                                 >
                                   <div className="flex-shrink-0 text-gray-600">
                                     {productItem.icon === 'whatsapp' ? (
-                                      <img 
+                                      <Image 
                                         src="/images/WhatsApp.svg.webp" 
                                         alt="WhatsApp" 
                                         className="w-6 h-6"
@@ -636,7 +636,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                               >
                                 <div className="flex-shrink-0 text-gray-600">
                                   {productItem.icon === 'whatsapp' ? (
-                                    <img 
+                                    <Image 
                                       src="/images/WhatsApp.svg.webp" 
                                       alt="WhatsApp" 
                                       className="w-5 h-5"

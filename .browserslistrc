@@ -1,0 +1,21 @@
+# Modern browsers only - reduces legacy JS polyfills significantly
+# This targets browsers that support ES2020+ features natively
+
+# Production environment
+> 0.5%
+last 2 versions
+not dead
+not IE 11
+not op_mini all
+Chrome >= 90
+Edge >= 90
+Firefox >= 88
+Safari >= 14
+iOS >= 14
+
+# Development environment
+[development]
+last 1 chrome version
+last 1 firefox version
+last 1 safari version
+

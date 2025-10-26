@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { ArrowRight, Calendar, ShoppingCart, Globe, TrendingUp, Truck, Smartphone, Award } from 'lucide-react'
 import Button from './shared/BaseButton'
 import SectionHeader from './SectionHeader'
@@ -122,7 +123,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
                   <div className="flex items-center justify-between mb-4">
                     <div className={`w-12 h-12 ${isWhatsApp ? 'bg-gray-50' : `bg-gradient-to-r ${product.gradient}`} rounded-xl flex items-center justify-center shadow-md`}>
                       {isWhatsApp ? (
-                        <img 
+                        <Image 
                           src="/images/WhatsApp.svg.webp" 
                           alt="WhatsApp" 
                           className="w-8 h-8"

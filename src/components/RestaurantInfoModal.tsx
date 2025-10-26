@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { X, MapPin, Mail, User, ArrowRight } from 'lucide-react'
 import PlacesAutocomplete from './PlacesAutocomplete'
 import { type Locale } from '@/lib/i18n'
@@ -203,7 +204,7 @@ const RestaurantInfoModal = ({ isOpen, onClose, onSuccess, locale = 'es' }: Rest
           <div className="flex items-start justify-between gap-2">
             <div className="flex items-start space-x-2 sm:space-x-3 flex-1 min-w-0">
               <div className="bg-white bg-opacity-20 rounded-full p-1.5 sm:p-2 flex items-center justify-center flex-shrink-0">
-                <img 
+                <Image 
                   src="/images/WhatsApp.svg.webp" 
                   alt="WhatsApp" 
                   className="w-4 h-4 sm:w-5 sm:h-5 object-contain"

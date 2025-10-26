@@ -11,6 +11,8 @@ const nextConfig = {
     minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
+    // Optimize image quality for better performance
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'https',
@@ -28,9 +30,10 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
     scrollRestoration: true,
+    // Modern JS output - reduces polyfills
+    modern: true,
   },
   // Modern browser support - reduce legacy JS polyfills
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
@@ -48,23 +51,52 @@ const nextConfig = {
       config.optimization.usedExports = true
       config.optimization.sideEffects = false
       
+      // Better code splitting strategy
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
+          // Separate React/Next.js core libraries
+          framework: {
+            test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
+            name: 'framework',
+            chunks: 'all',
+            priority: 40,
+            enforce: true,
+          },
+          // Separate large libraries
+          lib: {
+            test: /[\\/]node_modules[\\/]/,
+            name(module) {
+              const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)?.[1]
+              return `lib-${packageName?.replace('@', '')}`
+            },
+            priority: 30,
+            minSize: 100000, // Only split if > 100KB
+            reuseExistingChunk: true,
+          },
+          // Regular vendors
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
             chunks: 'all',
-            priority: 10,
+            priority: 20,
+            reuseExistingChunk: true,
           },
+          // Common code used across multiple chunks
           common: {
             name: 'common',
             minChunks: 2,
             chunks: 'all',
-            priority: 5,
+            priority: 10,
             reuseExistingChunk: true,
           },
         },
+      }
+      
+      // Minimize polyfills by targeting modern browsers
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        // Use modern versions of libraries when available
       }
     }
     
@@ -161,6 +193,26 @@ const nextConfig = {
       },
       {
         source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache vendor chunks (including polyfills)
+      {
+        source: '/_next/static/chunks/:path*.js',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache build manifest
+      {
+        source: '/_next/static/buildManifest.js',
         headers: [
           {
             key: 'Cache-Control',

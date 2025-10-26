@@ -476,7 +476,7 @@ const ChatCarousel = () => {
                 onClick={() => setIsRestaurantInfoModalOpen(true)}
                 className="w-full sm:w-auto bg-white text-emerald-600 border-2 border-emerald-600 px-8 py-3.5 rounded-full hover:bg-emerald-50 transition-all active:scale-95 sm:hover:scale-105 font-semibold text-base shadow-lg flex items-center justify-center space-x-2"
               >
-                <img 
+                <Image 
                   src="/images/WhatsApp.svg.webp" 
                   alt="WhatsApp" 
                   className="w-5 h-5"

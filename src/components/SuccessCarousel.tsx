@@ -347,9 +347,10 @@ const SuccessCarousel: React.FC<SuccessCarouselProps> = ({ locale }) => {
                       src={story.image}
                       alt={`${story.ownerName} - ${story.restaurantName}`}
                       fill
-                      sizes="320px"
+                      sizes="(max-width: 640px) 100vw, 320px"
                       className="object-cover"
                       loading="lazy"
+                      quality={75}
                     />
                     
                     {/* Gradient Overlay */}
