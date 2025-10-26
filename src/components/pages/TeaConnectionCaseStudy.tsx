@@ -4,7 +4,6 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, Star, Eye, Users, Award, MapPin } from 'lucide-react'
 import Image from 'next/image'
-import { getShimmerDataURL } from '@/utils/shimmer'
 import CTASection from '../CTASection'
 import { type Locale } from '@/lib/i18n'
 
