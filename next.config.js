@@ -30,6 +30,7 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
     scrollRestoration: true,
+    optimizeCss: true, // Inline critical CSS automatically
   },
   // Modern browser support - reduce legacy JS polyfills
   compiler: {
