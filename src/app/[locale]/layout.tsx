@@ -82,6 +82,53 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
           name="viewport" 
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
         />
+        {/* DNS Prefetch & Preconnect for external domains */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://grader.rayapp.io" />
+        <link rel="preconnect" href="https://grader.rayapp.io" crossOrigin="anonymous" />
+        {/* Preload self-hosted Inter font - eliminates Google Fonts render-blocking */}
+        <link
+          rel="preload"
+          href="/fonts/Inter-Variable.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Inter-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        {/* Inline Critical CSS - fonts + above-the-fold styles to eliminate render-blocking */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              @font-face {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: swap;
+                src: url('/fonts/Inter-Variable.woff2') format('woff2');
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+              }
+              @font-face {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                src: url('/fonts/Inter-Regular.woff2') format('woff2');
+              }
+              *{box-sizing:border-box;margin:0;padding:0}
+              body{font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;color:#1C1C1C;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+              .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+              img{max-width:100%;height:auto}
+              #ray-widget{min-height:165px;height:165px;contain:layout style paint}
+            `,
+          }}
+        />
       </head>
       <body className="antialiased">
         {/* Google Analytics */}

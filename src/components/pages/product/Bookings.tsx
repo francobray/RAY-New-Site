@@ -245,6 +245,7 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
             src="/images/bookings/fondo-bookings-01.jpg"
             alt="Restaurant booking background"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />

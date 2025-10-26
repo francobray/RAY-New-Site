@@ -11,7 +11,9 @@
     "validate:fonts": "tsx scripts/font-validation.ts",
     "validate:sitemap": "tsx scripts/validate-sitemap.ts",
     "validate:llms": "tsx scripts/validate-llms-txt.ts",
-    "validate:all": "npm run validate:fonts && npm run validate:sitemap && npm run validate:llms",
+    "validate:images": "tsx scripts/validate-images.ts",
+    "validate:image-usage": "tsx scripts/validate-image-usage.ts",
+    "validate:all": "npm run validate:fonts && npm run validate:sitemap && npm run validate:llms && npm run validate:images && npm run validate:image-usage",
     "sitemap:generate": "tsx scripts/generate-sitemap.ts",
     "sitemap:validate": "npm run sitemap:generate && npm run validate:sitemap",
     "llms:generate": "tsx scripts/generate-llms-txt.ts",
@@ -21,9 +23,10 @@
     "analyze:next": "ANALYZE=true npm run build",
     "optimize:advanced": "tsx scripts/advanced-performance.ts",
     "optimize:all": "npm run optimize:advanced && npm run build",
-    "release:patch": "git pull --rebase && npm run generate:all && git add -A && npm version patch -m 'chore(release): %s' && git push && git push origin --tags",
-    "release:minor": "git pull --rebase && npm run generate:all && git add -A && npm version minor -m 'chore(release): %s' && git push && git push origin --tags",
-    "release:major": "git pull --rebase && npm run generate:all && git add -A && npm version major -m 'chore(release): %s' && git push && git push origin --tags"
+    "prerelease": "npm run optimize:images && npm run validate:all && npm run build",
+    "release:patch": "git pull --rebase && npm run prerelease && npm run generate:all && git add -A && npm version patch -m 'chore(release): %s' && git push && git push origin --tags",
+    "release:minor": "git pull --rebase && npm run prerelease && npm run generate:all && git add -A && npm version minor -m 'chore(release): %s' && git push && git push origin --tags",
+    "release:major": "git pull --rebase && npm run prerelease && npm run generate:all && git add -A && npm version major -m 'chore(release): %s' && git push && git push origin --tags"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.2",

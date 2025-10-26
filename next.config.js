@@ -30,8 +30,6 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
     scrollRestoration: true,
-    // Modern JS output - reduces polyfills
-    modern: true,
   },
   // Modern browser support - reduce legacy JS polyfills
   compiler: {
@@ -129,7 +127,7 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: https://www.googletagmanager.com https://www.google-analytics.com https://grader.rayapp.io https://static.cloudflareinsights.com https://maps.googleapis.com https://unpkg.com https://*.vapi.ai https://vapi.ai https://cdn.vapi.ai; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://*.google.com https://*.doubleclick.net https://grader.rayapp.io https://static.cloudflareinsights.com https://cloudflareinsights.com https://maps.googleapis.com https://*.vapi.ai https://vapi.ai https://cdn.vapi.ai https://api.vapi.ai wss://*.vapi.ai https://*.daily.co https://c.daily.co wss://*.daily.co https://franbreciano.app.n8n.cloud; font-src 'self' data: https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';",
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: https://www.googletagmanager.com https://www.google-analytics.com https://grader.rayapp.io https://static.cloudflareinsights.com https://maps.googleapis.com https://unpkg.com https://*.vapi.ai https://vapi.ai https://cdn.vapi.ai; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://*.google.com https://*.doubleclick.net https://grader.rayapp.io https://static.cloudflareinsights.com https://cloudflareinsights.com https://maps.googleapis.com https://*.vapi.ai https://vapi.ai https://cdn.vapi.ai https://api.vapi.ai wss://*.vapi.ai https://*.daily.co https://c.daily.co wss://*.daily.co https://franbreciano.app.n8n.cloud; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';",
           },
         ],
       },

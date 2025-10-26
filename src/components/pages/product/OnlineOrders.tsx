@@ -146,6 +146,7 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
             src="/images/online-ordering/fondo-online-ordering-03.jpg"
             alt="Restaurant online ordering background"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
