@@ -122,7 +122,7 @@ export const COPY: Record<Locale, any> = {
       HERO: {
         TITLE: 'Genera más',
         TITLE_HIGHLIGHT: 'delivery directo, reservas y tráfico en tu restaurante',
-        SUBTITLE: 'Gratis • 60 segundos • Sin tarjeta de crédito requerida'
+        SUBTITLE: 'RAY es la plataforma de ventas #1 que ayuda a propietarios de restaurantes a atraer más clientes, aumentar ingresos de pedidos directos, reservas directas y tráfico en sucursal'
       },
       TRUST_METRICS: {
         TITLE: 'Por qué los Propietarios de Restaurantes Eligen RAY',
@@ -1483,7 +1483,7 @@ export const COPY: Record<Locale, any> = {
     COMPANY: {
       NAME: 'RAY',
       TAGLINE: 'All in one sales platform for restaurant',
-      DESCRIPTION: 'RAY is the #1 sales platform helping restaurant owners and operators attract more customers, grow revenue from walk-ins, orders, and bookings, and protect their reputation.',
+      DESCRIPTION: 'RAY is the #1 sales platform helping restaurant owners attract more customers, grow revenue from no comission orders, direct bookings and more walk-ins',
       SUPPORT_EMAIL: 'support@rayapp.io'
     },
     
