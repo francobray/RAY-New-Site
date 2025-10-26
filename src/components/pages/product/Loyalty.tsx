@@ -116,8 +116,6 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
                   height={540}
                   className="rounded-xl w-full h-auto object-contain"
                   sizes="(max-width: 1024px) 100vw, 600px"
-                  placeholder="blur"
-                  blurDataURL={getShimmerDataURL(960, 540)}
                 />
                 
               </div>
@@ -145,8 +143,6 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
                 height={450}
                 className="rounded-2xl w-3/4 h-auto mx-auto"
                 sizes="(max-width: 1024px) 75vw, 420px"
-                placeholder="blur"
-                blurDataURL={getShimmerDataURL(600, 450)}
               />
             </div>
             
@@ -192,8 +188,6 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
                 height={1100}
                 className="rounded-2xl w-3/4 h-auto mx-auto"
                 sizes="(max-width: 1024px) 75vw, 420px"
-                placeholder="blur"
-                blurDataURL={getShimmerDataURL(600, 1100)}
               />
             </div>
             

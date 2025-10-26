@@ -182,7 +182,6 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
                   quality={90}
                   className="w-full h-auto rounded-xl"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
-                  placeholder="blur"
                   priority
                   fetchPriority="high"
                 />

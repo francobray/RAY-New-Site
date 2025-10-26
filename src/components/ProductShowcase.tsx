@@ -213,8 +213,6 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ locale }) => {
                 fill
                 className="object-contain transition-all duration-700"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1280px"
-                placeholder="blur"
-                blurDataURL={getShimmerDataURL(1242, 828)}
                 priority={activeTab === 0}
               />
             </div>
