@@ -107,7 +107,9 @@ export function middleware(request: NextRequest) {
   // --- 3) Optional headers only for HTML pages ---
   const res = NextResponse.next()
   res.headers.set('X-Content-Type-Options', 'nosniff')
-  // Don’t force X-Robots-Tag globally (robots.txt, XML, etc. don’t need it)
+  // Add Vary header for proper caching with language negotiation
+  res.headers.set('Vary', 'Accept-Language')
+  // Don't force X-Robots-Tag globally (robots.txt, XML, etc. don't need it)
   return res
 }
 

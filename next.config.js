@@ -170,17 +170,8 @@ const nextConfig = {
       },
     ]
   },
-  async redirects() {
-    return [
-      // Redirect root to Spanish locale (permanent)
-      {
-        source: '/',
-        destination: '/es',
-        permanent: true,
-      },
-      // Note: Host-level redirects (www <-> apex) handled at CDN/edge to avoid loops
-    ]
-  },
+  // Removed hardcoded redirect - language detection handled by middleware
+  // This allows Accept-Language headers to work properly for better UX
 }
 
 module.exports = withBundleAnalyzer(nextConfig)

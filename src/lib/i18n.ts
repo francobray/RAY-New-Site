@@ -41,7 +41,7 @@ export function generateHreflangMetadata(path: string, currentLocale: Locale) {
     languages: {
       'es': `${baseUrl}/es${cleanPath === '/' ? '' : cleanPath}`,
       'en': `${baseUrl}/en${cleanPath === '/' ? '' : cleanPath}`,
-      'x-default': `${baseUrl}/en${cleanPath === '/' ? '' : cleanPath}`, // English as international default
+      'x-default': `${baseUrl}/es${cleanPath === '/' ? '' : cleanPath}`, // Spanish as primary market default
     },
   }
 }
