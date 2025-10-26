@@ -16,7 +16,7 @@ export class FontValidator {
   private publicPath: string
 
   constructor(fontPath?: string, publicPath?: string) {
-    this.fontPath = fontPath || path.join(process.cwd(), 'public', 'fonts', 'Chopin.Trial-Regular.woff2')
+    this.fontPath = fontPath || path.join(process.cwd(), 'public', 'fonts', 'Inter-Variable.woff2')
     this.publicPath = publicPath || path.join(process.cwd(), 'public')
   }
 
@@ -107,22 +107,16 @@ export class FontValidator {
   }
 
   private validateCaseSensitivity(result: FontValidationResult): void {
+    // Check that the font file has proper naming convention (woff2 extension)
     const actualFileName = path.basename(this.fontPath)
-    const expectedFileName = 'Chopin.Trial-Regular.woff2'
     
-    if (actualFileName !== expectedFileName) {
-      result.errors.push(`Font filename case mismatch. Expected: ${expectedFileName}, Found: ${actualFileName}`)
+    if (!actualFileName.endsWith('.woff2')) {
+      result.warnings.push(`Font file should use .woff2 format for best compression and browser support`)
     }
     
-    // Check for common case issues
-    const commonIssues = [
-      'chopin.trial-regular.woff2',
-      'Chopin.trial-regular.woff2',
-      'chopin.Trial-Regular.woff2'
-    ]
-    
-    if (commonIssues.includes(actualFileName)) {
-      result.warnings.push('Font filename has case sensitivity issues that may cause problems on some servers')
+    // Check for proper naming convention (kebab-case or PascalCase, no spaces)
+    if (actualFileName.includes(' ')) {
+      result.warnings.push(`Font filename contains spaces. Consider using hyphens or camelCase for better compatibility`)
     }
   }
 
@@ -133,7 +127,8 @@ export class FontValidator {
       try {
         const htmlContent = require('fs').readFileSync(indexPath, 'utf-8')
         
-        if (!htmlContent.includes('rel="preload"') || !htmlContent.includes('Chopin.Trial-Regular.woff2')) {
+        const fontFileName = path.basename(this.fontPath)
+        if (!htmlContent.includes('rel="preload"') || !htmlContent.includes(fontFileName)) {
           result.warnings.push('Font preloading not found in HTML - this may impact performance')
         }
         
