@@ -49,7 +49,7 @@ function validateLLMsTxt(): ValidationResult {
   // Update stats
   result.stats.fileSize = Buffer.byteLength(content, 'utf-8')
   result.stats.lineCount = lines.length
-  result.stats.urlCount = (content.match(/https:\/\/rayapp\.io/g) || []).length
+  result.stats.urlCount = (content.match(/https:\/\/(www\.)?rayapp\.io/g) || []).length
 
   // Required sections
   const requiredSections = [
