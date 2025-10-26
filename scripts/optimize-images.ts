@@ -51,46 +51,52 @@ async function optimizeFile(filePath: string): Promise<void> {
   if (!isImage(filePath)) return
   const sharp = await getSharp()
 
-  // Skip tiny files (< 5KB) as savings are negligible
+  const ext = path.extname(filePath).toLowerCase()
+  
+  // Check if file is tiny (< 5KB) - skip compression but still create variants
+  let skipCompression = false
   try {
     const stat = fs.statSync(filePath)
-    if (stat.size < 5 * 1024) return
+    if (stat.size < 5 * 1024) {
+      skipCompression = true
+    }
   } catch {}
 
-  const ext = path.extname(filePath).toLowerCase()
   const basePipeline = sharp(filePath)
 
-  // Lossless/lossy compression for source format
-  try {
-    const tempOut = filePath + '.opt'
-    if (ext === '.png') {
-      await basePipeline.png({ quality: DEFAULT_QUALITY, compressionLevel: 9, adaptiveFiltering: true }).toFile(tempOut)
-    } else if (ext === '.jpg' || ext === '.jpeg') {
-      await basePipeline.jpeg({ quality: DEFAULT_QUALITY, mozjpeg: true }).toFile(tempOut)
-    } else if (ext === '.webp') {
-      await basePipeline.webp({ quality: WEBP_QUALITY }).toFile(tempOut)
-    } else if (ext === '.avif') {
-      await basePipeline.avif({ quality: AVIF_QUALITY }).toFile(tempOut)
-    } else if (ext === '.tiff') {
-      await basePipeline.tiff({ quality: DEFAULT_QUALITY }).toFile(tempOut)
-    } else if (ext === '.gif') {
-      // sharp converts first frame; keep original gif to avoid animation loss; skip source recompress
-    }
-
-    if (fs.existsSync(tempOut)) {
-      const original = fs.statSync(filePath).size
-      const optimized = fs.statSync(tempOut).size
-      if (optimized > 0 && optimized < original) {
-        fs.renameSync(tempOut, filePath)
-        // eslint-disable-next-line no-console
-        console.log(`Compressed: ${relativeFromRoot(filePath)} ${(original / 1024).toFixed(1)}KB -> ${(optimized / 1024).toFixed(1)}KB`)
-      } else {
-        fs.unlinkSync(tempOut)
+  // Lossless/lossy compression for source format (skip for tiny files)
+  if (!skipCompression) {
+    try {
+      const tempOut = filePath + '.opt'
+      if (ext === '.png') {
+        await basePipeline.png({ quality: DEFAULT_QUALITY, compressionLevel: 9, adaptiveFiltering: true }).toFile(tempOut)
+      } else if (ext === '.jpg' || ext === '.jpeg') {
+        await basePipeline.jpeg({ quality: DEFAULT_QUALITY, mozjpeg: true }).toFile(tempOut)
+      } else if (ext === '.webp') {
+        await basePipeline.webp({ quality: WEBP_QUALITY }).toFile(tempOut)
+      } else if (ext === '.avif') {
+        await basePipeline.avif({ quality: AVIF_QUALITY }).toFile(tempOut)
+      } else if (ext === '.tiff') {
+        await basePipeline.tiff({ quality: DEFAULT_QUALITY }).toFile(tempOut)
+      } else if (ext === '.gif') {
+        // sharp converts first frame; keep original gif to avoid animation loss; skip source recompress
       }
+
+      if (fs.existsSync(tempOut)) {
+        const original = fs.statSync(filePath).size
+        const optimized = fs.statSync(tempOut).size
+        if (optimized > 0 && optimized < original) {
+          fs.renameSync(tempOut, filePath)
+          // eslint-disable-next-line no-console
+          console.log(`Compressed: ${relativeFromRoot(filePath)} ${(original / 1024).toFixed(1)}KB -> ${(optimized / 1024).toFixed(1)}KB`)
+        } else {
+          fs.unlinkSync(tempOut)
+        }
+      }
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.warn(`Skip source compress for ${filePath}:`, (err as Error).message)
     }
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.warn(`Skip source compress for ${filePath}:`, (err as Error).message)
   }
 
   // Generate WebP and AVIF variants if missing
