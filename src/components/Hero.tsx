@@ -173,15 +173,15 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
             {/* Right Column - Widget and Hero Image */}
             <div className="relative flex justify-center lg:justify-end">
               {/* Hero Banner Image */}
-              <div className="relative w-full max-w-[600px] sm:max-w-[460px] md:max-w-[520px] lg:max-w-[560px]">
+              <div className="relative w-full max-w-[1140px] sm:max-w-[460px] md:max-w-[520px] lg:max-w-[560px]">
                 <Image
                   src={heroBanner}
                   alt="RAY Score Dashboard"
                   width={1120}
                   height={630}
-                  quality={70}
-                  className="w-full h-auto rounded-xl scale-[1.90] sm:scale-100"
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 560px"
+                  quality={90}
+                  className="w-full h-auto rounded-xl"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
                   placeholder="blur"
                   priority
                   fetchPriority="high"
