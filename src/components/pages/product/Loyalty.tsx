@@ -6,7 +6,6 @@ import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
 import Image from 'next/image'
-import { getShimmerDataURL } from '@/utils/shimmer'
 
 interface LoyaltyProps {
   locale: Locale

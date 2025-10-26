@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { getShimmerDataURL } from '@/utils/shimmer'
 import { type Locale } from '@/lib/i18n'
 
 interface ProductShowcaseProps {
