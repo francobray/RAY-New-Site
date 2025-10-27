@@ -129,6 +129,19 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
             `,
           }}
         />
+        {/* Load non-critical CSS asynchronously - doesn't block render */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = '/styles/non-critical.css';
+                document.head.appendChild(link);
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="antialiased">
         {/* Google Analytics */}

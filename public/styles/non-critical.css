@@ -1,0 +1,253 @@
+/* Non-critical CSS - Loaded asynchronously after first paint */
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientX {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+@keyframes expand {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-10px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* Component Utilities */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* RAY Widget Customization */
+#ray-widget {
+  min-height: 120px !important;
+  height: 120px !important;
+  border: 1px solid rgba(229, 231, 235, 0.6) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10), 14px 18px 34px rgba(0, 0, 0, 0.18) !important;
+  contain: layout style;
+}
+
+@media (max-width: 640px) {
+  #ray-widget {
+    min-height: 68px !important;
+    height: 68px !important;
+  }
+  
+  #ray-widget * {
+    min-height: 1.5rem !important;
+  }
+}
+
+@media (min-width: 641px) {
+  #ray-widget {
+    border-radius: 1.25rem !important;
+  }
+}
+
+#ray-widget * {
+  min-height: 2rem !important;
+  line-height: 1.25rem !important;
+}
+
+#ray-widget input[type="text"],
+#ray-widget input[type="search"] {
+  padding-top: 0.625rem !important;
+  padding-bottom: 0.625rem !important;
+  height: auto !important;
+}
+
+#ray-widget button {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  min-height: 2rem !important;
+  height: auto !important;
+}
+
+#ray-widget p,
+#ray-widget span:not(button span),
+#ray-widget div:not(button div),
+#ray-widget input::placeholder {
+  font-size: 0.85rem !important;
+  line-height: 1.2 !important;
+}
+
+#ray-widget button,
+#ray-widget button span,
+#ray-widget button div {
+  font-size: 0.80rem !important;
+}
+
+#ray-widget [class*="subtitle"],
+#ray-widget [class*="description"],
+#ray-widget [class*="tagline"] {
+  font-size: 0.7rem !important;
+}
+
+#ray-widget h2.ray-widget-title {
+  font-size: 0.90rem !important;
+  line-height: 1.1 !important;
+}
+
+#ray-widget button {
+  padding: 0.35rem 0.75rem !important;
+  min-height: 1.75rem !important;
+}
+
+#ray-widget .ray-widget-input-container {
+  margin-top: 0.5rem !important;
+}
+
+/* Spanish Widget Overrides */
+html[lang="es"] #ray-widget button {
+  font-size: 0.80rem !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+@media (max-width: 600px) {
+  html[lang="es"] #ray-widget button {
+    font-size: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* Mobile Widget Behavior */
+@media (max-width: 640px) {
+  #widget-container {
+    position: fixed !important;
+    bottom: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 50 !important;
+    width: min(98vw, 32rem) !important;
+    max-width: 32rem !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  #ray-widget {
+    padding: 1rem 0.75rem !important;
+    border: none !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08), 12px 16px 32px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 0.75rem !important;
+  }
+
+  #ray-widget .ray-widget-header {
+    display: none !important;
+  }
+
+  #ray-widget .ray-widget-input-container {
+    margin-top: 0 !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    align-items: center !important;
+  }
+
+  #ray-widget input[type="text"],
+  #ray-widget input[type="search"] {
+    font-size: 1rem !important;
+    padding: 0.5rem 0.75rem 0.5rem 0.25rem !important;
+    line-height: 1rem !important;
+    height: 40px !important;
+  }
+
+  #ray-widget input::placeholder {
+    font-size: 1rem !important;
+  }
+
+  #ray-widget button {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    font-size: 0 !important;
+  }
+
+  #ray-widget .ray-widget-button-arrow {
+    font-size: 18px !important;
+  }
+
+  #ray-widget {
+    max-width: calc(100vw - 0.75rem) !important;
+  }
+
+  #widget-container.widget-absolute-hero {
+    position: absolute !important;
+    bottom: -4rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 10 !important;
+    width: min(96vw, 40rem) !important;
+    max-width: 40rem !important;
+    transition: all 0.3s ease-in-out !important;
+    top: auto !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .hero-container {
+    position: relative !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    border: 2px solid currentColor;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dropdown-hover:hover .dropdown-menu {
+    display: block;
+  }
+}
+
