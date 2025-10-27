@@ -159,14 +159,27 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
             <div className="relative">
               <div className="relative max-w-3xl mx-auto">
         {/* Main Walk-ins Image */}
-        <Image 
-          src="/images/walkIns/Walkins-4.png"
-          alt={locale === 'es' ? 'Interfaz de Google Maps mostrando restaurantes y direcciones' : 'Google Maps interface showing restaurants and directions'}
-          width={1248}
-          height={936}
-          className="w-full h-auto"
-          priority
-        />
+        <picture>
+          <source
+            type="image/avif"
+            srcSet="/images/walkIns/Walkins-4-640w.avif 640w, /images/walkIns/Walkins-4-840w.avif 840w, /images/walkIns/Walkins-4-1248w.avif 1248w"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 840px, 1248px"
+          />
+          <source
+            type="image/webp"
+            srcSet="/images/walkIns/Walkins-4-640w.webp 640w, /images/walkIns/Walkins-4-840w.webp 840w, /images/walkIns/Walkins-4-1248w.webp 1248w"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 840px, 1248px"
+          />
+          <img
+            src="/images/walkIns/Walkins-4-840w.webp"
+            alt={locale === 'es' ? 'Interfaz de Google Maps mostrando restaurantes y direcciones' : 'Google Maps interface showing restaurants and directions'}
+            className="w-full h-auto"
+            width="840"
+            height="561"
+            fetchPriority="high"
+            loading="eager"
+          />
+        </picture>
                 
                 {/* Floating Elements */}
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100">

@@ -112,14 +112,27 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
               <div className="relative w-full">
                 {/* Mobile App Real Time Tracking Image */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <Image 
-                    src="/images/online-ordering/Temple-ordering-2.png"
-                    alt={locale === 'es' ? 'Interfaz de pedidos online de Temple Craft' : 'Temple Craft online ordering interface'}
-                    width={800}
-                    height={600}
-                    className="w-full h-auto"
-                    priority
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcSet="/images/online-ordering/Temple-ordering-2-560w.avif 560w, /images/online-ordering/Temple-ordering-2-640w.avif 640w, /images/online-ordering/Temple-ordering-2-800w.avif 800w"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcSet="/images/online-ordering/Temple-ordering-2-560w.webp 560w, /images/online-ordering/Temple-ordering-2-640w.webp 640w, /images/online-ordering/Temple-ordering-2-800w.webp 800w"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
+                    />
+                    <img
+                      src="/images/online-ordering/Temple-ordering-2-640w.webp"
+                      alt={locale === 'es' ? 'Interfaz de pedidos online de Temple Craft' : 'Temple Craft online ordering interface'}
+                      className="w-full h-auto"
+                      width="640"
+                      height="493"
+                      fetchPriority="high"
+                      loading="eager"
+                    />
+                  </picture>
                 </div>
                 
                 {/* Floating stats */}

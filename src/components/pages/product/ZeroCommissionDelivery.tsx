@@ -154,14 +154,27 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
             <div className="relative">
               <div className="relative max-w-lg mx-auto">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/images/zero-commission/Temple-desktop-order-tracking.png"
-                    alt={locale === 'es' ? 'Interfaz de seguimiento de pedidos de escritorio de Temple' : 'Temple desktop order tracking interface'}
-                    width={480}
-                    height={320}
-                    className="w-full h-auto"
-                    priority
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcSet="/images/zero-commission/Temple-desktop-order-tracking-400w.avif 400w, /images/zero-commission/Temple-desktop-order-tracking-480w.avif 480w, /images/zero-commission/Temple-desktop-order-tracking-640w.avif 640w"
+                      sizes="(max-width: 640px) 100vw, 480px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcSet="/images/zero-commission/Temple-desktop-order-tracking-400w.webp 400w, /images/zero-commission/Temple-desktop-order-tracking-480w.webp 480w, /images/zero-commission/Temple-desktop-order-tracking-640w.webp 640w"
+                      sizes="(max-width: 640px) 100vw, 480px"
+                    />
+                    <img
+                      src="/images/zero-commission/Temple-desktop-order-tracking-480w.webp"
+                      alt={locale === 'es' ? 'Interfaz de seguimiento de pedidos de escritorio de Temple' : 'Temple desktop order tracking interface'}
+                      className="w-full h-auto"
+                      width="480"
+                      height="571"
+                      fetchPriority="high"
+                      loading="eager"
+                    />
+                  </picture>
                 </div>
                 
                 {/* Floating Elements */}
@@ -196,14 +209,27 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
             {/* Left side - Real-time tracking app image */}
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-xs mx-auto">
-                <Image
-                  src="/images/online-ordering/Temple-App-RealTime-tracking.png"
-                  alt={locale === 'es' ? 'Interfaz de seguimiento en tiempo real de la app de Temple' : 'Temple app real-time tracking interface'}
-                  width={188}
-                  height={375}
-                  className="w-full h-auto"
-                  priority
-                />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcSet="/images/online-ordering/Temple-App-RealTime-tracking-280w.avif 280w, /images/online-ordering/Temple-App-RealTime-tracking-320w.avif 320w, /images/online-ordering/Temple-App-RealTime-tracking-400w.avif 400w"
+                    sizes="(max-width: 640px) 280px, 320px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcSet="/images/online-ordering/Temple-App-RealTime-tracking-280w.webp 280w, /images/online-ordering/Temple-App-RealTime-tracking-320w.webp 320w, /images/online-ordering/Temple-App-RealTime-tracking-400w.webp 400w"
+                    sizes="(max-width: 640px) 280px, 320px"
+                  />
+                  <img
+                    src="/images/online-ordering/Temple-App-RealTime-tracking-320w.webp"
+                    alt={locale === 'es' ? 'Interfaz de seguimiento en tiempo real de la app de Temple' : 'Temple app real-time tracking interface'}
+                    className="w-full h-auto"
+                    width="320"
+                    height="692"
+                    fetchPriority="high"
+                    loading="eager"
+                  />
+                </picture>
               </div>
             </div>
             

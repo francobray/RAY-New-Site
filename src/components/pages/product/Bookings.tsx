@@ -193,14 +193,27 @@ const Bookings: React.FC<BookingsProps> = ({ locale }) => {
             </div>
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image 
-                  src="/images/product-website/Temple-website-bookings.png"
-                  alt={locale === 'es' ? 'Interfaz de reservas del sitio web de Temple' : 'Temple website booking interface'}
-                  width={800}
-                  height={600}
-                  className="w-full h-auto"
-                  priority
-                />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcSet="/images/product-website/Temple-website-bookings-560w.avif 560w, /images/product-website/Temple-website-bookings-640w.avif 640w, /images/product-website/Temple-website-bookings-800w.avif 800w"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcSet="/images/product-website/Temple-website-bookings-560w.webp 560w, /images/product-website/Temple-website-bookings-640w.webp 640w, /images/product-website/Temple-website-bookings-800w.webp 800w"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
+                  />
+                  <img
+                    src="/images/product-website/Temple-website-bookings-640w.webp"
+                    alt={locale === 'es' ? 'Interfaz de reservas del sitio web de Temple' : 'Temple website booking interface'}
+                    className="w-full h-auto"
+                    width="640"
+                    height="339"
+                    fetchPriority="high"
+                    loading="eager"
+                  />
+                </picture>
               </div>
             </div>
           </div>

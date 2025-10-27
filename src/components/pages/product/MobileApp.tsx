@@ -110,25 +110,52 @@ const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
               <div className="relative max-w-lg mx-auto flex gap-4 justify-center">
                 {/* Temple Mobile App Main Screenshot */}
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                  <Image 
-                    src="/images/branded-apps/Temple-mobile-app.png"
-                    alt={locale === 'es' ? 'App móvil de Temple Craft construida con RAY' : 'Temple Craft mobile app built with RAY'}
-                    width={400}
-                    height={600}
-                    className="w-full h-auto max-w-48"
-                    priority
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcSet="/images/branded-apps/Temple-mobile-app-320w.avif 320w, /images/branded-apps/Temple-mobile-app-400w.avif 400w, /images/branded-apps/Temple-mobile-app-480w.avif 480w"
+                      sizes="(max-width: 640px) 192px, 192px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcSet="/images/branded-apps/Temple-mobile-app-320w.webp 320w, /images/branded-apps/Temple-mobile-app-400w.webp 400w, /images/branded-apps/Temple-mobile-app-480w.webp 480w"
+                      sizes="(max-width: 640px) 192px, 192px"
+                    />
+                    <img
+                      src="/images/branded-apps/Temple-mobile-app-320w.webp"
+                      alt={locale === 'es' ? 'App móvil de Temple Craft construida con RAY' : 'Temple Craft mobile app built with RAY'}
+                      className="w-full h-auto max-w-48"
+                      width="320"
+                      height="671"
+                      fetchPriority="high"
+                      loading="eager"
+                    />
+                  </picture>
                 </div>
                 
                 {/* Temple Mobile App Menu Screenshot */}
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                  <Image 
-                    src="/images/branded-apps/Temple-mobile-app-menu.png"
-                    alt={locale === 'es' ? 'Menú de la app móvil de Temple Craft' : 'Temple Craft mobile app menu'}
-                    width={400}
-                    height={600}
-                    className="w-full h-auto max-w-48"
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcSet="/images/branded-apps/Temple-mobile-app-menu-320w.avif 320w, /images/branded-apps/Temple-mobile-app-menu-400w.avif 400w, /images/branded-apps/Temple-mobile-app-menu-480w.avif 480w"
+                      sizes="(max-width: 640px) 192px, 192px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcSet="/images/branded-apps/Temple-mobile-app-menu-320w.webp 320w, /images/branded-apps/Temple-mobile-app-menu-400w.webp 400w, /images/branded-apps/Temple-mobile-app-menu-480w.webp 480w"
+                      sizes="(max-width: 640px) 192px, 192px"
+                    />
+                    <img
+                      src="/images/branded-apps/Temple-mobile-app-menu-320w.webp"
+                      alt={locale === 'es' ? 'Menú de la app móvil de Temple Craft' : 'Temple Craft mobile app menu'}
+                      className="w-full h-auto max-w-48"
+                      width="320"
+                      height="679"
+                      fetchPriority="high"
+                      loading="eager"
+                    />
+                  </picture>
                 </div>
                 
                 {/* Floating Elements */}

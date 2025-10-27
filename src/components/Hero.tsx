@@ -1,8 +1,6 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import Image from 'next/image'
-import heroBanner from '../../public/images/home/hero-bannerpng.png'
 import { Star } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
@@ -174,17 +172,30 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
             <div className="relative flex justify-center lg:justify-end">
               {/* Hero Banner Image */}
               <div className="relative w-full max-w-[1140px] sm:max-w-[460px] md:max-w-[520px] lg:max-w-[560px]">
-                <Image
-                  src={heroBanner}
-                  alt="RAY Score Dashboard"
-                  width={1120}
-                  height={630}
-                  quality={90}
-                  className="w-full h-auto rounded-xl"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
-                  priority
-                  fetchPriority="high"
-                />
+                <picture>
+                  {/* AVIF sources - best compression */}
+                  <source
+                    type="image/avif"
+                    srcSet="/images/home/hero-banner-560w.avif 560w, /images/home/hero-banner-640w.avif 640w, /images/home/hero-banner-768w.avif 768w"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 640px, (max-width: 1024px) 50vw, 560px"
+                  />
+                  {/* WebP fallback - good compression */}
+                  <source
+                    type="image/webp"
+                    srcSet="/images/home/hero-banner-560w.webp 560w, /images/home/hero-banner-640w.webp 640w, /images/home/hero-banner-768w.webp 768w"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 640px, (max-width: 1024px) 50vw, 560px"
+                  />
+                  {/* PNG fallback for legacy browsers */}
+                  <img
+                    src="/images/home/hero-banner-640w.webp"
+                    alt="RAY Score Dashboard"
+                    className="w-full h-auto rounded-xl"
+                    width="640"
+                    height="866"
+                    fetchPriority="high"
+                    loading="eager"
+                  />
+                </picture>
                 
                   {/* RAY Lead-Magnet Widget - Positioned above the image */}
                   <div id="widget-container" className="absolute bottom-24 md:bottom-28 lg:bottom-32 left-1/2 -translate-x-1/2 w-[min(96vw,40rem)] md:w-[34rem] md:max-w-xl lg:w-[38rem] lg:max-w-xl z-10 flex justify-center">
