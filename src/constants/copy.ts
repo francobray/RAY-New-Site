@@ -1483,7 +1483,7 @@ export const COPY: Record<Locale, any> = {
     COMPANY: {
       NAME: 'RAY',
       TAGLINE: 'All in one sales platform for restaurant',
-      DESCRIPTION: 'RAY is the #1 sales platform helping restaurant owners attract more customers, grow revenue from no comission orders, direct bookings and more walk-ins',
+      DESCRIPTION: 'RAY is the #1 sales platform helping restaurant owners attract more customers, grow revenue from no commission orders, direct bookings and more walk-ins',
       SUPPORT_EMAIL: 'support@rayapp.io'
     },
     
