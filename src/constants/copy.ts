@@ -16,7 +16,7 @@ export const COPY: Record<Locale, any> = {
     COMPANY: {
       NAME: 'RAY',
       TAGLINE: 'Aumenta delivery, reservas y tráfico de tu restaurante',
-      DESCRIPTION: 'RAY ayuda a restaurantes a generar más delivery directo, reservas y tráfico en tu restaurante',
+      DESCRIPTION: 'La plataforma #1 de marketing y ventas que ayuda a restaurants a conseguir mas clientes y aumentar facturación de pedidos de delivery sin comisión y reservas directas',
       SUPPORT_EMAIL: 'support@rayapp.io'
     },
     
