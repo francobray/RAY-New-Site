@@ -10,6 +10,7 @@ type TriviaCode = {
   status: string
   redemptionDate: string | null
   itemBonificado: string | null
+  cliente: string | null
 }
 
 export default function CodigosTrivia() {
@@ -75,7 +76,9 @@ export default function CodigosTrivia() {
   const filteredCodes = codes.filter(
     (code) =>
       code.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      code.description.toLowerCase().includes(searchTerm.toLowerCase())
+      code.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (code.cliente && code.cliente.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (code.itemBonificado && code.itemBonificado.toLowerCase().includes(searchTerm.toLowerCase()))
   )
 
   const handleRedeem = async (e: React.FormEvent) => {
@@ -474,6 +477,33 @@ export default function CodigosTrivia() {
                 </p>
               </div>
 
+              {/* Cliente */}
+              {code.cliente && (
+                <div className="mb-3">
+                  <div className="flex items-center gap-2 mb-1">
+                    <svg
+                      className="w-4 h-4 text-blue-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
+                    <span className="text-xs font-medium text-gray-500 uppercase">
+                      Cliente
+                    </span>
+                  </div>
+                  <p className="text-sm font-semibold text-gray-800">
+                    {code.cliente}
+                  </p>
+                </div>
+              )}
+
               {/* Description */}
               <p className="text-sm text-gray-600 mb-2 min-h-[40px]">
                 {code.description}
@@ -578,6 +608,14 @@ export default function CodigosTrivia() {
               <p className="font-mono font-bold text-4xl text-gray-900 tracking-wider mb-4">
                 {selectedCodeForModal.code}
               </p>
+              {selectedCodeForModal.cliente && (
+                <div className="mb-3">
+                  <p className="text-xs text-gray-500 uppercase mb-1">Cliente</p>
+                  <p className="text-base font-semibold text-gray-800">
+                    {selectedCodeForModal.cliente}
+                  </p>
+                </div>
+              )}
               <p className="text-gray-600 mb-3">{selectedCodeForModal.description}</p>
               {selectedCodeForModal.itemBonificado && (
                 <div className="mt-3 p-3 bg-purple-50 rounded-lg border border-purple-200">

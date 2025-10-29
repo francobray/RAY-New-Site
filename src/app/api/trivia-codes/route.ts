@@ -65,6 +65,7 @@ export async function GET() {
         const redemptionDate = row['Redemption Date'] || row.RedemptionDate || ''
         const hasRedemptionDate = redemptionDate.trim() !== ''
         const itemBonificado = row['Item bonificado'] || row['Item Bonificado'] || row.ItemBonificado || null
+        const cliente = row['Cliente'] || row.Cliente || row.Customer || row.customer || null
         
         return {
           id: String(index + 1),
@@ -74,6 +75,7 @@ export async function GET() {
           status: hasRedemptionDate ? 'redeemed' : 'active',
           redemptionDate: hasRedemptionDate ? redemptionDate : null,
           itemBonificado: itemBonificado ? String(itemBonificado).trim() : null,
+          cliente: cliente ? String(cliente).trim() : null,
         }
       })
 
