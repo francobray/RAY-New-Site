@@ -64,6 +64,7 @@ export async function GET() {
       .map((row, index) => {
         const redemptionDate = row['Redemption Date'] || row.RedemptionDate || ''
         const hasRedemptionDate = redemptionDate.trim() !== ''
+        const itemBonificado = row['Item bonificado'] || row['Item Bonificado'] || row.ItemBonificado || null
         
         return {
           id: String(index + 1),
@@ -72,6 +73,7 @@ export async function GET() {
           value: 'Premio',
           status: hasRedemptionDate ? 'redeemed' : 'active',
           redemptionDate: hasRedemptionDate ? redemptionDate : null,
+          itemBonificado: itemBonificado ? String(itemBonificado).trim() : null,
         }
       })
 

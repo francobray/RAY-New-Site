@@ -9,6 +9,7 @@ type TriviaCode = {
   value: string
   status: string
   redemptionDate: string | null
+  itemBonificado: string | null
 }
 
 export default function CodigosTrivia() {
@@ -474,9 +475,16 @@ export default function CodigosTrivia() {
               </div>
 
               {/* Description */}
-              <p className="text-sm text-gray-600 mb-4 min-h-[40px]">
+              <p className="text-sm text-gray-600 mb-2 min-h-[40px]">
                 {code.description}
               </p>
+
+              {/* Bonus Item */}
+              {code.itemBonificado && (
+                <p className="text-sm font-medium text-purple-700 mb-4">
+                  Item bonificado: {code.itemBonificado}
+                </p>
+              )}
 
               {/* Footer Info */}
               {code.status === 'redeemed' && code.redemptionDate && (
@@ -570,7 +578,15 @@ export default function CodigosTrivia() {
               <p className="font-mono font-bold text-4xl text-gray-900 tracking-wider mb-4">
                 {selectedCodeForModal.code}
               </p>
-              <p className="text-gray-600">{selectedCodeForModal.description}</p>
+              <p className="text-gray-600 mb-3">{selectedCodeForModal.description}</p>
+              {selectedCodeForModal.itemBonificado && (
+                <div className="mt-3 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                  <p className="text-xs text-gray-500 uppercase mb-1">Item bonificado</p>
+                  <p className="text-sm font-semibold text-purple-700">
+                    {selectedCodeForModal.itemBonificado}
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Redemption Date if redeemed */}
