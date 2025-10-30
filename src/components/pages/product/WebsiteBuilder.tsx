@@ -122,8 +122,8 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
     <>
       {/* AI-friendly page summary */}
       <div className="sr-only">
-        <h1>{locale === 'es' ? 'RAY Constructor de Sitios Web - Sitios web para restaurantes que convierten visitas en ventas' : 'RAY Website Builder - Restaurant websites that convert visits into sales'}</h1>
-        <p>{locale === 'es' ? 'RAY Constructor de Sitios Web crea sitios web optimizados para restaurantes que generan más pedidos, reservas y visitas.' : 'RAY Website Builder creates optimized restaurant websites that generate more orders, bookings, and visits.'}</p>
+        <h1>{locale === 'es' ? 'RAY Website de tu restaurante - Sitios web para restaurantes que convierten visitas en ventas' : 'RAY Website Builder - Restaurant websites that convert visits into sales'}</h1>
+        <p>{locale === 'es' ? 'RAY Website de tu restaurante crea sitios web optimizados para restaurantes que generan más pedidos, reservas y visitas.' : 'RAY Website Builder creates optimized restaurant websites that generate more orders, bookings, and visits.'}</p>
       </div>
       
       {/* Hero Section */}
@@ -586,7 +586,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
               {locale === 'es' ? 'Preguntas Frecuentes' : 'Frequently Asked Questions'}
             </h2>
             <p className="text-xl text-ray-darkGray">
-              {locale === 'es' ? 'Todo lo que necesitas saber sobre nuestro constructor de sitios web para restaurantes.' : 'Everything you need to know about our restaurant website builder.'}
+              {locale === 'es' ? 'Todo lo que necesitas saber sobre nuestro website de tu restaurante.' : 'Everything you need to know about our restaurant website builder.'}
             </p>
           </div>
           

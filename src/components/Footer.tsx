@@ -98,9 +98,9 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                 <Link
                   href={`/${locale}/product/restaurant-website-ai`}
                   className="text-ray-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md px-1 py-1"
-                  aria-label={locale === 'es' ? 'Página del Constructor de Sitios Web' : 'Website Builder product page'}
+                  aria-label={locale === 'es' ? 'Página del Website de tu restaurante' : 'Website Builder product page'}
                 >
-                  {locale === 'es' ? 'Constructor de Sitios Web' : 'Website Builder'}
+                  {locale === 'es' ? 'Website de tu restaurante' : 'Website Builder'}
                 </Link>
               </li>
               <li>

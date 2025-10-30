@@ -83,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
             icon: 'whatsapp'
           },
         { 
-          name: locale === 'es' ? 'Constructor de Sitios Web' : 'Website Builder',
+          name: locale === 'es' ? 'Website de tu restaurante' : 'Website Builder',
           path: `/${locale}/product/restaurant-website-ai`,
           description: locale === 'es' ? 'Convierte más visitantes en clientes con un sitio web impulsado por IA.' : 'Convert more visitors into customers with an AI-powered website.',
           icon: Monitor

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const ogLocale = generateOpenGraphLocale(locale)
   
   const title = locale === 'es' 
-    ? 'Constructor de Sitios Web para Restaurantes - RAY'
+    ? 'Website de tu restaurante - RAY'
     : 'Restaurant Website Builder - RAY'
     
   const description = locale === 'es'

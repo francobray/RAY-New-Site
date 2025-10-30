@@ -71,7 +71,7 @@ export const COPY: Record<Locale, any> = {
         METRIC_LABEL: 'llamadas convertidas'
       },
       WEBSITE_BUILDER: {
-        NAME: 'Constructor de Sitios Web',
+        NAME: 'Website de tu restaurante',
         TAGLINE: 'Sitios web construidos para ventas primero',
         DESCRIPTION: 'Convierte más visitantes en clientes con un sitio web impulsado por IA que optimiza conversiones y domina Google.',
         METRIC: '+50%',
@@ -1364,7 +1364,7 @@ export const COPY: Record<Locale, any> = {
       },
       FAQ: {
         TITLE: 'Preguntas Frecuentes',
-        SUBTITLE: 'Todo lo que necesitas saber sobre nuestro constructor de sitios web para restaurantes.',
+        SUBTITLE: 'Todo lo que necesitas saber sobre nuestro website de tu restaurante.',
         QUESTIONS: [
           {
             question: '¿Qué pasa con mi sitio web actual?',
