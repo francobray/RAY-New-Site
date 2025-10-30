@@ -141,18 +141,21 @@ const Demo = ({ locale }: DemoProps) => {
   // Results showcase component
   const ResultsShowcase = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
+      <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
+        Resultados de nuestros clientes
+      </h3>
       <div className="grid grid-cols-3 gap-4">
         <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1">{t.DEMO_PAGE.STATS.NAVIGATION_INCREASE}</div>
-          <div className="text-xs md:text-sm text-gray-600 leading-tight">{t.DEMO_PAGE.STATS.NAVIGATION_LABEL}</div>
+          <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1">350%</div>
+          <div className="text-xs md:text-sm text-gray-600 leading-tight">Aumento de reservas sin comisión</div>
         </div>
         <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold text-green-600 mb-1">{t.DEMO_PAGE.STATS.DAYS_TO_RESULTS}</div>
-          <div className="text-xs md:text-sm text-gray-600 leading-tight">{t.DEMO_PAGE.STATS.DAYS_LABEL}</div>
+          <div className="text-2xl md:text-3xl font-bold text-green-600 mb-1">150%</div>
+          <div className="text-xs md:text-sm text-gray-600 leading-tight">Aumento pedidos Delivery sin comisión</div>
         </div>
         <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">{t.DEMO_PAGE.STATS.RESTAURANTS_COUNT}</div>
-          <div className="text-xs md:text-sm text-gray-600 leading-tight">{t.DEMO_PAGE.STATS.RESTAURANTS_LABEL}</div>
+          <div className="text-2xl md:text-3xl font-bold text-purple-600 mb-1">30%</div>
+          <div className="text-xs md:text-sm text-gray-600 leading-tight">Aumento de tráfico desde Google Maps al restaurante</div>
         </div>
       </div>
     </div>
@@ -167,15 +170,9 @@ const Demo = ({ locale }: DemoProps) => {
               
               {/* Left Column - Information */}
               <div className="p-8 lg:p-12 bg-gray-50">
-                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                   {t.DEMO_PAGE.HERO_TITLE}
                 </h1>
-                
-                <p className="text-lg text-gray-600 mb-6">
-                  {t.DEMO_PAGE.HERO_SUBTITLE
-                    .replace('{RESTAURANTS_COUNT}', t.TRUST.RESTAURANTS_COUNT)
-                    .replace('{COMPANY_NAME}', t.COMPANY.NAME)}
-                </p>
                 
                 <ResultsShowcase />
                 
@@ -186,35 +183,16 @@ const Demo = ({ locale }: DemoProps) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   {t.DEMO_PAGE.BENEFITS.map((benefit: Benefit, index: number) => (
                     <div key={index} className="bg-white p-4 rounded-lg shadow-sm">
-                      <div className="flex items-start gap-3">
-                        <LightningIcon />
-                        <div>
-                          <h3 className="font-semibold text-gray-900 mb-1">
-                            {benefit.TITLE}
-                          </h3>
-                          <p className="text-sm text-gray-600">
-                            {benefit.DESCRIPTION}
-                          </p>
-                        </div>
+                      <div>
+                        <h3 className="text-[15px] font-semibold text-gray-900 mb-1">
+                          {benefit.TITLE}
+                        </h3>
+                        <p className="text-sm text-gray-600">
+                          {benefit.DESCRIPTION}
+                        </p>
                       </div>
                     </div>
                   ))}
-                </div>
-                
-                {/* Trust Indicators */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                  <div className="bg-white p-4 rounded-lg shadow-sm text-center">
-                    <div className="text-2xl mb-2">📈</div>
-                    <div className="font-semibold text-gray-900 text-sm">
-                      {t.TRUST.GROWTH_GUARANTEE}
-                    </div>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg shadow-sm text-center">
-                    <div className="text-2xl mb-2">🚀</div>
-                    <div className="font-semibold text-gray-900 text-sm">
-                      {t.TRUST.RESULTS_TIMEFRAME}
-                    </div>
-                  </div>
                 </div>
                 
                 {/* Testimonial */}
@@ -314,91 +292,93 @@ const Demo = ({ locale }: DemoProps) => {
                     </div>
                   </div>
                   
-                  {/* Email */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t.DEMO_PAGE.FORM.EMAIL_LABEL}
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder={t.DEMO_PAGE.FORM.EMAIL_PLACEHOLDER}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                        formErrors.email ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      required
-                    />
-                    {formErrors.email && (
-                      <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
-                    )}
-                  </div>
-                  
-                  {/* Cellphone */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t.DEMO_PAGE.FORM.PHONE_LABEL}
-                    </label>
-                    <div className="flex">
-                      <select
-                        name="phoneCountry"
-                        value={formData.phoneCountry}
-                        onChange={handleInputChange}
-                        className="px-3 py-2 border border-r-0 border-gray-300 rounded-l-lg bg-gray-50 text-sm focus:outline-none"
-                      >
-                        <option value="us">🇺🇸 US</option>
-                        <option value="other">Other</option>
-                      </select>
+                  {/* Email and Cellphone */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.DEMO_PAGE.FORM.EMAIL_LABEL}
+                      </label>
                       <input
-                        type="tel"
-                        name="cellphone"
-                        value={formData.cellphone}
+                        type="email"
+                        name="email"
+                        value={formData.email}
                         onChange={handleInputChange}
-                        placeholder={t.DEMO_PAGE.FORM.PHONE_PLACEHOLDER}
-                        className={`flex-1 px-3 py-2 border rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                          formErrors.cellphone ? 'border-red-500' : 'border-gray-300'
+                        placeholder={t.DEMO_PAGE.FORM.EMAIL_PLACEHOLDER}
+                        className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                          formErrors.email ? 'border-red-500' : 'border-gray-300'
                         }`}
                         required
                       />
+                      {formErrors.email && (
+                        <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+                      )}
                     </div>
-                    {formErrors.cellphone && (
-                      <p className="text-red-500 text-sm mt-1">{formErrors.cellphone}</p>
-                    )}
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.DEMO_PAGE.FORM.PHONE_LABEL}
+                      </label>
+                      <div className="flex w-full">
+                        <select
+                          name="phoneCountry"
+                          value={formData.phoneCountry}
+                          onChange={handleInputChange}
+                          className="px-3 py-2 border border-r-0 border-gray-300 rounded-l-lg bg-gray-50 text-sm focus:outline-none"
+                        >
+                          <option value="us">🇺🇸 US</option>
+                          <option value="other">Other</option>
+                        </select>
+                        <input
+                          type="tel"
+                          name="cellphone"
+                          value={formData.cellphone}
+                          onChange={handleInputChange}
+                          placeholder={t.DEMO_PAGE.FORM.PHONE_PLACEHOLDER}
+                          className={`flex-1 px-3 py-2 border rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                            formErrors.cellphone ? 'border-red-500' : 'border-gray-300'
+                          }`}
+                          required
+                        />
+                      </div>
+                      {formErrors.cellphone && (
+                        <p className="text-red-500 text-sm mt-1">{formErrors.cellphone}</p>
+                      )}
+                    </div>
                   </div>
                   
-                  {/* Restaurant name */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t.DEMO_PAGE.FORM.RESTAURANT_NAME_LABEL}
-                    </label>
-                    <PlacesAutocomplete
-                      name="restaurantName"
-                      value={formData.restaurantName}
-                      onChange={(value) => setFormData(prev => ({ ...prev, restaurantName: value }))}
-                      placeholder={t.DEMO_PAGE.FORM.RESTAURANT_NAME_PLACEHOLDER}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                  
-                  {/* How did you hear about us */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t.DEMO_PAGE.FORM.HOW_HEARD_LABEL}
-                    </label>
-                    <select
-                      name="howDidYouHear"
-                      value={formData.howDidYouHear}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    >
-                      <option value="">{t.DEMO_PAGE.FORM.HOW_HEARD_PLACEHOLDER}</option>
-                      <option value="google">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.GOOGLE}</option>
-                      <option value="social">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.SOCIAL}</option>
-                      <option value="referral">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.REFERRAL}</option>
-                      <option value="advertising">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.ADVERTISING}</option>
-                      <option value="other">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.OTHER}</option>
-                    </select>
+                  {/* Restaurant name and How did you hear about us */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.DEMO_PAGE.FORM.RESTAURANT_NAME_LABEL}
+                      </label>
+                      <PlacesAutocomplete
+                        name="restaurantName"
+                        value={formData.restaurantName}
+                        onChange={(value) => setFormData(prev => ({ ...prev, restaurantName: value }))}
+                        placeholder={t.DEMO_PAGE.FORM.RESTAURANT_NAME_PLACEHOLDER}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.DEMO_PAGE.FORM.HOW_HEARD_LABEL}
+                      </label>
+                      <select
+                        name="howDidYouHear"
+                        value={formData.howDidYouHear}
+                        onChange={handleInputChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      >
+                        <option value="">{t.DEMO_PAGE.FORM.HOW_HEARD_PLACEHOLDER}</option>
+                        <option value="google">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.GOOGLE}</option>
+                        <option value="social">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.SOCIAL}</option>
+                        <option value="referral">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.REFERRAL}</option>
+                        <option value="advertising">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.ADVERTISING}</option>
+                        <option value="other">{t.DEMO_PAGE.FORM.HOW_HEARD_OPTIONS.OTHER}</option>
+                      </select>
+                    </div>
                   </div>
                   
                   {/* Checkbox */}
@@ -415,9 +395,6 @@ const Demo = ({ locale }: DemoProps) => {
                         {t.DEMO_PAGE.FORM.CONSENT_TEXT.replace('{COMPANY_NAME}', t.COMPANY.NAME)}
                       </span>
                     </label>
-                    <p className="text-xs text-gray-500">
-                      {t.DEMO_PAGE.FORM.CONSENT_DISCLAIMER}
-                    </p>
                   </div>
                   
                   {/* Status messages */}

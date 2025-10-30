@@ -523,25 +523,25 @@ export const COPY: Record<Locale, any> = {
     // Demo Page
     DEMO_PAGE: {
       HERO_TITLE: 'Ve la plataforma de ventas #1 para restaurantes en acción',
-      HERO_SUBTITLE: 'Garantizamos un aumento del 30%+ en direcciones de Google Maps dentro de 6 meses — o te devolvemos tu inversión. Únete a {RESTAURANTS_COUNT} que ya están haciendo crecer sus ingresos con {COMPANY_NAME}.',
+      HERO_SUBTITLE: 'Únete a {RESTAURANTS_COUNT} que ya están haciendo crecer sus ingresos con {COMPANY_NAME}.',
       DEMO_INTRO: 'En tu demo de 20 minutos, te mostraremos cómo',
-      FORM_TITLE: 'Reserva tu demo gratuita',
+      FORM_TITLE: 'Agenda tu demo gratuita',
       BENEFITS: [
         {
-          TITLE: 'Estrategia de Visitas',
-          DESCRIPTION: 'Marketing local impulsado por IA para dominar Google Maps y generar tráfico.'
+          TITLE: 'Delivery Directo',
+          DESCRIPTION: 'Aumenta los pedidos de delivery con nuestro agente de WhatsApp e Instagram y tu website que aparece en Google Search y buscadores AI'
         },
         {
-          TITLE: 'Crecimiento de Pedidos Online',
-          DESCRIPTION: 'Sistemas de pedidos integrados con análisis completos para impulsar ingresos digitales.'
+          TITLE: 'Reservas sin comisión',
+          DESCRIPTION: 'Consigue reservas sin comisión por nuestro agente de WhatsApp, Instagram y tu propio website'
         },
         {
-          TITLE: 'Optimización de Reservas',
-          DESCRIPTION: 'Gestión inteligente de reservas y herramientas de lista de espera para maximizar la ocupación de mesas.'
+          TITLE: 'Más tráfico de Google Maps',
+          DESCRIPTION: 'Garantizamos 30% más visitas desde Google Maps de las que tienes hoy, optimizando el perfil Google Maps del restaurante.'
         },
         {
-          TITLE: 'Análisis de Ingresos',
-          DESCRIPTION: 'Datos de rendimiento reales, casos de estudio y nuestra garantía del 30%+ en direcciones de Google Maps.'
+          TITLE: 'Casos de restaurantes reals',
+          DESCRIPTION: 'Te mostraremos casos reales en que las visitas desde Google Maps aumentan en los primeros 60-90 días de usar RAY'
         }
       ],
       STATS: {
@@ -585,7 +585,7 @@ export const COPY: Record<Locale, any> = {
           ADVERTISING: 'Publicidad Online',
           OTHER: 'Otro'
         },
-        CONSENT_TEXT: 'Acepto recibir mensajes de texto automatizados de {COMPANY_NAME} al número de teléfono proporcionado para ayudarme a programar una demo y evaluar la plataforma. El consentimiento no es obligatorio. Al registrarme, recibiré aproximadamente 4 mensajes por mes.',
+        CONSENT_TEXT: 'Acepto recibir mensajes de texto automatizados de {COMPANY_NAME} al número de teléfono proporcionado para ayudarme a programar una demo y evaluar la plataforma. El consentimiento no es obligatorio.',
         CONSENT_DISCLAIMER: 'Pueden aplicar tarifas de mensajes y datos. Responde STOP para cancelar en cualquier momento.',
         SUBMIT_BUTTON: 'Obtener una demo gratuita →',
         SUBMITTING: 'Enviando...',
@@ -2024,16 +2024,16 @@ export const COPY: Record<Locale, any> = {
       FORM_TITLE: 'Book your free demo',
       BENEFITS: [
         {
-          TITLE: 'Walk-Ins Strategy',
-          DESCRIPTION: 'AI-powered local marketing to dominate Google Maps and drive foot traffic.'
-        },
-        {
           TITLE: 'Online Orders Growth',
           DESCRIPTION: 'Integrated ordering systems with comprehensive analytics to boost digital revenue.'
         },
         {
           TITLE: 'Bookings Optimization',
           DESCRIPTION: 'Smart reservation management and waitlist tools to maximize table occupancy.'
+        },
+        {
+          TITLE: 'Walk-Ins Strategy',
+          DESCRIPTION: 'AI-powered local marketing to dominate Google Maps and drive foot traffic.'
         },
         {
           TITLE: 'Revenue Analytics',

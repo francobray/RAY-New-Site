@@ -209,9 +209,6 @@ const PlacesAutocomplete = ({
         className={className}
         required={required}
       />
-      <p className="text-xs text-gray-500 mt-1">
-        Start typing to see restaurant suggestions
-      </p>
     </div>
   )
 }
