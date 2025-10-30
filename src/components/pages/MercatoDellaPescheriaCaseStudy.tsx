@@ -3,7 +3,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { ArrowLeft, TrendingUp, Users, Award } from 'lucide-react'
+import { ArrowLeft, TrendingUp, MapPin, Users, Award } from 'lucide-react'
 import Image from 'next/image'
 import { type Locale } from '@/lib/i18n'
 
