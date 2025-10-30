@@ -198,7 +198,7 @@ export async function generateStaticParams() {
     { slug: 'dolcezza' },
     { slug: 'la-birra-bar' },
     { slug: 'almacen-de-pizzas' },
-    { slug: 'efes-mg-group' },
+    { slug: 'isla-bar' },
     { slug: 'la-parolaccia' },
     { slug: 'libertino-cafe' },
     { slug: 'cerveza-patagonia' },
