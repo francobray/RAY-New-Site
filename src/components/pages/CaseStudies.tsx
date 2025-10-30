@@ -3,9 +3,14 @@
 import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
-import CTASection from '../CTASection'
+import dynamic from 'next/dynamic'
 import { useTranslations } from '../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('../CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 
 // Function to get localized case studies data
 const getCaseStudiesData = (locale: Locale, t: any) => [

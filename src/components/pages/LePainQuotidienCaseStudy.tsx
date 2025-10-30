@@ -1,10 +1,15 @@
 'use client'
 
 import React from 'react'
+import dynamic from 'next/dynamic'
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('../CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, Star, Users, Award, MapPin } from 'lucide-react'
 import Image from 'next/image'
-import CTASection from '../CTASection'
 import { type Locale } from '@/lib/i18n'
 
 interface LePainQuotidienCaseStudyProps {
@@ -131,6 +136,11 @@ const LePainQuotidienCaseStudy: React.FC<LePainQuotidienCaseStudyProps> = ({ loc
               width={1200}
               height={600}
               className="w-full h-[400px] md:h-[500px] object-cover"
+              sizes="(max-width: 768px) 100vw, 1200px"
+              priority
+              quality={85}
+              placeholder="blur"
+              blurDataURL="data:image/webp;base64,UklGRh4AAABXRUJQVlA4IBIAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
               <p className="text-white text-lg font-medium">

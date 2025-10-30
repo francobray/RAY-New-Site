@@ -12,8 +12,13 @@ import {
   ArrowRight
 } from 'lucide-react'
 import Card from '@/components/Card'
-import CTASection from '@/components/CTASection'
+import dynamic from 'next/dynamic'
 import { type Locale } from '@/lib/i18n'
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('@/components/CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 
 interface SolutionsPageProps {
   params: { locale: string }

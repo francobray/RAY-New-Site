@@ -1,10 +1,15 @@
 'use client'
 
 import React from 'react'
+import dynamic from 'next/dynamic'
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('../CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, MapPin, Users, Leaf } from 'lucide-react'
 import Image from 'next/image'
-import CTASection from '../CTASection'
 import { type Locale } from '@/lib/i18n'
 
 interface GreenEatCaseStudyProps {
@@ -109,6 +114,9 @@ const GreenEatCaseStudy: React.FC<GreenEatCaseStudyProps> = ({ locale }) => {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
+                    quality={85}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   />
                   
                   {/* Image Overlay */}

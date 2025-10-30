@@ -1,11 +1,17 @@
 'use client'
 
 import React from 'react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, MapPin, Users, Wrench } from 'lucide-react'
 import Image from 'next/image'
-import CTASection from '../CTASection'
 import { type Locale } from '@/lib/i18n'
+
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('../CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 
 interface CRAFTCaseStudyProps {
   locale: Locale

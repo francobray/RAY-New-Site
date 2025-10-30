@@ -1,10 +1,15 @@
 'use client'
 
 import React from 'react'
+import dynamic from 'next/dynamic'
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('../CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, MapPin, Users, Zap } from 'lucide-react'
 import Image from 'next/image'
-import CTASection from '../CTASection'
 import { type Locale } from '@/lib/i18n'
 
 interface WingsFCCaseStudyProps {
@@ -109,6 +114,9 @@ const WingsFCCaseStudy: React.FC<WingsFCCaseStudyProps> = ({ locale }) => {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
+                    quality={85}
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                   />
                   
                   {/* Image Overlay */}

@@ -1,10 +1,15 @@
 'use client'
 
 import React from 'react'
+import dynamic from 'next/dynamic'
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('../CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, Star, Users, Award, MapPin, Eye } from 'lucide-react'
 import Image from 'next/image'
-import CTASection from '../CTASection'
 import { type Locale } from '@/lib/i18n'
 
 interface LaGuitarritaCaseStudyProps {

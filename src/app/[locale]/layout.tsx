@@ -144,15 +144,80 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         />
       </head>
       <body className="antialiased" suppressHydrationWarning>
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P"></script>
+        {/* Google Analytics - Optimized deferred loading */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
+              // Initialize dataLayer early (non-blocking)
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-CFH2T8RJ0P');
+              // Make gtag available globally immediately
+              window.gtag = gtag;
+              
+              // Defer Google Tag Manager script loading until page is interactive
+              // This improves initial page load performance (~55 KiB savings)
+              function loadGoogleAnalytics() {
+                // Prevent multiple loads
+                if (window.__gtag_loaded) return;
+                window.__gtag_loaded = true;
+                
+                // Load GTM script dynamically
+                var script = document.createElement('script');
+                script.async = true;
+                script.defer = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CFH2T8RJ0P';
+                document.head.appendChild(script);
+                
+                // Configure after script loads
+                script.onload = function() {
+                  gtag('js', new Date());
+                  gtag('config', 'G-CFH2T8RJ0P');
+                  // Process any queued events
+                  if (window.dataLayer && window.dataLayer.length > 0) {
+                    window.dataLayer.forEach(function(item) {
+                      if (item && item[0] === 'event') {
+                        gtag.apply(null, item);
+                      }
+                    });
+                  }
+                };
+              }
+              
+              // Load after page is interactive or user interaction
+              if (document.readyState === 'complete') {
+                loadGoogleAnalytics();
+              } else {
+                // Use requestIdleCallback for better performance, fallback to setTimeout
+                if (window.requestIdleCallback) {
+                  requestIdleCallback(loadGoogleAnalytics, { timeout: 2000 });
+                } else {
+                  // Fallback: load after DOMContentLoaded + small delay
+                  if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function() {
+                      setTimeout(loadGoogleAnalytics, 1000);
+                    });
+                  } else {
+                    setTimeout(loadGoogleAnalytics, 1000);
+                  }
+                }
+                
+                // Also load on first user interaction (scroll, click, touch)
+                // This ensures analytics loads when user engages with the page
+                var interactionEvents = ['scroll', 'click', 'touchstart', 'keydown'];
+                var loadedOnInteraction = false;
+                var loadOnInteraction = function() {
+                  if (!loadedOnInteraction) {
+                    loadedOnInteraction = true;
+                    loadGoogleAnalytics();
+                    interactionEvents.forEach(function(event) {
+                      document.removeEventListener(event, loadOnInteraction, { passive: true });
+                    });
+                  }
+                };
+                interactionEvents.forEach(function(event) {
+                  document.addEventListener(event, loadOnInteraction, { passive: true, once: true });
+                });
+              }
             `,
           }}
         />

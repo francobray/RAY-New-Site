@@ -1,12 +1,18 @@
 'use client'
 
 import React from 'react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
 import Image from 'next/image'
-import CTASection from '../CTASection'
 import { useTranslations } from '../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
+
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('../CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 
 interface ChimbaCaseStudyProps {
   locale: Locale

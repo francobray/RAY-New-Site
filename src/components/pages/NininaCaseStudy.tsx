@@ -1,10 +1,15 @@
 'use client'
 
 import React from 'react'
+import dynamic from 'next/dynamic'
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('../CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, Star, Eye, Users, Award, MapPin } from 'lucide-react'
 import Image from 'next/image'
-import CTASection from '../CTASection'
 import { type Locale } from '@/lib/i18n'
 
 const NininaCaseStudy: React.FC<{ locale: Locale }> = ({ locale }) => {
@@ -104,7 +109,7 @@ const NininaCaseStudy: React.FC<{ locale: Locale }> = ({ locale }) => {
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-            <Image src="/images/success-stories/Ninina.webp" alt="Ninina serving corporate lunch" width={1200} height={600} className="w-full h-[400px] md:h-[500px] object-cover" sizes="(max-width: 768px) 100vw, 1200px" />
+            <Image src="/images/success-stories/Ninina.webp" alt="Ninina serving corporate lunch" width={1200} height={600} className="w-full h-[400px] md:h-[500px] object-cover" sizes="(max-width: 768px) 100vw, 1200px" priority quality={85} placeholder="blur" blurDataURL="data:image/webp;base64,UklGRh4AAABXRUJQVlA4IBIAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=" />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
               <p className="text-white text-lg font-medium">{locale === 'es' ? 'Ninina – impulsando jornadas laborales con almuerzos deliciosos' : 'Ninina – fueling workdays with delicious lunches'}</p>
             </div>

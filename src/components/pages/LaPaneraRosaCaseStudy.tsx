@@ -1,11 +1,17 @@
 'use client'
 
 import React from 'react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { ArrowLeft, TrendingUp, Star, Eye, Users, Award, MapPin } from 'lucide-react'
 import Image from 'next/image'
-import CTASection from '../CTASection'
 import { type Locale } from '@/lib/i18n'
+
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('../CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 
 const LaPaneraRosaCaseStudy: React.FC<{ locale: Locale }> = ({ locale }) => {
   
@@ -104,7 +110,18 @@ const LaPaneraRosaCaseStudy: React.FC<{ locale: Locale }> = ({ locale }) => {
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-            <Image src="/images/success-stories/Panera_Rosa.jpeg" alt="La Panera Rosa fresh pastries" width={1200} height={600} className="w-full h-[400px] md:h-[500px] object-cover" sizes="(max-width: 768px) 100vw, 1200px" />
+            <Image 
+              src="/images/success-stories/Panera_Rosa.jpeg" 
+              alt="La Panera Rosa fresh pastries" 
+              width={1200} 
+              height={600} 
+              className="w-full h-[400px] md:h-[500px] object-cover" 
+              sizes="(max-width: 768px) 100vw, 1200px"
+              priority
+              quality={85}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+            />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
               <p className="text-white text-lg font-medium">{locale === 'es' ? 'La Panera Rosa – pasteles frescos que comienzan tu día perfecto' : 'La Panera Rosa – fresh pastries that start your day right'}</p>
             </div>
@@ -223,4 +240,3 @@ const LaPaneraRosaCaseStudy: React.FC<{ locale: Locale }> = ({ locale }) => {
 }
 
 export default LaPaneraRosaCaseStudy
-

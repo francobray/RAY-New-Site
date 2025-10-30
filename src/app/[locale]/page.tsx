@@ -7,7 +7,12 @@ import ProductSection from '@/components/ProductSection'
 import SuccessCarousel from '@/components/SuccessCarousel'
 import ProductShowcase from '@/components/ProductShowcase'
 import FAQ from '@/components/FAQ'
-import CTASection from '@/components/CTASection'
+import dynamic from 'next/dynamic'
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('@/components/CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 
 interface HomePageProps {
   params: { locale: string }
