@@ -24,6 +24,13 @@ import RapanuiCaseStudy from '@/components/pages/RapanuiCaseStudy'
 import TeaConnectionCaseStudy from '@/components/pages/TeaConnectionCaseStudy'
 import TostadoCaseStudy from '@/components/pages/TostadoCaseStudy'
 import YPFFullCaseStudy from '@/components/pages/YPFFullCaseStudy'
+import OhMexicoCaseStudy from '@/components/pages/OhMexicoCaseStudy'
+import MercatoDellaPescheriaCaseStudy from '@/components/pages/MercatoDellaPescheriaCaseStudy'
+import BarseccoCaseStudy from '@/components/pages/BarseccoCaseStudy'
+import SaltyFlameCaseStudy from '@/components/pages/SaltyFlameCaseStudy'
+import PaperfishCaseStudy from '@/components/pages/PaperfishCaseStudy'
+import MarabuCaseStudy from '@/components/pages/MarabuCaseStudy'
+import CortaditoCaseStudy from '@/components/pages/CortaditoCaseStudy'
 import { type Locale } from '@/lib/i18n'
 
 interface Props {
@@ -45,9 +52,9 @@ const caseStudyData = {
     description: 'Discover how Temple Craft Wynwood achieved 259% increase in Google Maps visits and 66% more walk-ins with RAY\'s local marketing strategies. Craft beer success story.',
     component: TempleCraftCaseStudy
   },
-  've-hospitality': {
-    title: 'V&E Hospitality - Restaurant Group Success | RAY',
-    description: 'See how V&E Hospitality Group increased revenue across multiple restaurant locations using RAY\'s comprehensive marketing platform.',
+  'havana-1957': {
+    title: 'Havana 1957 - Cuban Restaurant Success | RAY',
+    description: 'See how Havana 1957 increased revenue and customer engagement using RAY\'s comprehensive marketing platform for authentic Cuban dining.',
     component: VEHospitalityCaseStudy
   },
   'green-eat': {
@@ -154,6 +161,41 @@ const caseStudyData = {
     title: 'YPF Full Case Study - 342% Growth in Quick Service Orders | RAY',
     description: 'See how YPF Full achieved 342% increase in quick service orders across 50+ locations.',
     component: YPFFullCaseStudy
+  },
+  'oh-mexico': {
+    title: 'Oh! Mexico - Authentic Mexican Restaurant Success | RAY',
+    description: 'See how Oh! Mexico increased revenue by 215% and became the top-rated authentic Mexican restaurant using RAY\'s digital marketing platform.',
+    component: OhMexicoCaseStudy
+  },
+  'mercato-della-pescheria': {
+    title: 'Mercato Della Pescheria - Italian Seafood Excellence | RAY',
+    description: 'See how Mercato Della Pescheria tripled bookings and established themselves as the premium Italian seafood destination with RAY\'s marketing platform.',
+    component: MercatoDellaPescheriaCaseStudy
+  },
+  'barsecco': {
+    title: 'Barsecco - Italian Cocktail Bar Excellence | RAY',
+    description: 'See how Barsecco became the premier Italian cocktail destination with 276% growth in bookings using RAY\'s luxury nightlife marketing platform.',
+    component: BarseccoCaseStudy
+  },
+  'salty-flame': {
+    title: 'Salty Flame - Modern Grill Restaurant Success | RAY',
+    description: 'Discover how Salty Flame established themselves as the premium modern grill destination with 312% growth in bookings using RAY\'s marketing platform.',
+    component: SaltyFlameCaseStudy
+  },
+  'paperfish': {
+    title: 'Paperfish - Sustainable Seafood Restaurant Success | RAY',
+    description: 'See how Paperfish became the sustainable seafood reference with 385% growth in bookings and captured the eco-conscious market using RAY\'s platform.',
+    component: PaperfishCaseStudy
+  },
+  'marabu': {
+    title: 'Marabu - Caribbean Fusion Restaurant Success | RAY',
+    description: 'Discover how Marabu became the premium Caribbean fusion destination with 298% growth in bookings using RAY\'s repositioning strategy.',
+    component: MarabuCaseStudy
+  },
+  'cortadito-cafe': {
+    title: 'Cortadito Cafe - Authentic Cuban Coffee Shop Success | RAY',
+    description: 'See how Cortadito Cafe became the reference for authentic Cuban coffee with 365% growth in sales using RAY\'s cultural marketing strategy.',
+    component: CortaditoCaseStudy
   }
 }
 
@@ -174,14 +216,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: caseStudy.title,
       description: caseStudy.description,
-      url: `https://rayapp.io/${locale}/case-studies/${slug}`,
+      url: `https://www.rayapp.io/${locale}/case-studies/${slug}`,
     },
     twitter: {
       title: caseStudy.title,
       description: caseStudy.description,
     },
     alternates: {
-      canonical: `https://rayapp.io/${locale}/case-studies/${slug}`,
+      canonical: `https://www.rayapp.io/${locale}/case-studies/${slug}`,
     },
   }
 }
@@ -190,7 +232,7 @@ export async function generateStaticParams() {
   return [
     { slug: 'chimba-miami' },
     { slug: 'temple-craft-wynwood' },
-    { slug: 've-hospitality' },
+    { slug: 'havana-1957' },
     { slug: 'green-eat' },
     { slug: 'havanna' },
     { slug: 'craft' },
@@ -211,7 +253,14 @@ export async function generateStaticParams() {
     { slug: 'rapanui' },
     { slug: 'tea-connection' },
     { slug: 'tostado' },
-    { slug: 'ypf-full' }
+    { slug: 'ypf-full' },
+    { slug: 'oh-mexico' },
+    { slug: 'mercato-della-pescheria' },
+    { slug: 'barsecco' },
+    { slug: 'salty-flame' },
+    { slug: 'paperfish' },
+    { slug: 'marabu' },
+    { slug: 'cortadito-cafe' }
   ]
 }
 

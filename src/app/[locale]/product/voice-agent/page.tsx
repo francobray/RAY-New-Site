@@ -15,14 +15,14 @@ export async function generateMetadata({ params }: VoiceAgentPageProps): Promise
     openGraph: {
       title: 'Voice Agent for Restaurants | RAY',
       description: 'AI-powered phone assistant that answers calls, takes bookings, responds to FAQs, and provides menu information 24/7.',
-      url: `https://rayapp.io/${locale}/product/voice-agent`,
+      url: `https://www.rayapp.io/${locale}/product/voice-agent`,
     },
     twitter: {
       title: 'Voice Agent for Restaurants | RAY',
       description: 'AI-powered phone assistant that answers calls, takes bookings, responds to FAQs, and provides menu information 24/7.',
     },
     alternates: {
-      canonical: `https://rayapp.io/${locale}/product/voice-agent`,
+      canonical: `https://www.rayapp.io/${locale}/product/voice-agent`,
     },
   }
 }

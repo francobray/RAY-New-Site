@@ -119,7 +119,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
             {[
               '/images/success-stories/Green-Eat.webp',
               '/images/success-stories/Temple_Team.webp', 
-              '/images/success-stories/Restaurant-photo-ray.webp',
+              '/images/success-stories/Havana-1957.webp',
               '/images/success-stories/parolaccia.webp',
               '/images/success-stories/WingsFC.webp'
             ].map((image, index) => (

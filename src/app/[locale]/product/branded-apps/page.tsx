@@ -17,12 +17,12 @@ export async function generateMetadata({ params }: MobileAppPageProps): Promise<
     openGraph: {
       title: 'Mobile App for Restaurants | RAY',
       description: 'Imagine having your own restaurant mobile app. With a mobile app, send customers order directly — instead of going to third parties.',
-      url: `https://rayapp.io/${locale}/product/branded-apps`,
+      url: `https://www.rayapp.io/${locale}/product/branded-apps`,
       type: 'website',
       siteName: 'RAY',
       images: [
         {
-          url: `https://rayapp.io/images/branded-apps/Temple-mobile-app.webp`,
+          url: `https://www.rayapp.io/images/branded-apps/Temple-mobile-app.webp`,
           width: 1200,
           height: 630,
           alt: 'Restaurant branded mobile app - RAY'
@@ -33,10 +33,10 @@ export async function generateMetadata({ params }: MobileAppPageProps): Promise<
       card: 'summary_large_image',
       title: 'Mobile App for Restaurants | RAY',
       description: 'Imagine having your own restaurant mobile app. With a mobile app, send customers order directly — instead of going to third parties.',
-      images: [`https://rayapp.io/images/branded-apps/Temple-mobile-app.webp`],
+      images: [`https://www.rayapp.io/images/branded-apps/Temple-mobile-app.webp`],
     },
     alternates: {
-      canonical: `https://rayapp.io/${locale}/product/branded-apps`,
+      canonical: `https://www.rayapp.io/${locale}/product/branded-apps`,
     },
   }
 }
@@ -46,13 +46,13 @@ export default function MobileAppPage({ params }: MobileAppPageProps) {
   const t = getTranslations(locale)
   
   // FAQ schema - using the same FAQs from the component
-  const faqSchema = generateFAQSchema(t.MOBILE_APP_PAGE.FAQ.QUESTIONS, `https://rayapp.io/${locale}/product/branded-apps`)
+  const faqSchema = generateFAQSchema(t.MOBILE_APP_PAGE.FAQ.QUESTIONS, `https://www.rayapp.io/${locale}/product/branded-apps`)
 
   // Breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://rayapp.io/${locale}` },
-    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://rayapp.io/${locale}/products` },
-    { name: locale === 'es' ? 'App Personalizada' : 'Branded Apps', url: `https://rayapp.io/${locale}/product/branded-apps` }
+    { name: locale === 'es' ? 'Inicio' : 'Home', url: `https://www.rayapp.io/${locale}` },
+    { name: locale === 'es' ? 'Productos' : 'Products', url: `https://www.rayapp.io/${locale}/products` },
+    { name: locale === 'es' ? 'App Personalizada' : 'Branded Apps', url: `https://www.rayapp.io/${locale}/product/branded-apps` }
   ])
 
   const combinedSchema = [faqSchema, breadcrumbSchema]

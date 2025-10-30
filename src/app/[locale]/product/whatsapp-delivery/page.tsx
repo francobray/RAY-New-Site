@@ -15,14 +15,14 @@ export async function generateMetadata({ params }: WhatsAppDeliveryPageProps): P
     openGraph: {
       title: 'WhatsApp Delivery for Restaurants | RAY',
       description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
-      url: `https://rayapp.io/${locale}/product/whatsapp-delivery`,
+      url: `https://www.rayapp.io/${locale}/product/whatsapp-delivery`,
     },
     twitter: {
       title: 'WhatsApp Delivery for Restaurants | RAY',
       description: 'Responde al instante, 24/7. Convierte mensajes en visitas, reservas y pedidos. Multilingüe. Piloto sin riesgo.',
     },
     alternates: {
-      canonical: `https://rayapp.io/${locale}/product/whatsapp-delivery`,
+      canonical: `https://www.rayapp.io/${locale}/product/whatsapp-delivery`,
     },
   }
 }

@@ -4,7 +4,7 @@ import path from 'path'
 import { type Locale } from '../lib/i18n'
 
 // Configuration
-const BASE_URL = 'https://rayapp.io'
+const BASE_URL = 'https://www.rayapp.io'
 const LOCALES: Locale[] = ['es', 'en']
 
 // Static routes that don't follow the [locale] pattern
@@ -84,7 +84,7 @@ async function getCaseStudies(): Promise<string[]> {
     return [
       'chimba-miami',
       'temple-craft-wynwood',
-      've-hospitality',
+      'havana-1957',
       'green-eat',
       'havanna',
       'craft',
@@ -92,7 +92,7 @@ async function getCaseStudies(): Promise<string[]> {
       'dolcezza',
       'la-birra-bar',
       'almacen-de-pizzas',
-      'efes-mg-group',
+      'isla-bar',
       'la-parolaccia',
       'libertino-cafe',
       'cerveza-patagonia',
@@ -105,7 +105,14 @@ async function getCaseStudies(): Promise<string[]> {
       'rapanui',
       'tea-connection',
       'tostado',
-      'ypf-full'
+      'ypf-full',
+      'oh-mexico',
+      'mercato-della-pescheria',
+      'barsecco',
+      'salty-flame',
+      'paperfish',
+      'marabu',
+      'cortadito-cafe'
     ].sort()
   }
 }

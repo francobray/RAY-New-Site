@@ -15,14 +15,14 @@ export async function generateMetadata({ params }: CaseStudiesPageProps): Promis
     openGraph: {
       title: 'Case Studies - Restaurant Marketing Success Stories | RAY',
       description: 'Discover how restaurants increased revenue by 30%+ with RAY\'s marketing platform. Read real success stories and results from our restaurant partners.',
-      url: `https://rayapp.io/${locale}/case-studies`,
+      url: `https://www.rayapp.io/${locale}/case-studies`,
     },
     twitter: {
       title: 'Case Studies - Restaurant Marketing Success Stories | RAY',
       description: 'Discover how restaurants increased revenue by 30%+ with RAY\'s marketing platform. Read real success stories and results from our restaurant partners.',
     },
     alternates: {
-      canonical: `https://rayapp.io/${locale}/case-studies`,
+      canonical: `https://www.rayapp.io/${locale}/case-studies`,
     },
   }
 }

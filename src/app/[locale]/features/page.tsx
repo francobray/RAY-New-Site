@@ -33,14 +33,14 @@ export async function generateMetadata({ params }: SolutionsPageProps): Promise<
     openGraph: {
       title: 'Solutions - Complete Restaurant Technology Platform | RAY',
       description: 'Discover RAY\'s 8 powerful solutions: Branded Apps, Direct Bookings, Loyalty Programs, Online Orders, WhatsApp Delivery, Restaurant Website AI, Voice Agent, and Zero-Commission Delivery. Everything you need to grow your restaurant.',
-      url: `https://rayapp.io/${locale}/solutions`,
+      url: `https://www.rayapp.io/${locale}/solutions`,
     },
     twitter: {
       title: 'Solutions - Complete Restaurant Technology Platform | RAY',
       description: 'Discover RAY\'s 8 powerful solutions: Branded Apps, Direct Bookings, Loyalty Programs, Online Orders, WhatsApp Delivery, Restaurant Website AI, Voice Agent, and Zero-Commission Delivery. Everything you need to grow your restaurant.',
     },
     alternates: {
-      canonical: `https://rayapp.io/${locale}/solutions`,
+      canonical: `https://www.rayapp.io/${locale}/solutions`,
     },
   }
 }

@@ -57,24 +57,171 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     }
   },
   {
-    id: 've-hospitality',
-    slug: 've-hospitality',
-    name: 'V&E Hospitality Group',
-    location: t.CASE_STUDIES_DATA.LOCATIONS.MULTIPLE_LOCATIONS,
-    industry: t.CASE_STUDIES_DATA.INDUSTRIES.RESTAURANT_GROUP,
-    image: '/images/success-stories/Restaurant-photo-ray.jpeg',
+    id: 'havana-1957',
+    slug: 'havana-1957',
+    name: 'Havana 1957',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.MIAMI_FL,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.CUBAN_RESTAURANT,
+    image: '/images/success-stories/Havana-1957.jpg',
     keyMetrics: [
-      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.MONTHLY_REVENUE, value: '+$45K', icon: TrendingUp },
-      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.BOOKINGS_GROWTH, value: '+180%', icon: Users },
-      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.LOCAL_VISIBILITY, value: '+95%', icon: Eye }
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.MONTHLY_REVENUE, value: '+$58K', icon: TrendingUp },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.BOOKINGS_GROWTH, value: '+242%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.LOCAL_VISIBILITY, value: '+185%', icon: Eye }
     ],
-    headline: t.CASE_STUDIES_DATA.HEADLINES.VE_HOSPITALITY,
-    description: locale === 'es' ? 'V&E Hospitality Group unificó su estrategia de marketing a través de múltiples conceptos de restaurantes, logrando crecimiento consistente y reconocimiento de marca.' : 'V&E Hospitality Group unified their marketing strategy across multiple restaurant concepts, achieving consistent growth and brand recognition.',
-    tags: locale === 'es' ? ['Multi-ubicación', 'Marketing Unificado', 'Gestión de Marca'] : ['Multi-location', 'Unified Marketing', 'Brand Management'],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.HAVANA_1957,
+    description: locale === 'es' ? 'Havana 1957 elevó su experiencia de restaurante cubano auténtico usando marketing digital, destacándose en el competitivo mercado de comida latina.' : 'Havana 1957 elevated their authentic Cuban restaurant experience using digital marketing, standing out in the competitive Latin food market.',
+    tags: locale === 'es' ? ['Cocina Cubana', 'SEO Local', 'Marketing Cultural'] : ['Cuban Cuisine', 'Local SEO', 'Cultural Marketing'],
     testimonial: {
-      text: locale === 'es' ? 'RAY nos permitió unificar nuestro marketing y lograr resultados consistentes en todas nuestras ubicaciones.' : 'RAY allowed us to unify our marketing and achieve consistent results across all our locations.',
-      author: 'V&E Hospitality Group',
-      title: locale === 'es' ? 'Grupo Restaurantero' : 'Restaurant Group'
+      text: locale === 'es' ? 'RAY transformó completamente nuestra presencia digital mientras mantenemos la autenticidad cubana que nos define.' : 'RAY completely transformed our digital presence while maintaining the Cuban authenticity that defines us.',
+      author: 'Havana 1957',
+      title: locale === 'es' ? 'Restaurante Cubano Auténtico' : 'Authentic Cuban Restaurant'
+    }
+  },
+  {
+    id: 'oh-mexico',
+    slug: 'oh-mexico',
+    name: 'Oh! Mexico',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.MEXICAN_CUISINE,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.MEXICAN_RESTAURANT,
+    image: '/images/success-stories/oh!mexico.webp',
+    keyMetrics: [
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.MONTHLY_REVENUE, value: '+$42K', icon: TrendingUp },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.BOOKINGS_GROWTH, value: '+215%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.AVERAGE_RATING, value: '4.8★', icon: Award }
+    ],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.OH_MEXICO,
+    description: locale === 'es' ? 'Oh! Mexico destacó su autenticidad mexicana en un mercado competitivo, atrayendo comensales que buscan experiencias culinarias genuinas y tradicionales.' : 'Oh! Mexico highlighted their Mexican authenticity in a competitive market, attracting diners seeking genuine and traditional culinary experiences.',
+    tags: locale === 'es' ? ['Comida Auténtica', 'SEO Local', 'Gestión de Reseñas'] : ['Authentic Food', 'Local SEO', 'Review Management'],
+    testimonial: {
+      text: locale === 'es' ? 'RAY nos ayudó a destacar nuestra autenticidad mexicana. Nuestras reservas nunca habían sido tan altas.' : 'RAY helped us stand out for our Mexican authenticity. Our bookings have never been higher.',
+      author: 'Oh! Mexico',
+      title: locale === 'es' ? 'Restaurante Mexicano Auténtico' : 'Authentic Mexican Restaurant'
+    }
+  },
+  {
+    id: 'mercato-della-pescheria',
+    slug: 'mercato-della-pescheria',
+    name: 'Mercato Della Pescheria',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.ITALIAN_DINING,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.ITALIAN_SEAFOOD,
+    image: '/images/success-stories/mercato.jpg',
+    keyMetrics: [
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.MONTHLY_REVENUE, value: '+$65K', icon: TrendingUp },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.BOOKINGS_GROWTH, value: '+298%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.AVERAGE_RATING, value: '4.9★', icon: Award }
+    ],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.MERCATO_DELLA_PESCHERIA,
+    description: locale === 'es' ? 'Mercato Della Pescheria se estableció como el destino premium de mariscos italianos, triplicando reservas mediante marketing que destacó su calidad excepcional y preparaciones tradicionales.' : 'Mercato Della Pescheria established themselves as the premium Italian seafood destination, tripling bookings through marketing highlighting their exceptional quality and traditional preparations.',
+    tags: locale === 'es' ? ['Cocina Premium', 'Marketing Gourmet', 'Reservas VIP'] : ['Premium Cuisine', 'Gourmet Marketing', 'VIP Bookings'],
+    testimonial: {
+      text: locale === 'es' ? 'RAY transformó cómo comunicamos nuestra calidad. Nuestras reservas se triplicaron.' : 'RAY transformed how we communicate our quality. Our bookings tripled.',
+      author: 'Mercato Della Pescheria',
+      title: locale === 'es' ? 'Restaurante Italiano de Mariscos' : 'Italian Seafood Restaurant'
+    }
+  },
+  {
+    id: 'barsecco',
+    slug: 'barsecco',
+    name: 'Barsecco',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.CRAFT_BEER_BAR,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.COCKTAIL_BAR,
+    image: '/images/success-stories/barsecco.jpg',
+    keyMetrics: [
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.MONTHLY_REVENUE, value: '+$52K', icon: TrendingUp },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.BOOKINGS_GROWTH, value: '+276%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.AVERAGE_RATING, value: '4.8★', icon: Award }
+    ],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.BARSECCO,
+    description: locale === 'es' ? 'Barsecco se posicionó como el destino premium de cócteles artesanales italianos, multiplicando reservas y eventos mediante marketing sofisticado de nightlife.' : 'Barsecco positioned themselves as the premium Italian artisanal cocktail destination, multiplying bookings and events through sophisticated nightlife marketing.',
+    tags: locale === 'es' ? ['Mixología Premium', 'Marketing Nightlife', 'Eventos Exclusivos'] : ['Premium Mixology', 'Nightlife Marketing', 'Exclusive Events'],
+    testimonial: {
+      text: locale === 'es' ? 'RAY nos ayudó a posicionarnos como el destino premium de cócteles. Nuestras reservas han crecido exponencialmente.' : 'RAY helped us position ourselves as the premium cocktail destination. Our bookings have grown exponentially.',
+      author: 'Barsecco',
+      title: locale === 'es' ? 'Bar de Cócteles Italiano' : 'Italian Cocktail Bar'
+    }
+  },
+  {
+    id: 'salty-flame',
+    slug: 'salty-flame',
+    name: 'Salty Flame',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.GRILL_DISTRICT,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.MODERN_GRILL,
+    image: '/images/success-stories/salty-flame.jpeg',
+    keyMetrics: [
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.MONTHLY_REVENUE, value: '+$78K', icon: TrendingUp },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.BOOKINGS_GROWTH, value: '+312%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.AVERAGE_RATING, value: '4.9★', icon: Award }
+    ],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.SALTY_FLAME,
+    description: locale === 'es' ? 'Salty Flame se estableció como el destino premium de parrilla moderna, triplicando reservas mediante marketing visual impactante y posicionamiento gourmet.' : 'Salty Flame established themselves as the premium modern grill destination, tripling bookings through impactful visual marketing and gourmet positioning.',
+    tags: locale === 'es' ? ['Parrilla Moderna', 'Marketing Gourmet', 'Alta Gastronomía'] : ['Modern Grill', 'Gourmet Marketing', 'High Gastronomy'],
+    testimonial: {
+      text: locale === 'es' ? 'RAY nos ayudó a posicionarnos como el líder en parrilla moderna. Nuestras reservas se triplicaron.' : 'RAY helped us position ourselves as the leader in modern grilling. Our bookings tripled.',
+      author: 'Salty Flame',
+      title: locale === 'es' ? 'Restaurante Parrilla Moderna' : 'Modern Grill Restaurant'
+    }
+  },
+  {
+    id: 'paperfish',
+    slug: 'paperfish',
+    name: 'Paperfish',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.SUSTAINABLE_DINING,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.SUSTAINABLE_SEAFOOD,
+    image: '/images/success-stories/Paperfish.jpeg',
+    keyMetrics: [
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.MONTHLY_REVENUE, value: '+$92K', icon: TrendingUp },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.BOOKINGS_GROWTH, value: '+385%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.AVERAGE_RATING, value: '4.8★', icon: Award }
+    ],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.PAPERFISH,
+    description: locale === 'es' ? 'Paperfish se convirtió en el referente de mariscos sostenibles, cuadruplicando reservas mediante storytelling ambiental y posicionamiento eco-premium.' : 'Paperfish became the sustainable seafood reference, quadrupling bookings through environmental storytelling and eco-premium positioning.',
+    tags: locale === 'es' ? ['Mariscos Sostenibles', 'Marketing Eco-Premium', 'Transparencia'] : ['Sustainable Seafood', 'Eco-Premium Marketing', 'Transparency'],
+    testimonial: {
+      text: locale === 'es' ? 'RAY nos ayudó a comunicar nuestra misión sostenible. Las reservas se cuadruplicaron.' : 'RAY helped us communicate our sustainable mission. Bookings quadrupled.',
+      author: 'Paperfish',
+      title: locale === 'es' ? 'Restaurante Mariscos Sostenibles' : 'Sustainable Seafood Restaurant'
+    }
+  },
+  {
+    id: 'marabu',
+    slug: 'marabu',
+    name: 'Marabu',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.TROPICAL_DINING,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.CARIBBEAN_FUSION,
+    image: '/images/success-stories/Marabu.jpg',
+    keyMetrics: [
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.MONTHLY_REVENUE, value: '+$68K', icon: TrendingUp },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.BOOKINGS_GROWTH, value: '+298%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.AVERAGE_RATING, value: '4.7★', icon: Award }
+    ],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.MARABU,
+    description: locale === 'es' ? 'Marabu se convirtió en el destino premium de cocina caribeña fusión, triplicando reservas mediante reposicionamiento sofisticado y marketing de experiencias tropicales.' : 'Marabu became the premium Caribbean fusion destination, tripling bookings through sophisticated repositioning and tropical experiences marketing.',
+    tags: locale === 'es' ? ['Fusión Caribeña', 'Reposicionamiento Premium', 'Experiencia Tropical'] : ['Caribbean Fusion', 'Premium Repositioning', 'Tropical Experience'],
+    testimonial: {
+      text: locale === 'es' ? 'RAY nos ayudó a reposicionar Marabu como experiencia gastronómica tropical premium. Las reservas se triplicaron.' : 'RAY helped us reposition Marabu as a premium tropical dining experience. Bookings tripled.',
+      author: 'Marabu',
+      title: locale === 'es' ? 'Restaurante Caribeño Fusión' : 'Caribbean Fusion Restaurant'
+    }
+  },
+  {
+    id: 'cortadito-cafe',
+    slug: 'cortadito-cafe',
+    name: 'Cortadito Cafe',
+    location: t.CASE_STUDIES_DATA.LOCATIONS.CUBAN_COFFEE_CULTURE,
+    industry: t.CASE_STUDIES_DATA.INDUSTRIES.CUBAN_CAFE,
+    image: '/images/success-stories/Cortadito.png',
+    keyMetrics: [
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.MONTHLY_REVENUE, value: '+$82K', icon: TrendingUp },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.SALES_GROWTH, value: '+365%', icon: Users },
+      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.AVERAGE_RATING, value: '4.9★', icon: Award }
+    ],
+    headline: t.CASE_STUDIES_DATA.HEADLINES.CORTADITO_CAFE,
+    description: locale === 'es' ? 'Cortadito Cafe se convirtió en el destino referente de café cubano auténtico, cuadruplicando ventas mediante educación cultural y marketing comunitario latino.' : 'Cortadito Cafe became the reference destination for authentic Cuban coffee, quadrupling sales through cultural education and Latin community marketing.',
+    tags: locale === 'es' ? ['Café Cubano', 'Marketing Cultural', 'Comunidad Latina'] : ['Cuban Coffee', 'Cultural Marketing', 'Latin Community'],
+    testimonial: {
+      text: locale === 'es' ? 'RAY nos ayudó a comunicar la autenticidad de nuestro café cubano. Las ventas se cuadruplicaron.' : 'RAY helped us communicate the authenticity of our Cuban coffee. Sales quadrupled.',
+      author: 'Cortadito Cafe',
+      title: locale === 'es' ? 'Cafetería Cubana Auténtica' : 'Authentic Cuban Coffee Shop'
     }
   },
   {
