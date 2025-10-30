@@ -4,11 +4,20 @@ import { isValidLocale, type Locale } from '@/lib/i18n'
 import { getTranslations } from '@/hooks/useTranslations'
 import Hero from '@/components/Hero'
 import ProductSection from '@/components/ProductSection'
-import SuccessCarousel from '@/components/SuccessCarousel'
-import ProductShowcase from '@/components/ProductShowcase'
-import FAQ from '@/components/FAQ'
 import dynamic from 'next/dynamic'
-// Dynamically import CTASection to reduce initial bundle size
+// Dynamically import below-the-fold components to reduce initial bundle size
+const SuccessCarousel = dynamic(() => import('@/components/SuccessCarousel'), {
+  ssr: true,
+  loading: () => null,
+})
+const ProductShowcase = dynamic(() => import('@/components/ProductShowcase'), {
+  ssr: true,
+  loading: () => null,
+})
+const FAQ = dynamic(() => import('@/components/FAQ'), {
+  ssr: true,
+  loading: () => null,
+})
 const CTASection = dynamic(() => import('@/components/CTASection'), {
   ssr: true,
   loading: () => null,

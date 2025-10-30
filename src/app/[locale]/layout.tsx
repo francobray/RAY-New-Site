@@ -183,21 +183,28 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
                 };
               }
               
+              
               // Load after page is interactive or user interaction
+              // Optimized to minimize main-thread work
               if (document.readyState === 'complete') {
-                loadGoogleAnalytics();
+                // Page already loaded, defer with requestIdleCallback
+                if (window.requestIdleCallback) {
+                  requestIdleCallback(loadGoogleAnalytics, { timeout: 3000 });
+                } else {
+                  setTimeout(loadGoogleAnalytics, 2000);
+                }
               } else {
                 // Use requestIdleCallback for better performance, fallback to setTimeout
                 if (window.requestIdleCallback) {
-                  requestIdleCallback(loadGoogleAnalytics, { timeout: 2000 });
+                  requestIdleCallback(loadGoogleAnalytics, { timeout: 3000 });
                 } else {
-                  // Fallback: load after DOMContentLoaded + small delay
+                  // Fallback: load after DOMContentLoaded + delay
                   if (document.readyState === 'loading') {
                     document.addEventListener('DOMContentLoaded', function() {
-                      setTimeout(loadGoogleAnalytics, 1000);
+                      setTimeout(loadGoogleAnalytics, 2000);
                     });
                   } else {
-                    setTimeout(loadGoogleAnalytics, 1000);
+                    setTimeout(loadGoogleAnalytics, 2000);
                   }
                 }
                 
