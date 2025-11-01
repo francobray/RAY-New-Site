@@ -5,7 +5,6 @@ import { getTranslations } from '@/hooks/useTranslations'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import SimpleWebChat from '@/components/SimpleWebChat'
-import '@/styles/critical.css'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -102,6 +101,8 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        {/* Preload critical CSS files - reduces blocking time */}
+        <link rel="preload" href="/_next/static/css/app/[locale]/layout.css" as="style" />
         {/* Inline Critical CSS - fonts + above-the-fold styles to eliminate render-blocking */}
         <style
           dangerouslySetInnerHTML={{
@@ -122,10 +123,18 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
                 src: url('/fonts/Inter-Regular.woff2') format('woff2');
               }
               *{box-sizing:border-box;margin:0;padding:0}
-              body{font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;color:#1C1C1C;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+              body{font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;color:#1C1C1C;background:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
               .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-              img{max-width:100%;height:auto}
+              img,video,iframe{max-width:100%;height:auto;display:block}
+              img[width][height]{height:auto;aspect-ratio:attr(width)/attr(height)}
               #ray-widget{min-height:165px;height:165px;contain:layout style paint}
+              .aspect-ratio-4-3{aspect-ratio:4/3}
+              .aspect-ratio-16-9{aspect-ratio:16/9}
+              .aspect-ratio-1-1{aspect-ratio:1/1}
+              h1,h2,h3,h4,h5,h6{font-weight:600;line-height:1.2;margin:0}
+              button,a{cursor:pointer}
+              .max-w-7xl{max-width:80rem;margin:0 auto}
+              .container{max-width:1200px;margin:0 auto;padding:0 1rem}
             `,
           }}
         />
@@ -134,14 +143,17 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = '/styles/non-critical.css';
+                var link=document.createElement('link');
+                link.rel='stylesheet';
+                link.href='/styles/non-critical.css';
+                link.media='print';
+                link.onload=function(){this.media='all';this.onload=null;};
                 document.head.appendChild(link);
               })();
             `,
           }}
         />
+        <noscript><link rel="stylesheet" href="/styles/non-critical.css" /></noscript>
       </head>
       <body className="antialiased" suppressHydrationWarning>
         {/* Google Analytics - Optimized deferred loading */}

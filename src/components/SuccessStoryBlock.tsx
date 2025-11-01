@@ -67,13 +67,14 @@ const SuccessStoryBlock: React.FC<SuccessStoryBlockProps> = ({ locale }) => {
 
             {/* Right side - Image */}
             <div className="relative">
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden" style={{ minHeight: '300px' }}>
                 <Image
                   src="/images/success-stories/Chimba_Miami_Celebrating.jpeg"
                   alt="Franco Yametti - Chimba Miami"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
                 
                 {/* Image Overlay */}
@@ -130,6 +131,8 @@ const SuccessStoryBlock: React.FC<SuccessStoryBlockProps> = ({ locale }) => {
 }
 
 export default SuccessStoryBlock
+
+
 
 
 

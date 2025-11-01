@@ -31,6 +31,7 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react'],
     scrollRestoration: true,
     optimizeCss: true, // Inline critical CSS automatically
+    cssChunking: 'loose', // Split CSS into smaller chunks to reduce blocking time
   },
   // Modern browser support - reduce legacy JS polyfills
   compiler: {
