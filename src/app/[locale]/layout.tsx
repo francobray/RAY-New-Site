@@ -101,8 +101,6 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        {/* Preload critical CSS files - reduces blocking time */}
-        <link rel="preload" href="/_next/static/css/app/[locale]/layout.css" as="style" />
         {/* Inline Critical CSS - fonts + above-the-fold styles to eliminate render-blocking */}
         <style
           dangerouslySetInnerHTML={{
@@ -124,6 +122,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
               }
               *{box-sizing:border-box;margin:0;padding:0}
               body{font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;color:#1C1C1C;background:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+              html{scroll-behavior:smooth}
               .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
               img,video,iframe{max-width:100%;height:auto;display:block}
               img[width][height]{height:auto;aspect-ratio:attr(width)/attr(height)}
@@ -131,10 +130,30 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
               .aspect-ratio-4-3{aspect-ratio:4/3}
               .aspect-ratio-16-9{aspect-ratio:16/9}
               .aspect-ratio-1-1{aspect-ratio:1/1}
+              .aspect-ratio-square{aspect-ratio:1}
+              .aspect-video{aspect-ratio:16/9}
               h1,h2,h3,h4,h5,h6{font-weight:600;line-height:1.2;margin:0}
               button,a{cursor:pointer}
               .max-w-7xl{max-width:80rem;margin:0 auto}
+              .max-w-6xl{max-width:72rem;margin:0 auto}
+              .max-w-5xl{max-width:64rem;margin:0 auto}
               .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+              .relative{position:relative}
+              .absolute{position:absolute}
+              .fixed{position:fixed}
+              .flex{display:flex}
+              .grid{display:grid}
+              .hidden{display:none}
+              .items-center{align-items:center}
+              .justify-center{justify-content:center}
+              .text-center{text-align:center}
+              .w-full{width:100%}
+              .h-auto{height:auto}
+              .bg-white{background-color:#fff}
+              .text-gray-900{color:#111827}
+              .rounded-xl{border-radius:0.75rem}
+              .shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)}
+              .transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4,0,0.2,1);transition-duration:150ms}
             `,
           }}
         />
@@ -142,14 +161,19 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              (function(){
+              function loadCSS(){
                 var link=document.createElement('link');
                 link.rel='stylesheet';
                 link.href='/styles/non-critical.css';
                 link.media='print';
                 link.onload=function(){this.media='all';this.onload=null;};
                 document.head.appendChild(link);
-              })();
+              }
+              if('requestIdleCallback' in window){
+                requestIdleCallback(loadCSS,{timeout:2000});
+              }else{
+                setTimeout(loadCSS,1);
+              }
             `,
           }}
         />

@@ -9,6 +9,8 @@ const config: Config = {
   future: {
     hoverOnlyWhenSupported: true,
   },
+  // Aggressively remove unused styles
+  safelist: [],
   theme: {
     extend: {
       colors: {

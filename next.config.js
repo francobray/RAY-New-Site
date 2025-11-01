@@ -41,6 +41,13 @@ const nextConfig = {
   env: {
     BROWSERSLIST_ENV: 'modern',
   },
+  // Reduce polyfills for modern browsers
+  transpilePackages: [],
+  modularizeImports: {
+    'lucide-react': {
+      transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
+    },
+  },
   // Font optimization
   optimizeFonts: true,
   // Bundle analyzer for debugging
@@ -51,9 +58,11 @@ const nextConfig = {
       config.optimization.usedExports = true
       config.optimization.sideEffects = false
       
-      // Better code splitting strategy
+      // Better code splitting strategy - more aggressive
       config.optimization.splitChunks = {
         chunks: 'all',
+        maxInitialRequests: 25,
+        minSize: 20000,
         cacheGroups: {
           // Separate React/Next.js core libraries
           framework: {
@@ -63,6 +72,13 @@ const nextConfig = {
             priority: 40,
             enforce: true,
           },
+          // Lucide icons separate chunk
+          icons: {
+            test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
+            name: 'icons',
+            chunks: 'async',
+            priority: 35,
+          },
           // Separate large libraries
           lib: {
             test: /[\\/]node_modules[\\/]/,
@@ -71,7 +87,7 @@ const nextConfig = {
               return `lib-${packageName?.replace('@', '')}`
             },
             priority: 30,
-            minSize: 100000, // Only split if > 100KB
+            minSize: 40000, // Reduced from 100KB to 40KB for better splitting
             reuseExistingChunk: true,
           },
           // Regular vendors
@@ -88,6 +104,7 @@ const nextConfig = {
             minChunks: 2,
             chunks: 'all',
             priority: 10,
+            minSize: 10000,
             reuseExistingChunk: true,
           },
         },
