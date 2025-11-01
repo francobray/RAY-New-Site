@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import CaseStudies from '@/components/pages/CaseStudies'
+import CaseStudies from '@/components/pages/case-studies/CaseStudies'
 import { type Locale } from '@/lib/i18n'
 
 interface CaseStudiesPageProps {

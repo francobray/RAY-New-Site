@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { Star, TrendingUp, ArrowRight, CheckCircle, BarChart3, Search, Database, Globe, Camera, ChevronDown, ChevronUp } from 'lucide-react'
 import Image from 'next/image'
-import Card from '../../Card'
+import Card from '../../shared/Card'
 import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '../../../lib/i18n'
@@ -205,10 +205,10 @@ const WalkIns: React.FC<WalkInsProps> = ({ locale = 'es' }) => {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-6">
-                  {locale === 'es' ? 'Consigue 30% más de tráfico en tu restaurante' : 'Get up to 30% more WalkIns in your restaurant'}
+                  {locale === 'es' ? 'Consigue 30% más de tráfico desde Google Maps' : 'Get up to 30% more Google Maps WalkIns'}
                 </h2>
                 <p className="text-xl text-ray-darkGray leading-relaxed">
-                  {locale === 'es' ? 'Nuestra solución utiliza inteligencia artificial para analizar tu Perfil de Negocio de Google y identificar oportunidades específicas de optimización que impulsan más visitas locales.' : 'Our solution uses artificial intelligence to analyze your Google Business Profile and identify specific optimization opportunities that drive more local visits.'}
+                  {locale === 'es' ? 'Nuestra solución utiliza inteligencia artificial para analizar el Perfil Google Business (ex Google MyBusiness) y identificar oportunidades específicas de optimización que impulsan más visitas locales.' : 'Our solution uses artificial intelligence to analyze your Google Business Profile and identify specific optimization opportunities that drive more local visits.'}
                 </p>
               </div>
 

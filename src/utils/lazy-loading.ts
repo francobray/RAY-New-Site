@@ -6,9 +6,9 @@
 import { lazy } from 'react'
 
 // Lazy load heavy components
-export const LazyTestimonialCarousel = lazy(() => import('@/components/TestimonialCarousel'))
-export const LazyFAQ = lazy(() => import('@/components/FAQ'))
-export const LazyProductSection = lazy(() => import('@/components/ProductSection'))
+export const LazyTestimonialCarousel = lazy(() => import('@/components/shared/TestimonialCarousel'))
+export const LazyFAQ = lazy(() => import('@/components/shared/FAQ'))
+export const LazyProductSection = lazy(() => import('@/components/shared/ProductSection'))
 
 // Preload critical resources
 export const preloadCriticalResources = () => {

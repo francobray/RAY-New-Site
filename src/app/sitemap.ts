@@ -15,10 +15,12 @@ const STATIC_ROUTES = [
 // Core pages that exist for all locales
 const CORE_ROUTES = [
   { path: '/pricing', priority: 0.8, changefreq: 'monthly' },
+  { path: '/how-it-works', priority: 0.8, changefreq: 'monthly' },
   { path: '/case-studies', priority: 0.8, changefreq: 'weekly' },
   { path: '/features', priority: 0.7, changefreq: 'monthly' },
   { path: '/about', priority: 0.6, changefreq: 'monthly' },
   { path: '/contact', priority: 0.6, changefreq: 'monthly' },
+  { path: '/partner', priority: 0.7, changefreq: 'monthly' },
   { path: '/demo', priority: 0.7, changefreq: 'monthly' },
 ]
 

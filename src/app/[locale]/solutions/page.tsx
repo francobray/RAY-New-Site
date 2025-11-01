@@ -11,11 +11,11 @@ import {
   Truck,
   ArrowRight
 } from 'lucide-react'
-import Card from '@/components/Card'
+import Card from '@/components/shared/Card'
 import dynamic from 'next/dynamic'
 import { type Locale } from '@/lib/i18n'
 // Dynamically import CTASection to reduce initial bundle size
-const CTASection = dynamic(() => import('@/components/CTASection'), {
+const CTASection = dynamic(() => import('@/components/shared/CTASection'), {
   ssr: true,
   loading: () => null,
 })

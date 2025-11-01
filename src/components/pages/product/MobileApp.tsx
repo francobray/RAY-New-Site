@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { Star, ArrowRight, CheckCircle, ChevronDown, ChevronUp, Smartphone, Users, Clock, Zap } from 'lucide-react'
-import Card from '../../Card'
+import Card from '../../shared/Card'
 import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '../../../lib/i18n'
@@ -75,7 +75,7 @@ const MobileApp: React.FC<MobileAppProps> = ({ locale = 'es' }) => {
                   href={`/${locale}/demo?utm_source=branded-apps-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-demo`}
                   data-cta="demo-free"
                   data-analytics="mobile_app_hero"
-                  aria-label="Get a free demo"
+                  aria-label="Get a demo"
                 >
                   {t.MOBILE_APP_PAGE.HERO.CTA_DEMO}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />

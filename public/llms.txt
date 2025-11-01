@@ -36,11 +36,23 @@ AI-powered restaurant marketing platform helping restaurants increase revenue th
 
 Our suite of restaurant marketing and operations tools:
 
+**https://www.rayapp.io/es/product/ai-agent**
+Ai Agent for restaurants.
+
+**https://www.rayapp.io/en/product/ai-agent**
+Ai Agent for restaurants.
+
 **https://www.rayapp.io/es/product/ai-concierge**
 AI-powered WhatsApp concierge that takes orders, books reservations, and answers menu questions 24/7 in multiple languages.
 
 **https://www.rayapp.io/en/product/ai-concierge**
 AI-powered WhatsApp concierge that takes orders, books reservations, and answers menu questions 24/7 in multiple languages.
+
+**https://www.rayapp.io/es/product/ai-employee**
+Ai Employee for restaurants.
+
+**https://www.rayapp.io/en/product/ai-employee**
+Ai Employee for restaurants.
 
 **https://www.rayapp.io/es/product/automated-marketing**
 Automated Marketing for restaurants.
@@ -131,10 +143,10 @@ Get in touch with RAY for restaurant marketing solutions. Request a demo or spea
 Get in touch with RAY for restaurant marketing solutions. Request a demo or speak with our team about growing your restaurant.
 
 **https://www.rayapp.io/es/demo**
-Schedule a free demo to see how RAY can increase your restaurant revenue. No commitment required.
+Schedule a demo to see how RAY can increase your restaurant revenue. No commitment required.
 
 **https://www.rayapp.io/en/demo**
-Schedule a free demo to see how RAY can increase your restaurant revenue. No commitment required.
+Schedule a demo to see how RAY can increase your restaurant revenue. No commitment required.
 
 ### Case Studies
 

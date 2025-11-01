@@ -75,7 +75,7 @@ const Loyalty: React.FC<LoyaltyProps> = ({ locale }) => {
                   href={`/${locale}/demo?utm_source=loyalty-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-demo`}
                   data-cta="demo-free"
                   data-analytics="loyalty_hero"
-                  aria-label="Get a free demo"
+                  aria-label="Get a demo"
                 >
                   {t.LOYALTY_PAGE.HERO.CTA_DEMO}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />

@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import About from '@/components/pages/About'
+import About from '@/components/pages/company/About'
 import { type Locale } from '@/lib/i18n'
 
 interface AboutPageProps {

@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale, generateHreflangMetadata, generateOpenGraphLocale } from '@/lib/i18n'
 import { getTranslations } from '@/hooks/useTranslations'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import SimpleWebChat from '@/components/SimpleWebChat'
+import Header from '@/components/shared/Header'
+import Footer from '@/components/shared/Footer'
+import SimpleWebChat from '@/components/shared/SimpleWebChat'
 
 interface LocaleLayoutProps {
   children: React.ReactNode

@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { ShoppingBag, TrendingUp, ArrowRight, CheckCircle, ChevronDown, ChevronUp, CreditCard, Smartphone, Globe, BarChart3 } from 'lucide-react'
-import Card from '../../Card'
+import Card from '../../shared/Card'
 import Button from '../../shared/BaseButton'
 import { type Locale } from '../../../lib/i18n'
 
@@ -77,9 +77,9 @@ const OnlineOrders: React.FC<OnlineOrdersProps> = ({ locale = 'es' }) => {
                   href={`/${locale}/demo?utm_source=online-orders-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-demo`}
                   data-cta="demo"
                   data-analytics="online_orders_hero"
-                  aria-label="Get a free demo"
+                  aria-label="Get a demo"
                 >
-                  {locale === 'es' ? 'Agenda una Demo' : 'Get a free demo'}
+                  {locale === 'es' ? 'Agenda una Demo' : 'Get a demo'}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 

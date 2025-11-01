@@ -106,8 +106,8 @@ function getPageDescriptions(): PageInfo[] {
     },
     {
       path: '/demo',
-      title: 'Get a Free Demo | RAY',
-      description: 'Schedule a free demo to see how RAY can increase your restaurant revenue. No commitment required.',
+      title: 'Get a Demo | RAY',
+      description: 'Schedule a demo to see how RAY can increase your restaurant revenue. No commitment required.',
       category: 'core'
     }
   )

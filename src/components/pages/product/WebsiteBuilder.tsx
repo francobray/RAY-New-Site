@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { TrendingUp, ArrowRight, CheckCircle, BarChart3, Globe, Smartphone, ChevronDown, ChevronUp, Search, Clock, MessageCircle } from 'lucide-react'
-import Card from '../../Card'
+import Card from '../../shared/Card'
 import Button from '../../shared/BaseButton'
 import { type Locale } from '../../../lib/i18n'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -163,9 +163,9 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ locale = 'es' }) => {
                   external={true}
                   data-cta="grader"
                   data-analytics="website_builder_hero"
-                  aria-label="Get a free demo"
+                  aria-label="Get a demo"
                 >
-                  {locale === 'es' ? 'Agenda una Demo' : 'Get a free demo'}
+                  {locale === 'es' ? 'Agenda una Demo' : 'Get a demo'}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 

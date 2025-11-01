@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { TrendingUp, ArrowRight, CheckCircle, Phone, ChevronDown, ChevronUp, DollarSign, Users } from 'lucide-react'
-import Card from '../../Card'
+import Card from '../../shared/Card'
 import Button from '../../shared/BaseButton'
 import { type Locale } from '../../../lib/i18n'
 
@@ -131,9 +131,9 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
                   href={`/${locale}/demo?utm_source=delivery-page&utm_medium=website&utm_campaign=site-cta-refresh-2025q4&utm_content=hero-demo`}
                   data-cta="demo"
                   data-analytics="delivery_hero"
-                  aria-label="Get a free demo"
+                  aria-label="Get a demo"
                 >
-                  {locale === 'es' ? 'Agenda una Demo' : 'Get a free demo'}
+                  {locale === 'es' ? 'Agenda una Demo' : 'Get a demo'}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 
@@ -334,7 +334,7 @@ const ZeroCommissionDelivery: React.FC<ZeroCommissionDeliveryProps> = ({ locale 
               data-cta="demo"
               data-analytics="delivery_final"
             >
-              {locale === 'es' ? 'Agenda una Demo' : 'Get a free demo'}
+              {locale === 'es' ? 'Agenda una Demo' : 'Get a demo'}
             </Button>
             <Button 
               variant="secondary" 

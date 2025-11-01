@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import AIConcierge from '@/components/pages/product/AIConcierge'
+import WhatsAppDelivery from '@/components/pages/product/WhatsAppDelivery'
 import { type Locale } from '@/lib/i18n'
 
 interface WhatsAppDeliveryPageProps {
@@ -28,5 +28,5 @@ export async function generateMetadata({ params }: WhatsAppDeliveryPageProps): P
 }
 
 export default function WhatsAppDeliveryPage({ params }: WhatsAppDeliveryPageProps) {
-  return <AIConcierge locale={params.locale} />
+  return <WhatsAppDelivery locale={params.locale} />
 }

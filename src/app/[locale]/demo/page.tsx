@@ -12,19 +12,19 @@ export async function generateMetadata({ params }: DemoPageProps): Promise<Metad
   return {
     title: 'Free Demo - RAY Restaurant Marketing Platform | RAY',
     description: locale === 'es'
-      ? 'Agenda una demo gratuita de la plataforma de marketing de RAY. Aumenta ingresos con SEO local, reseñas y engagement de clientes.'
+      ? 'Agenda una demo de la plataforma de marketing de RAY. Aumenta ingresos con SEO local, reseñas y engagement de clientes.'
       : 'Book a free demo of RAY\'s restaurant marketing platform. Increase revenue with local SEO, reviews, and customer engagement.',
     openGraph: {
       title: 'Free Demo - RAY Restaurant Marketing Platform | RAY',
       description: locale === 'es'
-        ? 'Agenda una demo gratuita de la plataforma de marketing de RAY. Aumenta ingresos con SEO local, reseñas y engagement de clientes.'
+        ? 'Agenda una demo de la plataforma de marketing de RAY. Aumenta ingresos con SEO local, reseñas y engagement de clientes.'
         : 'Book a free demo of RAY\'s restaurant marketing platform. Increase revenue with local SEO, reviews, and customer engagement.',
       url: `https://www.rayapp.io/${locale}/demo`,
     },
     twitter: {
       title: 'Free Demo - RAY Restaurant Marketing Platform | RAY',
       description: locale === 'es'
-        ? 'Agenda una demo gratuita de la plataforma de marketing de RAY. Aumenta ingresos con SEO local, reseñas y engagement de clientes.'
+        ? 'Agenda una demo de la plataforma de marketing de RAY. Aumenta ingresos con SEO local, reseñas y engagement de clientes.'
         : 'Book a free demo of RAY\'s restaurant marketing platform. Increase revenue with local SEO, reviews, and customer engagement.',
     },
     alternates: {

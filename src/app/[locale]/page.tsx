@@ -2,23 +2,23 @@ import type { Metadata } from 'next'
 import { generateOrganizationSchema, generateWebsiteSchema, generateLocalBusinessSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/utils/schema'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { getTranslations } from '@/hooks/useTranslations'
-import Hero from '@/components/Hero'
-import ProductSection from '@/components/ProductSection'
+import Hero from '@/components/shared/Hero'
+import ProductSection from '@/components/shared/ProductSection'
 import dynamic from 'next/dynamic'
 // Dynamically import below-the-fold components to reduce initial bundle size
-const SuccessCarousel = dynamic(() => import('@/components/SuccessCarousel'), {
+const SuccessCarousel = dynamic(() => import('@/components/shared/SuccessCarousel'), {
   ssr: true,
   loading: () => null,
 })
-const ProductShowcase = dynamic(() => import('@/components/ProductShowcase'), {
+const ProductShowcase = dynamic(() => import('@/components/shared/ProductShowcase'), {
   ssr: true,
   loading: () => null,
 })
-const FAQ = dynamic(() => import('@/components/FAQ'), {
+const FAQ = dynamic(() => import('@/components/shared/FAQ'), {
   ssr: true,
   loading: () => null,
 })
-const CTASection = dynamic(() => import('@/components/CTASection'), {
+const CTASection = dynamic(() => import('@/components/shared/CTASection'), {
   ssr: true,
   loading: () => null,
 })

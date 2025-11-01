@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import AIConcierge from '@/components/pages/product/AIConcierge'
+import WhatsAppDelivery from '@/components/pages/product/WhatsAppDelivery'
 import { type Locale } from '@/lib/i18n'
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/utils/schema'
 import { getTranslations } from '@/hooks/useTranslations'
@@ -51,7 +51,7 @@ export default function AIConciergePage({ params }: AIConciergePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
       />
-      <AIConcierge locale={locale} />
+      <WhatsAppDelivery locale={locale} />
     </>
   )
 }

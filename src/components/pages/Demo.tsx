@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { useTranslations } from '../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
-import PlacesAutocomplete from '../PlacesAutocomplete'
+import PlacesAutocomplete from '../shared/PlacesAutocomplete'
 
 interface DemoProps {
   locale: Locale

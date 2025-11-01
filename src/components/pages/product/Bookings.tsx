@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { Calendar, Users, BarChart3, Clock, Heart, CheckCircle, ArrowRight, TrendingUp, Star, UserCheck, RotateCcw, Shield, ChevronDown, ChevronUp } from 'lucide-react'
-import Card from '../../Card'
+import Card from '../../shared/Card'
 import Button from '../../shared/BaseButton'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'

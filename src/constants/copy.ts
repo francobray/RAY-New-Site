@@ -6,7 +6,7 @@ export const COPY: Record<Locale, any> = {
     // CTA Labels
     CTA: {
       GRADE_RESTAURANT: 'Escanea tu restaurante',
-      GET_FREE_DEMO: 'Agenda una Demo',
+      GET_FREE_DEMO: 'Agendar Demo',
       GET_STARTED: 'Comienza Hoy',
       VIEW_CASE_STUDIES: 'Ver Casos de Éxito',
       LEARN_MORE: 'Ver más'
@@ -921,9 +921,9 @@ export const COPY: Record<Locale, any> = {
 
     AI_CONCIERGE_PAGE: {
       HERO: {
-        TITLE: 'Convierte chats de WhatsApp',
-        TITLE_HIGHLIGHT: 'en Pedidos directos y Reservas.',
-        SUBTITLE: '¡Deja de perder clientes hambrientos por respuestas lentas! Nuestro empleado toma pedidos, reserva mesas y responde preguntas del menú en WhatsApp — 24/7, incluso cuando tu restaurante está cerrado. 🚀',
+        TITLE: 'Convierte chats en',
+        TITLE_HIGHLIGHT: 'en Pedidos y Reservas.',
+        SUBTITLE: 'Nuestro empleado toma pedidos, reserva mesas y responde preguntas del menú en WhatsApp, Instagram, Messenger y tu website 24/7, incluso cuando tu restaurante está cerrado.',
         BADGES: [
           'Tomar pedidos mientras duermes',
           'Auto-reservar mesas',
@@ -934,7 +934,7 @@ export const COPY: Record<Locale, any> = {
         TRY_PHONE: 'Probar llamada'
       },
       PROBLEM: {
-        TITLE: 'Demasiados mensajes de WhatsApp. Personal insuficiente. 😤',
+        TITLE: 'Demasiados mensajes de WhatsApp? Te escriben por Instagram, Facebook Messenger a toda hora?',
         ISSUES: [
           'Los clientes te envían mensajes de WhatsApp día y noche',
           'Tu personal no puede responder lo suficientemente rápido',
@@ -1047,6 +1047,10 @@ export const COPY: Record<Locale, any> = {
           {
             title: '🛠️ No se necesita personal adicional',
             description: 'Ahorra en costos laborales mientras mejoras el servicio'
+          },
+          {
+            title: '📊 Insights inteligentes',
+            description: 'Aprende qué preguntan tus clientes y mejora tu negocio'
           }
         ]
       },
@@ -1077,7 +1081,7 @@ export const COPY: Record<Locale, any> = {
         ]
       },
       FINAL_CTA: {
-        TITLE: 'Sé donde están tus clientes — sin mover un dedo. 🙌',
+        TITLE: 'Vende más con menos personal y sin mover un dedo. 🙌',
         SUBTITLE: 'Únete a cientos de restaurantes que ya usan IA para impulsar sus ventas. Comienza tu prueba gratuita hoy y ve la diferencia en 24 horas.',
         CTA: 'Reservar Demo Ahora',
         DISCLAIMER: 'No se requiere tarjeta de crédito • Prueba gratuita de 14 días • Configuración en menos de 5 minutos'
@@ -1273,6 +1277,69 @@ export const COPY: Record<Locale, any> = {
         CTA: 'Comenzar hoy'
       }
     },
+    AI_EMPLOYEE_PAGE: {
+      HERO: {
+        TITLE: 'Tu empleado ',
+        TITLE_HIGHLIGHT: 'que nunca duerme',
+        SUBTITLE: 'Atiende a tus clientes 24/7 en WhatsApp, Instagram, tu sitio web y Facebook Messenger. Responde preguntas sobre tu menú, toma reservas, procesa pedidos y gestiona inscripciones a tu programa de lealtad. Todo integrado con tu POS.',
+        CTA_DEMO: 'Agenda una Demo',
+        CTA_PRICING: 'Ver Precios'
+      },
+      FEATURES: {
+        TITLE: 'Todo lo que necesitas para automatizar tu atención al cliente',
+        LIST: [
+          {
+            TITLE: 'Respuestas instantáneas 24/7',
+            DESCRIPTION: 'Nunca pierdas un cliente por falta de respuesta. Tu agente de IA está disponible las 24 horas del día, todos los días.'
+          },
+          {
+            TITLE: 'Multi-plataforma integrada',
+            DESCRIPTION: 'Un solo agente que trabaja en WhatsApp, Instagram, tu sitio web y Facebook Messenger simultáneamente.'
+          },
+          {
+            TITLE: 'Gestión inteligente de reservas',
+            DESCRIPTION: 'Toma, modifica y gestiona reservas directamente desde cualquier plataforma, sin necesidad de intervención humana.'
+          },
+          {
+            TITLE: 'Procesamiento automático de pedidos',
+            DESCRIPTION: 'Procesa pedidos de delivery automáticamente, verifica disponibilidad y confirma todo sin errores.'
+          },
+          {
+            TITLE: 'Inscripción automática a lealtad',
+            DESCRIPTION: 'Inscribe automáticamente a clientes a tu programa de lealtad durante las conversaciones naturales.'
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'Preguntas Frecuentes',
+        QUESTIONS: [
+          {
+            QUESTION: '¿Cómo funciona el agente de IA?',
+            ANSWER: 'Nuestro agente de IA utiliza tecnología de lenguaje natural avanzada para entender y responder preguntas, procesar reservas y pedidos, y gestionar inscripciones a programas de lealtad. Aprende de tus menús, horarios, políticas y más para dar respuestas precisas y útiles.'
+          },
+          {
+            QUESTION: '¿En qué plataformas está disponible?',
+            ANSWER: 'El agente está disponible en WhatsApp, Instagram (mensajes directos y comentarios), tu sitio web (a través de un widget) y Facebook Messenger. Todas las plataformas están conectadas y el agente mantiene el contexto entre conversaciones.'
+          },
+          {
+            QUESTION: '¿Puede tomar reservas y pedidos reales?',
+            ANSWER: 'Sí, el agente puede tomar reservas verificando disponibilidad en tiempo real y procesar pedidos de delivery integrado con tu sistema POS. También envía confirmaciones automáticas y notifica a tu equipo cuando es necesario.'
+          },
+          {
+            QUESTION: '¿Cómo se integra con mi sistema existente?',
+            ANSWER: 'Nos integramos con los principales sistemas POS, plataformas de reservas y programas de lealtad. El agente puede acceder a menús, horarios, disponibilidad y más en tiempo real.'
+          },
+          {
+            QUESTION: '¿Qué pasa si el agente no sabe responder algo?',
+            ANSWER: 'El agente está configurado para reconocer cuando necesita ayuda humana. En esos casos, puede transferir la conversación a tu equipo o tomar información de contacto para seguimiento. También aprende de cada interacción para mejorar.'
+          },
+          {
+            QUESTION: '¿Cuánto tiempo toma configurar el agente?',
+            ANSWER: 'La configuración inicial toma aproximadamente 2-3 semanas, incluyendo la integración con tus sistemas, entrenamiento del agente con tu información específica y pruebas. Proporcionamos soporte completo durante todo el proceso.'
+          }
+        ]
+      }
+    },
     MOBILE_APP_PAGE: {
       HERO: {
         BADGE: 'App Móvil Personalizada',
@@ -1458,6 +1525,77 @@ export const COPY: Record<Locale, any> = {
       }
     },
 
+    HOW_IT_WORKS_PAGE: {
+      HERO: {
+        TITLE: 'Tu restaurante podría tener',
+        TITLE_HIGHLIGHT: 'muchas más ventas online.',
+        SUBTITLE: 'RAY es la forma más simple de posicionarte en Google y ChatGPT, aumentar tus pedidos directos y crear una experiencia excepcional para tus clientes.',
+        CTA_DEMO: 'Agenda una demo',
+        VIDEO_CTA: 'Ver video'
+      },
+      FEATURES: {
+        FEATURE_1: {
+          NUMBER: '01.',
+          TITLE: 'Domina los resultados de búsqueda en Google y ChatGPT',
+          DESCRIPTION: 'Posiciónate por encima de tu competencia con un sitio web optimizado para Google. Atrae más clientes que buscan restaurantes en tu zona.',
+          CTA: 'Ver más'
+        },
+        FEATURE_2: {
+          NUMBER: '02.',
+          TITLE: 'Crece tus ventas con pedidos online súper fáciles',
+          DESCRIPTION: 'Tus clientes ordenan más cuando tu sistema de pedidos es intuitivo y familiar. Sin fricción, más conversiones.',
+          CTA: 'Ver más'
+        },
+        FEATURE_3: {
+          NUMBER: '03.',
+          TITLE: 'Fideliza clientes con tu app móvil y programa de puntos',
+          DESCRIPTION: 'Tu propia app móvil aumenta los pedidos repetidos. Crea lealtad con un programa de recompensas al estilo Starbucks.',
+          CTA: 'Ver más'
+        },
+        FEATURE_4: {
+          NUMBER: '04.',
+          TITLE: 'Vende más con marketing automatizado',
+          DESCRIPTION: 'Campañas de email y SMS automatizadas que generan ventas. Marketing probado que funciona mientras duermes.',
+          CTA: 'Ver más'
+        }
+      },
+      FAQ: {
+        TITLE: 'FAQs',
+        QUESTIONS: [
+          {
+            QUESTION: '¿Qué necesito para empezar?',
+            ANSWER: 'Solo necesitas tener un restaurante activo y ganas de crecer tus ventas online. Nosotros nos encargamos del resto: sitio web, sistema de pedidos, integraciones con tu POS y capacitación de tu equipo.'
+          },
+          {
+            QUESTION: '¿Se hacen cargo de mi POS?',
+            ANSWER: 'Sí, nos integramos con los principales sistemas POS como Square, Toast, Clover, y muchos más. Nuestro equipo técnico maneja toda la configuración para que tus pedidos online se sincronicen automáticamente con tu cocina.'
+          },
+          {
+            QUESTION: '¿Qué pasa con mi sitio web actual?',
+            ANSWER: 'Si ya tienes un sitio web, podemos reemplazarlo con uno optimizado por RAY o integrarnos con tu sitio existente. Mantenemos tu dominio y toda tu presencia online intacta durante la transición.'
+          },
+          {
+            QUESTION: '¿Hacen marketing en redes sociales?',
+            ANSWER: 'Sí, ofrecemos gestión completa de redes sociales incluyendo creación de contenido, publicación programada y campañas publicitarias en Facebook e Instagram para atraer más clientes.'
+          },
+          {
+            QUESTION: '¿Cómo consiguen que los clientes pidan directamente de mí?',
+            ANSWER: 'Combinamos múltiples estrategias: optimizamos tu presencia en Google, creamos tu app móvil personalizada, implementamos códigos QR en tus mesas, y configuramos pedidos por WhatsApp y redes sociales. Todo dirige a tu plataforma propia.'
+          }
+        ]
+      },
+      TESTIMONIAL: {
+        QUOTE: 'Tengo muchos amigos que tienen restaurantes. Les digo que tienen que cambiarse a Owner.',
+        AUTHOR: 'Fermin Iaguirre',
+        POSITION: 'Propietario de Sado Addicts',
+        IMAGE: '/images/testimonial-fermin.jpg'
+      },
+      FINAL_CTA: {
+        TITLE: 'La manera más simple de hacer crecer tu restaurante online.',
+        CTA: 'Agenda una demo'
+      }
+    },
+
     // Success Carousel
     SUCCESS_CAROUSEL: {
       TRUSTED_BY: 'Confian en RAY miles de restaurantes',
@@ -1485,13 +1623,84 @@ export const COPY: Record<Locale, any> = {
         DETAILED_DESCRIPTION_PART1: 'Los Socios de Referencia van más allá de la promoción: presentas activamente',
         DETAILED_DESCRIPTION_PART2: 'a los restaurantes que ya atiendes. Te equiparemos con capacitación, recursos y soporte continuo para que puedas integrar con confianza'
       }
+    },
+
+    // Partner with RAY Page
+    PARTNER_PAGE: {
+      HERO: {
+        TITLE: 'Asóciate con RAY: Haz Crecer tus Clientes. Haz Crecer tu Negocio.',
+        DESCRIPTION: 'Únete a nuestro programa de partners para proporcionar soluciones innovadoras de marketing para restaurantes mientras ganas ingresos recurrentes.',
+        CTA: 'Agendar una Llamada'
+      },
+      CORE_BENEFITS: {
+        TITLE: 'Complementa tu Valor. Gana Ingresos Mensuales. Conviértete en Partner de RAY.',
+        BENEFIT_1: {
+          TITLE: 'Comisiones Mensuales Recurrentes',
+          DESCRIPTION: 'Gana ingresos continuos por cada cliente que refieras.'
+        },
+        BENEFIT_2: {
+          TITLE: 'Acceso a Nuevas Oportunidades Tecnológicas',
+          DESCRIPTION: 'Mantente a la vanguardia con herramientas innovadoras para restaurantes.'
+        },
+        BENEFIT_3: {
+          TITLE: 'Mejor Retención con tus Clientes',
+          DESCRIPTION: 'Ayuda a tus clientes a tener éxito y aumentar el valor de por vida.'
+        },
+        BENEFIT_4: {
+          TITLE: 'Herramientas de Ventas y Soporte',
+          DESCRIPTION: 'Desde presentaciones comerciales hasta ayuda en la incorporación, estamos contigo.'
+        },
+        PROOF_POINT: 'Un producto probado que es utilizado por restaurantes de alto rendimiento en Mexico, Colombia, ArgentinaEstados Unidos.'
+      },
+      FAQ: {
+        TITLE: 'Preguntas Frecuentes',
+        QUESTIONS: [
+          {
+            question: '¿Qué es el Programa de Partners de RAY?',
+            answer: 'El Programa de Partners de RAY es una oportunidad colaborativa para agencias de marketing, consultores de restaurantes, freelancers y proveedores de tecnología para restaurantes para expandir sus servicios y ganar ingresos mensuales recurrentes ofreciendo las soluciones innovadoras de Local SEO y gestión de reputación de RAY a sus clientes.'
+          },
+          {
+            question: '¿Quién puede unirse al Programa de Partners?',
+            answer: 'El programa está abierto a profesionales y empresas que trabajan con restaurantes o grupos de hospitalidad que tienen entre 5 y 100 ubicaciones físicas. Si eres un marketer, consultor o proveedor de tecnología en el espacio de restaurantes, ¡eres bienvenido!'
+          },
+          {
+            question: '¿Cuáles son los principales beneficios para los partners?',
+            answer: 'Comisiones Mensuales Recurrentes, gana ingresos continuos de cada cliente que refieras. Acceso a Herramientas de Vanguardia, sé el primero en ofrecer nuestros productos innovadores, sé encontrado, sé elegido y vende más. Retención de Clientes Más Fuerte, ayuda a tus clientes a aumentar el tráfico peatonal y las ventas, aumentando tu valor como partner de confianza.'
+          },
+          {
+            question: '¿Cómo empiezo?',
+            answer: 'Haz clic en "Aplicar ahora" para completar una solicitud corta. Nuestro equipo revisará tus datos y se conectará contigo en un plazo de 48 horas para discutir tus objetivos y cómo podemos trabajar juntos.'
+          },
+          {
+            question: '¿Hay algún costo para unirse al Programa de Partners?',
+            answer: '¡No, unirse es gratis! Solo necesitarás proporcionar información básica sobre tu negocio o servicios.'
+          },
+          {
+            question: '¿Qué tipo de apoyo recibiré?',
+            answer: 'Proporcionamos incorporación dedicada, materiales de marketing y apoyo continuo para ayudarte a presentar exitosamente RAY a tus clientes.'
+          },
+          {
+            question: '¿Puedo integrar las herramientas de RAY con mis servicios existentes?',
+            answer: 'Depende. Las soluciones de RAY están diseñadas para complementar tus servicios de marketing o consultoría existentes, agregando más valor a tus relaciones con clientes. Si estás considerando una integración técnica para incrustar la tecnología de RAY en tu propia solución, programemos una llamada para discutir las posibilidades y asegurar que todo se alinee con tu plataforma.'
+          },
+          {
+            question: '¿Cómo rastreo mis referencias y ganancias?',
+            answer: 'Tendrás acceso a un panel de partners donde puedes rastrear todas tus referencias, comisiones y métricas de rendimiento.'
+          }
+        ]
+      },
+      FINAL_CTA: {
+        TITLE: '¿Listo para Crecer Juntos?',
+        DESCRIPTION: 'Únete a nuestro programa de partners hoy y comienza a ofrecer a tus clientes una solución probada para el crecimiento de restaurantes.',
+        CTA: 'Aplicar para Convertirse en Partner'
+      }
     }
   },
   en: {
     // CTA Labels
     CTA: {
       GRADE_RESTAURANT: 'Scan your restaurant',
-      GET_FREE_DEMO: 'Get a Free Demo',
+      GET_FREE_DEMO: 'Get Demo',
       GET_STARTED: 'Get Started Today',
       VIEW_CASE_STUDIES: 'View All Success Stories',
       LEARN_MORE: 'Learn more'
@@ -1681,6 +1890,77 @@ export const COPY: Record<Locale, any> = {
         SHORT_DESCRIPTION: 'For agencies, consultants, accountants, and distributors who work directly with restaurants.',
         DETAILED_DESCRIPTION_PART1: 'Referral Partners go beyond promotion—you actively introduce',
         DETAILED_DESCRIPTION_PART2: 'to the restaurants you already serve. We\'ll equip you with training, resources, and ongoing support so you can confidently integrate'
+      }
+    },
+
+    // Partner with RAY Page
+    PARTNER_PAGE: {
+      HERO: {
+        TITLE: 'Partner with RAY: Grow Your Clients. Grow Your Business.',
+        DESCRIPTION: 'Join our partner program to provide innovative restaurant marketing solutions while earning recurring revenue.',
+        CTA: 'Schedule a Partnership Call'
+      },
+      CORE_BENEFITS: {
+        TITLE: 'Complement Your Value. Earn Monthly Revenue. Become a RAY Partner.',
+        BENEFIT_1: {
+          TITLE: 'Recurring Monthly Commissions',
+          DESCRIPTION: 'Earn ongoing revenue from every client you refer.'
+        },
+        BENEFIT_2: {
+          TITLE: 'Access to New Tech Opportunities',
+          DESCRIPTION: 'Stay ahead with innovative tools for restaurants.'
+        },
+        BENEFIT_3: {
+          TITLE: 'Better Retention with Your Clients',
+          DESCRIPTION: 'Help clients succeed and increase lifetime value.'
+        },
+        BENEFIT_4: {
+          TITLE: 'Sales Tools & Support',
+          DESCRIPTION: 'From pitch decks to onboarding help—we\'ve got your back.'
+        },
+        PROOF_POINT: 'A proven product that is used by top-performing restaurants across the U.S.'
+      },
+      FAQ: {
+        TITLE: 'Frequently Asked Questions',
+        QUESTIONS: [
+          {
+            question: 'What is the RAY Partner Program?',
+            answer: 'The RAY Partner Program is a collaborative opportunity for marketing agencies, restaurant consultants, freelancers, and restaurant tech providers to expand their services and earn recurring monthly revenue by offering RAY\'s innovative Local SEO and reputation management solutions to their clients.'
+          },
+          {
+            question: 'Who can join the Partner Program?',
+            answer: 'The program is open to professionals and businesses who work with restaurants or hospitality groups that have 5 to 100 physical locations. If you\'re a marketer, consultant, or tech provider in the restaurant space, you\'re welcome!'
+          },
+          {
+            question: 'What are the main benefits for partners?',
+            answer: 'Recurring Monthly Commissions, earn ongoing revenue from each client you refer. Access to Cutting-Edge Tools, be the first to offer our innovative products, be found, be chosen and sell more. Stronger Client Retention, helps your clients grow foot traffic and sales, boosting your value as a trusted partner.'
+          },
+          {
+            question: 'How do I get started?',
+            answer: 'Click "Apply now" to fill out a short application. Our team will review your details and connect with you within 48 hours to discuss your goals and how we can work together.'
+          },
+          {
+            question: 'Is there a cost to join the Partner Program?',
+            answer: 'No, joining is free! You\'ll only need to provide basic information about your business or services.'
+          },
+          {
+            question: 'What kind of support will I receive?',
+            answer: 'We provide dedicated onboarding, marketing materials, and ongoing support to help you successfully introduce RAY to your clients.'
+          },
+          {
+            question: 'Can I integrate RAY\'s tools with my existing services?',
+            answer: 'It depends. RAY\'s solutions are designed to complement your existing marketing or consulting services, adding more value to your client relationships. If you\'re considering a technical integration to embed RAY\'s technology into your own solution, let\'s schedule a call to discuss the possibilities and ensure everything aligns with your platform.'
+          },
+          {
+            question: 'How do I track my referrals and earnings?',
+            answer: 'You\'ll have access to a partner dashboard where you can track all your referrals, commissions, and performance metrics.'
+          }
+        ]
+      },
+      FINAL_CTA: {
+        TITLE: 'Ready to Grow Together?',
+        DESCRIPTION: 'Join our partner program today and start offering your clients a proven solution for restaurant growth.',
+        CTA: 'Apply to Become a Partner'
       }
     },
 
@@ -2101,7 +2381,7 @@ export const COPY: Record<Locale, any> = {
         },
         CONSENT_TEXT: 'I agree to receive automated text messages from {COMPANY_NAME} at the phone number provided to help me schedule a demo and evaluate the platform. Consent is not required. By signing up, I\'ll receive approximately 4 messages per month.',
         CONSENT_DISCLAIMER: 'Message & data rates may apply. Reply STOP to cancel anytime.',
-        SUBMIT_BUTTON: 'Get a free demo →',
+        SUBMIT_BUTTON: 'Get a demo →',
         SUBMITTING: 'Submitting...',
         SUCCESS_MESSAGE: '✓ Form submitted successfully! We\'ll send you an email shortly.',
         ERROR_MESSAGE: '✗ Something went wrong. Please try again or contact support.',
@@ -2300,7 +2580,7 @@ export const COPY: Record<Locale, any> = {
 
     ABOUT_PAGE: {
       HERO: {
-        TITLE: 'Helping local business owners',
+        TITLE: 'Helping restaurant owners',
         TITLE_HIGHLIGHT: 'survive & thrive',
         SUBTITLE: 'Learn how we got here, what keeps us going, and why our customers love RAY. This is personal for us.',
         IMAGE_CAPTION: 'Meet Franco and Sebastian',
@@ -2311,12 +2591,15 @@ export const COPY: Record<Locale, any> = {
         FRANCO: {
           NAME: 'Franco Breciano',
           TITLE: 'Co-Founder & CEO',
-          BIO: 'Franco founded RAY after helping save his mother\'s business from bankruptcy. With a background in technology and a passion for helping local businesses, Franco leads RAY\'s vision of empowering independent restaurants with marketing tools that actually work.'
+          BIO: [
+            'Franco founded RAY when realizing during Covid 19, that restaurants had lost their tools and skills to keep close relationships with their customers, and depended on third party platforms for orders and reservations to keep their business alive.',
+            'When ChatGPT 3.5 was launched, he saw an opportunity to help restaurants recover their own relationships with consumers by using acombination of ai agents in all their forms combined with existing POS systems, mobile apps and a state of the art websites that LLMs like ChatGPT, Gemini or Claude could understand. This is how RAY was born, pioneering the way consumers interact with restaurants.'
+          ]
         },
         SEBASTIAN: {
           NAME: 'Sebastian Cadenas',
           TITLE: 'Co-Founder & CTO',
-          BIO: 'Sebastian brings deep technical expertise and a unique understanding of restaurant needs. His focus on creating simple yet powerful solutions has been instrumental in making RAY\'s technology accessible to restaurant owners of all sizes.'
+          BIO: 'Sebastian brings deep expertise and a unique understanding of restaurant needs. His focus on creating simple yet powerful solutions has been instrumental in making RAYs technology accessible to restaurant owners of all sizes across the United States and Latin America.'
         }
       },
       LOCAL_HEROES: {
@@ -2340,7 +2623,7 @@ export const COPY: Record<Locale, any> = {
       FINAL_CTA: {
         TITLE: 'Local business owners need tech that helps them, not hurts them.',
         CTA_TITLE: 'The easiest way to grow your restaurant online.',
-        CTA_BUTTON: 'Get a free demo'
+        CTA_BUTTON: 'Get a demo'
       }
     },
 
@@ -2561,6 +2844,10 @@ export const COPY: Record<Locale, any> = {
           {
             title: '🛠️ No extra staff needed',
             description: 'Save on labor costs while improving service'
+          },
+          {
+            title: '📊 Smart insights',
+            description: 'Learn what customers ask and improve your business'
           }
         ]
       },
@@ -2718,7 +3005,7 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Offer a rewards program',
         TITLE_HIGHLIGHT: 'like the national chains.',
         SUBTITLE: 'Build customer loyalty with a rewards program. Keep guests coming back for more, just like the big brands.',
-        CTA_DEMO: 'Get a free demo',
+        CTA_DEMO: 'Get a demo',
         CTA_PRICING: 'View Pricing'
       },
       FEATURES: {
@@ -2787,13 +3074,76 @@ export const COPY: Record<Locale, any> = {
         CTA: 'Get started today'
       }
     },
+    AI_EMPLOYEE_PAGE: {
+      HERO: {
+        TITLE: 'Your digital employee',
+        TITLE_HIGHLIGHT: 'that never sleeps',
+        SUBTITLE: 'AI agent that serves your customers 24/7 on WhatsApp, Instagram, your website and Facebook Messenger. Answers menu questions, takes bookings, processes orders and manages loyalty program signups. All integrated with your POS.',
+        CTA_DEMO: 'Get a demo',
+        CTA_PRICING: 'View Pricing'
+      },
+      FEATURES: {
+        TITLE: 'Everything you need to automate your customer service',
+        LIST: [
+          {
+            TITLE: 'Instant 24/7 responses',
+            DESCRIPTION: 'Never lose a customer due to lack of response. Your AI agent is available 24 hours a day, every day.'
+          },
+          {
+            TITLE: 'Integrated multi-platform',
+            DESCRIPTION: 'One agent that works on WhatsApp, Instagram, your website and Facebook Messenger simultaneously.'
+          },
+          {
+            TITLE: 'Smart booking management',
+            DESCRIPTION: 'Takes, modifies and manages bookings directly from any platform, without the need for human intervention.'
+          },
+          {
+            TITLE: 'Automatic order processing',
+            DESCRIPTION: 'Processes delivery orders automatically, verifies availability and confirms everything error-free.'
+          },
+          {
+            TITLE: 'Automatic loyalty signup',
+            DESCRIPTION: 'Automatically signs customers up to your loyalty program during natural conversations.'
+          }
+        ]
+      },
+      FAQ: {
+        TITLE: 'Frequently Asked Questions',
+        QUESTIONS: [
+          {
+            QUESTION: 'How does the AI agent work?',
+            ANSWER: 'Our AI agent uses advanced natural language technology to understand and answer questions, process bookings and orders, and manage loyalty program signups. It learns from your menus, hours, policies and more to provide accurate and helpful responses.'
+          },
+          {
+            QUESTION: 'What platforms is it available on?',
+            ANSWER: 'The agent is available on WhatsApp, Instagram (direct messages and comments), your website (through a widget) and Facebook Messenger. All platforms are connected and the agent maintains context between conversations.'
+          },
+          {
+            QUESTION: 'Can it take real bookings and orders?',
+            ANSWER: 'Yes, the agent can take bookings by checking real-time availability and process delivery orders integrated with your POS system. It also sends automatic confirmations and notifies your team when necessary.'
+          },
+          {
+            QUESTION: 'How does it integrate with my existing system?',
+            ANSWER: 'We integrate with major POS systems, booking platforms and loyalty programs. The agent can access menus, hours, availability and more in real-time.'
+          },
+          {
+            QUESTION: 'What happens if the agent doesn\'t know how to answer something?',
+            ANSWER: 'The agent is configured to recognize when it needs human help. In those cases, it can transfer the conversation to your team or take contact information for follow-up. It also learns from each interaction to improve.'
+          },
+          {
+            QUESTION: 'How long does it take to set up the agent?',
+            ANSWER: 'Initial setup takes approximately 2-3 weeks, including integration with your systems, training the agent with your specific information and testing. We provide complete support throughout the process.'
+          }
+        ]
+      }
+    },
     MOBILE_APP_PAGE: {
       HERO: {
         BADGE: 'Custom Mobile App',
         TITLE: 'Imagine having your own',
         TITLE_HIGHLIGHT: 'restaurant mobile app',
         SUBTITLE: 'With a mobile app, send customers order directly — instead of going to third parties.',
-        CTA_DEMO: 'Get a free demo',
+        CTA_DEMO: 'Get a demo',
         CTA_PRICING: 'View Pricing',
         STAT_1: '85% more repeat orders',
         STAT_2: 'No commissions'
@@ -2859,7 +3209,7 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Restaurant websites built for',
         TITLE_HIGHLIGHT: 'sales first, style second.',
         SUBTITLE: 'RAY builds your website to drive sales. Our proven design grows Google traffic, optimizes delivery apps, and hosts your competition.',
-        CTA_DEMO: 'Get a free demo',
+        CTA_DEMO: 'Get a demo',
         CTA_PRICING: 'View Pricing',
         STAT_1: 'Ready in days, not months',
         STAT_2: 'Google optimized'
@@ -2919,7 +3269,7 @@ export const COPY: Record<Locale, any> = {
         TITLE: 'Profitable delivery and a',
         TITLE_HIGHLIGHT: 'great guest experience.',
         SUBTITLE: 'Get your customers to order from your app, with top-rated drivers, at a fair price.',
-        CTA_DEMO: 'Get a free demo',
+        CTA_DEMO: 'Get a demo',
         CTA_PRICING: 'View Pricing'
       },
       FEATURES: {
@@ -2969,6 +3319,76 @@ export const COPY: Record<Locale, any> = {
             answer: 'We work with a network of independent drivers and delivery services looking for more work. By offering fair rates and consistent volume, we create a win-win situation: you get better service, drivers earn more, and customers receive better experience.'
           }
         ]
+      }
+    },
+    HOW_IT_WORKS_PAGE: {
+      HERO: {
+        TITLE: 'Your restaurant could be making',
+        TITLE_HIGHLIGHT: 'way more online sales.',
+        SUBTITLE: 'RAY is the simplest way to rank higher on Google, increase direct orders, and create an exceptional experience for your customers.',
+        CTA_DEMO: 'Get a demo',
+        VIDEO_CTA: 'Watch video'
+      },
+      FEATURES: {
+        FEATURE_1: {
+          NUMBER: '01.',
+          TITLE: 'Dominate Google search results',
+          DESCRIPTION: 'Outrank your competition with a Google-optimized website. Attract more customers actively searching for restaurants in your area.',
+          CTA: 'See how'
+        },
+        FEATURE_2: {
+          NUMBER: '02.',
+          TITLE: 'Grow sales with super-easy online ordering',
+          DESCRIPTION: 'Customers order more when your ordering system is intuitive and familiar. Less friction means more conversions.',
+          CTA: 'See how'
+        },
+        FEATURE_3: {
+          NUMBER: '03.',
+          TITLE: 'Build loyalty with your mobile app and rewards',
+          DESCRIPTION: 'Your own mobile app increases repeat orders. Create Starbucks-style loyalty that keeps customers coming back.',
+          CTA: 'See how'
+        },
+        FEATURE_4: {
+          NUMBER: '04.',
+          TITLE: 'Sell more with automated marketing',
+          DESCRIPTION: 'Automated email and SMS campaigns that drive revenue. Proven marketing that works while you sleep.',
+          CTA: 'See how'
+        }
+      },
+      FAQ: {
+        TITLE: 'FAQs',
+        QUESTIONS: [
+          {
+            QUESTION: 'What do I need to get started?',
+            ANSWER: 'You just need an active restaurant and the desire to grow your online sales. We handle everything else: website, ordering system, POS integrations, and training your team.'
+          },
+          {
+            QUESTION: 'Do you take over my POS?',
+            ANSWER: 'Yes, we integrate with major POS systems like Square, Toast, Clover, and many more. Our technical team handles all the setup so your online orders sync automatically with your kitchen.'
+          },
+          {
+            QUESTION: 'What happens to my current website?',
+            ANSWER: 'If you already have a website, we can replace it with a RAY-optimized one or integrate with your existing site. We keep your domain and all your online presence intact during the transition.'
+          },
+          {
+            QUESTION: 'Do you do social media marketing?',
+            ANSWER: 'Yes, we offer complete social media management including content creation, scheduled posting, and advertising campaigns on Facebook and Instagram to attract more customers.'
+          },
+          {
+            QUESTION: 'How do you get customers to order directly from me?',
+            ANSWER: 'We combine multiple strategies: optimize your Google presence, create your custom mobile app, implement QR codes at your tables, and set up ordering through WhatsApp and social media. Everything directs to your own platform.'
+          }
+        ]
+      },
+      TESTIMONIAL: {
+        QUOTE: 'I have a lot of friends that have restaurants. I tell them they have to switch to RAY.',
+        AUTHOR: 'Fermin Iaguirre',
+        POSITION: 'Owner of Sado Addicts',
+        IMAGE: '/images/testimonial-fermin.jpg'
+      },
+      FINAL_CTA: {
+        TITLE: 'The simplest way to grow your restaurant online.',
+        CTA: 'Get a demo'
       }
     }
   }

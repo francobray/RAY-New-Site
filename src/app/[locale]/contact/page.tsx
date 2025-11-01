@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import Contact from '@/components/pages/Contact'
+import Contact from '@/components/pages/company/Contact'
 import { type Locale } from '@/lib/i18n'
 
 interface ContactPageProps {
