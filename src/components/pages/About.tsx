@@ -123,13 +123,13 @@ const About: React.FC<AboutProps> = ({ locale }) => {
               '/images/success-stories/parolaccia.webp',
               '/images/success-stories/WingsFC.webp'
             ].map((image, index) => (
-              <div key={index} className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+              <div key={index} className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg" style={{ minHeight: '200px' }}>
                 <Image
                   src={image}
                   alt={`Local business owner ${index + 1}`}
-                  width={300}
-                  height={300}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  className="object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
             ))}
@@ -163,13 +163,13 @@ const About: React.FC<AboutProps> = ({ locale }) => {
               '/images/success-stories/Juan_valdez.webp',
               '/images/success-stories/Temple_Bar.webp'
             ].map((image, index) => (
-              <div key={index} className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+              <div key={index} className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg" style={{ minHeight: '200px' }}>
                 <Image
                   src={image}
                   alt={`Restaurant owner ${index + 1}`}
-                  width={300}
-                  height={300}
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  className="object-cover grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300"
                 />
               </div>
             ))}
