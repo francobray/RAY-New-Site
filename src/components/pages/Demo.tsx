@@ -135,20 +135,20 @@ const Demo = ({ locale }: DemoProps) => {
   const ResultsShowcase = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
       <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
-        Resultados de nuestros clientes
+        {t.DEMO_PAGE.RESULTS_SHOWCASE.TITLE}
       </h3>
       <div className="grid grid-cols-3 gap-4">
         <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1">350%</div>
-          <div className="text-xs md:text-sm text-gray-600 leading-tight">Aumento de reservas sin comisión</div>
+          <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1">{t.DEMO_PAGE.RESULTS_SHOWCASE.STAT_1_VALUE}</div>
+          <div className="text-xs md:text-sm text-gray-600 leading-tight">{t.DEMO_PAGE.RESULTS_SHOWCASE.STAT_1_LABEL}</div>
         </div>
         <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold text-green-600 mb-1">150%</div>
-          <div className="text-xs md:text-sm text-gray-600 leading-tight">Aumento pedidos Delivery sin comisión</div>
+          <div className="text-2xl md:text-3xl font-bold text-green-600 mb-1">{t.DEMO_PAGE.RESULTS_SHOWCASE.STAT_2_VALUE}</div>
+          <div className="text-xs md:text-sm text-gray-600 leading-tight">{t.DEMO_PAGE.RESULTS_SHOWCASE.STAT_2_LABEL}</div>
         </div>
         <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold text-purple-600 mb-1">30%</div>
-          <div className="text-xs md:text-sm text-gray-600 leading-tight">Aumento de tráfico desde Google Maps al restaurante</div>
+          <div className="text-2xl md:text-3xl font-bold text-purple-600 mb-1">{t.DEMO_PAGE.RESULTS_SHOWCASE.STAT_3_VALUE}</div>
+          <div className="text-xs md:text-sm text-gray-600 leading-tight">{t.DEMO_PAGE.RESULTS_SHOWCASE.STAT_3_LABEL}</div>
         </div>
       </div>
     </div>
@@ -192,11 +192,11 @@ const Demo = ({ locale }: DemoProps) => {
                 <div className="bg-white p-6 rounded-lg shadow-sm">
                   <div className="flex items-start gap-4">
                     <Image
-                      src="/images/success-stories/Temple_Team.jpeg"
-                      alt="Restaurant Success Story"
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 rounded-full object-cover"
+                      src="/images/success-stories/Testimonials/Juani-Chereminiano-optimized.jpg"
+                      alt="Juan Ignacio Chereminiano - Temple Craft Wynwood"
+                      width={96}
+                      height={96}
+                      className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover flex-shrink-0"
                       loading="lazy"
                     />
                     <div>

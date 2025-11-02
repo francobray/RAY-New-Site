@@ -14,7 +14,8 @@ import {
   ShoppingCart,
   Calendar,
   Smartphone,
-  Heart
+  Heart,
+  Bot
 } from 'lucide-react'
 
 interface ProductItem {
@@ -77,10 +78,10 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
       hasDropdown: true,
       productItems: [
           {
-            name: locale === 'es' ? 'Delivery por WhatsApp' : 'WhatsApp Delivery',
-            path: `/${locale}/product/whatsapp-delivery`,
-            description: locale === 'es' ? 'Convierte DMs de restaurante en pedidos automáticamente 24/7.' : 'Turn restaurant DMs into orders automatically 24/7.',
-            icon: 'whatsapp'
+            name: locale === 'es' ? 'Empleado IA' : 'AI Employee',
+            path: `/${locale}/product/ai-agent`,
+            description: locale === 'es' ? 'Atiende clientes 24/7 en WhatsApp, Instagram, Messenger y tu web.' : 'Serve customers 24/7 on WhatsApp, Instagram, Messenger and your website.',
+            icon: Bot
           },
         { 
           name: locale === 'es' ? 'Website de tu restaurante' : 'Website Builder',

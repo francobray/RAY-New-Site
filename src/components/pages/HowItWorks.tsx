@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { ArrowRight, ChevronDown, ChevronUp, Play } from 'lucide-react'
 import Button from '../shared/BaseButton'
 import { useTranslations } from '../../hooks/useTranslations'
@@ -58,8 +59,8 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ locale }) => {
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
 
-            {/* Video Placeholder */}
-            <div className="relative bg-blue-600 rounded-3xl shadow-2xl overflow-hidden max-w-3xl mx-auto aspect-video">
+            {/* Video Placeholder - Hidden for now */}
+            <div className="hidden relative bg-blue-600 rounded-3xl shadow-2xl overflow-hidden max-w-3xl mx-auto aspect-video">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg cursor-pointer hover:scale-110 transition-transform duration-300">
@@ -104,42 +105,29 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ locale }) => {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
-              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-lg aspect-square flex items-center justify-center">
-                {/* Placeholder for Google search result mockup */}
-                <div className="w-full max-w-md bg-white rounded-lg shadow-xl p-6">
-                  <div className="flex items-start space-x-3 mb-4">
-                    <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
-                    <div className="flex-1">
-                      <div className="h-4 bg-gray-300 rounded w-3/4 mb-2"></div>
-                      <div className="flex items-center space-x-1 mb-1">
-                        {[...Array(5)].map((_, i) => (
-                          <div key={i} className="w-4 h-4 text-yellow-400">★</div>
-                        ))}
-                      </div>
-                      <div className="h-3 bg-gray-200 rounded w-full mb-1"></div>
-                      <div className="h-3 bg-gray-200 rounded w-2/3"></div>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                <Image 
+                  src={locale === 'es' ? '/images/home/es/Home_product_2.avif' : '/images/home/en/Home_product_2.avif'}
+                  alt={locale === 'es' ? 'Google y ChatGPT resultados de búsqueda' : 'Google and ChatGPT search results'}
+                  width={800}
+                  height={800}
+                  className="w-full h-auto"
+                  quality={90}
+                />
               </div>
             </div>
 
             {/* Feature 2 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-lg aspect-square flex items-center justify-center">
-                {/* Placeholder for online menu mockup */}
-                <div className="w-full max-w-md space-y-4">
-                  <div className="bg-white rounded-lg p-4 shadow-md">
-                    <div className="h-4 bg-gray-300 rounded w-1/2 mb-3"></div>
-                    <div className="h-3 bg-gray-200 rounded w-full mb-2"></div>
-                    <div className="h-3 bg-gray-200 rounded w-3/4"></div>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-md">
-                    <div className="h-4 bg-gray-300 rounded w-1/2 mb-3"></div>
-                    <div className="h-3 bg-gray-200 rounded w-full mb-2"></div>
-                    <div className="h-3 bg-gray-200 rounded w-3/4"></div>
-                  </div>
-                </div>
+              <div className="order-2 lg:order-1 relative rounded-2xl overflow-hidden shadow-lg">
+                <Image 
+                  src="/images/how-it-works/how-it-works-2.png"
+                  alt={locale === 'es' ? 'Pedidos online fáciles' : 'Easy online ordering'}
+                  width={800}
+                  height={800}
+                  className="w-full h-auto"
+                  quality={85}
+                />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="text-6xl font-bold text-ray-blue mb-4">
@@ -187,48 +175,29 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ locale }) => {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
-              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-lg aspect-square flex items-center justify-center">
-                {/* Placeholder for mobile app mockup */}
-                <div className="w-64 h-96 bg-gray-800 rounded-[2.5rem] p-4 shadow-2xl">
-                  <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden">
-                    <div className="h-16 bg-ray-blue"></div>
-                    <div className="p-4 space-y-3">
-                      <div className="h-4 bg-gray-300 rounded w-3/4"></div>
-                      <div className="h-20 bg-gray-200 rounded"></div>
-                      <div className="h-20 bg-gray-200 rounded"></div>
-                      <div className="h-20 bg-gray-200 rounded"></div>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                <Image 
+                  src="/images/how-it-works/how-it-works-3.png"
+                  alt={locale === 'es' ? 'App móvil y programa de puntos' : 'Mobile app and rewards program'}
+                  width={800}
+                  height={800}
+                  className="w-full h-auto"
+                  quality={85}
+                />
               </div>
             </div>
 
             {/* Feature 4 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-lg aspect-square flex items-center justify-center">
-                {/* Placeholder for marketing automation mockup */}
-                <div className="w-full max-w-md space-y-4">
-                  <div className="bg-white rounded-lg p-6 shadow-md">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="h-4 bg-blue-500 rounded w-32"></div>
-                      <div className="h-3 bg-gray-300 rounded w-20"></div>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="h-3 bg-gray-200 rounded w-full"></div>
-                      <div className="h-3 bg-gray-200 rounded w-5/6"></div>
-                    </div>
-                  </div>
-                  <div className="bg-white rounded-lg p-6 shadow-md">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="h-4 bg-green-500 rounded w-32"></div>
-                      <div className="h-3 bg-gray-300 rounded w-20"></div>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="h-3 bg-gray-200 rounded w-full"></div>
-                      <div className="h-3 bg-gray-200 rounded w-4/6"></div>
-                    </div>
-                  </div>
-                </div>
+              <div className="order-2 lg:order-1 relative rounded-2xl overflow-hidden shadow-lg">
+                <Image 
+                  src={locale === 'es' ? '/images/how-it-works/how-it-works-4-es.png' : '/images/how-it-works/how-it-works-4-en.png'}
+                  alt={locale === 'es' ? 'Marketing automatizado' : 'Automated marketing'}
+                  width={800}
+                  height={800}
+                  className="w-full h-auto"
+                  quality={90}
+                />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="text-6xl font-bold text-ray-blue mb-4">
@@ -294,22 +263,26 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ locale }) => {
       </section>
 
       {/* Testimonial Section */}
-      {howItWorksContent?.TESTIMONIAL && (
-        <section className="py-20 bg-ray-promise">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-12">
-              <div className="w-20 h-20 bg-gray-300 rounded-full mx-auto mb-6"></div>
-              <blockquote className="text-2xl font-medium text-ray-dark-900 mb-6">
-                "{howItWorksContent.TESTIMONIAL.QUOTE}"
-              </blockquote>
-              <div className="text-ray-dark-700">
-                <p className="font-semibold">{howItWorksContent.TESTIMONIAL.AUTHOR}</p>
-                <p className="text-sm">{howItWorksContent.TESTIMONIAL.POSITION}</p>
-              </div>
+      <section className="py-20 bg-ray-promise">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-12">
+            <Image
+              src="/images/success-stories/Testimonials/Juani-Chereminiano-optimized.jpg"
+              alt="Juan Ignacio Chereminiano - Temple Craft Wynwood"
+              width={120}
+              height={120}
+              className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover mx-auto mb-6"
+              loading="lazy"
+            />
+            <blockquote className="text-2xl font-medium text-ray-dark-900 mb-6">
+              "{t.DEMO_PAGE.TESTIMONIAL.QUOTE}"
+            </blockquote>
+            <div className="text-ray-dark-700">
+              <p className="font-semibold">{t.DEMO_PAGE.TESTIMONIAL.AUTHOR}</p>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Final CTA Section */}
       <section className="py-20 bg-ray-dark-900 text-white relative overflow-hidden">
