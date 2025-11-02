@@ -544,15 +544,6 @@ export const COPY: Record<Locale, any> = {
           DESCRIPTION: 'Te mostraremos casos reales en que las visitas desde Google Maps aumentan en los primeros 60-90 días de usar RAY'
         }
       ],
-      RESULTS_SHOWCASE: {
-        TITLE: 'Resultados de nuestros clientes',
-        STAT_1_VALUE: '350%',
-        STAT_1_LABEL: 'Aumento de reservas sin comisión',
-        STAT_2_VALUE: '150%',
-        STAT_2_LABEL: 'Aumento pedidos Delivery sin comisión',
-        STAT_3_VALUE: '30%',
-        STAT_3_LABEL: 'Aumento de tráfico desde Google Maps al restaurante'
-      },
       STATS: {
         NAVIGATION_INCREASE: '+47%',
         NAVIGATION_LABEL: 'Aumento Promedio de Navegación',
@@ -2347,15 +2338,6 @@ export const COPY: Record<Locale, any> = {
           DESCRIPTION: 'Real performance data, case studies, and our 30%+ Google Maps directions guarantee.'
         }
       ],
-      RESULTS_SHOWCASE: {
-        TITLE: 'Our clients\' results',
-        STAT_1_VALUE: '350%',
-        STAT_1_LABEL: 'Increase in commission-free bookings',
-        STAT_2_VALUE: '150%',
-        STAT_2_LABEL: 'Increase in commission-free delivery orders',
-        STAT_3_VALUE: '30%',
-        STAT_3_LABEL: 'Increase in traffic from Google Maps to restaurant'
-      },
       STATS: {
         NAVIGATION_INCREASE: '+47%',
         NAVIGATION_LABEL: 'Avg. Navigation Increase',
