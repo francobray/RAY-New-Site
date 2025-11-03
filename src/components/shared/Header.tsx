@@ -150,8 +150,9 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
       hasDropdown: true,
       dropdownItems: [
         { name: locale === 'es' ? 'Nuestra Historia' : 'Our Story', path: `/${locale}/about` },
-        { name: locale === 'es' ? 'Contacto' : 'Contact', path: `/${locale}/contact` },
-        { name: locale === 'es' ? 'Asóciate con RAY' : 'Partner with RAY', path: `/${locale}/partner` }
+        { name: locale === 'es' ? 'Asóciate con RAY' : 'Partner with RAY', path: `/${locale}/partner` },
+        { name: locale === 'es' ? 'Carreras' : 'Careers', path: `/${locale}/careers` },
+        { name: locale === 'es' ? 'Contacto' : 'Contact', path: `/${locale}/contact` }
       ]
     }
   ]

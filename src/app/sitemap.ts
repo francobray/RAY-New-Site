@@ -19,6 +19,7 @@ const CORE_ROUTES = [
   { path: '/case-studies', priority: 0.8, changefreq: 'weekly' },
   { path: '/features', priority: 0.7, changefreq: 'monthly' },
   { path: '/about', priority: 0.6, changefreq: 'monthly' },
+  { path: '/careers', priority: 0.6, changefreq: 'monthly' },
   { path: '/contact', priority: 0.6, changefreq: 'monthly' },
   { path: '/partner', priority: 0.7, changefreq: 'monthly' },
   { path: '/demo', priority: 0.7, changefreq: 'monthly' },

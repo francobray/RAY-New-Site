@@ -106,15 +106,21 @@ const Demo = ({ locale }: DemoProps) => {
     
     try {
       // Send data to our API route which forwards to Zapier
+      const payload = {
+        ...formData,
+        source: 'demo-page',
+        locale: locale
+      }
+      
+      console.log('[DEBUG] Sending demo form with locale:', locale)
+      console.log('[DEBUG] Full payload:', payload)
+      
       const response = await fetch('/api/submit-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          source: 'demo-page'
-        })
+        body: JSON.stringify(payload)
       })
 
       if (!response.ok) {

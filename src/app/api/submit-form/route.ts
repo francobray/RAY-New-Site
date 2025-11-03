@@ -58,13 +58,33 @@ export async function POST(request: NextRequest) {
         )
       }
     } else if (body.source === 'demo-page') {
-      zapierWebhookUrl = process.env.ZAPIER_DEMO_WEBHOOK_URL
-      if (!zapierWebhookUrl) {
-        console.error('ZAPIER_DEMO_WEBHOOK_URL environment variable is not set')
-        return NextResponse.json(
-          { error: 'Demo webhook configuration error' },
-          { status: 500 }
-        )
+      // Select webhook based on locale
+      const locale = body.locale || 'en' // Default to 'en' if no locale provided
+      
+      console.log(`[DEBUG] Demo form submission - Locale received: ${locale}`)
+      console.log(`[DEBUG] Demo form submission - Body:`, JSON.stringify(body, null, 2))
+      
+      if (locale === 'es') {
+        zapierWebhookUrl = process.env.ZAPIER_DEMO_WEBHOOK_URL_ES
+        console.log(`[DEBUG] Using Spanish webhook: ${zapierWebhookUrl ? 'CONFIGURED' : 'NOT CONFIGURED'}`)
+        if (!zapierWebhookUrl) {
+          console.error('ZAPIER_DEMO_WEBHOOK_URL_ES environment variable is not set')
+          return NextResponse.json(
+            { error: 'Demo webhook configuration error for Spanish' },
+            { status: 500 }
+          )
+        }
+      } else {
+        // Default to English webhook
+        zapierWebhookUrl = process.env.ZAPIER_DEMO_WEBHOOK_URL_EN
+        console.log(`[DEBUG] Using English webhook: ${zapierWebhookUrl ? 'CONFIGURED' : 'NOT CONFIGURED'}`)
+        if (!zapierWebhookUrl) {
+          console.error('ZAPIER_DEMO_WEBHOOK_URL_EN environment variable is not set')
+          return NextResponse.json(
+            { error: 'Demo webhook configuration error for English' },
+            { status: 500 }
+          )
+        }
       }
     } else {
       console.error('Invalid or missing source in request:', body.source)
