@@ -99,6 +99,12 @@ function getPageDescriptions(): PageInfo[] {
       category: 'core'
     },
     {
+      path: '/careers',
+      title: 'Careers at RAY | Join Our Team',
+      description: 'Join RAY\'s team and help local restaurants thrive. We offer remote work, competitive benefits, and the opportunity to make a real impact on small businesses. Current openings include Software Engineers, Content Creators, and Product Owners.',
+      category: 'core'
+    },
+    {
       path: '/contact',
       title: 'Contact Us | RAY',
       description: 'Get in touch with RAY for restaurant marketing solutions. Request a demo or speak with our team about growing your restaurant.',
