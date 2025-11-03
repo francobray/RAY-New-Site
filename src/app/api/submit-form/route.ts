@@ -31,6 +31,16 @@ export async function POST(request: NextRequest) {
           }
           return { valid: true }
         }
+        case 'job-application': {
+          const { firstName, lastName, email, phone, jobTitle, linkedIn, coverLetter } = body
+          if (isEmpty(firstName) || isEmpty(lastName) || isEmpty(email) || isEmpty(phone) || isEmpty(jobTitle) || isEmpty(linkedIn) || isEmpty(coverLetter)) {
+            return { valid: false, message: 'Missing required fields for job application' }
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return { valid: false, message: 'Invalid email format' }
+          }
+          return { valid: true }
+        }
         default:
           return { valid: false, message: 'Unknown submission source' }
       }
@@ -85,6 +95,16 @@ export async function POST(request: NextRequest) {
             { status: 500 }
           )
         }
+      }
+    } else if (body.source === 'job-application') {
+      zapierWebhookUrl = process.env.ZAPIER_JOB_APPLICATION_WEBHOOK_URL
+      console.log(`[DEBUG] Using job application webhook: ${zapierWebhookUrl ? 'CONFIGURED' : 'NOT CONFIGURED'}`)
+      if (!zapierWebhookUrl) {
+        console.error('ZAPIER_JOB_APPLICATION_WEBHOOK_URL environment variable is not set')
+        return NextResponse.json(
+          { error: 'Job application webhook configuration error' },
+          { status: 500 }
+        )
       }
     } else {
       console.error('Invalid or missing source in request:', body.source)

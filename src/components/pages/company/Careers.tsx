@@ -1,9 +1,10 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, MapPin, Clock, Briefcase } from 'lucide-react'
 import { type Locale } from '@/lib/i18n'
+import JobApplicationModal from '@/components/shared/JobApplicationModal'
 
 interface CareersProps {
   locale: Locale
@@ -18,6 +19,13 @@ interface JobPosition {
 }
 
 const Careers: React.FC<CareersProps> = ({ locale }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedJob, setSelectedJob] = useState<string>('')
+
+  const handleApplyClick = (jobTitle: string) => {
+    setSelectedJob(jobTitle)
+    setIsModalOpen(true)
+  }
   
   // Job positions data
   const jobPositions: JobPosition[] = locale === 'es' ? [
@@ -29,18 +37,18 @@ const Careers: React.FC<CareersProps> = ({ locale }) => {
       description: 'Únete a nuestro equipo de ingeniería para construir soluciones innovadoras que ayuden a restaurantes a crecer.'
     },
     {
-      title: 'Gerente de Éxito del Cliente',
-      department: 'Éxito del Cliente',
-      location: 'Miami, FL / Remoto',
-      type: 'Tiempo Completo',
-      description: 'Ayuda a nuestros clientes a maximizar su éxito con la plataforma RAY y construye relaciones duraderas.'
-    },
-    {
-      title: 'Especialista en Marketing Digital',
+      title: 'Content Creator',
       department: 'Marketing',
       location: 'Remoto',
       type: 'Tiempo Completo',
-      description: 'Crea y ejecuta estrategias de marketing digital para ayudar a crecer nuestra base de clientes.'
+      description: 'Crea contenido atractivo para blog, redes sociales, casos de éxito y video. Realiza investigación de palabras clave y gestiona publicaciones en múltiples plataformas.'
+    },
+    {
+      title: 'Product Owner',
+      department: 'Producto',
+      location: 'Remoto',
+      type: 'Tiempo Completo',
+      description: 'Traduce la visión en especificaciones detalladas, construye prototipos en Bolt, realiza pruebas de usuario y validación de prototipos, asegura calidad y usabilidad, y monitorea KPIs de rendimiento del producto.'
     }
   ] : [
     {
@@ -51,54 +59,62 @@ const Careers: React.FC<CareersProps> = ({ locale }) => {
       description: 'Join our engineering team to build innovative solutions that help restaurants grow and thrive.'
     },
     {
-      title: 'Customer Success Manager',
-      department: 'Customer Success',
-      location: 'Miami, FL / Remote',
-      type: 'Full-Time',
-      description: 'Help our customers maximize their success with the RAY platform and build lasting relationships.'
-    },
-    {
-      title: 'Digital Marketing Specialist',
+      title: 'Content Creator',
       department: 'Marketing',
       location: 'Remote',
       type: 'Full-Time',
-      description: 'Create and execute digital marketing strategies to help grow our customer base.'
+      description: 'Create engaging content for blog, social media, success stories, and video. Conduct keyword research and manage publications across multiple platforms.'
+    },
+    {
+      title: 'Product Owner',
+      department: 'Product',
+      location: 'Remote',
+      type: 'Full-Time',
+      description: 'Translate vision into detailed specs, build prototypes in Bolt, conduct user testing and prototype validation, ensure quality and usability, and monitor product performance KPIs.'
     }
   ]
 
   const values = locale === 'es' ? [
     {
-      title: 'Orientado a Resultados',
-      description: 'Nos enfocamos en entregar resultados medibles para nuestros clientes y nuestro equipo.'
+      title: 'Leaders without a title',
+      description: 'Actuamos con determinación y lideramos con el ejemplo desde cualquier lugar y acción.'
     },
     {
-      title: 'Innovación',
-      description: 'Buscamos constantemente formas nuevas y mejores de resolver problemas.'
+      title: 'Cantame la posta',
+      description: 'Mantenemos relaciones honestas, directas y siempre respetuosas.'
     },
     {
-      title: 'Colaboración',
-      description: 'Trabajamos juntos como un equipo para lograr grandes cosas.'
+      title: 'We flow like water',
+      description: 'Siempre encontramos un lugar para avanzar hacia nuestro norte.'
     },
     {
-      title: 'Empatía',
-      description: 'Nos ponemos en los zapatos de nuestros clientes y compañeros de equipo.'
+      title: 'The best idea wins',
+      description: 'Colaboramos prácticamente sin barreras jerárquicas.'
+    },
+    {
+      title: 'Cultivamos relaciones positivas',
+      description: 'Fomentamos el respeto y las relaciones a largo plazo con actitud positiva.'
     }
   ] : [
     {
-      title: 'Results-Driven',
-      description: 'We focus on delivering measurable results for our customers and our team.'
+      title: 'Leaders without a title',
+      description: 'We act with determination and lead by example from any place and action.'
     },
     {
-      title: 'Innovation',
-      description: 'We constantly seek new and better ways to solve problems.'
+      title: 'Cantame la posta',
+      description: 'We maintain honest, direct, and always respectful relationships.'
     },
     {
-      title: 'Collaboration',
-      description: 'We work together as a team to achieve great things.'
+      title: 'We flow like water',
+      description: 'We always find a way to move forward toward our north star.'
     },
     {
-      title: 'Empathy',
-      description: 'We put ourselves in the shoes of our customers and teammates.'
+      title: 'The best idea wins',
+      description: 'We collaborate practically without hierarchical barriers.'
+    },
+    {
+      title: 'Build positive relationships',
+      description: 'We foster respect and long-term relationships with a positive attitude.'
     }
   ]
   
@@ -217,13 +233,13 @@ const Careers: React.FC<CareersProps> = ({ locale }) => {
                       </span>
                     </div>
                   </div>
-                  <Link
-                    href={`/${locale}/contact`}
+                  <button
+                    onClick={() => handleApplyClick(job.title)}
                     className="inline-flex items-center gap-2 bg-ray-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 whitespace-nowrap"
                   >
                     {locale === 'es' ? 'Aplicar' : 'Apply'}
                     <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </button>
                 </div>
                 <p className="text-ray-dark-700">
                   {job.description}
@@ -253,6 +269,14 @@ const Careers: React.FC<CareersProps> = ({ locale }) => {
           </div>
         </div>
       </section>
+
+      {/* Job Application Modal */}
+      <JobApplicationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        jobTitle={selectedJob}
+        locale={locale}
+      />
     </>
   )
 }
