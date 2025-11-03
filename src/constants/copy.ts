@@ -122,7 +122,7 @@ export const COPY: Record<Locale, any> = {
       HERO: {
         TITLE: 'Genera más',
         TITLE_HIGHLIGHT: 'delivery sin comisión, reservas directas y más tráfico\u00A0en\u00A0tu\u00A0restaurante',
-        SUBTITLE: 'RAY es la plataforma de ventas #1 que ayuda a propietarios de restaurantes a atraer más clientes, aumentar ingresos de pedidos directos, reservas directas y tráfico en sucursal'
+        SUBTITLE: 'RAY es la plataforma #1 de marketing y ventas que ayuda a restaurants a crecer aumentando el delivery sin comisión, las reservas directas y el tráfico en la sucursal'
       },
       TRUST_METRICS: {
         TITLE: 'Por qué los Propietarios de Restaurantes Eligen RAY',
