@@ -26,9 +26,9 @@
     "optimize:all": "npm run optimize:advanced && npm run build",
     "prerelease:full": "npm run generate:all && npm run optimize:images && npm run validate:all && npm run build",
     "prerelease:quick": "npm run generate:all && npm run validate:all && npm run build",
-    "release:patch": "git pull --rebase && npm run prerelease:quick && git add -A && npm version patch -m 'chore(release): %s' && git push && git push origin --tags",
-    "release:minor": "git pull --rebase && npm run prerelease:full && git add -A && npm version minor -m 'chore(release): %s' && git push && git push origin --tags",
-    "release:major": "git pull --rebase && npm run prerelease:full && git add -A && npm version major -m 'chore(release): %s' && git push && git push origin --tags"
+    "release:patch": "git pull --rebase && npm run prerelease:quick && git add -A && git diff-index --quiet HEAD || git commit -m 'chore: prerelease optimizations' && npm version patch -m 'chore(release): %s' && git push && git push origin --tags",
+    "release:minor": "git pull --rebase && npm run prerelease:full && git add -A && git diff-index --quiet HEAD || git commit -m 'chore: prerelease optimizations' && npm version minor -m 'chore(release): %s' && git push && git push origin --tags",
+    "release:major": "git pull --rebase && npm run prerelease:full && git add -A && git diff-index --quiet HEAD || git commit -m 'chore: prerelease optimizations' && npm version major -m 'chore(release): %s' && git push && git push origin --tags"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.2",
