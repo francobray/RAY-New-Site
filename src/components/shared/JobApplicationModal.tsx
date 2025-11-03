@@ -254,46 +254,44 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
               </div>
             </div>
 
-            {/* LinkedIn */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                LinkedIn URL *
-              </label>
-              <input
-                type="url"
-                name="linkedIn"
-                value={formData.linkedIn}
-                onChange={handleInputChange}
-                placeholder="https://linkedin.com/in/..."
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                  formErrors.linkedIn ? 'border-red-500' : 'border-gray-300'
-                }`}
-                required
-              />
-              {formErrors.linkedIn && (
-                <p className="text-red-500 text-sm mt-1">{formErrors.linkedIn}</p>
-              )}
-            </div>
-
-            {/* Resume URL */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                {locale === 'es' ? 'URL de CV/Resume (Google Drive, Dropbox, etc.)' : 'Resume URL (Google Drive, Dropbox, etc.)'}
-              </label>
-              <input
-                type="url"
-                name="resumeUrl"
-                value={formData.resumeUrl}
-                onChange={handleInputChange}
-                placeholder="https://..."
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <p className="text-sm text-gray-500 mt-1">
-                {locale === 'es' 
-                  ? 'Comparte un enlace público a tu CV (recomendado: Google Drive, Dropbox, OneDrive)'
-                  : 'Share a public link to your resume (recommended: Google Drive, Dropbox, OneDrive)'
-                }
-              </p>
+            {/* LinkedIn and Resume URL */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  LinkedIn URL *
+                </label>
+                <input
+                  type="url"
+                  name="linkedIn"
+                  value={formData.linkedIn}
+                  onChange={handleInputChange}
+                  placeholder="https://linkedin.com/in/..."
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                    formErrors.linkedIn ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  required
+                />
+                {formErrors.linkedIn && (
+                  <p className="text-red-500 text-sm mt-1">{formErrors.linkedIn}</p>
+                )}
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {locale === 'es' ? 'URL de CV/Resume' : 'Resume URL'}
+                </label>
+                <input
+                  type="url"
+                  name="resumeUrl"
+                  value={formData.resumeUrl}
+                  onChange={handleInputChange}
+                  placeholder="https://..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  {locale === 'es' ? 'Google Drive, Dropbox, etc.' : 'Google Drive, Dropbox, etc.'}
+                </p>
+              </div>
             </div>
 
             {/* Cover Letter */}
