@@ -28,15 +28,23 @@ RUN npm cache clean --force && \
     npm ci --prefer-offline --no-audit && \
     npm install tsx -g
 
-# Copy the rest of the application source code (including 'src', 'public', etc.)
-COPY . .
+# Copy configuration files
+COPY tsconfig.json next.config.js postcss.config.js tailwind.config.ts ./
 
-# Debug: List files to ensure src/ is copied
-RUN echo "=== Checking if src/ directory exists ===" && \
-    ls -la && \
-    ls -la src/ && \
-    ls -la src/components/shared/ && \
-    ls -la src/hooks/
+# Copy source directories explicitly to ensure they're present
+COPY src ./src
+COPY public ./public
+COPY scripts ./scripts
+COPY middleware.ts next-env.d.ts ./
+
+# Debug: Verify files were copied
+RUN echo "=== Verifying source files ===" && \
+    echo "Root directory:" && ls -la && \
+    echo "src/ directory:" && ls -la src/ && \
+    echo "src/components/shared/:" && ls -la src/components/shared/ | grep BaseButton && \
+    echo "src/hooks/:" && ls -la src/hooks/ | grep useTranslations && \
+    echo "src/components/pages/company/:" && ls -la src/components/pages/company/ | grep -E "(About|Careers)" && \
+    echo "tsconfig.json exists:" && cat tsconfig.json | grep "@/"
 
 # Expose port 3000, the default Next.js development port
 EXPOSE 3000
