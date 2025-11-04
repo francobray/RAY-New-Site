@@ -47,7 +47,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Franco Breciano Card */}
               <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative h-96 max-h-96 bg-gray-100">
+                <div className="relative aspect-[2/3] bg-gray-100">
                   <Image
                     src="/images/company/Franco.webp"
                     alt="Franco Breciano - Co-Founder & CEO"
@@ -79,12 +79,12 @@ const About: React.FC<AboutProps> = ({ locale }) => {
 
               {/* Sebastian Cadenas Card */}
               <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative h-96 max-h-96 bg-gray-100">
+                <div className="relative aspect-square bg-gray-100">
                   <Image
                     src="/images/company/Sebastian-Cadenas.webp"
                     alt="Sebastian Cadenas - Co-Founder & CTO"
                     fill
-                    className="object-cover object-[center_30%]"
+                    className="object-cover object-center"
                     priority
                   />
                 </div>
@@ -186,21 +186,21 @@ const About: React.FC<AboutProps> = ({ locale }) => {
       </section>
 
       {/* Bottom CTA */}
-      <section className="relative py-12 min-h-[360px] flex items-center">
+      <section className="relative py-12 min-h-[400px] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
             src="/images/bookings/fondo-bookings-01.avif"
             alt="Restaurant background"
             fill
-            className="object-cover"
+            className="object-cover object-[center_35%]"
             priority
           />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[280px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[200px]">
             {/* Left Column - Text Content */}
             <div className="text-left">
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 leading-tight">
