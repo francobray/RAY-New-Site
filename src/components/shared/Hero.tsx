@@ -195,7 +195,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-start">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-6 lg:gap-12 items-center w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-2 sm:gap-6 lg:gap-12 items-center w-full">
             
             {/* Left Column - Text Content */}
             <div className="text-center lg:text-left">
