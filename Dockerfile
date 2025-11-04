@@ -31,6 +31,13 @@ RUN npm cache clean --force && \
 # Copy the rest of the application source code (including 'src', 'public', etc.)
 COPY . .
 
+# Debug: List files to ensure src/ is copied
+RUN echo "=== Checking if src/ directory exists ===" && \
+    ls -la && \
+    ls -la src/ && \
+    ls -la src/components/shared/ && \
+    ls -la src/hooks/
+
 # Expose port 3000, the default Next.js development port
 EXPOSE 3000
 
