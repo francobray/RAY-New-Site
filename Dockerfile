@@ -44,6 +44,9 @@ EXPOSE 3000
 # Set the HOST to 0.0.0.0 so the server is accessible from outside the container
 ENV HOST="0.0.0.0"
 
+# Clean Next.js cache before building
+RUN rm -rf .next || true
+
 RUN npm run build
 # Command to run the development server
 # Make sure your package.json has a "dev" script, e.g., "next dev".
