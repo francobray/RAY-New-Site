@@ -46,16 +46,14 @@ export function initPostHog() {
 
       // Configuración de loaded
       loaded: (posthog) => {
-        // Desactivar en desarrollo (comentado para testing)
-        // if (process.env.NODE_ENV === 'development') {
-        //   posthog.opt_out_capturing()
-        //   posthog.debug(false)
-        // }
-        
-        // Activar debug en desarrollo para ver logs
-        if (process.env.NODE_ENV === 'development') {
-          posthog.debug(true)
-        }
+        // Activar debug siempre para ver logs en consola (producción y desarrollo)
+        posthog.debug(true)
+        console.log('✅ PostHog loaded successfully!')
+        console.log('📊 PostHog config:', {
+          distinct_id: posthog.get_distinct_id(),
+          session_id: posthog.get_session_id(),
+          api_host: posthog.config.api_host
+        })
         
         // Forzar recarga de feature flags
         console.log('🔄 Reloading feature flags...')
@@ -64,6 +62,10 @@ export function initPostHog() {
         // Log cuando se carguen los flags
         posthog.onFeatureFlags(function() {
           console.log('🎉 Feature flags loaded!')
+          console.log('📋 Active flags:', {
+            'hero-h1-test-es': posthog.getFeatureFlag('hero-h1-test-es'),
+            'hero-h1-test-en': posthog.getFeatureFlag('hero-h1-test-en')
+          })
         })
       },
 
