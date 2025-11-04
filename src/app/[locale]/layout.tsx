@@ -5,6 +5,7 @@ import { getTranslations } from '@/hooks/useTranslations'
 import Header from '@/components/shared/Header'
 import Footer from '@/components/shared/Footer'
 import SimpleWebChat from '@/components/shared/SimpleWebChat'
+import { PostHogProvider } from '@/components/providers/PostHogProvider'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -269,12 +270,14 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
             }}
           />
         )}
-        <Header locale={locale} />
-        <main>
-          {children}
-        </main>
-        <Footer locale={locale} />
-        {isChatEnabled && <SimpleWebChat locale={locale} />}
+        <PostHogProvider>
+          <Header locale={locale} />
+          <main>
+            {children}
+          </main>
+          <Footer locale={locale} />
+          {isChatEnabled && <SimpleWebChat locale={locale} />}
+        </PostHogProvider>
       </body>
     </html>
   )

@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react'
 import { Star } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
+import { useABTest } from '@/hooks/useABTest'
 import { type Locale } from '@/lib/i18n'
 
 interface HeroProps {
@@ -11,6 +12,37 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ locale }) => {
   const t = useTranslations(locale)
+  
+  // A/B Test: Hero H1 (separado por idioma)
+  const flagKey = locale === 'es' ? 'hero-h1-test-es' : 'hero-h1-test-en'
+  const { variant: heroVariant, isLoading: isTestLoading, trackConversion } = useABTest(flagKey, 'control')
+  
+  // Define las variantes del Hero H1 por idioma
+  const heroVariants = {
+    es: {
+      control: {
+        title: 'Más delivery, reservas y tráfico en el restaurante',
+        highlight: 'sin comisión'
+      },
+      variant_b: {
+        title: 'Genera más ventas en tu restaurante',
+        highlight: 'sin comisión ni esfuerzo'
+      }
+    },
+    en: {
+      control: {
+        title: 'More orders, bookings & walk-ins',
+        highlight: 'zero commission'
+      },
+      variant_b: {
+        title: 'Generate more restaurant revenue',
+        highlight: 'zero commission, zero hassle'
+      }
+    }
+  }
+  
+  // Obtener el texto del hero basado en la variante y locale
+  const heroText = heroVariants[locale][heroVariant as keyof typeof heroVariants['es']] || heroVariants[locale].control
 
   useEffect(() => {
     // Load the RAY widget script
@@ -57,6 +89,28 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
 
         try {
           new (window as any).RAYWidget(widgetConfig)
+          
+          // Track widget interaction as conversion for A/B test
+          setTimeout(() => {
+            const widgetInput = document.querySelector('#ray-widget input')
+            const widgetButton = document.querySelector('#ray-widget button')
+            
+            if (widgetInput) {
+              widgetInput.addEventListener('focus', () => {
+                trackConversion('hero_widget_focus', { 
+                  interaction_type: 'input_focus' 
+                })
+              })
+            }
+            
+            if (widgetButton) {
+              widgetButton.addEventListener('click', () => {
+                trackConversion('hero_widget_search', { 
+                  interaction_type: 'search_click' 
+                })
+              })
+            }
+          }, 500)
         } catch (error) {
           console.error('RAY Widget initialization error:', error)
         }
@@ -151,17 +205,25 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
                 <span className="text-sm font-medium text-ray-dark-900">{t.TRUST.TRUSTED_BY}</span>
               </div>
 
-              {/* Main Headline */}
-              <h1 className="text-[44px] sm:text-[32px] lg:text-[44px] xl:text-[56px] font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-8 sm:mb-6 mt-6 sm:mt-0">
-                {t.HOMEPAGE.HERO.TITLE}{' '}
-                <span className="relative inline-block">
-                  <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">
-                    {t.HOMEPAGE.HERO.TITLE_HIGHLIGHT}
+              {/* Main Headline - A/B Test Enabled */}
+              {isTestLoading ? (
+                // Skeleton loader mientras carga el test
+                <div className="animate-pulse mb-8 sm:mb-6 mt-6 sm:mt-0">
+                  <div className="h-12 sm:h-10 lg:h-12 xl:h-14 bg-gray-200 rounded w-full mb-2"></div>
+                  <div className="h-12 sm:h-10 lg:h-12 xl:h-14 bg-gray-200 rounded w-3/4"></div>
+                </div>
+              ) : (
+                <h1 className="text-[44px] sm:text-[32px] lg:text-[44px] xl:text-[56px] font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-8 sm:mb-6 mt-6 sm:mt-0">
+                  {heroText.title}{' '}
+                  <span className="relative inline-block">
+                    <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">
+                      {heroText.highlight}
+                    </span>
+                    {/* Underline decoration */}
+                    <div className="hidden sm:block absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-full opacity-30"></div>
                   </span>
-                  {/* Underline decoration */}
-                  <div className="hidden sm:block absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-full opacity-30"></div>
-                </span>
-              </h1>
+                </h1>
+              )}
               
               <p className="hidden sm:block text-lg sm:text-xl text-ray-dark-700 leading-relaxed mb-6 sm:mb-8">
                 {t.COMPANY.DESCRIPTION}
