@@ -4,6 +4,18 @@ FROM node:18-alpine
 # Set the working directory inside the container
 WORKDIR /app
 
+# Copy package.json and package-lock.json to leverage Docker cache
+COPY package.json package-lock.json ./
+
+# Install ALL dependencies (development and production)
+# Using npm ci for cleaner, more reproducible builds
+# Clean install helps avoid esbuild ETXTBSY race condition errors
+# IMPORTANT: Do NOT set NODE_ENV=production before npm ci, or devDependencies won't install
+RUN npm cache clean --force && \
+    npm ci --prefer-offline --no-audit && \
+    npm install tsx -g
+
+# Set environment variables AFTER installing dependencies
 # Note: For production, pass sensitive ENV vars at runtime via docker run -e or docker-compose
 # These are placeholders that should be overridden at deployment time
 ENV NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="AIzaSyAD9Nbl9RGvTAXDNiG2ixxbHqBzox17qUY" \
@@ -17,16 +29,6 @@ ENV NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="AIzaSyAD9Nbl9RGvTAXDNiG2ixxbHqBzox17qUY" \
     N8N_CHAT_WEBHOOK_URL="<N8N_CHAT_WEBHOOK_URL>" \
     N8N_WEBHOOK_URL="<N8N_WEBHOOK_URL>" \
     N8N_REDEEM_WEBHOOK_URL="https://franbreciano.app.n8n.cloud/webhook/1dad3f6b-717d-4ee9-b2e8-48b84a7a258b"
-
-# Copy package.json and package-lock.json to leverage Docker cache
-COPY package.json package-lock.json ./
-
-# Install ALL dependencies (development and production)
-# Using npm ci for cleaner, more reproducible builds
-# Clean install helps avoid esbuild ETXTBSY race condition errors
-RUN npm cache clean --force && \
-    npm ci --prefer-offline --no-audit && \
-    npm install tsx -g
 
 # Copy configuration files
 COPY tsconfig.json next.config.js postcss.config.js tailwind.config.ts ./
