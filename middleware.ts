@@ -51,6 +51,7 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/_next/') ||
     pathname.startsWith('/api/') ||
     pathname.startsWith('/cdn-cgi/') ||
+    pathname.startsWith('/uploads/') ||
     pathname.match(/\.(?:svg|png|jpg|jpeg|gif|webp|ico|txt|xml|json|css|js|map)$/)
 
   if (isSkipped) {
@@ -117,6 +118,6 @@ export function middleware(request: NextRequest) {
 // Using a matcher keeps this fast at the edge.
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|api|cdn-cgi|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest|images|fonts|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|txt|xml|json|css|js|map)$).*)',
+    '/((?!_next/static|_next/image|api|cdn-cgi|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest|images|fonts|uploads|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|txt|xml|json|css|js|map)$).*)',
   ],
 }
