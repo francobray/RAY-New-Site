@@ -47,5 +47,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // RootLayout returns children as-is
+  // Layouts with HTML structure (like [locale]/layout.tsx and internal/layout.tsx) 
+  // will provide their own html/body tags
   return children
 }
