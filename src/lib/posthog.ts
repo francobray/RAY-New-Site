@@ -110,16 +110,30 @@ export function initPostHog() {
               'hero-h1-test-en': ph.getFeatureFlag('hero-h1-test-en')
             }
             console.log('📋 Active flags:', flags)
+            console.log('📊 Flag values:', {
+              'hero-h1-test-es': flags['hero-h1-test-es'] || 'undefined - check PostHog configuration',
+              'hero-h1-test-en': flags['hero-h1-test-en'] || 'undefined - check PostHog configuration'
+            })
+            
+            // Warn if flags are undefined
+            if (!flags['hero-h1-test-es'] || !flags['hero-h1-test-en']) {
+              console.warn('⚠️ Feature flags not found in PostHog. Make sure they are configured:')
+              console.warn('   1. Go to PostHog → Feature Flags')
+              console.warn('   2. Create flags: "hero-h1-test-es" and "hero-h1-test-en"')
+              console.warn('   3. Set them as multivariate flags with variants: ["control", "variant_b"]')
+              console.warn('   4. Enable the flags and set rollout percentage (e.g., 50% each variant)')
+            }
           })
         },
         
-        // Bootstrap de feature flags (temporal para testing)
-        bootstrap: {
-          featureFlags: {
-            'hero-h1-test-es': 'control',
-            'hero-h1-test-en': 'control'
-          },
-        },
+        // Bootstrap removed - PostHog will handle feature flag distribution
+        // If you need to bootstrap flags for testing, uncomment below:
+        // bootstrap: {
+        //   featureFlags: {
+        //     'hero-h1-test-es': 'control',
+        //     'hero-h1-test-en': 'control'
+        //   },
+        // },
         
         // Persistence
         persistence: 'localStorage',
