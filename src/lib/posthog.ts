@@ -110,7 +110,6 @@ export function initPostHog() {
               'hero-h1-test-en': ph.getFeatureFlag('hero-h1-test-en')
             }
             console.log('📋 Active flags:', flags)
-            console.log('📋 All flags:', ph.getFeatureFlags?.() || 'Not available')
           })
         },
         

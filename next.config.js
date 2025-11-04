@@ -108,6 +108,12 @@ const nextConfig = {
       }
     }
     
+    // Ensure @ alias resolves correctly (always, not just in production)
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': require('path').resolve(__dirname, 'src'),
+    }
+    
     return config
   },
   async headers() {
@@ -241,26 +247,6 @@ const nextConfig = {
   },
   // Removed hardcoded redirect - language detection handled by middleware
   // This allows Accept-Language headers to work properly for better UX
-  
-  // Webpack configuration to ensure path aliases work in production
-  webpack: (config, { isServer }) => {
-    // Ensure @ alias resolves correctly
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': require('path').resolve(__dirname, 'src'),
-    }
-    return config
-  },
-}
-
-module.exports = withBundleAnalyzer(nextConfig)
-
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': require('path').resolve(__dirname, 'src'),
-    }
-    return config
-  },
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
