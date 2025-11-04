@@ -14,8 +14,7 @@ import {
   ShoppingCart,
   Calendar,
   Smartphone,
-  Heart,
-  Bot
+  Heart
 } from 'lucide-react'
 
 interface ProductItem {
