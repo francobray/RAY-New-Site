@@ -372,21 +372,21 @@ const ChatCarousel = () => {
               <img 
                 src="/images/WhatsApp.svg.webp" 
                 alt="WhatsApp" 
-                className="w-8 h-8 sm:w-10 sm:h-10"
+                className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                 width={40}
                 height={40}
               />
               <img 
-                src="/images/instagram-icon.svg" 
+                src="/images/instagram-logo.avif" 
                 alt="Instagram" 
-                className="w-8 h-8 sm:w-10 sm:h-10"
+                className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                 width={40}
                 height={40}
               />
               <img 
-                src="/images/messenger-icon.svg" 
+                src="/images/messenger-logo.jpeg" 
                 alt="Messenger" 
-                className="w-8 h-8 sm:w-10 sm:h-10"
+                className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                 width={40}
                 height={40}
               />
