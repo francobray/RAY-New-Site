@@ -63,7 +63,7 @@ export function initPostHog() {
         
         // Log cuando se carguen los flags
         posthog.onFeatureFlags(function() {
-          console.log('🎉 Feature flags loaded:', posthog.getAllFlags())
+          console.log('🎉 Feature flags loaded!')
         })
       },
 
