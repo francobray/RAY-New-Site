@@ -44,6 +44,8 @@ RUN echo "=== Verifying source files ===" && \
     echo "src/components/shared/:" && ls -la src/components/shared/ | grep BaseButton && \
     echo "src/hooks/:" && ls -la src/hooks/ | grep useTranslations && \
     echo "src/components/pages/company/:" && ls -la src/components/pages/company/ | grep -E "(About|Careers)" && \
+    echo "src/styles/ directory:" && ls -la src/styles/ && \
+    echo "critical.css content (first 5 lines):" && head -5 src/styles/critical.css && \
     echo "tsconfig.json exists:" && cat tsconfig.json | grep "@/"
 
 # Expose port 3000, the default Next.js development port
