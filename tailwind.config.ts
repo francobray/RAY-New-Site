@@ -9,6 +9,21 @@ const config: Config = {
   future: {
     hoverOnlyWhenSupported: true,
   },
+  // Optimize by disabling unused core plugins
+  corePlugins: {
+    preflight: true,
+    // Disable rarely used features to reduce bundle size
+    container: false,
+    float: false,
+    clear: false,
+    objectFit: false,
+    objectPosition: false,
+    overscrollBehavior: false,
+    placeContent: false,
+    placeItems: false,
+    placeSelf: false,
+    verticalAlign: false,
+  },
   theme: {
     extend: {
       colors: {
@@ -81,9 +96,6 @@ const config: Config = {
     },
   },
   plugins: [],
-  corePlugins: {
-    preflight: true,
-  },
 }
 
 export default config
