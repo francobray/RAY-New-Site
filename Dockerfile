@@ -63,3 +63,7 @@ RUN npm run build
 # Command to run the development server
 # Make sure your package.json has a "dev" script, e.g., "next dev".
 CMD ["npm", "run", "start"]
+
+# Command to run the development server
+# Make sure your package.json has a "dev" script, e.g., "next dev".
+CMD ["npm", "run", "start"]

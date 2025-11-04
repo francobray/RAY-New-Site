@@ -1,89 +1,147 @@
 import posthog from 'posthog-js'
 
+// Global flag to track if PostHog has been initialized
+let isInitialized = false
+
 export function initPostHog() {
+  console.log('🔧 initPostHog called', {
+    isClient: typeof window !== 'undefined',
+    isInitialized,
+    timestamp: new Date().toISOString()
+  })
+
   if (typeof window !== 'undefined') {
+    // Check environment variables (Next.js embeds NEXT_PUBLIC_* at build time)
     const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY
     const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://app.posthog.com'
+    
+    // Debug: Check all NEXT_PUBLIC_* vars
+    const allEnvVars = Object.keys(process.env)
+      .filter(key => key.startsWith('NEXT_PUBLIC_'))
+      .reduce((acc, key) => {
+        acc[key] = process.env[key]?.substring(0, 10) + '...' || 'undefined'
+        return acc
+      }, {} as Record<string, string>)
 
     console.log('🔧 PostHog Init:', {
       hasKey: !!posthogKey,
+      keyValue: posthogKey || 'MISSING',
+      keyPreview: posthogKey?.substring(0, 15) + '...' || 'N/A',
+      keyLength: posthogKey?.length || 0,
       host: posthogHost,
-      keyPreview: posthogKey?.substring(0, 10) + '...'
+      isInitialized,
+      allNextPublicVars: allEnvVars,
+      // Check if key looks like a placeholder
+      isPlaceholder: posthogKey?.includes('<NEXT_PUBLIC_POSTHOG_KEY>') || posthogKey === '<NEXT_PUBLIC_POSTHOG_KEY>'
     })
 
-    if (!posthogKey) {
-      console.warn('⚠️ PostHog key not found. A/B testing will not work.')
-      return
+    if (!posthogKey || posthogKey === '<NEXT_PUBLIC_POSTHOG_KEY>' || posthogKey.includes('<NEXT_PUBLIC_POSTHOG_KEY>')) {
+      console.error('❌ PostHog key not found or is a placeholder!', {
+        keyValue: posthogKey || 'undefined',
+        isPlaceholder: posthogKey?.includes('<NEXT_PUBLIC_POSTHOG_KEY>'),
+        message: 'The NEXT_PUBLIC_POSTHOG_KEY environment variable is not set or was not replaced during build. A/B testing will not work.'
+      })
+      console.warn('⚠️ Check NEXT_PUBLIC_POSTHOG_KEY environment variable in GitHub Actions secrets')
+      console.warn('⚠️ Verify that the sed replacement in .github/workflows/main.yaml is working correctly')
+      return posthog
     }
     
     // Solo inicializar una vez
-    if (posthog && typeof posthog.isFeatureEnabled === 'function') {
-      console.log('✅ PostHog already initialized')
+    if (isInitialized || (posthog.__loaded && posthog.get_distinct_id)) {
+      console.log('✅ PostHog already initialized', {
+        distinctId: posthog.get_distinct_id?.(),
+        isLoaded: posthog.__loaded
+      })
       return posthog
     }
 
-    console.log('🚀 Initializing PostHog...')
-    posthog.init(posthogKey, {
-      api_host: posthogHost,
+    try {
+      console.log('🚀 Initializing PostHog...', {
+        key: posthogKey.substring(0, 10) + '...',
+        host: posthogHost,
+        origin: window.location.origin
+      })
       
-      // Optimización de performance
-      capture_pageview: false, // Lo haremos manualmente desde Next.js
-      capture_pageleave: true,
-      
-      // Autocapture de clicks y forms
-      autocapture: {
-        dom_event_allowlist: ['click'], // Solo clicks
-        url_allowlist: [window.location.origin], // Solo tu dominio
-        element_allowlist: ['a', 'button', 'input']
-      },
-      
-      // Session recording (opcional, puedes desactivar)
-      disable_session_recording: false,
-      session_recording: {
-        maskAllInputs: true, // Ocultar inputs sensibles
-        maskTextSelector: '[data-private]' // Ocultar elementos con data-private
-      },
-
-      // Configuración de loaded
-      loaded: (posthog) => {
-        // Activar debug siempre para ver logs en consola (producción y desarrollo)
-        posthog.debug(true)
-        console.log('✅ PostHog loaded successfully!')
-        console.log('📊 PostHog config:', {
-          distinct_id: posthog.get_distinct_id(),
-          session_id: posthog.get_session_id(),
-          api_host: posthog.config.api_host
-        })
+      posthog.init(posthogKey, {
+        api_host: posthogHost,
         
-        // Forzar recarga de feature flags
-        console.log('🔄 Reloading feature flags...')
-        posthog.reloadFeatureFlags()
+        // Optimización de performance
+        capture_pageview: false, // Lo haremos manualmente desde Next.js
+        capture_pageleave: true,
         
-        // Log cuando se carguen los flags
-        posthog.onFeatureFlags(function() {
-          console.log('🎉 Feature flags loaded!')
-          console.log('📋 Active flags:', {
-            'hero-h1-test-es': posthog.getFeatureFlag('hero-h1-test-es'),
-            'hero-h1-test-en': posthog.getFeatureFlag('hero-h1-test-en')
-          })
-        })
-      },
-
-      // Bootstrap de feature flags (temporal para testing)
-      bootstrap: {
-        featureFlags: {
-          'hero-h1-test-es': 'control',
-          'hero-h1-test-en': 'control'
+        // Autocapture de clicks y forms
+        autocapture: {
+          dom_event_allowlist: ['click'], // Solo clicks
+          url_allowlist: [window.location.origin], // Solo tu dominio
+          element_allowlist: ['a', 'button', 'input']
         },
-      },
+        
+        // Session recording (opcional, puedes desactivar)
+        disable_session_recording: false,
+        session_recording: {
+          maskAllInputs: true, // Ocultar inputs sensibles
+          maskTextSelector: '[data-private]' // Ocultar elementos con data-private
+        },
+
+        // Configuración de loaded
+        loaded: (ph) => {
+          isInitialized = true
+          
+          // Activar debug siempre para ver logs en consola (producción y desarrollo)
+          ph.debug(true)
+          
+          console.log('✅ PostHog loaded successfully!')
+          console.log('📊 PostHog config:', {
+            distinct_id: ph.get_distinct_id(),
+            session_id: ph.get_session_id(),
+            api_host: ph.config.api_host,
+            isDebug: ph.config.debug
+          })
+          
+          // Forzar recarga de feature flags
+          console.log('🔄 Reloading feature flags...')
+          ph.reloadFeatureFlags()
+          
+          // Log cuando se carguen los flags
+          ph.onFeatureFlags(function() {
+            console.log('🎉 Feature flags loaded!')
+            const flags = {
+              'hero-h1-test-es': ph.getFeatureFlag('hero-h1-test-es'),
+              'hero-h1-test-en': ph.getFeatureFlag('hero-h1-test-en')
+            }
+            console.log('📋 Active flags:', flags)
+            console.log('📋 All flags:', ph.getFeatureFlags?.() || 'Not available')
+          })
+        },
+        
+        // Bootstrap de feature flags (temporal para testing)
+        bootstrap: {
+          featureFlags: {
+            'hero-h1-test-es': 'control',
+            'hero-h1-test-en': 'control'
+          },
+        },
+        
+        // Persistence
+        persistence: 'localStorage',
+        
+        // Enable verbose logging
+        verbose: true,
+      })
       
-      // Persistence
-      persistence: 'localStorage',
-    })
+      console.log('📝 PostHog init() called, waiting for loaded callback...')
+    } catch (error) {
+      console.error('❌ Error initializing PostHog:', error)
+      isInitialized = false
+    }
+  } else {
+    console.log('⚠️ PostHog init skipped: not in browser environment')
   }
 
   return posthog
 }
 
 export default posthog
+
+
 

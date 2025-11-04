@@ -536,7 +536,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           </div>
 
           {/* Mobile menu button and actions */}
-          <div className="flex lg:hidden items-center space-x-4">
+          <div className="flex lg:!hidden items-center space-x-4">
             {/* Mobile menu toggle */}
             <button
               onClick={toggleMenu}
@@ -558,7 +558,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div id="mobile-menu" className="lg:hidden">
+          <div id="mobile-menu" className="lg:!hidden">
             <div className="px-4 pt-4 pb-3 space-y-1 bg-white border-t border-gray-200">
               {/* Navigation Items */}
               {menuItems.map((item) => (

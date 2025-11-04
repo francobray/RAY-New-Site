@@ -215,14 +215,14 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
               ) : (
                 <h1 className="text-[44px] sm:text-[32px] lg:text-[44px] xl:text-[56px] font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-8 sm:mb-6 mt-6 sm:mt-0">
                   {heroText.title}{' '}
-                  <span className="relative inline-block">
-                    <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">
                       {heroText.highlight}
-                    </span>
-                    {/* Underline decoration */}
-                    <div className="hidden sm:block absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-full opacity-30"></div>
                   </span>
-                </h1>
+                  {/* Underline decoration */}
+                  <div className="hidden sm:block absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-full opacity-30"></div>
+                </span>
+              </h1>
               )}
               
               <p className="hidden sm:block text-lg sm:text-xl text-ray-dark-700 leading-relaxed mb-6 sm:mb-8">

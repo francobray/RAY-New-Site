@@ -271,12 +271,12 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
           />
         )}
         <PostHogProvider>
-          <Header locale={locale} />
-          <main>
-            {children}
-          </main>
-          <Footer locale={locale} />
-          {isChatEnabled && <SimpleWebChat locale={locale} />}
+        <Header locale={locale} />
+        <main>
+          {children}
+        </main>
+        <Footer locale={locale} />
+        {isChatEnabled && <SimpleWebChat locale={locale} />}
         </PostHogProvider>
       </body>
     </html>

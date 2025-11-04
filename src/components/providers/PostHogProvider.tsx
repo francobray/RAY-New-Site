@@ -10,8 +10,19 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
   useEffect(() => {
+    console.log('📦 PostHogProvider mounted, initializing PostHog...', {
+      pathname,
+      timestamp: new Date().toISOString()
+    })
+    
     // Inicializar PostHog
-    initPostHog()
+    const ph = initPostHog()
+    
+    console.log('📦 PostHogProvider: initPostHog returned', {
+      hasPostHog: !!ph,
+      hasCapture: typeof ph?.capture === 'function',
+      isLoaded: ph?.__loaded
+    })
   }, [])
 
   useEffect(() => {
@@ -19,10 +30,18 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     if (pathname && typeof window !== 'undefined') {
       const url = window.location.href
       
+      console.log('🔄 PostHogProvider: Page changed', { pathname, url })
+      
       // Verificar que PostHog esté cargado antes de capturar
       if (posthog && typeof posthog.capture === 'function') {
+        console.log('📊 PostHogProvider: Tracking pageview', { url })
         posthog.capture('$pageview', {
           $current_url: url,
+        })
+      } else {
+        console.warn('⚠️ PostHogProvider: PostHog not ready for pageview tracking', {
+          hasPostHog: !!posthog,
+          hasCapture: typeof posthog?.capture === 'function'
         })
       }
 
