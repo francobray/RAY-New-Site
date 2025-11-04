@@ -44,6 +44,12 @@ spec:
           value: AIzaSyAD9Nbl9RGvTAXDNiG2ixxbHqBzox17qUY
         - name: N8N_CHAT_WEBHOOK_URL
           value: <N8N_CHAT_WEBHOOK_URL>
+        - name: NODE_ENV
+          value: <NODE_ENL>
+        - name: NEXT_PUBLIC_POSTHOG_KEY
+          value: <NEXT_PUBLIC_POSTHOG_KEY>
+        - name: NEXT_PUBLIC_POSTHOG_HOST
+          value: <NEXT_PUBLIC_POSTHOG_HOST>
 
         resources:
           requests:
