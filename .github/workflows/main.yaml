@@ -58,7 +58,7 @@ jobs:
           sed -i "s|<NODE_ENV>|${{ secrets.NODE_ENV }}|" Dockerfile
           sed -i "s|<NEXT_PUBLIC_POSTHOG_API>|${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}|" Dockerfile
           sed -i "s|<NEXT_PUBLIC_POSTHOG_HOST>|${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}|" Dockerfile
-          docker build . --file Dockerfile --tag ${{ env.ARTIFACT_REGISTRY }}/${{ env.IMAGE_FRONTEND }}
+          docker build --no-cache . --file Dockerfile --tag ${{ env.ARTIFACT_REGISTRY }}/${{ env.IMAGE_FRONTEND }}
         working-directory: .
 
       - name: Push frontend image
