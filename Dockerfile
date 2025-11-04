@@ -25,7 +25,8 @@ COPY package.json package-lock.json ./
 # Using npm ci for cleaner, more reproducible builds
 # Clean install helps avoid esbuild ETXTBSY race condition errors
 RUN npm cache clean --force && \
-    npm ci --prefer-offline --no-audit
+    npm ci --prefer-offline --no-audit && \
+    npm install tsx
 
 # Copy the rest of the application source code (including 'src', 'public', etc.)
 COPY . .
