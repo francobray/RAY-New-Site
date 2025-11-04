@@ -16,11 +16,11 @@ const ProductSection: React.FC<ProductSectionProps> = ({ locale }) => {
   const products = [
     {
       icon: 'whatsapp',
-      name: t.PRODUCTS.WHATSAPP_ORDERS.NAME,
-      description: t.PRODUCTS.WHATSAPP_ORDERS.DESCRIPTION,
-      metric: t.PRODUCTS.WHATSAPP_ORDERS.METRIC,
-      metricLabel: t.PRODUCTS.WHATSAPP_ORDERS.METRIC_LABEL,
-      href: '/product/whatsapp-delivery',
+      name: t.PRODUCTS.AI_EMPLOYEE.NAME,
+      description: t.PRODUCTS.AI_EMPLOYEE.DESCRIPTION,
+      metric: t.PRODUCTS.AI_EMPLOYEE.METRIC,
+      metricLabel: t.PRODUCTS.AI_EMPLOYEE.METRIC_LABEL,
+      href: '/product/ai-employee',
       gradient: 'from-green-500 to-green-600'
     },
     {

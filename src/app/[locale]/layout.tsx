@@ -113,10 +113,8 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
               .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
               img,video,iframe,svg{max-width:100%;height:auto;display:block;vertical-align:middle}
               img[width][height]{height:auto}
-              h1,h2,h3,h4,h5,h6{font-weight:600;line-height:1.2;margin:0;color:inherit}
-              h1{font-size:clamp(2rem,5vw,3.5rem)}h2{font-size:clamp(1.5rem,4vw,2.5rem)}h3{font-size:clamp(1.25rem,3vw,2rem)}
-              button,a{cursor:pointer;text-decoration:none}
-              button{background:none;font-family:inherit}
+              button,a{cursor:pointer}
+              button{background:none;font-family:inherit;border:0}
               .container,.max-w-7xl{max-width:80rem;margin:0 auto;padding:0 1rem}
               .flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}
               .hidden{display:none}.block{display:block}.inline{display:inline}.inline-block{display:inline-block}

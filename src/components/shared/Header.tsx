@@ -81,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
             name: locale === 'es' ? 'Empleado IA' : 'AI Employee',
             path: `/${locale}/product/ai-agent`,
             description: locale === 'es' ? 'Atiende clientes 24/7 en WhatsApp, Instagram, Messenger y tu web.' : 'Serve customers 24/7 on WhatsApp, Instagram, Messenger and your website.',
-            icon: Bot
+            icon: 'whatsapp'
           },
         { 
           name: locale === 'es' ? 'Website de tu restaurante' : 'Website Builder',
@@ -314,7 +314,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8" role="menubar">
+          <nav className="hidden lg:flex items-center space-x-4" role="menubar">
             {menuItems.map((item) => (
               <div
                 key={item.name}
@@ -332,7 +332,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                         handleDropdownClick(item.name);
                       }}
                       onKeyDown={(e) => handleKeyDown(e, item.name, true)}
-                      className={`text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md ${
+                      className={`text-gray-700 hover:text-ray-blue px-2 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md ${
                         pathname === item.path || 
                         item.dropdownItems?.some(subItem => pathname === subItem.path) ||
                         item.productItems?.some(subItem => pathname === subItem.path) ? 'text-ray-blue' : ''
@@ -435,7 +435,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                       href={item.path}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md"
+                      className="text-gray-700 hover:text-ray-blue px-2 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md"
                       role="menuitem"
                       data-analytics="nav"
                      aria-label={`Visit ${item.name} - opens in new tab`}
@@ -445,7 +445,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                   ) : (
                     <Link
                       href={item.path}
-                      className={`text-gray-700 hover:text-ray-blue px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md ${
+                      className={`text-gray-700 hover:text-ray-blue px-2 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ray-blue focus:ring-offset-2 rounded-md ${
                         pathname === item.path ? 'text-ray-blue' : ''
                       }`}
                       role="menuitem"
@@ -460,7 +460,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3">
             {/* Language Switcher */}
             <div className="relative" ref={languageDropdownDesktopRef}>
               <button
@@ -537,58 +537,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           </div>
 
           {/* Mobile menu button and actions */}
-          <div className="lg:hidden flex items-center space-x-4">
-            {/* Language Dropdown */}
-            <div className="relative" ref={languageDropdownMobileRef}>
-              <button
-                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                className="flex items-center space-x-1 px-2 py-1.5 text-sm font-medium text-gray-700 hover:text-ray-blue rounded-md transition-colors duration-200"
-                aria-expanded={isLanguageDropdownOpen}
-                aria-haspopup="true"
-              >
-                <span className="text-base">{locale === 'es' ? '🇪🇸' : '🇺🇸'}</span>
-                <svg
-                  className={`w-3 h-3 transition-transform duration-200 ${
-                    isLanguageDropdownOpen ? 'rotate-180' : ''
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {isLanguageDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
-                  <button
-                    onClick={() => {
-                      switchLanguage('es')
-                      setIsLanguageDropdownOpen(false)
-                    }}
-                    className={`w-full text-left px-3 py-2 text-sm flex items-center space-x-2 hover:bg-gray-50 transition-colors ${
-                      locale === 'es' ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
-                    }`}
-                  >
-                    <span className="text-base">🇪🇸</span>
-                    <span>ES</span>
-                  </button>
-                  <button
-                    onClick={() => {
-                      switchLanguage('en')
-                      setIsLanguageDropdownOpen(false)
-                    }}
-                    className={`w-full text-left px-3 py-2 text-sm flex items-center space-x-2 hover:bg-gray-50 transition-colors ${
-                      locale === 'en' ? 'text-ray-blue bg-blue-50' : 'text-gray-700'
-                    }`}
-                  >
-                    <span className="text-base">🇺🇸</span>
-                    <span>EN</span>
-                  </button>
-                </div>
-              )}
-            </div>
-
+          <div className="flex lg:hidden items-center space-x-4">
             {/* Mobile menu toggle */}
             <button
               onClick={toggleMenu}

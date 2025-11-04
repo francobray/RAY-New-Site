@@ -56,6 +56,13 @@ export const COPY: Record<Locale, any> = {
         METRIC: '+27%',
         METRIC_LABEL: 'pedidos online'
       },
+      AI_EMPLOYEE: {
+        NAME: 'Empleado AI',
+        TAGLINE: 'Tu empleado digital que nunca duerme',
+        DESCRIPTION: 'Deja de perder clientes hambrientos por respuestas lentas. Nuestro sistema de IA toma pedidos, reserva mesas y responde preguntas del menú 24/7.',
+        METRIC: '+28%',
+        METRIC_LABEL: 'más pedidos'
+      },
       WHATSAPP_ORDERS: {
         NAME: 'Delivery por WhatsApp',
         TAGLINE: 'Convierte DMs de restaurante en pedidos',
@@ -120,8 +127,8 @@ export const COPY: Record<Locale, any> = {
     // Homepage sections
     HOMEPAGE: {
       HERO: {
-        TITLE: 'Genera más',
-        TITLE_HIGHLIGHT: 'delivery sin comisión, reservas directas y más tráfico\u00A0en\u00A0tu\u00A0restaurante',
+        TITLE: 'Más delivery, reservas y tráfico en el restaurante',
+        TITLE_HIGHLIGHT: 'sin comisión',
         SUBTITLE: 'RAY es la plataforma #1 de marketing y ventas que ayuda a restaurants a crecer aumentando el delivery sin comisión, las reservas directas y el tráfico en la sucursal'
       },
       TRUST_METRICS: {
@@ -1759,6 +1766,13 @@ export const COPY: Record<Locale, any> = {
         METRIC: '+27%',
         METRIC_LABEL: 'online orders'
       },
+      AI_EMPLOYEE: {
+        NAME: 'AI Employee',
+        TAGLINE: 'Your digital employee that never sleeps',
+        DESCRIPTION: 'Stop losing hungry customers to slow replies! Our AI takes orders, books tables, and answers menu questions 24/7.',
+        METRIC: '+28%',
+        METRIC_LABEL: 'more orders'
+      },
       WHATSAPP_ORDERS: {
         NAME: 'WhatsApp Orders',
         TAGLINE: 'Turn Restaurant DMs Into Orders',
@@ -1823,8 +1837,8 @@ export const COPY: Record<Locale, any> = {
     // Homepage sections
     HOMEPAGE: {
       HERO: {
-        TITLE: 'Boost revenue by driving more',
-        TITLE_HIGHLIGHT: 'zero-commision orders, direct bookings & walk-ins',
+        TITLE: 'More orders, bookings & walk-ins',
+        TITLE_HIGHLIGHT: 'zero commission',
         SUBTITLE: 'Free • 60 seconds • No credit card required'
       },
       TRUST_METRICS: {
