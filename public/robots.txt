@@ -43,6 +43,7 @@ Allow: /contact
 
 # Disallow admin and utility pages
 Disallow: /admin/
+Disallow: /internal
 Disallow: /_next/
 Disallow: /api/
 Disallow: /*.json$
