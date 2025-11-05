@@ -54,12 +54,23 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   }
   
   // Obtener el texto del hero: primero intentar desde payload de PostHog, luego fallback a hardcoded
-  const heroText = payload && typeof payload === 'object' 
+  const heroText = payload && typeof payload === 'object' && !Array.isArray(payload)
     ? {
         title: payload.title || heroVariants[locale].control.title,
         highlight: payload.highlight || heroVariants[locale].control.highlight
       }
     : (heroVariants[locale][heroVariant as keyof typeof heroVariants['es']] || heroVariants[locale].control)
+  
+  // Log the final text being used
+  useEffect(() => {
+    if (!isTestLoading) {
+      console.log('📝 Hero final text:', {
+        usingPayload: !!(payload && typeof payload === 'object'),
+        heroText,
+        payload
+      })
+    }
+  }, [heroText, payload, isTestLoading])
 
   useEffect(() => {
     // Load the RAY widget script

@@ -30,13 +30,27 @@ export function useABTest(flagKey: string, defaultVariant: string = 'control') {
     const finalVariant = variant || defaultVariant
     
     // Get the payload (JSON) for the active variant
-    const flagPayload = posthog?.getFeatureFlagPayload?.(flagKey)
+    let flagPayload = posthog?.getFeatureFlagPayload?.(flagKey)
+    
+    // PostHog sometimes returns payloads as JSON strings, parse if needed
+    if (flagPayload && typeof flagPayload === 'string') {
+      try {
+        // Remove any leading/trailing whitespace and newlines
+        const cleanedPayload = flagPayload.trim().replace(/^\s+|\s+$/g, '')
+        flagPayload = JSON.parse(cleanedPayload)
+        console.log('📦 Parsed payload from string:', flagPayload)
+      } catch (e) {
+        console.warn('⚠️ Failed to parse payload JSON:', e, { rawPayload: flagPayload })
+        flagPayload = null
+      }
+    }
     
     console.log('🎯 useABTest:', {
       flagKey,
       variant,
       finalVariant,
       payload: flagPayload,
+      payloadType: typeof flagPayload,
       hasPostHog: !!posthog,
       isLoading,
       // Try to get flag directly from PostHog for debugging
@@ -44,7 +58,7 @@ export function useABTest(flagKey: string, defaultVariant: string = 'control') {
     })
 
     // Update payload state
-    if (flagPayload !== undefined) {
+    if (flagPayload !== undefined && flagPayload !== null) {
       setPayload(flagPayload)
     }
 
