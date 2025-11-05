@@ -52,6 +52,15 @@ export function initPostHog() {
         distinctId: posthog.get_distinct_id?.(),
         isLoaded: posthog.__loaded
       })
+      
+      // Check flags immediately if already initialized
+      const esFlag = posthog.getFeatureFlag('hero-h1-test-es')
+      const enFlag = posthog.getFeatureFlag('hero-h1-test-en')
+      console.log('🔍 Flag check (PostHog already initialized):', {
+        'hero-h1-test-es': esFlag || 'undefined',
+        'hero-h1-test-en': enFlag || 'undefined'
+      })
+      
       return posthog
     }
 
@@ -104,7 +113,7 @@ export function initPostHog() {
           
           // Log cuando se carguen los flags
           ph.onFeatureFlags(function() {
-            console.log('🎉 Feature flags loaded!')
+            console.log('🎉 Feature flags loaded callback triggered!')
             const flags = {
               'hero-h1-test-es': ph.getFeatureFlag('hero-h1-test-es'),
               'hero-h1-test-en': ph.getFeatureFlag('hero-h1-test-en')
@@ -122,7 +131,29 @@ export function initPostHog() {
               console.warn('   2. Create flags: "hero-h1-test-es" and "hero-h1-test-en"')
               console.warn('   3. Set them as multivariate flags with variants: ["control", "variant_b"]')
               console.warn('   4. Enable the flags and set rollout percentage (e.g., 50% each variant)')
+            } else {
+              console.log('✅ Both feature flags are configured correctly!')
+              console.log('   Spanish variant:', flags['hero-h1-test-es'])
+              console.log('   English variant:', flags['hero-h1-test-en'])
             }
+          })
+          
+          // Also check flags immediately if PostHog is already loaded
+          setTimeout(() => {
+            const esFlag = ph.getFeatureFlag('hero-h1-test-es')
+            const enFlag = ph.getFeatureFlag('hero-h1-test-en')
+            console.log('🔍 Direct flag check (after 500ms):', {
+              'hero-h1-test-es': esFlag || 'undefined',
+              'hero-h1-test-en': enFlag || 'undefined'
+            })
+          }, 500)
+          
+          // Check flags immediately (synchronous check)
+          const immediateEsFlag = ph.getFeatureFlag('hero-h1-test-es')
+          const immediateEnFlag = ph.getFeatureFlag('hero-h1-test-en')
+          console.log('⚡ Immediate flag check (in loaded callback):', {
+            'hero-h1-test-es': immediateEsFlag || 'undefined',
+            'hero-h1-test-en': immediateEnFlag || 'undefined'
           })
         },
         

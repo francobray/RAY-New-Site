@@ -17,6 +17,17 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   const flagKey = locale === 'es' ? 'hero-h1-test-es' : 'hero-h1-test-en'
   const { variant: heroVariant, isLoading: isTestLoading, trackConversion } = useABTest(flagKey, 'control')
   
+  // Log para debugging en producción
+  useEffect(() => {
+    console.log('🏠 Hero component:', {
+      locale,
+      flagKey,
+      heroVariant,
+      isTestLoading,
+      timestamp: new Date().toISOString()
+    })
+  }, [locale, flagKey, heroVariant, isTestLoading])
+  
   // Define las variantes del Hero H1 por idioma
   const heroVariants = {
     es: {

@@ -22,17 +22,22 @@ export function useABTest(flagKey: string, defaultVariant: string = 'control') {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    const finalVariant = variant || defaultVariant
+    
     console.log('🎯 useABTest:', {
       flagKey,
       variant,
+      finalVariant,
       hasPostHog: !!posthog,
-      isLoading
+      isLoading,
+      // Try to get flag directly from PostHog for debugging
+      directFlagValue: posthog?.getFeatureFlag(flagKey) || 'not available'
     })
 
     // Timeout: si después de 2 segundos no hay variante, usar default
     const timeout = setTimeout(() => {
       if (variant === undefined) {
-        console.warn('⏱️ Timeout: using default variant for', flagKey)
+        console.warn('⏱️ Timeout: using default variant for', flagKey, '→', defaultVariant)
         setIsLoading(false)
       }
     }, 2000)
@@ -42,15 +47,17 @@ export function useABTest(flagKey: string, defaultVariant: string = 'control') {
       clearTimeout(timeout)
       setIsLoading(false)
       
-      console.log('✅ Feature flag loaded:', {
+      console.log('✅ Feature flag loaded successfully!', {
         flagKey,
-        variant: variant || defaultVariant
+        variant,
+        finalVariant,
+        '🎲 This user will see variant:': finalVariant
       })
 
       // Track la exposición al test (impression)
       posthog?.capture('ab_test_impression', {
         test_name: flagKey,
-        variant: variant || defaultVariant,
+        variant: finalVariant,
         page_path: window.location.pathname
       })
 
@@ -58,7 +65,7 @@ export function useABTest(flagKey: string, defaultVariant: string = 'control') {
       if (typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', 'ab_test_impression', {
           test_name: flagKey,
-          variant: variant || defaultVariant,
+          variant: finalVariant,
           event_category: 'ab_testing'
         })
       }
