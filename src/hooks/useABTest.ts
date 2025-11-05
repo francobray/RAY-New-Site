@@ -8,11 +8,15 @@ import { useFeatureFlagVariantKey, usePostHog } from 'posthog-js/react'
  * 
  * @param flagKey - El nombre del feature flag en PostHog
  * @param defaultVariant - La variante por defecto (control)
- * @returns variant, isLoading, y función trackConversion
+ * @returns variant, payload, isLoading, y función trackConversion
  * 
  * @example
- * const { variant, trackConversion } = useABTest('hero-h1-test', 'control')
+ * const { variant, payload, trackConversion } = useABTest('hero-h1-test', 'control')
  * 
+ * // Si usas payloads (textos en PostHog):
+ * <h1>{payload?.title || defaultTitle}</h1>
+ * 
+ * // Si usas variantes hardcodeadas:
  * <h1>{variants[variant].title}</h1>
  * <button onClick={() => trackConversion('cta_click')}>Get Started</button>
  */
@@ -20,19 +24,29 @@ export function useABTest(flagKey: string, defaultVariant: string = 'control') {
   const posthog = usePostHog()
   const variant = useFeatureFlagVariantKey(flagKey)
   const [isLoading, setIsLoading] = useState(true)
+  const [payload, setPayload] = useState<any>(null)
 
   useEffect(() => {
     const finalVariant = variant || defaultVariant
+    
+    // Get the payload (JSON) for the active variant
+    const flagPayload = posthog?.getFeatureFlagPayload?.(flagKey)
     
     console.log('🎯 useABTest:', {
       flagKey,
       variant,
       finalVariant,
+      payload: flagPayload,
       hasPostHog: !!posthog,
       isLoading,
       // Try to get flag directly from PostHog for debugging
       directFlagValue: posthog?.getFeatureFlag(flagKey) || 'not available'
     })
+
+    // Update payload state
+    if (flagPayload !== undefined) {
+      setPayload(flagPayload)
+    }
 
     // Timeout: si después de 2 segundos no hay variante, usar default
     const timeout = setTimeout(() => {
@@ -51,6 +65,7 @@ export function useABTest(flagKey: string, defaultVariant: string = 'control') {
         flagKey,
         variant,
         finalVariant,
+        payload: flagPayload,
         '🎲 This user will see variant:': finalVariant
       })
 
@@ -109,6 +124,7 @@ export function useABTest(flagKey: string, defaultVariant: string = 'control') {
 
   return {
     variant: (variant || defaultVariant) as string,
+    payload, // JSON payload from PostHog (null if not configured)
     isLoading,
     trackConversion,
     trackEngagement,

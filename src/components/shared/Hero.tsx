@@ -15,7 +15,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   
   // A/B Test: Hero H1 (separado por idioma)
   const flagKey = locale === 'es' ? 'hero-h1-test-es' : 'hero-h1-test-en'
-  const { variant: heroVariant, isLoading: isTestLoading, trackConversion } = useABTest(flagKey, 'control')
+  const { variant: heroVariant, payload, isLoading: isTestLoading, trackConversion } = useABTest(flagKey, 'control')
   
   // Log para debugging en producción
   useEffect(() => {
@@ -23,12 +23,13 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
       locale,
       flagKey,
       heroVariant,
+      payload,
       isTestLoading,
       timestamp: new Date().toISOString()
     })
-  }, [locale, flagKey, heroVariant, isTestLoading])
+  }, [locale, flagKey, heroVariant, payload, isTestLoading])
   
-  // Define las variantes del Hero H1 por idioma
+  // Define las variantes del Hero H1 por idioma (fallback si no hay payload)
   const heroVariants = {
     es: {
       control: {
@@ -52,8 +53,13 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
     }
   }
   
-  // Obtener el texto del hero basado en la variante y locale
-  const heroText = heroVariants[locale][heroVariant as keyof typeof heroVariants['es']] || heroVariants[locale].control
+  // Obtener el texto del hero: primero intentar desde payload de PostHog, luego fallback a hardcoded
+  const heroText = payload && typeof payload === 'object' 
+    ? {
+        title: payload.title || heroVariants[locale].control.title,
+        highlight: payload.highlight || heroVariants[locale].control.highlight
+      }
+    : (heroVariants[locale][heroVariant as keyof typeof heroVariants['es']] || heroVariants[locale].control)
 
   useEffect(() => {
     // Load the RAY widget script
