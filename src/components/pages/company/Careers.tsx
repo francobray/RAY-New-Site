@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ArrowRight, Loader2, AlertCircle } from 'lucide-react'
+import { ArrowRight, Loader2 } from 'lucide-react'
 import { type Locale } from '@/lib/i18n'
 
 interface CareersProps {
@@ -220,19 +220,7 @@ const Careers: React.FC<CareersProps> = ({ locale }) => {
             </div>
           )}
 
-          {error && (
-            <div className="bg-red-50 border border-red-200 rounded-xl p-6 flex items-start gap-3">
-              <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <h3 className="text-lg font-semibold text-red-900 mb-1">
-                  {locale === 'es' ? 'Error al cargar posiciones' : 'Error loading positions'}
-                </h3>
-                <p className="text-red-700">{error}</p>
-              </div>
-            </div>
-          )}
-
-          {!loading && !error && jobPositions.length === 0 && (
+          {!loading && (error || jobPositions.length === 0) && (
             <div className="text-center py-12 bg-white rounded-xl">
               <p className="text-ray-dark-700 text-lg">
                 {locale === 'es' 
