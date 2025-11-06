@@ -2,21 +2,14 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
-    const n8nJobOpeningsWebhookUrl = process.env.N8N_JOB_OPENINGS_WEBHOOK_URL
+    // Fallback webhook URL if environment variable is not configured
+    const FALLBACK_WEBHOOK_URL = 'https://franbreciano.app.n8n.cloud/webhook/8dfda555-c800-4f17-9ef3-fa9acab172fd'
+    
+    const n8nJobOpeningsWebhookUrl = process.env.N8N_JOB_OPENINGS_WEBHOOK_URL || FALLBACK_WEBHOOK_URL
 
-    // Check if n8n webhook is configured
-    if (!n8nJobOpeningsWebhookUrl) {
-      console.error('❌ N8N_JOB_OPENINGS_WEBHOOK_URL environment variable is not set')
-      return NextResponse.json(
-        {
-          error: 'Configuration Error',
-          message: 'N8N_JOB_OPENINGS_WEBHOOK_URL environment variable is not configured',
-          details: 'Please set N8N_JOB_OPENINGS_WEBHOOK_URL in your production environment variables and redeploy.',
-          jobs: [],
-          source: 'error',
-        },
-        { status: 503 }
-      )
+    // Log if using fallback
+    if (!process.env.N8N_JOB_OPENINGS_WEBHOOK_URL) {
+      console.warn('⚠️ N8N_JOB_OPENINGS_WEBHOOK_URL not configured, using fallback webhook')
     }
 
     console.log('🔄 Fetching job openings from n8n webhook...')
