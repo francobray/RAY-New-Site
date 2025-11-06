@@ -94,6 +94,8 @@ spec:
   hostnames:
   - rayapp.io
   - www.rayapp.io
+  - botbit.io
+  - www.botbit.io
   rules:
   - matches:
     - path:
