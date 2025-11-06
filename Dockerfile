@@ -28,7 +28,8 @@ ENV NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="AIzaSyAD9Nbl9RGvTAXDNiG2ixxbHqBzox17qUY" \
     NEXT_PUBLIC_POSTHOG_HOST="<NEXT_PUBLIC_POSTHOG_HOST>" \
     N8N_CHAT_WEBHOOK_URL="<N8N_CHAT_WEBHOOK_URL>" \
     N8N_WEBHOOK_URL="<N8N_WEBHOOK_URL>" \
-    N8N_REDEEM_WEBHOOK_URL="https://franbreciano.app.n8n.cloud/webhook/1dad3f6b-717d-4ee9-b2e8-48b84a7a258b"
+    N8N_REDEEM_WEBHOOK_URL="https://franbreciano.app.n8n.cloud/webhook/1dad3f6b-717d-4ee9-b2e8-48b84a7a258b" \
+    N8N_JOB_OPENINGS_WEBHOOK_URL="<N8N_JOB_OPENINGS_WEBHOOK_URL>"
 
 # Copy configuration files
 COPY tsconfig.json next.config.js postcss.config.js tailwind.config.ts ./

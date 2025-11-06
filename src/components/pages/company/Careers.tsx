@@ -1,78 +1,82 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ArrowRight, MapPin, Clock, Briefcase } from 'lucide-react'
+import { ArrowRight, Loader2, AlertCircle } from 'lucide-react'
 import { type Locale } from '@/lib/i18n'
-import JobApplicationModal from '@/components/shared/JobApplicationModal'
 
 interface CareersProps {
   locale: Locale
 }
 
 interface JobPosition {
+  id: string
   title: string
   department: string
+  area: string
   location: string
   type: string
   description: string
+  url?: string
+  applyUrl?: string
+  postedDate?: string
+  whatWeLookFor?: string
+  impact?: string
+  requirements?: string
+  payAndBenefits?: string
 }
 
 const Careers: React.FC<CareersProps> = ({ locale }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedJob, setSelectedJob] = useState<string>('')
+  const [jobPositions, setJobPositions] = useState<JobPosition[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleApplyClick = (jobTitle: string) => {
-    setSelectedJob(jobTitle)
-    setIsModalOpen(true)
-  }
-  
-  // Job positions data
-  const jobPositions: JobPosition[] = locale === 'es' ? [
-    {
-      title: 'Ingeniero de Software Full Stack',
-      department: 'Ingeniería',
-      location: 'Remoto (América Latina)',
-      type: 'Tiempo Completo',
-      description: 'Únete a nuestro equipo de ingeniería para construir soluciones innovadoras que ayuden a restaurantes a crecer.'
-    },
-    {
-      title: 'Content Creator',
-      department: 'Marketing',
-      location: 'Remoto',
-      type: 'Tiempo Completo',
-      description: 'Crea contenido atractivo para blog, redes sociales, casos de éxito y video. Realiza investigación de palabras clave y gestiona publicaciones en múltiples plataformas.'
-    },
-    {
-      title: 'Product Owner',
-      department: 'Producto',
-      location: 'Remoto',
-      type: 'Tiempo Completo',
-      description: 'Traduce la visión en especificaciones detalladas, construye prototipos en Bolt, realiza pruebas de usuario y validación de prototipos, asegura calidad y usabilidad, y monitorea KPIs de rendimiento del producto.'
+  // Fetch job openings from API
+  useEffect(() => {
+    const fetchJobOpenings = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        
+        // Add cache busting to ensure fresh data
+        const response = await fetch(`/api/job-openings?t=${Date.now()}`, {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache',
+          },
+        })
+        
+        const data = await response.json()
+        
+        if (data.error || data.source === 'error') {
+          setError(data.message || 'Error loading job openings')
+          setJobPositions([])
+        } else if (data.jobs && Array.isArray(data.jobs)) {
+          // Clean up the job data (remove extra whitespace and newlines)
+          const cleanedJobs = data.jobs.map((job: JobPosition) => ({
+            ...job,
+            location: job.location?.replace(/\n/g, '').trim() || '',
+            type: job.type?.replace(/\n/g, '').trim() || '',
+            department: job.department?.replace(/\n/g, '').trim() || '',
+            area: job.area?.replace(/\n/g, '').trim() || '',
+          }))
+          setJobPositions(cleanedJobs)
+          setError(null)
+        } else {
+          setJobPositions([])
+          setError(null)
+        }
+      } catch (err) {
+        console.error('Error fetching job openings:', err)
+        setError('Failed to load job openings. Please try again later.')
+        setJobPositions([])
+      } finally {
+        setLoading(false)
+      }
     }
-  ] : [
-    {
-      title: 'Full Stack Software Engineer',
-      department: 'Engineering',
-      location: 'Remote (Latin America)',
-      type: 'Full-Time',
-      description: 'Join our engineering team to build innovative solutions that help restaurants grow and thrive.'
-    },
-    {
-      title: 'Content Creator',
-      department: 'Marketing',
-      location: 'Remote',
-      type: 'Full-Time',
-      description: 'Create engaging content for blog, social media, success stories, and video. Conduct keyword research and manage publications across multiple platforms.'
-    },
-    {
-      title: 'Product Owner',
-      department: 'Product',
-      location: 'Remote',
-      type: 'Full-Time',
-      description: 'Translate vision into detailed specs, build prototypes in Bolt, conduct user testing and prototype validation, ensure quality and usability, and monitor product performance KPIs.'
-    }
-  ]
+
+    fetchJobOpenings()
+  }, [])
 
   const values = locale === 'es' ? [
     {
@@ -193,60 +197,118 @@ const Careers: React.FC<CareersProps> = ({ locale }) => {
       </section>
 
       {/* Open Positions */}
-      <section id="open-positions" className="py-20 bg-white scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-ray-dark-900 mb-4">
-              {locale === 'es' ? 'Posiciones Abiertas' : 'Open Positions'}
+      <section id="open-positions" className="py-20 bg-gray-50 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header with job count */}
+          <div className="flex items-start justify-between mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold text-ray-dark-900">
+              {locale === 'es' ? 'Carreras en RAY' : 'Careers at RAY'}
             </h2>
-            <p className="text-xl text-ray-dark-700 max-w-3xl mx-auto">
-              {locale === 'es'
-                ? 'Explora las oportunidades actuales para unirte a nuestro equipo'
-                : 'Explore current opportunities to join our team'
-              }
-            </p>
+            {!loading && !error && jobPositions.length > 0 && (
+              <span className="text-lg text-ray-dark-600 mt-2">
+                {jobPositions.length} {locale === 'es' ? 'posiciones' : 'openings'}
+              </span>
+            )}
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-6">
-            {jobPositions.map((job, index) => (
-              <div 
-                key={index}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-ray-blue"
-              >
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                  <div className="mb-4 md:mb-0">
-                    <h3 className="text-2xl font-bold text-ray-dark-900 mb-2">
-                      {job.title}
+          {loading && (
+            <div className="flex items-center justify-center py-12">
+              <Loader2 className="w-8 h-8 animate-spin text-ray-blue" />
+              <span className="ml-3 text-ray-dark-700">
+                {locale === 'es' ? 'Cargando posiciones abiertas...' : 'Loading job openings...'}
+              </span>
+            </div>
+          )}
+
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-xl p-6 flex items-start gap-3">
+              <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-lg font-semibold text-red-900 mb-1">
+                  {locale === 'es' ? 'Error al cargar posiciones' : 'Error loading positions'}
+                </h3>
+                <p className="text-red-700">{error}</p>
+              </div>
+            </div>
+          )}
+
+          {!loading && !error && jobPositions.length === 0 && (
+            <div className="text-center py-12 bg-white rounded-xl">
+              <p className="text-ray-dark-700 text-lg">
+                {locale === 'es' 
+                  ? 'No hay posiciones abiertas en este momento. Vuelve a consultar pronto.'
+                  : 'No open positions at this time. Please check back soon.'
+                }
+              </p>
+            </div>
+          )}
+
+          {!loading && !error && (() => {
+            // Group jobs by area
+            const jobsByArea = jobPositions.reduce((acc, job) => {
+              const area = job.area || (locale === 'es' ? 'Otras' : 'Other')
+              if (!acc[area]) {
+                acc[area] = []
+              }
+              acc[area].push(job)
+              return acc
+            }, {} as Record<string, typeof jobPositions>)
+
+            return (
+              <div className="space-y-12">
+                {Object.entries(jobsByArea).map(([area, jobs]) => (
+                  <div key={area}>
+                    {/* Area Header */}
+                    <h3 className="text-2xl font-bold text-ray-dark-900 mb-6">
+                      {area}
                     </h3>
-                    <div className="flex flex-wrap gap-4 text-sm text-ray-dark-600">
-                      <span className="flex items-center gap-1">
-                        <Briefcase className="w-4 h-4" />
-                        {job.department}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        {job.location}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        {job.type}
-                      </span>
+
+                    {/* Jobs in this department */}
+                    <div className="space-y-3">
+                      {jobs.map((job) => (
+                        <div 
+                          key={job.id}
+                          className="bg-white rounded-lg p-6 hover:shadow-md transition-shadow duration-200 border border-gray-100"
+                        >
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="flex-1">
+                              <h4 className="text-xl font-semibold text-ray-dark-900 mb-2">
+                                {job.title}
+                              </h4>
+                              <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+                                {job.department && (
+                                  <span>{job.department}</span>
+                                )}
+                                {job.location && (
+                                  <>
+                                    {job.department && <span className="text-gray-300">•</span>}
+                                    <span>{job.location}</span>
+                                  </>
+                                )}
+                                {job.type && (
+                                  <>
+                                    {(job.department || job.location) && <span className="text-gray-300">•</span>}
+                                    <span>{job.type}</span>
+                                  </>
+                                )}
+                              </div>
+                            </div>
+                            <Link
+                              href={`/${locale}/careers/${job.id}`}
+                              className="inline-flex items-center gap-2 text-ray-blue font-semibold hover:text-blue-700 transition-colors duration-200 whitespace-nowrap flex-shrink-0"
+                            >
+                              {locale === 'es' ? 'Aplicar Ahora' : 'Apply Now'}
+                              <ArrowRight className="w-4 h-4" />
+                            </Link>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <button
-                    onClick={() => handleApplyClick(job.title)}
-                    className="inline-flex items-center gap-2 bg-ray-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 whitespace-nowrap"
-                  >
-                    {locale === 'es' ? 'Aplicar' : 'Apply'}
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-                <p className="text-ray-dark-700">
-                  {job.description}
-                </p>
+                ))}
               </div>
-            ))}
-          </div>
+            )
+          })()}
 
           {/* No perfect fit CTA */}
           <div className="mt-12 text-center bg-gray-50 rounded-xl p-8 max-w-4xl mx-auto">
@@ -269,14 +331,6 @@ const Careers: React.FC<CareersProps> = ({ locale }) => {
           </div>
         </div>
       </section>
-
-      {/* Job Application Modal */}
-      <JobApplicationModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        jobTitle={selectedJob}
-        locale={locale}
-      />
     </>
   )
 }
