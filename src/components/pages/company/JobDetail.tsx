@@ -26,12 +26,39 @@ interface JobDetailProps {
 const JobDetail: React.FC<JobDetailProps> = ({ job, locale }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  // Helper function to format multi-line text
+  // Helper function to detect and linkify URLs in text
+  const linkifyText = (text: string) => {
+    // Regex to detect URLs (http, https, www)
+    const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/gi
+    const parts = text.split(urlRegex)
+    
+    return parts.map((part, i) => {
+      // Check if this part is a URL
+      if (part.match(urlRegex)) {
+        // Ensure URL has protocol
+        const href = part.startsWith('http') ? part : `https://${part}`
+        return (
+          <a
+            key={i}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ray-blue hover:text-blue-700 underline transition-colors duration-200"
+          >
+            {part}
+          </a>
+        )
+      }
+      return part
+    })
+  }
+
+  // Helper function to format multi-line text with URL detection
   const formatText = (text?: string) => {
     if (!text) return null
     return text.split('\n').filter(line => line.trim()).map((line, index) => (
       <p key={index} className="mb-3 last:mb-0">
-        {line.trim()}
+        {linkifyText(line.trim())}
       </p>
     ))
   }
