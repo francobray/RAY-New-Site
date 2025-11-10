@@ -15,7 +15,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   
   // A/B Test: Hero H1 (separado por idioma)
   const flagKey = locale === 'es' ? 'hero-h1-test-es-v2' : 'hero-h1-test-en-v2'
-  const { variant: heroVariant, payload, isLoading: isTestLoading, trackConversion } = useABTest(flagKey, 'option_a')
+  const { variant: heroVariant, payload, isLoading: isTestLoading, trackConversion } = useABTest(flagKey, 'control')
   
   // Log para debugging en producción
   useEffect(() => {
@@ -32,7 +32,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   // Define las variantes del Hero H1 por idioma (fallback si no hay payload)
   const heroVariants = {
     es: {
-      option_a: {
+      control: {
         title: 'Compite con las grandes marcas — y gana como ellas.',
         subtext: 'RAY le da a tu restaurante las mismas herramientas que usan las grandes cadenas: sitio web, reservas directas, pedidos online, fidelización y marketing con IA — todo conectado a tu POS.'
       },
@@ -46,7 +46,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
       }
     },
     en: {
-      option_a: {
+      control: {
         title: 'Compete with the big brands — and win like one.',
         subtext: 'RAY gives restaurants the same tools as global chains — website, direct bookings, online ordering, loyalty, and AI marketing — all connected to your POS.'
       },
@@ -64,10 +64,10 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   // Obtener el texto del hero: primero intentar desde payload de PostHog, luego fallback a hardcoded
   const heroText = payload && typeof payload === 'object' && !Array.isArray(payload)
     ? {
-        title: payload.title || heroVariants[locale].option_a.title,
-        subtext: payload.subtext || heroVariants[locale].option_a.subtext
+        title: payload.title || heroVariants[locale].control.title,
+        subtext: payload.subtext || heroVariants[locale].control.subtext
       }
-    : (heroVariants[locale][heroVariant as keyof typeof heroVariants['es']] || heroVariants[locale].option_a)
+    : (heroVariants[locale][heroVariant as keyof typeof heroVariants['es']] || heroVariants[locale].control)
   
   // Log the final text being used
   useEffect(() => {
