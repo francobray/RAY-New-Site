@@ -33,29 +33,41 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   const heroVariants = {
     es: {
       control: {
-        title: 'Compite con las grandes marcas — y gana como ellas.',
+        titleBefore: 'Compite con las grandes marcas — ',
+        highlight: 'y gana como ellas.',
+        titleAfter: '',
         subtext: 'RAY le da a tu restaurante las mismas herramientas que usan las grandes cadenas: sitio web, reservas directas, pedidos online, fidelización y marketing con IA — todo conectado a tu POS.'
       },
       option_b: {
-        title: 'Haz que tu restaurante recupere a sus clientes y aumente sus ganancias.',
+        titleBefore: 'Haz que tu restaurante recupere a sus clientes ',
+        highlight: 'y aumente sus ganancias.',
+        titleAfter: '',
         subtext: 'La plataforma todo-en-uno para restaurantes: conecta tu POS y consigue reservas directas, pedidos online y fidelización sin comisiones.'
       },
       option_c: {
-        title: 'Recupera tus clientes — y tus márgenes.',
+        titleBefore: 'Recupera tus clientes — ',
+        highlight: 'y tus márgenes.',
+        titleAfter: '',
         subtext: 'Deja de perder ganancias con las apps de delivery. RAY te ayuda a recuperar la relación con tus clientes y automatizar reservas y pedidos directos desde tu web, WhatsApp y programa de fidelización.'
       }
     },
     en: {
       control: {
-        title: 'Compete with the big brands — and win like one.',
+        titleBefore: 'Compete with the big brands — ',
+        highlight: 'and win like one.',
+        titleAfter: '',
         subtext: 'RAY gives restaurants the same tools as global chains — website, direct bookings, online ordering, loyalty, and AI marketing — all connected to your POS.'
       },
       option_b: {
-        title: 'Help your restaurant own its guests and grow its profits.',
+        titleBefore: 'Help your restaurant own its guests ',
+        highlight: 'and grow its profits.',
+        titleAfter: '',
         subtext: 'The all-in-one marketing platform for restaurants — connect your POS to get direct bookings, online orders, and loyalty with zero commissions.'
       },
       option_c: {
-        title: 'Take back your customers — and your margins.',
+        titleBefore: 'Take back your customers — ',
+        highlight: 'and your margins.',
+        titleAfter: '',
         subtext: 'Stop losing profits to delivery apps. RAY helps restaurants own their guest relationships and automate direct bookings and orders from their website, WhatsApp, and loyalty program.'
       }
     }
@@ -64,7 +76,9 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   // Obtener el texto del hero: primero intentar desde payload de PostHog, luego fallback a hardcoded
   const heroText = payload && typeof payload === 'object' && !Array.isArray(payload)
     ? {
-        title: payload.title || heroVariants[locale].control.title,
+        titleBefore: payload.titleBefore || heroVariants[locale].control.titleBefore,
+        highlight: payload.highlight || heroVariants[locale].control.highlight,
+        titleAfter: payload.titleAfter || heroVariants[locale].control.titleAfter || '',
         subtext: payload.subtext || heroVariants[locale].control.subtext
       }
     : (heroVariants[locale][heroVariant as keyof typeof heroVariants['es']] || heroVariants[locale].control)
@@ -293,7 +307,15 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
               ) : (
                 <>
                   <h1 className="text-[44px] sm:text-[32px] lg:text-[44px] xl:text-[56px] font-bold text-ray-dark-900 leading-[1.1] tracking-tight mb-6 sm:mb-6 mt-6 sm:mt-0">
-                    {heroText.title}
+                    {heroText.titleBefore}
+                    <span className="relative inline-block">
+                      <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">
+                        {heroText.highlight}
+                      </span>
+                      {/* Underline decoration */}
+                      <div className="hidden sm:block absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-full opacity-30"></div>
+                    </span>
+                    {heroText.titleAfter}
                   </h1>
                   
                   <p className="hidden sm:block text-lg sm:text-xl text-ray-dark-700 leading-relaxed mb-6 sm:mb-8">
