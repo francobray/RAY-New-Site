@@ -170,6 +170,46 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
     }
   }, [])
 
+  // Track scroll events for A/B test success metric
+  useEffect(() => {
+    let hasTrackedScroll = false
+    
+    const trackScrollEvent = () => {
+      if (hasTrackedScroll) return
+      
+      // Track when user scrolls past 25% of viewport height
+      const scrollThreshold = window.innerHeight * 0.25
+      
+      if (window.scrollY > scrollThreshold) {
+        hasTrackedScroll = true
+        
+        // Send locale-specific scroll event to PostHog
+        const eventName = locale === 'es' ? 'home_page_scroll_es' : 'home_page_scroll_en'
+        
+        trackConversion(eventName, {
+          scroll_depth: Math.round(window.scrollY),
+          viewport_height: window.innerHeight,
+          threshold_passed: scrollThreshold,
+          locale,
+          ab_test_variant: heroVariant
+        })
+        
+        console.log('📊 Scroll event tracked:', {
+          eventName,
+          locale,
+          scrollY: window.scrollY,
+          threshold: scrollThreshold
+        })
+      }
+    }
+    
+    window.addEventListener('scroll', trackScrollEvent, { passive: true })
+    
+    return () => {
+      window.removeEventListener('scroll', trackScrollEvent)
+    }
+  }, [locale, heroVariant, trackConversion])
+
   // Mobile sticky widget behavior
   useEffect(() => {
     const handleScroll = () => {
