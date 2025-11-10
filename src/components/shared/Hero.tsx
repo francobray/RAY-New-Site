@@ -15,7 +15,7 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   
   // A/B Test: Hero H1 (separado por idioma)
   const flagKey = locale === 'es' ? 'hero-h1-test-es' : 'hero-h1-test-en'
-  const { variant: heroVariant, payload, isLoading: isTestLoading, trackConversion } = useABTest(flagKey, 'control')
+  const { variant: heroVariant, payload, isLoading: isTestLoading, trackConversion } = useABTest(flagKey, 'option_a')
   
   // Log para debugging en producción
   useEffect(() => {
@@ -32,23 +32,31 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   // Define las variantes del Hero H1 por idioma (fallback si no hay payload)
   const heroVariants = {
     es: {
-      control: {
-        title: 'Más delivery, reservas y tráfico en el restaurante',
-        highlight: 'sin comisión'
+      option_a: {
+        title: 'Compite con las grandes marcas — y gana como ellas.',
+        subtext: 'RAY le da a tu restaurante las mismas herramientas que usan las grandes cadenas: sitio web, reservas directas, pedidos online, fidelización y marketing con IA — todo conectado a tu POS.'
       },
-      variant_b: {
-        title: 'Genera más ventas en tu restaurante',
-        highlight: 'sin comisión ni esfuerzo'
+      option_b: {
+        title: 'Haz que tu restaurante recupere a sus clientes y aumente sus ganancias.',
+        subtext: 'La plataforma todo-en-uno para restaurantes: conecta tu POS y consigue reservas directas, pedidos online y fidelización sin comisiones.'
+      },
+      option_c: {
+        title: 'Recupera tus clientes — y tus márgenes.',
+        subtext: 'Deja de perder ganancias con las apps de delivery. RAY te ayuda a recuperar la relación con tus clientes y automatizar reservas y pedidos directos desde tu web, WhatsApp y programa de fidelización.'
       }
     },
     en: {
-      control: {
-        title: 'More orders, bookings & walk-ins',
-        highlight: 'zero commission'
+      option_a: {
+        title: 'Compete with the big brands — and win like one.',
+        subtext: 'RAY gives restaurants the same tools as global chains — website, direct bookings, online ordering, loyalty, and AI marketing — all connected to your POS.'
       },
-      variant_b: {
-        title: 'Generate more restaurant revenue',
-        highlight: 'zero commission, zero hassle'
+      option_b: {
+        title: 'Help your restaurant own its guests and grow its profits.',
+        subtext: 'The all-in-one marketing platform for restaurants — connect your POS to get direct bookings, online orders, and loyalty with zero commissions.'
+      },
+      option_c: {
+        title: 'Take back your customers — and your margins.',
+        subtext: 'Stop losing profits to delivery apps. RAY helps restaurants own their guest relationships and automate direct bookings and orders from their website, WhatsApp, and loyalty program.'
       }
     }
   }
@@ -56,10 +64,10 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
   // Obtener el texto del hero: primero intentar desde payload de PostHog, luego fallback a hardcoded
   const heroText = payload && typeof payload === 'object' && !Array.isArray(payload)
     ? {
-        title: payload.title || heroVariants[locale].control.title,
-        highlight: payload.highlight || heroVariants[locale].control.highlight
+        title: payload.title || heroVariants[locale].option_a.title,
+        subtext: payload.subtext || heroVariants[locale].option_a.subtext
       }
-    : (heroVariants[locale][heroVariant as keyof typeof heroVariants['es']] || heroVariants[locale].control)
+    : (heroVariants[locale][heroVariant as keyof typeof heroVariants['es']] || heroVariants[locale].option_a)
   
   // Log the final text being used
   useEffect(() => {
@@ -278,24 +286,21 @@ const Hero: React.FC<HeroProps> = ({ locale }) => {
                 // Skeleton loader mientras carga el test
                 <div className="animate-pulse mb-8 sm:mb-6 mt-6 sm:mt-0">
                   <div className="h-12 sm:h-10 lg:h-12 xl:h-14 bg-gray-200 rounded w-full mb-2"></div>
-                  <div className="h-12 sm:h-10 lg:h-12 xl:h-14 bg-gray-200 rounded w-3/4"></div>
+                  <div className="h-12 sm:h-10 lg:h-12 xl:h-14 bg-gray-200 rounded w-3/4 mb-4"></div>
+                  <div className="h-6 bg-gray-200 rounded w-full"></div>
+                  <div className="h-6 bg-gray-200 rounded w-5/6 mt-2"></div>
                 </div>
               ) : (
-                <h1 className="text-[44px] sm:text-[32px] lg:text-[44px] xl:text-[56px] font-bold text-ray-dark-900 leading-[0.9] tracking-tight mb-8 sm:mb-6 mt-6 sm:mt-0">
-                  {heroText.title}{' '}
-                <span className="relative inline-block">
-                  <span className="bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue bg-clip-text text-transparent">
-                      {heroText.highlight}
-                  </span>
-                  {/* Underline decoration */}
-                  <div className="hidden sm:block absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-ray-blue via-ray-green to-ray-blue rounded-full opacity-30"></div>
-                </span>
-              </h1>
+                <>
+                  <h1 className="text-[44px] sm:text-[32px] lg:text-[44px] xl:text-[56px] font-bold text-ray-dark-900 leading-[1.1] tracking-tight mb-6 sm:mb-6 mt-6 sm:mt-0">
+                    {heroText.title}
+                  </h1>
+                  
+                  <p className="hidden sm:block text-lg sm:text-xl text-ray-dark-700 leading-relaxed mb-6 sm:mb-8">
+                    {heroText.subtext}
+                  </p>
+                </>
               )}
-              
-              <p className="hidden sm:block text-lg sm:text-xl text-ray-dark-700 leading-relaxed mb-6 sm:mb-8">
-                {t.COMPANY.DESCRIPTION}
-              </p>
             </div>
 
             {/* Right Column - Widget and Hero Image */}
