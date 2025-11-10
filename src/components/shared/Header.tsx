@@ -677,6 +677,43 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
                 </div>
               ))}
 
+              {/* Language Switcher - Mobile */}
+              <div className="pt-4 mt-4 border-t border-gray-200">
+                <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  {locale === 'es' ? 'Idioma' : 'Language'}
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => {
+                      switchLanguage('es')
+                      closeMenu()
+                    }}
+                    className={`flex-1 px-4 py-3 text-sm flex items-center justify-center space-x-2 rounded-md transition-colors min-h-[44px] ${
+                      locale === 'es' 
+                        ? 'bg-ray-blue text-white' 
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    <span className="text-lg">🇪🇸</span>
+                    <span className="font-medium">Español</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      switchLanguage('en')
+                      closeMenu()
+                    }}
+                    className={`flex-1 px-4 py-3 text-sm flex items-center justify-center space-x-2 rounded-md transition-colors min-h-[44px] ${
+                      locale === 'en' 
+                        ? 'bg-ray-blue text-white' 
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    <span className="text-lg">🇺🇸</span>
+                    <span className="font-medium">English</span>
+                  </button>
+                </div>
+              </div>
+
               {/* Action Buttons at Bottom */}
               <div className="pt-4 mt-4 border-t border-gray-200 space-y-2">
                 <Button
