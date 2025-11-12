@@ -98,6 +98,7 @@ export async function POST(request: NextRequest) {
       }
     } else if (body.source === 'job-application') {
       zapierWebhookUrl = process.env.ZAPIER_JOB_APPLICATION_WEBHOOK_URL
+      console.log(`[DEBUG] Job application - Received body:`, JSON.stringify(body, null, 2))
       console.log(`[DEBUG] Using job application webhook: ${zapierWebhookUrl ? 'CONFIGURED' : 'NOT CONFIGURED'}`)
       if (!zapierWebhookUrl) {
         console.error('ZAPIER_JOB_APPLICATION_WEBHOOK_URL environment variable is not set')
@@ -124,7 +125,13 @@ export async function POST(request: NextRequest) {
     })
 
     if (!zapierResponse.ok) {
-      console.error('Zapier webhook error:', zapierResponse.statusText)
+      const errorText = await zapierResponse.text()
+      console.error('Zapier webhook error:', {
+        status: zapierResponse.status,
+        statusText: zapierResponse.statusText,
+        body: errorText,
+        source: body.source
+      })
       return NextResponse.json(
         { error: 'Failed to submit form' },
         { status: 500 }

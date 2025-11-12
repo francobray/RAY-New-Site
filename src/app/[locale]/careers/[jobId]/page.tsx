@@ -18,22 +18,31 @@ async function getJobById(jobId: string) {
       ? 'https://www.rayapp.io' 
       : 'http://localhost:3000'
     
+    console.log('[DEBUG] Fetching job with ID:', jobId)
+    
     const response = await fetch(`${baseUrl}/api/job-openings`, {
       cache: 'no-store',
     })
     
     if (!response.ok) {
+      console.log('[DEBUG] Response not OK:', response.status)
       return null
     }
     
     const data = await response.json()
     
     if (!data.jobs || !Array.isArray(data.jobs)) {
+      console.log('[DEBUG] No jobs in response or not array')
       return null
     }
     
+    console.log('[DEBUG] Total jobs fetched:', data.jobs.length)
+    console.log('[DEBUG] Job IDs available:', data.jobs.map((j: any) => ({ id: j.id, type: typeof j.id })))
+    
     // Find the job by ID
     const job = data.jobs.find((j: any) => String(j.id) === jobId)
+    console.log('[DEBUG] Job found:', job ? job.title : 'NOT FOUND')
+    
     return job || null
   } catch (error) {
     console.error('Error fetching job:', error)

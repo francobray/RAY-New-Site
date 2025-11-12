@@ -285,7 +285,7 @@ const Careers: React.FC<CareersProps> = ({ locale }) => {
                               href={`/${locale}/careers/${job.id}`}
                               className="inline-flex items-center gap-2 text-ray-blue font-semibold hover:text-blue-700 transition-colors duration-200 whitespace-nowrap flex-shrink-0"
                             >
-                              {locale === 'es' ? 'Aplicar Ahora' : 'Apply Now'}
+                              {locale === 'es' ? 'Ver Posición Abierta' : 'View Open Position'}
                               <ArrowRight className="w-4 h-4" />
                             </Link>
                           </div>
@@ -297,26 +297,6 @@ const Careers: React.FC<CareersProps> = ({ locale }) => {
               </div>
             )
           })()}
-
-          {/* No perfect fit CTA */}
-          <div className="mt-12 text-center bg-gray-50 rounded-xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-ray-dark-900 mb-4">
-              {locale === 'es' ? '¿No Encuentras Tu Posición Ideal?' : 'Don\'t See a Perfect Fit?'}
-            </h3>
-            <p className="text-ray-dark-700 mb-6 max-w-2xl mx-auto">
-              {locale === 'es'
-                ? 'Siempre estamos buscando personas talentosas. Envíanos tu CV y cuéntanos cómo puedes contribuir al equipo de RAY.'
-                : 'We\'re always looking for talented people. Send us your resume and tell us how you can contribute to the RAY team.'
-              }
-            </p>
-            <Link
-              href={`/${locale}/contact`}
-              className="inline-flex items-center gap-2 bg-ray-blue text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
-            >
-              {locale === 'es' ? 'Contáctanos' : 'Contact Us'}
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
         </div>
       </section>
     </>

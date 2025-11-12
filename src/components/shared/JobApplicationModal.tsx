@@ -102,6 +102,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
       }
       
       console.log('[DEBUG] Sending job application:', payload)
+      console.log('[DEBUG] Payload stringified:', JSON.stringify(payload, null, 2))
       
       const response = await fetch('/api/submit-form', {
         method: 'POST',
@@ -111,8 +112,13 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
         body: JSON.stringify(payload)
       })
 
+      console.log('[DEBUG] Response status:', response.status)
+      console.log('[DEBUG] Response ok:', response.ok)
+      
       if (!response.ok) {
-        throw new Error('Form submission failed')
+        const errorText = await response.text()
+        console.error('[DEBUG] Error response:', errorText)
+        throw new Error(`Form submission failed: ${response.status} - ${errorText}`)
       }
       
       setSubmitStatus('success')
@@ -303,7 +309,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
                 name="coverLetter"
                 value={formData.coverLetter}
                 onChange={handleInputChange}
-                rows={6}
+                rows={4}
                 placeholder={locale === 'es' 
                   ? 'Cuéntanos por qué estás interesado en esta posición...'
                   : 'Tell us why you\'re interested in this position...'
