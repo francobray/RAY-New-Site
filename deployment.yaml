@@ -52,6 +52,8 @@ spec:
           value: <NEXT_PUBLIC_POSTHOG_KEY>
         - name: NEXT_PUBLIC_POSTHOG_HOST
           value: <NEXT_PUBLIC_POSTHOG_HOST>
+        - name: ZAPIER_JOB_APPLICATION_WEBHOOK_URL
+          value: <ZAPIER_JOB_APPLICATION_WEBHOOK_URL>
 
         resources:
           requests:
