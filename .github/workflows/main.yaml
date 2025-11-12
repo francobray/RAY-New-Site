@@ -54,6 +54,7 @@ jobs:
           sed -i "s|<N8N_REDEEM_WEBHOOK_URL>|${{ secrets.N8N_REDEEM_WEBHOOK_URL }}|" Dockerfile
           sed -i "s|<N8N_WEBHOOK_URL>|${{ secrets.N8N_WEBHOOK_URL }}|" Dockerfile
           sed -i "s|<N8N_CHAT_WEBHOOK_URL>|${{ secrets.N8N_CHAT_WEBHOOK_URL }}|" Dockerfile
+          sed -i "s|<ZAPIER_JOB_APPLICATION_WEBHOOK_URL>|${{ secrets.ZAPIER_JOB_APPLICATION_WEBHOOK_URL }}|"  Dockerfile
           sed -i "s|<N8N_JOB_OPENINGS_WEBHOOK_URL>|${{ secrets.N8N_JOB_OPENINGS_WEBHOOK_URL }}|" Dockerfile
           sed -i "s|<NEXT_PUBLIC_GOOGLE_MAPS_API_KEY>|${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}|" Dockerfile
           sed -i "s|<NODE_ENV>|${{ secrets.NODE_ENV }}|" Dockerfile
@@ -88,6 +89,7 @@ jobs:
           sed -i "s|<N8N_WEBHOOK_URL>|${{ secrets.N8N_WEBHOOK_URL }}|" deployment.yaml
           sed -i "s|<N8N_CHAT_WEBHOOK_URL>|${{ secrets.N8N_CHAT_WEBHOOK_URL }}|" deployment.yaml
           sed -i "s|<N8N_JOB_OPENINGS_WEBHOOK_URL>|${{ secrets.N8N_JOB_OPENINGS_WEBHOOK_URL }}|" deployment.yaml
+          sed -i "s|<ZAPIER_JOB_APPLICATION_WEBHOOK_URL>|${{ secrets.ZAPIER_JOB_APPLICATION_WEBHOOK_URL }}|" deployment.yml 
           sed -i "s|<NEXT_PUBLIC_GOOGLE_MAPS_API_KEY>|${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}|" deployment.yaml
           sed -i "s|<NODE_ENV>|${{ secrets.NODE_ENV }}|" deployment.yaml
           sed -i "s|<NEXT_PUBLIC_POSTHOG_KEY>|${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}|" deployment.yaml
