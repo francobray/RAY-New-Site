@@ -48,8 +48,8 @@ const caseStudyData = {
     component: ChimbaCaseStudy
   },
   'temple': {
-    title: 'Temple Craft Wynwood - 259% Growth in Visibility | RAY',
-    description: 'Discover how Temple Craft Wynwood achieved 259% increase in Google Maps visits and 66% more walk-ins with RAY\'s local marketing strategies. Craft beer success story.',
+    title: 'Temple - 356% Growth in Direct Bookings | RAY',
+    description: 'Discover how Temple achieved 356% increase in direct bookings and served over 4,000 people with RAY\'s all-in-one platform. Zero commissions, 100% automated service.',
     component: TempleCraftCaseStudy
   },
   'havana-1957': {

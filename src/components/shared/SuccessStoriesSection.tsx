@@ -26,11 +26,11 @@ const successStories = [
   {
     id: 2,
     ownerName: 'Juan Ignacio Chereminiano', 
-    title: 'CEO - Temple Craft Wynwood',
-    restaurantName: 'Temple Craft Wynwood',
-    metric: '259%',
-    period: 'increase in local visibility',
-    description: 'How Temple Craft Wynwood achieved 259% increase in Google Maps visits and 66% more walk-ins',
+    title: 'CEO - Temple',
+    restaurantName: 'Temple',
+    metric: '+356%',
+    period: 'increase in direct bookings',
+    description: 'How Temple went from ~30 direct bookings per month to 137 with RAY\'s all-in-one platform',
     image: '/images/success-stories/Temple_Team.jpeg',
     slug: 'temple'
   },

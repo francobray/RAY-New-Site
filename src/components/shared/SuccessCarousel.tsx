@@ -30,10 +30,10 @@ const getSuccessStoryTranslations = (locale: Locale): Record<string, { period: s
       : 'How Chimba Miami increased Google Maps directions by 215% and foot traffic by 46%'
   },
   'temple': {
-    period: locale === 'es' ? 'aumento en visibilidad local' : 'increase in local visibility',
+    period: locale === 'es' ? 'aumento en reservas directas' : 'increase in direct bookings',
     description: locale === 'es'
-      ? 'Cómo Temple Craft Wynwood logró un aumento del 259% en visitas de Google Maps y 66% más de walk-ins'
-      : 'How Temple Craft Wynwood achieved 259% increase in Google Maps visits and 66% more walk-ins'
+      ? 'Cómo Temple pasó de ~30 reservas directas por mes a 137 con la plataforma todo-en-uno de RAY'
+      : 'How Temple went from ~30 direct bookings per month to 137 with RAY\'s all-in-one platform'
   },
   'havana-1957': {
     period: locale === 'es' ? 'aumento de ingresos mensuales' : 'monthly revenue increase',
@@ -189,8 +189,8 @@ const getSuccessStories = (): SuccessStory[] => [
   {
     id: 2,
     ownerName: 'Juan Ignacio Chereminiano', 
-    restaurantName: 'Temple Craft Wynwood',
-    metric: '259%',
+    restaurantName: 'Temple',
+    metric: '+356%',
     image: '/images/success-stories/Temple_Team.jpeg',
     bgGradient: 'from-blue-600 to-blue-700',
     slug: 'temple'

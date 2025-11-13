@@ -17,7 +17,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
   {
     id: 'temple-craft',
     slug: 'temple',
-    name: 'Temple Craft Wynwood',
+    name: 'Temple',
     location: t.CASE_STUDIES_DATA.LOCATIONS.WYNWOOD_MIAMI,
     industry: t.CASE_STUDIES_DATA.INDUSTRIES.CRAFT_BEER_NIGHTLIFE,
     image: '/images/success-stories/Temple_Team.jpeg',
@@ -26,7 +26,7 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
       { label: locale === 'es' ? 'Visitantes al Website' : 'Website Visitors', value: '12.000', icon: Users },
       { label: locale === 'es' ? 'Personas Servidas' : 'People Served', value: '4.027', icon: Star }
     ],
-    headline: locale === 'es' ? 'Temple aumenta sus Reservas Directas 356% con RAY' : 'Temple Increases Direct Bookings by 356% with RAY',
+    headline: locale === 'es' ? 'Temple aumenta sus Reservas Directas 356% con la Plataforma Todo-en-Uno de RAY' : 'Temple Increases Direct Bookings by 356% with RAY\'s All-in-One Platform',
     description: locale === 'es' ? 'Temple pasó de ~30 reservas directas por mes a 137 después de implementar RAY — un crecimiento del 356% en ingresos directos, sin comisiones y con atención 100% automatizada.' : 'Temple went from ~30 direct bookings per month to 137 after implementing RAY — a 356% growth in direct revenue, with zero commissions and 100% automated service.',
     tags: locale === 'es' ? ['Reservas Directas', 'Automatización', 'AI'] : ['Direct Bookings', 'Automation', 'AI'],
     testimonial: {
