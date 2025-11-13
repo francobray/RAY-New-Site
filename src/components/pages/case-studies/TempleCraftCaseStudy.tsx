@@ -3,7 +3,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { ArrowLeft, TrendingUp, Star, MapPin, Eye, Users, Award } from 'lucide-react'
+import { ArrowLeft, TrendingUp, Star, Users, Award } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
@@ -66,21 +66,15 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 
                 <div className="space-y-6">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.9] tracking-tight">
-                    Temple Craft Wynwood Increases{' '}
+                    Temple Craft Aumenta sus{' '}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500">
-                      Google Maps Visits by 259%
+                      Reservas Directas 356%
                     </span>{' '}
-                    and{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">
-                      Walk-Ins by 66%
-                    </span>
+                    con la Plataforma Todo-en-Uno de RAY
                   </h1>
                   
                   <p className="text-xl text-gray-300 leading-relaxed font-light">
-                    Using RAY's Local SEO tools, Temple Craft climbed from ranking{' '}
-                    <span className="text-red-400 font-semibold">#15</span> to{' '}
-                    <span className="text-green-400 font-semibold">#1</span> on Google Maps 
-                    while dramatically increasing foot traffic and discovery.
+                    Temple pasó de recibir ~30 reservas directas por mes en Monroe y Barrio Chino a 137 reservas directas mensuales después de implementar RAY — un crecimiento del 356% en ingresos directos, sin pagar comisiones y con atención 100% automatizada.
                   </p>
                 </div>
 
@@ -88,26 +82,26 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/20">
                     <div className="flex items-center justify-center mb-3">
-                      <Eye className="w-8 h-8 text-yellow-400" />
+                      <TrendingUp className="w-8 h-8 text-yellow-400" />
                     </div>
-                    <div className="text-3xl font-black text-yellow-400 mb-1">+259%</div>
-                    <div className="text-gray-300 text-sm font-medium">Google Maps Directions</div>
+                    <div className="text-3xl font-black text-yellow-400 mb-1">+356%</div>
+                    <div className="text-gray-300 text-sm font-medium">Reservas Directas</div>
                   </div>
                   
                   <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20">
                     <div className="flex items-center justify-center mb-3">
                       <Users className="w-8 h-8 text-green-400" />
                     </div>
-                    <div className="text-3xl font-black text-green-400 mb-1">+66%</div>
-                    <div className="text-gray-300 text-sm font-medium">Walk-Ins</div>
+                    <div className="text-3xl font-black text-green-400 mb-1">137</div>
+                    <div className="text-gray-300 text-sm font-medium">Reservas/Mes</div>
                   </div>
                   
-                  <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/20">
+                  <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/20">
                     <div className="flex items-center justify-center mb-3">
-                      <Star className="w-8 h-8 text-yellow-400 fill-current" />
+                      <Star className="w-8 h-8 text-blue-400" />
                     </div>
-                    <div className="text-3xl font-black text-yellow-400 mb-1">4.8★</div>
-                    <div className="text-gray-300 text-sm font-medium">Google Rating</div>
+                    <div className="text-3xl font-black text-blue-400 mb-1">0%</div>
+                    <div className="text-gray-300 text-sm font-medium">Comisiones</div>
                   </div>
                 </div>
               </div>
@@ -122,13 +116,13 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                   <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border border-gray-800">
                     <div className="text-center space-y-6">
                       <div className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
-                        #1
+                        356%
                       </div>
                       <div className="text-xl text-gray-300 font-medium">
-                        Google Maps Ranking
+                        Crecimiento en Reservas
                       </div>
                       <div className="text-sm text-gray-500">
-                        From #15 to #1 in local search
+                        De 60 a 137 reservas/mes
                       </div>
                     </div>
                   </div>
@@ -172,55 +166,76 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
       </section>
 
 
-      {/* The Challenge */}
+      {/* Insight Principal */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
-                The Challenge
+                🎉 Crecimiento del 356% en Reservas Directas
               </h2>
             </div>
 
             <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-12 border border-gray-800">
-              <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
-                <p className="text-xl font-medium text-white">
-                  Temple Craft wanted to dominate Google Maps search results in Miami.
-                </p>
-                
-                <p className="font-medium text-white">
-                  RAY's audit revealed:
-                </p>
-                
-                <ul className="space-y-3 ml-6">
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-red-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span>Their Wynwood location was only ranking <strong className="text-red-400">#15</strong> for key local keywords</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-red-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span>In many searches, the location wasn't appearing at all</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span>The goal was to improve their listings, review presence, and keyword coverage to secure a <strong className="text-green-400">top 3 spot</strong> on Maps</span>
-                  </li>
-                </ul>
-              </div>
+              <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-4">
+                    <p className="text-xl font-medium text-white">
+                      Antes de RAY (baseline):
+                    </p>
+                    <ul className="space-y-3 ml-6">
+                      <li className="flex items-start">
+                        <div className="w-2 h-2 bg-red-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                        <span className="text-gray-300">Monroe: <strong className="text-red-400">~30 reservas directas/mes</strong></span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="w-2 h-2 bg-red-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                        <span className="text-gray-300">Barrio Chino: <strong className="text-red-400">~30 reservas directas/mes</strong></span>
+                      </li>
+                    </ul>
+                  </div>
 
-              {/* Challenge Visual */}
-              <div className="mt-8 p-6 bg-gradient-to-r from-red-500/10 to-red-600/10 rounded-2xl border border-red-500/20">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-sm text-red-400 font-medium mb-1">Initial Ranking</div>
-                    <div className="text-4xl font-black text-red-400">#15</div>
-                    <div className="text-sm text-gray-400">Local search position</div>
+                  <div className="space-y-4">
+                    <p className="text-xl font-medium text-white">
+                      Después de activar RAY:
+                    </p>
+                    <ul className="space-y-3 ml-6">
+                      <li className="flex items-start">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                        <span className="text-gray-300">Monroe: <strong className="text-green-400">88 reservas/mes</strong></span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                        <span className="text-gray-300">Barrio Chino: <strong className="text-green-400">49 reservas/mes</strong></span>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="text-right">
-                    <div className="text-sm text-red-400 font-medium mb-1">Visibility</div>
-                    <div className="text-4xl font-black text-red-400">Low</div>
-                    <div className="text-sm text-gray-400">High-intent searches</div>
+                </div>
+
+                {/* Result Visual */}
+                <div className="mt-8 p-8 bg-gradient-to-r from-yellow-500/10 to-green-500/10 rounded-2xl border border-yellow-500/20">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div>
+                      <div className="text-sm text-gray-400 font-medium mb-1">Total Antes</div>
+                      <div className="text-4xl font-black text-white">60</div>
+                      <div className="text-sm text-gray-400">reservas/mes</div>
+                    </div>
+                    <div>
+                      <div className="text-sm text-green-400 font-medium mb-1">Total Después</div>
+                      <div className="text-4xl font-black text-green-400">137</div>
+                      <div className="text-sm text-gray-400">reservas/mes</div>
+                    </div>
+                    <div>
+                      <div className="text-sm text-yellow-400 font-medium mb-1">Crecimiento</div>
+                      <div className="text-4xl font-black text-yellow-400">+356%</div>
+                      <div className="text-sm text-gray-400">en reservas</div>
+                    </div>
                   </div>
+                </div>
+
+                <div className="text-center mt-6">
+                  <p className="text-2xl font-bold text-white">Todo directo.</p>
+                  <p className="text-2xl font-bold text-white">Todo sin comisión.</p>
                 </div>
               </div>
             </div>
@@ -228,76 +243,241 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
         </div>
       </section>
 
-      {/* The Solution */}
+      {/* Resultado Secundario: Automatización */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
-                The Solution
+                ⚡ Temple automatizó por completo la atención y la gestión de reservas
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border border-gray-800 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <TrendingUp className="w-8 h-8 text-black font-bold" />
-                </div>
-                <h3 className="text-xl font-black text-white mb-4">
-                  Audit Insights
-                </h3>
-                <p className="text-gray-300">
-                  Ran RAY's Google Business Profile Audit and identified missing or weak keyword signals
-                </p>
-              </div>
+            <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 border border-gray-800">
+              <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+                <ul className="space-y-4">
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                    <span><strong className="text-white">Agente del Website</strong> que responde y reserva 24/7</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                    <span><strong className="text-white">Agentes de WhatsApp e Instagram</strong> que cierran reservas automáticamente</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                    <span><strong className="text-white">Cero intervención humana</strong> en la mayoría de las reservas</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                    <span><strong className="text-white">Respuestas inmediatas</strong> → mejor conversión</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                    <span>Menos trabajo manual</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-pink-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                    <span>Mejor experiencia del cliente</span>
+                  </li>
+                </ul>
 
-              <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border border-gray-800 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Star className="w-8 h-8 text-black font-bold" />
+                <div className="text-center mt-8 pt-6 border-t border-gray-800">
+                  <p className="text-2xl font-bold text-white">Más ingresos, menos esfuerzo.</p>
                 </div>
-                <h3 className="text-xl font-black text-white mb-4">
-                  Content Optimization
-                </h3>
-                <p className="text-gray-300">
-                  Optimized content, listings, and structured data for maximum local search impact
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border border-gray-800 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <MapPin className="w-8 h-8 text-black font-bold" />
-                </div>
-                <h3 className="text-xl font-black text-white mb-4">
-                  Local Engagement
-                </h3>
-                <p className="text-gray-300">
-                  Increased local engagement through reviews and listings accuracy improvements
-                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* The Results */}
+      {/* Cómo lo Logramos */}
       <section className="py-20 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
+                Cómo lo Logramos
+              </h2>
+            </div>
+
+            <div className="space-y-8">
+              {/* 1. Website */}
+              <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-10 border border-gray-800">
+                <h3 className="text-2xl font-black text-white mb-4">
+                  1. Un website de alto rendimiento (temple.com.ar)
+                </h3>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Ultra rápido, orientado a conversión, pensado para turistas.<br/>
+                  Claridad, velocidad y un flujo optimizado de reservas.
+                </p>
+              </div>
+
+              {/* 2. Agente en el Website */}
+              <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-10 border border-gray-800">
+                <h3 className="text-2xl font-black text-white mb-4">
+                  2. Agente en el Website (FAQs + Ubicaciones + Reservas)
+                </h3>
+                <p className="text-lg text-gray-300 mb-4">El agente:</p>
+                <ul className="space-y-2 text-gray-300 ml-6">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Responde preguntas</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Muestra la sucursal cercana</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Sugiere horarios</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Crea y modifica reservas</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Envía recordatorios</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Se integra con el CRM</span>
+                  </li>
+                </ul>
+                <p className="text-lg text-white font-medium mt-4">
+                  El sitio se convirtió en un empleado 24/7 que vende solo.
+                </p>
+              </div>
+
+              {/* 3. Agente de WhatsApp + Instagram */}
+              <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-10 border border-gray-800">
+                <h3 className="text-2xl font-black text-white mb-4">
+                  3. Agente de WhatsApp + Instagram
+                </h3>
+                <p className="text-lg text-gray-300 mb-4">El canal donde más escribe la gente.</p>
+                <p className="text-lg text-gray-300 mb-4">El agente:</p>
+                <ul className="space-y-2 text-gray-300 ml-6">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Responde al instante</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Atiende turistas en varios idiomas</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Cierra reservas automáticamente</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Escala grupos grandes</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Agrega todo al CRM</span>
+                  </li>
+                </ul>
+                <p className="text-lg text-white font-medium mt-4">
+                  Parte del salto del 356% viene de estos canales.
+                </p>
+              </div>
+
+              {/* 4. Google Business Profile */}
+              <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-10 border border-gray-800">
+                <h3 className="text-2xl font-black text-white mb-4">
+                  4. Optimización del Perfil de Google Business
+                </h3>
+                <p className="text-lg text-gray-300 mb-4">RAY mejoró:</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
+                  <div className="text-gray-300">• Categorías</div>
+                  <div className="text-gray-300">• Keywords</div>
+                  <div className="text-gray-300">• Fotos</div>
+                  <div className="text-gray-300">• Reseñas</div>
+                  <div className="text-gray-300">• Datos estructurados</div>
+                  <div className="text-gray-300">• Tracking</div>
+                </div>
+                <div className="mt-6 pt-6 border-t border-gray-800">
+                  <p className="text-lg font-medium text-white mb-2">Resultado:</p>
+                  <p className="text-xl text-yellow-400 font-bold">
+                    +259% más direcciones → más visitas → más reservas → más ingresos
+                  </p>
+                  <p className="text-lg text-gray-300 mt-3">
+                    Maps es hoy el principal canal que alimenta todo el funnel de Temple.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Impacto Real */}
+      <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
-              The Results
+              Impacto Real
             </h2>
           </div>
 
           <div className="max-w-5xl mx-auto">
+            {/* Impact Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-8 border border-yellow-500/20">
+                <div className="text-xl font-bold text-white mb-2">💰 Mucho más ingreso directo</div>
+                <div className="text-5xl font-black text-yellow-400 mb-2">+356%</div>
+                <div className="text-gray-300">de reservas sin comisiones</div>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-3xl p-8 border border-green-500/20">
+                <div className="text-xl font-bold text-white mb-2">⏱ Mucho menos trabajo</div>
+                <div className="text-5xl font-black text-green-400 mb-2">24/7</div>
+                <div className="text-gray-300">atención automatizada para el equipo</div>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-3xl p-8 border border-blue-500/20">
+                <div className="text-xl font-bold text-white mb-2">🤖 Atención automatizada</div>
+                <div className="text-5xl font-black text-blue-400 mb-2">100%</div>
+                <div className="text-gray-300">de reservas sin intervención humana</div>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm rounded-3xl p-8 border border-purple-500/20">
+                <div className="text-xl font-bold text-white mb-2">📈 CRM unificado</div>
+                <div className="text-5xl font-black text-purple-400 mb-2">Todo</div>
+                <div className="text-gray-300">los datos en un solo lugar</div>
+              </div>
+            </div>
+
+            {/* System Flow */}
+            <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 border border-gray-800 mb-12">
+              <h3 className="text-2xl font-black text-white mb-6 text-center">
+                🧩 Un sistema completo:
+              </h3>
+              <div className="flex flex-wrap items-center justify-center gap-3 text-lg">
+                <span className="text-yellow-400 font-bold">Maps</span>
+                <span className="text-gray-500">→</span>
+                <span className="text-green-400 font-bold">Website</span>
+                <span className="text-gray-500">→</span>
+                <span className="text-blue-400 font-bold">Agente</span>
+                <span className="text-gray-500">→</span>
+                <span className="text-purple-400 font-bold">Reserva</span>
+                <span className="text-gray-500">→</span>
+                <span className="text-pink-400 font-bold">CRM</span>
+                <span className="text-gray-500">→</span>
+                <span className="text-orange-400 font-bold">Fidelización</span>
+              </div>
+              <p className="text-center text-xl text-white font-medium mt-8">
+                Temple ahora opera como una marca del futuro.
+              </p>
+            </div>
+
             {/* Testimonial */}
-            <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-12 mb-12 border border-gray-800">
+            <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-12 border border-gray-800">
               <div className="text-center">
                 <blockquote className="text-2xl md:text-3xl text-white font-medium leading-relaxed mb-8">
-                  "Since partnering with RAY, our Juramento location has seen an incredible transformation! 
-                  Our Google Maps directions skyrocketed by <span className="text-yellow-400 font-black">259%</span>, 
-                  and foot traffic increased by <span className="text-green-400 font-black">66%</span>. 
-                  We've never had so many new customers discovering and visiting us. 
-                  The impact on our business has been remarkable!"
+                  "RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a más de 130 solo en dos locales — y el equipo casi no interviene. El agente de IA hace todo, y la experiencia del cliente mejoró muchísimo."
                 </blockquote>
                 
                 <div className="flex items-center justify-center">
@@ -306,66 +486,12 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                       Juan Ignacio Chereminiano
                     </div>
                     <div className="text-gray-400">
-                      CEO – Temple Craft Wynwood
+                      CEO – Temple Craft
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* Key Results */}
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-black text-white mb-8">
-                Key Metrics
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-6 border border-yellow-500/20 text-center">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center">
-                    <Eye className="w-6 h-6 text-black font-bold" />
-                  </div>
-                </div>
-                <div className="text-4xl font-black text-yellow-400 mb-2">259%</div>
-                <div className="text-white font-medium mb-1">More Google Maps Directions</div>
-                <div className="text-sm text-gray-400">on Google Maps</div>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-3xl p-6 border border-green-500/20 text-center">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center">
-                    <Users className="w-6 h-6 text-black font-bold" />
-                  </div>
-                </div>
-                <div className="text-4xl font-black text-green-400 mb-2">66%</div>
-                <div className="text-white font-medium mb-1">Increase</div>
-                <div className="text-sm text-gray-400">in walk-ins</div>
-              </div>
-
-              <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-6 border border-yellow-500/20 text-center">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center">
-                    <Star className="w-6 h-6 text-black font-bold fill-current" />
-                  </div>
-                </div>
-                <div className="text-4xl font-black text-yellow-400 mb-2">4.8★</div>
-                <div className="text-white font-medium mb-1">Average</div>
-                <div className="text-sm text-gray-400">Google rating</div>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-3xl p-6 border border-blue-500/20 text-center">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-black font-bold" />
-                  </div>
-                </div>
-                <div className="text-4xl font-black text-blue-400 mb-2">Top 3</div>
-                <div className="text-white font-medium mb-1">Ranking</div>
-                <div className="text-sm text-gray-400">local searches</div>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
