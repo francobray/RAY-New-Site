@@ -29,7 +29,7 @@ const getSuccessStoryTranslations = (locale: Locale): Record<string, { period: s
       ? 'Cómo Chimba Miami aumentó las direcciones de Google Maps en 215% y el tráfico peatonal en 46%'
       : 'How Chimba Miami increased Google Maps directions by 215% and foot traffic by 46%'
   },
-  'temple-craft-wynwood': {
+  'temple': {
     period: locale === 'es' ? 'aumento en visibilidad local' : 'increase in local visibility',
     description: locale === 'es'
       ? 'Cómo Temple Craft Wynwood logró un aumento del 259% en visitas de Google Maps y 66% más de walk-ins'
@@ -193,7 +193,7 @@ const getSuccessStories = (): SuccessStory[] => [
     metric: '259%',
     image: '/images/success-stories/Temple_Team.jpeg',
     bgGradient: 'from-blue-600 to-blue-700',
-    slug: 'temple-craft-wynwood'
+    slug: 'temple'
   },
   {
     id: 3,

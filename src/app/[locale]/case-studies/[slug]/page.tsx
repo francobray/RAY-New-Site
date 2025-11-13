@@ -47,7 +47,7 @@ const caseStudyData = {
     description: 'See how Chimba Miami increased Google Maps directions by 215% and foot traffic by 46% using RAY\'s restaurant marketing platform. Real results from Miami\'s top nightlife destination.',
     component: ChimbaCaseStudy
   },
-  'temple-craft-wynwood': {
+  'temple': {
     title: 'Temple Craft Wynwood - 259% Growth in Visibility | RAY',
     description: 'Discover how Temple Craft Wynwood achieved 259% increase in Google Maps visits and 66% more walk-ins with RAY\'s local marketing strategies. Craft beer success story.',
     component: TempleCraftCaseStudy
@@ -231,7 +231,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export async function generateStaticParams() {
   return [
     { slug: 'chimba-miami' },
-    { slug: 'temple-craft-wynwood' },
+    { slug: 'temple' },
     { slug: 'havana-1957' },
     { slug: 'green-eat' },
     { slug: 'havanna' },

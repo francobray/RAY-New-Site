@@ -16,7 +16,7 @@ const CTASection = dynamic(() => import('../../shared/CTASection'), {
 const getCaseStudiesData = (locale: Locale, t: any) => [
   {
     id: 'temple-craft',
-    slug: 'temple-craft-wynwood',
+    slug: 'temple',
     name: 'Temple Craft Wynwood',
     location: t.CASE_STUDIES_DATA.LOCATIONS.WYNWOOD_MIAMI,
     industry: t.CASE_STUDIES_DATA.INDUSTRIES.CRAFT_BEER_NIGHTLIFE,

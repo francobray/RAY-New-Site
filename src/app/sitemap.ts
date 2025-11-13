@@ -86,7 +86,7 @@ async function getCaseStudies(): Promise<string[]> {
     // Fallback to hardcoded list if import fails
     return [
       'chimba-miami',
-      'temple-craft-wynwood',
+      'temple',
       'havana-1957',
       'green-eat',
       'havanna',

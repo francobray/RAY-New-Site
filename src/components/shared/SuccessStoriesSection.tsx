@@ -32,7 +32,7 @@ const successStories = [
     period: 'increase in local visibility',
     description: 'How Temple Craft Wynwood achieved 259% increase in Google Maps visits and 66% more walk-ins',
     image: '/images/success-stories/Temple_Team.jpeg',
-    slug: 'temple-craft-wynwood'
+    slug: 'temple'
   },
   {
     id: 3,
