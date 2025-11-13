@@ -43,8 +43,6 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     growth: 'Crecimiento',
     reservationsMonth: 'reservas/mes',
     reservations: 'en reservas',
-    allDirect: 'Todo directo.',
-    noCommission: 'Todo sin comisión.',
     automationTitle: '⚡ Temple automatizó por completo la atención y la gestión de reservas',
     automationCards: [
       { emoji: '🤖', title: 'Agente del Website', link: '/es/product/ai-agent', desc: 'que responde y reserva 24/7', reservaLink: '/es/product/direct-bookings' },
@@ -135,8 +133,6 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     growth: 'Growth',
     reservationsMonth: 'bookings/month',
     reservations: 'in bookings',
-    allDirect: 'All direct.',
-    noCommission: 'Zero commission.',
     automationTitle: '⚡ Temple fully automated guest service and booking management',
     automationCards: [
       { emoji: '🤖', title: 'Website AI Agent', link: '/en/product/ai-agent', desc: 'answers questions and books 24/7', reservaLink: '/en/product/direct-bookings' },
@@ -373,11 +369,11 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     <ul className="space-y-3 ml-6">
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-red-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <span className="text-gray-300">{content.monroe}: <strong className="text-red-400">~30 {content.reservationsMonth}</strong></span>
+                        <span className="text-gray-300">{content.monroe}: <strong className="text-red-400">30 {content.reservationsMonth}</strong></span>
                       </li>
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-red-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <span className="text-gray-300">{content.barrioChino}: <strong className="text-red-400">~30 {content.reservationsMonth}</strong></span>
+                        <span className="text-gray-300">{content.barrioChino}: <strong className="text-red-400">30 {content.reservationsMonth}</strong></span>
                       </li>
                     </ul>
                   </div>
@@ -420,10 +416,6 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                   </div>
                 </div>
 
-                <div className="text-center mt-6">
-                  <p className="text-2xl font-bold text-white">{content.allDirect}</p>
-                  <p className="text-2xl font-bold text-white">{content.noCommission}</p>
-                </div>
               </div>
             </div>
           </div>
