@@ -18,16 +18,16 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     id: 'temple-craft',
     slug: 'temple',
     name: 'Temple',
-    location: t.CASE_STUDIES_DATA.LOCATIONS.WYNWOOD_MIAMI,
+    location: locale === 'es' ? 'Buenos Aires, Argentina' : 'Buenos Aires, Argentina',
     industry: t.CASE_STUDIES_DATA.INDUSTRIES.CRAFT_BEER_NIGHTLIFE,
     image: '/images/success-stories/Temple_Team.jpeg',
     keyMetrics: [
       { label: locale === 'es' ? 'Reservas Directas' : 'Direct Bookings', value: '+356%', icon: Eye },
       { label: locale === 'es' ? 'Visitantes al Website' : 'Website Visitors', value: '12.000', icon: Users },
-      { label: locale === 'es' ? 'Personas Servidas' : 'People Served', value: '4.027', icon: Star }
+      { label: locale === 'es' ? 'Conversaciones del Agente AI' : 'AI Agent Conversations', value: '228', icon: Star }
     ],
-    headline: locale === 'es' ? 'Temple aumenta sus Reservas Directas 356% con la Plataforma Todo-en-Uno de RAY' : 'Temple Increases Direct Bookings by 356% with RAY\'s All-in-One Platform',
-    description: locale === 'es' ? 'Temple pasó de ~30 reservas directas por mes a 137 después de implementar RAY — un crecimiento del 356% en ingresos directos, sin comisiones y con atención 100% automatizada.' : 'Temple went from ~30 direct bookings per month to 137 after implementing RAY — a 356% growth in direct revenue, with zero commissions and 100% automated service.',
+    headline: locale === 'es' ? 'Temple aumenta sus Reservas Directas 356% con RAY' : 'Temple Increases Direct Bookings by 356% with RAY',
+    description: locale === 'es' ? 'De ~30 a 137 reservas directas mensuales. Sin comisiones, atención 100% automatizada.' : 'From ~30 to 137 monthly direct bookings. Zero commissions, 100% automated service.',
     tags: locale === 'es' ? ['Reservas Directas', 'Automatización', 'AI'] : ['Direct Bookings', 'Automation', 'AI'],
     testimonial: {
       text: locale === 'es' ? 'RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a más de 130 solo en dos locales — y el equipo casi no interviene.' : 'RAY multiplied our direct bookings. We went from 30 per month to over 130 in just two locations — and the team barely intervenes.',
