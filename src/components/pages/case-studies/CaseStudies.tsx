@@ -22,15 +22,15 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     industry: t.CASE_STUDIES_DATA.INDUSTRIES.CRAFT_BEER_NIGHTLIFE,
     image: '/images/success-stories/Temple_Team.jpeg',
     keyMetrics: [
-      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.GOOGLE_MAPS_VIEWS, value: '+259%', icon: Eye },
-      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.WALK_INS, value: '+66%', icon: Users },
-      { label: t.CASE_STUDIES_DATA.METRIC_LABELS.GOOGLE_RATING, value: '4.8★', icon: Star }
+      { label: locale === 'es' ? 'Reservas Directas' : 'Direct Bookings', value: '+356%', icon: Eye },
+      { label: locale === 'es' ? 'Visitantes al Website' : 'Website Visitors', value: '12.000', icon: Users },
+      { label: locale === 'es' ? 'Personas Servidas' : 'People Served', value: '4.027', icon: Star }
     ],
-    headline: t.CASE_STUDIES_DATA.HEADLINES.TEMPLE_CRAFT,
-    description: locale === 'es' ? 'Temple Craft escaló del puesto #15 al #1 en Google Maps mientras aumentaba dramáticamente el tráfico peatonal y la visibilidad.' : 'Temple Craft climbed from ranking #15 to #1 on Google Maps while dramatically increasing foot traffic and discovery.',
-    tags: locale === 'es' ? ['SEO Local', 'Listados', 'Reseñas'] : ['Local SEO', 'Listings', 'Reviews'],
+    headline: locale === 'es' ? 'Temple aumenta sus Reservas Directas 356% con RAY' : 'Temple Increases Direct Bookings by 356% with RAY',
+    description: locale === 'es' ? 'Temple pasó de ~30 reservas directas por mes a 137 después de implementar RAY — un crecimiento del 356% en ingresos directos, sin comisiones y con atención 100% automatizada.' : 'Temple went from ~30 direct bookings per month to 137 after implementing RAY — a 356% growth in direct revenue, with zero commissions and 100% automated service.',
+    tags: locale === 'es' ? ['Reservas Directas', 'Automatización', 'AI'] : ['Direct Bookings', 'Automation', 'AI'],
     testimonial: {
-      text: locale === 'es' ? 'Nuestras visitas en Google Maps se dispararon 259%, y el tráfico peatonal aumentó 66%.' : 'Our Google Maps visits skyrocketed by 259%, and foot traffic increased by 66%.',
+      text: locale === 'es' ? 'RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a más de 130 solo en dos locales — y el equipo casi no interviene.' : 'RAY multiplied our direct bookings. We went from 30 per month to over 130 in just two locations — and the team barely intervenes.',
       author: 'Juan Ignacio Chereminiano',
       title: 'CEO'
     }
