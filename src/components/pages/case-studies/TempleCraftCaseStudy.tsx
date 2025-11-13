@@ -3,7 +3,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { ArrowLeft, TrendingUp, Star, Users, Award } from 'lucide-react'
+import { ArrowLeft, Award } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
@@ -70,34 +70,34 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500">
                       Reservas Directas 356%
                     </span>{' '}
-                    con la Plataforma Todo-en-Uno de RAY
+                    con RAY
                   </h1>
                 </div>
 
                 {/* KPI Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/20">
-                    <div className="flex items-center justify-center mb-3">
-                      <TrendingUp className="w-8 h-8 text-yellow-400" />
-                    </div>
+                    <div className="text-4xl mb-3">📈</div>
                     <div className="text-3xl font-black text-yellow-400 mb-1">+356%</div>
                     <div className="text-gray-300 text-sm font-medium">Reservas Directas</div>
                   </div>
                   
                   <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20">
-                    <div className="flex items-center justify-center mb-3">
-                      <Users className="w-8 h-8 text-green-400" />
-                    </div>
+                    <div className="text-4xl mb-3">👥</div>
                     <div className="text-3xl font-black text-green-400 mb-1">12.000</div>
                     <div className="text-gray-300 text-sm font-medium">Visitantes al Website</div>
                   </div>
                   
                   <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/20">
-                    <div className="flex items-center justify-center mb-3">
-                      <Star className="w-8 h-8 text-blue-400" />
-                    </div>
-                    <div className="text-3xl font-black text-blue-400 mb-1">0%</div>
-                    <div className="text-gray-300 text-sm font-medium">Comisiones</div>
+                    <div className="text-4xl mb-3">💬</div>
+                    <div className="text-3xl font-black text-blue-400 mb-1">228</div>
+                    <div className="text-gray-300 text-sm font-medium">Conversaciones del Agente AI</div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20">
+                    <div className="text-4xl mb-3">📅</div>
+                    <div className="text-3xl font-black text-purple-400 mb-1">39</div>
+                    <div className="text-gray-300 text-sm font-medium">Reservas por el Agente AI</div>
                   </div>
                 </div>
               </div>
