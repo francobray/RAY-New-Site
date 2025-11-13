@@ -22,15 +22,15 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     industry: t.CASE_STUDIES_DATA.INDUSTRIES.CRAFT_BEER_NIGHTLIFE,
     image: '/images/success-stories/Temple_Team.jpeg',
     keyMetrics: [
-      { label: locale === 'es' ? 'Reservas Directas' : 'Direct Bookings', value: '+356%', icon: Eye },
+      { label: locale === 'es' ? 'Reservas Directas' : 'Direct Bookings', value: '+367%', icon: Eye },
       { label: locale === 'es' ? 'Visitantes al Website' : 'Website Visitors', value: '12.000', icon: Users },
       { label: locale === 'es' ? 'Conversaciones del Agente AI' : 'AI Agent Conversations', value: '228', icon: Star }
     ],
-    headline: locale === 'es' ? 'Temple aumenta sus Reservas Directas 356% con RAY' : 'Temple Increases Direct Bookings by 356% with RAY',
-    description: locale === 'es' ? 'De ~30 a 137 reservas directas mensuales. Sin comisiones, atención 100% automatizada.' : 'From ~30 to 137 monthly direct bookings. Zero commissions, 100% automated service.',
+    headline: locale === 'es' ? 'Temple aumenta sus Reservas Directas 367% con RAY' : 'Temple Increases Direct Bookings by 367% with RAY',
+    description: locale === 'es' ? 'De 30 a 140 reservas directas mensuales. Sin comisiones, atención 100% automatizada.' : 'From 30 to 140 monthly direct bookings. Zero commissions, 100% automated service.',
     tags: locale === 'es' ? ['Reservas Directas', 'Automatización', 'AI'] : ['Direct Bookings', 'Automation', 'AI'],
     testimonial: {
-      text: locale === 'es' ? 'RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a más de 130 solo en dos locales — y el equipo casi no interviene.' : 'RAY multiplied our direct bookings. We went from 30 per month to over 130 in just two locations — and the team barely intervenes.',
+      text: locale === 'es' ? 'RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a 140 solo en dos locales — y el equipo casi no interviene.' : 'RAY multiplied our direct bookings. We went from 30 per month to 140 in just two locations — and the team barely intervenes.',
       author: 'Juan Ignacio Chereminiano',
       title: 'CEO'
     }

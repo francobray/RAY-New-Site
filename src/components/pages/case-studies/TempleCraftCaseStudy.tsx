@@ -25,15 +25,15 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
   const content = locale === 'es' ? {
     backToCase: 'Volver a Casos de Éxito',
     successStory: 'Success Story',
-    heroTitle: 'Temple aumenta sus Reservas Directas 356% con RAY',
-    kpi1: { emoji: '📈', value: '+356%', label: 'Reservas Directas' },
+    heroTitle: 'Temple aumenta sus Reservas Directas 367% con RAY',
+    kpi1: { emoji: '📈', value: '+367%', label: 'Reservas Directas' },
     kpi2: { emoji: '👥', value: '12.000', label: 'Visitantes al Website' },
     kpi3: { emoji: '💬', value: '228', label: 'Conversaciones del Agente AI' },
     kpi4: { emoji: '📅', value: '39', label: 'Reservas por el Agente AI' },
     kpi5: { emoji: '👨‍👩‍👧‍👦', value: '4.027', label: 'Personas en Reservas Confirmadas' },
     kpi6: { emoji: '🎉', value: '491', label: 'Personas en Eventos XL (25+)' },
     teamCaption: 'Temple Craft team celebrating explosive growth',
-    insightTitle: '🎉 Crecimiento del 356% en Reservas Directas',
+    insightTitle: '🎉 Crecimiento del 367% en Reservas Directas',
     beforeRAY: 'Antes de RAY (baseline):',
     afterRAY: 'Después de activar RAY:',
     monroe: 'Monroe',
@@ -86,7 +86,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
         'Escala grupos grandes',
         'Agrega todo al CRM'
       ],
-      footer: 'Parte del salto del 356% viene de estos canales.',
+      footer: 'Parte del salto del 367% viene de estos canales.',
       cta: 'Pruébalo ahora →'
     },
     googleBusiness: {
@@ -98,7 +98,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     },
     realImpact: 'Impacto Real',
     impactCards: [
-      { emoji: '💰', title: 'Mucho más ingreso directo', value: '+356%', desc: 'de reservas sin comisiones' },
+      { emoji: '💰', title: 'Mucho más ingreso directo', value: '+367%', desc: 'de reservas sin comisiones' },
       { emoji: '⏱', title: 'Mucho menos trabajo', value: '24/7', desc: 'atención automatizada para el equipo' },
       { emoji: '🤖', title: 'Atención automatizada', value: '100%', desc: 'de reservas sin intervención humana' },
       { emoji: '📈', title: 'CRM unificado', value: 'Todo', desc: 'los datos en un solo lugar' },
@@ -107,7 +107,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     ],
     completeSystem: '🧩 Un sistema completo:',
     systemFlow: 'Temple ahora opera como una marca del futuro.',
-    testimonialQuote: '"RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a más de 130 solo en dos locales — y el equipo casi no interviene. El agente de IA hace todo, y la experiencia del cliente mejoró muchísimo."',
+    testimonialQuote: '"RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a 140 solo en dos locales — y el equipo casi no interviene. El agente de IA hace todo, y la experiencia del cliente mejoró muchísimo."',
     testimonialAuthor: 'Juan Ignacio Chereminiano',
     testimonialRole: 'CEO – Temple Craft',
     reserva: 'reserva',
@@ -115,15 +115,15 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
   } : {
     backToCase: 'Back to Case Studies',
     successStory: 'Success Story',
-    heroTitle: 'Temple Increases Direct Bookings by 356% with RAY',
-    kpi1: { emoji: '📈', value: '+356%', label: 'Direct Bookings' },
+    heroTitle: 'Temple Increases Direct Bookings by 367% with RAY',
+    kpi1: { emoji: '📈', value: '+367%', label: 'Direct Bookings' },
     kpi2: { emoji: '👥', value: '12,000', label: 'Website Visitors' },
     kpi3: { emoji: '💬', value: '228', label: 'AI Agent Conversations' },
     kpi4: { emoji: '📅', value: '39', label: 'Bookings by AI Agent' },
     kpi5: { emoji: '👨‍👩‍👧‍👦', value: '4,027', label: 'People in Confirmed Bookings' },
     kpi6: { emoji: '🎉', value: '491', label: 'People in XL Events (25+)' },
     teamCaption: 'Temple Craft team celebrating explosive growth',
-    insightTitle: '🎉 356% Growth in Direct Bookings',
+    insightTitle: '🎉 367% Growth in Direct Bookings',
     beforeRAY: 'Before RAY (baseline):',
     afterRAY: 'After activating RAY:',
     monroe: 'Monroe',
@@ -176,7 +176,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
         'Scales large groups',
         'Adds everything to CRM'
       ],
-      footer: 'Part of the 356% jump comes from these channels.',
+      footer: 'Part of the 367% jump comes from these channels.',
       cta: 'Try it now →'
     },
     googleBusiness: {
@@ -188,7 +188,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     },
     realImpact: 'Real Impact',
     impactCards: [
-      { emoji: '💰', title: 'Much more direct revenue', value: '+356%', desc: 'bookings without commissions' },
+      { emoji: '💰', title: 'Much more direct revenue', value: '+367%', desc: 'bookings without commissions' },
       { emoji: '⏱', title: 'Much less work', value: '24/7', desc: 'automated service for the team' },
       { emoji: '🤖', title: 'Automated service', value: '100%', desc: 'bookings without human intervention' },
       { emoji: '📈', title: 'Unified CRM', value: 'All', desc: 'data in one place' },
@@ -197,7 +197,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     ],
     completeSystem: '🧩 A complete system:',
     systemFlow: 'Temple now operates like a brand of the future.',
-    testimonialQuote: '"RAY multiplied our direct bookings. We went from 30 per month to over 130 in just two locations — and the team barely intervenes. The AI agent does everything, and the guest experience improved dramatically."',
+    testimonialQuote: '"RAY multiplied our direct bookings. We went from 30 per month to 140 in just two locations — and the team barely intervenes. The AI agent does everything, and the guest experience improved dramatically."',
     testimonialAuthor: 'Juan Ignacio Chereminiano',
     testimonialRole: 'CEO – Temple Craft',
     reserva: 'booking',
@@ -253,7 +253,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                       <>
                         Temple aumenta sus{' '}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500">
-                          Reservas Directas 356%
+                          Reservas Directas 367%
                         </span>{' '}
                         con RAY
                       </>
@@ -261,7 +261,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                       <>
                         Temple Increases{' '}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500">
-                          Direct Bookings by 356%
+                          Direct Bookings by 367%
                         </span>{' '}
                         with RAY
                       </>
@@ -369,11 +369,11 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     <ul className="space-y-3 ml-6">
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-red-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <span className="text-gray-300">{content.monroe}: <strong className="text-red-400">30 {content.reservationsMonth}</strong></span>
+                        <span className="text-gray-300">{content.monroe}: <strong className="text-red-400">12 {content.reservationsMonth}</strong></span>
                       </li>
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-red-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <span className="text-gray-300">{content.barrioChino}: <strong className="text-red-400">30 {content.reservationsMonth}</strong></span>
+                        <span className="text-gray-300">{content.barrioChino}: <strong className="text-red-400">18 {content.reservationsMonth}</strong></span>
                       </li>
                     </ul>
                   </div>
@@ -385,11 +385,11 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     <ul className="space-y-3 ml-6">
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-green-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <span className="text-gray-300">{content.monroe}: <strong className="text-green-400">88 {content.reservationsMonth}</strong></span>
+                        <span className="text-gray-300">{content.monroe}: <strong className="text-green-400">90 {content.reservationsMonth}</strong></span>
                       </li>
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-green-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <span className="text-gray-300">{content.barrioChino}: <strong className="text-green-400">49 {content.reservationsMonth}</strong></span>
+                        <span className="text-gray-300">{content.barrioChino}: <strong className="text-green-400">50 {content.reservationsMonth}</strong></span>
                       </li>
                     </ul>
                   </div>
@@ -400,17 +400,17 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                     <div>
                       <div className="text-sm text-gray-400 font-medium mb-1">{content.totalBefore}</div>
-                      <div className="text-4xl font-black text-white">60</div>
+                      <div className="text-4xl font-black text-white">30</div>
                       <div className="text-sm text-gray-400">{content.reservationsMonth}</div>
                     </div>
                     <div>
                       <div className="text-sm text-green-400 font-medium mb-1">{content.totalAfter}</div>
-                      <div className="text-4xl font-black text-green-400">137</div>
+                      <div className="text-4xl font-black text-green-400">140</div>
                       <div className="text-sm text-gray-400">{content.reservationsMonth}</div>
                     </div>
                     <div>
                       <div className="text-sm text-yellow-400 font-medium mb-1">{content.growth}</div>
-                      <div className="text-4xl font-black text-yellow-400">+356%</div>
+                      <div className="text-4xl font-black text-yellow-400">+367%</div>
                       <div className="text-sm text-gray-400">{content.reservations}</div>
                     </div>
                   </div>

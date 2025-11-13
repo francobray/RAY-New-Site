@@ -32,8 +32,8 @@ const getSuccessStoryTranslations = (locale: Locale): Record<string, { period: s
   'temple': {
     period: locale === 'es' ? 'aumento en reservas directas' : 'increase in direct bookings',
     description: locale === 'es'
-      ? 'Cómo Temple pasó de ~30 reservas directas por mes a 137 con la plataforma todo-en-uno de RAY'
-      : 'How Temple went from ~30 direct bookings per month to 137 with RAY\'s all-in-one platform'
+      ? 'Cómo Temple pasó de 30 reservas directas por mes a 140 con la plataforma todo-en-uno de RAY'
+      : 'How Temple went from 30 direct bookings per month to 140 with RAY\'s all-in-one platform'
   },
   'havana-1957': {
     period: locale === 'es' ? 'aumento de ingresos mensuales' : 'monthly revenue increase',
@@ -190,7 +190,7 @@ const getSuccessStories = (): SuccessStory[] => [
     id: 2,
     ownerName: 'Juan Ignacio Chereminiano', 
     restaurantName: 'Temple',
-    metric: '+356%',
+    metric: '+367%',
     image: '/images/success-stories/Temple_Team.jpeg',
     bgGradient: 'from-blue-600 to-blue-700',
     slug: 'temple'

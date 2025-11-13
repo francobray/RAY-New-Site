@@ -48,8 +48,8 @@ const caseStudyData = {
     component: ChimbaCaseStudy
   },
   'temple': {
-    title: 'Temple - 356% Growth in Direct Bookings | RAY',
-    description: 'Discover how Temple achieved 356% increase in direct bookings and served over 4,000 people with RAY\'s all-in-one platform. Zero commissions, 100% automated service.',
+    title: 'Temple - 367% Growth in Direct Bookings | RAY',
+    description: 'Discover how Temple achieved 367% increase in direct bookings and served over 4,000 people with RAY\'s all-in-one platform. Zero commissions, 100% automated service.',
     component: TempleCraftCaseStudy
   },
   'havana-1957': {

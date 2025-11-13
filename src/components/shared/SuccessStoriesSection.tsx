@@ -28,9 +28,9 @@ const successStories = [
     ownerName: 'Juan Ignacio Chereminiano', 
     title: 'CEO - Temple',
     restaurantName: 'Temple',
-    metric: '+356%',
+    metric: '+367%',
     period: 'increase in direct bookings',
-    description: 'How Temple went from ~30 direct bookings per month to 137 with RAY\'s all-in-one platform',
+    description: 'How Temple went from 30 direct bookings per month to 140 with RAY\'s all-in-one platform',
     image: '/images/success-stories/Temple_Team.jpeg',
     slug: 'temple'
   },
