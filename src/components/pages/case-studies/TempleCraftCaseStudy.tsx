@@ -229,39 +229,74 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
               </h2>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 border border-gray-800">
-              <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span><strong className="text-white">Agente del Website</strong> que responde y reserva 24/7</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span><strong className="text-white">Agentes de WhatsApp e Instagram</strong> que cierran reservas automáticamente</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span><strong className="text-white">Cero intervención humana</strong> en la mayoría de las reservas</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span><strong className="text-white">Respuestas inmediatas</strong> → mejor conversión</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span>Menos trabajo manual</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-pink-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span>Mejor experiencia del cliente</span>
-                  </li>
-                </ul>
-
-                <div className="text-center mt-8 pt-6 border-t border-gray-800">
-                  <p className="text-2xl font-bold text-white">Más ingresos, menos esfuerzo.</p>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Card 1 */}
+              <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-3xl p-6 border border-blue-500/20">
+                <div className="text-4xl mb-4">🤖</div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  <Link href="/es/product/ai-agent" className="hover:text-yellow-400">Agente del Website</Link>
+                </h3>
+                <p className="text-gray-300">que responde y <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reserva</Link> 24/7</p>
               </div>
+
+              {/* Card 2 */}
+              <div className="bg-gradient-to-br from-green-500/10 to-green-600/10 rounded-3xl p-6 border border-green-500/20">
+                <div className="mb-4">
+                  <img 
+                    src="/images/WhatsApp.svg.avif" 
+                    alt="WhatsApp" 
+                    className="w-10 h-10 object-contain"
+                    width={40}
+                    height={40}
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  <Link href="/es/product/ai-concierge" className="hover:text-yellow-400">Agentes de WhatsApp</Link>
+                </h3>
+                <p className="text-gray-300">que cierran <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link> automáticamente</p>
+              </div>
+
+              {/* Card 3 */}
+              <div className="bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 rounded-3xl p-6 border border-emerald-500/20">
+                <div className="text-4xl mb-4">✅</div>
+                <h3 className="text-xl font-bold text-white mb-3">Cero intervención humana</h3>
+                <p className="text-gray-300">en la mayoría de las <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link></p>
+              </div>
+
+              {/* Card 4 */}
+              <div className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 rounded-3xl p-6 border border-yellow-500/20">
+                <div className="text-4xl mb-4">⚡</div>
+                <h3 className="text-xl font-bold text-white mb-3">Respuestas inmediatas</h3>
+                <p className="text-gray-300">→ mejor conversión</p>
+              </div>
+
+              {/* Card 5 */}
+              <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-3xl p-6 border border-purple-500/20">
+                <div className="mb-4">
+                  <img 
+                    src="/images/instagram-icon.svg" 
+                    alt="Instagram" 
+                    className="w-10 h-10 object-contain"
+                    width={40}
+                    height={40}
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  <Link href="/es/product/ai-concierge" className="hover:text-yellow-400">Agente de Instagram</Link>
+                </h3>
+                <p className="text-gray-300">responde mensajes y consultas automáticamente</p>
+              </div>
+
+              {/* Card 6 */}
+              <div className="bg-gradient-to-br from-pink-500/10 to-pink-600/10 rounded-3xl p-6 border border-pink-500/20">
+                <div className="text-4xl mb-4">⭐</div>
+                <h3 className="text-xl font-bold text-white mb-3">Mejor experiencia del cliente</h3>
+                <p className="text-gray-300">servicio 24/7</p>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <p className="text-3xl font-bold text-white">Más ingresos, menos esfuerzo.</p>
             </div>
           </div>
         </div>
@@ -294,7 +329,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
-                    <span>Flujo optimizado de reservas</span>
+                    <span>Flujo optimizado de <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link></span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
@@ -302,9 +337,6 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                   </li>
                 </ul>
                 <div className="mt-6 pt-6 border-t border-gray-800 space-y-4 text-center">
-                  <p className="text-xl text-green-400 font-bold">
-                    12.000 visitantes en 90 días
-                  </p>
                   <a
                     href="https://temple.com.ar"
                     target="_blank"
@@ -336,7 +368,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
-                    <span>Crea y modifica reservas</span>
+                    <span>Crea y modifica <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link></span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
@@ -376,7 +408,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
-                    <span>Cierra reservas automáticamente</span>
+                    <span>Cierra <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link> automáticamente</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
@@ -419,10 +451,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 <div className="mt-6 pt-6 border-t border-gray-800">
                   <p className="text-lg font-medium text-white mb-2">Resultado:</p>
                   <p className="text-xl text-yellow-400 font-bold">
-                    +259% más direcciones → más visitas → más reservas → más ingresos
-                  </p>
-                  <p className="text-lg text-gray-300 mt-3">
-                    Maps es hoy el principal canal que alimenta todo el funnel de Temple.
+                    +259% más direcciones → más visitas → más <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link> → más ingresos
                   </p>
                 </div>
               </div>
@@ -474,17 +503,17 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 🧩 Un sistema completo:
               </h3>
               <div className="flex flex-wrap items-center justify-center gap-3 text-lg">
-                <span className="text-yellow-400 font-bold">Maps</span>
+                <Link href="/es/product/walk-ins" className="text-yellow-400 font-bold hover:text-yellow-300 underline">Maps</Link>
                 <span className="text-gray-500">→</span>
-                <span className="text-green-400 font-bold">Website</span>
+                <Link href="/es/product/restaurant-website-ai" className="text-green-400 font-bold hover:text-green-300 underline">Website</Link>
                 <span className="text-gray-500">→</span>
-                <span className="text-blue-400 font-bold">Agente</span>
+                <Link href="/es/product/ai-agent" className="text-blue-400 font-bold hover:text-blue-300 underline">Agente</Link>
                 <span className="text-gray-500">→</span>
-                <span className="text-purple-400 font-bold">Reserva</span>
+                <Link href="/es/product/direct-bookings" className="text-purple-400 font-bold hover:text-purple-300 underline">Reserva</Link>
                 <span className="text-gray-500">→</span>
                 <span className="text-pink-400 font-bold">CRM</span>
                 <span className="text-gray-500">→</span>
-                <span className="text-orange-400 font-bold">Fidelización</span>
+                <Link href="/es/product/loyalty" className="text-orange-400 font-bold hover:text-orange-300 underline">Fidelización</Link>
               </div>
               <p className="text-center text-xl text-white font-medium mt-8">
                 Temple ahora opera como una marca del futuro.
