@@ -57,11 +57,11 @@ spec:
 
         resources:
           requests:
-            cpu: "500m"
-            memory: "1024Mi"
+            cpu: "10m"
+            memory: "250Mi"
           limits:
-            cpu: "1000m"
-            memory: "2048Mi"
+            cpu: "100m"
+            memory: "350Mi"
         readinessProbe: # <--- ADDED THIS SECTION
           httpGet:
             path: /es # The endpoint your Spring app exposes for health checks
