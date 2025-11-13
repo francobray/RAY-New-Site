@@ -30,6 +30,8 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     kpi2: { emoji: '👥', value: '12.000', label: 'Visitantes al Website' },
     kpi3: { emoji: '💬', value: '228', label: 'Conversaciones del Agente AI' },
     kpi4: { emoji: '📅', value: '39', label: 'Reservas por el Agente AI' },
+    kpi5: { emoji: '👨‍👩‍👧‍👦', value: '4.027', label: 'Personas en Reservas Confirmadas' },
+    kpi6: { emoji: '🎉', value: '491', label: 'Personas en Eventos XL (25+)' },
     teamCaption: 'Temple Craft team celebrating explosive growth',
     insightTitle: '🎉 Crecimiento del 356% en Reservas Directas',
     beforeRAY: 'Antes de RAY (baseline):',
@@ -101,7 +103,9 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
       { emoji: '💰', title: 'Mucho más ingreso directo', value: '+356%', desc: 'de reservas sin comisiones' },
       { emoji: '⏱', title: 'Mucho menos trabajo', value: '24/7', desc: 'atención automatizada para el equipo' },
       { emoji: '🤖', title: 'Atención automatizada', value: '100%', desc: 'de reservas sin intervención humana' },
-      { emoji: '📈', title: 'CRM unificado', value: 'Todo', desc: 'los datos en un solo lugar' }
+      { emoji: '📈', title: 'CRM unificado', value: 'Todo', desc: 'los datos en un solo lugar' },
+      { emoji: '👨‍👩‍👧‍👦', title: 'Personas servidas', value: '4.027', desc: 'en reservas confirmadas' },
+      { emoji: '🎉', title: 'Eventos XL', value: '491', desc: 'personas en grupos de 25+' }
     ],
     completeSystem: '🧩 Un sistema completo:',
     systemFlow: 'Temple ahora opera como una marca del futuro.',
@@ -118,6 +122,8 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     kpi2: { emoji: '👥', value: '12,000', label: 'Website Visitors' },
     kpi3: { emoji: '💬', value: '228', label: 'AI Agent Conversations' },
     kpi4: { emoji: '📅', value: '39', label: 'Bookings by AI Agent' },
+    kpi5: { emoji: '👨‍👩‍👧‍👦', value: '4,027', label: 'People in Confirmed Bookings' },
+    kpi6: { emoji: '🎉', value: '491', label: 'People in XL Events (25+)' },
     teamCaption: 'Temple Craft team celebrating explosive growth',
     insightTitle: '🎉 356% Growth in Direct Bookings',
     beforeRAY: 'Before RAY (baseline):',
@@ -189,7 +195,9 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
       { emoji: '💰', title: 'Much more direct revenue', value: '+356%', desc: 'bookings without commissions' },
       { emoji: '⏱', title: 'Much less work', value: '24/7', desc: 'automated service for the team' },
       { emoji: '🤖', title: 'Automated service', value: '100%', desc: 'bookings without human intervention' },
-      { emoji: '📈', title: 'Unified CRM', value: 'All', desc: 'data in one place' }
+      { emoji: '📈', title: 'Unified CRM', value: 'All', desc: 'data in one place' },
+      { emoji: '👨‍👩‍👧‍👦', title: 'People served', value: '4,027', desc: 'in confirmed bookings' },
+      { emoji: '🎉', title: 'XL Events', value: '491', desc: 'people in groups of 25+' }
     ],
     completeSystem: '🧩 A complete system:',
     systemFlow: 'Temple now operates like a brand of the future.',
@@ -266,7 +274,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 </div>
 
                 {/* KPI Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/20">
                     <div className="text-4xl mb-3">{content.kpi1.emoji}</div>
                     <div className="text-3xl font-black text-yellow-400 mb-1">{content.kpi1.value}</div>
@@ -289,6 +297,18 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     <div className="text-4xl mb-3">{content.kpi4.emoji}</div>
                     <div className="text-3xl font-black text-purple-400 mb-1">{content.kpi4.value}</div>
                     <div className="text-gray-300 text-sm font-medium">{content.kpi4.label}</div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-indigo-500/10 to-violet-500/10 backdrop-blur-sm rounded-2xl p-6 border border-indigo-500/20">
+                    <div className="text-4xl mb-3">{content.kpi5.emoji}</div>
+                    <div className="text-3xl font-black text-indigo-400 mb-1">{content.kpi5.value}</div>
+                    <div className="text-gray-300 text-sm font-medium">{content.kpi5.label}</div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-rose-500/10 to-orange-500/10 backdrop-blur-sm rounded-2xl p-6 border border-rose-500/20">
+                    <div className="text-4xl mb-3">{content.kpi6.emoji}</div>
+                    <div className="text-3xl font-black text-rose-400 mb-1">{content.kpi6.value}</div>
+                    <div className="text-gray-300 text-sm font-medium">{content.kpi6.label}</div>
                   </div>
                 </div>
               </div>
@@ -637,7 +657,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
 
           <div className="max-w-5xl mx-auto">
             {/* Impact Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {content.impactCards.map((card, index) => (
                 <div 
                   key={index}
@@ -645,7 +665,9 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     index === 0 ? 'from-yellow-500/10 to-orange-500/10 border-yellow-500/20' :
                     index === 1 ? 'from-green-500/10 to-emerald-500/10 border-green-500/20' :
                     index === 2 ? 'from-blue-500/10 to-cyan-500/10 border-blue-500/20' :
-                    'from-purple-500/10 to-pink-500/10 border-purple-500/20'
+                    index === 3 ? 'from-purple-500/10 to-pink-500/10 border-purple-500/20' :
+                    index === 4 ? 'from-indigo-500/10 to-violet-500/10 border-indigo-500/20' :
+                    'from-rose-500/10 to-orange-500/10 border-rose-500/20'
                   }`}
                 >
                   <div className="text-xl font-bold text-white mb-2">{card.emoji} {card.title}</div>
@@ -653,7 +675,9 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     index === 0 ? 'text-yellow-400' :
                     index === 1 ? 'text-green-400' :
                     index === 2 ? 'text-blue-400' :
-                    'text-purple-400'
+                    index === 3 ? 'text-purple-400' :
+                    index === 4 ? 'text-indigo-400' :
+                    'text-rose-400'
                   }`}>{card.value}</div>
                   <div className="text-gray-300">{card.desc}</div>
                 </div>
