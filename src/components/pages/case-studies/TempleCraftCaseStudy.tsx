@@ -21,6 +21,185 @@ interface TempleCraftCaseStudyProps {
 const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) => {
   const t = useTranslations(locale)
   
+  // Content variations based on locale
+  const content = locale === 'es' ? {
+    backToCase: 'Volver a Casos de Éxito',
+    successStory: 'Success Story',
+    heroTitle: 'Temple aumenta sus Reservas Directas 356% con RAY',
+    kpi1: { emoji: '📈', value: '+356%', label: 'Reservas Directas' },
+    kpi2: { emoji: '👥', value: '12.000', label: 'Visitantes al Website' },
+    kpi3: { emoji: '💬', value: '228', label: 'Conversaciones del Agente AI' },
+    kpi4: { emoji: '📅', value: '39', label: 'Reservas por el Agente AI' },
+    teamCaption: 'Temple Craft team celebrating explosive growth',
+    insightTitle: '🎉 Crecimiento del 356% en Reservas Directas',
+    beforeRAY: 'Antes de RAY (baseline):',
+    afterRAY: 'Después de activar RAY:',
+    monroe: 'Monroe',
+    barrioChino: 'Barrio Chino',
+    totalBefore: 'Total Antes',
+    totalAfter: 'Total Después',
+    growth: 'Crecimiento',
+    reservationsMonth: 'reservas/mes',
+    reservations: 'en reservas',
+    allDirect: 'Todo directo.',
+    noCommission: 'Todo sin comisión.',
+    automationTitle: '⚡ Temple automatizó por completo la atención y la gestión de reservas',
+    automationCards: [
+      { emoji: '🤖', title: 'Agente del Website', link: '/es/product/ai-agent', desc: 'que responde y reserva 24/7', reservaLink: '/es/product/direct-bookings' },
+      { icon: '/images/WhatsApp.svg.avif', title: 'Agentes de WhatsApp', link: '/es/product/ai-concierge', desc: 'que cierran reservas automáticamente' },
+      { emoji: '✅', title: 'Cero intervención humana', desc: 'en la mayoría de las reservas' },
+      { emoji: '⚡', title: 'Respuestas inmediatas', desc: '→ mejor conversión' },
+      { icon: '/images/instagram-icon.svg', title: 'Agente de Instagram', link: '/es/product/ai-concierge', desc: 'responde mensajes y consultas automáticamente' },
+      { emoji: '⭐', title: 'Mejor experiencia del cliente', desc: 'servicio 24/7' }
+    ],
+    moreRevenueLessWork: 'Más ingresos, menos esfuerzo.',
+    howWeDidIt: 'Cómo lo Logramos',
+    website: {
+      title: '1. Un website de alto rendimiento',
+      bullets: [
+        'Ultra rápido y orientado a conversión',
+        'Pensado para turistas',
+        'Flujo optimizado de reservas',
+        'Claridad y velocidad'
+      ],
+      cta: 'Visitar sitio web →'
+    },
+    agent: {
+      title: '2. Agente en el Website',
+      bullets: [
+        'Responde preguntas',
+        'Muestra la sucursal cercana',
+        'Sugiere horarios',
+        'Crea y modifica reservas',
+        'Envía recordatorios',
+        'Se integra con el CRM'
+      ],
+      cta: 'Probar el agente →'
+    },
+    whatsapp: {
+      title: '3. Agente de WhatsApp + Instagram',
+      intro: 'El canal donde más escribe la gente.',
+      bullets: [
+        'Responde al instante',
+        'Atiende turistas en varios idiomas',
+        'Cierra reservas automáticamente',
+        'Escala grupos grandes',
+        'Agrega todo al CRM'
+      ],
+      footer: 'Parte del salto del 356% viene de estos canales.',
+      cta: 'Pruébalo ahora →'
+    },
+    googleBusiness: {
+      title: '4. Optimización del Perfil de Google Business',
+      intro: 'RAY mejoró:',
+      items: ['Categorías', 'Keywords', 'Fotos', 'Reseñas', 'Datos estructurados', 'Tracking'],
+      result: 'Resultado:',
+      resultText: '+259% más direcciones → más visitas → más reservas → más ingresos'
+    },
+    realImpact: 'Impacto Real',
+    impactCards: [
+      { emoji: '💰', title: 'Mucho más ingreso directo', value: '+356%', desc: 'de reservas sin comisiones' },
+      { emoji: '⏱', title: 'Mucho menos trabajo', value: '24/7', desc: 'atención automatizada para el equipo' },
+      { emoji: '🤖', title: 'Atención automatizada', value: '100%', desc: 'de reservas sin intervención humana' },
+      { emoji: '📈', title: 'CRM unificado', value: 'Todo', desc: 'los datos en un solo lugar' }
+    ],
+    completeSystem: '🧩 Un sistema completo:',
+    systemFlow: 'Temple ahora opera como una marca del futuro.',
+    testimonialQuote: '"RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a más de 130 solo en dos locales — y el equipo casi no interviene. El agente de IA hace todo, y la experiencia del cliente mejoró muchísimo."',
+    testimonialAuthor: 'Juan Ignacio Chereminiano',
+    testimonialRole: 'CEO – Temple Craft',
+    reserva: 'reserva',
+    reservas: 'reservas'
+  } : {
+    backToCase: 'Back to Case Studies',
+    successStory: 'Success Story',
+    heroTitle: 'Temple Increases Direct Bookings by 356% with RAY',
+    kpi1: { emoji: '📈', value: '+356%', label: 'Direct Bookings' },
+    kpi2: { emoji: '👥', value: '12,000', label: 'Website Visitors' },
+    kpi3: { emoji: '💬', value: '228', label: 'AI Agent Conversations' },
+    kpi4: { emoji: '📅', value: '39', label: 'Bookings by AI Agent' },
+    teamCaption: 'Temple Craft team celebrating explosive growth',
+    insightTitle: '🎉 356% Growth in Direct Bookings',
+    beforeRAY: 'Before RAY (baseline):',
+    afterRAY: 'After activating RAY:',
+    monroe: 'Monroe',
+    barrioChino: 'Barrio Chino',
+    totalBefore: 'Total Before',
+    totalAfter: 'Total After',
+    growth: 'Growth',
+    reservationsMonth: 'bookings/month',
+    reservations: 'in bookings',
+    allDirect: 'All direct.',
+    noCommission: 'Zero commission.',
+    automationTitle: '⚡ Temple fully automated guest service and booking management',
+    automationCards: [
+      { emoji: '🤖', title: 'Website AI Agent', link: '/en/product/ai-agent', desc: 'answers questions and books 24/7', reservaLink: '/en/product/direct-bookings' },
+      { icon: '/images/WhatsApp.svg.avif', title: 'WhatsApp Agents', link: '/en/product/ai-concierge', desc: 'close bookings automatically' },
+      { emoji: '✅', title: 'Zero human intervention', desc: 'for most bookings' },
+      { emoji: '⚡', title: 'Instant responses', desc: '→ better conversion' },
+      { icon: '/images/instagram-icon.svg', title: 'Instagram Agent', link: '/en/product/ai-concierge', desc: 'responds to messages and inquiries automatically' },
+      { emoji: '⭐', title: 'Better guest experience', desc: '24/7 service' }
+    ],
+    moreRevenueLessWork: 'More revenue, less effort.',
+    howWeDidIt: 'How We Did It',
+    website: {
+      title: '1. A High-Performance Website',
+      bullets: [
+        'Ultra-fast and conversion-focused',
+        'Designed for tourists',
+        'Optimized booking flow',
+        'Clarity and speed'
+      ],
+      cta: 'Visit website →'
+    },
+    agent: {
+      title: '2. AI Agent on the Website',
+      bullets: [
+        'Answers questions',
+        'Shows nearest location',
+        'Suggests times',
+        'Creates and modifies bookings',
+        'Sends reminders',
+        'Integrates with CRM'
+      ],
+      cta: 'Try the agent →'
+    },
+    whatsapp: {
+      title: '3. WhatsApp + Instagram Agent',
+      intro: 'The channel where guests reach out most.',
+      bullets: [
+        'Responds instantly',
+        'Serves tourists in multiple languages',
+        'Closes bookings automatically',
+        'Scales large groups',
+        'Adds everything to CRM'
+      ],
+      footer: 'Part of the 356% jump comes from these channels.',
+      cta: 'Try it now →'
+    },
+    googleBusiness: {
+      title: '4. Google Business Profile Optimization',
+      intro: 'RAY improved:',
+      items: ['Categories', 'Keywords', 'Photos', 'Reviews', 'Structured data', 'Tracking'],
+      result: 'Result:',
+      resultText: '+259% more directions → more visits → more bookings → more revenue'
+    },
+    realImpact: 'Real Impact',
+    impactCards: [
+      { emoji: '💰', title: 'Much more direct revenue', value: '+356%', desc: 'bookings without commissions' },
+      { emoji: '⏱', title: 'Much less work', value: '24/7', desc: 'automated service for the team' },
+      { emoji: '🤖', title: 'Automated service', value: '100%', desc: 'bookings without human intervention' },
+      { emoji: '📈', title: 'Unified CRM', value: 'All', desc: 'data in one place' }
+    ],
+    completeSystem: '🧩 A complete system:',
+    systemFlow: 'Temple now operates like a brand of the future.',
+    testimonialQuote: '"RAY multiplied our direct bookings. We went from 30 per month to over 130 in just two locations — and the team barely intervenes. The AI agent does everything, and the guest experience improved dramatically."',
+    testimonialAuthor: 'Juan Ignacio Chereminiano',
+    testimonialRole: 'CEO – Temple Craft',
+    reserva: 'booking',
+    reservas: 'bookings'
+  }
+  
   return (
     <>
 
@@ -52,7 +231,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 className="inline-flex items-center text-gray-400 hover:text-white transition-colors duration-300 text-sm font-medium"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Case Studies
+                {content.backToCase}
               </Link>
             </div>
 
@@ -61,43 +240,55 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
               <div className="space-y-8">
                 <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-sm rounded-full border border-yellow-500/30">
                   <Award className="w-4 h-4 mr-2 text-yellow-400" />
-                  <span className="text-yellow-400 text-sm font-bold uppercase tracking-wider">Success Story</span>
+                  <span className="text-yellow-400 text-sm font-bold uppercase tracking-wider">{content.successStory}</span>
                 </div>
                 
                 <div className="space-y-6">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.9] tracking-tight">
-                    Temple aumenta sus{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500">
-                      Reservas Directas 356%
-                    </span>{' '}
-                    con RAY
+                    {locale === 'es' ? (
+                      <>
+                        Temple aumenta sus{' '}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500">
+                          Reservas Directas 356%
+                        </span>{' '}
+                        con RAY
+                      </>
+                    ) : (
+                      <>
+                        Temple Increases{' '}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500">
+                          Direct Bookings by 356%
+                        </span>{' '}
+                        with RAY
+                      </>
+                    )}
                   </h1>
                 </div>
 
                 {/* KPI Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/20">
-                    <div className="text-4xl mb-3">📈</div>
-                    <div className="text-3xl font-black text-yellow-400 mb-1">+356%</div>
-                    <div className="text-gray-300 text-sm font-medium">Reservas Directas</div>
+                    <div className="text-4xl mb-3">{content.kpi1.emoji}</div>
+                    <div className="text-3xl font-black text-yellow-400 mb-1">{content.kpi1.value}</div>
+                    <div className="text-gray-300 text-sm font-medium">{content.kpi1.label}</div>
                   </div>
                   
                   <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20">
-                    <div className="text-4xl mb-3">👥</div>
-                    <div className="text-3xl font-black text-green-400 mb-1">12.000</div>
-                    <div className="text-gray-300 text-sm font-medium">Visitantes al Website</div>
+                    <div className="text-4xl mb-3">{content.kpi2.emoji}</div>
+                    <div className="text-3xl font-black text-green-400 mb-1">{content.kpi2.value}</div>
+                    <div className="text-gray-300 text-sm font-medium">{content.kpi2.label}</div>
                   </div>
                   
                   <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/20">
-                    <div className="text-4xl mb-3">💬</div>
-                    <div className="text-3xl font-black text-blue-400 mb-1">228</div>
-                    <div className="text-gray-300 text-sm font-medium">Conversaciones del Agente AI</div>
+                    <div className="text-4xl mb-3">{content.kpi3.emoji}</div>
+                    <div className="text-3xl font-black text-blue-400 mb-1">{content.kpi3.value}</div>
+                    <div className="text-gray-300 text-sm font-medium">{content.kpi3.label}</div>
                   </div>
 
                   <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20">
-                    <div className="text-4xl mb-3">📅</div>
-                    <div className="text-3xl font-black text-purple-400 mb-1">39</div>
-                    <div className="text-gray-300 text-sm font-medium">Reservas por el Agente AI</div>
+                    <div className="text-4xl mb-3">{content.kpi4.emoji}</div>
+                    <div className="text-3xl font-black text-purple-400 mb-1">{content.kpi4.value}</div>
+                    <div className="text-gray-300 text-sm font-medium">{content.kpi4.label}</div>
                   </div>
                 </div>
               </div>
@@ -112,7 +303,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                     <Image
                       src="/images/success-stories/Temple_Team.jpeg"
-                      alt="Temple Craft team at the Wynwood location celebrating explosive local growth"
+                      alt={content.teamCaption}
                       width={1200}
                       height={600}
                       className="w-full h-[400px] md:h-[500px] object-cover"
@@ -124,7 +315,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
                       <p className="text-white text-sm md:text-base font-medium">
-                        Temple Craft team celebrating explosive growth
+                        {content.teamCaption}
                       </p>
                     </div>
                   </div>
@@ -148,7 +339,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
-                🎉 Crecimiento del 356% en Reservas Directas
+                {content.insightTitle}
               </h2>
             </div>
 
@@ -157,32 +348,32 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <p className="text-xl font-medium text-white">
-                      Antes de RAY (baseline):
+                      {content.beforeRAY}
                     </p>
                     <ul className="space-y-3 ml-6">
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-red-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <span className="text-gray-300">Monroe: <strong className="text-red-400">~30 reservas directas/mes</strong></span>
+                        <span className="text-gray-300">{content.monroe}: <strong className="text-red-400">~30 {content.reservationsMonth}</strong></span>
                       </li>
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-red-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <span className="text-gray-300">Barrio Chino: <strong className="text-red-400">~30 reservas directas/mes</strong></span>
+                        <span className="text-gray-300">{content.barrioChino}: <strong className="text-red-400">~30 {content.reservationsMonth}</strong></span>
                       </li>
                     </ul>
                   </div>
 
                   <div className="space-y-4">
                     <p className="text-xl font-medium text-white">
-                      Después de activar RAY:
+                      {content.afterRAY}
                     </p>
                     <ul className="space-y-3 ml-6">
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-green-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <span className="text-gray-300">Monroe: <strong className="text-green-400">88 reservas/mes</strong></span>
+                        <span className="text-gray-300">{content.monroe}: <strong className="text-green-400">88 {content.reservationsMonth}</strong></span>
                       </li>
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-green-400 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                        <span className="text-gray-300">Barrio Chino: <strong className="text-green-400">49 reservas/mes</strong></span>
+                        <span className="text-gray-300">{content.barrioChino}: <strong className="text-green-400">49 {content.reservationsMonth}</strong></span>
                       </li>
                     </ul>
                   </div>
@@ -192,26 +383,26 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 <div className="mt-8 p-8 bg-gradient-to-r from-yellow-500/10 to-green-500/10 rounded-2xl border border-yellow-500/20">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                     <div>
-                      <div className="text-sm text-gray-400 font-medium mb-1">Total Antes</div>
+                      <div className="text-sm text-gray-400 font-medium mb-1">{content.totalBefore}</div>
                       <div className="text-4xl font-black text-white">60</div>
-                      <div className="text-sm text-gray-400">reservas/mes</div>
+                      <div className="text-sm text-gray-400">{content.reservationsMonth}</div>
                     </div>
                     <div>
-                      <div className="text-sm text-green-400 font-medium mb-1">Total Después</div>
+                      <div className="text-sm text-green-400 font-medium mb-1">{content.totalAfter}</div>
                       <div className="text-4xl font-black text-green-400">137</div>
-                      <div className="text-sm text-gray-400">reservas/mes</div>
+                      <div className="text-sm text-gray-400">{content.reservationsMonth}</div>
                     </div>
                     <div>
-                      <div className="text-sm text-yellow-400 font-medium mb-1">Crecimiento</div>
+                      <div className="text-sm text-yellow-400 font-medium mb-1">{content.growth}</div>
                       <div className="text-4xl font-black text-yellow-400">+356%</div>
-                      <div className="text-sm text-gray-400">en reservas</div>
+                      <div className="text-sm text-gray-400">{content.reservations}</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="text-center mt-6">
-                  <p className="text-2xl font-bold text-white">Todo directo.</p>
-                  <p className="text-2xl font-bold text-white">Todo sin comisión.</p>
+                  <p className="text-2xl font-bold text-white">{content.allDirect}</p>
+                  <p className="text-2xl font-bold text-white">{content.noCommission}</p>
                 </div>
               </div>
             </div>
@@ -225,78 +416,60 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
-                ⚡ Temple automatizó por completo la atención y la gestión de reservas
+                {content.automationTitle}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Card 1 */}
-              <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-3xl p-6 border border-blue-500/20">
-                <div className="text-4xl mb-4">🤖</div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  <Link href="/es/product/ai-agent" className="hover:text-yellow-400">Agente del Website</Link>
-                </h3>
-                <p className="text-gray-300">que responde y <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reserva</Link> 24/7</p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="bg-gradient-to-br from-green-500/10 to-green-600/10 rounded-3xl p-6 border border-green-500/20">
-                <div className="mb-4">
-                  <img 
-                    src="/images/WhatsApp.svg.avif" 
-                    alt="WhatsApp" 
-                    className="w-10 h-10 object-contain"
-                    width={40}
-                    height={40}
-                  />
+              {content.automationCards.map((card, index) => (
+                <div 
+                  key={index}
+                  className={`bg-gradient-to-br ${
+                    index === 0 ? 'from-blue-500/10 to-blue-600/10 border-blue-500/20' :
+                    index === 1 ? 'from-green-500/10 to-green-600/10 border-green-500/20' :
+                    index === 2 ? 'from-emerald-500/10 to-emerald-600/10 border-emerald-500/20' :
+                    index === 3 ? 'from-yellow-500/10 to-yellow-600/10 border-yellow-500/20' :
+                    index === 4 ? 'from-purple-500/10 to-purple-600/10 border-purple-500/20' :
+                    'from-pink-500/10 to-pink-600/10 border-pink-500/20'
+                  } rounded-3xl p-6 border`}
+                >
+                  {card.emoji ? (
+                    <div className="text-4xl mb-4">{card.emoji}</div>
+                  ) : card.icon ? (
+                    <div className="mb-4">
+                      <img 
+                        src={card.icon}
+                        alt={card.title}
+                        className="w-10 h-10 object-contain"
+                        width={40}
+                        height={40}
+                      />
+                    </div>
+                  ) : null}
+                  <h3 className="text-xl font-bold text-white mb-3">
+                    {card.link ? (
+                      <Link href={card.link} className="hover:text-yellow-400">{card.title}</Link>
+                    ) : (
+                      card.title
+                    )}
+                  </h3>
+                  <p className="text-gray-300">
+                    {card.reservaLink ? (
+                      <>
+                        {card.desc.split(content.reserva)[0]}
+                        <Link href={card.reservaLink} className="text-yellow-400 hover:text-yellow-300 underline">{content.reserva}</Link>
+                        {card.desc.split(content.reserva)[1]}
+                      </>
+                    ) : (
+                      card.desc
+                    )}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  <Link href="/es/product/ai-concierge" className="hover:text-yellow-400">Agentes de WhatsApp</Link>
-                </h3>
-                <p className="text-gray-300">que cierran <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link> automáticamente</p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 rounded-3xl p-6 border border-emerald-500/20">
-                <div className="text-4xl mb-4">✅</div>
-                <h3 className="text-xl font-bold text-white mb-3">Cero intervención humana</h3>
-                <p className="text-gray-300">en la mayoría de las <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link></p>
-              </div>
-
-              {/* Card 4 */}
-              <div className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 rounded-3xl p-6 border border-yellow-500/20">
-                <div className="text-4xl mb-4">⚡</div>
-                <h3 className="text-xl font-bold text-white mb-3">Respuestas inmediatas</h3>
-                <p className="text-gray-300">→ mejor conversión</p>
-              </div>
-
-              {/* Card 5 */}
-              <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-3xl p-6 border border-purple-500/20">
-                <div className="mb-4">
-                  <img 
-                    src="/images/instagram-icon.svg" 
-                    alt="Instagram" 
-                    className="w-10 h-10 object-contain"
-                    width={40}
-                    height={40}
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  <Link href="/es/product/ai-concierge" className="hover:text-yellow-400">Agente de Instagram</Link>
-                </h3>
-                <p className="text-gray-300">responde mensajes y consultas automáticamente</p>
-              </div>
-
-              {/* Card 6 */}
-              <div className="bg-gradient-to-br from-pink-500/10 to-pink-600/10 rounded-3xl p-6 border border-pink-500/20">
-                <div className="text-4xl mb-4">⭐</div>
-                <h3 className="text-xl font-bold text-white mb-3">Mejor experiencia del cliente</h3>
-                <p className="text-gray-300">servicio 24/7</p>
-              </div>
+              ))}
             </div>
 
             <div className="text-center mt-12">
-              <p className="text-3xl font-bold text-white">Más ingresos, menos esfuerzo.</p>
+              <p className="text-3xl font-bold text-white">{content.moreRevenueLessWork}</p>
             </div>
           </div>
         </div>
@@ -308,7 +481,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
-                Cómo lo Logramos
+                {content.howWeDidIt}
               </h2>
             </div>
 
@@ -316,25 +489,25 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
               {/* 1. Website */}
               <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-10 border border-gray-800">
                 <h3 className="text-2xl font-black text-white mb-4">
-                  1. Un website de alto rendimiento
+                  {content.website.title}
                 </h3>
                 <ul className="space-y-2 text-gray-300 ml-6">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Ultra rápido y orientado a conversión</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Pensado para turistas</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Flujo optimizado de <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link></span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Claridad y velocidad</span>
-                  </li>
+                  {content.website.bullets.map((bullet, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="mr-2">•</span>
+                      <span>
+                        {bullet.includes(content.reservas) ? (
+                          <>
+                            {bullet.split(content.reservas)[0]}
+                            <Link href={`/${locale}/product/direct-bookings`} className="text-yellow-400 hover:text-yellow-300 underline">{content.reservas}</Link>
+                            {bullet.split(content.reservas)[1]}
+                          </>
+                        ) : (
+                          bullet
+                        )}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
                 <div className="mt-6 pt-6 border-t border-gray-800 space-y-4 text-center">
                   <a
@@ -343,7 +516,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors duration-200"
                   >
-                    Visitar sitio web →
+                    {content.website.cta}
                   </a>
                 </div>
               </div>
@@ -351,33 +524,25 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
               {/* 2. Agente en el Website */}
               <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-10 border border-gray-800">
                 <h3 className="text-2xl font-black text-white mb-4">
-                  2. Agente en el Website
+                  {content.agent.title}
                 </h3>
                 <ul className="space-y-2 text-gray-300 ml-6">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Responde preguntas</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Muestra la sucursal cercana</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Sugiere horarios</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Crea y modifica <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link></span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Envía recordatorios</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Se integra con el CRM</span>
-                  </li>
+                  {content.agent.bullets.map((bullet, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="mr-2">•</span>
+                      <span>
+                        {bullet.includes(content.reservas) ? (
+                          <>
+                            {bullet.split(content.reservas)[0]}
+                            <Link href={`/${locale}/product/direct-bookings`} className="text-yellow-400 hover:text-yellow-300 underline">{content.reservas}</Link>
+                            {bullet.split(content.reservas)[1]}
+                          </>
+                        ) : (
+                          bullet
+                        )}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
                 <div className="mt-6 pt-6 border-t border-gray-800 text-center">
                   <a
@@ -386,7 +551,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors duration-200"
                   >
-                    Probar el agente →
+                    {content.agent.cta}
                   </a>
                 </div>
               </div>
@@ -394,33 +559,29 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
               {/* 3. Agente de WhatsApp + Instagram */}
               <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-10 border border-gray-800">
                 <h3 className="text-2xl font-black text-white mb-4">
-                  3. Agente de WhatsApp + Instagram
+                  {content.whatsapp.title}
                 </h3>
-                <p className="text-lg text-gray-300 mb-4">El canal donde más escribe la gente.</p>
+                <p className="text-lg text-gray-300 mb-4">{content.whatsapp.intro}</p>
                   <ul className="space-y-2 text-gray-300 ml-6">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Responde al instante</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Atiende turistas en varios idiomas</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Cierra <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link> automáticamente</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Escala grupos grandes</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Agrega todo al CRM</span>
-                  </li>
+                  {content.whatsapp.bullets.map((bullet, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="mr-2">•</span>
+                      <span>
+                        {bullet.includes(content.reservas) ? (
+                          <>
+                            {bullet.split(content.reservas)[0]}
+                            <Link href={`/${locale}/product/direct-bookings`} className="text-yellow-400 hover:text-yellow-300 underline">{content.reservas}</Link>
+                            {bullet.split(content.reservas)[1]}
+                          </>
+                        ) : (
+                          bullet
+                        )}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
                 <p className="text-lg text-white font-medium mt-4">
-                  Parte del salto del 356% viene de estos canales.
+                  {content.whatsapp.footer}
                 </p>
                 <div className="mt-6 pt-6 border-t border-gray-800 text-center">
                   <a
@@ -429,7 +590,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition-colors duration-200"
                   >
-                    Pruébalo ahora →
+                    {content.whatsapp.cta}
                   </a>
                 </div>
               </div>
@@ -437,21 +598,26 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
               {/* 4. Google Business Profile */}
               <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-10 border border-gray-800">
                 <h3 className="text-2xl font-black text-white mb-4">
-                  4. Optimización del Perfil de Google Business
+                  {content.googleBusiness.title}
                 </h3>
-                <p className="text-lg text-gray-300 mb-4">RAY mejoró:</p>
+                <p className="text-lg text-gray-300 mb-4">{content.googleBusiness.intro}</p>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
-                  <div className="text-gray-300">• Categorías</div>
-                  <div className="text-gray-300">• Keywords</div>
-                  <div className="text-gray-300">• Fotos</div>
-                  <div className="text-gray-300">• Reseñas</div>
-                  <div className="text-gray-300">• Datos estructurados</div>
-                  <div className="text-gray-300">• Tracking</div>
+                  {content.googleBusiness.items.map((item, idx) => (
+                    <div key={idx} className="text-gray-300">• {item}</div>
+                  ))}
                 </div>
                 <div className="mt-6 pt-6 border-t border-gray-800">
-                  <p className="text-lg font-medium text-white mb-2">Resultado:</p>
+                  <p className="text-lg font-medium text-white mb-2">{content.googleBusiness.result}</p>
                   <p className="text-xl text-yellow-400 font-bold">
-                    +259% más direcciones → más visitas → más <Link href="/es/product/direct-bookings" className="text-yellow-400 hover:text-yellow-300 underline">reservas</Link> → más ingresos
+                    {content.googleBusiness.resultText.includes(content.reservas) ? (
+                      <>
+                        {content.googleBusiness.resultText.split(content.reservas)[0]}
+                        <Link href={`/${locale}/product/direct-bookings`} className="text-yellow-400 hover:text-yellow-300 underline">{content.reservas}</Link>
+                        {content.googleBusiness.resultText.split(content.reservas)[1]}
+                      </>
+                    ) : (
+                      content.googleBusiness.resultText
+                    )}
                   </p>
                 </div>
               </div>
@@ -465,58 +631,55 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
-              Impacto Real
+              {content.realImpact}
             </h2>
           </div>
 
           <div className="max-w-5xl mx-auto">
             {/* Impact Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-              <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-3xl p-8 border border-yellow-500/20">
-                <div className="text-xl font-bold text-white mb-2">💰 Mucho más ingreso directo</div>
-                <div className="text-5xl font-black text-yellow-400 mb-2">+356%</div>
-                <div className="text-gray-300">de reservas sin comisiones</div>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-3xl p-8 border border-green-500/20">
-                <div className="text-xl font-bold text-white mb-2">⏱ Mucho menos trabajo</div>
-                <div className="text-5xl font-black text-green-400 mb-2">24/7</div>
-                <div className="text-gray-300">atención automatizada para el equipo</div>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-3xl p-8 border border-blue-500/20">
-                <div className="text-xl font-bold text-white mb-2">🤖 Atención automatizada</div>
-                <div className="text-5xl font-black text-blue-400 mb-2">100%</div>
-                <div className="text-gray-300">de reservas sin intervención humana</div>
-              </div>
-
-              <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm rounded-3xl p-8 border border-purple-500/20">
-                <div className="text-xl font-bold text-white mb-2">📈 CRM unificado</div>
-                <div className="text-5xl font-black text-purple-400 mb-2">Todo</div>
-                <div className="text-gray-300">los datos en un solo lugar</div>
-              </div>
+              {content.impactCards.map((card, index) => (
+                <div 
+                  key={index}
+                  className={`bg-gradient-to-br backdrop-blur-sm rounded-3xl p-8 border ${
+                    index === 0 ? 'from-yellow-500/10 to-orange-500/10 border-yellow-500/20' :
+                    index === 1 ? 'from-green-500/10 to-emerald-500/10 border-green-500/20' :
+                    index === 2 ? 'from-blue-500/10 to-cyan-500/10 border-blue-500/20' :
+                    'from-purple-500/10 to-pink-500/10 border-purple-500/20'
+                  }`}
+                >
+                  <div className="text-xl font-bold text-white mb-2">{card.emoji} {card.title}</div>
+                  <div className={`text-5xl font-black mb-2 ${
+                    index === 0 ? 'text-yellow-400' :
+                    index === 1 ? 'text-green-400' :
+                    index === 2 ? 'text-blue-400' :
+                    'text-purple-400'
+                  }`}>{card.value}</div>
+                  <div className="text-gray-300">{card.desc}</div>
+                </div>
+              ))}
             </div>
 
             {/* System Flow */}
             <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 border border-gray-800 mb-12">
               <h3 className="text-2xl font-black text-white mb-6 text-center">
-                🧩 Un sistema completo:
+                {content.completeSystem}
               </h3>
               <div className="flex flex-wrap items-center justify-center gap-3 text-lg">
-                <Link href="/es/product/walk-ins" className="text-yellow-400 font-bold hover:text-yellow-300 underline">Maps</Link>
+                <Link href={`/${locale}/product/walk-ins`} className="text-yellow-400 font-bold hover:text-yellow-300 underline">Maps</Link>
                 <span className="text-gray-500">→</span>
-                <Link href="/es/product/restaurant-website-ai" className="text-green-400 font-bold hover:text-green-300 underline">Website</Link>
+                <Link href={`/${locale}/product/restaurant-website-ai`} className="text-green-400 font-bold hover:text-green-300 underline">Website</Link>
                 <span className="text-gray-500">→</span>
-                <Link href="/es/product/ai-agent" className="text-blue-400 font-bold hover:text-blue-300 underline">Agente</Link>
+                <Link href={`/${locale}/product/ai-agent`} className="text-blue-400 font-bold hover:text-blue-300 underline">{locale === 'es' ? 'Agente' : 'Agent'}</Link>
                 <span className="text-gray-500">→</span>
-                <Link href="/es/product/direct-bookings" className="text-purple-400 font-bold hover:text-purple-300 underline">Reserva</Link>
+                <Link href={`/${locale}/product/direct-bookings`} className="text-purple-400 font-bold hover:text-purple-300 underline">{locale === 'es' ? 'Reserva' : 'Booking'}</Link>
                 <span className="text-gray-500">→</span>
                 <span className="text-pink-400 font-bold">CRM</span>
                 <span className="text-gray-500">→</span>
-                <Link href="/es/product/loyalty" className="text-orange-400 font-bold hover:text-orange-300 underline">Fidelización</Link>
+                <Link href={`/${locale}/product/loyalty`} className="text-orange-400 font-bold hover:text-orange-300 underline">{locale === 'es' ? 'Fidelización' : 'Loyalty'}</Link>
               </div>
               <p className="text-center text-xl text-white font-medium mt-8">
-                Temple ahora opera como una marca del futuro.
+                {content.systemFlow}
               </p>
             </div>
 
@@ -525,23 +688,23 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
               <div className="text-center">
                 <Image
                   src="/images/success-stories/Testimonials/Juani-Chereminiano-optimized.jpg"
-                  alt="Juan Ignacio Chereminiano - Temple Craft"
+                  alt={`${content.testimonialAuthor} - Temple Craft`}
                   width={120}
                   height={120}
                   className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover mx-auto mb-6"
                   loading="lazy"
                 />
                 <blockquote className="text-2xl md:text-3xl text-white font-medium leading-relaxed mb-8">
-                  "RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a más de 130 solo en dos locales — y el equipo casi no interviene. El agente de IA hace todo, y la experiencia del cliente mejoró muchísimo."
+                  {content.testimonialQuote}
                 </blockquote>
                 
                 <div className="flex items-center justify-center">
                   <div className="text-center">
                     <div className="font-black text-white text-lg">
-                      Juan Ignacio Chereminiano
+                      {content.testimonialAuthor}
                     </div>
                     <div className="text-gray-400">
-                      CEO – Temple Craft
+                      {content.testimonialRole}
                     </div>
                   </div>
                 </div>
