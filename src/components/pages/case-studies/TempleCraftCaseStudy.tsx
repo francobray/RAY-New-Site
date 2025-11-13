@@ -66,16 +66,12 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 
                 <div className="space-y-6">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.9] tracking-tight">
-                    Temple Craft Aumenta sus{' '}
+                    Temple aumenta sus{' '}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500">
                       Reservas Directas 356%
                     </span>{' '}
                     con la Plataforma Todo-en-Uno de RAY
                   </h1>
-                  
-                  <p className="text-xl text-gray-300 leading-relaxed font-light">
-                    Temple pasó de recibir ~30 reservas directas por mes en Monroe y Barrio Chino a 137 reservas directas mensuales después de implementar RAY — un crecimiento del 356% en ingresos directos, sin pagar comisiones y con atención 100% automatizada.
-                  </p>
                 </div>
 
                 {/* KPI Cards */}
@@ -92,8 +88,8 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     <div className="flex items-center justify-center mb-3">
                       <Users className="w-8 h-8 text-green-400" />
                     </div>
-                    <div className="text-3xl font-black text-green-400 mb-1">137</div>
-                    <div className="text-gray-300 text-sm font-medium">Reservas/Mes</div>
+                    <div className="text-3xl font-black text-green-400 mb-1">12.000</div>
+                    <div className="text-gray-300 text-sm font-medium">Visitantes al Website</div>
                   </div>
                   
                   <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/20">
@@ -106,24 +102,30 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 </div>
               </div>
 
-              {/* Right Column - Visual Element */}
+              {/* Right Column - Team Image */}
               <div className="relative">
                 <div className="relative">
                   {/* Glow effect */}
                   <div className="absolute -inset-4 bg-gradient-to-r from-yellow-500/20 via-orange-500/20 to-yellow-500/20 rounded-3xl blur-2xl"></div>
                   
-                  {/* Main visual container */}
-                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 border border-gray-800">
-                    <div className="text-center space-y-6">
-                      <div className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
-                        356%
-                      </div>
-                      <div className="text-xl text-gray-300 font-medium">
-                        Crecimiento en Reservas
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        De 60 a 137 reservas/mes
-                      </div>
+                  {/* Team Image */}
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <Image
+                      src="/images/success-stories/Temple_Team.jpeg"
+                      alt="Temple Craft team at the Wynwood location celebrating explosive local growth"
+                      width={1200}
+                      height={600}
+                      className="w-full h-[400px] md:h-[500px] object-cover"
+                      sizes="(max-width: 768px) 100vw, 1200px"
+                      priority
+                      quality={85}
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
+                      <p className="text-white text-sm md:text-base font-medium">
+                        Temple Craft team celebrating explosive growth
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -139,32 +141,6 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
           </div>
         </div>
       </section>
-
-      {/* Team Image Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-            <Image
-              src="/images/success-stories/Temple_Team.jpeg"
-              alt="Temple Craft team at the Wynwood location celebrating explosive local growth"
-              width={1200}
-              height={600}
-              className="w-full h-[400px] md:h-[500px] object-cover"
-              sizes="(max-width: 768px) 100vw, 1200px"
-              priority
-              quality={85}
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
-              <p className="text-white text-lg font-medium">
-                Temple Craft team at the Wynwood location – celebrating explosive local growth
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
 
       {/* Insight Principal */}
       <section className="py-20 bg-gray-900">
@@ -301,24 +277,50 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
               </h2>
             </div>
 
-            <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* 1. Website */}
               <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-10 border border-gray-800">
                 <h3 className="text-2xl font-black text-white mb-4">
-                  1. Un website de alto rendimiento (temple.com.ar)
+                  1. Un website de alto rendimiento
                 </h3>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Ultra rápido, orientado a conversión, pensado para turistas.<br/>
-                  Claridad, velocidad y un flujo optimizado de reservas.
-                </p>
+                <ul className="space-y-2 text-gray-300 ml-6">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Ultra rápido y orientado a conversión</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Pensado para turistas</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Flujo optimizado de reservas</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Claridad y velocidad</span>
+                  </li>
+                </ul>
+                <div className="mt-6 pt-6 border-t border-gray-800 space-y-4 text-center">
+                  <p className="text-xl text-green-400 font-bold">
+                    12.000 visitantes en 90 días
+                  </p>
+                  <a
+                    href="https://temple.com.ar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors duration-200"
+                  >
+                    Visitar sitio web →
+                  </a>
+                </div>
               </div>
 
               {/* 2. Agente en el Website */}
               <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-10 border border-gray-800">
                 <h3 className="text-2xl font-black text-white mb-4">
-                  2. Agente en el Website (FAQs + Ubicaciones + Reservas)
+                  2. Agente en el Website
                 </h3>
-                <p className="text-lg text-gray-300 mb-4">El agente:</p>
                 <ul className="space-y-2 text-gray-300 ml-6">
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
@@ -345,9 +347,16 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                     <span>Se integra con el CRM</span>
                   </li>
                 </ul>
-                <p className="text-lg text-white font-medium mt-4">
-                  El sitio se convirtió en un empleado 24/7 que vende solo.
-                </p>
+                <div className="mt-6 pt-6 border-t border-gray-800 text-center">
+                  <a
+                    href="https://temple.com.ar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors duration-200"
+                  >
+                    Probar el agente →
+                  </a>
+                </div>
               </div>
 
               {/* 3. Agente de WhatsApp + Instagram */}
@@ -356,8 +365,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                   3. Agente de WhatsApp + Instagram
                 </h3>
                 <p className="text-lg text-gray-300 mb-4">El canal donde más escribe la gente.</p>
-                <p className="text-lg text-gray-300 mb-4">El agente:</p>
-                <ul className="space-y-2 text-gray-300 ml-6">
+                  <ul className="space-y-2 text-gray-300 ml-6">
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
                     <span>Responde al instante</span>
@@ -382,6 +390,16 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
                 <p className="text-lg text-white font-medium mt-4">
                   Parte del salto del 356% viene de estos canales.
                 </p>
+                <div className="mt-6 pt-6 border-t border-gray-800 text-center">
+                  <a
+                    href="https://api.whatsapp.com/send/?phone=5491126239333&text&type=phone_number&app_absent=0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition-colors duration-200"
+                  >
+                    Pruébalo ahora →
+                  </a>
+                </div>
               </div>
 
               {/* 4. Google Business Profile */}
@@ -476,6 +494,14 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
             {/* Testimonial */}
             <div className="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 md:p-12 border border-gray-800">
               <div className="text-center">
+                <Image
+                  src="/images/success-stories/Testimonials/Juani-Chereminiano-optimized.jpg"
+                  alt="Juan Ignacio Chereminiano - Temple Craft"
+                  width={120}
+                  height={120}
+                  className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover mx-auto mb-6"
+                  loading="lazy"
+                />
                 <blockquote className="text-2xl md:text-3xl text-white font-medium leading-relaxed mb-8">
                   "RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a más de 130 solo en dos locales — y el equipo casi no interviene. El agente de IA hace todo, y la experiencia del cliente mejoró muchísimo."
                 </blockquote>
