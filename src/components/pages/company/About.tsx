@@ -47,12 +47,12 @@ const About: React.FC<AboutProps> = ({ locale }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Franco Breciano Card */}
               <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative aspect-[3/4] bg-gray-100">
+                <div className="relative h-[500px] bg-gray-100">
                   <Image
                     src="/images/company/Franco.webp"
                     alt="Franco Breciano - Co-Founder & CEO"
                     fill
-                    className="object-cover object-[center_20%]"
+                    className="object-contain"
                     priority
                   />
                 </div>
@@ -79,12 +79,12 @@ const About: React.FC<AboutProps> = ({ locale }) => {
 
               {/* Sebastian Cadenas Card */}
               <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative aspect-[3/4] bg-gray-100">
+                <div className="relative h-[500px] bg-gray-100">
                   <Image
                     src="/images/company/Sebastian-Cadenas.webp"
                     alt="Sebastian Cadenas - Co-Founder & CTO"
                     fill
-                    className="object-cover object-center"
+                    className="object-contain"
                     priority
                   />
                 </div>
@@ -128,7 +128,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
               '/images/success-stories/Temple_Team.webp', 
               '/images/success-stories/Havana-1957.webp',
               '/images/success-stories/parolaccia.webp',
-              '/images/success-stories/WingsFC.webp',
+              '/images/success-stories/Chimba_Miami_Celebrating.webp',
               '/images/success-stories/Dolcezza.webp'
             ].map((image, index) => (
               <div key={index} className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-lg">
@@ -193,7 +193,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
             src="/images/bookings/fondo-bookings-01.avif"
             alt="Restaurant background"
             fill
-            className="object-cover object-[center_35%]"
+            className="object-cover object-center"
             priority
           />
           <div className="absolute inset-0 bg-black/40"></div>
