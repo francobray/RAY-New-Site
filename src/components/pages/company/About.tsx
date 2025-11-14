@@ -131,7 +131,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
               '/images/success-stories/WingsFC.webp',
               '/images/success-stories/Dolcezza.webp'
             ].map((image, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg" style={{ minHeight: '200px' }}>
+              <div key={index} className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src={image}
                   alt={`Local business owner ${index + 1}`}
