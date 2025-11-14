@@ -39,15 +39,15 @@ const About: React.FC<AboutProps> = ({ locale }) => {
           </div>
           
           {/* Founders Section */}
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-ray-dark-900 text-center mb-12">
               {t.ABOUT_PAGE.FOUNDERS.TITLE}
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Franco Breciano Card */}
               <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative h-[500px] bg-gray-100">
+                <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100">
                   <Image
                     src="/images/company/Franco.webp"
                     alt="Franco Breciano - Co-Founder & CEO"
@@ -79,7 +79,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
 
               {/* Sebastian Cadenas Card */}
               <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative h-[500px] bg-gray-100">
+                <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100">
                   <Image
                     src="/images/company/Sebastian-Cadenas.webp"
                     alt="Sebastian Cadenas - Co-Founder & CTO"
