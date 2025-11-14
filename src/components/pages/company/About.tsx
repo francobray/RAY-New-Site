@@ -47,7 +47,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Franco Breciano Card */}
               <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative aspect-[2/3] bg-gray-100">
+                <div className="relative aspect-[3/4] bg-gray-100">
                   <Image
                     src="/images/company/Franco.webp"
                     alt="Franco Breciano - Co-Founder & CEO"
@@ -79,7 +79,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
 
               {/* Sebastian Cadenas Card */}
               <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative aspect-square bg-gray-100">
+                <div className="relative aspect-[3/4] bg-gray-100">
                   <Image
                     src="/images/company/Sebastian-Cadenas.webp"
                     alt="Sebastian Cadenas - Co-Founder & CTO"
