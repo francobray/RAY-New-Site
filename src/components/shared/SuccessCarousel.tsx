@@ -190,7 +190,7 @@ const getSuccessStories = (): SuccessStory[] => [
     id: 2,
     ownerName: 'Juan Ignacio Chereminiano', 
     restaurantName: 'Temple',
-    metric: '+367%',
+    metric: '+365%',
     image: '/images/success-stories/Temple_Team.jpeg',
     bgGradient: 'from-blue-600 to-blue-700',
     slug: 'temple'

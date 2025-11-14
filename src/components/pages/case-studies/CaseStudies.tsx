@@ -22,11 +22,11 @@ const getCaseStudiesData = (locale: Locale, t: any) => [
     industry: t.CASE_STUDIES_DATA.INDUSTRIES.CRAFT_BEER_NIGHTLIFE,
     image: '/images/success-stories/Temple_Team.jpeg',
     keyMetrics: [
-      { label: locale === 'es' ? 'Reservas Directas' : 'Direct Bookings', value: '+367%', icon: Eye },
+      { label: locale === 'es' ? 'Reservas Directas' : 'Direct Bookings', value: '+365%', icon: Eye },
       { label: locale === 'es' ? 'Visitantes al Website' : 'Website Visitors', value: '12.000', icon: Users },
       { label: locale === 'es' ? 'Conversaciones del Agente AI' : 'AI Agent Conversations', value: '228', icon: Star }
     ],
-    headline: locale === 'es' ? 'Temple aumenta sus Reservas Directas 367% con RAY' : 'Temple Increases Direct Bookings by 367% with RAY',
+    headline: locale === 'es' ? 'Temple aumenta sus Reservas Directas 365% con RAY' : 'Temple Increases Direct Bookings by 365% with RAY',
     description: locale === 'es' ? 'De 30 a 140 reservas directas mensuales. Sin comisiones, atención 100% automatizada.' : 'From 30 to 140 monthly direct bookings. Zero commissions, 100% automated service.',
     tags: locale === 'es' ? ['Reservas Directas', 'Automatización', 'AI'] : ['Direct Bookings', 'Automation', 'AI'],
     testimonial: {

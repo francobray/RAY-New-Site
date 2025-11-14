@@ -38,7 +38,7 @@ const customers = [
     name: 'Temple',
     owner: 'Juan Ignacio Chereminiano',
     title: 'CEO - Temple',
-    metric: '+367%',
+    metric: '+365%',
     category: 'Direct Bookings',
     image: '/images/success-stories/Temple_Team.jpeg',
     bgColor: 'from-blue-600 to-blue-700'
