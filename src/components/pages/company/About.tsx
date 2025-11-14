@@ -1,11 +1,16 @@
 'use client'
 
 import React from 'react'
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
+
+// Dynamically import CTASection to reduce initial bundle size
+const CTASection = dynamic(() => import('../../shared/CTASection'), {
+  ssr: true,
+  loading: () => null,
+})
 
 interface AboutProps {
   locale: Locale
@@ -185,47 +190,7 @@ const About: React.FC<AboutProps> = ({ locale }) => {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="relative py-12 min-h-[400px] flex items-center">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/bookings/fondo-bookings-01.avif"
-            alt="Restaurant background"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[200px]">
-            {/* Left Column - Text Content */}
-            <div className="text-left">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 leading-tight">
-                {t.ABOUT_PAGE.FINAL_CTA.TITLE}
-              </h2>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 leading-tight">
-                {t.ABOUT_PAGE.FINAL_CTA.CTA_TITLE}
-              </h3>
-            </div>
-            
-            {/* Right Column - Empty space for visual balance */}
-            <div></div>
-          </div>
-          
-          {/* Centered CTA Button at bottom */}
-          <div className="text-center mt-8">
-            <Link href={`/${locale}/demo`} className="bg-ray-blue text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-ray-blue/90 transition-colors duration-200 flex items-center gap-2 mx-auto shadow-lg inline-flex">
-              {t.ABOUT_PAGE.FINAL_CTA.CTA_BUTTON}
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-
+      <CTASection locale={locale} />
     </>
   )
 }
