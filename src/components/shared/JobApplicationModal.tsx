@@ -56,6 +56,10 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
       errors.linkedIn = locale === 'es' ? 'El LinkedIn es requerido' : 'LinkedIn is required'
     }
     
+    if (!formData.resumeUrl.trim()) {
+      errors.resumeUrl = locale === 'es' ? 'El CV/Resume es requerido' : 'Resume URL is required'
+    }
+    
     if (!formData.coverLetter.trim()) {
       errors.coverLetter = locale === 'es' ? 'La carta de presentación es requerida' : 'Cover letter is required'
     }
@@ -284,7 +288,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {locale === 'es' ? 'URL de CV/Resume' : 'Resume URL'}
+                  {locale === 'es' ? 'URL de CV/Resume' : 'Resume URL'} *
                 </label>
                 <input
                   type="url"
@@ -292,8 +296,14 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
                   value={formData.resumeUrl}
                   onChange={handleInputChange}
                   placeholder="https://..."
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                    formErrors.resumeUrl ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  required
                 />
+                {formErrors.resumeUrl && (
+                  <p className="text-red-500 text-sm mt-1">{formErrors.resumeUrl}</p>
+                )}
                 <p className="text-xs text-gray-500 mt-1">
                   {locale === 'es' ? 'Google Drive, Dropbox, etc.' : 'Google Drive, Dropbox, etc.'}
                 </p>

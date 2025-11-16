@@ -32,8 +32,8 @@ export async function POST(request: NextRequest) {
           return { valid: true }
         }
         case 'job-application': {
-          const { firstName, lastName, email, phone, jobTitle, linkedIn, coverLetter } = body
-          if (isEmpty(firstName) || isEmpty(lastName) || isEmpty(email) || isEmpty(phone) || isEmpty(jobTitle) || isEmpty(linkedIn) || isEmpty(coverLetter)) {
+          const { firstName, lastName, email, phone, jobTitle, linkedIn, resumeUrl, coverLetter } = body
+          if (isEmpty(firstName) || isEmpty(lastName) || isEmpty(email) || isEmpty(phone) || isEmpty(jobTitle) || isEmpty(linkedIn) || isEmpty(resumeUrl) || isEmpty(coverLetter)) {
             return { valid: false, message: 'Missing required fields for job application' }
           }
           if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
