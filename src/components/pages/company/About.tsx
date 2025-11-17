@@ -94,9 +94,17 @@ const About: React.FC<AboutProps> = ({ locale }) => {
                   <p className="text-sm text-ray-blue font-semibold mb-4">
                     {t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.TITLE}
                   </p>
-                  <p className="text-sm text-ray-dark-700 leading-relaxed">
-                    {t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.BIO}
-                  </p>
+                  {Array.isArray(t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.BIO) ? (
+                    t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.BIO.map((paragraph: string, index: number) => (
+                      <p key={index} className={`text-sm text-ray-dark-700 leading-relaxed ${index > 0 ? 'mt-4' : ''}`}>
+                        {paragraph}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="text-sm text-ray-dark-700 leading-relaxed">
+                      {t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.BIO}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
