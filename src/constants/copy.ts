@@ -2631,7 +2631,7 @@ export const COPY: Record<Locale, any> = {
         SEBASTIAN: {
           NAME: 'Sebastian Cadenas',
           TITLE: 'Co-Founder & CTO',
-          BIO: 'Sebastian brings deep expertise and a unique understanding of restaurant needs. His focus on creating simple yet powerful solutions has been instrumental in making RAYs technology accessible to restaurant owners of all sizes across the United States and Latin America.'
+          BIO: 'Sebastian joined RAY to empower restaurant owners and operators to turn every customer interaction into growth, drawing from his economics background and fintech roots in scaling startups across Latin America and the United States. His first company, Road2Argentina, connected global talent to study and volunteer opportunities. He then became a partner and Head of Marketing at Results.com, where he drove the brand for its expansion throughout United States and Canada. His latest company, founded in 2014, was Increase.app, a fintech powerhouse for SME financial reconciliation that served 20,000+ points of sale, won Visa Everywhere and Google Demo Day awards, and was acquired by Argenpay, the fintech arm of Argentina\'s second-largest private bank, Banco Macro. When not in front of his computer, he can be found reading, cooking for family and friends, training for a marathon, hiking a mountain, or traveling.'
         }
       },
       LOCAL_HEROES: {
