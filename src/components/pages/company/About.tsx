@@ -56,20 +56,20 @@ const About: React.FC<AboutProps> = ({ locale }) => {
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-2">
+                  <h3 className="text-xl font-bold text-ray-dark-900 mb-2">
                     {t.ABOUT_PAGE.FOUNDERS.FRANCO.NAME}
                   </h3>
-                  <p className="text-ray-blue font-semibold mb-4">
+                  <p className="text-sm text-ray-blue font-semibold mb-4">
                     {t.ABOUT_PAGE.FOUNDERS.FRANCO.TITLE}
                   </p>
                   {Array.isArray(t.ABOUT_PAGE.FOUNDERS.FRANCO.BIO) ? (
                     t.ABOUT_PAGE.FOUNDERS.FRANCO.BIO.map((paragraph: string, index: number) => (
-                      <p key={index} className={`text-ray-dark-700 leading-relaxed ${index > 0 ? 'mt-4' : ''}`}>
+                      <p key={index} className={`text-sm text-ray-dark-700 leading-relaxed ${index > 0 ? 'mt-4' : ''}`}>
                         {paragraph}
                       </p>
                     ))
                   ) : (
-                    <p className="text-ray-dark-700 leading-relaxed">
+                    <p className="text-sm text-ray-dark-700 leading-relaxed">
                       {t.ABOUT_PAGE.FOUNDERS.FRANCO.BIO}
                     </p>
                   )}
@@ -88,13 +88,13 @@ const About: React.FC<AboutProps> = ({ locale }) => {
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-ray-dark-900 mb-2">
+                  <h3 className="text-xl font-bold text-ray-dark-900 mb-2">
                     {t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.NAME}
                   </h3>
-                  <p className="text-ray-blue font-semibold mb-4">
+                  <p className="text-sm text-ray-blue font-semibold mb-4">
                     {t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.TITLE}
                   </p>
-                  <p className="text-ray-dark-700 leading-relaxed">
+                  <p className="text-sm text-ray-dark-700 leading-relaxed">
                     {t.ABOUT_PAGE.FOUNDERS.SEBASTIAN.BIO}
                   </p>
                 </div>
