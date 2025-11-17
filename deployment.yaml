@@ -57,10 +57,10 @@ spec:
 
         resources:
           requests:
-            cpu: "500m"
-            memory: "400Mi"
+            cpu: "100m"
+            memory: "300Mi"
           limits:
-            cpu: "750m"
+            cpu: "1500m"
             memory: "600Mi"
         readinessProbe: # <--- ADDED THIS SECTION
           httpGet:
