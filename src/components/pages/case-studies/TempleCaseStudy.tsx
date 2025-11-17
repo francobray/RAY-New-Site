@@ -14,11 +14,11 @@ const CTASection = dynamic(() => import('../../shared/CTASection'), {
   loading: () => null,
 })
 
-interface TempleCraftCaseStudyProps {
+interface TempleCaseStudyProps {
   locale: Locale
 }
 
-const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) => {
+const TempleCaseStudy: React.FC<TempleCaseStudyProps> = ({ locale }) => {
   const t = useTranslations(locale)
   
   // Content variations based on locale
@@ -32,7 +32,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     kpi4: { emoji: '📅', value: '39', label: 'Reservas por el Agente AI' },
     kpi5: { emoji: '👨‍👩‍👧‍👦', value: '4.027', label: 'Personas en Reservas Confirmadas' },
     kpi6: { emoji: '🎉', value: '491', label: 'Personas en Eventos XL (25+)' },
-    teamCaption: 'Temple Craft team celebrating explosive growth',
+    teamCaption: 'Temple team celebrating explosive growth',
     insightTitle: '🎉 Crecimiento del 365% en Reservas Directas',
     beforeRAY: 'Antes de RAY (baseline):',
     afterRAY: 'Después de activar RAY:',
@@ -109,7 +109,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     systemFlow: 'Temple ahora opera como una marca del futuro.',
     testimonialQuote: '"RAY nos multiplicó las reservas directas. Pasamos de 30 por mes a 140 solo en dos locales — y el equipo casi no interviene. El agente de IA hace todo, y la experiencia del cliente mejoró muchísimo."',
     testimonialAuthor: 'Juan Ignacio Chereminiano',
-    testimonialRole: 'CEO – Temple Craft',
+    testimonialRole: 'CEO – Temple',
     reserva: 'reserva',
     reservas: 'reservas'
   } : {
@@ -122,7 +122,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     kpi4: { emoji: '📅', value: '39', label: 'Bookings by AI Agent' },
     kpi5: { emoji: '👨‍👩‍👧‍👦', value: '4,027', label: 'People in Confirmed Bookings' },
     kpi6: { emoji: '🎉', value: '491', label: 'People in XL Events (25+)' },
-    teamCaption: 'Temple Craft team celebrating explosive growth',
+    teamCaption: 'Temple team celebrating explosive growth',
     insightTitle: '🎉 365% Growth in Direct Bookings',
     beforeRAY: 'Before RAY (baseline):',
     afterRAY: 'After activating RAY:',
@@ -199,7 +199,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
     systemFlow: 'Temple now operates like a brand of the future.',
     testimonialQuote: '"RAY multiplied our direct bookings. We went from 30 per month to 140 in just two locations — and the team barely intervenes. The AI agent does everything, and the guest experience improved dramatically."',
     testimonialAuthor: 'Juan Ignacio Chereminiano',
-    testimonialRole: 'CEO – Temple Craft',
+    testimonialRole: 'CEO – Temple',
     reserva: 'booking',
     reservas: 'bookings'
   }
@@ -213,11 +213,11 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
         <p>{t.TEMPLE_CASE_STUDY.HERO_SUBTITLE}</p>
       </div>
 
-      {/* Hero Section - Temple Craft Brand Style */}
+      {/* Hero Section - Temple Brand Style */}
       <section className="relative min-h-screen bg-black text-white overflow-hidden">
         {/* Background Elements - Dark, Premium, Energetic */}
         <div className="absolute inset-0">
-          {/* Gradient overlays inspired by Temple Craft's dark, premium aesthetic */}
+          {/* Gradient overlays inspired by Temple's dark, premium aesthetic */}
           <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(255,215,0,0.1),transparent_50%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,140,0,0.08),transparent_50%)]"></div>
@@ -704,7 +704,7 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
               <div className="text-center">
                 <Image
                   src="/images/success-stories/Testimonials/Juani-Chereminiano-optimized.jpg"
-                  alt={`${content.testimonialAuthor} - Temple Craft`}
+                  alt={`${content.testimonialAuthor} - Temple`}
                   width={120}
                   height={120}
                   className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover mx-auto mb-6"
@@ -735,4 +735,4 @@ const TempleCraftCaseStudy: React.FC<TempleCraftCaseStudyProps> = ({ locale }) =
   )
 }
 
-export default TempleCraftCaseStudy
+export default TempleCaseStudy

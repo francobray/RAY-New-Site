@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ChimbaCaseStudy from '@/components/pages/case-studies/ChimbaCaseStudy'
-import TempleCraftCaseStudy from '@/components/pages/case-studies/TempleCraftCaseStudy'
+import TempleCaseStudy from '@/components/pages/case-studies/TempleCaseStudy'
 import VEHospitalityCaseStudy from '@/components/pages/case-studies/VEHospitalityCaseStudy'
 import GreenEatCaseStudy from '@/components/pages/case-studies/GreenEatCaseStudy'
 import HavannaCaseStudy from '@/components/pages/case-studies/HavannaCaseStudy'
@@ -50,7 +50,7 @@ const caseStudyData = {
   'temple': {
     title: 'Temple - 365% Growth in Direct Bookings | RAY',
     description: 'Discover how Temple achieved 365% increase in direct bookings and served over 4,000 people with RAY\'s all-in-one platform. Zero commissions, 100% automated service.',
-    component: TempleCraftCaseStudy
+    component: TempleCaseStudy
   },
   'havana-1957': {
     title: 'Havana 1957 - Cuban Restaurant Success | RAY',
