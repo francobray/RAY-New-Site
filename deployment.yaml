@@ -5,7 +5,7 @@ metadata:
   labels:
     app: ray-new-site
 spec:
-  replicas: 1 # Or your desired number of replicas
+  replicas: 2 # Or your desired number of replicas
   selector:
     matchLabels:
       app: ray-new-site
