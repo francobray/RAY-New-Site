@@ -2,15 +2,9 @@
 
 import React from 'react'
 import Image from 'next/image'
-import dynamic from 'next/dynamic'
+import CTASection from '../../shared/CTASection'
 import { useTranslations } from '../../../hooks/useTranslations'
 import { type Locale } from '@/lib/i18n'
-
-// Dynamically import CTASection to reduce initial bundle size
-const CTASection = dynamic(() => import('../../shared/CTASection'), {
-  ssr: true,
-  loading: () => null,
-})
 
 interface AboutProps {
   locale: Locale
