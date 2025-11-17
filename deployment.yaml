@@ -64,7 +64,7 @@ spec:
             memory: "600Mi"
         readinessProbe: # <--- ADDED THIS SECTION
           httpGet:
-            path: /es # The endpoint your Spring app exposes for health checks
+            path: /api/health # Health check endpoint that doesn't redirect
             port: 3000    # The port your container listens on
           initialDelaySeconds: 10 # Initial delay before readiness checks begin
           periodSeconds: 5      # How often to perform the check
@@ -124,7 +124,7 @@ spec:
       httpHealthCheck:
         portSpecification: USE_FIXED_PORT
         port: 3000
-        requestPath: /es
+        requestPath: /api/health
   targetRef:
     group: ""
     kind: Service
