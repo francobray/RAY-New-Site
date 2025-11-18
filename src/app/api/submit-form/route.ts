@@ -39,6 +39,10 @@ export async function POST(request: NextRequest) {
           if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             return { valid: false, message: 'Invalid email format' }
           }
+          // Validate that resumeUrl is a Google Drive link
+          if (!/^https:\/\/(drive\.google\.com|docs\.google\.com)/.test(resumeUrl.trim())) {
+            return { valid: false, message: 'Resume URL must be a Google Drive link' }
+          }
           return { valid: true }
         }
         default:

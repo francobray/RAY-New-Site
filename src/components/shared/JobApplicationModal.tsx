@@ -58,6 +58,14 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
     
     if (!formData.resumeUrl.trim()) {
       errors.resumeUrl = locale === 'es' ? 'El CV/Resume es requerido' : 'Resume URL is required'
+    } else {
+      // Validate that the URL is a Google Drive link
+      const isGoogleDrive = /^https:\/\/(drive\.google\.com|docs\.google\.com)/.test(formData.resumeUrl.trim())
+      if (!isGoogleDrive) {
+        errors.resumeUrl = locale === 'es' 
+          ? 'Por favor proporciona un enlace de Google Drive' 
+          : 'Please provide a Google Drive link'
+      }
     }
     
     if (!formData.coverLetter.trim()) {
@@ -288,14 +296,14 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {locale === 'es' ? 'URL de CV/Resume' : 'Resume URL'} *
+                  {locale === 'es' ? 'URL de CV/Resume (Google Drive)' : 'Resume URL (Google Drive)'} *
                 </label>
                 <input
                   type="url"
                   name="resumeUrl"
                   value={formData.resumeUrl}
                   onChange={handleInputChange}
-                  placeholder="https://..."
+                  placeholder={locale === 'es' ? 'https://drive.google.com/...' : 'https://drive.google.com/...'}
                   className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     formErrors.resumeUrl ? 'border-red-500' : 'border-gray-300'
                   }`}
@@ -305,7 +313,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
                   <p className="text-red-500 text-sm mt-1">{formErrors.resumeUrl}</p>
                 )}
                 <p className="text-xs text-gray-500 mt-1">
-                  {locale === 'es' ? 'Google Drive, Dropbox, etc.' : 'Google Drive, Dropbox, etc.'}
+                  {locale === 'es' ? 'Solo se aceptan enlaces de Google Drive' : 'Only Google Drive links are accepted'}
                 </p>
               </div>
             </div>
