@@ -151,9 +151,17 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
           {/* Notification bubble - appears after 5 seconds */}
           {showNotification && (
             <div className="mr-3 animate-bounce-slow">
-              <div className="relative bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-3 rounded-2xl shadow-xl" style={{ minWidth: '250px' }}>
+              <button
+                onClick={() => setIsOpen(true)}
+                className="relative bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-6 py-3 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
+                style={{ minWidth: '250px' }}
+                aria-label={locale === 'es' ? 'Abrir chat con RAY agent' : 'Open chat with RAY agent'}
+              >
                 <button
-                  onClick={() => setShowNotification(false)}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setShowNotification(false)
+                  }}
                   className="absolute -top-2 -right-2 bg-white text-gray-600 hover:text-gray-800 w-6 h-6 rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all z-10"
                   aria-label="Close notification"
                 >
@@ -161,12 +169,12 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
                 </button>
                 <p className="text-sm font-medium pr-2 leading-relaxed">
                   {locale === 'es' 
-                    ? '👋 ¿Tienes alguna pregunta?'
-                    : '👋 Do you have questions?'}
+                    ? '🔍 Escanea tu restaurante'
+                    : '🔍 Scan your restaurant'}
                 </p>
                 {/* Arrow pointing right towards the chat button */}
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-[10px] border-b-[10px] border-l-[10px] border-transparent border-l-teal-600"></div>
-              </div>
+              </button>
             </div>
           )}
           
