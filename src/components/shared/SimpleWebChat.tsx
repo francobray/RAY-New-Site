@@ -32,8 +32,8 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
       const welcomeMessage = {
         id: 'welcome',
         text: locale === 'es' 
-          ? 'Hola! Te puedo ayudar con preguntas sobre nuestras soluciones, preguntas sobre nuestro servicio, como escanear tu restaurante y agendando una demo con nuestro equipo para saber más'
-          : 'Hi! I\'m RAY agent 🚀 How can I help you today? Ask me about our products, pricing, demos, or anything about RAY.',
+          ? 'Puedes escanar tu restaurantes desde <a href="https://grader.rayapp.io/?utm_source=webchat&utm_medium=website&utm_campaign=Spanish" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-200 transition-colors">nuestro reporte en este link</a>'
+          : 'Scan your restaurant from with our grader <a href="https://grader.rayapp.io/?utm_source=webchat&utm_medium=website&utm_campaign=English" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-200 transition-colors">following this link</a>',
         isUser: false
       }
       setChatMessages([welcomeMessage])
@@ -235,7 +235,7 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
                         __html: msg.text
                           .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>') // **texto** -> <strong>texto</strong>
                           .replace(/\*\*/g, '<br>') // ** solos -> <br>
-                          .replace(/(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-200 transition-colors">$1</a>') // URLs -> links
+                          .replace(/(?<!href=")(https?:\/\/[^\s<>"{}|\\^`[\]]+)(?!")/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-200 transition-colors">$1</a>') // URLs -> links (but not if already in href)
                       }}
                     />
                   </div>
