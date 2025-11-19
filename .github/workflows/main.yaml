@@ -48,7 +48,8 @@ jobs:
         run: |-
           #sed -i "s|<ASSISTANT_ID>|${{ secrets.ASSISTANT_ID }}|" .env
           sed -i "s|<ZAPIER_WA_MODAL_WEBHOOK_URL>|https://hooks.zapier.com/hooks/catch/16334821/u5dmyac/|" Dockerfile
-          sed -i "s|<ZAPIER_DEMO_WEBHOOK_URL>|https://hooks.zapier.com/hooks/catch/16334821/u9rougj/|" Dockerfile
+          sed -i "s|<ZAPIER_DEMO_WEBHOOK_URL_ES>|{{ secrets.ZAPPIER_DEMO_WEBHOOK_URL_ES }}|" Dockerfile
+          sed -i "s|<ZAPIER_DEMO_WEBHOOK_URL_EN>|{{ secrets.ZAPPIER_DEMO_WEBHOOK_URL_EN }}|" Dockerfile
           sed -i "s|<INTERNAL_AUTH_PASSWORD>|${{ secrets.INTERNAL_AUTH_PASSWORD }}|" Dockerfile
           sed -i "s|<INTERNAL_AUTH_USER>|${{ secrets.INTERAL_AUTH_USER }}|" Dockerfile
           sed -i "s|<N8N_REDEEM_WEBHOOK_URL>|${{ secrets.N8N_REDEEM_WEBHOOK_URL }}|" Dockerfile
@@ -82,6 +83,9 @@ jobs:
         run: |-
           sed -i "s|FRONTEND_IMAGE|${{ env.IMAGE_FRONTEND }}|" deployment.yaml
           sed -i "s|<ZAPIER_WA_MODAL_WEBHOOK_URL>|https://hooks.zapier.com/hooks/catch/16334821/u5dmyac/|" deployment.yaml
+          sed -i "s|<ZAPIER_DEMO_WEBHOOK_URL_ES>|{{ secrets.ZAPPIER_DEMO_WEBHOOK_URL_ES }}|" deployment.yaml
+
+          sed -i "s|<ZAPIER_DEMO_WEBHOOK_URL_EN>|{{ secrets.ZAPPIER_DEMO_WEBHOOK_URL_EN }}|"  deployment.yaml
           sed -i "s|<ZAPIER_DEMO_WEBHOOK_URL>|https://hooks.zapier.com/hooks/catch/16334821/u9rougj/|" deployment.yaml
           sed -i "s|<INTERNAL_AUTH_PASSWORD>|${{ secrets.INTERNAL_AUTH_PASSWORD }}|" deployment.yaml
           sed -i "s|<INTERNAL_AUTH_USER>|${{ secrets.INTERAL_AUTH_USER }}|" deployment.yaml
