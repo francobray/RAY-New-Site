@@ -12,6 +12,19 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Log incoming request for debugging
+    console.log('[Chat API] 📨 Incoming request:', {
+      message: body.message?.substring(0, 50) + '...',
+      sessionId: body.sessionId,
+      locale: body.locale,
+      hasSessionId: !!body.sessionId
+    })
+
+    // Validate sessionId - it should always be provided by the frontend
+    if (!body.sessionId) {
+      console.warn('[Chat API] ⚠️ No sessionId provided, creating fallback')
+    }
+
     // Get n8n chat webhook from environment
     const n8nChatWebhookUrl = process.env.N8N_CHAT_WEBHOOK_URL
 
@@ -28,19 +41,30 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Use provided sessionId or create fallback (should rarely happen)
+    const sessionId = body.sessionId || `webchat-session-fallback-${Date.now()}`
+    
+    const payload = {
+      message: body.message,
+      locale: body.locale || 'es',
+      timestamp: new Date().toISOString(),
+      sessionId: sessionId,
+      source: 'rayapp-webchat'
+    }
+
+    console.log('[Chat API] 📤 Forwarding to n8n:', {
+      sessionId: payload.sessionId,
+      locale: payload.locale,
+      messageLength: payload.message.length
+    })
+
     // Forward the request to n8n webhook
     const response = await fetch(n8nChatWebhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        message: body.message,
-        locale: body.locale || 'es',
-        timestamp: new Date().toISOString(),
-        sessionId: body.sessionId || `webchat-session-${Date.now()}`,
-        source: 'rayapp-webchat'
-      }),
+      body: JSON.stringify(payload),
     })
 
     // Handle n8n response

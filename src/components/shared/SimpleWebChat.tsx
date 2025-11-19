@@ -9,6 +9,9 @@ interface SimpleWebChatProps {
 }
 
 const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
+  // Generate unique component instance ID
+  const componentInstanceId = useRef('component-' + Date.now() + '-' + Math.random().toString(36).substring(7))
+  
   const [isOpen, setIsOpen] = useState(false)
   const [message, setMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -16,33 +19,66 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
   const [showNotification, setShowNotification] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
-  const sessionIdRef = useRef<string>('')
-
-  // Initialize session ID once on mount
-  useEffect(() => {
-    if (!sessionIdRef.current) {
-      // Try to get existing session ID from localStorage
+  
+  // Use useState with lazy initializer for session ID - this runs only once on mount
+  const [sessionId] = useState(() => {
+    try {
+      const instanceId = componentInstanceId.current
+      console.log(`[WebChat:${instanceId}] 🔍 Initializing session...`)
+      
+      // ALWAYS try to get existing session ID from localStorage first
       const storedSessionId = localStorage.getItem('ray-webchat-session-id')
       const storedTimestamp = localStorage.getItem('ray-webchat-session-timestamp')
       
+      console.log(`[WebChat:${instanceId}] 💾 Found in localStorage:`, {
+        sessionId: storedSessionId,
+        timestamp: storedTimestamp,
+        timestampDate: storedTimestamp ? new Date(parseInt(storedTimestamp)).toISOString() : 'N/A'
+      })
+      
       // Check if session is still valid (within 24 hours)
       const SESSION_EXPIRY = 24 * 60 * 60 * 1000 // 24 hours in milliseconds
-      const isSessionValid = storedTimestamp && 
-        (Date.now() - parseInt(storedTimestamp)) < SESSION_EXPIRY
       
-      if (storedSessionId && isSessionValid) {
-        sessionIdRef.current = storedSessionId
-        console.log('[WebChat] Restored session:', storedSessionId)
+      if (storedSessionId && storedTimestamp) {
+        const age = Date.now() - parseInt(storedTimestamp)
+        const isSessionValid = age < SESSION_EXPIRY
+        
+        const instanceId = componentInstanceId.current
+        console.log(`[WebChat:${instanceId}] ⏱️ Session age:`, Math.floor(age / 1000 / 60), 'minutes')
+        
+        if (isSessionValid) {
+          console.log(`[WebChat:${instanceId}] ✅ Restored existing session:`, storedSessionId)
+          return storedSessionId
+        } else {
+          console.log(`[WebChat:${instanceId}] ⏰ Session expired, creating new one`)
+          // Clear old session
+          localStorage.removeItem('ray-webchat-session-id')
+          localStorage.removeItem('ray-webchat-session-timestamp')
+        }
       } else {
-        // Create new session ID
-        const newSessionId = 'webchat-session-' + Date.now()
-        sessionIdRef.current = newSessionId
-        localStorage.setItem('ray-webchat-session-id', newSessionId)
-        localStorage.setItem('ray-webchat-session-timestamp', Date.now().toString())
-        console.log('[WebChat] Created new session:', newSessionId)
+        console.log(`[WebChat:${componentInstanceId.current}] 📭 No valid session found in localStorage`)
       }
+      
+      // Only create new session ID if none exists or it expired
+      const newSessionId = 'webchat-session-' + Date.now()
+      localStorage.setItem('ray-webchat-session-id', newSessionId)
+      localStorage.setItem('ray-webchat-session-timestamp', Date.now().toString())
+      console.log(`[WebChat:${componentInstanceId.current}] 🆕 Created new session:`, newSessionId)
+      return newSessionId
+    } catch (error) {
+      console.error(`[WebChat:${componentInstanceId.current}] ❌ Error with localStorage:`, error)
+      // Fallback if localStorage is not available
+      return 'webchat-session-' + Date.now()
     }
-  }, [])
+  })
+
+  // Log component mount
+  useEffect(() => {
+    console.log(`[WebChat:${componentInstanceId.current}] 🚀 Component mounted with sessionId:`, sessionId)
+    return () => {
+      console.log(`[WebChat:${componentInstanceId.current}] 👋 Component unmounting`)
+    }
+  }, [sessionId])
 
   // Auto-scroll to bottom when new messages arrive
   const scrollToBottom = () => {
@@ -131,7 +167,25 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
     setMessage('')
     setIsLoading(true)
 
-    console.log('[WebChat] Sending message with session:', sessionIdRef.current)
+    // Double-check localStorage to ensure consistency
+    const currentStoredSessionId = localStorage.getItem('ray-webchat-session-id')
+    const instanceId = componentInstanceId.current
+    
+    // Ensure sessionId is never empty - fallback to localStorage or create new one
+    let finalSessionId = sessionId
+    if (!finalSessionId || finalSessionId === '') {
+      console.warn(`[WebChat:${instanceId}] ⚠️ Empty sessionId in state! Falling back to localStorage`)
+      finalSessionId = currentStoredSessionId || `webchat-session-emergency-${Date.now()}`
+      if (finalSessionId !== currentStoredSessionId) {
+        localStorage.setItem('ray-webchat-session-id', finalSessionId)
+        localStorage.setItem('ray-webchat-session-timestamp', Date.now().toString())
+      }
+    }
+    
+    console.log(`[WebChat:${instanceId}] 📤 Sending message`)
+    console.log(`[WebChat:${instanceId}] 📋 Component sessionId:`, sessionId)
+    console.log(`[WebChat:${instanceId}] 💾 localStorage sessionId:`, currentStoredSessionId)
+    console.log(`[WebChat:${instanceId}] ✅ Using sessionId:`, finalSessionId)
 
     try {
       const response = await fetch('/api/chat', {
@@ -140,7 +194,7 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
         body: JSON.stringify({
           message: currentMessage,
           locale: locale,
-          sessionId: sessionIdRef.current
+          sessionId: finalSessionId
         })
       })
 
