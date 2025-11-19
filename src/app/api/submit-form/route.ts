@@ -46,8 +46,27 @@ async function fetchWithRetry(
 
 export async function POST(request: NextRequest) {
   try {
+    // Generate unique request ID to track duplicates
+    const requestId = `req-${Date.now()}-${Math.random().toString(36).substring(7)}`
+    const timestamp = new Date().toISOString()
+    
+    console.log(`[SUBMIT-FORM:${requestId}] 📨 POST request received at ${timestamp}`)
+    console.log(`[SUBMIT-FORM:${requestId}] 🌐 Headers:`, {
+      userAgent: request.headers.get('user-agent'),
+      referer: request.headers.get('referer'),
+      contentType: request.headers.get('content-type')
+    })
+    
     // Parse the incoming request body
     const body = await request.json()
+    
+    console.log(`[SUBMIT-FORM:${requestId}] 📦 Body parsed:`, {
+      source: body.source,
+      locale: body.locale,
+      email: body.email?.substring(0, 3) + '***',
+      firstName: body.firstName,
+      restaurantName: body.restaurantName
+    })
     
     // Validate required fields based on the submission source BEFORE choosing the webhook
     const isEmpty = (val: any) => typeof val !== 'string' || val.trim().length === 0
@@ -164,6 +183,10 @@ export async function POST(request: NextRequest) {
     }
     
     // Forward the data to the appropriate Zapier webhook with retry logic
+    console.log(`[SUBMIT-FORM:${requestId}] 🚀 Forwarding to Zapier webhook`)
+    console.log(`[SUBMIT-FORM:${requestId}] 📍 Webhook URL:`, zapierWebhookUrl?.substring(0, 50) + '...')
+    console.log(`[SUBMIT-FORM:${requestId}] 📦 Payload:`, JSON.stringify(body, null, 2))
+    
     try {
       const zapierResponse = await fetchWithRetry(zapierWebhookUrl, {
         method: 'POST',
@@ -171,6 +194,11 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(body),
+      })
+      
+      console.log(`[SUBMIT-FORM:${requestId}] ✅ Zapier response received:`, {
+        status: zapierResponse.status,
+        statusText: zapierResponse.statusText
       })
 
       if (!zapierResponse.ok) {
@@ -187,13 +215,14 @@ export async function POST(request: NextRequest) {
         )
       }
 
-      console.log(`[SUCCESS] Form submitted successfully for source: ${body.source}`)
+      console.log(`[SUBMIT-FORM:${requestId}] ✅ SUCCESS - Form submitted successfully for source: ${body.source}`)
+      console.log(`[SUBMIT-FORM:${requestId}] 🏁 Request completed at ${new Date().toISOString()}`)
       return NextResponse.json(
         { success: true, message: 'Form submitted successfully' },
         { status: 200 }
       )
     } catch (error: any) {
-      console.error('[ERROR] All retry attempts failed:', {
+      console.error(`[SUBMIT-FORM:${requestId}] ❌ All retry attempts failed:`, {
         message: error.message,
         code: error.code,
         cause: error.cause,

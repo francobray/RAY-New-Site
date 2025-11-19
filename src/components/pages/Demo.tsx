@@ -93,6 +93,16 @@ const Demo = ({ locale }: DemoProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    console.log('[DEMO FORM] 🎯 handleSubmit called at:', new Date().toISOString())
+    console.log('[DEMO FORM] 📊 isSubmitting:', isSubmitting)
+    
+    // Prevent double submission
+    if (isSubmitting) {
+      console.log('[DEMO FORM] ⚠️ Already submitting, ignoring duplicate call')
+      return
+    }
+    
     setIsSubmitting(true)
     setSubmitStatus('idle')
     
@@ -112,8 +122,9 @@ const Demo = ({ locale }: DemoProps) => {
         locale: locale
       }
       
-      console.log('[DEBUG] Sending demo form with locale:', locale)
-      console.log('[DEBUG] Full payload:', payload)
+      console.log('[DEMO FORM] 📤 Sending demo form with locale:', locale)
+      console.log('[DEMO FORM] 📦 Full payload:', payload)
+      console.log('[DEMO FORM] 🕐 Request timestamp:', new Date().toISOString())
       
       const response = await fetch('/api/submit-form', {
         method: 'POST',
