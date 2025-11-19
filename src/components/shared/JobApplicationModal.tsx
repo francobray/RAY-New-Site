@@ -59,12 +59,23 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
     if (!formData.resumeUrl.trim()) {
       errors.resumeUrl = locale === 'es' ? 'El CV/Resume es requerido' : 'Resume URL is required'
     } else {
+      const url = formData.resumeUrl.trim()
+      
       // Validate that the URL is a Google Drive link
-      const isGoogleDrive = /^https:\/\/(drive\.google\.com|docs\.google\.com)/.test(formData.resumeUrl.trim())
+      const isGoogleDrive = /^https:\/\/(drive\.google\.com|docs\.google\.com)/.test(url)
       if (!isGoogleDrive) {
         errors.resumeUrl = locale === 'es' 
           ? 'Por favor proporciona un enlace de Google Drive' 
           : 'Please provide a Google Drive link'
+      } else {
+        // Only accept proper shareable file links: https://drive.google.com/file/d/[ID]/...
+        const isValidShareableLink = /^https:\/\/drive\.google\.com\/file\/d\/[a-zA-Z0-9_-]+/.test(url)
+        
+        if (!isValidShareableLink) {
+          errors.resumeUrl = locale === 'es' 
+            ? 'Enlace inválido. Usa "Compartir" → "Cualquiera con el enlace" → Copiar enlace' 
+            : 'Invalid link. Use "Share" → "Anyone with the link" → Copy link'
+        }
       }
     }
     
@@ -170,7 +181,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
       
       {/* Modal */}
       <div className="flex min-h-full items-center justify-center p-4">
-        <div className="relative bg-white rounded-2xl shadow-xl max-w-[773px] w-full max-h-[90vh] overflow-y-auto">
+        <div className="relative bg-white rounded-2xl shadow-xl max-w-[889px] w-full max-h-[90vh] overflow-y-auto">
           {/* Header */}
           <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between rounded-t-2xl">
             <div>
@@ -313,7 +324,9 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
                   <p className="text-red-500 text-sm mt-1">{formErrors.resumeUrl}</p>
                 )}
                 <p className="text-xs text-gray-500 mt-1">
-                  {locale === 'es' ? 'Solo se aceptan enlaces de Google Drive' : 'Only Google Drive links are accepted'}
+                  {locale === 'es' 
+                    ? 'Usa "Compartir" → "Cualquiera con el enlace" → Copiar enlace. Debe empezar con https://drive.google.com/file/d/' 
+                    : 'Use "Share" → "Anyone with the link" → Copy link. Must start with https://drive.google.com/file/d/'}
                 </p>
               </div>
             </div>
