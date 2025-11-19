@@ -1,5 +1,49 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// Retry fetch with exponential backoff
+async function fetchWithRetry(
+  url: string,
+  options: RequestInit,
+  maxRetries: number = 3
+): Promise<Response> {
+  let lastError: Error | null = null
+  
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      console.log(`[DEBUG] Fetch attempt ${attempt}/${maxRetries} to webhook`)
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
+      
+      const response = await fetch(url, {
+        ...options,
+        signal: controller.signal,
+      })
+      
+      clearTimeout(timeoutId)
+      return response
+    } catch (error: any) {
+      lastError = error
+      console.error(`[ERROR] Fetch attempt ${attempt}/${maxRetries} failed:`, {
+        message: error.message,
+        code: error.code,
+        cause: error.cause?.message,
+      })
+      
+      // If it's the last attempt, throw the error
+      if (attempt === maxRetries) {
+        throw error
+      }
+      
+      // Wait before retrying (exponential backoff: 1s, 2s, 4s)
+      const waitTime = Math.pow(2, attempt - 1) * 1000
+      console.log(`[DEBUG] Waiting ${waitTime}ms before retry...`)
+      await new Promise(resolve => setTimeout(resolve, waitTime))
+    }
+  }
+  
+  throw lastError || new Error('Fetch failed after retries')
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Parse the incoming request body
@@ -119,33 +163,63 @@ export async function POST(request: NextRequest) {
       )
     }
     
-    // Forward the data to the appropriate Zapier webhook
-    const zapierResponse = await fetch(zapierWebhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    })
-
-    if (!zapierResponse.ok) {
-      const errorText = await zapierResponse.text()
-      console.error('Zapier webhook error:', {
-        status: zapierResponse.status,
-        statusText: zapierResponse.statusText,
-        body: errorText,
-        source: body.source
+    // Forward the data to the appropriate Zapier webhook with retry logic
+    try {
+      const zapierResponse = await fetchWithRetry(zapierWebhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
       })
+
+      if (!zapierResponse.ok) {
+        const errorText = await zapierResponse.text()
+        console.error('Zapier webhook error:', {
+          status: zapierResponse.status,
+          statusText: zapierResponse.statusText,
+          body: errorText,
+          source: body.source
+        })
+        return NextResponse.json(
+          { error: 'Failed to submit form' },
+          { status: 500 }
+        )
+      }
+
+      console.log(`[SUCCESS] Form submitted successfully for source: ${body.source}`)
       return NextResponse.json(
-        { error: 'Failed to submit form' },
+        { success: true, message: 'Form submitted successfully' },
+        { status: 200 }
+      )
+    } catch (error: any) {
+      console.error('[ERROR] All retry attempts failed:', {
+        message: error.message,
+        code: error.code,
+        cause: error.cause,
+        source: body.source,
+      })
+      
+      // Check if it's a timeout or connection error
+      if (error.name === 'AbortError') {
+        return NextResponse.json(
+          { error: 'Request timeout. Please try again.' },
+          { status: 504 }
+        )
+      }
+      
+      if (error.code === 'ECONNRESET' || error.code === 'ECONNREFUSED') {
+        return NextResponse.json(
+          { error: 'Unable to connect to server. Please try again later.' },
+          { status: 503 }
+        )
+      }
+      
+      return NextResponse.json(
+        { error: 'Failed to submit form. Please try again.' },
         { status: 500 }
       )
     }
-
-    return NextResponse.json(
-      { success: true, message: 'Form submitted successfully' },
-      { status: 200 }
-    )
   } catch (error) {
     console.error('Error submitting form:', error)
     return NextResponse.json(

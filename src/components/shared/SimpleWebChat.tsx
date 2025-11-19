@@ -16,6 +16,33 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
   const [showNotification, setShowNotification] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
+  const sessionIdRef = useRef<string>('')
+
+  // Initialize session ID once on mount
+  useEffect(() => {
+    if (!sessionIdRef.current) {
+      // Try to get existing session ID from localStorage
+      const storedSessionId = localStorage.getItem('ray-webchat-session-id')
+      const storedTimestamp = localStorage.getItem('ray-webchat-session-timestamp')
+      
+      // Check if session is still valid (within 24 hours)
+      const SESSION_EXPIRY = 24 * 60 * 60 * 1000 // 24 hours in milliseconds
+      const isSessionValid = storedTimestamp && 
+        (Date.now() - parseInt(storedTimestamp)) < SESSION_EXPIRY
+      
+      if (storedSessionId && isSessionValid) {
+        sessionIdRef.current = storedSessionId
+        console.log('[WebChat] Restored session:', storedSessionId)
+      } else {
+        // Create new session ID
+        const newSessionId = 'webchat-session-' + Date.now()
+        sessionIdRef.current = newSessionId
+        localStorage.setItem('ray-webchat-session-id', newSessionId)
+        localStorage.setItem('ray-webchat-session-timestamp', Date.now().toString())
+        console.log('[WebChat] Created new session:', newSessionId)
+      }
+    }
+  }, [])
 
   // Auto-scroll to bottom when new messages arrive
   const scrollToBottom = () => {
@@ -104,6 +131,8 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
     setMessage('')
     setIsLoading(true)
 
+    console.log('[WebChat] Sending message with session:', sessionIdRef.current)
+
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
@@ -111,7 +140,7 @@ const SimpleWebChat: React.FC<SimpleWebChatProps> = ({ locale }) => {
         body: JSON.stringify({
           message: currentMessage,
           locale: locale,
-          sessionId: 'webchat-session-' + Date.now()
+          sessionId: sessionIdRef.current
         })
       })
 
