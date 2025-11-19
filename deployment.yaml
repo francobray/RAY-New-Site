@@ -31,8 +31,11 @@ spec:
         - name: ZAPIER_WA_MODAL_WEBHOOK_URL
           value: <ZAPIER_WA_MODAL_WEBHOOK_URL>
         - name: ZAPIER_DEMO_WEBHOOK_URL_ES
+
           value: <ZAPIER_DEMO_WEBHOOK_URL_ES>
+
         - name: ZAPIER_DEMO_WEBHOOK_URL_EN
+
           value: <ZAPIER_DEMO_WEBHOOK_URL_EN>
         - name: INTERNAL_AUTH_PASSWORD
           value: <INTERNAL_AUTH_PASSWORD>
