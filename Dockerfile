@@ -19,7 +19,8 @@ RUN npm cache clean --force && \
 # Note: For production, pass sensitive ENV vars at runtime via docker run -e or docker-compose
 # These are placeholders that should be overridden at deployment time
 ENV NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="AIzaSyAD9Nbl9RGvTAXDNiG2ixxbHqBzox17qUY" \
-    ZAPIER_DEMO_WEBHOOK_URL="<ZAPIER_DEMO_WEBHOOK_URL>" \
+    ZAPIER_DEMO_WEBHOOK_URL_ES="<ZAPIER_DEMO_WEBHOOK_URL_ES>" \
+ZAPIER_DEMO_WEBHOOK_URL_EN="<ZAPIER_DEMO_WEBHOOK_URL_EN>" \
     ZAPIER_WA_MODAL_WEBHOOK_URL="<ZAPIER_WA_MODAL_WEBHOOK_URL>" \
     INTERNAL_AUTH_USER="<INTERNAL_AUTH_USER>" \
     INTERNAL_AUTH_PASSWORD="<INTERNAL_AUTH_PASSWORD>" \
